@@ -1,0 +1,102 @@
+.container-head {
+  width: 100%;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#container-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#title {
+  width: 70%;
+  padding: 10px 0;
+  font-style: italic;
+}
+
+#menu {
+  width: 60%;
+  height: 50px;
+  text-align: center;
+  outline: none;
+  font-size: 17px;
+  font-weight: bold;
+  border: none;
+  background-color: lightgray;
+  margin: auto;
+}
+
+#pokemonFirstSelection, #pokemonSecondSelection, #pokemonRandomSelection {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  font-size: 17px;
+  font-weight: bold;
+  border: none;
+  background-color: lightgray;
+  display: none;
+}
+
+#container-vs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+#vs {
+  font-size: 25px;
+  font-weight: bold;
+  color: red;
+}
+
+#container-display-pokemon-selected {
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#pokemon-selected {
+  width: 300px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid blueviolet;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  font-size: 17px;
+}
+
+#container-players {
+  width: 100%;
+  height: 27px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  box-shadow: 1px 6px 6px white;
+}
+
+#first-player {
+  font-size: 16px;
+  color: darkcyan;
+  font-weight: bold;
+}
