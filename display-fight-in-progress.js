@@ -19,9 +19,11 @@ selectors.selectSecondPokemonButton.style.display = 'none';
 
 selectors.pokemonRandomSelectionButton.style.display = 'none';
 
+selectors.fightButtonContainer.style.display = 'none';
+
 selectors.fightInProgress.style.display = 'flex';
 
- selectors.fightInProgress.textContent = 'Combat en cours';
+selectors.fightInProgress.textContent = 'Combat en cours';
 };
 
 
@@ -42,6 +44,8 @@ selectors.versus.style.display = 'flex';
 selectors.selectSecondPokemonButton.style.display = 'flex';
 
 selectors.pokemonRandomSelectionButton.style.display = 'flex';
+
+selectors.fightButtonContainer.style.display = 'flex';
 
 selectors.fightInProgress.style.display = 'none';
 };

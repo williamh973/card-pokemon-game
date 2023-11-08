@@ -12,7 +12,7 @@ export let racaillouStats = {
       },
       resistance : {
         name : "Résistance",
-        firstLogo: "images/logos/normal.png",
+        firstLogo: "images/logos/coloreless.png",
         secondLogo : "images/logos/fire.png",
         thirdLogo : "images/logos/poison.png",
         fourthLogo : "images/logos/electric.png",

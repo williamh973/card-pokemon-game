@@ -4,7 +4,7 @@
   const firstPlayer = document.getElementById('first-player');
   const secondPlayer = document.getElementById('second-player');
     
-  const playerFormContainer = document.getElementById('playerFormContainer');
+  const playerFormContainer = document.getElementById('playerFormContainerForStart');
 
   const playerNameInput = document.getElementById('playerName');
   
@@ -31,7 +31,7 @@ playerNameInput.addEventListener('input', () => {
 
 
 export const domElementInFormPlayer = {
-  playerFormContainer : document.getElementById('playerFormContainer'),
+    playerFormContainer : document.getElementById('playerFormContainerForStart'),
     firstPlayer : document.getElementById('first-player'),
     secondPlayer : document.getElementById('second-player'),
     firstPlayerScore,

@@ -9,9 +9,9 @@ import { firstAttacker, secondAttacker, determineFirstAttacker } from './determi
 
 
 export const openDialogueWhenPokemonMakesAttack = function openDialogueWhenPokemonMakesAttack(attacker) {
-  
-  selectors.containerFullPopupDialogueFight.style.display = 'flex';
 
+  selectors.containerFullPopupDialogueFight.style.display = 'flex';
+  
   const displayDialogue = document.getElementById('dialogue');
   
   displayDialogue.style.display = 'flex';
@@ -21,6 +21,7 @@ export const openDialogueWhenPokemonMakesAttack = function openDialogueWhenPokem
     setTimeout(function() {
         displayDialogue.style.display = 'none';
         }, 3000);
+        console.log("ok");
 };
 
 export const openDialogueWhenPokemonMakesSecondAttack = function openDialogueWhenPokemonMakesSecondAttack(attacker) {

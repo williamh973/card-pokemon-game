@@ -1,4 +1,4 @@
-.container-btn-fight {
+#container-btn-fight {
   width: 100%;
   height: 70px;
   display: flex;
@@ -7,6 +7,7 @@
   position: fixed;
   top: 90vh;
   left: 0;
+  z-index: 0;
 }
 
 #fightButton {
@@ -33,9 +34,6 @@
   cursor: not-allowed;
   width: 100%;
   height: 70px;
-  position: fixed;
-  top: 90vh;
-  left: 0;
   border: none;
   display: flex;
   justify-content: center;

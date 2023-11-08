@@ -1,15 +1,15 @@
 #container-display-dialogue {
-  width: 97.5%;
+  width: 99.4%;
   height: 75px;
-  position: fixed;
-  top: 598px;
-  left: 0;
+  display: none;
   justify-content: center;
   align-items: center;
   background-color: whitesmoke;
   border: 4px solid blueviolet;
   border-radius: 5px;
-  display: none;
+  position: fixed;
+  top: 507px;
+  left: 0;
 }
 
 #dialogue {

@@ -14,7 +14,9 @@ const displayResult = document.getElementById('result');
     
     
 export const openDisplayResult = function openDisplayResult() {
-      containerFullPopupResultFight.style.display = 'flex';
+  
+  containerFullPopupResultFight.style.display = 'flex';
+
     if (firstAttacker.stats.hp <= 0) {
         displayResult.textContent = `${firstAttacker.name} est KO !`
     } else if (secondAttacker.stats.hp <= 0) {
@@ -23,7 +25,7 @@ export const openDisplayResult = function openDisplayResult() {
         
     setTimeout(function() {
       containerFullPopupResultFight.style.display = 'none';
-        
+      selectors.fightButtonContainer.style.display = 'none';
       selectors.selectFirstPokemonButton.style.display = 'flex';
       selectors.selectSecondPokemonButton.style.display = 'flex';
         }, 3000);

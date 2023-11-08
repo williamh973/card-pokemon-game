@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./styles/style-cards.css">
     <link rel="stylesheet" href="./styles/style-dialogues.css">
     <link rel="stylesheet" href="./styles/style-display-result.css">
-    <link rel="stylesheet" href="./styles/style-pseudo-form.css">
+    <link rel="stylesheet" href="./styles/style-player-form-container-for-start.css">
 
    <script src="./pseudo-form.js" type="module" defer></script>
     <script src="./stats/pikachuStats.js" type="module" defer></script>
@@ -28,13 +28,30 @@
     <script src="./cards/racaillouCard.js" type="module" defer></script>
    
     <script src="./result-fight.js" type="module" defer></script>
-  <script src="main-game.js" type="module" defer
-      ></script>
+    <script src="main-game.js" type="module" defer></script>
 </head>
 
 
-<body id="body">
+<body>
+
+  <div id="playerFormContainerForStart">
+    
+    <div id="container-logo-pokemon">
+      <img id="logo-pokemon" src="./images/pokemon-logo.png">
+    </div>
+    
+    <form id="playerNamesForm">
+      <label for="playerName">Entrer votre nom :</label>
+        <input type="text" id="playerName" required>
   
+        <button id="submitButton" type="submit">C'est parti !</button>
+    </form>
+  
+  </div>
+
+  <div id="fight-in-progress"></div>
+
+
   <div class="container-head">
         
         <div id="container-title">
@@ -84,6 +101,7 @@
   
       
       </div>
+
       
     <div id="ring">
       
@@ -102,35 +120,22 @@
       
     </div>
     
-    <div class="container-btn-fight">
-      <button id="fightButton">Fight !</button>
-    </div>
-  
-    <div id="container-display-result">
-      <div id="result"></div>
-    </div>
-    
-    <div id="container-display-dialogue">
-      <div id="dialogue"></div>
-    </div>
-    
-    <div id="fight-in-progress"></div>
+    <div id="bottom-container">
 
+      <div id="container-btn-fight">
+        <button id="fightButton">Fight !</button>
+      </div>
+    
+      <div id="container-display-result">
+        <div id="result"></div>
+      </div>
+      
+      <div id="container-display-dialogue">
+        <div id="dialogue"></div>
+      </div>
 
-  <div id="playerFormContainer">
-    
-    <div id="container-logo-pokemon">
-      <img id="logo-pokemon" src="./images/pokemon-logo.png">
-    </div>
-    
-    <form id="playerNamesForm">
-      <label for="playerName">Entrer votre nom :</label>
-        <input type="text" id="playerName" required>
-  
-        <button id="submitButton" type="submit">C'est parti !</button>
-    </form>
-  
-  </div>
+    </div> 
+
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-import { domElementInFormPlayer } from './pseudo-form.js';
+import { domElementInFormPlayer } from './player-form-container-for-start.js';
 import selectors from './main-game.js';
 
 
