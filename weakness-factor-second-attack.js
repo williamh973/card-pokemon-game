@@ -1,3 +1,7 @@
+import { 
+  openDialogueWhenPokemonMakesWeaknessAttack
+} from './dialogue-fight.js';
+
 export const weaknessFactorForSecondAttack = function weaknessFactorForSecondAttack(secondAttackType, secondAttackerType) {
 
 if (
@@ -206,6 +210,7 @@ if (
     secondAttackType === "poison"
   )
     ) {
+      openDialogueWhenPokemonMakesWeaknessAttack();
       return 5;
     } else {
       return 1;

@@ -1,6 +1,6 @@
 .container-head {
-  width: 100%;
-  background-color: whitesmoke;
+  width: 400px;
+  background-color: rgb(240, 240, 240);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -12,6 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 15px 0;
 }
 
 #title {
@@ -21,19 +22,42 @@
 }
 
 #menu {
-  width: 60%;
+  width: 200px;
   height: 50px;
   text-align: center;
   outline: none;
   font-size: 17px;
   font-weight: bold;
   border: none;
-  background-color: lightgray;
+  background-color: rgb(189, 189, 189);
   margin: auto;
 }
+#menu:hover {
+  cursor: pointer;
+  background-color: rgb(138, 138, 138);
+}
 
-#pokemonFirstSelection, #pokemonSecondSelection, #pokemonRandomSelection {
-  width: 100%;
+#container-title-selections-vs-container-players {
+  border-radius: 10px;
+}
+
+.title-mod {
+  width: 350px;
+  height: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  display: none;
+  justify-content: center;
+  align-items: flex-end;
+  margin: auto;
+  color: rgb(115, 0, 115);
+  padding: 10px;
+}
+
+#pokemonFirstSelection, 
+#pokemonSecondSelection, 
+#pokemonRandomSelection {
+  width: 350px;
   height: 50px;
   text-align: center;
   justify-content: center;
@@ -42,8 +66,16 @@
   font-size: 17px;
   font-weight: bold;
   border: none;
-  background-color: lightgray;
+  background-color: rgb(189, 189, 189);
   display: none;
+  margin: auto;
+}
+
+#pokemonFirstSelection:hover, 
+#pokemonSecondSelection:hover, 
+#pokemonRandomSelection:hover {
+  cursor: pointer;
+  background-color: rgb(138, 138, 138);
 }
 
 #container-vs {
@@ -92,11 +124,11 @@
   justify-content: space-around;
   align-items: center;
   display: flex;
-  box-shadow: 1px 6px 6px white;
+  /* box-shadow: 1px 6px 6px white; */
 }
 
 #first-player {
-  font-size: 16px;
+  font-size: 18px;
   color: darkcyan;
   font-weight: bold;
 }

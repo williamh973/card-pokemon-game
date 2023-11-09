@@ -40,52 +40,55 @@
 
   <div id="fight-in-progress"></div>
 
-
   <div class="container-head">
         
         <div id="container-title">
           <img id="title" src="./assets/images/pokemon-logo.png">
         </div>
 
-    <select id="menu">
-      <option value="default">Sélectionner un mode</option>
-      <option value="definite-fight">Combat défini</option>
-      <option value="random-fight">Adversaire aléatoire</option>
-      <option value="close-menu">Fermer le menu</option>
-    </select>      
-
+        <select id="menu">
+          <option value="default">Sélectionner un mode</option>
+          <option value="definite-fight">Combat défini</option>
+          <option value="random-fight">Adversaire aléatoire</option>
+          <option value="close-menu">Fermer le menu</option>
+        </select>   
+    
+        <div id="container-title-selections-vs-container-players">
+          <div class="title-mod" id="definite-fight-title">Combat défini</div>
+          <div class="title-mod" id="random-fight-title">Adversaire aléatoire</div>
+ 
           <select id="pokemonFirstSelection">
-         <option value="choose" selected>Choisissez votre Pokémon</option>
+            <option value="choose" selected>Choisissez votre Pokémon</option>
             <option value="pikachu">Pikachu</option>
             <option value="evoli">Evoli</option>
             <option value="roucool">Roucool</option>
             <option value="racaillou">Racaillou</option>
           </select>
-          
+           
           <div id="container-vs">
              <p id="vs">VS</p>
           </div>
-    
+     
           <select id="pokemonSecondSelection">
-         <option value="choose" selected>Choisissez le Pokémon adverse</option>
+            <option value="choose" selected>Choisissez le Pokémon adverse</option>
             <option value="pikachu">Pikachu</option>
             <option value="evoli">Evoli</option>
             <option value="roucool">Roucool</option>
             <option value="racaillou">Racaillou</option>
           </select>
-          
+           
           <button id="pokemonRandomSelection">
             Cliquer pour générer un pokémon
           </button>
-          
-        <div id="container-display-pokemon-selected">
-          <div id="pokemon-selected"></div>
+           
+          <div id="container-display-pokemon-selected">
+            <div id="pokemon-selected"></div>
+          </div>
+           
+          <div id="container-players">
+            <div id="first-player"></div>
+          </div>
         </div>
-          
-        <div id="container-players">
-          <div id="first-player"></div>
-        </div>
-  
       
       </div>
 

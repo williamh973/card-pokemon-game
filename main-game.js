@@ -15,7 +15,7 @@ import { handlePokemonSecondSection } from './handlePokemonSecondSection.js';
 import { openDisplayResult } from './result-fight.js';
 
 import { 
-  openDialogueWhenPokemonMakesAttack, 
+  openDialogueWhenPokemonMakesFirstAttack, 
   openDialogueWhenPokemonMakesSecondAttack,
   openDialogueWhenPokemonMissAttack,
   openDialogueWhenPokemonKo
@@ -47,36 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const headContainer = 
   document.querySelector('.container-head');
-  
-  const titleContainer = 
-  document.getElementById('container-title');
-    
-  const title = 
-  document.getElementById('title');
-    
-  const menuButton = 
-  document.getElementById('menu');
-    
-  const versusContainer = 
-  document.getElementById('container-vs');
-
-  const versus = 
-  document.getElementById('vs');
     
   const selectFirstPokemonButton = 
   document.getElementById('pokemonFirstSelection');
   
   const selectSecondPokemonButton = 
   document.getElementById('pokemonSecondSelection');
-    
-  const pokemonFirstLocation = 
-  document.getElementById('pokemon-first-location');
-    
-  const pokemonSecondLocation = 
-  document.getElementById('pokemon-second-location');
-
-  const bottomContainer = 
-  document.getElementById('bottom-container');
 
   const fightButtonContainer = 
   document.getElementById('container-btn-fight');
@@ -86,9 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
   const fightInProgress = 
   document.getElementById('fight-in-progress');
-    
-  const playersContainer = 
-  document.getElementById('container-players');
 
   const pokemonRandomSelectionButton = 
   document.getElementById('pokemonRandomSelection');
@@ -105,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   let firstPokemonSelected = false;
   let secondPokemonSelected = false;
-  
+
 
   menu.addEventListener("change", () => {
     handleMenu(menu.value);
@@ -208,7 +181,6 @@ document.addEventListener('DOMContentLoaded', () => {
               hideFightInProgress();
               updatePlayerScore();
               break;
-
             };
 
 
@@ -284,6 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
     firstAttackType, 
     secondAttackerType
   ) {
+    openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
     
   const randomPrecision = Math.floor(Math.random() * 100) + 1;
   
@@ -297,35 +270,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
       
       let randomFactor = Math.random() * (1.00 - 0.85) + 0.85;
-      degats *= randomFactor;
+        degats *= randomFactor;
+
       
       let getWeaknessFactorList = weaknessFactorForFirstAttack(
         firstAttackType, 
         secondAttackerType
-        );
-        degats *= getWeaknessFactorList;
+      );
+      degats *= getWeaknessFactorList;
         
-        let getResistanceFactorList = resistanceFactorForFirstAttack(
-          firstAttackType, 
-          secondAttackerType
-          );
-          degats /= getResistanceFactorList;
+      let getResistanceFactorList = resistanceFactorForFirstAttack(
+        firstAttackType, 
+        secondAttackerType
+      );
+      degats /= getResistanceFactorList;
           
-          let getIneffectiveFactorList = ineffectiveFactorForFirstAttack(
-            firstAttackType, 
-            secondAttackerType
-            );
-            degats *= getIneffectiveFactorList;
+      let getIneffectiveFactorList = ineffectiveFactorForFirstAttack(
+        firstAttackType, 
+        secondAttackerType
+      );
+      degats *= getIneffectiveFactorList;
             
-            openDialogueWhenPokemonMakesAttack(firstAttacker);
-            
-       console.log("degats évoli : ", Math.round(degats));
       return Math.round(degats);
 
     } else {
       openDialogueWhenPokemonMissAttack(firstAttacker);
       return 0;
     }
+
   };
 
 
@@ -339,6 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
     secondAttackType, 
     secondAttackerType
   ) {
+    openDialogueWhenPokemonMakesSecondAttack(firstAttacker);
     
   const randomPrecision = Math.floor(Math.random() * 100) + 1;
   
@@ -352,6 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let randomFactor = Math.random() * (1.00 - 0.85) + 0.85;
       degats *= randomFactor;
+
     
       let getWeaknessFactorList = weaknessFactorForSecondAttack(
         secondAttackType, 
@@ -371,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
       );
       degats *= getIneffectiveFactorList;
 
-      openDialogueWhenPokemonMakesSecondAttack(firstAttacker);
+      
       return Math.round(degats);
 
     } else {
@@ -396,6 +370,8 @@ const selectors = {
   versusContainer : document.getElementById('container-vs'),
   versus : document.getElementById('vs'),
   menuButton : document.getElementById('menu'),
+  definiteFighTitle : document.getElementById('definite-fight-title'),
+  randomFighTitle : document.getElementById('random-fight-title'),
   selectFirstPokemonButton : document.getElementById('pokemonFirstSelection'),
   selectSecondPokemonButton : document.getElementById('pokemonSecondSelection'),
   pokemonFirstLocation : document.getElementById('pokemon-first-location'),
@@ -404,7 +380,8 @@ const selectors = {
   fightInProgress : document.getElementById('fight-in-progress'),
   pokemonRandomSelectionButton : document.getElementById('pokemonRandomSelection'),
   fightButtonContainer : document.getElementById('container-btn-fight'),
-  fightButton : false
+  definiteFightMod : false,
+  randomFightMod : false
 };
 
 export default selectors;

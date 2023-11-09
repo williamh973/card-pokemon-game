@@ -1,10 +1,5 @@
 import { firstAttacker, secondAttacker, determineFirstAttacker } from './determineFirstAttacker.js';
 
-import pikachuStats from './stats/pikachuStats.js';
-import evoliStats from './stats/evoliStats.js';
-import roucoolStats from './stats/roucoolStats.js';
-import racaillouStats from '../stats/racaillouStats.js';
-
 import selectors from './main-game.js'
 
 
@@ -22,11 +17,20 @@ export const openDisplayResult = function openDisplayResult() {
     } else if (secondAttacker.stats.hp <= 0) {
         displayResult.textContent = `${secondAttacker.name} est KO !`
     }
-        
+       
     setTimeout(function() {
       containerFullPopupResultFight.style.display = 'none';
       selectors.fightButtonContainer.style.display = 'none';
-      selectors.selectFirstPokemonButton.style.display = 'flex';
-      selectors.selectSecondPokemonButton.style.display = 'flex';
-        }, 3000);
-    };
+      
+        if (selectors.definiteFightMod) {
+          selectors.selectFirstPokemonButton.style.display = 'flex';
+          selectors.selectSecondPokemonButton.style.display = 'flex';
+          selectors.pokemonRandomSelectionButton.style.display = 'none';
+        } else if (selectors.randomFightMod) {
+          selectors.selectFirstPokemonButton.style.display = 'flex';
+          selectors.pokemonRandomSelectionButton.style.display = 'flex';
+          selectors.selectSecondPokemonButton.style.display = 'none';
+        }
+
+    }, 3000);
+  };

@@ -4,8 +4,10 @@
 }
 
 #ring {
-  width: 100%;
+  width: 400px;
   background-color: black;
+  margin-top: 20px;
+  margin-bottom: 70px;
 }
 
 .pokemon-location {

@@ -1,3 +1,7 @@
+import { 
+  openDialogueWhenPokemonMakesResistanceAttack
+} from './dialogue-fight.js';
+
 export const resistanceFactorForFirstAttack = function resistanceFactorForFirstAttack(firstAttackType, secondAttackerType) {
 
 if (
@@ -278,6 +282,7 @@ if (
     firstAttackType === "dark"
   )
     ) {
+      openDialogueWhenPokemonMakesResistanceAttack();
       return 5;
     } else {
       return 1;
