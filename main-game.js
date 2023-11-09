@@ -277,9 +277,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function calculateDamageFirstAttack(
     firstAttacker, 
     secondAttacker, 
-    puissanceAttaque, 
-    specialAtt, 
-    specialDef, 
+    firstAttackStrength, 
+    firstAttackerSpecialAtt, 
+    secondAttackerSpecialDef, 
     precision, 
     firstAttackType, 
     secondAttackerType
@@ -289,24 +289,37 @@ document.addEventListener('DOMContentLoaded', () => {
   
     if (randomPrecision <= precision) {
 
-      let degats = ((2 * firstAttacker.stats.attack / secondAttacker.stats.defense) * puissanceAttaque * (firstAttacker.stats.specialAtt / secondAttacker.stats.specialDef)) / 50 + 2;
-      console.log("degats : ", degats);
-      console.log("firstAttacker.stats.specialAtt : ", firstAttacker.stats.specialAtt);
-      console.log("secondAttacker.stats.specialDef : ", secondAttacker.stats.specialDef);
+      let degats = (
+        (2 * firstAttacker.stats.attack / secondAttacker.stats.defense) * 
+        firstAttackStrength * 
+        (firstAttackerSpecialAtt / secondAttackerSpecialDef)
+      ) / 50 + 2;
+
+      
       let randomFactor = Math.random() * (1.00 - 0.85) + 0.85;
       degats *= randomFactor;
-    
-      let getWeaknessFactorList = weaknessFactorForFirstAttack(firstAttackType, secondAttackerType);
-      degats *= getWeaknessFactorList;
-    
-      let getResistanceFactorList = resistanceFactorForFirstAttack(firstAttackType, secondAttackerType);
-      degats /= getResistanceFactorList;
-    
-      let getIneffectiveFactorList = ineffectiveFactorForFirstAttack(firstAttackType, secondAttackerType);
-      degats *= getIneffectiveFactorList;
-
-      openDialogueWhenPokemonMakesAttack(firstAttacker);
-
+      
+      let getWeaknessFactorList = weaknessFactorForFirstAttack(
+        firstAttackType, 
+        secondAttackerType
+        );
+        degats *= getWeaknessFactorList;
+        
+        let getResistanceFactorList = resistanceFactorForFirstAttack(
+          firstAttackType, 
+          secondAttackerType
+          );
+          degats /= getResistanceFactorList;
+          
+          let getIneffectiveFactorList = ineffectiveFactorForFirstAttack(
+            firstAttackType, 
+            secondAttackerType
+            );
+            degats *= getIneffectiveFactorList;
+            
+            openDialogueWhenPokemonMakesAttack(firstAttacker);
+            
+       console.log("degats évoli : ", Math.round(degats));
       return Math.round(degats);
 
     } else {
@@ -319,9 +332,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function calculateDamageSecondAttack(
     firstAttacker, 
     secondAttacker, 
-    puissanceAttaque, 
-    specialAtt, 
-    specialDef, 
+    secondAttackStrength, 
+    firstAttackerSpecialAtt, 
+    secondAttackerSpecialDef, 
     precision, 
     secondAttackType, 
     secondAttackerType
@@ -331,18 +344,31 @@ document.addEventListener('DOMContentLoaded', () => {
   
     if (randomPrecision <= precision) {
 
-      let degats = ((2 * firstAttacker.stats.attack / secondAttacker.stats.defense) * puissanceAttaque * (specialAtt / secondAttacker.stats.specialDef)) / 50 + 2;
+      let degats = (
+        (2 * firstAttacker.stats.attack / secondAttacker.stats.defense) * 
+        secondAttackStrength * 
+        (firstAttackerSpecialAtt / secondAttackerSpecialDef)
+      ) / 50 + 2;
 
       let randomFactor = Math.random() * (1.00 - 0.85) + 0.85;
       degats *= randomFactor;
     
-      let getWeaknessFactorList = weaknessFactorForSecondAttack(secondAttackType, secondAttackerType);
+      let getWeaknessFactorList = weaknessFactorForSecondAttack(
+        secondAttackType, 
+        secondAttackerType
+      );
       degats *= getWeaknessFactorList;
 
-      let getResistanceFactorList = resistanceFactorForSecondAttack(secondAttackType, secondAttackerType);
+      let getResistanceFactorList = resistanceFactorForSecondAttack(
+        secondAttackType, 
+        secondAttackerType
+      );
       degats /= getResistanceFactorList;
 
-      let getIneffectiveFactorList = ineffectiveFactorForSecondAttack(secondAttackType, secondAttackerType);
+      let getIneffectiveFactorList = ineffectiveFactorForSecondAttack(
+        secondAttackType, 
+        secondAttackerType
+      );
       degats *= getIneffectiveFactorList;
 
       openDialogueWhenPokemonMakesSecondAttack(firstAttacker);

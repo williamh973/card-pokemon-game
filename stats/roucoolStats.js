@@ -2,12 +2,12 @@ export let roucoolStats = {
     name : "Roucool",
     level : 5,
     type : "flight",
-    typeLogo : "images/logos/coloreless.png",
-    image : "./images/roucool.png",
+    typeLogo : "./assets/images/logos/coloreless.png",
+    image : "./assets/images/roucool.png",
       weakness : {
         name : "Faiblesse",
         type : "electric",
-        logo : "images/logos/electric.png"
+        logo : "./assets/images/logos/electric.png"
       },
       resistance : {
         name : "Résistance",
@@ -16,7 +16,7 @@ export let roucoolStats = {
       },
     firstAttack : {
       name : "Charge",
-      logo : "images/logos/coloreless.png",
+      logo : "./assets/images/logos/coloreless.png",
       type: "normal",
       resume : "Une attaque de base",
       strength : 35,
@@ -24,7 +24,7 @@ export let roucoolStats = {
     },
     secondAttack : {
       name : "Tornade",
-      logo : "images/logos/coloreless.png",
+      logo : "./assets/images/logos/coloreless.png",
       type: "vol",
       resume : "Le lanceur bat des ailes pour générer une bourrasque qui blesse la cible",
       strength : 40,

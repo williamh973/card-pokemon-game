@@ -16,18 +16,7 @@
     <link rel="stylesheet" href="./styles/style-display-result.css">
     <link rel="stylesheet" href="./styles/style-player-form-container-for-start.css">
 
-   <script src="./pseudo-form.js" type="module" defer></script>
-    <script src="./stats/pikachuStats.js" type="module" defer></script>
-    <script src="./stats/evoliStats.js" type="module" defer></script>
-    <script src="./stats/roucoolStats.js" type="module" defer></script>
-    <script src="./stats/racaillouStats.js" type="module" defer></script>
-    
-    <script src="./cards/pikachuCard.js" type="module" defer></script>
-    <script src="./cards/roucoolCard.js" type="module" defer></script>
-    <script src="./cards/evoliCard.js" type="module" defer></script>
-    <script src="./cards/racaillouCard.js" type="module" defer></script>
    
-    <script src="./result-fight.js" type="module" defer></script>
     <script src="main-game.js" type="module" defer></script>
 </head>
 
@@ -37,7 +26,7 @@
   <div id="playerFormContainerForStart">
     
     <div id="container-logo-pokemon">
-      <img id="logo-pokemon" src="./images/pokemon-logo.png">
+      <img id="logo-pokemon" src="./assets/images/pokemon-logo.png">
     </div>
     
     <form id="playerNamesForm">
@@ -55,21 +44,20 @@
   <div class="container-head">
         
         <div id="container-title">
-          <img id="title" src="./images/pokemon-logo.png">
+          <img id="title" src="./assets/images/pokemon-logo.png">
         </div>
 
     <select id="menu">
       <option value="default">Sélectionner un mode</option>
       <option value="definite-fight">Combat défini</option>
-      <option value="random-fight"   >Combat aléatoire</option>
+      <option value="random-fight">Adversaire aléatoire</option>
       <option value="close-menu">Fermer le menu</option>
     </select>      
 
           <select id="pokemonFirstSelection">
          <option value="choose" selected>Choisissez votre Pokémon</option>
             <option value="pikachu">Pikachu</option>
-            <option value="evoli"
-             >Evoli</option>
+            <option value="evoli">Evoli</option>
             <option value="roucool">Roucool</option>
             <option value="racaillou">Racaillou</option>
           </select>
@@ -81,8 +69,7 @@
           <select id="pokemonSecondSelection">
          <option value="choose" selected>Choisissez le Pokémon adverse</option>
             <option value="pikachu">Pikachu</option>
-            <option value="evoli"
-             >Evoli</option>
+            <option value="evoli">Evoli</option>
             <option value="roucool">Roucool</option>
             <option value="racaillou">Racaillou</option>
           </select>

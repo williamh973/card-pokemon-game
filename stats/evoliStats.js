@@ -2,12 +2,12 @@ export let evoliStats = {
     name : "Évoli",
     level : 5,
     type : "Normal",
-    typeLogo : "images/logos/coloreless.png",
-    image : "./images/evoli.png",
+    typeLogo : "./assets/images/logos/coloreless.png",
+    image : "./assets/images/evoli.png",
       weakness : {
         name : "Faiblesse",
         type : "fight",
-        logo : "images/logos/fight.png"
+        logo : "./assets/images/logos/fight.png"
       },
       resistance : {
         name : "Résistance",
@@ -16,7 +16,7 @@ export let evoliStats = {
       },
       firstAttack : {
         name : "Charge",
-        logo : "images/logos/coloreless.png",
+        logo : "./assets/images/logos/coloreless.png",
         type: "normal",
         resume : "Une attaque de base",
         strength : 35,
@@ -24,7 +24,7 @@ export let evoliStats = {
       },
       secondAttack : {
         name : "Vive-Attaque",
-        logo : "images/logos/coloreless.png",
+        logo : "./assets/images/logos/coloreless.png",
         type: "normal",
         resume : "Le lanceur fonce sur la cible si rapidement qu’on parvient à peine à le discerner. Frappe en priorité.",
         strength : 40,

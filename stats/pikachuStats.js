@@ -2,12 +2,12 @@ export let pikachuStats = {
     name : "Pikachu",
     level : 5,
     type : "electric",
-    typeLogo : "images/logos/electric.png",
-    image : "images/pikachu.png",
+    typeLogo : "./assets/images/logos/electric.png",
+    image : "./assets/images/pikachu.png",
       weakness : {
         name : "Faiblesse",
         type : "ground",
-        logo : "images/logos/electric.png"
+        logo : "./assets/images/logos/electric.png"
       },
       resistance : {
         name : "Résistance",
@@ -16,7 +16,7 @@ export let pikachuStats = {
       },
       firstAttack : {
         name : "Charge",
-        logo : "images/logos/coloreless.png",
+        logo : "./assets/images/logos/coloreless.png",
         type: "normal",
         resume : "Une attaque de base",
         strength : 35,
@@ -24,7 +24,7 @@ export let pikachuStats = {
       },
       secondAttack : {
         name : "Éclair",
-        logo : "images/logos/electric.png",
+        logo : "./assets/images/logos/electric.png",
         type: "electric",
         resume : "Une décharge électrique tombe sur la cible, ce qui peut aussi la paralyser.",
         strength : 40,

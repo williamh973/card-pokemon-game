@@ -21,7 +21,6 @@ export const openDialogueWhenPokemonMakesAttack = function openDialogueWhenPokem
     setTimeout(function() {
         displayDialogue.style.display = 'none';
         }, 3000);
-        console.log("ok");
 };
 
 export const openDialogueWhenPokemonMakesSecondAttack = function openDialogueWhenPokemonMakesSecondAttack(attacker) {
