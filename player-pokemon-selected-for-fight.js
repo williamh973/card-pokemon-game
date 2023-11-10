@@ -24,6 +24,10 @@ switch (pokemon) {
    displayPopupPokemonSelected.innerText = 'Racaillou selectionné !';
    isPlayerSelectedThisPokemon = true;
     break;
+  case 'insecateur':
+    displayPopupPokemonSelected.innerText = 'Insécateur selectionné !';
+    isPlayerSelectedThisPokemon = true;
+  break;
 };
 
   setTimeout(function() {

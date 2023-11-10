@@ -1,4 +1,4 @@
-import roucoolStats from '../stats/roucoolStats.js';
+import roucoolStats from '../models/roucool.model.js';
 
       const cardRoucool = document.createElement('div');
     cardRoucool.classList.add('card-main');

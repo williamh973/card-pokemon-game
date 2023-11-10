@@ -41,6 +41,16 @@ import { updatePlayerScore } from './updatePlayerScore.js';
 
 import { handleSelectionRandomPokemon } from './handleSelectionRandomPokemon.js';
 
+import { 
+  speedIncrease2pFactorForFirstAttack, 
+  speedIncrease2pFactorForSecondAttack 
+} from './speed-increase-factor-attacks/speed-increase-2P-factor-attacks.js';
+
+import { 
+  defenseIncrease1pFactorForFirstAttack, 
+  defenseIncrease1pFactorForSecondAttack 
+} from './defense-increase-factor-attacks/defense-increase-1P-factor-attacks.js';
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -119,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
    
     containerFullPopupDialogueFight.style.display = 'none';
     displayDialogue.style.display = 'none';
-
+    
   });
    
   fightButton.disabled = true;
@@ -131,9 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       displayFightInProgress();
       determineFirstAttacker();
-
+      
         while (firstAttacker.stats.hp > 0 && secondAttacker.stats.hp > 0) {
 
+          // console.log("vitesse d'insécateur : ", secondAttacker.stats.speed);
           let randomFactor = Math.random();
   
             if (randomFactor >= 0.5) {
@@ -233,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
               hideFightInProgress();
               updatePlayerScore();
               break;
-            }
+            };
 
         };
     };
@@ -242,6 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
 });
     
+
   function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   };
@@ -256,7 +268,8 @@ document.addEventListener('DOMContentLoaded', () => {
     firstAttackType, 
     secondAttackerType
   ) {
-    openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
+  
+  openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
     
   const randomPrecision = Math.floor(Math.random() * 100) + 1;
   
@@ -290,7 +303,10 @@ document.addEventListener('DOMContentLoaded', () => {
         secondAttackerType
       );
       degats *= getIneffectiveFactorList;
-            
+
+      speedIncrease2pFactorForFirstAttack(firstAttacker);
+      defenseIncrease1pFactorForFirstAttack(firstAttacker);
+
       return Math.round(degats);
 
     } else {
@@ -311,12 +327,13 @@ document.addEventListener('DOMContentLoaded', () => {
     secondAttackType, 
     secondAttackerType
   ) {
-    openDialogueWhenPokemonMakesSecondAttack(firstAttacker);
     
+  openDialogueWhenPokemonMakesSecondAttack(firstAttacker);
+  
   const randomPrecision = Math.floor(Math.random() * 100) + 1;
   
-    if (randomPrecision <= precision) {
-
+  if (randomPrecision <= precision) {
+    
       let degats = (
         (2 * firstAttacker.stats.attack / secondAttacker.stats.defense) * 
         secondAttackStrength * 
@@ -345,7 +362,9 @@ document.addEventListener('DOMContentLoaded', () => {
       );
       degats *= getIneffectiveFactorList;
 
-      
+      speedIncrease2pFactorForSecondAttack(firstAttacker);
+      defenseIncrease1pFactorForSecondAttack(firstAttacker);
+
       return Math.round(degats);
 
     } else {

@@ -3,10 +3,11 @@ import evoliStats from './stats/evoliStats.js';
 import roucoolStats from './stats/roucoolStats.js';
 import racaillouStats from './stats/racaillouStats.js';
 
-import pikachuCard from './cards/pikachuCard.js';
-import evoliCard from './cards/evoliCard.js';
-import roucoolCard from './cards/roucoolCard.js';
-import racaillouCard from './cards/racaillouCard.js';
+import pikachuCard from './cards/pikachu.card.js';
+import evoliCard from './cards/evoli.card.js';
+import roucoolCard from './cards/roucool.card.js';
+import racaillouCard from './cards/racaillou.card.js';
+import insecateurCard from './cards/insecateur.card.js';
 
 import { decreaseHp } from './decreasePokemonHp.js';
 import { firstAttacker, secondAttacker, determineFirstAttacker } from './determineFirstAttacker.js';

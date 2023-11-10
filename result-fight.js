@@ -1,4 +1,4 @@
-import { firstAttacker, secondAttacker, determineFirstAttacker } from './determineFirstAttacker.js';
+import { firstAttacker, secondAttacker } from './determineFirstAttacker.js';
 
 import selectors from './main-game.js'
 

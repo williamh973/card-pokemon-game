@@ -53,7 +53,7 @@ export const openDialogueWhenPokemonMakesWeaknessAttack = function openDialogueW
     
     displayDialogue.style.display = 'flex';
     
-    displayDialogue.textContent = ` C'est super efficace !`;
+    displayDialogue.textContent = `C'est super efficace !`;
     
     setTimeout(function() {
       displayDialogue.style.display = 'none';
@@ -70,7 +70,23 @@ export const openDialogueWhenPokemonMakesResistanceAttack = function openDialogu
     
     displayDialogue.style.display = 'flex';
     
-    displayDialogue.textContent = ` Ce n'est pas très efficace !`;
+    displayDialogue.textContent = `Ce n'est pas très efficace !`;
+    
+    setTimeout(function() {
+      displayDialogue.style.display = 'none';
+    }, 1400);
+  }, 1500);
+
+};
+
+export const openDialogueWhenPokemonMakesIneffectiveAttack = function openDialogueWhenPokemonMakesIneffectiveAttack() {
+  
+  setTimeout(function() {
+    selectors.containerFullPopupDialogueFight.style.display = 'flex';
+    
+    displayDialogue.style.display = 'flex';
+    
+    displayDialogue.textContent = `Sans effet !`;
     
     setTimeout(function() {
       displayDialogue.style.display = 'none';

@@ -36,7 +36,7 @@ export let pikachuStats = {
         specialAtt : 50,
         specialDef : 50,
         speed : 90,
-        hp : 3
+        hp : 35
        }
     };
   

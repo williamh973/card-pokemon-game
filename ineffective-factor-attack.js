@@ -1,3 +1,8 @@
+import { 
+  openDialogueWhenPokemonMakesIneffectiveAttack
+} from './dialogue-fight.js';
+
+
 export const ineffectiveFactorForFirstAttack = function ineffectiveFactorForFirstAttack(firstAttackType, secondAttackerType) {
 
 if (
@@ -38,6 +43,7 @@ if (
     firstAttackType === "electric"
   )
   ) {
+    openDialogueWhenPokemonMakesIneffectiveAttack();
     return 0;
   } else {
     return 1;
@@ -86,6 +92,7 @@ if (
     secondAttackType === "electric"
   )
   ) {
+    openDialogueWhenPokemonMakesIneffectiveAttack();
     return 0;
   } else {
     return 1;
