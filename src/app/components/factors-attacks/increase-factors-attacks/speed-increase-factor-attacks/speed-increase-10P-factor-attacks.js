@@ -1,0 +1,39 @@
+import { openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack } from '../../../dialogue-fight.js';
+
+
+export const speedIncrease10pFactorForFirstAttack = 
+function speedIncrease10pFactorForFirstAttack(pokemon) {
+
+    if ( 
+         pokemon.firstAttack.name === 'Accupression' ||
+         pokemon.firstAttack.name === 'Hâte' ||
+         pokemon.firstAttack.name === 'Accupression'
+       ) {
+         openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack(pokemon);
+         const increasingValue = 10;
+         const newSpeedValue = pokemon.stats.speed += increasingValue;
+         return newSpeedValue;
+       } else {
+         return pokemon.stats.speed
+    };
+        
+};
+
+
+export const speedIncrease10pFactorForSecondAttack = 
+function speedIncrease10pFactorForSecondAttack(pokemon) {
+
+    if (
+         pokemon.secondAttack.name === 'Accupression' ||
+         pokemon.secondAttack.name === 'Hâte' ||
+         pokemon.secondAttack.name === 'Poliroche'
+       ) {
+         openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack(pokemon);
+         const increasingValue = 10;
+         const newSpeedValue = pokemon.stats.speed += increasingValue;
+         return newSpeedValue;
+       } else {
+         return pokemon.stats.speed     
+    };
+        
+};
