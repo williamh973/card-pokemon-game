@@ -3,9 +3,13 @@ import {
 } from '../../dialogue-fight.js';
 
 
-export const weaknessFactorForFirstAttack = function weaknessFactorForFirstAttack(firstAttackType, secondAttackerType) {
+export const weaknessFactorForFirstAttack = function weaknessFactorForFirstAttack(
+  firstAttackType, 
+  secondAttackerType,
+  isFirstAttackActive
+  ) {
 
-if (
+if (isFirstAttackActive &&
   (
     secondAttackerType === "water" &&
     firstAttackType === "plant"

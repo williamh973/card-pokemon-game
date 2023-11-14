@@ -40,6 +40,7 @@ export const calculateDamageFirstAttack =
 function calculateDamageFirstAttack(
     firstAttacker, 
     secondAttacker, 
+    isFirstAttackActive,
     firstAttackStrength, 
     firstAttackerSpecialAtt, 
     secondAttackerSpecialDef, 
@@ -67,29 +68,32 @@ function calculateDamageFirstAttack(
       
       let getWeaknessFactorList = weaknessFactorForFirstAttack(
         firstAttackType, 
-        secondAttackerType
+        secondAttackerType,
+        isFirstAttackActive
       );
       degats *= getWeaknessFactorList;
         
       let getResistanceFactorList = resistanceFactorForFirstAttack(
         firstAttackType, 
-        secondAttackerType
+        secondAttackerType,
+        isFirstAttackActive
       );
       degats /= getResistanceFactorList;
           
       let getIneffectiveFactorList = ineffectiveFactorForFirstAttack(
         firstAttackType, 
-        secondAttackerType
+        secondAttackerType,
+        isFirstAttackActive
       );
       degats *= getIneffectiveFactorList;
 
-      speedIncrease5pFactorForFirstAttack(firstAttacker);
-      speedIncrease10pFactorForFirstAttack(firstAttacker);
+      speedIncrease5pFactorForFirstAttack(firstAttacker, isFirstAttackActive);
+      speedIncrease10pFactorForFirstAttack(firstAttacker, isFirstAttackActive);
 
-      defenseIncrease5pFactorForFirstAttack(firstAttacker);
-      defenseIncrease10pFactorForFirstAttack(firstAttacker);
+      defenseIncrease5pFactorForFirstAttack(firstAttacker, isFirstAttackActive);
+      defenseIncrease10pFactorForFirstAttack(firstAttacker, isFirstAttackActive);
 
-      hpIncrease5pFactorForFirstAttack(firstAttacker);
+      hpIncrease5pFactorForFirstAttack(firstAttacker, isFirstAttackActive);
 
       return Math.round(degats);
 

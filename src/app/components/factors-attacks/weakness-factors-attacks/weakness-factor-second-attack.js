@@ -2,9 +2,13 @@ import {
   openDialogueWhenPokemonMakesWeaknessAttack
 } from '../../dialogue-fight.js';
 
-export const weaknessFactorForSecondAttack = function weaknessFactorForSecondAttack(secondAttackType, secondAttackerType) {
+export const weaknessFactorForSecondAttack = function weaknessFactorForSecondAttack(
+  secondAttackType, 
+  secondAttackerType,
+  isSecondAttackActive
+  ) {
 
-if (
+if (isSecondAttackActive &&
   (
     secondAttackerType === "water" &&
     secondAttackType === "plant"

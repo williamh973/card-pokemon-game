@@ -2,14 +2,16 @@ import { openDialogueWhenPokemonMakesDefenseIncrease10pFactorAttack } from '../.
 
 
 export const defenseIncrease10pFactorForFirstAttack = function defenseIncrease10pFactorForFirstAttack(
-    pokemon
+    pokemon, isFirstAttackActive
   ) {
 
     if (
+      (
         pokemon.firstAttack.name === "Accupression" ||
         pokemon.firstAttack.name === 'Bouclier' ||
         pokemon.firstAttack.name === "Mur de Fer" ||
         pokemon.firstAttack.name === 'Acidarmure'
+        ) && isFirstAttackActive
         ) {
        const increasingValue = 10;
        const newDefenseValue = pokemon.stats.defense += increasingValue;
@@ -23,14 +25,16 @@ export const defenseIncrease10pFactorForFirstAttack = function defenseIncrease10
 
 
 export const defenseIncrease10pFactorForSecondAttack = function defenseIncrease10pFactorForSecondAttack(
-  pokemon
+  pokemon, isSecondAttackActive
   ) {
 
     if (
+      (
       pokemon.secondAttack.name === "Accupression" ||
       pokemon.secondAttack.name === 'Bouclier' ||
       pokemon.secondAttack.name === "Mur de Fer" ||
       pokemon.secondAttack.name === 'Acidarmure'
+        ) && isSecondAttackActive
         ) {
        const increasingValue = 10;
        const newDefenseValue = pokemon.stats.defense += increasingValue;

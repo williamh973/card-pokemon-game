@@ -38,6 +38,8 @@ import {
 
 
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
   
   const headContainer = 
@@ -75,6 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let isSecondPokemonSelected = false;
   let playerSelectedPokemon = "";
   let enemyPokemon = "";
+  let isFirstAttackActive = false;
+  let isSecondAttackActive = false;
 
   menu.addEventListener("change", () => {
     handleMenu(menu.value);
@@ -129,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     isSecondPokemonSelected = true;
     enemyPokemon = pokemon;
 
+    fightButtonContainer.style.display = 'flex';
     activateFightButton();
    
     containerFullPopupDialogueFight.style.display = 'none';
@@ -153,14 +158,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
       
         while (firstAttacker.stats.hp > 0 && secondAttacker.stats.hp > 0) {
+
+          console.log(firstAttacker.name, " Vitesse : ", firstAttacker.stats.speed);
           
+           isFirstAttackActive = false;
+           isSecondAttackActive = false;
+
           let randomFactor = Math.random();
   
             if (randomFactor >= 0.5) {
 
+              isFirstAttackActive = true;
+              isSecondAttackActive = false;
+
               let damageFirstAttack = calculateDamageFirstAttack(
                 firstAttacker, 
                 secondAttacker, 
+                isFirstAttackActive,
                 firstAttacker.firstAttack.strength,
                 firstAttacker.stats.specialAtt,
                 secondAttacker.stats.specialDef,
@@ -175,15 +189,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             } else {
 
+              isFirstAttackActive = false;
+              isSecondAttackActive = true;
+
               let damageSecondAttack = calculateDamageSecondAttack(
                 firstAttacker, 
                 secondAttacker, 
+                isSecondAttackActive,
                 firstAttacker.secondAttack.strength, 
                 firstAttacker.stats.specialAtt, 
                 secondAttacker.stats.specialDef, 
                 firstAttacker.secondAttack.precision,
                 firstAttacker.secondAttack.type,
-                secondAttacker.type
+                secondAttacker.type,
               );
 
               secondAttacker.stats.hp -= Math.max(damageSecondAttack, 0);
@@ -212,14 +230,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
             decreaseHp();
  
-      
+            console.log(firstAttacker.name, " Vitesse : ", firstAttacker.stats.speed);
+
+
+            isFirstAttackActive = false;
+            isSecondAttackActive = false;
+
             randomFactor = Math.random();
   
             if (randomFactor >= 0.5) {
               
+              isFirstAttackActive = true;
+              isSecondAttackActive = false;
+
               let damageFirstAttack = calculateDamageFirstAttack(
                 secondAttacker, 
                 firstAttacker, 
+                isFirstAttackActive,
                 secondAttacker.firstAttack.strength,
                 secondAttacker.stats.specialAtt, 
                 firstAttacker.stats.specialDef,
@@ -234,9 +261,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             } else {
 
+              isFirstAttackActive = false;
+              isSecondAttackActive = true;
+
               let damageSecondAttack = calculateDamageSecondAttack(
                 secondAttacker, 
                 firstAttacker, 
+                isSecondAttackActive,
                 secondAttacker.secondAttack.strength,
                 secondAttacker.stats.specialAtt, 
                 firstAttacker.stats.specialDef, 
@@ -296,6 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const secondAttackerType = secondAttacker.type;
     const secondAttackType = firstAttacker.secondAttack.type;
 
+
       calculateDamageFirstAttack(
         firstAttacker, 
         secondAttacker, 
@@ -303,8 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
         firstAttackerSpecialAtt, 
         secondAttackerSpecialDef, 
         firstAttackPrecision, 
-        firstAttackType, 
-        secondAttackerType
+        firstAttackType
       );
   
       calculateDamageSecondAttack(
@@ -321,15 +352,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }; 
 
 
-
   function activateFightButton() {
-    if (
-      isFirstPokemonSelected &&
-      isSecondPokemonSelected
-      ) {
-         fightButton.disabled = false;
-    }
-  };
+      if (
+        (
+          isFirstPokemonSelected && 
+          isSecondPokemonSelected
+          )
+          ) {
+           fightButton.disabled = false;
+      }
+    };
+
 
 });
 
@@ -352,7 +385,6 @@ export const selectors = {
   fightButtonContainer : document.getElementById('container-btn-fight'),
   definiteFightMod : false,
   randomFightMod : false,
-
 };
 
 

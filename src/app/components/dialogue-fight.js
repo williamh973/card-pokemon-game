@@ -8,7 +8,7 @@ export const openDialogueWhenPokemonMakesFirstAttack = function openDialogueWhen
   
   displayDialogue.style.display = 'flex';
 
-  displayDialogue.textContent = `  ${attacker.name} utilise ${attacker.firstAttack.name} !`;
+  displayDialogue.textContent = `${attacker.name} utilise ${attacker.firstAttack.name} !`;
 
     setTimeout(function() {
       displayDialogue.style.display = 'none';
@@ -37,7 +37,7 @@ export const openDialogueWhenPokemonMissAttack = function openDialogueWhenPokemo
   
   displayDialogue.style.display = 'flex';
 
-   displayDialogue.textContent = `  ${attacker.name} a raté son attaque !`;
+   displayDialogue.textContent = `${attacker.name} a raté son attaque !`;
 
     setTimeout(function() {
       displayDialogue.style.display = 'none';
@@ -175,14 +175,14 @@ function openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack(pokemon) {
  };
 
  export const openDialogueWhenPokemonMakesHpIncrease5pFactorAttack = 
- function openDialogueWhenPokemonMakesHpIncrease5pFactorAttack(pokemon) {
+ function openDialogueWhenPokemonMakesHpIncrease5pFactorAttack(pokemon, hpGained) {
 
   setTimeout(function() {
     selectors.containerFullPopupDialogueFight.style.display = 'flex';
     
     displayDialogue.style.display = 'flex';
     
-    displayDialogue.textContent = `${ pokemon.name } regagne 5 pv !`;
+    displayDialogue.textContent = `${ pokemon.name } regagne ${hpGained} pv !`;
     
     setTimeout(function() {
       displayDialogue.style.display = 'none';

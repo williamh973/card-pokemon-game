@@ -2,9 +2,13 @@ import {
   openDialogueWhenPokemonMakesResistanceAttack
 } from '../../dialogue-fight.js';
 
-export const resistanceFactorForFirstAttack = function resistanceFactorForFirstAttack(firstAttackType, secondAttackerType) {
+export const resistanceFactorForFirstAttack = function resistanceFactorForFirstAttack(
+  firstAttackType, 
+  secondAttackerType,
+  isFirstAttackActive
+  ) {
 
-if (
+if ( isFirstAttackActive &&
   (
     secondAttackerType === "water" &&
     firstAttackType === "water"

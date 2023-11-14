@@ -38,6 +38,7 @@ export const calculateDamageSecondAttack =
 function calculateDamageSecondAttack(
     firstAttacker, 
     secondAttacker, 
+    isSecondAttackActive,
     secondAttackStrength, 
     firstAttackerSpecialAtt, 
     secondAttackerSpecialDef, 
@@ -64,29 +65,32 @@ function calculateDamageSecondAttack(
     
       let getWeaknessFactorList = weaknessFactorForSecondAttack(
         secondAttackType, 
-        secondAttackerType
+        secondAttackerType, 
+        isSecondAttackActive
       );
       degats *= getWeaknessFactorList;
 
       let getResistanceFactorList = resistanceFactorForSecondAttack(
         secondAttackType, 
-        secondAttackerType
+        secondAttackerType, 
+        isSecondAttackActive
       );
       degats /= getResistanceFactorList;
 
       let getIneffectiveFactorList = ineffectiveFactorForSecondAttack(
         secondAttackType, 
-        secondAttackerType
+        secondAttackerType, 
+        isSecondAttackActive
       );
       degats *= getIneffectiveFactorList;
 
-      speedIncrease5pFactorForSecondAttack(firstAttacker);
-      speedIncrease10pFactorForSecondAttack(firstAttacker);
+      speedIncrease5pFactorForSecondAttack(firstAttacker, isSecondAttackActive);
+      speedIncrease10pFactorForSecondAttack(firstAttacker, isSecondAttackActive);
 
-      defenseIncrease5pFactorForSecondAttack(firstAttacker);
-      defenseIncrease10pFactorForSecondAttack(firstAttacker);
+      defenseIncrease5pFactorForSecondAttack(firstAttacker, isSecondAttackActive);
+      defenseIncrease10pFactorForSecondAttack(firstAttacker, isSecondAttackActive);
 
-      hpIncrease5pFactorForSecondAttack(firstAttacker);
+      hpIncrease5pFactorForSecondAttack(firstAttacker, isSecondAttackActive);
 
       return Math.round(degats);
 

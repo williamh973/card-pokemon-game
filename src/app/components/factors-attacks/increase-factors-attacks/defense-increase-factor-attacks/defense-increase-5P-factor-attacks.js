@@ -2,10 +2,11 @@
 import { openDialogueWhenPokemonMakesDefenseIncrease5pFactorAttack } from '../../../dialogue-fight.js';
 
 export const defenseIncrease5pFactorForFirstAttack = function defenseIncrease5pFactorForFirstAttack(
-    pokemon
+    pokemon, isFirstAttackActive
   ) {
 
     if (
+      (
         pokemon.firstAttack.name === "Pouvoir Antique" ||
         pokemon.firstAttack.name === 'Gonflette' ||
         pokemon.firstAttack.name === "Force Cosmik" ||
@@ -19,6 +20,7 @@ export const defenseIncrease5pFactorForFirstAttack = function defenseIncrease5pF
         pokemon.firstAttack.name === 'Vent Mauvais' ||
         pokemon.firstAttack.name === "Repli" ||
         pokemon.firstAttack.name === "Coud'Krane"
+        ) && isFirstAttackActive
         ) {
        const increasingValue = 5;
        const newDefenseValue = pokemon.stats.defense += increasingValue;
@@ -32,10 +34,11 @@ export const defenseIncrease5pFactorForFirstAttack = function defenseIncrease5pF
 
 
 export const defenseIncrease5pFactorForSecondAttack = function defenseIncrease5pFactorForSecondAttack(
-  pokemon
+  pokemon, isSecondAttackActive
   ) {
 
     if (
+      (
       pokemon.secondAttack.name === "Pouvoir Antique" ||
       pokemon.secondAttack.name === 'Gonflette' ||
       pokemon.secondAttack.name === "Force Cosmik" ||
@@ -49,6 +52,7 @@ export const defenseIncrease5pFactorForSecondAttack = function defenseIncrease5p
       pokemon.secondAttack.name === 'Vent Mauvais' ||
       pokemon.secondAttack.name === "Repli" ||
       pokemon.secondAttack.name === "Coud'Krane"
+        ) && isSecondAttackActive
         ) {
        const increasingValue = 5;
        const newDefenseValue = pokemon.stats.defense += increasingValue;

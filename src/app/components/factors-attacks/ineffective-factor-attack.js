@@ -3,9 +3,13 @@ import {
 } from '../dialogue-fight.js';
 
 
-export const ineffectiveFactorForFirstAttack = function ineffectiveFactorForFirstAttack(firstAttackType, secondAttackerType) {
+export const ineffectiveFactorForFirstAttack = function ineffectiveFactorForFirstAttack(
+  firstAttackType, 
+  secondAttackerType,
+  isFirstAttackActive
+  ) {
 
-if (
+if (isFirstAttackActive &&
   (
     secondAttackerType === "spectrum" &&
     firstAttackType === "normal"
@@ -58,9 +62,13 @@ if (
 
 
 
-export const ineffectiveFactorForSecondAttack = function ineffectiveFactorForSecondAttack(secondAttackType, secondAttackerType) {
+export const ineffectiveFactorForSecondAttack = function ineffectiveFactorForSecondAttack(
+  secondAttackType, 
+  secondAttackerType, 
+  isSecondAttackActive
+  ) {
 
-if (
+if (isSecondAttackActive &&
   (
     secondAttackerType === "spectrum" &&
     secondAttackType === "normal"

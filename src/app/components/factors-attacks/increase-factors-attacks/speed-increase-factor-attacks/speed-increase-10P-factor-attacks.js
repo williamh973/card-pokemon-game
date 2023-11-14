@@ -2,12 +2,14 @@ import { openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack } from '../../
 
 
 export const speedIncrease10pFactorForFirstAttack = 
-function speedIncrease10pFactorForFirstAttack(pokemon) {
+function speedIncrease10pFactorForFirstAttack(pokemon, isFirstAttackActive) {
 
-    if ( 
+    if (
+      ( 
          pokemon.firstAttack.name === 'Accupression' ||
          pokemon.firstAttack.name === 'Hâte' ||
          pokemon.firstAttack.name === 'Accupression'
+       ) && isFirstAttackActive
        ) {
          openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack(pokemon);
          const increasingValue = 10;
@@ -21,12 +23,15 @@ function speedIncrease10pFactorForFirstAttack(pokemon) {
 
 
 export const speedIncrease10pFactorForSecondAttack = 
-function speedIncrease10pFactorForSecondAttack(pokemon) {
+function speedIncrease10pFactorForSecondAttack(pokemon, isSecondAttackActive) {
 
     if (
+      (
          pokemon.secondAttack.name === 'Accupression' ||
          pokemon.secondAttack.name === 'Hâte' ||
          pokemon.secondAttack.name === 'Poliroche'
+       ) 
+       && isSecondAttackActive
        ) {
          openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack(pokemon);
          const increasingValue = 10;

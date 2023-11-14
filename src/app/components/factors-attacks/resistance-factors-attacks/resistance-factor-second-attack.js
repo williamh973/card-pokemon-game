@@ -3,9 +3,13 @@ import {
 } from '../../dialogue-fight.js';
 
 
-export const resistanceFactorForSecondAttack = function resistanceFactorForSecondAttack(secondAttackType, secondAttackerType) {
+export const resistanceFactorForSecondAttack = function resistanceFactorForSecondAttack(
+  secondAttackType, 
+  secondAttackerType,
+  isSecondAttackActive
+  ) {
 
-if (
+if (isSecondAttackActive &&
   (
     secondAttackerType === "water" &&
     secondAttackType === "water"
