@@ -4,6 +4,8 @@ import { roucoolCard } from '../cards/roucool.card.js';
 import { racaillouCard } from '../cards/racaillou.card.js';
 import { insecateurCard } from '../cards/insecateur.card.js';
 import { sabeletteCard } from '../cards/sabelette.card.js';
+import { mewtwoCard } from '../cards/mewtwo.card.js';
+
 
 import selectors from '../main-game.js';
 import { pokemonSelected } from '../dialogue-when-pokemon-selected.js';
@@ -30,7 +32,7 @@ export const handlePokemonFirstSelection =  function handlePokemonFirstSelection
         selectors.pokemonFirstLocation.appendChild(racaillouCard);
         pokemonSelected(pokemon);
           break;
-        case 'Insecateur':
+        case 'Insécateur':
         selectors.pokemonFirstLocation.appendChild(insecateurCard);
         pokemonSelected(pokemon);
           break;
@@ -38,6 +40,10 @@ export const handlePokemonFirstSelection =  function handlePokemonFirstSelection
         selectors.pokemonFirstLocation.appendChild(sabeletteCard);
         pokemonSelected(pokemon);
           break;
+        case 'Mewtwo':
+          selectors.pokemonFirstLocation.appendChild(mewtwoCard);
+          pokemonSelected(pokemon);
+        break;
       }  
 
 };

@@ -36,9 +36,6 @@ import {
   ineffectiveFactorForSecondAttack
 } from './factors-attacks/ineffective-factor-attack.js';
 
-import { updatePlayerScore } from './updatePlayerScore.js';
-
-
 import { 
   speedIncrease5pFactorForFirstAttack, 
   speedIncrease5pFactorForSecondAttack 
@@ -57,8 +54,17 @@ import {
   defenseIncrease10pFactorForSecondAttack 
 } from './factors-attacks/increase-factors-attacks/defense-increase-factor-attacks/defense-increase-10P-factor-attacks.js';
 import { 
-  hideLocationWhenFirstAttackerLose, 
-  hideLocationWhenSecondAttackerLose 
+  hpIncrease5pFactorForFirstAttack, 
+  hpIncrease5pFactorForSecondAttack
+} from './factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-5P-factor-attacks.js';
+
+
+import { 
+  hideFirstAttackerWhenLose,
+  hideSecondAttackerWhenLose,
+
+  hidePlayerSecondAttackerWhenLose,
+  hidePlayerFirstAttackerWhenLose
 } from "./hideLocationsWhenPokemonsLoses.js";
 
 
@@ -142,8 +148,9 @@ document.addEventListener('DOMContentLoaded', () => {
       "Évoli", 
       "Roucool", 
       "Racaillou", 
-      "Insecateur", 
-      "Sabelette"
+      "Insécateur", 
+      "Sabelette",
+      "Mewtwo"
     ];
     const randomIndex = Math.floor(Math.random() * possiblePokemons.length);
     const pokemon = possiblePokemons[randomIndex];
@@ -168,6 +175,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       displayFightInProgress();
       determineFirstAttacker();
+
+      console.log("firstAttacker nom", firstAttacker.name);
+      console.log(firstAttacker.name, " : vitesse : ", firstAttacker.stats.speed);
+      console.log(secondAttacker.name, " : vitesse : ", secondAttacker.stats.speed);
+      console.log("enemy : ", enemyPokemon);
       
         while (firstAttacker.stats.hp > 0 && secondAttacker.stats.hp > 0) {
           
@@ -216,7 +228,14 @@ document.addEventListener('DOMContentLoaded', () => {
               openDisplayResult();
               openDialogueWhenPokemonKo();
               hideFightInProgress();
-              hideLocationWhenSecondAttackerLose(secondAttacker, enemyPokemon)
+              hideSecondAttackerWhenLose(
+                secondAttacker, 
+                enemyPokemon
+                );
+              hidePlayerSecondAttackerWhenLose(
+                secondAttacker, 
+                playerSelectedPokemon
+              );
               break;
             };
 
@@ -267,7 +286,14 @@ document.addEventListener('DOMContentLoaded', () => {
               openDisplayResult();
               openDialogueWhenPokemonKo();
               hideFightInProgress();
-              hideLocationWhenFirstAttackerLose(firstAttacker, enemyPokemon);
+              hideFirstAttackerWhenLose(
+                firstAttacker, 
+                enemyPokemon
+                );
+              hidePlayerFirstAttackerWhenLose(
+                firstAttacker,
+                playerSelectedPokemon
+              );
               break;
             };
 
@@ -335,6 +361,8 @@ document.addEventListener('DOMContentLoaded', () => {
       defenseIncrease5pFactorForFirstAttack(firstAttacker);
       defenseIncrease10pFactorForFirstAttack(firstAttacker);
 
+      hpIncrease5pFactorForFirstAttack(firstAttacker);
+
       return Math.round(degats);
 
     } else {
@@ -395,6 +423,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       defenseIncrease5pFactorForSecondAttack(firstAttacker);
       defenseIncrease10pFactorForSecondAttack(firstAttacker);
+
+      hpIncrease5pFactorForSecondAttack(firstAttacker);
 
       return Math.round(degats);
 

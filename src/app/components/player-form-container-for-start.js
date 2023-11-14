@@ -1,8 +1,7 @@
   let firstPlayerName;
   let firstPlayerScore = 0;
     
-  const firstPlayer = document.getElementById('first-player');
-  const secondPlayer = document.getElementById('second-player');
+  const mainContainer = document.getElementById('main');
     
   const playerFormContainer = document.getElementById('playerFormContainerForStart');
 
@@ -15,9 +14,10 @@
   submitButton.addEventListener('click', (event) => { 
   event.preventDefault();
   
-domElementInFormPlayer.firstPlayer.innerText = ` ${firstPlayerName} : ${domElementInFormPlayer.firstPlayerScore} points`;
+  domElementInFormPlayer.firstPlayer.innerText = ` ${firstPlayerName} : ${domElementInFormPlayer.firstPlayerScore} points`;
 
     playerFormContainer.style.display = 'none';
+    mainContainer.style.display = 'block';
   });
   
 playerNameInput.addEventListener('input', () => {

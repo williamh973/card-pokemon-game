@@ -119,7 +119,7 @@
 
 #container-players {
   width: 100%;
-  height: 27px;
+  height: 35px;
   display: flex;
   justify-content: space-around;
   align-items: center;

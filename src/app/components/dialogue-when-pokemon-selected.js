@@ -1,8 +1,6 @@
-let isPlayerSelectedThisPokemon = false;
-
-const containerFullPopupPokemonSelected = document.getElementById('container-display-pokemon-selected');
-    
+const containerFullPopupPokemonSelected = document.getElementById('container-display-pokemon-selected');    
 const displayPopupPokemonSelected = document.getElementById('pokemon-selected');
+
 
 export const pokemonSelected = function pokemonSelected(pokemon) {
   
@@ -21,11 +19,14 @@ switch (pokemon) {
   case 'Racaillou':
    displayPopupPokemonSelected.innerText = 'Racaillou selectionné !';
     break;
-  case 'Insecateur':
+  case 'Insécateur':
     displayPopupPokemonSelected.innerText = 'Insécateur selectionné !';
   break;
   case 'Sabelette':
     displayPopupPokemonSelected.innerText = 'Sabelette selectionné !';
+  break;
+  case 'Mewtwo':
+    displayPopupPokemonSelected.innerText = 'Mewtwo selectionné !';
   break;
 };
 

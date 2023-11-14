@@ -63,7 +63,8 @@ export const openDialogueWhenPokemonMakesWeaknessAttack = function openDialogueW
 };
 
 
-export const openDialogueWhenPokemonMakesResistanceAttack = function openDialogueWhenPokemonMakesResistanceAttack() {
+export const openDialogueWhenPokemonMakesResistanceAttack = 
+function openDialogueWhenPokemonMakesResistanceAttack() {
   
   setTimeout(function() {
     selectors.containerFullPopupDialogueFight.style.display = 'flex';
@@ -79,7 +80,8 @@ export const openDialogueWhenPokemonMakesResistanceAttack = function openDialogu
 
 };
 
-export const openDialogueWhenPokemonMakesIneffectiveAttack = function openDialogueWhenPokemonMakesIneffectiveAttack() {
+export const openDialogueWhenPokemonMakesIneffectiveAttack = 
+function openDialogueWhenPokemonMakesIneffectiveAttack() {
   
   setTimeout(function() {
     selectors.containerFullPopupDialogueFight.style.display = 'flex';
@@ -104,7 +106,8 @@ export const openDialogueWhenPokemonKo = function openDialogueWhenPokemonKo() {
       
 };
 
-export const openDialogueWhenPokemonMakesSpeedIncrease5pFactorAttack = function openDialogueWhenPokemonMakesSpeedIncrease5pFactorAttack(pokemon) {
+export const openDialogueWhenPokemonMakesSpeedIncrease5pFactorAttack = 
+function openDialogueWhenPokemonMakesSpeedIncrease5pFactorAttack(pokemon) {
 
   setTimeout(function() {
     selectors.containerFullPopupDialogueFight.style.display = 'flex';
@@ -120,7 +123,8 @@ export const openDialogueWhenPokemonMakesSpeedIncrease5pFactorAttack = function 
 
  };
 
-export const openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack = function openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack(pokemon) {
+export const openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack = 
+function openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack(pokemon) {
 
   setTimeout(function() {
     selectors.containerFullPopupDialogueFight.style.display = 'flex';
@@ -136,7 +140,8 @@ export const openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack = function
 
  };
 
- export const openDialogueWhenPokemonMakesDefenseIncrease5pFactorAttack = function openDialogueWhenPokemonMakesDefenseIncrease5pFactorAttack(pokemon) {
+ export const openDialogueWhenPokemonMakesDefenseIncrease5pFactorAttack = 
+ function openDialogueWhenPokemonMakesDefenseIncrease5pFactorAttack(pokemon) {
 
   setTimeout(function() {
     selectors.containerFullPopupDialogueFight.style.display = 'flex';
@@ -152,7 +157,8 @@ export const openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack = function
 
  };
 
- export const openDialogueWhenPokemonMakesDefenseIncrease10pFactorAttack = function openDialogueWhenPokemonMakesDefenseIncrease10pFactorAttack(pokemon) {
+ export const openDialogueWhenPokemonMakesDefenseIncrease10pFactorAttack = 
+ function openDialogueWhenPokemonMakesDefenseIncrease10pFactorAttack(pokemon) {
 
   setTimeout(function() {
     selectors.containerFullPopupDialogueFight.style.display = 'flex';
@@ -168,5 +174,38 @@ export const openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack = function
 
  };
 
+ export const openDialogueWhenPokemonMakesHpIncrease5pFactorAttack = 
+ function openDialogueWhenPokemonMakesHpIncrease5pFactorAttack(pokemon) {
+
+  setTimeout(function() {
+    selectors.containerFullPopupDialogueFight.style.display = 'flex';
+    
+    displayDialogue.style.display = 'flex';
+    
+    displayDialogue.textContent = `${ pokemon.name } regagne 5 pv !`;
+    
+    setTimeout(function() {
+      displayDialogue.style.display = 'none';
+    }, 1400);
+  }, 1500);
+
+ };
+
+ export const openDialogueWhenPokemonMissHpIncrease5pFactorAttack = 
+ function openDialogueWhenPokemonMissHpIncrease5pFactorAttack() {
+
+  setTimeout(function() {
+    selectors.containerFullPopupDialogueFight.style.display = 'flex';
+    
+    displayDialogue.style.display = 'flex';
+    
+    displayDialogue.textContent = `Cela n'a aucun effet !`;
+    
+    setTimeout(function() {
+      displayDialogue.style.display = 'none';
+    }, 1400);
+  }, 1500);
+
+ };
 
 

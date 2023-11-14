@@ -4,6 +4,7 @@ import roucoolStats from './models/roucool.model.js'
 import racaillouStats from './models/racaillou.model.js';
 import insecateurStats from './models/insecateur.model.js';
 import sabeletteStats from './models/sabelette.model.js';
+import mewtwoStats from './models/mewtwo.model.js';
 
 import { pikachuCard } from './cards/pikachu.card.js';
 import { evoliCard } from './cards/evoli.card.js';
@@ -11,25 +12,22 @@ import { roucoolCard } from './cards/roucool.card.js';
 import { racaillouCard } from './cards/racaillou.card.js';
 import { insecateurCard } from './cards/insecateur.card.js';
 import { sabeletteCard } from './cards/sabelette.card.js';
-
-import { 
-  pokemonHealthRedCheck, 
-  pokemonHealthOrangeCheck,
-  pokemonHealthBlackCheck 
-} from './pokemonHealthCheck.js';
+import { mewtwoCard } from './cards/mewtwo.card.js';
 
 import selectors from './main-game.js'
 
 
-export const decreaseHp =  function decreaseHp() {
-    if (
+export const decreaseHp = 
+function decreaseHp() {
+
+  if (
       (selectors.selectFirstPokemonButton.value === 'Pikachu') ||
       (selectors.selectSecondPokemonButton.value === 'Pikachu') || 
       (selectors.pokemonFirstLocation.contains(pikachuCard)) || 
       (selectors.pokemonSecondLocation.contains(pikachuCard))
-  ) {
-    document.getElementById('pikachuHealth').textContent = 
-    `${pikachuStats.stats.hp}`;
+     ) {
+       document.getElementById('pikachuHealth').textContent = 
+       `${pikachuStats.stats.hp}`;
   };
     
     if (
@@ -38,7 +36,7 @@ export const decreaseHp =  function decreaseHp() {
       (selectors.pokemonFirstLocation.contains(evoliCard)) || 
       (selectors.pokemonSecondLocation.contains(evoliCard))
   ) {
-    document.getElementById('evoliHealth').textContent =
+     document.getElementById('evoliHealth').textContent =
      `${evoliStats.stats.hp}`;
     };
     
@@ -63,8 +61,8 @@ export const decreaseHp =  function decreaseHp() {
     };
 
     if (
-      (selectors.selectFirstPokemonButton.value === 'Insecateur') || 
-      (selectors.selectSecondPokemonButton.value === 'Insecateur') || 
+      (selectors.selectFirstPokemonButton.value === 'Insécateur') || 
+      (selectors.selectSecondPokemonButton.value === 'Insécateur') || 
       (selectors.pokemonFirstLocation.contains(insecateurCard)) || 
       (selectors.pokemonSecondLocation.contains(insecateurCard))
     ) {
@@ -82,9 +80,15 @@ export const decreaseHp =  function decreaseHp() {
     `${sabeletteStats.stats.hp}`;
     };
 
-  pokemonHealthRedCheck();
-  pokemonHealthOrangeCheck();
-  pokemonHealthBlackCheck();
+    if (
+      (selectors.selectFirstPokemonButton.value === 'Mewtwo') || 
+      (selectors.selectSecondPokemonButton.value === 'Mewtwo') || 
+      (selectors.pokemonFirstLocation.contains(mewtwoCard)) || 
+      (selectors.pokemonSecondLocation.contains(mewtwoCard))
+    ) {
+    document.getElementById('mewtwoHealth').textContent = 
+    `${mewtwoStats.stats.hp}`;
+    };
 
 }; 
   

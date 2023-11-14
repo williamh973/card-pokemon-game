@@ -5,6 +5,7 @@ import { racaillouCard } from '../cards/racaillou.card.js';
 import { insecateurCard } from '../cards/insecateur.card.js';
 import { sabeletteCard } from '../cards/sabelette.card.js';
 import { pokemonSelected } from '../dialogue-when-pokemon-selected.js';
+import { mewtwoCard } from '../cards/mewtwo.card.js';
 
 import selectors from '../main-game.js'
 
@@ -35,13 +36,17 @@ export const handleSelectionRandomPokemon
      selectors.pokemonSecondLocation.appendChild(racaillouCard);
      pokemonSelected(pokemon);
       break;
-    case 'Insecateur':
+    case 'Insécateur':
      selectors.pokemonSecondLocation.appendChild(insecateurCard);
      pokemonSelected(pokemon);
     break;
     case 'Sabelette':
      selectors.pokemonSecondLocation.appendChild(sabeletteCard);
      pokemonSelected(pokemon);
+      break;
+      case 'Mewtwo':
+        selectors.pokemonSecondLocation.appendChild(mewtwoCard);
+        pokemonSelected(pokemon);
       break;
   };
   

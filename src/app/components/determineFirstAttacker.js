@@ -4,6 +4,7 @@ import roucoolStats from './models/roucool.model.js'
 import racaillouStats from './models/racaillou.model.js';
 import insecateurStats from './models/insecateur.model.js';
 import sabeletteStats from './models/sabelette.model.js';
+import mewtwoStats from './models/mewtwo.model.js';
 
 import { pikachuCard } from './cards/pikachu.card.js';
 import { evoliCard } from './cards/evoli.card.js';
@@ -11,8 +12,10 @@ import { roucoolCard } from './cards/roucool.card.js';
 import { racaillouCard } from './cards/racaillou.card.js';
 import { insecateurCard } from './cards/insecateur.card.js';
 import { sabeletteCard } from './cards/sabelette.card.js';
+import { mewtwoCard } from './cards/mewtwo.card.js';
 
-import selectors from './main-game.js'
+import selectors from './main-game.js';
+
 
 export { firstAttacker, secondAttacker, determineFirstAttacker };
 
@@ -44,8 +47,15 @@ export { firstAttacker, secondAttacker, determineFirstAttacker };
   } else if (selectors.selectFirstPokemonButton.value === 'Sabelette' ||
      selectors.pokemonFirstLocation.contains(sabeletteCard)) {
      firstAttacker = sabeletteStats;
-  }
+
+  } else if (selectors.selectFirstPokemonButton.value === 'Mewtwo' ||
+     selectors.pokemonFirstLocation.contains(mewtwoCard)) {
+     firstAttacker = mewtwoStats;
+}
   
+
+
+
   if (selectors.selectSecondPokemonButton.value === 'Pikachu' ||
      selectors.pokemonSecondLocation.contains(pikachuCard)) {
      secondAttacker = pikachuStats;
@@ -62,14 +72,18 @@ export { firstAttacker, secondAttacker, determineFirstAttacker };
      selectors.pokemonSecondLocation.contains(racaillouCard)) {
      secondAttacker = racaillouStats;
 
-  } else if (selectors.selectSecondPokemonButton.value === 'Insecateur' ||
+  } else if (selectors.selectSecondPokemonButton.value === 'Insécateur' ||
      selectors.pokemonSecondLocation.contains(insecateurCard)) {
      secondAttacker = insecateurStats;
 
   } else if (selectors.selectSecondPokemonButton.value === 'Sabelette' ||
      selectors.pokemonSecondLocation.contains(sabeletteCard)) {
      secondAttacker = sabeletteStats;
-  }
+
+  } else if (selectors.selectSecondPokemonButton.value === 'Mewtwo' ||
+     selectors.pokemonSecondLocation.contains(mewtwoCard)) {
+     secondAttacker = mewtwoStats;
+}
     
   if (firstAttacker.stats.speed < secondAttacker.stats.speed) {
       [firstAttacker, secondAttacker] = [secondAttacker, firstAttacker];    
