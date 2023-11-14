@@ -13,51 +13,12 @@ import { handleSelectionRandomPokemon } from './handle-menu-and-selections/handl
 
 import { openDisplayResult } from './result-fight.js';
 
-import { 
-  openDialogueWhenPokemonMakesFirstAttack, 
-  openDialogueWhenPokemonMakesSecondAttack,
-  openDialogueWhenPokemonMissAttack,
-  openDialogueWhenPokemonKo
-} from './dialogue-fight.js';
+import { openDialogueWhenPokemonKo } from './dialogue-fight.js';
 
 import { 
   displayFightInProgress, 
   hideFightInProgress
 } from './display-fight-in-progress.js';
-
-import { weaknessFactorForFirstAttack } from './factors-attacks/weakness-factors-attacks/weakness-factor-first-attack.js';
-import { weaknessFactorForSecondAttack } from './factors-attacks/weakness-factors-attacks/weakness-factor-second-attack.js';
-
-import { resistanceFactorForFirstAttack } from './factors-attacks/resistance-factors-attacks/resistance-factor-first-attack.js';
-import { resistanceFactorForSecondAttack } from './factors-attacks/resistance-factors-attacks/resistance-factor-second-attack.js';
-
-import {
-  ineffectiveFactorForFirstAttack,
-  ineffectiveFactorForSecondAttack
-} from './factors-attacks/ineffective-factor-attack.js';
-
-import { 
-  speedIncrease5pFactorForFirstAttack, 
-  speedIncrease5pFactorForSecondAttack 
-} from './factors-attacks/increase-factors-attacks/speed-increase-factor-attacks/speed-increase-5P-factor-attacks.js';
-import { 
-  speedIncrease10pFactorForFirstAttack, 
-  speedIncrease10pFactorForSecondAttack 
-} from './factors-attacks/increase-factors-attacks/speed-increase-factor-attacks/speed-increase-10P-factor-attacks.js';
-
-import { 
-  defenseIncrease5pFactorForFirstAttack, 
-  defenseIncrease5pFactorForSecondAttack 
-} from './factors-attacks/increase-factors-attacks/defense-increase-factor-attacks/defense-increase-5P-factor-attacks.js';
-import { 
-  defenseIncrease10pFactorForFirstAttack, 
-  defenseIncrease10pFactorForSecondAttack 
-} from './factors-attacks/increase-factors-attacks/defense-increase-factor-attacks/defense-increase-10P-factor-attacks.js';
-import { 
-  hpIncrease5pFactorForFirstAttack, 
-  hpIncrease5pFactorForSecondAttack
-} from './factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-5P-factor-attacks.js';
-
 
 import { 
   hideFirstAttackerWhenLose,
@@ -66,6 +27,15 @@ import {
   hidePlayerSecondAttackerWhenLose,
   hidePlayerFirstAttackerWhenLose
 } from "./hideLocationsWhenPokemonsLoses.js";
+
+import { 
+  calculateDamageFirstAttack,
+} from "./calculate-damages-attacks/calculateDamageFirstAttack.js";
+
+import { 
+  calculateDamageSecondAttack
+} from "./calculate-damages-attacks/calculateDamageSecondAttack.js";
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -176,10 +146,11 @@ document.addEventListener('DOMContentLoaded', () => {
       displayFightInProgress();
       determineFirstAttacker();
 
-      console.log("firstAttacker nom", firstAttacker.name);
-      console.log(firstAttacker.name, " : vitesse : ", firstAttacker.stats.speed);
-      console.log(secondAttacker.name, " : vitesse : ", secondAttacker.stats.speed);
-      console.log("enemy : ", enemyPokemon);
+      datasForCalculateDamages(
+        firstAttacker, 
+        secondAttacker
+        );
+
       
         while (firstAttacker.stats.hp > 0 && secondAttacker.stats.hp > 0) {
           
@@ -308,142 +279,61 @@ document.addEventListener('DOMContentLoaded', () => {
   function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   };
-    
-  function calculateDamageFirstAttack(
+
+
+  function datasForCalculateDamages(
     firstAttacker, 
-    secondAttacker, 
-    firstAttackStrength, 
-    firstAttackerSpecialAtt, 
-    secondAttackerSpecialDef, 
-    precision, 
-    firstAttackType, 
-    secondAttackerType
-  ) {
-  
-  openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
-    
-  const randomPrecision = Math.floor(Math.random() * 100) + 1;
-  
-    if (randomPrecision <= precision) {
+    secondAttacker
+    ) {
 
-      let degats = (
-        (2 * firstAttacker.stats.attack / secondAttacker.stats.defense) * 
-        firstAttackStrength * 
-        (firstAttackerSpecialAtt / secondAttackerSpecialDef)
-      ) / 50 + 2;
+    const firstAttackStrength = firstAttacker.firstAttack.strength;
+    const firstAttackerSpecialAtt = firstAttacker.stats.specialAtt;
+    const secondAttackStrength = firstAttacker.secondAttack.strength;
+    const secondAttackerSpecialDef = secondAttacker.stats.specialDef;
+    const firstAttackPrecision = firstAttacker.firstAttack.precision;
+    const secondAttackPrecision = firstAttacker.secondAttack.precision;
+    const firstAttackType = firstAttacker.firstAttack.type;
+    const secondAttackerType = secondAttacker.type;
+    const secondAttackType = firstAttacker.secondAttack.type;
 
-      
-      let randomFactor = Math.random() * (1.00 - 0.85) + 0.85;
-        degats *= randomFactor;
-
-      
-      let getWeaknessFactorList = weaknessFactorForFirstAttack(
+      calculateDamageFirstAttack(
+        firstAttacker, 
+        secondAttacker, 
+        firstAttackStrength, 
+        firstAttackerSpecialAtt, 
+        secondAttackerSpecialDef, 
+        firstAttackPrecision, 
         firstAttackType, 
         secondAttackerType
       );
-      degats *= getWeaknessFactorList;
-        
-      let getResistanceFactorList = resistanceFactorForFirstAttack(
-        firstAttackType, 
-        secondAttackerType
-      );
-      degats /= getResistanceFactorList;
-          
-      let getIneffectiveFactorList = ineffectiveFactorForFirstAttack(
-        firstAttackType, 
-        secondAttackerType
-      );
-      degats *= getIneffectiveFactorList;
-
-      speedIncrease5pFactorForFirstAttack(firstAttacker);
-      speedIncrease10pFactorForFirstAttack(firstAttacker);
-
-      defenseIncrease5pFactorForFirstAttack(firstAttacker);
-      defenseIncrease10pFactorForFirstAttack(firstAttacker);
-
-      hpIncrease5pFactorForFirstAttack(firstAttacker);
-
-      return Math.round(degats);
-
-    } else {
-      openDialogueWhenPokemonMissAttack(firstAttacker);
-      return 0;
-    }
-
-  };
-
-
-  function calculateDamageSecondAttack(
-    firstAttacker, 
-    secondAttacker, 
-    secondAttackStrength, 
-    firstAttackerSpecialAtt, 
-    secondAttackerSpecialDef, 
-    precision, 
-    secondAttackType, 
-    secondAttackerType
-  ) {
-    
-  openDialogueWhenPokemonMakesSecondAttack(firstAttacker);
   
-  const randomPrecision = Math.floor(Math.random() * 100) + 1;
-  
-  if (randomPrecision <= precision) {
-    
-      let degats = (
-        (2 * firstAttacker.stats.attack / secondAttacker.stats.defense) * 
-        secondAttackStrength * 
-        (firstAttackerSpecialAtt / secondAttackerSpecialDef)
-      ) / 50 + 2;
-
-      let randomFactor = Math.random() * (1.00 - 0.85) + 0.85;
-      degats *= randomFactor;
-
-    
-      let getWeaknessFactorList = weaknessFactorForSecondAttack(
+      calculateDamageSecondAttack(
+        firstAttacker, 
+        secondAttacker, 
+        secondAttackStrength, 
+        firstAttackerSpecialAtt, 
+        secondAttackerSpecialDef, 
+        secondAttackPrecision, 
         secondAttackType, 
         secondAttackerType
       );
-      degats *= getWeaknessFactorList;
 
-      let getResistanceFactorList = resistanceFactorForSecondAttack(
-        secondAttackType, 
-        secondAttackerType
-      );
-      degats /= getResistanceFactorList;
+  }; 
 
-      let getIneffectiveFactorList = ineffectiveFactorForSecondAttack(
-        secondAttackType, 
-        secondAttackerType
-      );
-      degats *= getIneffectiveFactorList;
 
-      speedIncrease5pFactorForSecondAttack(firstAttacker);
-      speedIncrease10pFactorForSecondAttack(firstAttacker);
-
-      defenseIncrease5pFactorForSecondAttack(firstAttacker);
-      defenseIncrease10pFactorForSecondAttack(firstAttacker);
-
-      hpIncrease5pFactorForSecondAttack(firstAttacker);
-
-      return Math.round(degats);
-
-    } else {
-      openDialogueWhenPokemonMissAttack(firstAttacker);
-      return 0;
-    }
-  };
 
   function activateFightButton() {
-    if (isFirstPokemonSelected &&
-        isSecondPokemonSelected ) {
+    if (
+      isFirstPokemonSelected &&
+      isSecondPokemonSelected
+      ) {
          fightButton.disabled = false;
     }
   };
 
 });
 
-const selectors = {
+export const selectors = {
   headContainer : document.querySelector('.container-head'),
   titleContainer : document.getElementById('container-title'),
   title : document.getElementById('title'),
@@ -462,8 +352,7 @@ const selectors = {
   fightButtonContainer : document.getElementById('container-btn-fight'),
   definiteFightMod : false,
   randomFightMod : false,
-  enemyPokemon : ""
+
 };
 
-export default selectors;
 

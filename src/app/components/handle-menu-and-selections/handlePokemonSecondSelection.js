@@ -8,7 +8,7 @@ import { mewtwoCard } from '../cards/mewtwo.card.js';
 
 import { pokemonSelected } from '../dialogue-when-pokemon-selected.js';
 
-import selectors from '../main-game.js'
+import { selectors } from '../main-game.js'
 
 export const handlePokemonSecondSelection = function handlePokemonSecondSelection(pokemon) {
         

@@ -14,7 +14,7 @@ import { insecateurCard } from './cards/insecateur.card.js';
 import { sabeletteCard } from './cards/sabelette.card.js';
 import { mewtwoCard } from './cards/mewtwo.card.js';
 
-import selectors from './main-game.js'
+import { selectors } from './main-game.js'
 
 
 export const decreaseHp = 

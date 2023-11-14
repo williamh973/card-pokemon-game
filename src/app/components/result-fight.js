@@ -1,6 +1,6 @@
 import { firstAttacker, secondAttacker } from './determineFirstAttacker.js';
 
-import selectors from './main-game.js'
+import { selectors } from './main-game.js'
 
 
 const containerFullPopupResultFight = document.getElementById('container-display-result');

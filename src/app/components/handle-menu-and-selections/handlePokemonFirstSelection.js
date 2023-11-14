@@ -7,7 +7,7 @@ import { sabeletteCard } from '../cards/sabelette.card.js';
 import { mewtwoCard } from '../cards/mewtwo.card.js';
 
 
-import selectors from '../main-game.js';
+import { selectors } from '../main-game.js';
 import { pokemonSelected } from '../dialogue-when-pokemon-selected.js';
 
 

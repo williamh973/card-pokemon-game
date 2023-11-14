@@ -1,4 +1,4 @@
-import selectors from './main-game.js'
+import { selectors } from './main-game.js'
     
 
 export const displayFightInProgress = function displayFightInProgress() {

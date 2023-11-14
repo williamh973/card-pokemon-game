@@ -1,4 +1,4 @@
-import selectors from '../main-game.js';
+import { selectors } from '../main-game.js';
 
 
 export const handleMenu = function handleMenu(gameMod) {

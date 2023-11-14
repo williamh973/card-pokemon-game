@@ -1,4 +1,4 @@
-import selectors from './main-game.js';
+import { selectors } from './main-game.js';
 
 export const displayDialogue = document.getElementById('dialogue');
 
@@ -32,7 +32,7 @@ export const openDialogueWhenPokemonMakesSecondAttack = function openDialogueWhe
 
 
 export const openDialogueWhenPokemonMissAttack = function openDialogueWhenPokemonMissAttack(attacker) {
-  
+  setTimeout(function() {
   selectors.containerFullPopupDialogueFight.style.display = 'flex';
   
   displayDialogue.style.display = 'flex';
@@ -41,8 +41,8 @@ export const openDialogueWhenPokemonMissAttack = function openDialogueWhenPokemo
 
     setTimeout(function() {
       displayDialogue.style.display = 'none';
-    }, 3000);
-
+  }, 1400);
+}, 1500);
 };
 
 
