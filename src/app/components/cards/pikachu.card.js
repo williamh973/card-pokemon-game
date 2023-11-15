@@ -1,4 +1,4 @@
-import pikachuStats from '../models/pikachu.model.js';
+import { pikachuStats } from '../models/pikachu.model.js';
 
  
 export const pikachuCard = document.createElement('div');

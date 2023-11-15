@@ -1,4 +1,4 @@
-import evoliStats from '../models/evoli.model.js';
+import { evoliStats } from '../models/evoli.model.js';
 
 export const evoliCard = document.createElement('div');
     evoliCard.classList.add('card-main');

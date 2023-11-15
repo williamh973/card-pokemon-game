@@ -1,4 +1,4 @@
-import mewtwoStats from '../models/mewtwo.model.js';
+import { mewtwoStats } from '../models/mewtwo.model.js';
 
   export const mewtwoCard = document.createElement('div');
     mewtwoCard.classList.add('card-main');

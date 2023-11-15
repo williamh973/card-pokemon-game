@@ -6,6 +6,7 @@ import { insecateurCard } from '../cards/insecateur.card.js';
 import { sabeletteCard } from '../cards/sabelette.card.js';
 import { pokemonSelected } from '../dialogue-when-pokemon-selected.js';
 import { mewtwoCard } from '../cards/mewtwo.card.js';
+import { scarabruteCard } from '../cards/scarabrute.card.js';
 
 import { selectors } from '../main-game.js'
 
@@ -46,6 +47,10 @@ export const handleSelectionRandomPokemon
       break;
       case 'Mewtwo':
         selectors.pokemonSecondLocation.appendChild(mewtwoCard);
+        pokemonSelected(pokemon);
+      break;
+      case 'Scarabrute':
+        selectors.pokemonSecondLocation.appendChild(scarabruteCard);
         pokemonSelected(pokemon);
       break;
   };

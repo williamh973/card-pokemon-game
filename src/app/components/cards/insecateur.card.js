@@ -1,4 +1,4 @@
-import insecateurStats from '../models/insecateur.model.js';
+import { insecateurStats } from '../models/insecateur.model.js';
 
   export const insecateurCard = document.createElement('div');
     insecateurCard.classList.add('card-main');

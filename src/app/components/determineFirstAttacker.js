@@ -1,10 +1,11 @@
-import pikachuStats from './models/pikachu.model.js';
-import evoliStats from './models/evoli.model.js';
-import roucoolStats from './models/roucool.model.js'
-import racaillouStats from './models/racaillou.model.js';
-import insecateurStats from './models/insecateur.model.js';
-import sabeletteStats from './models/sabelette.model.js';
-import mewtwoStats from './models/mewtwo.model.js';
+import { pikachuStats } from './models/pikachu.model.js';
+import { evoliStats } from './models/evoli.model.js';
+import { roucoolStats } from './models/roucool.model.js'
+import { racaillouStats } from './models/racaillou.model.js';
+import { insecateurStats } from './models/insecateur.model.js';
+import { sabeletteStats } from './models/sabelette.model.js';
+import { mewtwoStats } from './models/mewtwo.model.js';
+import { scarabruteStats } from './models/scarabrute.model.js';
 
 import { pikachuCard } from './cards/pikachu.card.js';
 import { evoliCard } from './cards/evoli.card.js';
@@ -13,6 +14,7 @@ import { racaillouCard } from './cards/racaillou.card.js';
 import { insecateurCard } from './cards/insecateur.card.js';
 import { sabeletteCard } from './cards/sabelette.card.js';
 import { mewtwoCard } from './cards/mewtwo.card.js';
+import { scarabruteCard } from './cards/scarabrute.card.js';
 
 import { selectors } from './main-game.js';
 
@@ -51,6 +53,10 @@ export { firstAttacker, secondAttacker, determineFirstAttacker };
   } else if (selectors.selectFirstPokemonButton.value === 'Mewtwo' ||
      selectors.pokemonFirstLocation.contains(mewtwoCard)) {
      firstAttacker = mewtwoStats;
+
+  } else if (selectors.selectFirstPokemonButton.value === 'Scarabrute' ||
+     selectors.pokemonFirstLocation.contains(scarabruteCard)) {
+     firstAttacker = scarabruteStats;
 }
   
 
@@ -83,6 +89,10 @@ export { firstAttacker, secondAttacker, determineFirstAttacker };
   } else if (selectors.selectSecondPokemonButton.value === 'Mewtwo' ||
      selectors.pokemonSecondLocation.contains(mewtwoCard)) {
      secondAttacker = mewtwoStats;
+     
+  } else if (selectors.selectSecondPokemonButton.value === 'Scarabrute' ||
+     selectors.pokemonSecondLocation.contains(scarabruteCard)) {
+     secondAttacker = scarabruteStats;
 }
     
   if (firstAttacker.stats.speed < secondAttacker.stats.speed) {

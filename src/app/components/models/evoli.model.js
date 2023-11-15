@@ -40,4 +40,3 @@ export let evoliStats = {
       }
     };
   
-export default evoliStats;

@@ -40,4 +40,4 @@ export let pikachuStats = {
        }
     };
   
-export default pikachuStats;
+

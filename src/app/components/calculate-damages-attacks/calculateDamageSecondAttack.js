@@ -33,6 +33,11 @@ import {
     openDialogueWhenPokemonMissAttack
 } from '../dialogue-fight.js';
 
+import { getCriticalHit } from '../factors-attacks/critical-hit-factor.js'
+
+import { criticalHitIncreaseByFocusEnergyForSecondAttack } from '../factors-attacks/increase-factors-attacks/critical-hit-increase-factor-attacks/critical-hit-increase-focus-energy-attacks.js';
+
+
 
 export const calculateDamageSecondAttack = 
 function calculateDamageSecondAttack(
@@ -59,6 +64,8 @@ function calculateDamageSecondAttack(
         (firstAttackerSpecialAtt / secondAttackerSpecialDef)
       ) / 50 + 2;
 
+      getCriticalHit(firstAttacker, degats);
+
       let randomFactor = Math.random() * (1.00 - 0.85) + 0.85;
       degats *= randomFactor;
 
@@ -84,13 +91,36 @@ function calculateDamageSecondAttack(
       );
       degats *= getIneffectiveFactorList;
 
-      speedIncrease5pFactorForSecondAttack(firstAttacker, isSecondAttackActive);
-      speedIncrease10pFactorForSecondAttack(firstAttacker, isSecondAttackActive);
+      speedIncrease5pFactorForSecondAttack(
+        firstAttacker, 
+        isSecondAttackActive
+        );
 
-      defenseIncrease5pFactorForSecondAttack(firstAttacker, isSecondAttackActive);
-      defenseIncrease10pFactorForSecondAttack(firstAttacker, isSecondAttackActive);
+      speedIncrease10pFactorForSecondAttack(
+        firstAttacker, 
+        isSecondAttackActive
+        );
 
-      hpIncrease5pFactorForSecondAttack(firstAttacker, isSecondAttackActive);
+      defenseIncrease5pFactorForSecondAttack(
+        firstAttacker, 
+        isSecondAttackActive
+        );
+
+      defenseIncrease10pFactorForSecondAttack(
+        firstAttacker, 
+        isSecondAttackActive
+        );
+
+      hpIncrease5pFactorForSecondAttack(
+        firstAttacker, 
+        isSecondAttackActive
+        );
+
+      criticalHitIncreaseByFocusEnergyForSecondAttack(
+        firstAttacker,
+        isSecondAttackActive,
+        degats
+        );
 
       return Math.round(degats);
 

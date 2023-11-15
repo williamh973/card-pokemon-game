@@ -28,19 +28,20 @@ import {
   hidePlayerFirstAttackerWhenLose
 } from "./hideLocationsWhenPokemonsLoses.js";
 
-import { 
-  calculateDamageFirstAttack,
-} from "./calculate-damages-attacks/calculateDamageFirstAttack.js";
+import { calculateDamageFirstAttack } from "./calculate-damages-attacks/calculateDamageFirstAttack.js";
 
-import { 
-  calculateDamageSecondAttack
-} from "./calculate-damages-attacks/calculateDamageSecondAttack.js";
-
-
+import { calculateDamageSecondAttack } from "./calculate-damages-attacks/calculateDamageSecondAttack.js";
 
 
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  let isFirstPokemonSelected = false;
+  let isSecondPokemonSelected = false;
+  let playerSelectedPokemon = "";
+  let enemyPokemon = "";
+  let isFirstAttackActive = false;
+  let isSecondAttackActive = false;
   
   const headContainer = 
   document.querySelector('.container-head');
@@ -69,16 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const containerFullPopupDialogueFight = 
   document.getElementById('container-display-dialogue');
     
-    
+  
   headContainer.appendChild(fightInProgress);
 
-  
-  let isFirstPokemonSelected = false;
-  let isSecondPokemonSelected = false;
-  let playerSelectedPokemon = "";
-  let enemyPokemon = "";
-  let isFirstAttackActive = false;
-  let isSecondAttackActive = false;
 
   menu.addEventListener("change", () => {
     handleMenu(menu.value);
@@ -124,8 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
       "Racaillou", 
       "Insécateur", 
       "Sabelette",
-      "Mewtwo"
+      "Mewtwo",
+      "Scarabrute"
     ];
+
     const randomIndex = Math.floor(Math.random() * possiblePokemons.length);
     const pokemon = possiblePokemons[randomIndex];
 
@@ -146,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   fightButton.addEventListener('click', () => {
 
+
     async function fight() {
 
       displayFightInProgress();
@@ -159,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
         while (firstAttacker.stats.hp > 0 && secondAttacker.stats.hp > 0) {
 
-          console.log(firstAttacker.name, " Vitesse : ", firstAttacker.stats.speed);
+          // console.log(firstAttacker.name, " Vitesse : ", firstAttacker.stats.speed);
           
            isFirstAttackActive = false;
            isSecondAttackActive = false;
@@ -230,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             decreaseHp();
  
-            console.log(firstAttacker.name, " Vitesse : ", firstAttacker.stats.speed);
+            // console.log(firstAttacker.name, " Vitesse : ", firstAttacker.stats.speed);
 
 
             isFirstAttackActive = false;
@@ -252,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 firstAttacker.stats.specialDef,
                 secondAttacker.firstAttack.precision,
                 secondAttacker.firstAttack.type,
-                firstAttacker.type
+                firstAttacker.type,
               );
             
               firstAttacker.stats.hp -= Math.max(damageFirstAttack, 0);
@@ -326,7 +323,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const firstAttackType = firstAttacker.firstAttack.type;
     const secondAttackerType = secondAttacker.type;
     const secondAttackType = firstAttacker.secondAttack.type;
-
 
       calculateDamageFirstAttack(
         firstAttacker, 

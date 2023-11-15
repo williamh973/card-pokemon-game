@@ -7,6 +7,7 @@ import { racaillouCard } from './cards/racaillou.card.js';
 import { insecateurCard } from './cards/insecateur.card.js';
 import { sabeletteCard } from './cards/sabelette.card.js';
 import { mewtwoCard } from './cards/mewtwo.card.js';
+import { scarabruteCard } from './cards/scarabrute.card.js';
 
 import { selectors } from "./main-game.js";
 
@@ -18,7 +19,8 @@ const isPokemonInSecondLocation = () =>
   selectors.pokemonSecondLocation.contains(racaillouCard) ||
   selectors.pokemonSecondLocation.contains(insecateurCard) ||
   selectors.pokemonSecondLocation.contains(sabeletteCard) ||
-  selectors.pokemonSecondLocation.contains(mewtwoCard)
+  selectors.pokemonSecondLocation.contains(mewtwoCard) ||
+  selectors.pokemonSecondLocation.contains(scarabruteCard)
 
 
 const isPokemonInFirstLocation = () => 
@@ -28,7 +30,8 @@ const isPokemonInFirstLocation = () =>
   selectors.pokemonFirstLocation.contains(racaillouCard) ||
   selectors.pokemonFirstLocation.contains(insecateurCard) ||
   selectors.pokemonFirstLocation.contains(sabeletteCard) ||
-  selectors.pokemonFirstLocation.contains(mewtwoCard)
+  selectors.pokemonFirstLocation.contains(mewtwoCard) ||
+  selectors.pokemonFirstLocation.contains(scarabruteCard)
 
 
   

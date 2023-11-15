@@ -1,10 +1,11 @@
-import pikachuStats from './models/pikachu.model.js';
-import evoliStats from './models/evoli.model.js';
-import roucoolStats from './models/roucool.model.js'
-import racaillouStats from './models/racaillou.model.js';
-import insecateurStats from './models/insecateur.model.js';
-import sabeletteStats from './models/sabelette.model.js';
-import mewtwoStats from './models/mewtwo.model.js';
+import { pikachuStats } from './models/pikachu.model.js';
+import { evoliStats } from './models/evoli.model.js';
+import { roucoolStats } from './models/roucool.model.js'
+import { racaillouStats } from './models/racaillou.model.js';
+import { insecateurStats } from './models/insecateur.model.js';
+import { sabeletteStats } from './models/sabelette.model.js';
+import { mewtwoStats } from './models/mewtwo.model.js';
+import { scarabruteStats } from './models/scarabrute.model.js';
 
 import { pikachuCard } from './cards/pikachu.card.js';
 import { evoliCard } from './cards/evoli.card.js';
@@ -13,6 +14,7 @@ import { racaillouCard } from './cards/racaillou.card.js';
 import { insecateurCard } from './cards/insecateur.card.js';
 import { sabeletteCard } from './cards/sabelette.card.js';
 import { mewtwoCard } from './cards/mewtwo.card.js';
+import { scarabruteCard } from './cards/scarabrute.card.js';
 
 import { selectors } from './main-game.js'
 
@@ -88,6 +90,16 @@ function decreaseHp() {
     ) {
     document.getElementById('mewtwoHealth').textContent = 
     `${mewtwoStats.stats.hp}`;
+    };
+
+    if (
+      (selectors.selectFirstPokemonButton.value === 'Scarabrute') || 
+      (selectors.selectSecondPokemonButton.value === 'Scarabrute') || 
+      (selectors.pokemonFirstLocation.contains(scarabruteCard)) || 
+      (selectors.pokemonSecondLocation.contains(scarabruteCard))
+    ) {
+    document.getElementById('scarabruteHealth').textContent = 
+    `${scarabruteStats.stats.hp}`;
     };
 
 }; 

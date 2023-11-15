@@ -7,6 +7,10 @@ margin: auto;
 font-size: 12px;
 margin: 50px 0;
 }
+.card-main:hover {
+  transition: all 200ms;
+  scale: 1.2;
+}
 
 .card-head {
   width: 90%;

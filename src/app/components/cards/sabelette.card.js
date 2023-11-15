@@ -1,4 +1,4 @@
-import sabeletteStats from '../models/sabelette.model.js';
+import { sabeletteStats } from '../models/sabelette.model.js';
 
   export const sabeletteCard = document.createElement('div');
     sabeletteCard.classList.add('card-main');

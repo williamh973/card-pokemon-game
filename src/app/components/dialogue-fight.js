@@ -2,7 +2,8 @@ import { selectors } from './main-game.js';
 
 export const displayDialogue = document.getElementById('dialogue');
 
-export const openDialogueWhenPokemonMakesFirstAttack = function openDialogueWhenPokemonMakesFirstAttack(attacker) {
+export const openDialogueWhenPokemonMakesFirstAttack = 
+function openDialogueWhenPokemonMakesFirstAttack(attacker) {
 
   selectors.containerFullPopupDialogueFight.style.display = 'flex';
   
@@ -16,7 +17,8 @@ export const openDialogueWhenPokemonMakesFirstAttack = function openDialogueWhen
 
 };
 
-export const openDialogueWhenPokemonMakesSecondAttack = function openDialogueWhenPokemonMakesSecondAttack(attacker) {
+export const openDialogueWhenPokemonMakesSecondAttack = 
+function openDialogueWhenPokemonMakesSecondAttack(attacker) {
   
   selectors.containerFullPopupDialogueFight.style.display = 'flex';
   
@@ -30,8 +32,58 @@ export const openDialogueWhenPokemonMakesSecondAttack = function openDialogueWhe
 
 };
 
+export const openDialogueWhenPokemonMakesCriticalHit = 
+function openDialogueWhenPokemonMakesCriticalHit() {
 
-export const openDialogueWhenPokemonMissAttack = function openDialogueWhenPokemonMissAttack(attacker) {
+ setTimeout(function() {
+   selectors.containerFullPopupDialogueFight.style.display = 'flex';
+   
+   displayDialogue.style.display = 'flex';
+   
+   displayDialogue.textContent = `Coup critique !`;
+   
+   setTimeout(function() {
+     displayDialogue.style.display = 'none';
+   }, 1400);
+ }, 1500);
+
+};
+
+
+export const openDialogueWhenPokemonCriticalHitBoostedByFocusEnergy = 
+function openDialogueWhenPokemonCriticalHitBoostedByFocusEnergy(attacker) {
+  setTimeout(function() {
+  selectors.containerFullPopupDialogueFight.style.display = 'flex';
+  
+  displayDialogue.style.display = 'flex';
+
+   displayDialogue.textContent = `${attacker.name} se gonfle !`;
+
+    setTimeout(function() {
+      displayDialogue.style.display = 'none';
+  }, 1400);
+}, 1500);
+};
+
+
+export const openDialogueWhenPokemonCriticalHitAlreadyBoostedByFocusEnergy = 
+function openDialogueWhenPokemonCriticalHitAlreadyBoostedByFocusEnergy(attacker) {
+  setTimeout(function() {
+  selectors.containerFullPopupDialogueFight.style.display = 'flex';
+  
+  displayDialogue.style.display = 'flex';
+
+   displayDialogue.textContent = `${attacker.name} est déjà boosté !`;
+
+    setTimeout(function() {
+      displayDialogue.style.display = 'none';
+  }, 1400);
+}, 1500);
+};
+
+
+export const openDialogueWhenPokemonMissAttack = 
+function openDialogueWhenPokemonMissAttack(attacker) {
   setTimeout(function() {
   selectors.containerFullPopupDialogueFight.style.display = 'flex';
   
@@ -46,7 +98,8 @@ export const openDialogueWhenPokemonMissAttack = function openDialogueWhenPokemo
 };
 
 
-export const openDialogueWhenPokemonMakesWeaknessAttack = function openDialogueWhenPokemonMakesWeaknessAttack() {
+export const openDialogueWhenPokemonMakesWeaknessAttack = 
+function openDialogueWhenPokemonMakesWeaknessAttack() {
   
   setTimeout(function() {
     selectors.containerFullPopupDialogueFight.style.display = 'flex';
@@ -207,5 +260,4 @@ function openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack(pokemon) {
   }, 1500);
 
  };
-
 

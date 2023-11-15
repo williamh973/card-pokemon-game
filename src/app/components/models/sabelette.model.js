@@ -38,4 +38,3 @@ export let sabeletteStats = {
     }
   };
   
-export default sabeletteStats;

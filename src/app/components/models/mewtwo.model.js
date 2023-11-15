@@ -42,4 +42,3 @@ export let mewtwoStats = {
     }
   };
   
-export default mewtwoStats;

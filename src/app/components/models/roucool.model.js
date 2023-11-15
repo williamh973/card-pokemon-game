@@ -40,4 +40,3 @@ export let roucoolStats = {
     }
   };
   
-export default roucoolStats;

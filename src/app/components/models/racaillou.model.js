@@ -43,4 +43,3 @@ export let racaillouStats = {
     }
   };
   
-export default racaillouStats;

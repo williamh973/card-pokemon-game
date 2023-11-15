@@ -34,8 +34,7 @@ export let insecateurStats = {
       specialAtt : 55,
       specialDef : 80,
       speed : 105,
-      hp : 70 // 70
+      hp : 70 
     }
   };
   
-export default insecateurStats;

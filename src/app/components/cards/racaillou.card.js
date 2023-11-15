@@ -1,4 +1,4 @@
-import racaillouStats from '../models/racaillou.model.js';
+import { racaillouStats } from '../models/racaillou.model.js';
 
 export const racaillouCard = document.createElement('div');
     racaillouCard.classList.add('card-main');
