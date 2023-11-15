@@ -26,7 +26,7 @@ export const hp = document.createElement('span');
     const evoliCardType = document.createElement('span');
     evoliCardType.classList.add('type-logo');
     evoliCardType.id = 'evoli-type';
-    evoliCardType.style.background = `url( ${evoliStats.typeLogo})`; 
+    evoliCardType.style.background = `url( ${evoliStats.logo})`; 
     evoliCardType.style.backgroundSize = 'cover'
     
     const containerHpAndType = document.createElement('div');
@@ -143,7 +143,7 @@ export const hp = document.createElement('span');
     const weaknessType = document.createElement('span');
     weaknessType.classList.add('type-logo');
   
-    weaknessType.style.background = `url( ${evoliStats.weakness.logo})`; 
+    weaknessType.style.background = `url( ${evoliStats.weakness.firstLogo})`; 
     
     weaknessType.style.backgroundSize = 'cover';
     weakness.appendChild(weaknessType);
@@ -157,7 +157,7 @@ export const hp = document.createElement('span');
     const resistanceType = document.createElement('span');
     resistanceType.classList.add('type-logo');
   
-    resistanceType.style.background = `url( ${evoliStats.resistance.logo})`; 
+    resistanceType.style.background = `url( ${evoliStats.resistance.firstLogo})`; 
     
     resistanceType.style.backgroundSize = 'cover';
  

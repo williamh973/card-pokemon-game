@@ -140,35 +140,62 @@ import { sabeletteStats } from '../models/sabelette.model.js';
     weakness.id = 'weakness';
     weakness.textContent = ` ${sabeletteStats.weakness.name}`;
    
-    const weaknessfirstType = document.createElement('span');
-    weaknessfirstType.classList.add('type-logo');
-  
-    weaknessfirstType.style.background = `url( ${sabeletteStats.weakness.firstLogo}
-      )`; 
-    
-    weaknessfirstType.style.backgroundSize = 'cover';
-    
-    weakness.appendChild(weaknessfirstType);
-    
-    
-    
-    
     weaknessResistanceContainer.appendChild(weakness);
+
+
+
+    const weaknessFirstLogo = document.createElement('span');
+    weaknessFirstLogo.classList.add('type-logo');
+    weaknessFirstLogo.style.background = `url( ${sabeletteStats.weakness.firstLogo})`; 
+    weaknessFirstLogo.style.backgroundSize = 'cover';
     
-    const resistance = document.createElement('div');
-    resistance.id = 'resistance';
-    resistance.textContent = ` ${sabeletteStats.resistance.name}`;
+    weakness.appendChild(weaknessFirstLogo);
     
-    const resistanceType = document.createElement('span');
-    resistanceType.classList.add('type-logo');
-  
-    resistanceType.style.background = `url(${sabeletteStats.resistance.firstLogo})`; 
+
+    const weaknessSecondLogo = document.createElement('span');
+    weaknessSecondLogo.classList.add('type-logo');
+    weaknessSecondLogo.style.background = `url( ${sabeletteStats.weakness.secondLogo})`; 
+    weaknessSecondLogo.style.backgroundSize = 'cover';
     
-    resistanceType.style.backgroundSize = 'cover';
+    weakness.appendChild(weaknessSecondLogo);
+    
+    
+    const weaknessThirdLogo = document.createElement('span');
+    weaknessThirdLogo.classList.add('type-logo');
+    weaknessThirdLogo.style.background = `url( ${sabeletteStats.weakness.thirdLogo})`; 
+    weaknessThirdLogo.style.backgroundSize = 'cover';
+    
+    weakness.appendChild(weaknessThirdLogo);
+    
+
+
+    const resistanceContainer = document.createElement('div');
+    resistanceContainer.id = 'resistance';
+    resistanceContainer.textContent = ` ${sabeletteStats.resistance.name}`;
+    
+    weaknessResistanceContainer.appendChild(resistanceContainer);
+    
+
+    const resistanceFirstLogo = document.createElement('span');
+    resistanceFirstLogo.classList.add('type-logo');
+    resistanceFirstLogo.style.background = `url(${sabeletteStats.resistance.firstLogo})`; 
+    resistanceFirstLogo.style.backgroundSize = 'cover';
+
+    resistanceContainer.appendChild(resistanceFirstLogo);
+
+
+    const resistanceSecondLogo = document.createElement('span');
+    resistanceSecondLogo.classList.add('type-logo');
+    resistanceSecondLogo.style.background = `url(${sabeletteStats.resistance.secondLogo})`; 
+    resistanceSecondLogo.style.backgroundSize = 'cover';
  
-    resistance.appendChild(resistanceType);
+    resistanceContainer.appendChild(resistanceSecondLogo);
     
-    weaknessResistanceContainer.appendChild(resistance);
+
+    const resistanceThirdLogo = document.createElement('span');
+    resistanceThirdLogo.classList.add('type-logo');
+    resistanceThirdLogo.style.background = `url(${sabeletteStats.resistance.thirdLogo})`; 
+    resistanceThirdLogo.style.backgroundSize = 'cover';
  
-    resistance.appendChild(resistanceType);
+    resistanceContainer.appendChild(resistanceThirdLogo);
     

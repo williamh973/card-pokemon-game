@@ -140,16 +140,28 @@ import { insecateurStats } from '../models/insecateur.model.js';
     weakness.id = 'weakness';
     weakness.textContent = ` ${insecateurStats.weakness.name}`;
    
-    const weaknessfirstType = document.createElement('span');
-    weaknessfirstType.classList.add('type-logo');
-  
-    weaknessfirstType.style.background = `url( ${insecateurStats.weakness.firstLogo}
-      )`; 
+    const weaknessFirstLogo = document.createElement('span');
+    weaknessFirstLogo.classList.add('type-logo');
+    weaknessFirstLogo.style.background = `url( ${insecateurStats.weakness.firstLogo} )`; 
+    weaknessFirstLogo.style.backgroundSize = 'cover';
     
-    weaknessfirstType.style.backgroundSize = 'cover';
+    weakness.appendChild(weaknessFirstLogo);
+
+
+    const weaknessSecondLogo = document.createElement('span');
+    weaknessSecondLogo.classList.add('type-logo');
+    weaknessSecondLogo.style.background = `url( ${insecateurStats.weakness.secondLogo} )`; 
+    weaknessSecondLogo.style.backgroundSize = 'cover';
     
-    weakness.appendChild(weaknessfirstType);
+    weakness.appendChild(weaknessSecondLogo);
+
+
+    const weaknessThirdLogo = document.createElement('span');
+    weaknessThirdLogo.classList.add('type-logo');
+    weaknessThirdLogo.style.background = `url( ${insecateurStats.weakness.thirdLogo} )`; 
+    weaknessThirdLogo.style.backgroundSize = 'cover';
     
+    weakness.appendChild(weaknessThirdLogo);
     
     
     
@@ -159,16 +171,31 @@ import { insecateurStats } from '../models/insecateur.model.js';
     resistance.id = 'resistance';
     resistance.textContent = ` ${insecateurStats.resistance.name}`;
     
-    const resistanceType = document.createElement('span');
-    resistanceType.classList.add('type-logo');
-  
-    resistanceType.style.background = `url(${insecateurStats.resistance.firstLogo})`; 
-    
-    resistanceType.style.backgroundSize = 'cover';
+    const resistanceFirstLogo = document.createElement('span');
+    resistanceFirstLogo.classList.add('type-logo');
+    resistanceFirstLogo.style.background = `url(${insecateurStats.resistance.firstLogo})`; 
+    resistanceFirstLogo.style.backgroundSize = 'cover';
  
-    resistance.appendChild(resistanceType);
+    resistance.appendChild(resistanceFirstLogo);
+
+
+    const resistanceSecondLogo = document.createElement('span');
+    resistanceSecondLogo.classList.add('type-logo');
+    resistanceSecondLogo.style.background = `url(${insecateurStats.resistance.secondLogo})`; 
+    resistanceSecondLogo.style.backgroundSize = 'cover';
+ 
+    resistance.appendChild(resistanceSecondLogo);
+
+
+    const resistanceThirdLogo = document.createElement('span');
+    resistanceThirdLogo.classList.add('type-logo');
+    resistanceThirdLogo.style.background = `url(${insecateurStats.resistance.thirdLogo})`; 
+    resistanceThirdLogo.style.backgroundSize = 'cover';
+ 
+    resistance.appendChild(resistanceThirdLogo);
     
+
+
     weaknessResistanceContainer.appendChild(resistance);
  
-    resistance.appendChild(resistanceType);
     

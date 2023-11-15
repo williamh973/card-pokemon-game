@@ -141,6 +141,8 @@ import { mewtwoStats } from '../models/mewtwo.model.js';
     weakness.textContent = ` ${mewtwoStats.weakness.name}`;
    
 
+    
+
     const weaknessFirstType = document.createElement('span');
     weaknessFirstType.classList.add('type-logo');
     weaknessFirstType.style.background = `url( ${mewtwoStats.weakness.firstLogo})`; 
@@ -173,6 +175,7 @@ import { mewtwoStats } from '../models/mewtwo.model.js';
     
     weaknessResistanceContainer.appendChild(resistanceContainer);
     
+
 
     const resistanceFirstType = document.createElement('span');
     resistanceFirstType.classList.add('type-logo');

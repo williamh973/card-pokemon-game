@@ -156,7 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
       
         while (firstAttacker.stats.hp > 0 && secondAttacker.stats.hp > 0) {
 
-          // console.log(firstAttacker.name, " Vitesse : ", firstAttacker.stats.speed);
           
            isFirstAttackActive = false;
            isSecondAttackActive = false;
@@ -323,10 +322,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const firstAttackType = firstAttacker.firstAttack.type;
     const secondAttackerType = secondAttacker.type;
     const secondAttackType = firstAttacker.secondAttack.type;
+    let isFirstAttackActive = false;
+    let isSecondAttackActive = false;
+
 
       calculateDamageFirstAttack(
         firstAttacker, 
         secondAttacker, 
+        isFirstAttackActive,
         firstAttackStrength, 
         firstAttackerSpecialAtt, 
         secondAttackerSpecialDef, 
@@ -337,6 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
       calculateDamageSecondAttack(
         firstAttacker, 
         secondAttacker, 
+        isSecondAttackActive,
         secondAttackStrength, 
         firstAttackerSpecialAtt, 
         secondAttackerSpecialDef, 

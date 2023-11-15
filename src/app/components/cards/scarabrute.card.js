@@ -174,25 +174,25 @@ import { scarabruteStats } from '../models/scarabrute.model.js';
     weaknessResistanceContainer.appendChild(resistanceContainer);
     
 
-    const resistanceFirstType = document.createElement('span');
-    resistanceFirstType.classList.add('type-logo');
-    resistanceFirstType.style.background = `url(${scarabruteStats.resistance.firstLogo})`; 
-    resistanceFirstType.style.backgroundSize = 'cover';
+    const resistanceFirstLogo = document.createElement('span');
+    resistanceFirstLogo.classList.add('type-logo');
+    resistanceFirstLogo.style.background = `url(${scarabruteStats.resistance.firstLogo})`; 
+    resistanceFirstLogo.style.backgroundSize = 'cover';
 
-    resistanceContainer.appendChild(resistanceFirstType);
+    resistanceContainer.appendChild(resistanceFirstLogo);
 
 
-    const resistanceSecondType = document.createElement('span');
-    resistanceSecondType.classList.add('type-logo');
-    resistanceSecondType.style.background = `url(${scarabruteStats.resistance.secondLogo})`; 
-    resistanceSecondType.style.backgroundSize = 'cover';
+    const resistanceSecondLogo = document.createElement('span');
+    resistanceSecondLogo.classList.add('type-logo');
+    resistanceSecondLogo.style.background = `url(${scarabruteStats.resistance.secondLogo})`; 
+    resistanceSecondLogo.style.backgroundSize = 'cover';
  
-    resistanceContainer.appendChild(resistanceSecondType);
+    resistanceContainer.appendChild(resistanceSecondLogo);
     
 
-    const resistanceThirdType = document.createElement('span');
-    resistanceThirdType.classList.add('type-logo');
-    resistanceThirdType.style.background = `url(${scarabruteStats.resistance.thirdLogo})`; 
-    resistanceThirdType.style.backgroundSize = 'cover';
+    const resistanceThirdLogo = document.createElement('span');
+    resistanceThirdLogo.classList.add('type-logo');
+    resistanceThirdLogo.style.background = `url(${scarabruteStats.resistance.thirdLogo})`; 
+    resistanceThirdLogo.style.backgroundSize = 'cover';
  
-    resistanceContainer.appendChild(resistanceThirdType);
+    resistanceContainer.appendChild(resistanceThirdLogo);

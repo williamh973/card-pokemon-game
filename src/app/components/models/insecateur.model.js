@@ -2,15 +2,19 @@ export let insecateurStats = {
     name : "Insécateur",
     level : 5,
     type : "insect",
-    logo : "./src/assets/images/logos/plant.png",
+    logo : "./src/assets/images/logos/insect.png",
     image : "./src/assets/images/insecateur.png",
       weakness : {
         name : "Faiblesse",
-        firstLogo : "./src/assets/images/logos/fire.png",
+        firstLogo : "./src/assets/images/logos/flight.png",
+        secondLogo : "./src/assets/images/logos/fire.png",
+        thirdLogo : "./src/assets/images/logos/rock.png",
       },
       resistance : {
         name : "Résistance",
-        firstLogo: "./src/assets/images/logos/plant.png"
+        firstLogo : "./src/assets/images/logos/fight.png",
+        secondLogo : "./src/assets/images/logos/plant.png",
+        thirdLogo : "./src/assets/images/logos/ground.png",
       },
     firstAttack : {
       name : "Hâte",

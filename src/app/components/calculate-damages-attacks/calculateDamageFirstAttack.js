@@ -128,6 +128,7 @@ function calculateDamageFirstAttack(
       return Math.round(degats);
 
     } else {
+      console.log("ca passe");
       openDialogueWhenPokemonMissAttack(firstAttacker);
       return 0;
     }

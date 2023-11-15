@@ -1,18 +1,16 @@
 export let evoliStats = {
     name : "Évoli",
     level : 5,
-    type : "Normal",
-    typeLogo : "./src/assets/images/logos/coloreless.png",
+    type : "normal",
+    logo : "./src/assets/images/logos/coloreless.png",
     image : "./src/assets/images/evoli.png",
       weakness : {
         name : "Faiblesse",
-        type : "fight",
-        logo : "./src/assets/images/logos/fight.png"
+        firstLogo : "./src/assets/images/logos/fight.png"
       },
       resistance : {
         name : "Résistance",
-        type : "null",
-        logo : null
+        firstLogo : "./src/assets/images/logos/spectrum.png"
       },
       firstAttack : {
         name : "Charge",

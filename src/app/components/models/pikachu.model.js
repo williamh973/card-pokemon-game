@@ -2,17 +2,17 @@ export let pikachuStats = {
     name : "Pikachu",
     level : 5,
     type : "electric",
-    typeLogo : "./src/assets/images/logos/electric.png",
+    logo : "./src/assets/images/logos/electric.png",
     image : "./src/assets/images/pikachu.png",
       weakness : {
         name : "Faiblesse",
-        type : "ground",
-        logo : "./src/assets/images/logos/electric.png"
+        firstLogo : "./src/assets/images/logos/ground.png"
       },
       resistance : {
         name : "Résistance",
-        type : "null",
-        logo : null
+        firstLogo : "./src/assets/images/logos/electric.png",
+        secondLogo : "./src/assets/images/logos/steel.png",
+        thirdLogo : "./src/assets/images/logos/flight.png"
       },
       firstAttack : {
         name : "Charge",

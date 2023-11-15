@@ -2,15 +2,19 @@ export let sabeletteStats = {
     name : "Sabelette",
     level : 5,
     type : "ground",
-    logo : "./src/assets/images/logos/coloreless.png",
+    logo : "./src/assets/images/logos/ground.png",
     image : "./src/assets/images/sabelette.png",
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/water.png",
+        secondLogo : "./src/assets/images/logos/plant.png",
+        thirdLogo : "./src/assets/images/logos/ice.png",
       },
       resistance : {
         name : "Résistance",
-        firstLogo: "./src/assets/images/logos/electric.png"
+        firstLogo: "./src/assets/images/logos/electric.png",
+        secondLogo : "./src/assets/images/logos/rock.png",
+        thirdLogo : "./src/assets/images/logos/poison.png"
       },
     firstAttack : {
       name : "Griffe",

@@ -140,45 +140,68 @@ export const racaillouCard = document.createElement('div');
     weakness.id = 'weakness';
     weakness.textContent = ` ${racaillouStats.weakness.name}`;
    
-    const weaknessfirstType = document.createElement('span');
-    weaknessfirstType.classList.add('type-logo');
-  
-    weaknessfirstType.style.background = `url( ${racaillouStats.weakness.logoWater}
-      )`; 
+    const weaknessfirstLogo = document.createElement('span');
+    weaknessfirstLogo.classList.add('type-logo');
+    weaknessfirstLogo.style.background = `url( ${racaillouStats.weakness.firstLogo})`; 
+    weaknessfirstLogo.style.backgroundSize = 'cover';
     
-    weaknessfirstType.style.backgroundSize = 'cover';
+    weakness.appendChild(weaknessfirstLogo);
     
-    weakness.appendChild(weaknessfirstType);
+
+    const weaknessSecondLogo = document.createElement('span');
+    weaknessSecondLogo.classList.add('type-logo');
+    weaknessSecondLogo.style.background = `url( ${racaillouStats.weakness.secondLogo})`; 
+    weaknessSecondLogo.style.backgroundSize = 'cover';
     
-    const weaknessSecondType = document.createElement('span');
-    weaknessSecondType.classList.add('type-logo');
-  
-    weaknessSecondType.style.background = `url( ${racaillouStats.weakness.logoFight}
-      )`; 
-    
-    weaknessSecondType.style.backgroundSize = 'cover';
-    
-    weakness.appendChild(weaknessSecondType);
+    weakness.appendChild(weaknessSecondLogo);
     
     
+    const weaknessThirdLogo = document.createElement('span');
+    weaknessThirdLogo.classList.add('type-logo');
+    weaknessThirdLogo.style.background = `url( ${racaillouStats.weakness.thirdLogo})`; 
+    weaknessThirdLogo.style.backgroundSize = 'cover';
+    
+    weakness.appendChild(weaknessThirdLogo);
     
     
     weaknessResistanceContainer.appendChild(weakness);
     
+
+
     const resistance = document.createElement('div');
     resistance.id = 'resistance';
     resistance.textContent = ` ${racaillouStats.resistance.name}`;
     
-    const resistanceType = document.createElement('span');
-    resistanceType.classList.add('type-logo');
-  
-    resistanceType.style.background = `url(${racaillouStats.resistance.firstLogo})`; 
-    
-    resistanceType.style.backgroundSize = 'cover';
- 
-    resistance.appendChild(resistanceType);
-    
     weaknessResistanceContainer.appendChild(resistance);
- 
-    resistance.appendChild(resistanceType);
     
+    
+    const resistanceFirstLogo = document.createElement('span');
+    resistanceFirstLogo.classList.add('type-logo');
+    resistanceFirstLogo.style.background = `url(${racaillouStats.resistance.firstLogo})`; 
+    resistanceFirstLogo.style.backgroundSize = 'cover';
+ 
+    resistance.appendChild(resistanceFirstLogo);
+    
+ 
+    const resistanceSecondLogo = document.createElement('span');
+    resistanceSecondLogo.classList.add('type-logo');
+    resistanceSecondLogo.style.background = `url(${racaillouStats.resistance.secondLogo})`; 
+    resistanceSecondLogo.style.backgroundSize = 'cover';
+ 
+    resistance.appendChild(resistanceSecondLogo);
+
+
+    const resistanceThirdLogo = document.createElement('span');
+    resistanceThirdLogo.classList.add('type-logo');
+    resistanceThirdLogo.style.background = `url(${racaillouStats.resistance.thirdLogo})`; 
+    resistanceThirdLogo.style.backgroundSize = 'cover';
+ 
+    resistance.appendChild(resistanceThirdLogo);
+
+
+    const resistanceFourthLogo = document.createElement('span');
+    resistanceFourthLogo.classList.add('type-logo');
+    resistanceFourthLogo.style.background = `url(${racaillouStats.resistance.fourthLogo})`; 
+    resistanceFourthLogo.style.backgroundSize = 'cover';
+ 
+    resistance.appendChild(resistanceFourthLogo);

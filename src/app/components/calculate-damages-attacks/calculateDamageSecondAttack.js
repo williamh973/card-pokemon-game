@@ -39,6 +39,7 @@ import { criticalHitIncreaseByFocusEnergyForSecondAttack } from '../factors-atta
 
 
 
+
 export const calculateDamageSecondAttack = 
 function calculateDamageSecondAttack(
     firstAttacker, 
@@ -125,6 +126,7 @@ function calculateDamageSecondAttack(
       return Math.round(degats);
 
     } else {
+      console.log("ca passe");
       openDialogueWhenPokemonMissAttack(firstAttacker);
       return 0;
     }

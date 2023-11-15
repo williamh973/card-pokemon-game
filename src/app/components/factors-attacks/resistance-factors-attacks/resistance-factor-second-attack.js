@@ -76,7 +76,7 @@ if (isSecondAttackActive &&
   ) ||
   (
     secondAttackerType === "electric" &&
-    secondAttackType === "vol"
+    secondAttackType === "flight"
   ) ||
   (
     secondAttackerType === "flight" &&

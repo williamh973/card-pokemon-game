@@ -7,6 +7,7 @@ import {
 
 export let isCriticalHitBoostedByFocusEnergy = false;
 
+
 export const criticalHitIncreaseByFocusEnergyForFirstAttack =
 function criticalHitIncreaseByFocusEnergyForFirstAttack(pokemon, isFirstAttackActive) {
 
@@ -36,11 +37,6 @@ function criticalHitIncreaseByFocusEnergyForFirstAttack(pokemon, isFirstAttackAc
 
 };
 
-function pokemonAlreadyBoostedByFocusEnergy(pokemon) {
-  if (isCriticalHitBoostedByFocusEnergy) {
-    openDialogueWhenPokemonCriticalHitAlreadyBoostedByFocusEnergy(pokemon);
-  }
-}
 
 
 export const criticalHitIncreaseByFocusEnergyForSecondAttack =
@@ -57,17 +53,24 @@ function criticalHitIncreaseByFocusEnergyForSecondAttack(pokemon, isSecondAttack
      ) {
        openDialogueWhenPokemonCriticalHitBoostedByFocusEnergy(pokemon);
        isCriticalHitBoostedByFocusEnergy = true;
-}
- else if (
-  (
-  (
-    pokemon.secondAttack.name === 'Puissance' && 
-    pokemon.name === 'Scarabrute') && 
-    isSecondAttackActive
- ) &&
- (isCriticalHitBoostedByFocusEnergy)
- ) {
-  pokemonAlreadyBoostedByFocusEnergy(pokemon);
- };
+  } else if (
+    (
+      (
+        pokemon.secondAttack.name === 'Puissance' && 
+        pokemon.name === 'Scarabrute'
+        ) && 
+        isSecondAttackActive
+        ) && 
+        (isCriticalHitBoostedByFocusEnergy)
+        ) {
+          pokemonAlreadyBoostedByFocusEnergy(pokemon);
+        };
 
 };
+
+
+function pokemonAlreadyBoostedByFocusEnergy(pokemon) {
+  if (isCriticalHitBoostedByFocusEnergy) {
+    openDialogueWhenPokemonCriticalHitAlreadyBoostedByFocusEnergy(pokemon);
+  }
+}

@@ -26,7 +26,7 @@ export const hp = document.createElement('div');
     const type = document.createElement('span');
     type.classList.add('type-logo');
     type.id = 'pikachu-type';
-    type.style.background = `url( ${pikachuStats.typeLogo})`; 
+    type.style.background = `url( ${pikachuStats.logo})`; 
     type.style.backgroundSize = 'cover'
     
     const containerHpAndType = document.createElement('div');
@@ -140,30 +140,45 @@ export const hp = document.createElement('div');
     weakness.id = 'weakness';
     weakness.textContent = ` ${pikachuStats.weakness.name}`;
    
+    weaknessResistanceContainer.appendChild(weakness);
+
+
     const weaknessType = document.createElement('span');
     weaknessType.classList.add('type-logo');
-  
-    weaknessType.style.background = `url( ${pikachuStats.weakness.logo})`; 
-    
+    weaknessType.style.background = `url( ${pikachuStats.weakness.firstLogo})`; 
     weaknessType.style.backgroundSize = 'cover';
+
     weakness.appendChild(weaknessType);
-    
-    weaknessResistanceContainer.appendChild(weakness);
-    
+
+
+  
     const resistance = document.createElement('div');
     resistance.id = 'resistance';
     resistance.textContent = ` ${pikachuStats.resistance.name}`;
     
-    const resistanceType = document.createElement('span');
-    resistanceType.classList.add('type-logo');
-  
-    resistanceType.style.background = `url( ${pikachuStats.resistance.logo})`; 
-    
-    resistanceType.style.backgroundSize = 'cover';
- 
-    resistance.appendChild(resistanceType);
-    
     weaknessResistanceContainer.appendChild(resistance);
+
+
+    const resistanceFirstLogo = document.createElement('span');
+    resistanceFirstLogo.classList.add('type-logo');
+    resistanceFirstLogo.style.background = `url( ${pikachuStats.resistance.firstLogo})`; 
+    resistanceFirstLogo.style.backgroundSize = 'cover';
  
-    resistance.appendChild(resistanceType);
+    resistance.appendChild(resistanceFirstLogo);
     
+
+
+    const resistanceSecondLogo = document.createElement('span');
+    resistanceSecondLogo.classList.add('type-logo');
+    resistanceSecondLogo.style.background = `url(${pikachuStats.resistance.secondLogo})`; 
+    resistanceSecondLogo.style.backgroundSize = 'cover';
+ 
+    resistance.appendChild(resistanceSecondLogo);
+
+
+    const resistanceThirdLogo = document.createElement('span');
+    resistanceThirdLogo.classList.add('type-logo');
+    resistanceThirdLogo.style.background = `url(${pikachuStats.resistance.thirdLogo})`; 
+    resistanceThirdLogo.style.backgroundSize = 'cover';
+ 
+    resistance.appendChild(resistanceThirdLogo);
