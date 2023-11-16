@@ -16,7 +16,7 @@ import { sabeletteCard } from './cards/sabelette.card.js';
 import { mewtwoCard } from './cards/mewtwo.card.js';
 import { scarabruteCard } from './cards/scarabrute.card.js';
 
-import { selectors } from './main-game.js';
+import { domElementsFromSelectors } from './selectors.js'
 
 
 export { firstAttacker, secondAttacker, determineFirstAttacker };
@@ -26,72 +26,72 @@ export { firstAttacker, secondAttacker, determineFirstAttacker };
 
  const determineFirstAttacker = function determineFirstAttacker() {
     
-  if (selectors.selectFirstPokemonButton.value === 'Pikachu' ||
-     selectors.pokemonFirstLocation.contains(pikachuCard)) {
+  if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Pikachu' ||
+     domElementsFromSelectors.pokemonFirstLocation.contains(pikachuCard)) {
      firstAttacker = pikachuStats;
 
-  } else if (selectors.selectFirstPokemonButton.value === 'Évoli' ||
-     selectors.pokemonFirstLocation.contains(evoliCard)) {
+  } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Évoli' ||
+     domElementsFromSelectors.pokemonFirstLocation.contains(evoliCard)) {
      firstAttacker = evoliStats;
 
-  } else if (selectors.selectFirstPokemonButton.value === 'Roucool' ||
-     selectors.pokemonFirstLocation.contains(roucoolCard)) {
+  } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Roucool' ||
+     domElementsFromSelectors.pokemonFirstLocation.contains(roucoolCard)) {
      firstAttacker = roucoolStats;
 
-  } else if (selectors.selectFirstPokemonButton.value === 'Racaillou' ||
-     selectors.pokemonFirstLocation.contains(racaillouCard)) {
+  } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Racaillou' ||
+     domElementsFromSelectors.pokemonFirstLocation.contains(racaillouCard)) {
      firstAttacker = racaillouStats;
 
-  } else if (selectors.selectFirstPokemonButton.value === 'Insecateur' ||
-     selectors.pokemonFirstLocation.contains(insecateurCard)) {
+  } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Insecateur' ||
+     domElementsFromSelectors.pokemonFirstLocation.contains(insecateurCard)) {
      firstAttacker = insecateurStats;
 
-  } else if (selectors.selectFirstPokemonButton.value === 'Sabelette' ||
-     selectors.pokemonFirstLocation.contains(sabeletteCard)) {
+  } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Sabelette' ||
+     domElementsFromSelectors.pokemonFirstLocation.contains(sabeletteCard)) {
      firstAttacker = sabeletteStats;
 
-  } else if (selectors.selectFirstPokemonButton.value === 'Mewtwo' ||
-     selectors.pokemonFirstLocation.contains(mewtwoCard)) {
+  } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Mewtwo' ||
+     domElementsFromSelectors.pokemonFirstLocation.contains(mewtwoCard)) {
      firstAttacker = mewtwoStats;
 
-  } else if (selectors.selectFirstPokemonButton.value === 'Scarabrute' ||
-     selectors.pokemonFirstLocation.contains(scarabruteCard)) {
+  } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Scarabrute' ||
+     domElementsFromSelectors.pokemonFirstLocation.contains(scarabruteCard)) {
      firstAttacker = scarabruteStats;
 }
   
 
 
 
-  if (selectors.selectSecondPokemonButton.value === 'Pikachu' ||
-     selectors.pokemonSecondLocation.contains(pikachuCard)) {
+  if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Pikachu' ||
+     domElementsFromSelectors.pokemonSecondLocation.contains(pikachuCard)) {
      secondAttacker = pikachuStats;
 
-  } else if (selectors.selectSecondPokemonButton.value === 'Évoli' ||
-     selectors.pokemonSecondLocation.contains(evoliCard)) {
+  } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Évoli' ||
+     domElementsFromSelectors.pokemonSecondLocation.contains(evoliCard)) {
      secondAttacker = evoliStats;
 
-  } else if (selectors.selectSecondPokemonButton.value === 'Roucool' ||
-     selectors.pokemonSecondLocation.contains(roucoolCard)) {
+  } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Roucool' ||
+     domElementsFromSelectors.pokemonSecondLocation.contains(roucoolCard)) {
      secondAttacker = roucoolStats;
 
-  } else if (selectors.selectSecondPokemonButton.value === 'Racaillou' ||
-     selectors.pokemonSecondLocation.contains(racaillouCard)) {
+  } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Racaillou' ||
+     domElementsFromSelectors.pokemonSecondLocation.contains(racaillouCard)) {
      secondAttacker = racaillouStats;
 
-  } else if (selectors.selectSecondPokemonButton.value === 'Insécateur' ||
-     selectors.pokemonSecondLocation.contains(insecateurCard)) {
+  } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Insécateur' ||
+     domElementsFromSelectors.pokemonSecondLocation.contains(insecateurCard)) {
      secondAttacker = insecateurStats;
 
-  } else if (selectors.selectSecondPokemonButton.value === 'Sabelette' ||
-     selectors.pokemonSecondLocation.contains(sabeletteCard)) {
+  } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Sabelette' ||
+     domElementsFromSelectors.pokemonSecondLocation.contains(sabeletteCard)) {
      secondAttacker = sabeletteStats;
 
-  } else if (selectors.selectSecondPokemonButton.value === 'Mewtwo' ||
-     selectors.pokemonSecondLocation.contains(mewtwoCard)) {
+  } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Mewtwo' ||
+     domElementsFromSelectors.pokemonSecondLocation.contains(mewtwoCard)) {
      secondAttacker = mewtwoStats;
      
-  } else if (selectors.selectSecondPokemonButton.value === 'Scarabrute' ||
-     selectors.pokemonSecondLocation.contains(scarabruteCard)) {
+  } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Scarabrute' ||
+     domElementsFromSelectors.pokemonSecondLocation.contains(scarabruteCard)) {
      secondAttacker = scarabruteStats;
 }
     

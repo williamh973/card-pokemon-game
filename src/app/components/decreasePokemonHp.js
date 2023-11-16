@@ -16,87 +16,87 @@ import { sabeletteCard } from './cards/sabelette.card.js';
 import { mewtwoCard } from './cards/mewtwo.card.js';
 import { scarabruteCard } from './cards/scarabrute.card.js';
 
-import { selectors } from './main-game.js'
+import { domElementsFromSelectors } from './selectors.js';
 
 
 export const decreaseHp = 
 function decreaseHp() {
 
   if (
-      (selectors.selectFirstPokemonButton.value === 'Pikachu') ||
-      (selectors.selectSecondPokemonButton.value === 'Pikachu') || 
-      (selectors.pokemonFirstLocation.contains(pikachuCard)) || 
-      (selectors.pokemonSecondLocation.contains(pikachuCard))
+      (domElementsFromSelectors.selectFirstPokemonButton.value === 'Pikachu') ||
+      (domElementsFromSelectors.selectSecondPokemonButton.value === 'Pikachu') || 
+      (domElementsFromSelectors.pokemonFirstLocation.contains(pikachuCard)) || 
+      (domElementsFromSelectors.pokemonSecondLocation.contains(pikachuCard))
      ) {
        document.getElementById('pikachuHealth').textContent = 
        `${pikachuStats.stats.hp}`;
   };
     
     if (
-      (selectors.selectFirstPokemonButton.value === 'Évoli') ||
-      (selectors.selectSecondPokemonButton.value === 'Évoli') || 
-      (selectors.pokemonFirstLocation.contains(evoliCard)) || 
-      (selectors.pokemonSecondLocation.contains(evoliCard))
+      (domElementsFromSelectors.selectFirstPokemonButton.value === 'Évoli') ||
+      (domElementsFromSelectors.selectSecondPokemonButton.value === 'Évoli') || 
+      (domElementsFromSelectors.pokemonFirstLocation.contains(evoliCard)) || 
+      (domElementsFromSelectors.pokemonSecondLocation.contains(evoliCard))
   ) {
      document.getElementById('evoliHealth').textContent =
      `${evoliStats.stats.hp}`;
     };
     
     if (
-      (selectors.selectFirstPokemonButton.value === 'Roucool') || 
-      (selectors.selectSecondPokemonButton.value === 'Roucool') || 
-      (selectors.pokemonFirstLocation.contains(roucoolCard)) || 
-      (selectors.pokemonSecondLocation.contains(roucoolCard))
+      (domElementsFromSelectors.selectFirstPokemonButton.value === 'Roucool') || 
+      (domElementsFromSelectors.selectSecondPokemonButton.value === 'Roucool') || 
+      (domElementsFromSelectors.pokemonFirstLocation.contains(roucoolCard)) || 
+      (domElementsFromSelectors.pokemonSecondLocation.contains(roucoolCard))
   ) {
     document.getElementById('roucoolHealth').textContent = 
     `${roucoolStats.stats.hp}`;
     };
     
     if (
-      (selectors.selectFirstPokemonButton.value === 'Racaillou') || 
-      (selectors.selectSecondPokemonButton.value === 'Racaillou') || 
-      (selectors.pokemonFirstLocation.contains(racaillouCard)) || 
-      (selectors.pokemonSecondLocation.contains(racaillouCard))
+      (domElementsFromSelectors.selectFirstPokemonButton.value === 'Racaillou') || 
+      (domElementsFromSelectors.selectSecondPokemonButton.value === 'Racaillou') || 
+      (domElementsFromSelectors.pokemonFirstLocation.contains(racaillouCard)) || 
+      (domElementsFromSelectors.pokemonSecondLocation.contains(racaillouCard))
     ) {
     document.getElementById('racaillouHealth').textContent = 
     `${racaillouStats.stats.hp}`;
     };
 
     if (
-      (selectors.selectFirstPokemonButton.value === 'Insécateur') || 
-      (selectors.selectSecondPokemonButton.value === 'Insécateur') || 
-      (selectors.pokemonFirstLocation.contains(insecateurCard)) || 
-      (selectors.pokemonSecondLocation.contains(insecateurCard))
+      (domElementsFromSelectors.selectFirstPokemonButton.value === 'Insécateur') || 
+      (domElementsFromSelectors.selectSecondPokemonButton.value === 'Insécateur') || 
+      (domElementsFromSelectors.pokemonFirstLocation.contains(insecateurCard)) || 
+      (domElementsFromSelectors.pokemonSecondLocation.contains(insecateurCard))
     ) {
     document.getElementById('insecateurHealth').textContent = 
     `${insecateurStats.stats.hp}`;
     };
 
     if (
-      (selectors.selectFirstPokemonButton.value === 'Sabelette') || 
-      (selectors.selectSecondPokemonButton.value === 'Sabelette') || 
-      (selectors.pokemonFirstLocation.contains(sabeletteCard)) || 
-      (selectors.pokemonSecondLocation.contains(sabeletteCard))
+      (domElementsFromSelectors.selectFirstPokemonButton.value === 'Sabelette') || 
+      (domElementsFromSelectors.selectSecondPokemonButton.value === 'Sabelette') || 
+      (domElementsFromSelectors.pokemonFirstLocation.contains(sabeletteCard)) || 
+      (domElementsFromSelectors.pokemonSecondLocation.contains(sabeletteCard))
     ) {
     document.getElementById('sabeletteHealth').textContent = 
     `${sabeletteStats.stats.hp}`;
     };
 
     if (
-      (selectors.selectFirstPokemonButton.value === 'Mewtwo') || 
-      (selectors.selectSecondPokemonButton.value === 'Mewtwo') || 
-      (selectors.pokemonFirstLocation.contains(mewtwoCard)) || 
-      (selectors.pokemonSecondLocation.contains(mewtwoCard))
+      (domElementsFromSelectors.selectFirstPokemonButton.value === 'Mewtwo') || 
+      (domElementsFromSelectors.selectSecondPokemonButton.value === 'Mewtwo') || 
+      (domElementsFromSelectors.pokemonFirstLocation.contains(mewtwoCard)) || 
+      (domElementsFromSelectors.pokemonSecondLocation.contains(mewtwoCard))
     ) {
     document.getElementById('mewtwoHealth').textContent = 
     `${mewtwoStats.stats.hp}`;
     };
 
     if (
-      (selectors.selectFirstPokemonButton.value === 'Scarabrute') || 
-      (selectors.selectSecondPokemonButton.value === 'Scarabrute') || 
-      (selectors.pokemonFirstLocation.contains(scarabruteCard)) || 
-      (selectors.pokemonSecondLocation.contains(scarabruteCard))
+      (domElementsFromSelectors.selectFirstPokemonButton.value === 'Scarabrute') || 
+      (domElementsFromSelectors.selectSecondPokemonButton.value === 'Scarabrute') || 
+      (domElementsFromSelectors.pokemonFirstLocation.contains(scarabruteCard)) || 
+      (domElementsFromSelectors.pokemonSecondLocation.contains(scarabruteCard))
     ) {
     document.getElementById('scarabruteHealth').textContent = 
     `${scarabruteStats.stats.hp}`;

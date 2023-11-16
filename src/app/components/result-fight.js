@@ -1,6 +1,6 @@
 import { firstAttacker, secondAttacker } from './determineFirstAttacker.js';
 
-import { selectors } from './main-game.js'
+import { domElementsFromSelectors } from './selectors.js'
 
 
 const containerFullPopupResultFight = document.getElementById('container-display-result');
@@ -20,16 +20,16 @@ export const openDisplayResult = function openDisplayResult() {
        
     setTimeout(function() {
       containerFullPopupResultFight.style.display = 'none';
-      selectors.fightButtonContainer.style.display = 'none';
+      domElementsFromSelectors.fightButtonContainer.style.display = 'none';
       
-        if (selectors.definiteFightMod) {
-          selectors.selectFirstPokemonButton.style.display = 'flex';
-          selectors.selectSecondPokemonButton.style.display = 'flex';
-          selectors.pokemonRandomSelectionButton.style.display = 'none';
-        } else if (selectors.randomFightMod) {
-          selectors.selectFirstPokemonButton.style.display = 'flex';
-          selectors.pokemonRandomSelectionButton.style.display = 'flex';
-          selectors.selectSecondPokemonButton.style.display = 'none';
+        if (domElementsFromSelectors.definiteFightMod) {
+          domElementsFromSelectors.selectFirstPokemonButton.style.display = 'flex';
+          domElementsFromSelectors.selectSecondPokemonButton.style.display = 'flex';
+          domElementsFromSelectors.pokemonRandomSelectionButton.style.display = 'none';
+        } else if (domElementsFromSelectors.randomFightMod) {
+          domElementsFromSelectors.selectFirstPokemonButton.style.display = 'flex';
+          domElementsFromSelectors.pokemonRandomSelectionButton.style.display = 'flex';
+          domElementsFromSelectors.selectSecondPokemonButton.style.display = 'none';
         }
 
     }, 3000);

@@ -9,7 +9,10 @@ export let isCriticalHitBoostedByFocusEnergy = false;
 
 
 export const criticalHitIncreaseByFocusEnergyForFirstAttack =
-function criticalHitIncreaseByFocusEnergyForFirstAttack(pokemon, isFirstAttackActive) {
+function criticalHitIncreaseByFocusEnergyForFirstAttack(
+  pokemon, 
+  isFirstAttackActive
+  ) {
 
     if (
         (
@@ -32,7 +35,7 @@ function criticalHitIncreaseByFocusEnergyForFirstAttack(pokemon, isFirstAttackAc
      ) &&
      (isCriticalHitBoostedByFocusEnergy)
      ) {
-      pokemonAlreadyBoostedByFocusEnergy(pokemon);
+      pokemonAlreadyBoostedByFocusEnergy(pokemon);C
      };
 
 };
@@ -40,7 +43,10 @@ function criticalHitIncreaseByFocusEnergyForFirstAttack(pokemon, isFirstAttackAc
 
 
 export const criticalHitIncreaseByFocusEnergyForSecondAttack =
-function criticalHitIncreaseByFocusEnergyForSecondAttack(pokemon, isSecondAttackActive) {
+function criticalHitIncreaseByFocusEnergyForSecondAttack(
+  pokemon, 
+  isSecondAttackActive
+  ) {
 
   if (
     (
@@ -53,6 +59,7 @@ function criticalHitIncreaseByFocusEnergyForSecondAttack(pokemon, isSecondAttack
      ) {
        openDialogueWhenPokemonCriticalHitBoostedByFocusEnergy(pokemon);
        isCriticalHitBoostedByFocusEnergy = true;
+
   } else if (
     (
       (
@@ -64,7 +71,7 @@ function criticalHitIncreaseByFocusEnergyForSecondAttack(pokemon, isSecondAttack
         (isCriticalHitBoostedByFocusEnergy)
         ) {
           pokemonAlreadyBoostedByFocusEnergy(pokemon);
-        };
+        }
 
 };
 

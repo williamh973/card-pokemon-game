@@ -3,13 +3,15 @@ import {
 } from '../dialogue-fight.js';
 
 
-export const ineffectiveFactorForFirstAttack = function ineffectiveFactorForFirstAttack(
+export const ineffectiveFactorForFirstAttack = 
+function ineffectiveFactorForFirstAttack(
   firstAttackType, 
   secondAttackerType,
   isFirstAttackActive
   ) {
 
-if (isFirstAttackActive &&
+if (
+  isFirstAttackActive &&
   (
     secondAttackerType === "spectrum" &&
     firstAttackType === "normal"
@@ -45,13 +47,7 @@ if (isFirstAttackActive &&
   (
     secondAttackerType === "rock" &&
     firstAttackType === "electric"
-  ) ||
-  (
-    (
-      firstAttackType === "bonus" || 
-      firstAttackType === "malus" 
-    )
-  )
+  ) 
   ) {
     openDialogueWhenPokemonMakesIneffectiveAttack();
     return 0;
@@ -62,13 +58,15 @@ if (isFirstAttackActive &&
 
 
 
-export const ineffectiveFactorForSecondAttack = function ineffectiveFactorForSecondAttack(
+export const ineffectiveFactorForSecondAttack = 
+function ineffectiveFactorForSecondAttack(
   secondAttackType, 
   secondAttackerType, 
   isSecondAttackActive
   ) {
 
-if (isSecondAttackActive &&
+if (
+  isSecondAttackActive &&
   (
     secondAttackerType === "spectrum" &&
     secondAttackType === "normal"
@@ -104,14 +102,9 @@ if (isSecondAttackActive &&
   (
     secondAttackerType === "rock" &&
     secondAttackType === "electric"
-  ) ||
-  (
-    (
-      secondAttackType === "bonus" || 
-      secondAttackType === "malus" 
-    )
-  )
+  ) 
   ) {
+    // console.log("isSecondAttackActive", isSecondAttackActive);
     openDialogueWhenPokemonMakesIneffectiveAttack();
     return 0;
   } else {

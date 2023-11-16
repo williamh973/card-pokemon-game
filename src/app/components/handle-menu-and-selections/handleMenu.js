@@ -1,49 +1,49 @@
-import { selectors } from '../main-game.js';
+import { domElementsFromSelectors } from '../selectors.js';
 
 
 export const handleMenu = function handleMenu(gameMod) {
   switch (gameMod) {
     case 'default':
-      selectors.definiteFighTitle.style.display = 'none';
-      selectors.randomFighTitle.style.display = 'none';
-      selectors.selectFirstPokemonButton.style.display = 'none';
-      selectors.versusContainer.style.display = 'none';
-      selectors.selectSecondPokemonButton.style.display = 'none';
-      selectors.pokemonRandomSelectionButton.style.display = 'none';
-      selectors.definiteFightMod = false;
-      selectors.randomFightMod = false;
+      domElementsFromSelectors.definiteFighTitle.style.display = 'none';
+      domElementsFromSelectors.randomFighTitle.style.display = 'none';
+      domElementsFromSelectors.selectFirstPokemonButton.style.display = 'none';
+      domElementsFromSelectors.versusContainer.style.display = 'none';
+      domElementsFromSelectors.selectSecondPokemonButton.style.display = 'none';
+      domElementsFromSelectors.pokemonRandomSelectionButton.style.display = 'none';
+      domElementsFromSelectors.definiteFightMod = false;
+      domElementsFromSelectors.randomFightMod = false;
       break;
     case 'definite-fight':
-      selectors.definiteFighTitle.style.display = 'flex';
-      selectors.randomFighTitle.style.display = 'none';
-      selectors.selectFirstPokemonButton.style.display = 'flex';
-      selectors.versusContainer.style.display = 'flex';
-      selectors.selectSecondPokemonButton.style.display = 'flex';
-      selectors.pokemonRandomSelectionButton.style.display = 'none';
-      selectors.definiteFightMod = true;
-      selectors.randomFightMod = false;
+      domElementsFromSelectors.definiteFighTitle.style.display = 'flex';
+      domElementsFromSelectors.randomFighTitle.style.display = 'none';
+      domElementsFromSelectors.selectFirstPokemonButton.style.display = 'flex';
+      domElementsFromSelectors.versusContainer.style.display = 'flex';
+      domElementsFromSelectors.selectSecondPokemonButton.style.display = 'flex';
+      domElementsFromSelectors.pokemonRandomSelectionButton.style.display = 'none';
+      domElementsFromSelectors.definiteFightMod = true;
+      domElementsFromSelectors.randomFightMod = false;
       break;
       
     case 'random-fight':
-      selectors.definiteFighTitle.style.display = 'none';
-      selectors.randomFighTitle.style.display = 'flex';
-      selectors.selectFirstPokemonButton.style.display = 'flex';
-      selectors.versusContainer.style.display = 'flex';
-      selectors.pokemonRandomSelectionButton.style.display = 'flex';
-      selectors.selectSecondPokemonButton.style.display = 'none';
-      selectors.randomFightMod = true;
-      selectors.definiteFightMod = false;
+      domElementsFromSelectors.definiteFighTitle.style.display = 'none';
+      domElementsFromSelectors.randomFighTitle.style.display = 'flex';
+      domElementsFromSelectors.selectFirstPokemonButton.style.display = 'flex';
+      domElementsFromSelectors.versusContainer.style.display = 'flex';
+      domElementsFromSelectors.pokemonRandomSelectionButton.style.display = 'flex';
+      domElementsFromSelectors.selectSecondPokemonButton.style.display = 'none';
+      domElementsFromSelectors.randomFightMod = true;
+      domElementsFromSelectors.definiteFightMod = false;
       break;
       
     case 'close-menu':
-      selectors.definiteFighTitle.style.display = 'none';
-      selectors.randomFighTitle.style.display = 'none';
-      selectors.selectFirstPokemonButton.style.display = 'none';
-      selectors.versusContainer.style.display = 'none';
-      selectors.selectSecondPokemonButton.style.display = 'none';
-      selectors.pokemonRandomSelectionButton.style.display = 'none';
-      selectors.definiteFightMod = false;
-      selectors.randomFightMod = false;
+      domElementsFromSelectors.definiteFighTitle.style.display = 'none';
+      domElementsFromSelectors.randomFighTitle.style.display = 'none';
+      domElementsFromSelectors.selectFirstPokemonButton.style.display = 'none';
+      domElementsFromSelectors.versusContainer.style.display = 'none';
+      domElementsFromSelectors.selectSecondPokemonButton.style.display = 'none';
+      domElementsFromSelectors.pokemonRandomSelectionButton.style.display = 'none';
+      domElementsFromSelectors.definiteFightMod = false;
+      domElementsFromSelectors.randomFightMod = false;
       break;
   }
 

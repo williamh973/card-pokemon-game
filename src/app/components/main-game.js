@@ -7,6 +7,7 @@ import {
 } from './determineFirstAttacker.js';
 
 import { handleMenu } from './handle-menu-and-selections/handleMenu.js';
+
 import { handlePokemonFirstSelection } from './handle-menu-and-selections/handlePokemonFirstSelection.js';
 import { handlePokemonSecondSelection } from './handle-menu-and-selections/handlePokemonSecondSelection.js';
 import { handleSelectionRandomPokemon } from './handle-menu-and-selections/handlePokemonRandomSelection.js';
@@ -32,6 +33,7 @@ import { calculateDamageFirstAttack } from "./calculate-damages-attacks/calculat
 
 import { calculateDamageSecondAttack } from "./calculate-damages-attacks/calculateDamageSecondAttack.js";
 
+import { domElementsFromSelectors } from "./selectors.js";
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -43,35 +45,36 @@ document.addEventListener('DOMContentLoaded', () => {
   let isFirstAttackActive = false;
   let isSecondAttackActive = false;
   
-  const headContainer = 
-  document.querySelector('.container-head');
-    
-  const selectFirstPokemonButton = 
+
+  domElementsFromSelectors.headContainer = 
+  document.querySelector('.container-head');  
+
+  domElementsFromSelectors.selectFirstPokemonButton = 
   document.getElementById('pokemonFirstSelection');
   
-  const selectSecondPokemonButton = 
+  domElementsFromSelectors.selectSecondPokemonButton = 
   document.getElementById('pokemonSecondSelection');
 
-  const fightButtonContainer = 
+  domElementsFromSelectors.fightButtonContainer = 
   document.getElementById('container-btn-fight');
 
-  const fightButton = 
+  domElementsFromSelectors.fightButton = 
   document.getElementById('fightButton');
     
-  const fightInProgress = 
+  domElementsFromSelectors.fightInProgress = 
   document.getElementById('fight-in-progress');
 
-  const pokemonRandomSelectionButton = 
+  domElementsFromSelectors.pokemonRandomSelectionButton = 
   document.getElementById('pokemonRandomSelection');
 
-  const displayDialogue =
+  domElementsFromSelectors.displayDialogue =
   document.getElementById('dialogue');
 
-  const containerFullPopupDialogueFight = 
+  domElementsFromSelectors.containerFullPopupDialogueFight = 
   document.getElementById('container-display-dialogue');
     
   
-  headContainer.appendChild(fightInProgress);
+  domElementsFromSelectors.headContainer.appendChild(domElementsFromSelectors.fightInProgress);
 
 
   menu.addEventListener("change", () => {
@@ -79,37 +82,37 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
 
-  selectFirstPokemonButton.addEventListener("change", () => {
+  domElementsFromSelectors.selectFirstPokemonButton.addEventListener("change", () => {
 
-    handlePokemonFirstSelection(selectFirstPokemonButton.value);
+    handlePokemonFirstSelection(domElementsFromSelectors.selectFirstPokemonButton.value);
     isFirstPokemonSelected = true;
-    playerSelectedPokemon = selectFirstPokemonButton.value;
+    playerSelectedPokemon = domElementsFromSelectors.selectFirstPokemonButton.value;
     
-    fightButtonContainer.style.display = 'flex';
+    domElementsFromSelectors.fightButtonContainer.style.display = 'flex';
     activateFightButton();
   
-    containerFullPopupDialogueFight.style.display = 'none';
-    displayDialogue.style.display = 'none';
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'none';
+    domElementsFromSelectors.displayDialogue.style.display = 'none';
 
   });
     
 
-  selectSecondPokemonButton.addEventListener("change", () => {
+  domElementsFromSelectors.selectSecondPokemonButton.addEventListener("change", () => {
 
-    handlePokemonSecondSelection(selectSecondPokemonButton.value);
+    handlePokemonSecondSelection(domElementsFromSelectors.selectSecondPokemonButton.value);
     isSecondPokemonSelected = true;
-    enemyPokemon = selectSecondPokemonButton.value;
+    enemyPokemon = domElementsFromSelectors.selectSecondPokemonButton.value;
 
-    fightButtonContainer.style.display = 'flex';
+    domElementsFromSelectors.fightButtonContainer.style.display = 'flex';
     activateFightButton();
         
-    containerFullPopupDialogueFight.style.display = 'none';
-    displayDialogue.style.display = 'none';
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'none';
+    domElementsFromSelectors.displayDialogue.style.display = 'none';
 
   });
 
   
-  pokemonRandomSelectionButton.addEventListener('click', () => {
+  domElementsFromSelectors.pokemonRandomSelectionButton.addEventListener('click', () => {
    
     const possiblePokemons = [
       "Pikachu", 
@@ -129,18 +132,18 @@ document.addEventListener('DOMContentLoaded', () => {
     isSecondPokemonSelected = true;
     enemyPokemon = pokemon;
 
-    fightButtonContainer.style.display = 'flex';
+    domElementsFromSelectors.fightButtonContainer.style.display = 'flex';
     activateFightButton();
    
-    containerFullPopupDialogueFight.style.display = 'none';
-    displayDialogue.style.display = 'none';
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'none';
+    domElementsFromSelectors.displayDialogue.style.display = 'none';
     
   });
    
-  fightButton.disabled = true;
+  domElementsFromSelectors.fightButton.disabled = true;
     
   
-  fightButton.addEventListener('click', () => {
+  domElementsFromSelectors.fightButton.addEventListener('click', () => {
 
 
     async function fight() {
@@ -159,6 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
           
            isFirstAttackActive = false;
            isSecondAttackActive = false;
+
 
           let randomFactor = Math.random();
   
@@ -231,6 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             isFirstAttackActive = false;
             isSecondAttackActive = false;
+
 
             randomFactor = Math.random();
   
@@ -359,32 +364,11 @@ document.addEventListener('DOMContentLoaded', () => {
           isSecondPokemonSelected
           )
           ) {
-           fightButton.disabled = false;
+            domElementsFromSelectors.fightButton.disabled = false;
       }
     };
 
 
 });
-
-export const selectors = {
-  headContainer : document.querySelector('.container-head'),
-  titleContainer : document.getElementById('container-title'),
-  title : document.getElementById('title'),
-  versusContainer : document.getElementById('container-vs'),
-  versus : document.getElementById('vs'),
-  menuButton : document.getElementById('menu'),
-  definiteFighTitle : document.getElementById('definite-fight-title'),
-  randomFighTitle : document.getElementById('random-fight-title'),
-  selectFirstPokemonButton : document.getElementById('pokemonFirstSelection'),
-  selectSecondPokemonButton : document.getElementById('pokemonSecondSelection'),
-  pokemonFirstLocation : document.getElementById('pokemon-first-location'),
-  pokemonSecondLocation : document.getElementById('pokemon-second-location'),
-  containerFullPopupDialogueFight : document.getElementById('container-display-dialogue'),
-  fightInProgress : document.getElementById('fight-in-progress'),
-  pokemonRandomSelectionButton : document.getElementById('pokemonRandomSelection'),
-  fightButtonContainer : document.getElementById('container-btn-fight'),
-  definiteFightMod : false,
-  randomFightMod : false,
-};
 
 

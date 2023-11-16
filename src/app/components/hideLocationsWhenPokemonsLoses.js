@@ -9,29 +9,29 @@ import { sabeletteCard } from './cards/sabelette.card.js';
 import { mewtwoCard } from './cards/mewtwo.card.js';
 import { scarabruteCard } from './cards/scarabrute.card.js';
 
-import { selectors } from "./main-game.js";
+import { domElementsFromSelectors } from './selectors.js';
 
 
 const isPokemonInSecondLocation = () => 
-  selectors.pokemonSecondLocation.contains(pikachuCard) ||
-  selectors.pokemonSecondLocation.contains(evoliCard) ||
-  selectors.pokemonSecondLocation.contains(roucoolCard) ||
-  selectors.pokemonSecondLocation.contains(racaillouCard) ||
-  selectors.pokemonSecondLocation.contains(insecateurCard) ||
-  selectors.pokemonSecondLocation.contains(sabeletteCard) ||
-  selectors.pokemonSecondLocation.contains(mewtwoCard) ||
-  selectors.pokemonSecondLocation.contains(scarabruteCard)
+  domElementsFromSelectors.pokemonSecondLocation.contains(pikachuCard) ||
+  domElementsFromSelectors.pokemonSecondLocation.contains(evoliCard) ||
+  domElementsFromSelectors.pokemonSecondLocation.contains(roucoolCard) ||
+  domElementsFromSelectors.pokemonSecondLocation.contains(racaillouCard) ||
+  domElementsFromSelectors.pokemonSecondLocation.contains(insecateurCard) ||
+  domElementsFromSelectors.pokemonSecondLocation.contains(sabeletteCard) ||
+  domElementsFromSelectors.pokemonSecondLocation.contains(mewtwoCard) ||
+  domElementsFromSelectors.pokemonSecondLocation.contains(scarabruteCard)
 
 
 const isPokemonInFirstLocation = () => 
-  selectors.pokemonFirstLocation.contains(pikachuCard) ||
-  selectors.pokemonFirstLocation.contains(evoliCard) ||
-  selectors.pokemonFirstLocation.contains(roucoolCard) ||
-  selectors.pokemonFirstLocation.contains(racaillouCard) ||
-  selectors.pokemonFirstLocation.contains(insecateurCard) ||
-  selectors.pokemonFirstLocation.contains(sabeletteCard) ||
-  selectors.pokemonFirstLocation.contains(mewtwoCard) ||
-  selectors.pokemonFirstLocation.contains(scarabruteCard)
+  domElementsFromSelectors.pokemonFirstLocation.contains(pikachuCard) ||
+  domElementsFromSelectors.pokemonFirstLocation.contains(evoliCard) ||
+  domElementsFromSelectors.pokemonFirstLocation.contains(roucoolCard) ||
+  domElementsFromSelectors.pokemonFirstLocation.contains(racaillouCard) ||
+  domElementsFromSelectors.pokemonFirstLocation.contains(insecateurCard) ||
+  domElementsFromSelectors.pokemonFirstLocation.contains(sabeletteCard) ||
+  domElementsFromSelectors.pokemonFirstLocation.contains(mewtwoCard) ||
+  domElementsFromSelectors.pokemonFirstLocation.contains(scarabruteCard)
 
 
   
@@ -45,7 +45,7 @@ function hideSecondAttackerWhenLose(
     isPokemonInSecondLocation()
     ) {
       updatePlayerScore();
-      selectors.pokemonSecondLocation.innerHTML = '';
+      domElementsFromSelectors.pokemonSecondLocation.innerHTML = '';
   };
 };
 
@@ -59,7 +59,7 @@ function hideFirstAttackerWhenLose(
     isPokemonInFirstLocation()
     ) {
       updatePlayerScore();
-      selectors.pokemonSecondLocation.innerHTML = '';
+      domElementsFromSelectors.pokemonSecondLocation.innerHTML = '';
   };
 };
 
@@ -73,7 +73,7 @@ function hidePlayerSecondAttackerWhenLose(
     secondAttacker.name === playerSelectedPokemon && 
     isPokemonInFirstLocation()
     ) {
-      selectors.pokemonFirstLocation.innerHTML = '';
+      domElementsFromSelectors.pokemonFirstLocation.innerHTML = '';
   };
 };
 
@@ -86,7 +86,7 @@ function hidePlayerFirstAttackerWhenLose(
     firstAttacker.name === playerSelectedPokemon && 
     isPokemonInFirstLocation()
     ) {
-      selectors.pokemonFirstLocation.innerHTML = '';
+      domElementsFromSelectors.pokemonFirstLocation.innerHTML = '';
   };
 };
 

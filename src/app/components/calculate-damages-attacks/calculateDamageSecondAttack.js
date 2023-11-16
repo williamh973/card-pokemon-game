@@ -33,7 +33,8 @@ import {
     openDialogueWhenPokemonMissAttack
 } from '../dialogue-fight.js';
 
-import { getCriticalHit } from '../factors-attacks/critical-hit-factor.js'
+import { criticalHit } from '../factors-attacks/critical-hit-factor.js';
+
 
 import { criticalHitIncreaseByFocusEnergyForSecondAttack } from '../factors-attacks/increase-factors-attacks/critical-hit-increase-factor-attacks/critical-hit-increase-focus-energy-attacks.js';
 
@@ -55,22 +56,27 @@ function calculateDamageSecondAttack(
     
   openDialogueWhenPokemonMakesSecondAttack(firstAttacker);
   
-  const randomPrecision = Math.floor(Math.random() * 100) + 1;
+  const randomNumber = Math.floor(Math.random() * 100) + 1;
   
-  if (randomPrecision <= secondAttackPrecision) {
+  if (
+    randomNumber <= secondAttackPrecision && 
+    isSecondAttackActive
+    ) {
     
+
       let degats = (
         (2 * firstAttacker.stats.attack / secondAttacker.stats.defense) * 
         secondAttackStrength * 
         (firstAttackerSpecialAtt / secondAttackerSpecialDef)
-      ) / 50 + 2;
+      ) / 50;
 
-      getCriticalHit(firstAttacker, degats);
+
+      let getCriticalHit = criticalHit(firstAttacker);
+      degats *= getCriticalHit;
 
       let randomFactor = Math.random() * (1.00 - 0.85) + 0.85;
       degats *= randomFactor;
 
-    
       let getWeaknessFactorList = weaknessFactorForSecondAttack(
         secondAttackType, 
         secondAttackerType, 
@@ -119,14 +125,13 @@ function calculateDamageSecondAttack(
 
       criticalHitIncreaseByFocusEnergyForSecondAttack(
         firstAttacker,
-        isSecondAttackActive,
-        degats
+        isSecondAttackActive
         );
 
+      console.log(firstAttacker.name, "utilise", firstAttacker.secondAttack.name, " : " , degats);
       return Math.round(degats);
 
     } else {
-      console.log("ca passe");
       openDialogueWhenPokemonMissAttack(firstAttacker);
       return 0;
     }

@@ -23,7 +23,6 @@ function increaseHp(pokemon) {
 function isCurrentHpAlreadyAboveHpMax(pokemon) {
     pokemon.stats.hp = pokemon.stats.hpMax;
     openDialogueWhenPokemonMissHpIncrease5pFactorAttack();
-    console.log("c'est lu");
     return pokemon.stats.hp;
 };
 

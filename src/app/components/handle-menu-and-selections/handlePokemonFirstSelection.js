@@ -7,46 +7,45 @@ import { sabeletteCard } from '../cards/sabelette.card.js';
 import { mewtwoCard } from '../cards/mewtwo.card.js';
 import { scarabruteCard } from '../cards/scarabrute.card.js';
 
-
-import { selectors } from '../main-game.js';
+import { domElementsFromSelectors } from '../selectors.js';
 import { pokemonSelected } from '../dialogue-when-pokemon-selected.js';
 
 
 export const handlePokemonFirstSelection =  function handlePokemonFirstSelection(pokemon) {
   
-    selectors.pokemonFirstLocation.innerHTML = ''; 
+    domElementsFromSelectors.pokemonFirstLocation.innerHTML = ''; 
         
       switch (pokemon) {
         case 'Pikachu':
-        selectors.pokemonFirstLocation.appendChild(pikachuCard);
+        domElementsFromSelectors.pokemonFirstLocation.appendChild(pikachuCard);
         pokemonSelected(pokemon);
           break;
         case 'Évoli':
-        selectors.pokemonFirstLocation.appendChild(evoliCard);
+        domElementsFromSelectors.pokemonFirstLocation.appendChild(evoliCard);
         pokemonSelected(pokemon);
           break;
         case 'Roucool':
-         selectors.pokemonFirstLocation.appendChild(roucoolCard);
+         domElementsFromSelectors.pokemonFirstLocation.appendChild(roucoolCard);
         pokemonSelected(pokemon);
           break;
         case 'Racaillou':
-        selectors.pokemonFirstLocation.appendChild(racaillouCard);
+        domElementsFromSelectors.pokemonFirstLocation.appendChild(racaillouCard);
         pokemonSelected(pokemon);
           break;
         case 'Insécateur':
-        selectors.pokemonFirstLocation.appendChild(insecateurCard);
+        domElementsFromSelectors.pokemonFirstLocation.appendChild(insecateurCard);
         pokemonSelected(pokemon);
           break;
         case 'Sabelette':
-        selectors.pokemonFirstLocation.appendChild(sabeletteCard);
+        domElementsFromSelectors.pokemonFirstLocation.appendChild(sabeletteCard);
         pokemonSelected(pokemon);
           break;
         case 'Mewtwo':
-          selectors.pokemonFirstLocation.appendChild(mewtwoCard);
+          domElementsFromSelectors.pokemonFirstLocation.appendChild(mewtwoCard);
           pokemonSelected(pokemon);
         break;
         case 'Scarabrute':
-          selectors.pokemonFirstLocation.appendChild(scarabruteCard);
+          domElementsFromSelectors.pokemonFirstLocation.appendChild(scarabruteCard);
           pokemonSelected(pokemon);
         break;
       }  
