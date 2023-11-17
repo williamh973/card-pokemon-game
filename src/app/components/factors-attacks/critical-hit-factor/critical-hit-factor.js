@@ -1,5 +1,5 @@
-import { isCriticalHitBoostedByFocusEnergy } from './increase-factors-attacks/critical-hit-increase-factor-attacks/critical-hit-increase-focus-energy-attacks.js';
-import { openDialogueWhenPokemonMakesCriticalHit } from '../dialogue-fight.js';
+import { isCriticalHitBoostedByFocusEnergy } from '../increase-factors-attacks/critical-hit-increase-factors-attacks/critical-hit-increase-focus-energy-second-attack.js';
+import { openDialogueWhenPokemonMakesCriticalHit } from '../../dialogue-fight.js';
 
 
 
@@ -11,13 +11,13 @@ function roundToNearestEven(number) {
 function increaseCriticalHitProbabilityWhenFocusEnergyUsed(
   firstAttacker, 
   isCriticalHitBoostedByFocusEnergy, 
-  randomFactor
+  randomNumber
   ) {
   if (
     isCriticalHitBoostedByFocusEnergy && 
     firstAttacker.name === 'Scarabrute'
     ) {
-      randomFactor = Math.floor(Math.random() * 128);
+      randomNumber = Math.floor(Math.random() * 128);
     }
 };
 
@@ -25,31 +25,31 @@ function increaseCriticalHitProbabilityWhenFocusEnergyUsed(
 
 
 
-export let criticalHitFactor;
+export let criticalHitDamageIncreaseRate;
 
 export const criticalHit = 
 function criticalHit(firstAttacker) {
   
   let speedValueRoundToNearestEven = roundToNearestEven(firstAttacker.stats.speed);  
   let speedValueRoundToNearestEvenDividedByTwo = speedValueRoundToNearestEven / 2;
-  let newSpeedValueForFactorMultiplicator = speedValueRoundToNearestEvenDividedByTwo;
+  let newSpeedValueForProbabilityIncreaseRate = speedValueRoundToNearestEvenDividedByTwo;
 
-  let randomFactor = Math.floor(Math.random() * 256);
+  let randomNumber = Math.floor(Math.random() * 256);
   
   increaseCriticalHitProbabilityWhenFocusEnergyUsed(
     firstAttacker, 
     isCriticalHitBoostedByFocusEnergy, 
-    randomFactor
+    randomNumber
     );
 
-  if (randomFactor < newSpeedValueForFactorMultiplicator) {
+  if (randomNumber < newSpeedValueForProbabilityIncreaseRate) {
       openDialogueWhenPokemonMakesCriticalHit();
 
-      criticalHitFactor = (
+      criticalHitDamageIncreaseRate = (
         (2 * firstAttacker.level + 5) / (firstAttacker.level + 5)
         );
-        
-        return criticalHitFactor;
+        console.log(firstAttacker.name, 'fait un critical hit !');
+        return criticalHitDamageIncreaseRate;
   } else {
       return 1;
   }

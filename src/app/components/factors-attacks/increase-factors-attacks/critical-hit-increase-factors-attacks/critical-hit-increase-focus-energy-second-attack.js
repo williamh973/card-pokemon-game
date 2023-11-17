@@ -8,47 +8,13 @@ import {
 export let isCriticalHitBoostedByFocusEnergy = false;
 
 
-export const criticalHitIncreaseByFocusEnergyForFirstAttack =
-function criticalHitIncreaseByFocusEnergyForFirstAttack(
-  pokemon, 
-  isFirstAttackActive
-  ) {
-
-    if (
-        (
-          (
-            pokemon.firstAttack.name === 'Puissance' && 
-            pokemon.name === 'Scarabrute') && 
-            isFirstAttackActive
-         ) &&
-         (!isCriticalHitBoostedByFocusEnergy)
-         ) {
-           openDialogueWhenPokemonCriticalHitBoostedByFocusEnergy(pokemon);
-           isCriticalHitBoostedByFocusEnergy = true;
-    }
-     else if (
-      (
-      (
-        pokemon.firstAttack.name === 'Puissance' && 
-        pokemon.name === 'Scarabrute') && 
-        isFirstAttackActive
-     ) &&
-     (isCriticalHitBoostedByFocusEnergy)
-     ) {
-      pokemonAlreadyBoostedByFocusEnergy(pokemon);C
-     };
-
-};
-
-
-
 export const criticalHitIncreaseByFocusEnergyForSecondAttack =
 function criticalHitIncreaseByFocusEnergyForSecondAttack(
   pokemon, 
   isSecondAttackActive
   ) {
 
-  if (
+  if ( 
     (
       (
         pokemon.secondAttack.name === 'Puissance' && 

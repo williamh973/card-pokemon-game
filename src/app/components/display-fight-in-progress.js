@@ -1,4 +1,4 @@
-import { domElementsFromSelectors } from './selectors.js'
+import { domElementsFromSelectors } from './dom-elements.js'
     
 
 export const displayFightInProgress = function displayFightInProgress() {

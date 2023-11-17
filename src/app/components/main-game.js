@@ -33,7 +33,7 @@ import { calculateDamageFirstAttack } from "./calculate-damages-attacks/calculat
 
 import { calculateDamageSecondAttack } from "./calculate-damages-attacks/calculateDamageSecondAttack.js";
 
-import { domElementsFromSelectors } from "./selectors.js";
+import { domElementsFromSelectors } from "./dom-elements.js";
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -122,7 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
       "Insécateur", 
       "Sabelette",
       "Mewtwo",
-      "Scarabrute"
+      "Scarabrute",
+      "Krabboss"
     ];
 
     const randomIndex = Math.floor(Math.random() * possiblePokemons.length);

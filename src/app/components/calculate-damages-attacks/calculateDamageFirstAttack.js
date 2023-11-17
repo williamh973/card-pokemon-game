@@ -8,7 +8,7 @@ import {
 
 import { 
   ineffectiveFactorForFirstAttack 
-} from '../factors-attacks/ineffective-factor-attack.js';
+} from '../factors-attacks/ineffective-factors-attacks/ineffective-factors-first-attack.js';
 
 import { 
   speedIncrease5pFactorForFirstAttack 
@@ -20,11 +20,15 @@ import {
 
 import { 
   defenseIncrease5pFactorForFirstAttack 
-} from '../factors-attacks/increase-factors-attacks/defense-increase-factor-attacks/defense-increase-5P-factor-attacks.js';
+} from '../factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-5P-factors-attacks/defense-increase-5P-factor-first-attack.js';
+
+
 
 import { 
   defenseIncrease10pFactorForFirstAttack 
-} from '../factors-attacks/increase-factors-attacks/defense-increase-factor-attacks/defense-increase-10P-factor-attacks.js';
+} from '../factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-10P-factors-attacks/defense-increase-10P-factor-first-attack.js';
+
+
 
 import { 
   hpIncrease5pFactorForFirstAttack 
@@ -35,9 +39,17 @@ import {
     openDialogueWhenPokemonMissAttack
 } from '../dialogue-fight.js';
 
-import { criticalHit } from '../factors-attacks/critical-hit-factor.js';
+import { 
+  criticalHit
+} from '../factors-attacks/critical-hit-factor/critical-hit-factor.js';
 
-import { criticalHitIncreaseByFocusEnergyForFirstAttack } from '../factors-attacks/increase-factors-attacks/critical-hit-increase-factor-attacks/critical-hit-increase-focus-energy-attacks.js';
+import { 
+  criticalHitIncreaseByFocusEnergyForFirstAttack 
+} from '../factors-attacks/increase-factors-attacks/critical-hit-increase-factors-attacks/critical-hit-increase-focus-energy-first-attack.js';
+
+import { 
+  oneHitKnockoutFactorForFirstAttack
+} from '../factors-attacks/one-hit-factors-attacks/one-hit-knock-out-first-attack.js';
 
   
 
@@ -53,21 +65,21 @@ function calculateDamageFirstAttack(
     firstAttackType, 
     secondAttackerType
     ) {
-  
+
+    
+    if (isFirstAttackActive) {
+        
   openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
 
   const randomNumber = Math.floor(Math.random() * 100) + 1;
   
-    if (
-      randomNumber <= firstAttackPrecision && 
-      isFirstAttackActive
-      ) {
+    if (randomNumber <= firstAttackPrecision) {
 
       let degats = (
         (2 * firstAttacker.stats.attack / secondAttacker.stats.defense) * 
         firstAttackStrength * 
         (firstAttackerSpecialAtt / secondAttackerSpecialDef)
-      ) / 50;
+      ) / 20;
 
 
       let getCriticalHit = criticalHit(firstAttacker);
@@ -96,6 +108,14 @@ function calculateDamageFirstAttack(
         isFirstAttackActive
       );
       degats *= getIneffectiveFactorList;
+
+      let getAlwaysKnockOutAttacks = oneHitKnockoutFactorForFirstAttack(
+        isFirstAttackActive,
+        secondAttackerType,
+        firstAttacker,
+        secondAttacker
+      );
+      degats *= getAlwaysKnockOutAttacks;
 
       speedIncrease5pFactorForFirstAttack(
         firstAttacker, 
@@ -131,8 +151,11 @@ function calculateDamageFirstAttack(
       return Math.round(degats);
 
     } else {
+      console.log(firstAttacker.name, "a raté" , firstAttacker.firstAttack.name);
       openDialogueWhenPokemonMissAttack(firstAttacker);
       return 0;
     }
+
+  }
 
   };

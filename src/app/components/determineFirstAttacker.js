@@ -6,6 +6,7 @@ import { insecateurStats } from './models/insecateur.model.js';
 import { sabeletteStats } from './models/sabelette.model.js';
 import { mewtwoStats } from './models/mewtwo.model.js';
 import { scarabruteStats } from './models/scarabrute.model.js';
+import { krabbossStats } from './models/krabboss.model.js';
 
 import { pikachuCard } from './cards/pikachu.card.js';
 import { evoliCard } from './cards/evoli.card.js';
@@ -15,8 +16,9 @@ import { insecateurCard } from './cards/insecateur.card.js';
 import { sabeletteCard } from './cards/sabelette.card.js';
 import { mewtwoCard } from './cards/mewtwo.card.js';
 import { scarabruteCard } from './cards/scarabrute.card.js';
+import { krabbossCard } from './cards/krabboss.card.js';
 
-import { domElementsFromSelectors } from './selectors.js'
+import { domElementsFromSelectors } from './dom-elements.js'
 
 
 export { firstAttacker, secondAttacker, determineFirstAttacker };
@@ -57,7 +59,11 @@ export { firstAttacker, secondAttacker, determineFirstAttacker };
   } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Scarabrute' ||
      domElementsFromSelectors.pokemonFirstLocation.contains(scarabruteCard)) {
      firstAttacker = scarabruteStats;
-}
+     
+  } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Krabboss' ||
+     domElementsFromSelectors.pokemonFirstLocation.contains(krabbossCard)) {
+     firstAttacker = krabbossStats;
+  }
   
 
 
@@ -93,7 +99,11 @@ export { firstAttacker, secondAttacker, determineFirstAttacker };
   } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Scarabrute' ||
      domElementsFromSelectors.pokemonSecondLocation.contains(scarabruteCard)) {
      secondAttacker = scarabruteStats;
-}
+
+  } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Krabboss' ||
+     domElementsFromSelectors.pokemonSecondLocation.contains(krabbossCard)) {
+     secondAttacker = krabbossStats;
+  }
     
   if (firstAttacker.stats.speed < secondAttacker.stats.speed) {
       [firstAttacker, secondAttacker] = [secondAttacker, firstAttacker];    

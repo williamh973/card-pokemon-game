@@ -6,10 +6,11 @@ import { insecateurCard } from '../cards/insecateur.card.js';
 import { sabeletteCard } from '../cards/sabelette.card.js';
 import { mewtwoCard } from '../cards/mewtwo.card.js';
 import { scarabruteCard } from '../cards/scarabrute.card.js';
+import { krabbossCard } from '../cards/krabboss.card.js';
 
 import { pokemonSelected } from '../dialogue-when-pokemon-selected.js';
 
-import { domElementsFromSelectors } from '../selectors.js';
+import { domElementsFromSelectors } from '../dom-elements.js';
 
 
 export const handlePokemonSecondSelection = function handlePokemonSecondSelection(pokemon) {
@@ -47,6 +48,10 @@ export const handlePokemonSecondSelection = function handlePokemonSecondSelectio
           break;
           case 'Scarabrute':
             domElementsFromSelectors.pokemonSecondLocation.appendChild(scarabruteCard);
+            pokemonSelected(pokemon);
+          break;
+          case 'Krabboss':
+            domElementsFromSelectors.pokemonSecondLocation.appendChild(krabbossCard);
             pokemonSelected(pokemon);
           break;
       };

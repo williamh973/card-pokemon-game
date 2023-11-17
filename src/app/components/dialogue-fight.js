@@ -1,4 +1,4 @@
-import { domElementsFromSelectors } from './selectors.js';
+import { domElementsFromSelectors } from './dom-elements.js';
 
 export const displayDialogue = document.getElementById('dialogue');
 
@@ -253,6 +253,24 @@ function openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack(pokemon) {
     domElementsFromSelectors.displayDialogue.style.display = 'flex';
     
     domElementsFromSelectors.displayDialogue.textContent = `Cela n'a aucun effet !`;
+    
+    setTimeout(function() {
+      domElementsFromSelectors.displayDialogue.style.display = 'none';
+    }, 1400);
+  }, 1500);
+
+ };
+
+
+ export const openDialogueWhenPokemonHasBeenKoByOneHitKnockout = 
+ function openDialogueWhenPokemonHasBeenKoByOneHitKnockout(pokemon) {
+
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = `${ pokemon.name } est KO en un coup !`;
     
     setTimeout(function() {
       domElementsFromSelectors.displayDialogue.style.display = 'none';

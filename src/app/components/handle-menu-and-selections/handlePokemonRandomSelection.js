@@ -7,8 +7,9 @@ import { sabeletteCard } from '../cards/sabelette.card.js';
 import { pokemonSelected } from '../dialogue-when-pokemon-selected.js';
 import { mewtwoCard } from '../cards/mewtwo.card.js';
 import { scarabruteCard } from '../cards/scarabrute.card.js';
+import { krabbossCard } from '../cards/krabboss.card.js';
 
-import { domElementsFromSelectors } from '../selectors.js';
+import { domElementsFromSelectors } from '../dom-elements.js';
 
 
 export const handleSelectionRandomPokemon
@@ -51,6 +52,10 @@ export const handleSelectionRandomPokemon
       break;
       case 'Scarabrute':
          domElementsFromSelectors.pokemonSecondLocation.appendChild(scarabruteCard);
+        pokemonSelected(pokemon);
+      break;
+      case 'Krabboss':
+        domElementsFromSelectors.pokemonSecondLocation.appendChild(krabbossCard);
         pokemonSelected(pokemon);
       break;
   };

@@ -6,6 +6,7 @@ import { insecateurStats } from './models/insecateur.model.js';
 import { sabeletteStats } from './models/sabelette.model.js';
 import { mewtwoStats } from './models/mewtwo.model.js';
 import { scarabruteStats } from './models/scarabrute.model.js';
+import { krabbossStats } from './models/krabboss.model.js';
 
 import { pikachuCard } from './cards/pikachu.card.js';
 import { evoliCard } from './cards/evoli.card.js';
@@ -15,8 +16,9 @@ import { insecateurCard } from './cards/insecateur.card.js';
 import { sabeletteCard } from './cards/sabelette.card.js';
 import { mewtwoCard } from './cards/mewtwo.card.js';
 import { scarabruteCard } from './cards/scarabrute.card.js';
+import { krabbossCard } from './cards/krabboss.card.js';
 
-import { domElementsFromSelectors } from './selectors.js';
+import { domElementsFromSelectors } from './dom-elements.js';
 
 
 export const decreaseHp = 
@@ -100,6 +102,16 @@ function decreaseHp() {
     ) {
     document.getElementById('scarabruteHealth').textContent = 
     `${scarabruteStats.stats.hp}`;
+    };
+
+    if (
+      (domElementsFromSelectors.selectFirstPokemonButton.value === 'Krabboss') || 
+      (domElementsFromSelectors.selectSecondPokemonButton.value === 'Krabboss') || 
+      (domElementsFromSelectors.pokemonFirstLocation.contains(krabbossCard)) || 
+      (domElementsFromSelectors.pokemonSecondLocation.contains(krabbossCard))
+    ) {
+    document.getElementById('krabbossHealth').textContent = 
+    `${krabbossStats.stats.hp}`;
     };
 
 }; 

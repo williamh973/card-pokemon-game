@@ -31,6 +31,9 @@ switch (pokemon) {
   case 'Scarabrute':
     displayPopupPokemonSelected.innerText = 'Scarabrute selectionné !';
   break;
+  case 'Krabboss':
+    displayPopupPokemonSelected.innerText = 'Krabboss selectionné !';
+  break;
 };
 
   setTimeout(function() {

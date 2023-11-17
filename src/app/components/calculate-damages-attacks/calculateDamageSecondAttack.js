@@ -1,12 +1,14 @@
-import { weaknessFactorForSecondAttack 
+import { 
+  weaknessFactorForSecondAttack 
 } from '../factors-attacks/weakness-factors-attacks/weakness-factor-second-attack.js';
 
-import { resistanceFactorForSecondAttack 
+import { 
+  resistanceFactorForSecondAttack 
 } from '../factors-attacks/resistance-factors-attacks/resistance-factor-second-attack.js';
 
 import { 
-    ineffectiveFactorForSecondAttack 
-} from '../factors-attacks/ineffective-factor-attack.js';
+  ineffectiveFactorForSecondAttack 
+} from '../factors-attacks/ineffective-factors-attacks/ineffective-factors-second-attack.js';
 
 import { 
     speedIncrease5pFactorForSecondAttack  
@@ -18,11 +20,10 @@ import {
 
 import { 
     defenseIncrease5pFactorForSecondAttack  
-} from '../factors-attacks/increase-factors-attacks/defense-increase-factor-attacks/defense-increase-5P-factor-attacks.js';
-
+} from '../factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-5P-factors-attacks/defense-increase-5P-factor-second-attack.js';
 import { 
     defenseIncrease10pFactorForSecondAttack  
-} from '../factors-attacks/increase-factors-attacks/defense-increase-factor-attacks/defense-increase-10P-factor-attacks.js';
+} from '../factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-10P-factors-attacks/defense-increase-10P-factor-second-attack.js';
 
 import { 
     hpIncrease5pFactorForSecondAttack 
@@ -33,11 +34,17 @@ import {
     openDialogueWhenPokemonMissAttack
 } from '../dialogue-fight.js';
 
-import { criticalHit } from '../factors-attacks/critical-hit-factor.js';
+import { 
+  criticalHit 
+} from '../factors-attacks/critical-hit-factor/critical-hit-factor.js';
 
+import { 
+  criticalHitIncreaseByFocusEnergyForSecondAttack 
+} from '../factors-attacks/increase-factors-attacks/critical-hit-increase-factors-attacks/critical-hit-increase-focus-energy-second-attack.js';
 
-import { criticalHitIncreaseByFocusEnergyForSecondAttack } from '../factors-attacks/increase-factors-attacks/critical-hit-increase-factor-attacks/critical-hit-increase-focus-energy-attacks.js';
-
+import { 
+  oneHitKnockoutFactorForSecondAttack
+} from '../factors-attacks/one-hit-factors-attacks/one-hit-knock-out-second-attack.js';
 
 
 
@@ -53,22 +60,21 @@ function calculateDamageSecondAttack(
     secondAttackType, 
     secondAttackerType
   ) {
-    
+
+    if (isSecondAttackActive) {
+
   openDialogueWhenPokemonMakesSecondAttack(firstAttacker);
   
   const randomNumber = Math.floor(Math.random() * 100) + 1;
   
-  if (
-    randomNumber <= secondAttackPrecision && 
-    isSecondAttackActive
-    ) {
+  if (randomNumber <= secondAttackPrecision) {
     
 
       let degats = (
         (2 * firstAttacker.stats.attack / secondAttacker.stats.defense) * 
         secondAttackStrength * 
         (firstAttackerSpecialAtt / secondAttackerSpecialDef)
-      ) / 50;
+      ) / 20;
 
 
       let getCriticalHit = criticalHit(firstAttacker);
@@ -97,6 +103,16 @@ function calculateDamageSecondAttack(
         isSecondAttackActive
       );
       degats *= getIneffectiveFactorList;
+
+
+      let getAlwaysKnockOutAttacks = oneHitKnockoutFactorForSecondAttack(
+        isSecondAttackActive,
+        secondAttackerType,
+        firstAttacker,
+        secondAttacker
+      );
+      degats *= getAlwaysKnockOutAttacks;
+
 
       speedIncrease5pFactorForSecondAttack(
         firstAttacker, 
@@ -132,7 +148,11 @@ function calculateDamageSecondAttack(
       return Math.round(degats);
 
     } else {
+      console.log(firstAttacker.name, "a raté" , firstAttacker.secondAttack.name);
       openDialogueWhenPokemonMissAttack(firstAttacker);
       return 0;
     }
+
+  }
+
   };

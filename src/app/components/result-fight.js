@@ -1,6 +1,6 @@
 import { firstAttacker, secondAttacker } from './determineFirstAttacker.js';
 
-import { domElementsFromSelectors } from './selectors.js'
+import { domElementsFromSelectors } from './dom-elements.js'
 
 
 const containerFullPopupResultFight = document.getElementById('container-display-result');
