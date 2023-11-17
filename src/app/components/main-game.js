@@ -123,7 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
       "Sabelette",
       "Mewtwo",
       "Scarabrute",
-      "Krabboss"
+      "Krabboss",
+      "Salamèche"
     ];
 
     const randomIndex = Math.floor(Math.random() * possiblePokemons.length);
@@ -151,7 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       displayFightInProgress();
       determineFirstAttacker();
-
+      console.log( "firstAttacker", firstAttacker.name);
+      console.log( "secondAttacker", secondAttacker.name);
       datasForCalculateDamages(
         firstAttacker, 
         secondAttacker
@@ -167,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           let randomFactor = Math.random();
   
-            if (randomFactor >= 0.5) {
+            if (randomFactor > 0.5) {
 
               isFirstAttackActive = true;
               isSecondAttackActive = false;
@@ -181,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 secondAttacker.stats.specialDef,
                 firstAttacker.firstAttack.precision, 
                 firstAttacker.firstAttack.type,
-                secondAttacker.type
+                secondAttacker.type,
               );
 
               secondAttacker.stats.hp -= Math.max(damageFirstAttack, 0);
@@ -240,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             randomFactor = Math.random();
   
-            if (randomFactor >= 0.5) {
+            if (randomFactor > 0.5) {
               
               isFirstAttackActive = true;
               isSecondAttackActive = false;
@@ -340,7 +342,8 @@ document.addEventListener('DOMContentLoaded', () => {
         firstAttackerSpecialAtt, 
         secondAttackerSpecialDef, 
         firstAttackPrecision, 
-        firstAttackType
+        firstAttackType,
+        secondAttackerType
       );
   
       calculateDamageSecondAttack(
@@ -352,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
         secondAttackerSpecialDef, 
         secondAttackPrecision, 
         secondAttackType, 
-        secondAttackerType
+        secondAttackerType,
       );
 
   }; 

@@ -18,9 +18,7 @@ function speedIncrease5pFactorForFirstAttack(pokemon, isFirstAttackActive) {
          const increasingValue = 5;
          const newSpeedValue = pokemon.stats.speed += increasingValue;
          return newSpeedValue;
-       } else {
-         return pokemon.stats.speed
-    };
+       }
         
 };
 
@@ -41,8 +39,6 @@ function speedIncrease5pFactorForSecondAttack(pokemon, isSecondAttackActive) {
          const increasingValue = 5;
          const newSpeedValue = pokemon.stats.speed += increasingValue;
          return newSpeedValue;
-       } else {
-         return pokemon.stats.speed     
-    };
+       }
         
 };

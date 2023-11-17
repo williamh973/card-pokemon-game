@@ -27,9 +27,7 @@ function defenseIncrease5pFactorForFirstAttack(
        const newDefenseValue = pokemon.stats.defense += increasingValue;
        openDialogueWhenPokemonMakesDefenseIncrease5pFactorAttack(pokemon);
        return newDefenseValue;
-    } else {
-       return pokemon.stats.defense;
-    };
+    }
         
 };
 

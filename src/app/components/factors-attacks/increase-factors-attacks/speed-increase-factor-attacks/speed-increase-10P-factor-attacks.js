@@ -15,9 +15,7 @@ function speedIncrease10pFactorForFirstAttack(pokemon, isFirstAttackActive) {
          const increasingValue = 10;
          const newSpeedValue = pokemon.stats.speed += increasingValue;
          return newSpeedValue;
-       } else {
-         return pokemon.stats.speed
-    };
+       }
         
 };
 
@@ -37,8 +35,6 @@ function speedIncrease10pFactorForSecondAttack(pokemon, isSecondAttackActive) {
          const increasingValue = 10;
          const newSpeedValue = pokemon.stats.speed += increasingValue;
          return newSpeedValue;
-       } else {
-         return pokemon.stats.speed     
-    };
+       }
         
 };

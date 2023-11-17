@@ -18,8 +18,6 @@ function defenseIncrease10pFactorForFirstAttack(
        const newDefenseValue = pokemon.stats.defense += increasingValue;
        openDialogueWhenPokemonMakesDefenseIncrease10pFactorAttack(pokemon);
        return newDefenseValue;
-    } else {
-       return pokemon.stats.defense;
-    };
+    }
         
 };

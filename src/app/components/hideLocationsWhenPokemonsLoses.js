@@ -9,6 +9,7 @@ import { sabeletteCard } from './cards/sabelette.card.js';
 import { mewtwoCard } from './cards/mewtwo.card.js';
 import { scarabruteCard } from './cards/scarabrute.card.js';
 import { krabbossCard } from './cards/krabboss.card.js';
+import { salamecheCard } from './cards/salameche.card.js';
 
 import { domElementsFromSelectors } from './dom-elements.js';
 
@@ -22,7 +23,8 @@ const isPokemonInSecondLocation = () =>
   domElementsFromSelectors.pokemonSecondLocation.contains(sabeletteCard) ||
   domElementsFromSelectors.pokemonSecondLocation.contains(mewtwoCard) ||
   domElementsFromSelectors.pokemonSecondLocation.contains(scarabruteCard) ||
-  domElementsFromSelectors.pokemonSecondLocation.contains(krabbossCard)
+  domElementsFromSelectors.pokemonSecondLocation.contains(krabbossCard) ||
+  domElementsFromSelectors.pokemonSecondLocation.contains(salamecheCard)
 
 
 const isPokemonInFirstLocation = () => 
@@ -34,7 +36,8 @@ const isPokemonInFirstLocation = () =>
   domElementsFromSelectors.pokemonFirstLocation.contains(sabeletteCard) ||
   domElementsFromSelectors.pokemonFirstLocation.contains(mewtwoCard) ||
   domElementsFromSelectors.pokemonFirstLocation.contains(scarabruteCard) ||
-  domElementsFromSelectors.pokemonFirstLocation.contains(krabbossCard)
+  domElementsFromSelectors.pokemonFirstLocation.contains(krabbossCard) ||
+  domElementsFromSelectors.pokemonFirstLocation.contains(salamecheCard)
 
 
   

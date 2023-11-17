@@ -167,7 +167,7 @@ function openDialogueWhenPokemonMakesSpeedIncrease5pFactorAttack(pokemon) {
     
     domElementsFromSelectors.displayDialogue.style.display = 'flex';
     
-    domElementsFromSelectors.displayDialogue.textContent = `La vitesse de ${ pokemon.name } augmente !`;
+    domElementsFromSelectors.displayDialogue.textContent = `Vitesse de ${ pokemon.name } augmente !`;
     
     setTimeout(function() {
       domElementsFromSelectors.displayDialogue.style.display = 'none';
@@ -184,7 +184,7 @@ function openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack(pokemon) {
     
     domElementsFromSelectors.displayDialogue.style.display = 'flex';
     
-    domElementsFromSelectors.displayDialogue.textContent = `La vitesse de ${ pokemon.name } augmente beaucoup !`;
+    domElementsFromSelectors.displayDialogue.textContent = `Vitesse de ${ pokemon.name } augmente beaucoup !`;
     
     setTimeout(function() {
       domElementsFromSelectors.displayDialogue.style.display = 'none';
@@ -201,7 +201,7 @@ function openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack(pokemon) {
     
     domElementsFromSelectors.displayDialogue.style.display = 'flex';
     
-    domElementsFromSelectors.displayDialogue.textContent = `La défense de ${ pokemon.name } augmente !`;
+    domElementsFromSelectors.displayDialogue.textContent = `La Défense de ${ pokemon.name } augmente !`;
     
     setTimeout(function() {
       domElementsFromSelectors.displayDialogue.style.display = 'none';
@@ -218,7 +218,7 @@ function openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack(pokemon) {
     
     domElementsFromSelectors.displayDialogue.style.display = 'flex';
     
-    domElementsFromSelectors.displayDialogue.textContent = `La défense de ${ pokemon.name } augmente beaucoup !`;
+    domElementsFromSelectors.displayDialogue.textContent = `La Défense de ${ pokemon.name } augmente beaucoup !`;
     
     setTimeout(function() {
       domElementsFromSelectors.displayDialogue.style.display = 'none';
@@ -253,6 +253,24 @@ function openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack(pokemon) {
     domElementsFromSelectors.displayDialogue.style.display = 'flex';
     
     domElementsFromSelectors.displayDialogue.textContent = `Cela n'a aucun effet !`;
+    
+    setTimeout(function() {
+      domElementsFromSelectors.displayDialogue.style.display = 'none';
+    }, 1400);
+  }, 1500);
+
+ };
+
+
+ export const  openDialogueWhenPokemonMakesAttackDecrease2pFactorAttack = 
+ function  openDialogueWhenPokemonMakesAttackDecrease2pFactorAttack(secondAttacker) {
+
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = `L'Attaque de ${ secondAttacker.name } baisse !`;
     
     setTimeout(function() {
       domElementsFromSelectors.displayDialogue.style.display = 'none';

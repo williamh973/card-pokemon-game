@@ -26,6 +26,11 @@ import {
 } from '../factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-10P-factors-attacks/defense-increase-10P-factor-second-attack.js';
 
 import { 
+  attackDecrease2pFactorForSecondAttack 
+} from '../factors-attacks/decrease-factors-attacks/attack-decrease-factors/attack-decrease-2P-factors-attacks/attack-decrease-2P-factor-second-attack.js';
+
+
+import { 
     hpIncrease5pFactorForSecondAttack 
 } from '../factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-5P-factor-attacks.js';
 
@@ -63,96 +68,99 @@ function calculateDamageSecondAttack(
 
     if (isSecondAttackActive) {
 
-  openDialogueWhenPokemonMakesSecondAttack(firstAttacker);
+      openDialogueWhenPokemonMakesSecondAttack(firstAttacker);
+      
+      const randomNumber = Math.floor(Math.random() * 100) + 1;
+      
+      if (randomNumber <= secondAttackPrecision) {
+        let degats = (
+          (2 * firstAttacker.stats.attack / secondAttacker.stats.defense) * 
+          secondAttackStrength * 
+          (firstAttackerSpecialAtt / secondAttackerSpecialDef)
+          ) / 20;
+
+
+        let getCriticalHit = criticalHit(firstAttacker);
+        degats *= getCriticalHit;
   
-  const randomNumber = Math.floor(Math.random() * 100) + 1;
+        let randomFactor = Math.random() * (1.00 - 0.85) + 0.85;
+        degats *= randomFactor;
   
-  if (randomNumber <= secondAttackPrecision) {
-    
-
-      let degats = (
-        (2 * firstAttacker.stats.attack / secondAttacker.stats.defense) * 
-        secondAttackStrength * 
-        (firstAttackerSpecialAtt / secondAttackerSpecialDef)
-      ) / 20;
-
-
-      let getCriticalHit = criticalHit(firstAttacker);
-      degats *= getCriticalHit;
-
-      let randomFactor = Math.random() * (1.00 - 0.85) + 0.85;
-      degats *= randomFactor;
-
-      let getWeaknessFactorList = weaknessFactorForSecondAttack(
-        secondAttackType, 
-        secondAttackerType, 
-        isSecondAttackActive
-      );
-      degats *= getWeaknessFactorList;
-
-      let getResistanceFactorList = resistanceFactorForSecondAttack(
-        secondAttackType, 
-        secondAttackerType, 
-        isSecondAttackActive
-      );
-      degats /= getResistanceFactorList;
-
-      let getIneffectiveFactorList = ineffectiveFactorForSecondAttack(
-        secondAttackType, 
-        secondAttackerType, 
-        isSecondAttackActive
-      );
-      degats *= getIneffectiveFactorList;
-
-
-      let getAlwaysKnockOutAttacks = oneHitKnockoutFactorForSecondAttack(
-        isSecondAttackActive,
-        secondAttackerType,
-        firstAttacker,
-        secondAttacker
-      );
-      degats *= getAlwaysKnockOutAttacks;
-
-
-      speedIncrease5pFactorForSecondAttack(
-        firstAttacker, 
-        isSecondAttackActive
+        let getWeaknessFactorList = weaknessFactorForSecondAttack(
+          secondAttackType, 
+          secondAttackerType, 
+          isSecondAttackActive
         );
-
-      speedIncrease10pFactorForSecondAttack(
-        firstAttacker, 
-        isSecondAttackActive
+        degats *= getWeaknessFactorList;
+  
+        let getResistanceFactorList = resistanceFactorForSecondAttack(
+          secondAttackType, 
+          secondAttackerType, 
+          isSecondAttackActive
         );
-
-      defenseIncrease5pFactorForSecondAttack(
-        firstAttacker, 
-        isSecondAttackActive
+        degats /= getResistanceFactorList;
+  
+        let getIneffectiveFactorList = ineffectiveFactorForSecondAttack(
+          secondAttackType, 
+          secondAttackerType, 
+          isSecondAttackActive
         );
-
-      defenseIncrease10pFactorForSecondAttack(
-        firstAttacker, 
-        isSecondAttackActive
+        degats *= getIneffectiveFactorList;
+  
+  
+        let getAlwaysKnockOutAttacks = oneHitKnockoutFactorForSecondAttack(
+          isSecondAttackActive,
+          secondAttackerType,
+          firstAttacker,
+          secondAttacker
         );
+        degats *= getAlwaysKnockOutAttacks;
+  
+  
+        speedIncrease5pFactorForSecondAttack(
+          firstAttacker, 
+          isSecondAttackActive
+          );
+  
+        speedIncrease10pFactorForSecondAttack(
+          firstAttacker, 
+          isSecondAttackActive
+          );
+  
+        defenseIncrease5pFactorForSecondAttack(
+          firstAttacker, 
+          isSecondAttackActive
+          );
+  
+        defenseIncrease10pFactorForSecondAttack(
+          firstAttacker, 
+          isSecondAttackActive
+          );
+  
+        hpIncrease5pFactorForSecondAttack(
+          firstAttacker, 
+          isSecondAttackActive
+          );
 
-      hpIncrease5pFactorForSecondAttack(
-        firstAttacker, 
-        isSecondAttackActive
-        );
+        attackDecrease2pFactorForSecondAttack(
+          firstAttacker, 
+          secondAttacker,
+          isSecondAttackActive
+          );
+  
 
-      criticalHitIncreaseByFocusEnergyForSecondAttack(
-        firstAttacker,
-        isSecondAttackActive
-        );
+        criticalHitIncreaseByFocusEnergyForSecondAttack(
+          firstAttacker,
+          isSecondAttackActive
+          );
+          console.log(firstAttacker.name, "utilise", firstAttacker.secondAttack.name);
+        return Math.round(degats);
+  
+      } else {
+        openDialogueWhenPokemonMissAttack(firstAttacker);
+        return 0;
+      }
 
-      console.log(firstAttacker.name, "utilise", firstAttacker.secondAttack.name, " : " , degats);
-      return Math.round(degats);
-
-    } else {
-      console.log(firstAttacker.name, "a raté" , firstAttacker.secondAttack.name);
-      openDialogueWhenPokemonMissAttack(firstAttacker);
-      return 0;
     }
-
-  }
 
   };

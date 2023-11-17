@@ -7,6 +7,7 @@ import { sabeletteStats } from './models/sabelette.model.js';
 import { mewtwoStats } from './models/mewtwo.model.js';
 import { scarabruteStats } from './models/scarabrute.model.js';
 import { krabbossStats } from './models/krabboss.model.js';
+import { salamecheStats } from './models/salameche.model.js';
 
 import { pikachuCard } from './cards/pikachu.card.js';
 import { evoliCard } from './cards/evoli.card.js';
@@ -17,6 +18,7 @@ import { sabeletteCard } from './cards/sabelette.card.js';
 import { mewtwoCard } from './cards/mewtwo.card.js';
 import { scarabruteCard } from './cards/scarabrute.card.js';
 import { krabbossCard } from './cards/krabboss.card.js';
+import { salamecheCard } from './cards/salameche.card.js';
 
 import { domElementsFromSelectors } from './dom-elements.js'
 
@@ -63,6 +65,10 @@ export { firstAttacker, secondAttacker, determineFirstAttacker };
   } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Krabboss' ||
      domElementsFromSelectors.pokemonFirstLocation.contains(krabbossCard)) {
      firstAttacker = krabbossStats;
+
+  } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Salamèche' ||
+    domElementsFromSelectors.pokemonFirstLocation.contains(salamecheCard)) {
+    firstAttacker = salamecheStats;
   }
   
 
@@ -103,6 +109,10 @@ export { firstAttacker, secondAttacker, determineFirstAttacker };
   } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Krabboss' ||
      domElementsFromSelectors.pokemonSecondLocation.contains(krabbossCard)) {
      secondAttacker = krabbossStats;
+
+  } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Salamèche' ||
+     domElementsFromSelectors.pokemonSecondLocation.contains(salamecheCard)) {
+     secondAttacker = salamecheStats;
   }
     
   if (firstAttacker.stats.speed < secondAttacker.stats.speed) {
