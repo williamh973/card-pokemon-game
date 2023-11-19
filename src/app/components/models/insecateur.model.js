@@ -4,6 +4,7 @@ export let insecateurStats = {
     type : "insect",
     logo : "./src/assets/images/logos/insect.png",
     image : "./src/assets/images/insecateur.png",
+    statut : "normal",
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/flight.png",
@@ -20,17 +21,21 @@ export let insecateurStats = {
       name : "Hâte",
       logo : "./src/assets/images/logos/coloreless.png",
       type: "bonus",
+      class : "status",
       resume : "Augmente la Vitesse du lanceur de 2 points",
       strength : 0,
-      precision : 100
+      precision : 100,
+      precisionMax : 100
     },
     secondAttack : {
       name : "Tranche",
       logo : "./src/assets/images/logos/coloreless.png",
       type: "normal",
+      class : "physical",
       resume : "Le lanceur donne un coup de griffe ou de faux. Taux de critiques élevé.",
       strength : 70,
-      precision : 100
+      precision : 100,
+      precisionMax : 100
     },
     stats : {
       attack : 110,

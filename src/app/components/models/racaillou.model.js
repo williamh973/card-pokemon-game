@@ -4,6 +4,7 @@ export let racaillouStats = {
     type : "rock",
     logo : "./src/assets/images/logos/rock.png",
     image : "./src/assets/images/racaillou.png",
+    statut : "normal",
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/water.png",
@@ -21,17 +22,21 @@ export let racaillouStats = {
       name : "Charge",
       logo : "./src/assets/images/logos/coloreless.png",
       type: "normal",
+      class : "physical",
       resume : "Une attaque de base",
       strength : 35,
-      precision : 95
+      precision : 95,
+      precisionMax : 95
     },
     secondAttack : {
       name : "Jet-Pierres",
       logo : "./src/assets/images/logos/rock.png",
       type: "rock",
+      class : "physical",
       resume : "Le lanceur soulève une pierre et la lance sur la cible.",
       strength : 50,
-      precision : 90
+      precision : 90,
+      precisionMax : 90
     },
     stats : {
       attack : 80,

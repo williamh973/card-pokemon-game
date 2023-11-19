@@ -48,7 +48,6 @@ function criticalHit(firstAttacker) {
       criticalHitDamageIncreaseRate = (
         (2 * firstAttacker.level + 5) / (firstAttacker.level + 5)
         );
-        console.log(firstAttacker.name, 'fait un critical hit !');
         return criticalHitDamageIncreaseRate;
   } else {
       return 1;

@@ -11,13 +11,10 @@ function attackDecrease2pFactorForFirstAttack(
         firstAttacker.firstAttack.name === 'Surpuissance'
         ) && isFirstAttackActive
         ) {
-          console.log("ca passe");
-          console.log(secondAttacker.name, secondAttacker.stats.attack, "avant");
-       const decreasingValue = 2;
-       const newdecreasingValue = secondAttacker.stats.attack -= decreasingValue;
-       openDialogueWhenPokemonMakesAttackDecrease2pFactorAttack(secondAttacker);
-       console.log(secondAttacker.name, secondAttacker.stats.attack, "après");
-       return newdecreasingValue;
+        const decreasingValue = 2;
+        const newdecreasingValue = secondAttacker.stats.attack -= decreasingValue;
+        openDialogueWhenPokemonMakesAttackDecrease2pFactorAttack(secondAttacker);
+        return newdecreasingValue;
     }
         
 };

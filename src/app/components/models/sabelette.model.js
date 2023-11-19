@@ -4,6 +4,7 @@ export let sabeletteStats = {
     type : "ground",
     logo : "./src/assets/images/logos/ground.png",
     image : "./src/assets/images/sabelette.png",
+    statut : "normal",
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/water.png",
@@ -20,17 +21,21 @@ export let sabeletteStats = {
       name : "Griffe",
       logo : "./src/assets/images/logos/coloreless.png",
       type: "normal",
+      class : "physical",
       resume : "Le lanceur donne un coup de griffe",
       strength : 40,
-      precision : 100
+      precision : 100,
+      precisionMax : 100
     },
     secondAttack : {
       name : "Boul'Armure",
       logo : "./src/assets/images/logos/coloreless.png",
       type: "bonus",
+      class : "status",
       resume : "Le lanceur s’enroule pour cacher ses points faibles, ce qui augmente sa Défense.",
       strength : 0,
-      precision : 100
+      precision : 100,
+      precisionMax : 100
     },
     stats : {
       attack : 75,

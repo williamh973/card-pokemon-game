@@ -27,7 +27,8 @@ export let salamecheStats = {
       class : "status",
       resume : "Le lanceur pousse un cri pour tromper la vigilance de la cible et baisser son Attaque.",
       strength : 0,
-      precision : 100
+      precision : 100,
+      precisionMax : 100
     },
     secondAttack : {
       name : "Flammèche",
@@ -36,7 +37,8 @@ export let salamecheStats = {
       class : "special",
       resume : "La cible est attaquée par une faible flamme qui peut aussi la brûler.",
       strength : 40,
-      precision : 100
+      precision : 100,
+      precisionMax : 100
     },
     stats : {
       attack : 52,

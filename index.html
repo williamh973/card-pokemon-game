@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./styles/dialogues.style.css">
     <link rel="stylesheet" href="./styles/display-result.style.css">
     <link rel="stylesheet" href="./styles/player-form-container-for-start.style.css">
-
+    <link rel="stylesheet" href="./styles/pokemon-stats-container.style.css">
    
     <script src="./src/app/components/main-game.js" type="module" defer></script>
 </head>
@@ -37,6 +37,30 @@
         <button id="submitButton" type="submit">C'est parti !</button>
     </form>
   
+  </div>
+
+  <div id="container-stats">
+    
+   <div id="first-attacker-stats-container">
+      <div class="stat-container" id="first-attacker-name"></div>
+      <div class="stat-container" id="first-attacker-attack"></div>
+      <div class="stat-container" id="first-attacker-defense"></div>
+      <div class="stat-container" id="first-attacker-specialAtt"></div>
+      <div class="stat-container" id="first-attacker-specialDef"></div>
+      <div class="stat-container" id="first-attacker-speed"></div>
+      <div class="stat-container" id="first-attacker-hp"></div>
+   </div>
+
+    <div id="second-attacker-stats-container">
+      <div class="stat-container" id="second-attacker-name"></div>
+      <div class="stat-container" id="second-attacker-attack"></div>
+      <div class="stat-container" id="second-attacker-defense"></div>
+      <div class="stat-container" id="second-attacker-specialAtt"></div>
+      <div class="stat-container" id="second-attacker-specialDef"></div>
+      <div class="stat-container" id="second-attacker-speed"></div>
+      <div class="stat-container" id="second-attacker-hp"></div>
+    </div>
+
   </div>
 
   <div id="main">
@@ -106,10 +130,9 @@
           </div>
         
         </div>
-  
         
       <div id="ring">
-        
+
         <div class="pokemon-location" id="pokemon-first-location">
           <div class="big-circle">
            <div class="little-circle"></div>

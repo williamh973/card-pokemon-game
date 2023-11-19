@@ -24,7 +24,8 @@ export let krabbossStats = {
       class : "status",
       resume : "Protège le lanceur de la plupart des attaques pendant un tour.",
       strength : 0,
-      precision : 100
+      precision : 100,
+      precisionMax : 100
     },
     secondAttack : {
       name : "Guillotine",
@@ -33,7 +34,8 @@ export let krabbossStats = {
       class : "physical",
       resume : "Met K.O. en un coup. Les Pokémon ayant un niveau strictement supérieur sont immunisés.",
       strength : 1,
-      precision : 30
+      precision : 30,
+      precisionMax : 30
     },
     stats : {
       attack : 130,

@@ -93,8 +93,8 @@ function openDialogueWhenPokemonMissAttack(attacker) {
 
     setTimeout(function() {
       domElementsFromSelectors.displayDialogue.style.display = 'none';
-  }, 1400);
-}, 1500);
+  }, 1400); // 1400
+}, 1500); // 1500
 };
 
 
@@ -297,3 +297,52 @@ function openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack(pokemon) {
 
  };
 
+ export const openDialogueWhenPokemonReadyToProtectItself = 
+ function openDialogueWhenPokemonReadyToProtectItself(firstAttacker) {
+
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = `${ firstAttacker.name } se tient près !`;
+    
+    setTimeout(function() {
+      domElementsFromSelectors.displayDialogue.style.display = 'none';
+    }, 1400);
+  }, 1500);
+
+ }
+
+
+ export const openDialogueWhenPokemonProtectingHimself =
+ function openDialogueWhenPokemonProtectingHimself(secondAttacker) {
+
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = `${ secondAttacker.name } se protège !`;
+    
+    setTimeout(function() {
+      domElementsFromSelectors.displayDialogue.style.display = 'none';
+    }, 1400);
+  }, 1500);
+ }
+
+
+ export const openDialogueWhenPokemonMissAttackAfterProtectApply = 
+function openDialogueWhenPokemonMissAttackAfterProtectApply(attacker) {
+  setTimeout(function() {
+  domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+  
+  domElementsFromSelectors.displayDialogue.style.display = 'flex';
+
+   domElementsFromSelectors.displayDialogue.textContent = `${attacker.name} a raté son attaque !`;
+
+    setTimeout(function() {
+      domElementsFromSelectors.displayDialogue.style.display = 'none';
+  }, 1500);
+}, 3000); 
+};

@@ -29,11 +29,28 @@ import {
   hidePlayerFirstAttackerWhenLose
 } from "./hideLocationsWhenPokemonsLoses.js";
 
-import { calculateDamageFirstAttack } from "./calculate-damages-attacks/calculateDamageFirstAttack.js";
+import { 
+  calculateDamageFirstAttack 
+} from "./calculate-damages-attacks/calculateDamageFirstAttack.js";
 
-import { calculateDamageSecondAttack } from "./calculate-damages-attacks/calculateDamageSecondAttack.js";
+import { 
+  calculateDamageSecondAttack 
+} from "./calculate-damages-attacks/calculateDamageSecondAttack.js";
 
-import { domElementsFromSelectors } from "./dom-elements.js";
+import { 
+  domElementsFromSelectors 
+} from "./dom-elements.js";
+
+import { 
+  displayStatsPokemonsContainer
+} from './pokemon-stats-container.js' 
+
+import { 
+  isProtected
+} from './factors-attacks/protect-factors-attacks/protect-factors-first-attack.js' 
+        
+      
+  
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -72,9 +89,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   domElementsFromSelectors.containerFullPopupDialogueFight = 
   document.getElementById('container-display-dialogue');
+
     
   
-  domElementsFromSelectors.headContainer.appendChild(domElementsFromSelectors.fightInProgress);
+  domElementsFromSelectors.headContainer.
+  appendChild(domElementsFromSelectors.fightInProgress);
+
+
 
 
   menu.addEventListener("change", () => {
@@ -150,21 +171,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fight() {
 
+
       displayFightInProgress();
       determineFirstAttacker();
-      console.log( "firstAttacker", firstAttacker.name);
-      console.log( "secondAttacker", secondAttacker.name);
+
       datasForCalculateDamages(
         firstAttacker, 
         secondAttacker
         );
-
       
+        
+        
         while (firstAttacker.stats.hp > 0 && secondAttacker.stats.hp > 0) {
-
           
+          displayStatsPokemonsContainer(firstAttacker, secondAttacker);
+     
            isFirstAttackActive = false;
            isSecondAttackActive = false;
+           
+           isProtected;
+           console.log(isProtected);
 
 
           let randomFactor = Math.random();
@@ -183,13 +209,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 secondAttacker.stats.specialDef,
                 firstAttacker.firstAttack.precision, 
                 firstAttacker.firstAttack.type,
-                secondAttacker.type,
+                secondAttacker.type
               );
-
+             
               secondAttacker.stats.hp -= Math.max(damageFirstAttack, 0);
-              await sleep(3000);
+              await sleep(4000);
               decreaseHp();
-
+              displayStatsPokemonsContainer(firstAttacker, secondAttacker);
+            
             } else {
 
               isFirstAttackActive = false;
@@ -204,14 +231,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 secondAttacker.stats.specialDef, 
                 firstAttacker.secondAttack.precision,
                 firstAttacker.secondAttack.type,
-                secondAttacker.type,
+                secondAttacker.type
               );
 
               secondAttacker.stats.hp -= Math.max(damageSecondAttack, 0);
-              await sleep(3000);
+              await sleep(4000);
               decreaseHp();
+              displayStatsPokemonsContainer(firstAttacker, secondAttacker);
 
             };
+
 
             if (secondAttacker.stats.hp <= 0) {
               
@@ -228,25 +257,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 secondAttacker, 
                 playerSelectedPokemon
               );
+              displayStatsPokemonsContainer(firstAttacker, secondAttacker);
               break;
             };
 
+
             decreaseHp();
- 
-            // console.log(firstAttacker.name, " Vitesse : ", firstAttacker.stats.speed);
-
-
+            displayStatsPokemonsContainer(firstAttacker, secondAttacker);
+            
             isFirstAttackActive = false;
             isSecondAttackActive = false;
 
-
+            isProtected;
+            console.log(isProtected);
+            
+            
             randomFactor = Math.random();
-  
+            
             if (randomFactor > 0.5) {
               
               isFirstAttackActive = true;
               isSecondAttackActive = false;
-
+              
               let damageFirstAttack = calculateDamageFirstAttack(
                 secondAttacker, 
                 firstAttacker, 
@@ -256,13 +288,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 firstAttacker.stats.specialDef,
                 secondAttacker.firstAttack.precision,
                 secondAttacker.firstAttack.type,
-                firstAttacker.type,
+                firstAttacker.type
               );
-            
+         
               firstAttacker.stats.hp -= Math.max(damageFirstAttack, 0);
-              await sleep(3000);
+              await sleep(4000);
               decreaseHp();
-
+              displayStatsPokemonsContainer(firstAttacker, secondAttacker);
+            
             } else {
 
               isFirstAttackActive = false;
@@ -281,9 +314,9 @@ document.addEventListener('DOMContentLoaded', () => {
               );
               
               firstAttacker.stats.hp -= Math.max(damageSecondAttack, 0);
-              await sleep(3000);
+              await sleep(4000);
               decreaseHp();
-
+              displayStatsPokemonsContainer(firstAttacker, secondAttacker);
             };
       
             if (firstAttacker.stats.hp <= 0) {
@@ -300,8 +333,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 firstAttacker,
                 playerSelectedPokemon
               );
+              displayStatsPokemonsContainer(firstAttacker, secondAttacker);
               break;
             };
+
+
+            displayStatsPokemonsContainer(firstAttacker, secondAttacker);
+
 
         };
     };
@@ -309,6 +347,8 @@ document.addEventListener('DOMContentLoaded', () => {
   fight();
   
 });
+
+
     
 
   function sleep(ms) {
@@ -355,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
         secondAttackerSpecialDef, 
         secondAttackPrecision, 
         secondAttackType, 
-        secondAttackerType,
+        secondAttackerType
       );
 
   }; 

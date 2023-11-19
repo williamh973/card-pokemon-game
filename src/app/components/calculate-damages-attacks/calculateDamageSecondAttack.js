@@ -36,7 +36,9 @@ import {
 
 import { 
     openDialogueWhenPokemonMakesSecondAttack,
-    openDialogueWhenPokemonMissAttack
+    openDialogueWhenPokemonMissAttack,
+    openDialogueWhenPokemonProtectingHimself,
+    openDialogueWhenPokemonMissAttackAfterProtectApply
 } from '../dialogue-fight.js';
 
 import { 
@@ -51,6 +53,12 @@ import {
   oneHitKnockoutFactorForSecondAttack
 } from '../factors-attacks/one-hit-factors-attacks/one-hit-knock-out-second-attack.js';
 
+import { 
+  protectFactorForSecondAttack, 
+  isProtected
+  } from '../factors-attacks/protect-factors-attacks/protect-factors-first-attack.js' 
+    
+  
 
 
 export const calculateDamageSecondAttack = 
@@ -66,7 +74,7 @@ function calculateDamageSecondAttack(
     secondAttackerType
   ) {
 
-    if (isSecondAttackActive) {
+    if (isSecondAttackActive && !isProtected) {
 
       openDialogueWhenPokemonMakesSecondAttack(firstAttacker);
       
@@ -147,20 +155,43 @@ function calculateDamageSecondAttack(
           secondAttacker,
           isSecondAttackActive
           );
-  
 
         criticalHitIncreaseByFocusEnergyForSecondAttack(
           firstAttacker,
           isSecondAttackActive
           );
-          console.log(firstAttacker.name, "utilise", firstAttacker.secondAttack.name);
-        return Math.round(degats);
-  
-      } else {
-        openDialogueWhenPokemonMissAttack(firstAttacker);
-        return 0;
+
+
+          protectFactorForSecondAttack(
+            firstAttacker,
+            isSecondAttackActive
+            );
+
+            if (degats > 0 && 
+              degats < 0.5
+              ) {
+              return degats = 1;
+            };
+
+          return Math.round(degats);
+        } else {
+          openDialogueWhenPokemonMissAttack(firstAttacker);
+          return 0;
       }
 
-    }
+    } else if (isSecondAttackActive && isProtected) {
+      openDialogueWhenPokemonMakesSecondAttack(firstAttacker);
+      openDialogueWhenPokemonProtectingHimself(secondAttacker);
+      openDialogueWhenPokemonMissAttackAfterProtectApply(firstAttacker);
 
-  };
+      return 0;
+    }
+};
+
+
+
+
+
+          // console.log("randomNumber", randomNumber);
+          // console.log(firstAttacker.name, "présision de", firstAttacker.secondAttack.name, secondAttackPrecision);
+          // console.log(firstAttacker.name, "utilise", firstAttacker.secondAttack.name, degats);

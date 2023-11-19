@@ -19,4 +19,6 @@ export const domElementsFromSelectors = {
     displayDialogue : document.getElementById('dialogue'),
     definiteFightMod : false,
     randomFightMod : false,
+
+    pokemonStatsContainer : document.getElementById('container-stats'),
   };
