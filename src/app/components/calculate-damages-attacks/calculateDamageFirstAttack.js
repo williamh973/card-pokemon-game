@@ -179,6 +179,7 @@ function calculateDamageFirstAttack(
                 return degats = 1;
               };
               
+              console.log(firstAttacker.name, "utilise", firstAttacker.firstAttack.name);
               return Math.round(degats);
             } else {
             openDialogueWhenPokemonMissAttack(firstAttacker);

@@ -28,7 +28,8 @@ export { firstAttacker, secondAttacker, determineFirstAttacker };
 
  let firstAttacker, secondAttacker;
 
- const determineFirstAttacker = function determineFirstAttacker() {
+ const determineFirstAttacker = 
+ function determineFirstAttacker() {
     
   if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Pikachu' ||
      domElementsFromSelectors.pokemonFirstLocation.contains(pikachuCard)) {

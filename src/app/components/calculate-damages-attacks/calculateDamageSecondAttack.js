@@ -174,6 +174,7 @@ function calculateDamageSecondAttack(
               return degats = 1;
             };
 
+          console.log(firstAttacker.name, "utilise", firstAttacker.secondAttack.name);
           return Math.round(degats);
         } else {
           openDialogueWhenPokemonMissAttack(firstAttacker);

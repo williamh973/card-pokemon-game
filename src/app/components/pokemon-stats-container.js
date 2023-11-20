@@ -2,6 +2,7 @@ import {
     domElementsFromSelectors 
   } from "./dom-elements.js";
 
+
   domElementsFromSelectors.pokemonStatsContainer = 
   document.getElementById('container-stats');
   domElementsFromSelectors.pokemonStatsContainer.style.display = 'none';

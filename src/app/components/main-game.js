@@ -1,4 +1,6 @@
-import { decreaseHp } from './decreasePokemonHp.js';
+import { 
+  decreaseHp 
+} from './decreasePokemonHp.js';
 
 import { 
   firstAttacker, 
@@ -6,7 +8,9 @@ import {
   determineFirstAttacker 
 } from './determineFirstAttacker.js';
 
-import { handleMenu } from './handle-menu-and-selections/handleMenu.js';
+import { 
+  handleMenu 
+} from './handle-menu-and-selections/handleMenu.js';
 
 import { handlePokemonFirstSelection } from './handle-menu-and-selections/handlePokemonFirstSelection.js';
 import { handlePokemonSecondSelection } from './handle-menu-and-selections/handlePokemonSecondSelection.js';
@@ -52,6 +56,8 @@ import {
 import { 
   possibleRandomPokemonsList    
 } from './handle-menu-and-selections/possible-random-pokemons-list.js'; 
+
+import { getAttackDelays, sleep } from './attacks-delay.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -180,13 +186,15 @@ document.addEventListener('DOMContentLoaded', () => {
         secondAttacker
         );
       
-        
+       const attackDelays = getAttackDelays(
+        firstAttacker, 
+        secondAttacker
+        );
         
         while (firstAttacker.stats.hp > 0 && secondAttacker.stats.hp > 0) {
           
           displayStatsPokemonsContainer(
             firstAttacker, 
-
             secondAttacker
             );
      
@@ -215,12 +223,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 secondAttacker.type
               );
              
-              await sleep(4500);
-              secondAttackerTakesDamage(
-                firstAttacker, 
-                secondAttacker, 
-                damageFirstAttack
-                );
+              if (isFirstAttackActive) {
+                await sleep(attackDelays.firstAttackerFirstAttackDelay);
+                console.log(attackDelays.firstAttackerFirstAttackDelay);
+                secondAttackerTakesDamage(
+                  firstAttacker, 
+                  secondAttacker, 
+                  damageFirstAttack
+                  );     
+              };
   
             } else {
 
@@ -239,12 +250,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 secondAttacker.type
               );
 
-              await sleep(4500);
+            if (isSecondAttackActive) {
+              await sleep(attackDelays.firstAttackerSecondAttackDelay);
+              console.log(attackDelays.firstAttackerSecondAttackDelay);
               secondAttackerTakesDamage(
                 firstAttacker, 
                 secondAttacker, 
                 damageSecondAttack
                 );
+            };
 
             };
 
@@ -264,13 +278,6 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
 
-            decreaseHp();
-
-            displayStatsPokemonsContainer(
-              firstAttacker, 
-              secondAttacker
-              );
-            
 
 
             isFirstAttackActive = false;
@@ -297,13 +304,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 firstAttacker.type
               );
          
-              await sleep(4500);
+            if (isFirstAttackActive) {
+              await sleep(attackDelays.secondAttackerFirstAttackDelay);
+              console.log(attackDelays.secondAttackerFirstAttackDelay);
               firstAttackerTakesDamage(
                 firstAttacker, 
                 secondAttacker, 
                 damageFirstAttack
                 );
-            
+              }
+
             } else {
 
               isFirstAttackActive = false;
@@ -321,12 +331,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 firstAttacker.type
               );
               
-              await sleep(4500);
+            if (isSecondAttackActive) {
+              await sleep(attackDelays.secondAttackerSecondAttackDelay);
+              console.log(attackDelays.secondAttackerSecondAttackDelay);
               firstAttackerTakesDamage(
                 firstAttacker, 
                 secondAttacker, 
                 damageSecondAttack
                 );
+            }
 
             };
       
@@ -356,9 +369,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
 });
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-};
 
 
 async function firstAttackerTakesDamage(
@@ -373,7 +383,7 @@ async function firstAttackerTakesDamage(
       secondAttacker
       );
 };
-  
+
 async function secondAttackerTakesDamage(
   firstAttacker, 
   secondAttacker, 
@@ -397,7 +407,7 @@ async function pokemonLose(
       openDisplayResult();
       openDialogueWhenPokemonKo();
       hideFightInProgress();
-
+      
       if (firstAttacker.stats.hp === 0) {
           hideFirstAttackerWhenLose(
             firstAttacker, 
@@ -412,8 +422,8 @@ async function pokemonLose(
             secondAttacker, 
             enemyPokemon
             );
-          hidePlayerSecondAttackerWhenLose(
-            secondAttacker, 
+            hidePlayerSecondAttackerWhenLose(
+              secondAttacker, 
             playerSelectedPokemon
           );
       };
@@ -423,34 +433,6 @@ async function pokemonLose(
         secondAttacker
         );
 };
-
-
-// async function secondAttackerLose(
-//   firstAttacker, 
-//   secondAttacker, 
-//   enemyPokemon, 
-//   playerSelectedPokemon
-//   ) {
-//     decreaseHp();
-//     openDisplayResult();
-//     openDialogueWhenPokemonKo();
-//     hideFightInProgress();
-
-//     hideSecondAttackerWhenLose(
-//       secondAttacker, 
-//       enemyPokemon
-//       );
-//     hidePlayerSecondAttackerWhenLose(
-//       secondAttacker, 
-//       playerSelectedPokemon
-//     );
-//     displayStatsPokemonsContainer(
-//       firstAttacker, 
-//       secondAttacker
-//       );
-// };
-
-
 
 
   function datasForCalculateDamages(
@@ -469,7 +451,7 @@ async function pokemonLose(
     const secondAttackType = firstAttacker.secondAttack.type;
     let isFirstAttackActive = false;
     let isSecondAttackActive = false;
-
+    
 
       calculateDamageFirstAttack(
         firstAttacker, 
@@ -494,20 +476,20 @@ async function pokemonLose(
         secondAttackType, 
         secondAttackerType
       );
+      
+    }; 
 
-  }; 
-
-
-  function activateFightButton() {
+    
+    function activateFightButton() {
       if (
-        (
-          isFirstPokemonSelected && 
-          isSecondPokemonSelected
-          )
-          ) {
-            domElementsFromSelectors.fightButton.disabled = false;
-      }
-    };
+          (
+            isFirstPokemonSelected && 
+            isSecondPokemonSelected
+            )
+            ) {
+              domElementsFromSelectors.fightButton.disabled = false;
+        }
+      };
 
 });
 
