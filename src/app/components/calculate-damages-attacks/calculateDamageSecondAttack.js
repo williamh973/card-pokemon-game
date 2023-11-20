@@ -55,8 +55,8 @@ import {
 
 import { 
   protectFactorForSecondAttack, 
-  isProtected
-  } from '../factors-attacks/protect-factors-attacks/protect-factors-first-attack.js' 
+  isProtectOrDetectCapacityActived
+  } from '../factors-attacks/protect-factors-attacks/protect-factors-attack.js' 
     
   
 
@@ -74,7 +74,7 @@ function calculateDamageSecondAttack(
     secondAttackerType
   ) {
 
-    if (isSecondAttackActive && !isProtected) {
+    if (isSecondAttackActive && !isProtectOrDetectCapacityActived) {
 
       openDialogueWhenPokemonMakesSecondAttack(firstAttacker);
       
@@ -164,6 +164,7 @@ function calculateDamageSecondAttack(
 
           protectFactorForSecondAttack(
             firstAttacker,
+            secondAttacker,
             isSecondAttackActive
             );
 
@@ -179,7 +180,7 @@ function calculateDamageSecondAttack(
           return 0;
       }
 
-    } else if (isSecondAttackActive && isProtected) {
+    } else if (isSecondAttackActive && isProtectOrDetectCapacityActived) {
       openDialogueWhenPokemonMakesSecondAttack(firstAttacker);
       openDialogueWhenPokemonProtectingHimself(secondAttacker);
       openDialogueWhenPokemonMissAttackAfterProtectApply(firstAttacker);

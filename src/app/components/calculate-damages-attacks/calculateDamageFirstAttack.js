@@ -56,8 +56,8 @@ import {
 
 import { 
 protectFactorForFirstAttack, 
-isProtected
-} from '../factors-attacks/protect-factors-attacks/protect-factors-first-attack.js' 
+isProtectOrDetectCapacityActived
+} from '../factors-attacks/protect-factors-attacks/protect-factors-attack.js' 
   
 
 
@@ -76,7 +76,10 @@ function calculateDamageFirstAttack(
     secondAttackerType
     ) {
 
-      if (isFirstAttackActive && !isProtected) {
+      if (
+        isFirstAttackActive && 
+        !isProtectOrDetectCapacityActived
+        ) {
 
         
        openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
@@ -182,7 +185,7 @@ function calculateDamageFirstAttack(
             return 0;
         }
 
-      } else if (isFirstAttackActive && isProtected) {
+      } else if (isFirstAttackActive && isProtectOrDetectCapacityActived) {
       openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
       openDialogueWhenPokemonProtectingHimself(secondAttacker);
       openDialogueWhenPokemonMissAttackAfterProtectApply(firstAttacker);

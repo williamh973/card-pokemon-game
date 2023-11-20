@@ -43,14 +43,15 @@ import {
 
 import { 
   displayStatsPokemonsContainer
-} from './pokemon-stats-container.js' 
+} from './pokemon-stats-container.js';
 
 import { 
-  isProtected
-} from './factors-attacks/protect-factors-attacks/protect-factors-first-attack.js' 
-        
-      
-  
+  isProtectOrDetectCapacityActived
+} from './factors-attacks/protect-factors-attacks/protect-factors-attack.js'; 
+
+import { 
+  possibleRandomPokemonsList    
+} from './handle-menu-and-selections/possible-random-pokemons-list.js'; 
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -90,12 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
   domElementsFromSelectors.containerFullPopupDialogueFight = 
   document.getElementById('container-display-dialogue');
 
-    
-  
   domElementsFromSelectors.headContainer.
   appendChild(domElementsFromSelectors.fightInProgress);
-
-
 
 
   menu.addEventListener("change", () => {
@@ -103,13 +100,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
 
-  domElementsFromSelectors.selectFirstPokemonButton.addEventListener("change", () => {
+  domElementsFromSelectors.selectFirstPokemonButton
+  .addEventListener("change", () => {
 
-    handlePokemonFirstSelection(domElementsFromSelectors.selectFirstPokemonButton.value);
+    handlePokemonFirstSelection(
+      domElementsFromSelectors.selectFirstPokemonButton.value
+      );
     isFirstPokemonSelected = true;
-    playerSelectedPokemon = domElementsFromSelectors.selectFirstPokemonButton.value;
+
+    playerSelectedPokemon = 
+    domElementsFromSelectors.selectFirstPokemonButton.value;
     
     domElementsFromSelectors.fightButtonContainer.style.display = 'flex';
+
     activateFightButton();
   
     domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'none';
@@ -118,13 +121,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
     
 
-  domElementsFromSelectors.selectSecondPokemonButton.addEventListener("change", () => {
+  domElementsFromSelectors.selectSecondPokemonButton
+  .addEventListener("change", () => {
 
-    handlePokemonSecondSelection(domElementsFromSelectors.selectSecondPokemonButton.value);
+    handlePokemonSecondSelection(
+      domElementsFromSelectors.selectSecondPokemonButton.value
+      );
     isSecondPokemonSelected = true;
+
     enemyPokemon = domElementsFromSelectors.selectSecondPokemonButton.value;
 
     domElementsFromSelectors.fightButtonContainer.style.display = 'flex';
+
     activateFightButton();
         
     domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'none';
@@ -133,29 +141,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   
-  domElementsFromSelectors.pokemonRandomSelectionButton.addEventListener('click', () => {
-   
-    const possiblePokemons = [
-      "Pikachu", 
-      "Évoli", 
-      "Roucool", 
-      "Racaillou", 
-      "Insécateur", 
-      "Sabelette",
-      "Mewtwo",
-      "Scarabrute",
-      "Krabboss",
-      "Salamèche"
-    ];
+  domElementsFromSelectors.pokemonRandomSelectionButton
+  .addEventListener('click', () => {
 
-    const randomIndex = Math.floor(Math.random() * possiblePokemons.length);
-    const pokemon = possiblePokemons[randomIndex];
+    const randomIndex = Math.floor(Math.random() * possibleRandomPokemonsList.length);
+    const pokemon = possibleRandomPokemonsList[randomIndex];
 
     handleSelectionRandomPokemon(pokemon);
+
     isSecondPokemonSelected = true;
     enemyPokemon = pokemon;
 
     domElementsFromSelectors.fightButtonContainer.style.display = 'flex';
+
     activateFightButton();
    
     domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'none';
@@ -165,8 +163,10 @@ document.addEventListener('DOMContentLoaded', () => {
    
   domElementsFromSelectors.fightButton.disabled = true;
     
+
   
-  domElementsFromSelectors.fightButton.addEventListener('click', () => {
+  domElementsFromSelectors.fightButton
+  .addEventListener('click', () => {
 
 
     async function fight() {
@@ -184,13 +184,16 @@ document.addEventListener('DOMContentLoaded', () => {
         
         while (firstAttacker.stats.hp > 0 && secondAttacker.stats.hp > 0) {
           
-          displayStatsPokemonsContainer(firstAttacker, secondAttacker);
+          displayStatsPokemonsContainer(
+            firstAttacker, 
+
+            secondAttacker
+            );
      
            isFirstAttackActive = false;
            isSecondAttackActive = false;
            
-           isProtected;
-           console.log(isProtected);
+           isProtectOrDetectCapacityActived;
 
 
           let randomFactor = Math.random();
@@ -212,11 +215,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 secondAttacker.type
               );
              
-              secondAttacker.stats.hp -= Math.max(damageFirstAttack, 0);
-              await sleep(4000);
-              decreaseHp();
-              displayStatsPokemonsContainer(firstAttacker, secondAttacker);
-            
+              await sleep(4500);
+              secondAttackerTakesDamage(
+                firstAttacker, 
+                secondAttacker, 
+                damageFirstAttack
+                );
+  
             } else {
 
               isFirstAttackActive = false;
@@ -234,43 +239,44 @@ document.addEventListener('DOMContentLoaded', () => {
                 secondAttacker.type
               );
 
-              secondAttacker.stats.hp -= Math.max(damageSecondAttack, 0);
-              await sleep(4000);
-              decreaseHp();
-              displayStatsPokemonsContainer(firstAttacker, secondAttacker);
+              await sleep(4500);
+              secondAttackerTakesDamage(
+                firstAttacker, 
+                secondAttacker, 
+                damageSecondAttack
+                );
 
             };
 
 
             if (secondAttacker.stats.hp <= 0) {
-              
+
               secondAttacker.stats.hp = 0;
-              decreaseHp();
-              openDisplayResult();
-              openDialogueWhenPokemonKo();
-              hideFightInProgress();
-              hideSecondAttackerWhenLose(
+
+              pokemonLose(
+                firstAttacker, 
                 secondAttacker, 
-                enemyPokemon
-                );
-              hidePlayerSecondAttackerWhenLose(
-                secondAttacker, 
+                enemyPokemon, 
                 playerSelectedPokemon
-              );
-              displayStatsPokemonsContainer(firstAttacker, secondAttacker);
+                );
               break;
+
             };
 
 
             decreaseHp();
-            displayStatsPokemonsContainer(firstAttacker, secondAttacker);
+
+            displayStatsPokemonsContainer(
+              firstAttacker, 
+              secondAttacker
+              );
             
+
+
             isFirstAttackActive = false;
             isSecondAttackActive = false;
 
-            isProtected;
-            console.log(isProtected);
-            
+            isProtectOrDetectCapacityActived;
             
             randomFactor = Math.random();
             
@@ -291,10 +297,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 firstAttacker.type
               );
          
-              firstAttacker.stats.hp -= Math.max(damageFirstAttack, 0);
-              await sleep(4000);
-              decreaseHp();
-              displayStatsPokemonsContainer(firstAttacker, secondAttacker);
+              await sleep(4500);
+              firstAttackerTakesDamage(
+                firstAttacker, 
+                secondAttacker, 
+                damageFirstAttack
+                );
             
             } else {
 
@@ -313,33 +321,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 firstAttacker.type
               );
               
-              firstAttacker.stats.hp -= Math.max(damageSecondAttack, 0);
-              await sleep(4000);
-              decreaseHp();
-              displayStatsPokemonsContainer(firstAttacker, secondAttacker);
+              await sleep(4500);
+              firstAttackerTakesDamage(
+                firstAttacker, 
+                secondAttacker, 
+                damageSecondAttack
+                );
+
             };
       
+
             if (firstAttacker.stats.hp <= 0) {
+
               firstAttacker.stats.hp = 0;
-              decreaseHp();
-              openDisplayResult();
-              openDialogueWhenPokemonKo();
-              hideFightInProgress();
-              hideFirstAttackerWhenLose(
+
+              pokemonLose(
                 firstAttacker, 
-                enemyPokemon
-                );
-              hidePlayerFirstAttackerWhenLose(
-                firstAttacker,
+                secondAttacker, 
+                enemyPokemon, 
                 playerSelectedPokemon
-              );
-              displayStatsPokemonsContainer(firstAttacker, secondAttacker);
+                );
               break;
             };
 
-
-            displayStatsPokemonsContainer(firstAttacker, secondAttacker);
-
+            displayStatsPokemonsContainer(
+              firstAttacker, 
+              secondAttacker
+              );
 
         };
     };
@@ -348,12 +356,101 @@ document.addEventListener('DOMContentLoaded', () => {
   
 });
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+};
 
-    
 
-  function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  };
+async function firstAttackerTakesDamage(
+  firstAttacker, 
+  secondAttacker, 
+  damage
+  ) {
+    firstAttacker.stats.hp -= Math.max(damage, 0);
+    decreaseHp();
+    displayStatsPokemonsContainer(
+      firstAttacker, 
+      secondAttacker
+      );
+};
+  
+async function secondAttackerTakesDamage(
+  firstAttacker, 
+  secondAttacker, 
+  damage
+  ) {
+    secondAttacker.stats.hp -= Math.max(damage, 0);
+    decreaseHp();
+    displayStatsPokemonsContainer(
+      firstAttacker, 
+      secondAttacker
+      );
+};
+
+async function pokemonLose(
+    firstAttacker, 
+    secondAttacker, 
+    enemyPokemon, 
+    playerSelectedPokemon
+    ) {
+      decreaseHp();
+      openDisplayResult();
+      openDialogueWhenPokemonKo();
+      hideFightInProgress();
+
+      if (firstAttacker.stats.hp === 0) {
+          hideFirstAttackerWhenLose(
+            firstAttacker, 
+            enemyPokemon
+            );
+          hidePlayerFirstAttackerWhenLose(
+            firstAttacker,
+            playerSelectedPokemon
+          );
+      } else if (secondAttacker.stats.hp === 0) {
+          hideSecondAttackerWhenLose(
+            secondAttacker, 
+            enemyPokemon
+            );
+          hidePlayerSecondAttackerWhenLose(
+            secondAttacker, 
+            playerSelectedPokemon
+          );
+      };
+
+      displayStatsPokemonsContainer(
+        firstAttacker, 
+        secondAttacker
+        );
+};
+
+
+// async function secondAttackerLose(
+//   firstAttacker, 
+//   secondAttacker, 
+//   enemyPokemon, 
+//   playerSelectedPokemon
+//   ) {
+//     decreaseHp();
+//     openDisplayResult();
+//     openDialogueWhenPokemonKo();
+//     hideFightInProgress();
+
+//     hideSecondAttackerWhenLose(
+//       secondAttacker, 
+//       enemyPokemon
+//       );
+//     hidePlayerSecondAttackerWhenLose(
+//       secondAttacker, 
+//       playerSelectedPokemon
+//     );
+//     displayStatsPokemonsContainer(
+//       firstAttacker, 
+//       secondAttacker
+//       );
+// };
+
+
 
 
   function datasForCalculateDamages(
@@ -411,7 +508,6 @@ document.addEventListener('DOMContentLoaded', () => {
             domElementsFromSelectors.fightButton.disabled = false;
       }
     };
-
 
 });
 

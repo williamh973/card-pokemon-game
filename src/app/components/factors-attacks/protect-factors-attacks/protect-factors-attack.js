@@ -2,37 +2,16 @@ import {
     openDialogueWhenPokemonReadyToProtectItself
 } from '../../dialogue-fight.js';
 
-export let isProtected = false;
+export let isProtectOrDetectCapacityActived = false;
 let protectCount = 0;
 
 
-export const protectFactorForFirstAttack = 
-function protectFactorForFirstAttack(
-    firstAttacker,
-    isFirstAttackActive
-    ) {
-        
-    if ( 
-            (
-                firstAttacker.firstAttack.name === "Abri" ||
-                firstAttacker.firstAttack.name === 'Détection'
-            ) && isFirstAttackActive
-            ) {
-               isProtectedByProtectOrDetect();
-
-                pokemonProtected(
-                    firstAttacker
-                    );
-
-    }
-};
-
-export const isProtectedByProtectOrDetect =
- function isProtectedByProtectOrDetect() {
-    isProtected = true;
+export const isProtectOrDetectCapacityActivedByProtectOrDetect =
+ function isProtectOrDetectCapacityActivedByProtectOrDetect() {
+    isProtectOrDetectCapacityActived = true;
 
     setTimeout(() => {
-        isProtected = false;
+        isProtectOrDetectCapacityActived = false;
     }, 5000);
 
 }
@@ -41,7 +20,7 @@ function pokemonProtected(
     firstAttacker
     ) {
 
-        if (isProtected) {
+        if (isProtectOrDetectCapacityActived) {
             openDialogueWhenPokemonReadyToProtectItself(firstAttacker);
         
             protectCount++;
@@ -54,12 +33,7 @@ function pokemonProtected(
                 
             };        
 };
-                // secondAttacker.firstAttack.precision = 0;
-                // secondAttacker.secondAttack.precision = 0;
-                //   secondAttacker.firstAttack.precision = secondAttacker.firstAttack.precisionMax;
-                //   secondAttacker.secondAttack.precision = secondAttacker.secondAttack.precisionMax;
-     
- 
+
 
 function resetPrecisionFirstAttack(
     firstAttacker
@@ -92,7 +66,26 @@ function resetPrecisionFirstAttack(
 
 
 
+export const protectFactorForFirstAttack = 
+function protectFactorForFirstAttack(
+    firstAttacker,
+    isFirstAttackActive
+    ) {
+        
+    if ( 
+            (
+                firstAttacker.firstAttack.name === "Abri" ||
+                firstAttacker.firstAttack.name === 'Détection'
+            ) && isFirstAttackActive
+            ) {
+               isProtectOrDetectCapacityActivedByProtectOrDetect();
 
+                pokemonProtected(
+                    firstAttacker
+                    );
+
+    }
+};
 
 
 
@@ -101,7 +94,6 @@ function resetPrecisionFirstAttack(
 export const protectFactorForSecondAttack = 
 function protectFactorForSecondAttack(
     firstAttacker,
-    secondAttacker,
     isSecondAttackActive
     ) {
 
@@ -111,9 +103,10 @@ function protectFactorForSecondAttack(
                 firstAttacker.secondAttack.name === 'Détection'
             ) && isSecondAttackActive
             ) {
+                isProtectOrDetectCapacityActivedByProtectOrDetect();
+
                 pokemonProtected(
-                    firstAttacker, 
-                    secondAttacker
+                    firstAttacker
                     );
 
     }
