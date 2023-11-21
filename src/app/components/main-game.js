@@ -16,22 +16,9 @@ import { handlePokemonFirstSelection } from './handle-menu-and-selections/handle
 import { handlePokemonSecondSelection } from './handle-menu-and-selections/handlePokemonSecondSelection.js';
 import { handleSelectionRandomPokemon } from './handle-menu-and-selections/handlePokemonRandomSelection.js';
 
-import { openDisplayResult } from './result-fight.js';
-
-import { openDialogueWhenPokemonKo } from './dialogue-fight.js';
-
 import { 
-  displayFightInProgress, 
-  hideFightInProgress
+  displayFightInProgress
 } from './display-fight-in-progress.js';
-
-import { 
-  hideFirstAttackerWhenLose,
-  hideSecondAttackerWhenLose,
-
-  hidePlayerSecondAttackerWhenLose,
-  hidePlayerFirstAttackerWhenLose
-} from "./hideLocationsWhenPokemonsLoses.js";
 
 import { 
   calculateDamageFirstAttack 
@@ -57,7 +44,15 @@ import {
   possibleRandomPokemonsList    
 } from './handle-menu-and-selections/possible-random-pokemons-list.js'; 
 
-import { getAttackDelays, sleep } from './attacks-delay.js';
+import { 
+  getAttackDelays, 
+  sleep 
+} from './attacks-delay.js';
+
+import { 
+  pokemonLose 
+} from "./Pokémon-is-knock-out.js";
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -225,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
              
               if (isFirstAttackActive) {
                 await sleep(attackDelays.firstAttackerFirstAttackDelay);
-                console.log(attackDelays.firstAttackerFirstAttackDelay);
+
                 secondAttackerTakesDamage(
                   firstAttacker, 
                   secondAttacker, 
@@ -250,21 +245,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 secondAttacker.type
               );
 
-            if (isSecondAttackActive) {
-              await sleep(attackDelays.firstAttackerSecondAttackDelay);
-              console.log(attackDelays.firstAttackerSecondAttackDelay);
-              secondAttackerTakesDamage(
-                firstAttacker, 
-                secondAttacker, 
-                damageSecondAttack
-                );
-            };
+              if (isSecondAttackActive) {
+                await sleep(attackDelays.firstAttackerSecondAttackDelay);
+
+                secondAttackerTakesDamage(
+                  firstAttacker, 
+                  secondAttacker, 
+                  damageSecondAttack
+                  );
+              };
 
             };
 
 
             if (secondAttacker.stats.hp <= 0) {
-
               secondAttacker.stats.hp = 0;
 
               pokemonLose(
@@ -306,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
          
             if (isFirstAttackActive) {
               await sleep(attackDelays.secondAttackerFirstAttackDelay);
-              console.log(attackDelays.secondAttackerFirstAttackDelay);
+
               firstAttackerTakesDamage(
                 firstAttacker, 
                 secondAttacker, 
@@ -333,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
               
             if (isSecondAttackActive) {
               await sleep(attackDelays.secondAttackerSecondAttackDelay);
-              console.log(attackDelays.secondAttackerSecondAttackDelay);
+
               firstAttackerTakesDamage(
                 firstAttacker, 
                 secondAttacker, 
@@ -345,7 +339,6 @@ document.addEventListener('DOMContentLoaded', () => {
       
 
             if (firstAttacker.stats.hp <= 0) {
-
               firstAttacker.stats.hp = 0;
 
               pokemonLose(
@@ -368,7 +361,6 @@ document.addEventListener('DOMContentLoaded', () => {
   fight();
   
 });
-
 
 
 async function firstAttackerTakesDamage(
@@ -395,43 +387,6 @@ async function secondAttackerTakesDamage(
       firstAttacker, 
       secondAttacker
       );
-};
-
-async function pokemonLose(
-    firstAttacker, 
-    secondAttacker, 
-    enemyPokemon, 
-    playerSelectedPokemon
-    ) {
-      decreaseHp();
-      openDisplayResult();
-      openDialogueWhenPokemonKo();
-      hideFightInProgress();
-      
-      if (firstAttacker.stats.hp === 0) {
-          hideFirstAttackerWhenLose(
-            firstAttacker, 
-            enemyPokemon
-            );
-          hidePlayerFirstAttackerWhenLose(
-            firstAttacker,
-            playerSelectedPokemon
-          );
-      } else if (secondAttacker.stats.hp === 0) {
-          hideSecondAttackerWhenLose(
-            secondAttacker, 
-            enemyPokemon
-            );
-            hidePlayerSecondAttackerWhenLose(
-              secondAttacker, 
-            playerSelectedPokemon
-          );
-      };
-
-      displayStatsPokemonsContainer(
-        firstAttacker, 
-        secondAttacker
-        );
 };
 
 

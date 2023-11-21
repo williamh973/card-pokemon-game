@@ -1,20 +1,28 @@
   let firstPlayerName;
   let firstPlayerScore = 0;
     
-  const mainContainer = document.getElementById('main');
-    
-  const playerFormContainer = document.getElementById('playerFormContainerForStart');
 
-  const playerNameInput = document.getElementById('playerName');
+  const mainContainer = 
+  document.getElementById('main');
+
+  const playerFormContainer = 
+  document.getElementById('playerFormContainerForStart');
+
+  const playerNameInput = 
+  document.getElementById('playerName');
   
-  const submitButton = document.getElementById('submitButton');
+  const submitButton = 
+  document.getElementById('submitButton');
+
     
   submitButton.disabled = true;
+
 
   submitButton.addEventListener('click', (event) => { 
   event.preventDefault();
   
-  domElementInFormPlayer.firstPlayer.innerText = ` ${firstPlayerName} : ${domElementInFormPlayer.firstPlayerScore} points`;
+  domElementInFormPlayer.firstPlayer.innerText = 
+  ` ${firstPlayerName} : ${domElementInFormPlayer.firstPlayerScore} points`;
 
     playerFormContainer.style.display = 'none';
     mainContainer.style.display = 'block';

@@ -46,7 +46,7 @@ export const getAttackDelays =
  (attackName) => {
     switch (attackName) {
       case 'Charge':
-        return 4000;
+        return 3000;
       default:
         return 3000;
     }

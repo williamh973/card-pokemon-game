@@ -55,8 +55,8 @@ import {
 } from '../factors-attacks/one-hit-factors-attacks/one-hit-knock-out-first-attack.js';
 
 import { 
-protectFactorForFirstAttack, 
-isProtectOrDetectCapacityActived
+  protectFactorForFirstAttack, 
+  isProtectOrDetectCapacityActived
 } from '../factors-attacks/protect-factors-attacks/protect-factors-attack.js' 
   
 
@@ -78,13 +78,16 @@ function calculateDamageFirstAttack(
 
       if (
         isFirstAttackActive && 
-        !isProtectOrDetectCapacityActived
+        !isProtectOrDetectCapacityActived && 
+        (
+          firstAttackType === 'bonus' || 
+          firstAttackType !== 'bonus'
+          )
         ) {
 
-        
        openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
 
-      const randomNumber = Math.floor(Math.random() * 100) + 1;
+       const randomNumber = Math.floor(Math.random() * 100) + 1;
 
         if (randomNumber <= firstAttackPrecision) {
   
@@ -167,42 +170,109 @@ function calculateDamageFirstAttack(
             );
             
 
-            protectFactorForFirstAttack(
-              firstAttacker,
-              isFirstAttackActive
-              );
+          protectFactorForFirstAttack(
+            firstAttacker,
+            isFirstAttackActive
+            );
               
-              if (
-                degats > 0 && 
-              degats < 0.5
-              ) {
+              if (degats > 0 && degats < 0.5) {
                 return degats = 1;
               };
               
               console.log(firstAttacker.name, "utilise", firstAttacker.firstAttack.name);
               return Math.round(degats);
-            } else {
+
+        } else {
             openDialogueWhenPokemonMissAttack(firstAttacker);
             return 0;
         }
 
-      } else if (isFirstAttackActive && isProtectOrDetectCapacityActived) {
-      openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
-      openDialogueWhenPokemonProtectingHimself(secondAttacker);
-      openDialogueWhenPokemonMissAttackAfterProtectApply(firstAttacker);
+      } else if (
+        isFirstAttackActive && 
+        isProtectOrDetectCapacityActived && 
+        firstAttackType !== 'bonus'
+        ) {
+           openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
+           openDialogueWhenPokemonProtectingHimself(secondAttacker);
+           openDialogueWhenPokemonMissAttackAfterProtectApply(firstAttacker);
+           return 0;
+      } else if (
+        isFirstAttackActive && 
+        isProtectOrDetectCapacityActived && 
+        firstAttackType === 'bonus'
+        ) {
 
-      return 0;
-    }
+          handleBonusAttackWhenProtectOrDetectCapacityActived(
+            firstAttacker, 
+            secondAttacker, 
+            isFirstAttackActive,
+            firstAttackStrength, 
+            firstAttackerSpecialAtt, 
+            secondAttackerSpecialDef, 
+            firstAttackPrecision
+            );
+            
+          }
+      };
+
+
+
+
+function handleBonusAttackWhenProtectOrDetectCapacityActived(
+  firstAttacker, 
+  secondAttacker, 
+  isFirstAttackActive,
+  firstAttackStrength, 
+  firstAttackerSpecialAtt, 
+  secondAttackerSpecialDef, 
+  firstAttackPrecision
+  ) {
+   openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
+     
+   const randomNumber = Math.floor(Math.random() * 100) + 1;
+   
+     if (randomNumber <= firstAttackPrecision) {
+   
+       let degats = (
+         (2 * firstAttacker.stats.attack / secondAttacker.stats.defense) * 
+         firstAttackStrength * 
+         (firstAttackerSpecialAtt / secondAttackerSpecialDef)
+       ) / 20;
+   
+       speedIncrease5pFactorForFirstAttack(
+         firstAttacker, 
+         isFirstAttackActive
+         );
+   
+       speedIncrease10pFactorForFirstAttack(
+         firstAttacker, 
+         isFirstAttackActive
+         );
+   
+       defenseIncrease5pFactorForFirstAttack(
+         firstAttacker, 
+         isFirstAttackActive
+         );
+   
+       defenseIncrease10pFactorForFirstAttack(
+         firstAttacker, 
+         isFirstAttackActive
+         );
+   
+       hpIncrease5pFactorForFirstAttack(
+         firstAttacker, 
+         isFirstAttackActive
+         );
+   
+       protectFactorForFirstAttack(
+         firstAttacker,
+         isFirstAttackActive
+         );
+           
+         console.log(firstAttacker.name, "utilise", firstAttacker.firstAttack.name);
+         return Math.round(degats);
+     }  else {
+          openDialogueWhenPokemonMissAttack(firstAttacker);
+          return 0;
+      }
 };
-
-
-
-
-
-
-
-
-            // console.log("randomNumber", randomNumber);
-            // console.log(firstAttacker.name, "présision de", firstAttacker.firstAttack.name, firstAttackPrecision);
-            // console.log(firstAttacker.name, "utilise", firstAttacker.firstAttack.name, degats);
-      
