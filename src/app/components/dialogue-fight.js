@@ -379,13 +379,13 @@ function openDialogueWhenPokemonHasBurningStatut(pokemon) {
 
 
 export const openDialogueWhenPokemonHpDecreaseByBurningStatut =
-function openDialogueWhenPokemonHpDecreaseByBurningStatut(firstAttacker) {
+function openDialogueWhenPokemonHpDecreaseByBurningStatut(pokemon) {
   setTimeout(function() {
     domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
     domElementsFromSelectors.displayDialogue.style.display = 'flex';
     
     domElementsFromSelectors.displayDialogue.textContent = 
-    `${ firstAttacker.name } souffre de sa brûlure !`;
+    `${ pokemon.name } souffre de sa brûlure !`;
     
       setTimeout(function() {
         domElementsFromSelectors.displayDialogue.style.display = 'none';
@@ -413,13 +413,13 @@ function openDialogueWhenPokemonHasPoisonedStatut(pokemon) {
 
 
 export const openDialogueWhenPokemonHpDecreaseByPoisonedStatut =
-function openDialogueWhenPokemonHpDecreaseByPoisonedStatut(firstAttacker) {
+function openDialogueWhenPokemonHpDecreaseByPoisonedStatut(pokemon) {
   setTimeout(function() {
     domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
     domElementsFromSelectors.displayDialogue.style.display = 'flex';
     
     domElementsFromSelectors.displayDialogue.textContent = 
-    `${ firstAttacker.name } souffre du poison !`;
+    `${ pokemon.name } souffre du poison !`;
     
       setTimeout(function() {
         domElementsFromSelectors.displayDialogue.style.display = 'none';

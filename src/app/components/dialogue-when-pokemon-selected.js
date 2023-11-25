@@ -37,6 +37,9 @@ switch (pokemon) {
   case 'Salamèche':
     displayPopupPokemonSelected.innerText = 'Salamèche selectionné !';
   break;
+  case 'Nidoran♂':
+    displayPopupPokemonSelected.innerText = 'Nidoran♂ selectionné !';
+  break;
 };
 
   setTimeout(function() {

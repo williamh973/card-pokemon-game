@@ -6,7 +6,8 @@ export const updatePlayerScore = function updatePlayerScore() {
   
   domElementInFormPlayer.firstPlayerScore += 1;
   domElementInFormPlayer.firstPlayer.innerText =
-   ` ${domElementInFormPlayer.playerNameInput.value} : ${domElementInFormPlayer.firstPlayerScore} points`;
+   ` ${domElementInFormPlayer.playerNameInput.value} : 
+   ${domElementInFormPlayer.firstPlayerScore} points`;
 
 
 };

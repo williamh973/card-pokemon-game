@@ -1,9 +1,10 @@
-export let isBurningStatut = false;
 
 export const firstAttackerStatutAlteration = 
 function firstAttackerStatutAlteration(firstAttacker) {
-
-      isBurningStatut = true;
+   if (
+      firstAttacker.primaryStatut === 'burning' ||
+      firstAttacker.primaryStatut === 'poisoned'
+      ) {
 
       let percentage = 12.5;
       let decreaseValue = (percentage / 100) * firstAttacker.stats.hpMax;
@@ -11,5 +12,7 @@ function firstAttackerStatutAlteration(firstAttacker) {
 
       firstAttacker.stats.hp -= newDecreaseValue;
       return firstAttacker.stats.hp;
+
+    };
 
 };

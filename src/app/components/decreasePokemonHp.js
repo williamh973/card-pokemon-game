@@ -8,6 +8,8 @@ import { mewtwoStats } from './models/mewtwo.model.js';
 import { scarabruteStats } from './models/scarabrute.model.js';
 import { krabbossStats } from './models/krabboss.model.js';
 import { salamecheStats } from './models/salameche.model.js';
+import { nidoranMaleStats } from './models/nidoranMale.model.js';
+
 
 import { pikachuCard } from './cards/pikachu.card.js';
 import { evoliCard } from './cards/evoli.card.js';
@@ -19,6 +21,7 @@ import { mewtwoCard } from './cards/mewtwo.card.js';
 import { scarabruteCard } from './cards/scarabrute.card.js';
 import { krabbossCard } from './cards/krabboss.card.js';
 import { salamecheCard } from './cards/salameche.card.js';
+import { nidoranMaleCard } from './cards/nidoranMale.card.js';
 
 import { domElementsFromSelectors } from './dom-elements.js';
 
@@ -125,6 +128,17 @@ function decreaseHp() {
     document.getElementById('salamecheHealth').textContent = 
     `${salamecheStats.stats.hp}`;
     };
+
+    if (
+      (domElementsFromSelectors.selectFirstPokemonButton.value === 'Nidoran♂') || 
+      (domElementsFromSelectors.selectSecondPokemonButton.value === 'Nidoran♂') || 
+      (domElementsFromSelectors.pokemonFirstLocation.contains(nidoranMaleCard)) || 
+      (domElementsFromSelectors.pokemonSecondLocation.contains(nidoranMaleCard))
+    ) {
+    document.getElementById('nidoranMaleHealth').textContent = 
+    `${nidoranMaleStats.stats.hp}`;
+    };
+
 
 }; 
   

@@ -58,10 +58,12 @@ import {
   } from '../../factors-attacks/protect-factors-attacks/protect-factors-attack.js' 
     
   import { 
-    burningStatutProbabilitys
-  } from "../../factors-statuts-state/decrease-hp-probability/burning/export-to-calculate-damages-attacks/burning-statut-probabilitys.js";
+    burningStatutProbabilitysForSecondAttack
+  } from "../../factors-statuts-state/decrease-hp-probability/burning/export-to-calculate-damages-attacks/burning-statut-probabilitys-for-second-attack.js";
   
-
+  import { 
+  poisonedStatutProbabilitysForSecondAttack
+  } from '../../factors-statuts-state/decrease-hp-probability/poisoned/export-to-calculate-damages-attacks/poisoned-statut-probabilitys-for-second-attack.js'
 
 export const calculateDamageSecondAttack = 
 function calculateDamageSecondAttack(
@@ -176,7 +178,15 @@ function calculateDamageSecondAttack(
             isSecondAttackActive
             );
 
-            burningStatutProbabilitys(
+            burningStatutProbabilitysForSecondAttack(
+              firstAttacker,
+              secondAttacker,
+              isSecondAttackActive,
+              secondAttackType,
+              secondAttackerType
+            );
+
+            poisonedStatutProbabilitysForSecondAttack(
               firstAttacker,
               secondAttacker,
               isSecondAttackActive,

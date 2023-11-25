@@ -29,8 +29,14 @@ export const getSecondAttackerAlterationStatesDelays = (secondAttacker) => {
           return 4000; 
           case 'poisoned':
             return 4000;
-          default:
-            return 0; 
+            case 'asleep':
+              return 4000;
+              case 'frozen':
+                return 4000;
+                case 'paralyzed':
+                  return 4000;
+                default:
+                  return 0; 
     }
   };
   

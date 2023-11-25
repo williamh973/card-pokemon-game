@@ -32,14 +32,15 @@ function burningStatut10PercentProbabililityForFirstAttack(
         (
             secondAttacker.primaryStatut !== 'burning' &&
             secondAttacker.primaryStatut !== 'paralyzed' &&
-            secondAttacker.primaryStatut !== 'sleeping' &&
-            secondAttacker.primaryStatut !== 'poisoned'
+            secondAttacker.primaryStatut !== 'asleep' &&
+            secondAttacker.primaryStatut !== 'poisoned' &&
+            secondAttacker.primaryStatut !== 'frozen' 
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
              if (randomNumber < 10) {
-                secondAttacker.primaryStatut === 'burning'
+                secondAttacker.primaryStatut = 'burning'
                 openDialogueWhenPokemonHasBurningStatut(secondAttacker); 
             }
                            
@@ -79,14 +80,15 @@ function burningStatut30PercentProbabililityForFirstAttack(
         (
             secondAttacker.primaryStatut !== 'burning' &&
             secondAttacker.primaryStatut !== 'paralyzed' &&
-            secondAttacker.primaryStatut !== 'sleeping' &&
-            secondAttacker.primaryStatut !== 'poisoned'
+            secondAttacker.primaryStatut !== 'asleep' &&
+            secondAttacker.primaryStatut !== 'poisoned' &&
+            secondAttacker.primaryStatut !== 'frozen' 
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
              if (randomNumber < 30) {
-                secondAttacker.primaryStatut === 'burning'
+                secondAttacker.primaryStatut = 'burning'
                 openDialogueWhenPokemonHasBurningStatut(secondAttacker); 
             }
                            
@@ -114,14 +116,15 @@ function burningStatut50PercentProbabililityForFirstAttack(
         (
             secondAttacker.primaryStatut !== 'burning' &&
             secondAttacker.primaryStatut !== 'paralyzed' &&
-            secondAttacker.primaryStatut !== 'sleeping' &&
-            secondAttacker.primaryStatut !== 'poisoned'
+            secondAttacker.primaryStatut !== 'asleep' &&
+            secondAttacker.primaryStatut !== 'poisoned' &&
+            secondAttacker.primaryStatut !== 'frozen' 
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
              if (randomNumber < 50) {
-                secondAttacker.primaryStatut === 'burning'
+                secondAttacker.primaryStatut = 'burning'
                 openDialogueWhenPokemonHasBurningStatut(secondAttacker); 
             }
                            
@@ -155,14 +158,15 @@ function burningStatut100PercentProbabililityForFirstAttack(
         (
             secondAttacker.primaryStatut !== 'burning' &&
             secondAttacker.primaryStatut !== 'paralyzed' &&
-            secondAttacker.primaryStatut !== 'sleeping' &&
-            secondAttacker.primaryStatut !== 'poisoned'
+            secondAttacker.primaryStatut !== 'asleep' &&
+            secondAttacker.primaryStatut !== 'poisoned' &&
+            secondAttacker.primaryStatut !== 'frozen' 
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
              if (randomNumber < 100) {
-                secondAttacker.primaryStatut === 'burning'
+                secondAttacker.primaryStatut = 'burning'
                 openDialogueWhenPokemonHasBurningStatut(secondAttacker); 
             }
                            

@@ -30,7 +30,6 @@ import {
   attackDecrease2pFactorForFirstAttack 
 } from '../../factors-attacks/decrease-factors-attacks/attack-decrease-factors/attack-decrease-2P-factors-attacks/attack-decrease-2P-factor-first-attack.js';
 
-
 import { 
   hpIncrease5pFactorForFirstAttack 
 } from '../../factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-5P-factor-attacks.js';
@@ -63,11 +62,14 @@ import {
 } from '../handle-bonus-attack-when-protect-or-detect-capacity-actived/handle-bonus-attack-when-protect-or-detect-capacity-actived-first-attack.js'
 
 import { 
-  burningStatut10PercentProbabililityForFirstAttack,
-  burningStatut30PercentProbabililityForFirstAttack,
-  burningStatut50PercentProbabililityForFirstAttack,
-  burningStatut100PercentProbabililityForFirstAttack
-} from "../../factors-statuts-state/decrease-hp-probability/burning/burning-statut-probability-for-first-attack.js";
+  poisonedStatutProbabilitysForFirstAttack 
+} from "../../factors-statuts-state/decrease-hp-probability/poisoned/export-to-calculate-damages-attacks/poisoned-statut-probabilitys-for-first-attack.js";
+
+import { 
+  burningStatutProbabilitysForFirstAttack
+} from "../../factors-statuts-state/decrease-hp-probability/burning/export-to-calculate-damages-attacks/burning-statut-probabilitys-for-first-attack.js";
+
+
 
 
 export const calculateDamageFirstAttack = 
@@ -184,31 +186,17 @@ function calculateDamageFirstAttack(
             isFirstAttackActive
             );
 
-            burningStatut10PercentProbabililityForFirstAttack(
+
+            burningStatutProbabilitysForFirstAttack(
               firstAttacker,
               secondAttacker,
               isFirstAttackActive,
               firstAttackType,
               secondAttackerType
-            );
+            )
 
-            burningStatut30PercentProbabililityForFirstAttack(
-              firstAttacker,
-              secondAttacker,
-              isFirstAttackActive,
-              firstAttackType,
-              secondAttackerType
-            );
 
-            burningStatut50PercentProbabililityForFirstAttack(
-              firstAttacker,
-              secondAttacker,
-              isFirstAttackActive,
-              firstAttackType,
-              secondAttackerType
-            );
-
-            burningStatut100PercentProbabililityForFirstAttack(
+            poisonedStatutProbabilitysForFirstAttack(
               firstAttacker,
               secondAttacker,
               isFirstAttackActive,

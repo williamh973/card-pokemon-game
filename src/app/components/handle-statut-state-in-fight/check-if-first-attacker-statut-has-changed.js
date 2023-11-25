@@ -11,7 +11,8 @@ import {
 } from '../decreasePokemonHp.js';
 
 import { 
-  openDialogueWhenPokemonHpDecreaseByBurningStatut
+  openDialogueWhenPokemonHpDecreaseByBurningStatut,
+  openDialogueWhenPokemonHpDecreaseByPoisonedStatut
 } from '../dialogue-fight.js';
 
 import { 
@@ -29,11 +30,15 @@ async function checkIfFirstAttackerStatusHasChanged(
   sleepStatutAlteredAnimation,
   ) {
 
-    if (firstAttacker.primaryStatut === 'burning') {
-      console.log("début de condition car", firstAttacker.name, "est brûlé");
+    if (
+      firstAttacker.primaryStatut === 'burning' ||
+      firstAttacker.primaryStatut === 'poisoned'
+      ) {
+      console.log("début de condition car", firstAttacker.name, "est", firstAttacker.primaryStatut);
       
-      openDialogueWhenPokemonHpDecreaseByBurningStatut(firstAttacker);
-      console.log("dialogue passé");
+      appropriateDialogues(
+        firstAttacker
+      );
 
       const firstAttackerAlterationStateDelays = 
       getFirstAttackerAlterationStatesDelays(
@@ -61,5 +66,19 @@ async function checkIfFirstAttackerStatusHasChanged(
 
     console.log("fin de condition");
     };
+};
+
+
+function appropriateDialogues(
+  firstAttacker
+) {
+  if (firstAttacker.primaryStatut === 'burning') {
+    openDialogueWhenPokemonHpDecreaseByBurningStatut(firstAttacker);
+    console.log("dialogue passé");
+
+   } else if (firstAttacker.primaryStatut === 'poisoned') {
+    openDialogueWhenPokemonHpDecreaseByPoisonedStatut(firstAttacker);
+    console.log("dialogue passé");
+  };
 
 };

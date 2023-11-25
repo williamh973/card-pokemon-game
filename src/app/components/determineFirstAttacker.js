@@ -8,6 +8,7 @@ import { mewtwoStats } from './models/mewtwo.model.js';
 import { scarabruteStats } from './models/scarabrute.model.js';
 import { krabbossStats } from './models/krabboss.model.js';
 import { salamecheStats } from './models/salameche.model.js';
+import { nidoranMaleStats } from './models/nidoranMale.model.js';
 
 import { pikachuCard } from './cards/pikachu.card.js';
 import { evoliCard } from './cards/evoli.card.js';
@@ -19,6 +20,7 @@ import { mewtwoCard } from './cards/mewtwo.card.js';
 import { scarabruteCard } from './cards/scarabrute.card.js';
 import { krabbossCard } from './cards/krabboss.card.js';
 import { salamecheCard } from './cards/salameche.card.js';
+import { nidoranMaleCard } from './cards/nidoranMale.card.js';
 
 import { domElementsFromSelectors } from './dom-elements.js'
 
@@ -70,7 +72,11 @@ export { firstAttacker, secondAttacker, determineFirstAttacker };
   } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Salamèche' ||
     domElementsFromSelectors.pokemonFirstLocation.contains(salamecheCard)) {
     firstAttacker = salamecheStats;
-  }
+
+  } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Nidoran♂' ||
+    domElementsFromSelectors.pokemonFirstLocation.contains(nidoranMaleCard)) {
+    firstAttacker = nidoranMaleStats;
+}
   
 
 
@@ -114,7 +120,11 @@ export { firstAttacker, secondAttacker, determineFirstAttacker };
   } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Salamèche' ||
      domElementsFromSelectors.pokemonSecondLocation.contains(salamecheCard)) {
      secondAttacker = salamecheStats;
-  }
+
+  } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Nidoran♂' ||
+  domElementsFromSelectors.pokemonSecondLocation.contains(nidoranMaleCard)) {
+  secondAttacker = nidoranMaleStats;
+}
     
   if (firstAttacker.stats.speed < secondAttacker.stats.speed) {
       [firstAttacker, secondAttacker] = [secondAttacker, firstAttacker];    

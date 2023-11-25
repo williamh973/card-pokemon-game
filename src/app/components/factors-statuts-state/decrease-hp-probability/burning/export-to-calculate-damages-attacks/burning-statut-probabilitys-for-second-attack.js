@@ -7,8 +7,8 @@ import {
   
 
 
-export const burningStatutProbabilitys =
-function burningStatutProbabilitys(
+export const burningStatutProbabilitysForSecondAttack =
+function burningStatutProbabilitysForSecondAttack(
     firstAttacker,
     secondAttacker,
     isSecondAttackActive,

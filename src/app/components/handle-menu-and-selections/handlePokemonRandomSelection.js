@@ -9,6 +9,7 @@ import { mewtwoCard } from '../cards/mewtwo.card.js';
 import { scarabruteCard } from '../cards/scarabrute.card.js';
 import { krabbossCard } from '../cards/krabboss.card.js';
 import { salamecheCard } from '../cards/salameche.card.js';
+import { nidoranMaleCard } from '../cards/nidoranMale.card.js';
 
 import { domElementsFromSelectors } from '../dom-elements.js';
 
@@ -61,6 +62,10 @@ export const handleSelectionRandomPokemon
       break;
       case 'Salamèche':
         domElementsFromSelectors.pokemonSecondLocation.appendChild(salamecheCard);
+        pokemonSelected(pokemon);
+      break;
+      case 'Nidoran♂':
+        domElementsFromSelectors.pokemonSecondLocation.appendChild(nidoranMaleCard);
         pokemonSelected(pokemon);
       break;
   };
