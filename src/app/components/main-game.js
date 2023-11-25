@@ -59,22 +59,18 @@ import {
 } from "./pokemon-is-knock-out.js";
 
 import { 
-  firstAttackerStatutAlteration
-} from "./handle-statut-state-in-fight/first-attacker-statut-state-alteration.js";
-
-import { 
-  secondAttackerStatutAlteration 
-} from "./handle-statut-state-in-fight/second-attacker-statut-state-alteration.js";
-
-import { 
-  getFirstAttackerAlterationStatesDelays, 
-  getSecondAttackerAlterationStatesDelays,
   sleepStatutAlteredAnimation 
 } from './alterations-delay.js';
 
 import { 
-  openDialogueWhenPokemonHpDecreaseByBurningStatut
-} from './dialogue-fight.js';
+  checkIfFirstAttackerStatusHasChanged 
+} from "./handle-statut-state-in-fight/check-if-first-attacker-statut-has-changed.js";
+
+import { 
+  checkIfSecondAttackerStatusHasChanged 
+} from "./handle-statut-state-in-fight/check-if-second-attacker-statut-has-changed.js";
+
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -225,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           let randomFactor = Math.random();
   
-            if (randomFactor > 0.9) {
+            if (randomFactor > 0.5) {
 
               isFirstAttackActive = true;
               isSecondAttackActive = false;
@@ -250,6 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 await sleepAttacksAnimation(attackDelays.firstAttackerFirstAttackDelay);
                 console.log("attackDelays", attackDelays.firstAttackerSecondAttackDelay);
+                
                 secondAttackerTakesDamage(
                   firstAttacker, 
                   secondAttacker, 
@@ -282,6 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 await sleepAttacksAnimation(attackDelays.firstAttackerSecondAttackDelay);
                 console.log("attackDelays", attackDelays.firstAttackerSecondAttackDelay);
+
                 secondAttackerTakesDamage(
                   firstAttacker, 
                   secondAttacker, 
@@ -307,36 +305,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             console.log(firstAttacker.name, "a terminé son tour");
 
+            await checkIfFirstAttackerStatusHasChanged(
+              firstAttacker, 
+              secondAttacker,
+              enemyPokemon, 
+              playerSelectedPokemon,
+              sleepStatutAlteredAnimation
+              );
 
-            // if (firstAttacker.primaryStatut === 'burning') {
 
-            //    openDialogueWhenPokemonHpDecreaseByBurningStatut(firstAttacker);
-   
-            //    firstAttackerStatutAlteration(firstAttacker);    
-   
-            //    const firstAttackerAlterationStateDelays = 
-            //    getFirstAttackerAlterationStatesDelays(
-            //      firstAttacker
-            //      );
-   
-            //    await sleepStatutAlteredAnimation(firstAttackerAlterationStateDelays.firstAttackerStateDelay);
-            //    console.log("firstAttackerAlterationStateDelays", firstAttackerAlterationStateDelays.firstAttackerStateDelay);
-               
-            //    decreaseHp();
-
-            //   if (firstAttacker.stats.hp <= 0) {
-            //     firstAttacker.stats.hp = 0;
-  
-            //     pokemonLose(
-            //       firstAttacker, 
-            //       secondAttacker, 
-            //       enemyPokemon, 
-            //       playerSelectedPokemon
-            //       );
-            //     break;
-            //   };
-
-            // };
 
 
             isFirstAttackActive = false;
@@ -371,6 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
               await sleepAttacksAnimation(attackDelays.secondAttackerFirstAttackDelay);
               console.log("attackDelays", attackDelays.secondAttackerSecondAttackDelay);
+
               firstAttackerTakesDamage(
                 firstAttacker, 
                 secondAttacker, 
@@ -403,7 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
               await sleepAttacksAnimation(attackDelays.secondAttackerSecondAttackDelay);
               console.log("attackDelays", attackDelays.secondAttackerSecondAttackDelay);
-              decreaseHp();
+             
               firstAttackerTakesDamage(
                 firstAttacker, 
                 secondAttacker, 
@@ -428,39 +406,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             console.log(secondAttacker.name, "a terminé son tour");
             
-            
-            if (secondAttacker.primaryStatut === 'burning') {
-              console.log("début de condition car", secondAttacker.name, "est brûlé");
-              
-              openDialogueWhenPokemonHpDecreaseByBurningStatut(secondAttacker);
-              console.log("dialogue passé");
-
-              const secondAttackerAlterationStateDelays = 
-              getSecondAttackerAlterationStatesDelays(
-                secondAttacker
+              await checkIfSecondAttackerStatusHasChanged(
+              secondAttacker, 
+              firstAttacker,
+              enemyPokemon, 
+              playerSelectedPokemon,
+              sleepStatutAlteredAnimation
               );
-              secondAttackerStatutAlteration(secondAttacker); 
-              console.log("réduction des pv de", secondAttacker.name  );
 
-              await sleepStatutAlteredAnimation(secondAttackerAlterationStateDelays.secondAttackerStateDelay);
-              console.log("sleepStatutAlteredAnimation", secondAttackerAlterationStateDelays.secondAttackerStateDelay);
-              
-              decreaseHp();
 
-            if (secondAttacker.stats.hp <= 0) {
-              secondAttacker.stats.hp = 0;
-          
-              pokemonLose(
-                firstAttacker, 
-                secondAttacker, 
-                enemyPokemon, 
-                playerSelectedPokemon
-                );
-          
-            };
-
-            console.log("fin de condition");
-            };
 
             console.log("fin de boucle");
 

@@ -180,6 +180,7 @@ function calculateDamageFirstAttack(
             
           protectFactorForFirstAttack(
             firstAttacker,
+            secondAttacker,
             isFirstAttackActive
             );
 

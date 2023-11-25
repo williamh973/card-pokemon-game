@@ -7,12 +7,34 @@ let protectCount = 0;
 
 
 export const isProtectOrDetectCapacityActivedByProtectOrDetect =
- function isProtectOrDetectCapacityActivedByProtectOrDetect() {
+ function isProtectOrDetectCapacityActivedByProtectOrDetect(
+    firstAttacker, 
+    secondAttacker
+    ) {
     isProtectOrDetectCapacityActived = true;
 
-    setTimeout(() => {
-        isProtectOrDetectCapacityActived = false;
-    }, 5000);
+    if (
+        (
+            firstAttacker.primaryStatut !== 'normal' ||
+            firstAttacker.secondaryStatut !== 'normal'
+            ) 
+            ||
+                (
+                    secondAttacker.primaryStatut !== 'normal' || 
+                    secondAttacker.secondaryStatut !== 'normal'
+                    )
+
+    ) {
+        setTimeout(() => {
+            isProtectOrDetectCapacityActived = false;
+        }, 9000);
+        console.log(9000);
+    } else {
+        setTimeout(() => {
+            isProtectOrDetectCapacityActived = false;
+        }, 5000);
+        console.log(5000);
+    };
 
 }
 
@@ -69,6 +91,7 @@ function resetPrecisionFirstAttack(
 export const protectFactorForFirstAttack = 
 function protectFactorForFirstAttack(
     firstAttacker,
+    secondAttacker,
     isFirstAttackActive
     ) {
         
@@ -78,7 +101,10 @@ function protectFactorForFirstAttack(
                 firstAttacker.firstAttack.name === 'Détection'
             ) && isFirstAttackActive
             ) {
-               isProtectOrDetectCapacityActivedByProtectOrDetect();
+               isProtectOrDetectCapacityActivedByProtectOrDetect(
+                firstAttacker,
+                secondAttacker
+                );
 
                 pokemonProtected(
                     firstAttacker

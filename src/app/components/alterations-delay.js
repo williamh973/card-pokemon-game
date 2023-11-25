@@ -26,9 +26,9 @@ export const getSecondAttackerAlterationStatesDelays = (secondAttacker) => {
  (state) => {
     switch (state) {
       case 'burning':
-          return 3000; 
-          case 'otherState':
-            return 0;
+          return 4000; 
+          case 'poisoned':
+            return 4000;
           default:
             return 0; 
     }
