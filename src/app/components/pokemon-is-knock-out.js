@@ -11,21 +11,19 @@ import {
 } from './dialogue-fight.js';
 
 import { 
-    hideFightInProgress
-  } from './display-fight-in-progress.js';
+  hideFightInProgress
+} from './display-fight-in-progress.js';
 
+import { 
+  hideFirstAttackerWhenLose,
+  hideSecondAttackerWhenLose,
+  hidePlayerSecondAttackerWhenLose,
+  hidePlayerFirstAttackerWhenLose
+} from "./hideLocationsWhenPokemonsLoses.js";
 
-  import { 
-    hideFirstAttackerWhenLose,
-    hideSecondAttackerWhenLose,
-  
-    hidePlayerSecondAttackerWhenLose,
-    hidePlayerFirstAttackerWhenLose
-  } from "./hideLocationsWhenPokemonsLoses.js";
-
-  import { 
-    displayStatsPokemonsContainer
-  } from './pokemon-stats-container.js';
+import { 
+  displayStatsPokemonsContainer
+} from './pokemon-stats-container.js';
 
 
 
@@ -49,6 +47,7 @@ export function pokemonLose(
             firstAttacker,
             playerSelectedPokemon
           );
+          
       } else if (secondAttacker.stats.hp === 0) {
           hideSecondAttackerWhenLose(
             secondAttacker, 

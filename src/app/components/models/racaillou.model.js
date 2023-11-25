@@ -4,7 +4,8 @@ export let racaillouStats = {
     type : "rock",
     logo : "./src/assets/images/logos/rock.png",
     image : "./src/assets/images/racaillou.png",
-    statut : "normal",
+    primaryStatut : "normal",
+    secondaryStatut : "normal",
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/water.png",
@@ -44,7 +45,8 @@ export let racaillouStats = {
       specialAtt : 30,
       specialDef : 30,
       speed : 20,
-      hp : 40 
+      hp : 40,
+      hpMax : 40
     }
   };
   

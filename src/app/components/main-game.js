@@ -22,11 +22,11 @@ import {
 
 import { 
   calculateDamageFirstAttack 
-} from "./calculate-damages-attacks/calculateDamageFirstAttack.js";
+} from "./damages-attacks/calculate-damages-attacks/calculateDamageFirstAttack.js";
 
 import { 
   calculateDamageSecondAttack 
-} from "./calculate-damages-attacks/calculateDamageSecondAttack.js";
+} from "./damages-attacks/calculate-damages-attacks/calculateDamageSecondAttack.js";
 
 import { 
   domElementsFromSelectors 
@@ -46,13 +46,35 @@ import {
 
 import { 
   getAttackDelays, 
-  sleep 
+  sleepAttacksAnimation 
 } from './attacks-delay.js';
 
 import { 
-  pokemonLose 
-} from "./Pokémon-is-knock-out.js";
+  firstAttackerTakesDamage,
+  secondAttackerTakesDamage
+} from "./pokemon-takes-damage.js";
 
+import { 
+  pokemonLose 
+} from "./pokemon-is-knock-out.js";
+
+import { 
+  firstAttackerStatutAlteration
+} from "./handle-statut-state-in-fight/first-attacker-statut-state-alteration.js";
+
+import { 
+  secondAttackerStatutAlteration 
+} from "./handle-statut-state-in-fight/second-attacker-statut-state-alteration.js";
+
+import { 
+  getFirstAttackerAlterationStatesDelays, 
+  getSecondAttackerAlterationStatesDelays,
+  sleepStatutAlteredAnimation 
+} from './alterations-delay.js';
+
+import { 
+  openDialogueWhenPokemonHpDecreaseByBurningStatut
+} from './dialogue-fight.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -164,30 +186,31 @@ document.addEventListener('DOMContentLoaded', () => {
    
   domElementsFromSelectors.fightButton.disabled = true;
     
-
+   let loopRunning = false;
+   let numberOfTurns = 0;
   
   domElementsFromSelectors.fightButton
   .addEventListener('click', () => {
 
-
     async function fight() {
-
 
       displayFightInProgress();
       determineFirstAttacker();
 
-      datasForCalculateDamages(
-        firstAttacker, 
-        secondAttacker
-        );
-      
-       const attackDelays = getAttackDelays(
-        firstAttacker, 
-        secondAttacker
-        );
+
+        loopRunning = true;
+
         
-        while (firstAttacker.stats.hp > 0 && secondAttacker.stats.hp > 0) {
-          
+        while (
+          (
+            firstAttacker.stats.hp > 0 && 
+            secondAttacker.stats.hp > 0
+            ) && 
+            loopRunning
+            ) {
+
+          console.log("Début de boucle");
+
           displayStatsPokemonsContainer(
             firstAttacker, 
             secondAttacker
@@ -195,13 +218,14 @@ document.addEventListener('DOMContentLoaded', () => {
      
            isFirstAttackActive = false;
            isSecondAttackActive = false;
+           numberOfTurns ++;
            
            isProtectOrDetectCapacityActived;
 
 
           let randomFactor = Math.random();
   
-            if (randomFactor > 0.5) {
+            if (randomFactor > 0.9) {
 
               isFirstAttackActive = true;
               isSecondAttackActive = false;
@@ -219,8 +243,13 @@ document.addEventListener('DOMContentLoaded', () => {
               );
              
               if (isFirstAttackActive) {
-                await sleep(attackDelays.firstAttackerFirstAttackDelay);
+                const attackDelays = getAttackDelays(
+                  firstAttacker, 
+                  secondAttacker
+                  );
 
+                await sleepAttacksAnimation(attackDelays.firstAttackerFirstAttackDelay);
+                console.log("attackDelays", attackDelays.firstAttackerSecondAttackDelay);
                 secondAttackerTakesDamage(
                   firstAttacker, 
                   secondAttacker, 
@@ -246,8 +275,13 @@ document.addEventListener('DOMContentLoaded', () => {
               );
 
               if (isSecondAttackActive) {
-                await sleep(attackDelays.firstAttackerSecondAttackDelay);
+                const attackDelays = getAttackDelays(
+                  firstAttacker, 
+                  secondAttacker
+                  );
 
+                await sleepAttacksAnimation(attackDelays.firstAttackerSecondAttackDelay);
+                console.log("attackDelays", attackDelays.firstAttackerSecondAttackDelay);
                 secondAttackerTakesDamage(
                   firstAttacker, 
                   secondAttacker, 
@@ -256,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
               };
 
             };
-
+            
 
             if (secondAttacker.stats.hp <= 0) {
               secondAttacker.stats.hp = 0;
@@ -271,7 +305,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
             };
 
+            console.log(firstAttacker.name, "a terminé son tour");
 
+
+            // if (firstAttacker.primaryStatut === 'burning') {
+
+            //    openDialogueWhenPokemonHpDecreaseByBurningStatut(firstAttacker);
+   
+            //    firstAttackerStatutAlteration(firstAttacker);    
+   
+            //    const firstAttackerAlterationStateDelays = 
+            //    getFirstAttackerAlterationStatesDelays(
+            //      firstAttacker
+            //      );
+   
+            //    await sleepStatutAlteredAnimation(firstAttackerAlterationStateDelays.firstAttackerStateDelay);
+            //    console.log("firstAttackerAlterationStateDelays", firstAttackerAlterationStateDelays.firstAttackerStateDelay);
+               
+            //    decreaseHp();
+
+            //   if (firstAttacker.stats.hp <= 0) {
+            //     firstAttacker.stats.hp = 0;
+  
+            //     pokemonLose(
+            //       firstAttacker, 
+            //       secondAttacker, 
+            //       enemyPokemon, 
+            //       playerSelectedPokemon
+            //       );
+            //     break;
+            //   };
+
+            // };
 
 
             isFirstAttackActive = false;
@@ -299,8 +364,13 @@ document.addEventListener('DOMContentLoaded', () => {
               );
          
             if (isFirstAttackActive) {
-              await sleep(attackDelays.secondAttackerFirstAttackDelay);
+              const attackDelays = getAttackDelays(
+                firstAttacker, 
+                secondAttacker
+                );
 
+              await sleepAttacksAnimation(attackDelays.secondAttackerFirstAttackDelay);
+              console.log("attackDelays", attackDelays.secondAttackerSecondAttackDelay);
               firstAttackerTakesDamage(
                 firstAttacker, 
                 secondAttacker, 
@@ -326,8 +396,14 @@ document.addEventListener('DOMContentLoaded', () => {
               );
               
             if (isSecondAttackActive) {
-              await sleep(attackDelays.secondAttackerSecondAttackDelay);
+              const attackDelays = getAttackDelays(
+                firstAttacker, 
+                secondAttacker
+                );
 
+              await sleepAttacksAnimation(attackDelays.secondAttackerSecondAttackDelay);
+              console.log("attackDelays", attackDelays.secondAttackerSecondAttackDelay);
+              decreaseHp();
               firstAttackerTakesDamage(
                 firstAttacker, 
                 secondAttacker, 
@@ -336,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             };
-      
+            
 
             if (firstAttacker.stats.hp <= 0) {
               firstAttacker.stats.hp = 0;
@@ -350,10 +426,43 @@ document.addEventListener('DOMContentLoaded', () => {
               break;
             };
 
-            displayStatsPokemonsContainer(
-              firstAttacker, 
-              secondAttacker
+            console.log(secondAttacker.name, "a terminé son tour");
+            
+            
+            if (secondAttacker.primaryStatut === 'burning') {
+              console.log("début de condition car", secondAttacker.name, "est brûlé");
+              
+              openDialogueWhenPokemonHpDecreaseByBurningStatut(secondAttacker);
+              console.log("dialogue passé");
+
+              const secondAttackerAlterationStateDelays = 
+              getSecondAttackerAlterationStatesDelays(
+                secondAttacker
               );
+              secondAttackerStatutAlteration(secondAttacker); 
+              console.log("réduction des pv de", secondAttacker.name  );
+
+              await sleepStatutAlteredAnimation(secondAttackerAlterationStateDelays.secondAttackerStateDelay);
+              console.log("sleepStatutAlteredAnimation", secondAttackerAlterationStateDelays.secondAttackerStateDelay);
+              
+              decreaseHp();
+
+            if (secondAttacker.stats.hp <= 0) {
+              secondAttacker.stats.hp = 0;
+          
+              pokemonLose(
+                firstAttacker, 
+                secondAttacker, 
+                enemyPokemon, 
+                playerSelectedPokemon
+                );
+          
+            };
+
+            console.log("fin de condition");
+            };
+
+            console.log("fin de boucle");
 
         };
     };
@@ -361,78 +470,6 @@ document.addEventListener('DOMContentLoaded', () => {
   fight();
   
 });
-
-
-async function firstAttackerTakesDamage(
-  firstAttacker, 
-  secondAttacker, 
-  damage
-  ) {
-    firstAttacker.stats.hp -= Math.max(damage, 0);
-    decreaseHp();
-    displayStatsPokemonsContainer(
-      firstAttacker, 
-      secondAttacker
-      );
-};
-
-async function secondAttackerTakesDamage(
-  firstAttacker, 
-  secondAttacker, 
-  damage
-  ) {
-    secondAttacker.stats.hp -= Math.max(damage, 0);
-    decreaseHp();
-    displayStatsPokemonsContainer(
-      firstAttacker, 
-      secondAttacker
-      );
-};
-
-
-  function datasForCalculateDamages(
-    firstAttacker, 
-    secondAttacker
-    ) {
-
-    const firstAttackStrength = firstAttacker.firstAttack.strength;
-    const firstAttackerSpecialAtt = firstAttacker.stats.specialAtt;
-    const secondAttackStrength = firstAttacker.secondAttack.strength;
-    const secondAttackerSpecialDef = secondAttacker.stats.specialDef;
-    const firstAttackPrecision = firstAttacker.firstAttack.precision;
-    const secondAttackPrecision = firstAttacker.secondAttack.precision;
-    const firstAttackType = firstAttacker.firstAttack.type;
-    const secondAttackerType = secondAttacker.type;
-    const secondAttackType = firstAttacker.secondAttack.type;
-    let isFirstAttackActive = false;
-    let isSecondAttackActive = false;
-    
-
-      calculateDamageFirstAttack(
-        firstAttacker, 
-        secondAttacker, 
-        isFirstAttackActive,
-        firstAttackStrength, 
-        firstAttackerSpecialAtt, 
-        secondAttackerSpecialDef, 
-        firstAttackPrecision, 
-        firstAttackType,
-        secondAttackerType
-      );
-  
-      calculateDamageSecondAttack(
-        firstAttacker, 
-        secondAttacker, 
-        isSecondAttackActive,
-        secondAttackStrength, 
-        firstAttackerSpecialAtt, 
-        secondAttackerSpecialDef, 
-        secondAttackPrecision, 
-        secondAttackType, 
-        secondAttackerType
-      );
-      
-    }; 
 
     
     function activateFightButton() {
@@ -446,6 +483,12 @@ async function secondAttackerTakesDamage(
         }
       };
 
+
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'a' || event.keyCode === 65) {
+          loopRunning = false;
+        }
+      });
 });
 
 

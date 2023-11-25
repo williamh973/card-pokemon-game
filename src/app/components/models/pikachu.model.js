@@ -4,7 +4,8 @@ export let pikachuStats = {
     type : "electric",
     logo : "./src/assets/images/logos/electric.png",
     image : "./src/assets/images/pikachu.png",
-    statut : "normal",
+    primaryStatut : "normal",
+    secondaryStatut : "normal",
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/ground.png"
@@ -41,7 +42,8 @@ export let pikachuStats = {
         specialAtt : 50,
         specialDef : 50,
         speed : 90,
-        hp : 35
+        hp : 35,
+        hpMax : 35
        }
     };
   

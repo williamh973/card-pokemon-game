@@ -4,7 +4,8 @@ export let krabbossStats = {
     type : "water",
     logo : "./src/assets/images/logos/water.png",
     image : "./src/assets/images/krabboss.png",
-    statut : "normal",
+    primaryStatut : "normal",
+    secondaryStatut : "normal",
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/plant.png",
@@ -44,7 +45,8 @@ export let krabbossStats = {
       specialDef : 50,
       speed : 75,
       hp : 55,
-      hpMax : 55 
+      hpMax : 55,
+      hpMax : 55
     }
   };
   

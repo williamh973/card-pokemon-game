@@ -4,7 +4,8 @@ export let insecateurStats = {
     type : "insect",
     logo : "./src/assets/images/logos/insect.png",
     image : "./src/assets/images/insecateur.png",
-    statut : "normal",
+    primaryStatut : "normal",
+    secondaryStatut : "normal",
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/flight.png",
@@ -43,7 +44,8 @@ export let insecateurStats = {
       specialAtt : 55,
       specialDef : 80,
       speed : 105,
-      hp : 70 
+      hp : 70,
+      hpMax : 70
     }
   };
   

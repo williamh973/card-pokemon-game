@@ -4,7 +4,8 @@ export let scarabruteStats = {
     type : "insect",
     logo : "./src/assets/images/logos/insect.png",
     image : "./src/assets/images/scarabrute.png",
-    statut : "normal",
+    primaryStatut : "normal",
+    secondaryStatut : "normal",
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/fire.png",

@@ -4,7 +4,8 @@ export let salamecheStats = {
     type : "fire",
     logo : "./src/assets/images/logos/fire.png",
     image : "./src/assets/images/salameche.png",
-    statut : "normal",
+    primaryStatut : "normal",
+    secondaryStatut : "normal",
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/water.png",
@@ -47,7 +48,7 @@ export let salamecheStats = {
       specialDef : 50,
       speed : 65,
       hp : 39,
-      hpMax : 39 
+      hpMax : 39 // 39
     }
   };
   

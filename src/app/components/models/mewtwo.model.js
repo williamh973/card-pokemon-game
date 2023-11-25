@@ -4,7 +4,8 @@ export let mewtwoStats = {
     type : "psy",
     logo : "./src/assets/images/logos/psy.png",
     image : "./src/assets/images/mewtwo.png",
-    statut : "normal",
+    primaryStatut : "normal",
+    secondaryStatut : "normal",
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/insect.png",

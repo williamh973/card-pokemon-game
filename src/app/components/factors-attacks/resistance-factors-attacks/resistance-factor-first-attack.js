@@ -12,7 +12,7 @@ if ( isFirstAttackActive &&
   (
     secondAttackerType === "water" &&
     firstAttackType === "water"
-  ) ||
+  ) || 
   (
     secondAttackerType === "water" &&
     firstAttackType === "steel"

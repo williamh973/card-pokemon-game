@@ -4,7 +4,8 @@ export let roucoolStats = {
     type : "flight",
     logo : "./src/assets/images/logos/flight.png",
     image : "./src/assets/images/roucool.png",
-    statut : "normal",
+    primaryStatut : "normal",
+    secondaryStatut : "normal",
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/electric.png",
@@ -44,7 +45,8 @@ export let roucoolStats = {
       specialAtt : 35,
       specialDef : 35,
       speed : 56,
-      hp : 40 
+      hp : 40,
+      hpMax : 40 
     }
   };
   

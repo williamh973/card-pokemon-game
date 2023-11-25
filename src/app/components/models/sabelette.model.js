@@ -4,7 +4,8 @@ export let sabeletteStats = {
     type : "ground",
     logo : "./src/assets/images/logos/ground.png",
     image : "./src/assets/images/sabelette.png",
-    statut : "normal",
+    primaryStatut : "normal",
+    secondaryStatut : "normal",
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/water.png",
@@ -43,7 +44,8 @@ export let sabeletteStats = {
       specialAtt : 20,
       specialDef : 30,
       speed : 40,
-      hp : 50 
+      hp : 50,
+      hpMax : 50
     }
   };
   

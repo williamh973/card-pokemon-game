@@ -1,13 +1,13 @@
 import { domElementsFromSelectors } from './dom-elements.js';
 
 
-const END_ATTACKS_DISPLAY_DURATION = 3000;
+const END_ATTACKS_DISPLAY_DURATION = 4000;
 
-const START_NEXT_DISPLAY_DURATION = 1500;
-const END_NEXT_DISPLAY_DURATION = 1400;
+const START_NEXT_DISPLAY_DURATION = 2000;
+const END_NEXT_DISPLAY_DURATION = 1900;
 
-const START_MISS_ATTACK_AFTER_PROTECT_APPLY_DISPLAY_DURATION = 3000;
-const END_MISS_ATTACK_AFTER_PROTECT_APPLY_DISPLAY_DURATION = 1400;
+const START_ALTERATION_STATUT_DISPLAY_DURATION = 0;
+const END_ALTERATION_STATUT_DISPLAY_DURATION = 2900;
 
 
 export const displayDialogue = document.getElementById('dialogue');
@@ -158,7 +158,7 @@ function openDialogueWhenPokemonMakesResistanceAttack() {
 
 export const openDialogueWhenPokemonMakesIneffectiveAttack = 
 function openDialogueWhenPokemonMakesIneffectiveAttack() {
-  
+   
   setTimeout(function() {
     domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
     domElementsFromSelectors.displayDialogue.style.display = 'flex';
@@ -171,7 +171,7 @@ function openDialogueWhenPokemonMakesIneffectiveAttack() {
 
   }, START_NEXT_DISPLAY_DURATION);
 
-};
+}; 
 
 
 export const openDialogueWhenPokemonKo = 
@@ -361,19 +361,69 @@ function openDialogueWhenPokemonProtectingHimself(secondAttacker) {
 };
 
 
-export const openDialogueWhenPokemonMissAttackAfterProtectApply = 
-function openDialogueWhenPokemonMissAttackAfterProtectApply(attacker) {
-
+export const openDialogueWhenPokemonHasBurningStatut =
+function openDialogueWhenPokemonHasBurningStatut(pokemon) {
   setTimeout(function() {
     domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
     domElementsFromSelectors.displayDialogue.style.display = 'flex';
-  
-    domElementsFromSelectors.displayDialogue.textContent = `${attacker.name} a raté son attaque !`;
-
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `${ pokemon.name } est brûlé !`;
+    
       setTimeout(function() {
         domElementsFromSelectors.displayDialogue.style.display = 'none';
-      }, END_MISS_ATTACK_AFTER_PROTECT_APPLY_DISPLAY_DURATION);
+      }, END_NEXT_DISPLAY_DURATION);
+      
+    }, START_NEXT_DISPLAY_DURATION);
+};
 
-  }, START_MISS_ATTACK_AFTER_PROTECT_APPLY_DISPLAY_DURATION); 
 
+export const openDialogueWhenPokemonHpDecreaseByBurningStatut =
+function openDialogueWhenPokemonHpDecreaseByBurningStatut(firstAttacker) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `${ firstAttacker.name } souffre de sa brûlure !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+
+    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+};
+
+
+export const openDialogueWhenPokemonHasPoisonedStatut =
+function openDialogueWhenPokemonHasPoisonedStatut(pokemon) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `${ pokemon.name } est empoisoné !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_NEXT_DISPLAY_DURATION);
+      
+    }, START_NEXT_DISPLAY_DURATION);
+};
+
+
+export const openDialogueWhenPokemonHpDecreaseByPoisonedStatut =
+function openDialogueWhenPokemonHpDecreaseByPoisonedStatut(firstAttacker) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `${ firstAttacker.name } souffre du poison !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+
+    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
 };

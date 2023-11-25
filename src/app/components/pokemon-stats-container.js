@@ -16,6 +16,14 @@ import {
    document.getElementById('first-attacker-name');
    firstAttackerNameCont.textContent = ` ${firstAttacker.name} `;
 
+   const firstAttackerStatut = 
+   document.getElementById('first-attacker-primaryStatut');
+   firstAttackerStatut.textContent = ` ${firstAttacker.primaryStatut} `;
+
+   const firstAttackerSecondaryStatut = 
+   document.getElementById('first-attacker-secondaryStatut');
+   firstAttackerSecondaryStatut.textContent = ` ${firstAttacker.secondaryStatut} `;
+
    const firstAttackerAttack = 
    document.getElementById('first-attacker-attack');
    firstAttackerAttack.textContent = `Attack  :  ${firstAttacker.stats.attack} `;
@@ -45,6 +53,14 @@ import {
    const secondAttackerNameCont = 
    document.getElementById('second-attacker-name');
    secondAttackerNameCont.textContent = ` ${secondAttacker.name} `;
+
+   const secondAttackerStatut = 
+   document.getElementById('second-attacker-primaryStatut');
+   secondAttackerStatut.textContent = ` ${secondAttacker.primaryStatut} `;
+
+   const secondAttackerSecondaryStatut = 
+   document.getElementById('second-attacker-secondaryStatut');
+   secondAttackerSecondaryStatut.textContent = ` ${firstAttacker.secondaryStatut} `;
 
    const secondAttackerAttack = 
    document.getElementById('second-attacker-attack');

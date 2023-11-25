@@ -46,13 +46,13 @@ export const getAttackDelays =
  (attackName) => {
     switch (attackName) {
       case 'Charge':
-        return 3000;
+        return 4000;
       default:
-        return 3000;
+        return 4000;
     }
   };
   
-  export const sleep = 
+  export const sleepAttacksAnimation = 
   (attackName) => {
     return new Promise(resolve => setTimeout(resolve, attackName));
   };

@@ -4,7 +4,8 @@ export let evoliStats = {
     type : "normal",
     logo : "./src/assets/images/logos/coloreless.png",
     image : "./src/assets/images/evoli.png",
-    statut : "normal",
+    primaryStatut : "normal",
+    secondaryStatut : "normal",
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/fight.png"
@@ -39,7 +40,8 @@ export let evoliStats = {
         specialAtt : 45,
         specialDef : 65,
         speed : 55,
-        hp : 55
+        hp : 55,
+        hpMax : 55
       }
     };
   
