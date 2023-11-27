@@ -27,7 +27,7 @@ export let pikachuStats = {
         precisionMax : 95
       },
       secondAttack : {
-        name : "Éclair",
+        name : "Eclair",
         logo : "./src/assets/images/logos/electric.png",
         type: "electric",
         class : "special",

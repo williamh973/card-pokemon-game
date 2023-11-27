@@ -21,8 +21,8 @@ import {
 
 
 
-export const checkIfSecondAttackerStatusHasChanged =
-async function checkIfSecondAttackerStatusHasChanged(
+export const checkIfSecondAttackerStatusHasBurningOrPoisoned =
+async function checkIfSecondAttackerStatusHBurningOrPoisoned(
   secondAttacker, 
   firstAttacker,
   enemyPokemon, 
@@ -32,7 +32,7 @@ async function checkIfSecondAttackerStatusHasChanged(
 
     if (
       secondAttacker.primaryStatut === 'burning' ||
-      secondAttacker.primaryStatut === 'poisoned'
+      secondAttacker.primaryStatut === 'poisoned' 
       ) {
       console.log("début de condition car", secondAttacker.name, "est", secondAttacker.primaryStatut);
       
@@ -73,6 +73,35 @@ async function checkIfSecondAttackerStatusHasChanged(
 
 
 
+export const checkIfSecondAttackerStatusHasParalyzed =
+async function checkIfSecondAttackerStatusHasParalyzed(
+  secondAttacker, 
+  sleepStatutAlteredAnimation
+  ) {
+
+    if (
+      secondAttacker.primaryStatut === 'paralyzed'
+      ) {
+      console.log("début de condition car", secondAttacker.name, "a un statut", secondAttacker.primaryStatut);
+      
+      const secondAttackerAlterationStateDelays = 
+      getSecondAttackerAlterationStatesDelays(
+        secondAttacker
+      );
+
+      secondAttackerStatutAlteration(secondAttacker); 
+
+      await sleepStatutAlteredAnimation(secondAttackerAlterationStateDelays.secondAttackerStateDelay);
+      console.log("sleepStatutAlteredAnimation", secondAttackerAlterationStateDelays.secondAttackerStateDelay);
+
+      console.log("fin de condition");
+    };
+
+};
+
+
+
+
 function appropriateDialogues(
   secondAttacker
 ) {
@@ -80,9 +109,10 @@ function appropriateDialogues(
     openDialogueWhenPokemonHpDecreaseByBurningStatut(secondAttacker);
     console.log("dialogue passé");
 
-   } else if (secondAttacker.primaryStatut === 'poisoned') {
+  } else if (secondAttacker.primaryStatut === 'poisoned') {
     openDialogueWhenPokemonHpDecreaseByPoisonedStatut(secondAttacker);
     console.log("dialogue passé");
+
   };
 
 };

@@ -118,7 +118,7 @@ function poisonedStatut30PercentProbabililityForFirstAttack(
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 100) {
+             if (randomNumber < 30) {
                 secondAttacker.primaryStatut = 'poisoned'
                 openDialogueWhenPokemonHasPoisonedStatut(secondAttacker); 
             }

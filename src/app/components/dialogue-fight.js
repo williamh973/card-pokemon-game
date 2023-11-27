@@ -427,3 +427,37 @@ function openDialogueWhenPokemonHpDecreaseByPoisonedStatut(pokemon) {
 
     }, START_ALTERATION_STATUT_DISPLAY_DURATION);
 };
+
+
+export const openDialogueWhenPokemonHasParalyzedStatut =
+function openDialogueWhenPokemonHasParalyzedStatut(pokemon) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `${ pokemon.name } est paralysé !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_NEXT_DISPLAY_DURATION);
+      
+    }, START_NEXT_DISPLAY_DURATION);
+};
+
+
+export const openDialogueWhenPokemonBlockedByParalyzedStatut =
+function openDialogueWhenPokemonBlockedByParalyzedStatut(pokemon) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `La paralysie empêche ${ pokemon.name } d'attaquer !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+
+    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+};

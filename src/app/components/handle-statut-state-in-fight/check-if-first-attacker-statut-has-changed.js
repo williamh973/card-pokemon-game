@@ -21,8 +21,8 @@ import {
 
 
 
-export const checkIfFirstAttackerStatusHasChanged =
-async function checkIfFirstAttackerStatusHasChanged(
+export const checkIfFirstAttackerStatusHasBurningOrPoisoned =
+async function checkIfFirstAttackerStatusHasBurningOrPoisoned(
   firstAttacker, 
   secondAttacker,
   enemyPokemon, 
@@ -44,8 +44,8 @@ async function checkIfFirstAttackerStatusHasChanged(
       getFirstAttackerAlterationStatesDelays(
         firstAttacker
       );
+
       firstAttackerStatutAlteration(firstAttacker); 
-      console.log("réduction des pv de", firstAttacker.name  );
 
       await sleepStatutAlteredAnimation(firstAttackerAlterationStateDelays.firstAttackerStateDelay);
       console.log("sleepStatutAlteredAnimation", firstAttackerAlterationStateDelays.firstAttackerStateDelay);
@@ -69,6 +69,42 @@ async function checkIfFirstAttackerStatusHasChanged(
 };
 
 
+
+
+export const checkIfFirstAttackerStatusHasParalyzed =
+async function checkIfFirstAttackerStatusHasParalyzed(
+  firstAttacker, 
+  sleepStatutAlteredAnimation
+  ) {
+
+    if (
+      firstAttacker.primaryStatut === 'paralyzed'
+      ) {
+      console.log("début de condition car", firstAttacker.name, "est", firstAttacker.primaryStatut);
+      
+
+      appropriateDialogues(
+        firstAttacker
+      )
+
+      const firstAttackerAlterationStateDelays = 
+      getFirstAttackerAlterationStatesDelays(
+        firstAttacker
+      );
+
+      firstAttackerStatutAlteration(firstAttacker); 
+      console.log("réduction des pv de", firstAttacker.name  );
+
+      await sleepStatutAlteredAnimation(firstAttackerAlterationStateDelays.firstAttackerStateDelay);
+      console.log("sleepStatutAlteredAnimation", firstAttackerAlterationStateDelays.firstAttackerStateDelay);
+
+      console.log("fin de condition");
+    };
+
+};
+
+
+
 function appropriateDialogues(
   firstAttacker
 ) {
@@ -79,6 +115,7 @@ function appropriateDialogues(
    } else if (firstAttacker.primaryStatut === 'poisoned') {
     openDialogueWhenPokemonHpDecreaseByPoisonedStatut(firstAttacker);
     console.log("dialogue passé");
+
   };
 
 };

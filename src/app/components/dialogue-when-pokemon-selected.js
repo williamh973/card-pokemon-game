@@ -8,37 +8,37 @@ export const pokemonSelected = function pokemonSelected(pokemon) {
 
 switch (pokemon) {
   case 'Pikachu':
-   displayPopupPokemonSelected.innerText = 'Pickachu selectionné !';
+   displayPopupPokemonSelected.innerText = 'Pickachu sélectionné !';
     break;
   case 'Évoli':
-   displayPopupPokemonSelected.innerText = 'Évoli selectionné !';
+   displayPopupPokemonSelected.innerText = 'Évoli sélectionné !';
     break;
   case 'Roucool':
-   displayPopupPokemonSelected.innerText = 'Roucool selectionné !';
+   displayPopupPokemonSelected.innerText = 'Roucool sélectionné !';
     break;
   case 'Racaillou':
-   displayPopupPokemonSelected.innerText = 'Racaillou selectionné !';
+   displayPopupPokemonSelected.innerText = 'Racaillou sélectionné !';
     break;
   case 'Insécateur':
-    displayPopupPokemonSelected.innerText = 'Insécateur selectionné !';
+    displayPopupPokemonSelected.innerText = 'Insécateur sélectionné !';
   break;
   case 'Sabelette':
-    displayPopupPokemonSelected.innerText = 'Sabelette selectionné !';
+    displayPopupPokemonSelected.innerText = 'Sabelette sélectionné !';
   break;
   case 'Mewtwo':
-    displayPopupPokemonSelected.innerText = 'Mewtwo selectionné !';
+    displayPopupPokemonSelected.innerText = 'Mewtwo sélectionné !';
   break;
   case 'Scarabrute':
-    displayPopupPokemonSelected.innerText = 'Scarabrute selectionné !';
+    displayPopupPokemonSelected.innerText = 'Scarabrute sélectionné !';
   break;
   case 'Krabboss':
-    displayPopupPokemonSelected.innerText = 'Krabboss selectionné !';
+    displayPopupPokemonSelected.innerText = 'Krabboss sélectionné !';
   break;
   case 'Salamèche':
-    displayPopupPokemonSelected.innerText = 'Salamèche selectionné !';
+    displayPopupPokemonSelected.innerText = 'Salamèche sélectionné !';
   break;
   case 'Nidoran♂':
-    displayPopupPokemonSelected.innerText = 'Nidoran♂ selectionné !';
+    displayPopupPokemonSelected.innerText = 'Nidoran♂ sélectionné !';
   break;
 };
 

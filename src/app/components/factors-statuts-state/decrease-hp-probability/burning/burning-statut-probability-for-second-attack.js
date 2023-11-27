@@ -15,7 +15,10 @@ function burningStatut10PercentProbabililityForSecondAttack(
     if (
         isSecondAttackActive && 
         (
-            secondAttackType === 'fire' &&
+            (
+                secondAttackType === 'fire' ||
+                secondAttackType === 'normal' 
+               ) &&
             secondAttackerType !== 'fire'
         ) && 
         (
@@ -64,7 +67,8 @@ function burningStatut30PercentProbabililityForSecondAttack(
                 secondAttackType === 'fire' ||
                 secondAttackType === 'water' ||
                 secondAttackType === 'ice' ||
-                secondAttackType === 'ground'
+                secondAttackType === 'ground' ||
+                secondAttackType === 'spectrum'
             ) &&
             secondAttackerType !== 'fire'
         ) && 

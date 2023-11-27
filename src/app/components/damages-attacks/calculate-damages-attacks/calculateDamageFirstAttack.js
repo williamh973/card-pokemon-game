@@ -69,7 +69,9 @@ import {
   burningStatutProbabilitysForFirstAttack
 } from "../../factors-statuts-state/decrease-hp-probability/burning/export-to-calculate-damages-attacks/burning-statut-probabilitys-for-first-attack.js";
 
-
+import { 
+  paralyzedStatutProbabilitysForFirstAttack
+} from "../../factors-statuts-state/paralyzed/export-to-calculate-damages-attacks/paralyzed-statut-probabilitys-for-first-attack.js";
 
 
 export const calculateDamageFirstAttack = 
@@ -93,130 +95,141 @@ function calculateDamageFirstAttack(
           firstAttackType !== 'bonus'
           )
         ) {
-
-       openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
-
-       const randomNumber = Math.floor(Math.random() * 100) + 1;
-
-        if (randomNumber <= firstAttackPrecision) {
-  
-          let degats = (
-            (2 * firstAttacker.stats.attack / secondAttacker.stats.defense) * 
-            firstAttackStrength * 
-            (firstAttackerSpecialAtt / secondAttackerSpecialDef)
-          ) / 20;
-    
-    
-          let getCriticalHit = criticalHit(firstAttacker);
-          degats *= getCriticalHit;
-    
-          let randomFactor = Math.random() * (1.00 - 0.85) + 0.85;
-          degats *= randomFactor;
-    
-          let getWeaknessFactorList = weaknessFactorForFirstAttack(
-            firstAttackType, 
-            secondAttackerType,
-            isFirstAttackActive
-          );
-          degats *= getWeaknessFactorList;
             
-          let getResistanceFactorList = resistanceFactorForFirstAttack(
-            firstAttackType, 
-            secondAttackerType,
-            isFirstAttackActive
-          );
-          degats /= getResistanceFactorList;
-              
-          let getIneffectiveFactorList = ineffectiveFactorForFirstAttack(
-            firstAttackType, 
-            secondAttackerType,
-            isFirstAttackActive
-          );
-          degats *= getIneffectiveFactorList;
-    
-          let getAlwaysKnockOutAttacks = oneHitKnockoutFactorForFirstAttack(
-            isFirstAttackActive,
-            secondAttackerType,
-            firstAttacker,
-            secondAttacker
-          );
-          degats *= getAlwaysKnockOutAttacks;
-    
+            openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
+
+            const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+
+              if (randomNumber <= firstAttackPrecision) {
+  
+                let degats = (
+                  (2 * firstAttacker.stats.attack / secondAttacker.stats.defense) * 
+                  firstAttackStrength * 
+                  (firstAttackerSpecialAtt / secondAttackerSpecialDef)
+                ) / 20;
           
-
-          speedIncrease5pFactorForFirstAttack(
-            firstAttacker, 
-            isFirstAttackActive
-            );
+          
+                let getCriticalHit = criticalHit(firstAttacker);
+                degats *= getCriticalHit;
+          
+                let randomFactor = Math.random() * (1.00 - 0.85) + 0.85;
+                degats *= randomFactor;
+          
+                let getWeaknessFactorList = weaknessFactorForFirstAttack(
+                  firstAttackType, 
+                  secondAttackerType,
+                  isFirstAttackActive
+                );
+                degats *= getWeaknessFactorList;
+                  
+                let getResistanceFactorList = resistanceFactorForFirstAttack(
+                  firstAttackType, 
+                  secondAttackerType,
+                  isFirstAttackActive
+                );
+                degats /= getResistanceFactorList;
+                    
+                let getIneffectiveFactorList = ineffectiveFactorForFirstAttack(
+                  firstAttackType, 
+                  secondAttackerType,
+                  isFirstAttackActive
+                );
+                degats *= getIneffectiveFactorList;
+          
+                let getAlwaysKnockOutAttacks = oneHitKnockoutFactorForFirstAttack(
+                  isFirstAttackActive,
+                  secondAttackerType,
+                  firstAttacker,
+                  secondAttacker
+                );
+                degats *= getAlwaysKnockOutAttacks;
+          
+                
+      
+                speedIncrease5pFactorForFirstAttack(
+                  firstAttacker, 
+                  isFirstAttackActive
+                  );
+          
+                speedIncrease10pFactorForFirstAttack(
+                  firstAttacker, 
+                  isFirstAttackActive
+                  );
+          
+                defenseIncrease5pFactorForFirstAttack(
+                  firstAttacker, 
+                  isFirstAttackActive
+                  );
+          
+                defenseIncrease10pFactorForFirstAttack(
+                  firstAttacker, 
+                  isFirstAttackActive
+                  );
+          
+                hpIncrease5pFactorForFirstAttack(
+                  firstAttacker, 
+                  isFirstAttackActive
+                  );
+        
+                attackDecrease2pFactorForFirstAttack(
+                  firstAttacker, 
+                  secondAttacker,
+                  isFirstAttackActive
+                  );
+          
+                criticalHitIncreaseByFocusEnergyForFirstAttack(
+                  firstAttacker,
+                  isFirstAttackActive
+                  );
+                  
+                protectFactorForFirstAttack(
+                  firstAttacker,
+                  secondAttacker,
+                  isFirstAttackActive
+                  );
+      
+      
+                burningStatutProbabilitysForFirstAttack(
+                  firstAttacker,
+                  secondAttacker,
+                  isFirstAttackActive,
+                  firstAttackType,
+                  secondAttackerType
+                );
     
-          speedIncrease10pFactorForFirstAttack(
-            firstAttacker, 
-            isFirstAttackActive
-            );
     
-          defenseIncrease5pFactorForFirstAttack(
-            firstAttacker, 
-            isFirstAttackActive
-            );
+                poisonedStatutProbabilitysForFirstAttack(
+                  firstAttacker,
+                  secondAttacker,
+                  isFirstAttackActive,
+                  firstAttackType,
+                  secondAttackerType
+                );
+                  
     
-          defenseIncrease10pFactorForFirstAttack(
-            firstAttacker, 
-            isFirstAttackActive
-            );
+                paralyzedStatutProbabilitysForFirstAttack(
+                  firstAttacker,
+                  secondAttacker,
+                  isFirstAttackActive,
+                  firstAttackType,
+                  secondAttackerType
+                );
     
-          hpIncrease5pFactorForFirstAttack(
-            firstAttacker, 
-            isFirstAttackActive
-            );
-  
-          attackDecrease2pFactorForFirstAttack(
-            firstAttacker, 
-            secondAttacker,
-            isFirstAttackActive
-            );
-    
-          criticalHitIncreaseByFocusEnergyForFirstAttack(
-            firstAttacker,
-            isFirstAttackActive
-            );
-            
-          protectFactorForFirstAttack(
-            firstAttacker,
-            secondAttacker,
-            isFirstAttackActive
-            );
+                  if (degats > 0 && degats < 0.5) {
+                    return degats = 1;
+                  };
+                  
+                  console.log(firstAttacker.name, "utilise", firstAttacker.firstAttack.name);
+                  return Math.round(degats);
 
-
-            burningStatutProbabilitysForFirstAttack(
-              firstAttacker,
-              secondAttacker,
-              isFirstAttackActive,
-              firstAttackType,
-              secondAttackerType
-            )
-
-
-            poisonedStatutProbabilitysForFirstAttack(
-              firstAttacker,
-              secondAttacker,
-              isFirstAttackActive,
-              firstAttackType,
-              secondAttackerType
-            );
-              
-              if (degats > 0 && degats < 0.5) {
-                return degats = 1;
+         
+                } else {
+                    openDialogueWhenPokemonMissAttack(firstAttacker);
+                    return 0;
               };
               
-              console.log(firstAttacker.name, "utilise", firstAttacker.firstAttack.name);
-              return Math.round(degats);
-
-        } else {
-            openDialogueWhenPokemonMissAttack(firstAttacker);
-            return 0;
-        }
-
-      } else if (
+        } else if (
         isFirstAttackActive && 
         isProtectOrDetectCapacityActived && 
         firstAttackType !== 'bonus'

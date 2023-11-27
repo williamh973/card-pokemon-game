@@ -63,14 +63,22 @@ import {
 } from './alterations-delay.js';
 
 import { 
-  checkIfFirstAttackerStatusHasChanged 
+  checkIfFirstAttackerStatusHasBurningOrPoisoned,
+  checkIfFirstAttackerStatusHasParalyzed 
 } from "./handle-statut-state-in-fight/check-if-first-attacker-statut-has-changed.js";
 
 import { 
-  checkIfSecondAttackerStatusHasChanged 
+  checkIfSecondAttackerStatusHasBurningOrPoisoned,
+  checkIfSecondAttackerStatusHasParalyzed
 } from "./handle-statut-state-in-fight/check-if-second-attacker-statut-has-changed.js";
 
+import { 
+  isFirstAttackerParalyzed
+ } from "./handle-statut-state-in-fight/first-attacker-statut-state-alteration.js";
 
+import { 
+  isSecondAttackerParalyzed 
+} from "./handle-statut-state-in-fight/second-attacker-statut-state-alteration.js";
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -190,11 +198,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fight() {
 
+      loopRunning = true;
+
       displayFightInProgress();
       determineFirstAttacker();
-
-
-        loopRunning = true;
 
         
         while (
@@ -219,75 +226,88 @@ document.addEventListener('DOMContentLoaded', () => {
            isProtectOrDetectCapacityActived;
 
 
-          let randomFactor = Math.random();
-  
-            if (randomFactor > 0.5) {
+           await checkIfFirstAttackerStatusHasParalyzed(
+            firstAttacker, 
+            sleepStatutAlteredAnimation
+            );
 
-              isFirstAttackActive = true;
-              isSecondAttackActive = false;
+            if (!isFirstAttackerParalyzed) {
 
-              let damageFirstAttack = calculateDamageFirstAttack(
-                firstAttacker, 
-                secondAttacker, 
-                isFirstAttackActive,
-                firstAttacker.firstAttack.strength,
-                firstAttacker.stats.specialAtt,
-                secondAttacker.stats.specialDef,
-                firstAttacker.firstAttack.precision, 
-                firstAttacker.firstAttack.type,
-                secondAttacker.type
-              );
-             
-              if (isFirstAttackActive) {
-                const attackDelays = getAttackDelays(
-                  firstAttacker, 
-                  secondAttacker
+              let randomFactor = Math.random();
+      
+                if (randomFactor > 0.5) {
+    
+                  isFirstAttackActive = true;
+                  isSecondAttackActive = false;
+    
+                  let damageFirstAttack = calculateDamageFirstAttack(
+                    firstAttacker, 
+                    secondAttacker, 
+                    isFirstAttackActive,
+                    firstAttacker.firstAttack.strength,
+                    firstAttacker.stats.specialAtt,
+                    secondAttacker.stats.specialDef,
+                    firstAttacker.firstAttack.precision, 
+                    firstAttacker.firstAttack.type,
+                    secondAttacker.type,
+                    isFirstAttackerParalyzed,
+                    isSecondAttackerParalyzed
                   );
-
-                await sleepAttacksAnimation(attackDelays.firstAttackerFirstAttackDelay);
-                console.log("attackDelays", attackDelays.firstAttackerSecondAttackDelay);
-                
-                secondAttackerTakesDamage(
-                  firstAttacker, 
-                  secondAttacker, 
-                  damageFirstAttack
-                  );     
-              };
-  
-            } else {
-
-              isFirstAttackActive = false;
-              isSecondAttackActive = true;
-
-              let damageSecondAttack = calculateDamageSecondAttack(
-                firstAttacker, 
-                secondAttacker, 
-                isSecondAttackActive,
-                firstAttacker.secondAttack.strength, 
-                firstAttacker.stats.specialAtt, 
-                secondAttacker.stats.specialDef, 
-                firstAttacker.secondAttack.precision,
-                firstAttacker.secondAttack.type,
-                secondAttacker.type
-              );
-
-              if (isSecondAttackActive) {
-                const attackDelays = getAttackDelays(
-                  firstAttacker, 
-                  secondAttacker
+                 
+                  if (isFirstAttackActive) {
+                    const attackDelays = getAttackDelays(
+                      firstAttacker, 
+                      secondAttacker
+                      );
+    
+                    await sleepAttacksAnimation(attackDelays.firstAttackerFirstAttackDelay);
+                    console.log("attackDelays", attackDelays.firstAttackerSecondAttackDelay);
+                    
+                    secondAttackerTakesDamage(
+                      firstAttacker, 
+                      secondAttacker, 
+                      damageFirstAttack
+                      );     
+                  };
+      
+                } else {
+    
+                  isFirstAttackActive = false;
+                  isSecondAttackActive = true;
+    
+                  let damageSecondAttack = calculateDamageSecondAttack(
+                    firstAttacker, 
+                    secondAttacker, 
+                    isSecondAttackActive,
+                    firstAttacker.secondAttack.strength, 
+                    firstAttacker.stats.specialAtt, 
+                    secondAttacker.stats.specialDef, 
+                    firstAttacker.secondAttack.precision,
+                    firstAttacker.secondAttack.type,
+                    secondAttacker.type,
+                    isFirstAttackerParalyzed,
+                    isSecondAttackerParalyzed
                   );
-
-                await sleepAttacksAnimation(attackDelays.firstAttackerSecondAttackDelay);
-                console.log("attackDelays", attackDelays.firstAttackerSecondAttackDelay);
-
-                secondAttackerTakesDamage(
-                  firstAttacker, 
-                  secondAttacker, 
-                  damageSecondAttack
-                  );
-              };
-
+    
+                  if (isSecondAttackActive) {
+                    const attackDelays = getAttackDelays(
+                      firstAttacker, 
+                      secondAttacker
+                      );
+    
+                    await sleepAttacksAnimation(attackDelays.firstAttackerSecondAttackDelay);
+                    console.log("attackDelays", attackDelays.firstAttackerSecondAttackDelay);
+    
+                    secondAttackerTakesDamage(
+                      firstAttacker, 
+                      secondAttacker, 
+                      damageSecondAttack
+                      );
+                  };
+                };
             };
+          
+
             
 
             if (secondAttacker.stats.hp <= 0) {
@@ -303,15 +323,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             };
 
-            console.log(firstAttacker.name, "a terminé son tour");
-
-            await checkIfFirstAttackerStatusHasChanged(
+            
+            await checkIfFirstAttackerStatusHasBurningOrPoisoned(
               firstAttacker, 
               secondAttacker,
               enemyPokemon, 
               playerSelectedPokemon,
               sleepStatutAlteredAnimation
               );
+              
+              console.log(firstAttacker.name, "a terminé son tour");
 
 
 
@@ -320,8 +341,17 @@ document.addEventListener('DOMContentLoaded', () => {
             isSecondAttackActive = false;
 
             isProtectOrDetectCapacityActived;
+
+
+            await checkIfSecondAttackerStatusHasParalyzed(
+              secondAttacker, 
+              sleepStatutAlteredAnimation
+              );
             
-            randomFactor = Math.random();
+
+          if (!isSecondAttackerParalyzed) {
+             
+           let randomFactor = Math.random();
             
             if (randomFactor > 0.5) {
               
@@ -373,23 +403,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 firstAttacker.type
               );
               
-            if (isSecondAttackActive) {
-              const attackDelays = getAttackDelays(
-                firstAttacker, 
-                secondAttacker
-                );
-
-              await sleepAttacksAnimation(attackDelays.secondAttackerSecondAttackDelay);
-              console.log("attackDelays", attackDelays.secondAttackerSecondAttackDelay);
-             
-              firstAttackerTakesDamage(
-                firstAttacker, 
-                secondAttacker, 
-                damageSecondAttack
-                );
-            }
-
+              if (isSecondAttackActive) {
+                const attackDelays = getAttackDelays(
+                  firstAttacker, 
+                  secondAttacker
+                  );
+  
+                await sleepAttacksAnimation(attackDelays.secondAttackerSecondAttackDelay);
+                console.log("attackDelays", attackDelays.secondAttackerSecondAttackDelay);
+               
+                firstAttackerTakesDamage(
+                  firstAttacker, 
+                  secondAttacker, 
+                  damageSecondAttack
+                  );
+              };
             };
+          };
             
 
             if (firstAttacker.stats.hp <= 0) {
@@ -406,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             console.log(secondAttacker.name, "a terminé son tour");
             
-              await checkIfSecondAttackerStatusHasChanged(
+              await checkIfSecondAttackerStatusHasBurningOrPoisoned(
               secondAttacker, 
               firstAttacker,
               enemyPokemon, 
