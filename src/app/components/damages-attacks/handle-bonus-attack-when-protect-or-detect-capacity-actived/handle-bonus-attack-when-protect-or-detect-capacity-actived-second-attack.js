@@ -25,7 +25,7 @@ import {
   
   import { 
     protectFactorForSecondAttack
-  } from '../../factors-attacks/protect-factors-attacks/protect-factors-attack.js' 
+  } from '../../factors-attacks/protect-factors-attacks/protect-factors-second-attack.js' 
   
 
 

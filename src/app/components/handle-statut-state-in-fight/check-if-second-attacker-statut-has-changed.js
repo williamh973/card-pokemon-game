@@ -34,8 +34,6 @@ async function checkIfSecondAttackerStatusHBurningOrPoisoned(
       secondAttacker.primaryStatut === 'burning' ||
       secondAttacker.primaryStatut === 'poisoned' 
       ) {
-      console.log("début de condition car", secondAttacker.name, "est", secondAttacker.primaryStatut);
-      
 
       appropriateDialogues(
         secondAttacker
@@ -46,12 +44,11 @@ async function checkIfSecondAttackerStatusHBurningOrPoisoned(
       getSecondAttackerAlterationStatesDelays(
         secondAttacker
       );
+
       secondAttackerStatutAlteration(secondAttacker); 
-      console.log("réduction des pv de", secondAttacker.name  );
 
       await sleepStatutAlteredAnimation(secondAttackerAlterationStateDelays.secondAttackerStateDelay);
-      console.log("sleepStatutAlteredAnimation", secondAttackerAlterationStateDelays.secondAttackerStateDelay);
-      
+
       decreaseHp();
 
     if (secondAttacker.stats.hp <= 0) {
@@ -66,23 +63,22 @@ async function checkIfSecondAttackerStatusHBurningOrPoisoned(
   
     };
 
-    console.log("fin de condition");
     };
 
 };
 
 
 
-export const checkIfSecondAttackerStatusHasParalyzed =
-async function checkIfSecondAttackerStatusHasParalyzed(
+export const checkIfSecondAttackerStatusHasParalyzedOrFrozen =
+async function checkIfSecondAttackerStatusHasParalyzedOrFrozen(
   secondAttacker, 
   sleepStatutAlteredAnimation
   ) {
 
     if (
-      secondAttacker.primaryStatut === 'paralyzed'
+      secondAttacker.primaryStatut === 'paralyzed' ||
+      secondAttacker.primaryStatut === 'frozen'
       ) {
-      console.log("début de condition car", secondAttacker.name, "a un statut", secondAttacker.primaryStatut);
       
       const secondAttackerAlterationStateDelays = 
       getSecondAttackerAlterationStatesDelays(
@@ -92,14 +88,10 @@ async function checkIfSecondAttackerStatusHasParalyzed(
       secondAttackerStatutAlteration(secondAttacker); 
 
       await sleepStatutAlteredAnimation(secondAttackerAlterationStateDelays.secondAttackerStateDelay);
-      console.log("sleepStatutAlteredAnimation", secondAttackerAlterationStateDelays.secondAttackerStateDelay);
 
-      console.log("fin de condition");
     };
 
 };
-
-
 
 
 function appropriateDialogues(
@@ -107,11 +99,9 @@ function appropriateDialogues(
 ) {
   if (secondAttacker.primaryStatut === 'burning') {
     openDialogueWhenPokemonHpDecreaseByBurningStatut(secondAttacker);
-    console.log("dialogue passé");
 
   } else if (secondAttacker.primaryStatut === 'poisoned') {
     openDialogueWhenPokemonHpDecreaseByPoisonedStatut(secondAttacker);
-    console.log("dialogue passé");
 
   };
 

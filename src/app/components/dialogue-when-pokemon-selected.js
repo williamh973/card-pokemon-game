@@ -2,11 +2,15 @@ const containerFullPopupPokemonSelected = document.getElementById('container-dis
 const displayPopupPokemonSelected = document.getElementById('pokemon-selected');
 
 
-export const pokemonSelected = function pokemonSelected(pokemon) {
+export const pokemonSelected = 
+function pokemonSelected(pokemon) {
   
     containerFullPopupPokemonSelected.style.display = 'flex';
 
 switch (pokemon) {
+  case 'Crustabri':
+    displayPopupPokemonSelected.innerText = 'Crustabri sélectionné !';
+     break;
   case 'Pikachu':
    displayPopupPokemonSelected.innerText = 'Pickachu sélectionné !';
     break;

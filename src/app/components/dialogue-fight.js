@@ -326,13 +326,13 @@ function openDialogueWhenPokemonHasBeenKoByOneHitKnockout(pokemon) {
 
 
 export const openDialogueWhenPokemonReadyToProtectItself = 
-function openDialogueWhenPokemonReadyToProtectItself(firstAttacker) {
+function openDialogueWhenPokemonReadyToProtectItself(pokemon) {
 
   setTimeout(function() {
     domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
     domElementsFromSelectors.displayDialogue.style.display = 'flex';
     
-    domElementsFromSelectors.displayDialogue.textContent = `${ firstAttacker.name } se tient près !`;
+    domElementsFromSelectors.displayDialogue.textContent = `${ pokemon.name } se tient près !`;
     
     setTimeout(function() {
       domElementsFromSelectors.displayDialogue.style.display = 'none';
@@ -344,13 +344,13 @@ function openDialogueWhenPokemonReadyToProtectItself(firstAttacker) {
 
 
 export const openDialogueWhenPokemonProtectingHimself =
-function openDialogueWhenPokemonProtectingHimself(secondAttacker) {
+function openDialogueWhenPokemonProtectingHimself(pokemon) {
 
   setTimeout(function() {
     domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
     domElementsFromSelectors.displayDialogue.style.display = 'flex';
     
-    domElementsFromSelectors.displayDialogue.textContent = `${ secondAttacker.name } se protège !`;
+    domElementsFromSelectors.displayDialogue.textContent = `${ pokemon.name } se protège !`;
     
       setTimeout(function() {
         domElementsFromSelectors.displayDialogue.style.display = 'none';
@@ -454,6 +454,40 @@ function openDialogueWhenPokemonBlockedByParalyzedStatut(pokemon) {
     
     domElementsFromSelectors.displayDialogue.textContent = 
     `La paralysie empêche ${ pokemon.name } d'attaquer !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+
+    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+};
+
+
+export const openDialogueWhenPokemonHasFrozenStatut =
+function openDialogueWhenPokemonHasFrozenStatut(pokemon) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `${ pokemon.name } est gelé !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_NEXT_DISPLAY_DURATION);
+      
+    }, START_NEXT_DISPLAY_DURATION);
+};
+
+
+export const openDialogueWhenPokemonBlockedByFrozenStatut =
+function openDialogueWhenPokemonBlockedByFrozenStatut(pokemon) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `Le gel empêche ${ pokemon.name } d'attaquer !`;
     
       setTimeout(function() {
         domElementsFromSelectors.displayDialogue.style.display = 'none';

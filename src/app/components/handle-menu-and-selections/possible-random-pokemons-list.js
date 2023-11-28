@@ -9,5 +9,6 @@ export const possibleRandomPokemonsList = [
     "Scarabrute",
     "Krabboss",
     "Salamèche",
-    "Nidoran♂"
+    "Nidoran♂",
+    "Crustabri"
   ];

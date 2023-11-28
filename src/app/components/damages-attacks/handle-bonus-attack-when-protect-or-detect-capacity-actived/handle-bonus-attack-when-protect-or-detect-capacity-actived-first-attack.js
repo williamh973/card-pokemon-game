@@ -25,7 +25,7 @@ import {
 
 import { 
   protectFactorForFirstAttack
-} from '../../factors-attacks/protect-factors-attacks/protect-factors-attack.js' 
+} from '../../factors-attacks/protect-factors-attacks/protect-factors-first-attack.js' 
 
 
 export function handleBonusAttackWhenProtectOrDetectCapacityActived(

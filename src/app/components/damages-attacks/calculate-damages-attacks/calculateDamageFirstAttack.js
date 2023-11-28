@@ -53,9 +53,12 @@ import {
 } from '../../factors-attacks/one-hit-factors-attacks/one-hit-knock-out-first-attack.js';
 
 import { 
-  protectFactorForFirstAttack, 
+  protectFactorForFirstAttack
+} from '../../factors-attacks/protect-factors-attacks/protect-factors-first-attack.js';
+
+import { 
   isProtectOrDetectCapacityActived
-} from '../../factors-attacks/protect-factors-attacks/protect-factors-attack.js' 
+} from '../../factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js';
 
 import {
   handleBonusAttackWhenProtectOrDetectCapacityActived,
@@ -72,6 +75,11 @@ import {
 import { 
   paralyzedStatutProbabilitysForFirstAttack
 } from "../../factors-statuts-state/paralyzed/export-to-calculate-damages-attacks/paralyzed-statut-probabilitys-for-first-attack.js";
+
+import { 
+  frozenStatutProbabilitysForFirstAttack
+} from "../../factors-statuts-state/frozen/export-to-calculate-damages-attacks/frozen-statut-probabilitys-for-first-attack.js";
+
 
 
 export const calculateDamageFirstAttack = 
@@ -95,7 +103,7 @@ function calculateDamageFirstAttack(
           firstAttackType !== 'bonus'
           )
         ) {
-            
+            console.log("ca passe dans calculate");
             openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
 
             const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -209,6 +217,14 @@ function calculateDamageFirstAttack(
                   
     
                 paralyzedStatutProbabilitysForFirstAttack(
+                  firstAttacker,
+                  secondAttacker,
+                  isFirstAttackActive,
+                  firstAttackType,
+                  secondAttackerType
+                );
+
+                frozenStatutProbabilitysForFirstAttack(
                   firstAttacker,
                   secondAttacker,
                   isFirstAttackActive,

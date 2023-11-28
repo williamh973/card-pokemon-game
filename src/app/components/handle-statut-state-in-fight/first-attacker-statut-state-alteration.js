@@ -1,8 +1,10 @@
 import { 
-  openDialogueWhenPokemonBlockedByParalyzedStatut
+  openDialogueWhenPokemonBlockedByParalyzedStatut,
+  openDialogueWhenPokemonBlockedByFrozenStatut
 } from '../dialogue-fight.js';
 
 export let isFirstAttackerParalyzed = false;
+export let isFirstAttackerFrozen = false;
 
 
 export const firstAttackerStatutAlteration = 
@@ -22,13 +24,29 @@ function firstAttackerStatutAlteration(firstAttacker) {
 
     } else if (firstAttacker.primaryStatut === 'paralyzed') {
       let randomFactor = Math.random();
-  
+      console.log(randomFactor);
+
       if (randomFactor <= 0.25) {
         isFirstAttackerParalyzed = true;
-       
+        console.log(isSecondAttackerFrozen);
+
         openDialogueWhenPokemonBlockedByParalyzedStatut(firstAttacker);
       } else {
         isFirstAttackerParalyzed = false;
+        console.log(isSecondAttackerFrozen);
+
+      };
+
+    } else if (firstAttacker.primaryStatut === 'frozen') {
+      
+      
+      let randomFactor = Math.random();
+      
+      if (randomFactor <= 0.20) {
+        isFirstAttackerFrozen = false;
+      } else {
+        isFirstAttackerFrozen = true;
+        openDialogueWhenPokemonBlockedByFrozenStatut(firstAttacker);
       };
     } 
 

@@ -1,8 +1,4 @@
 import { 
-  decreaseHp 
-} from './decreasePokemonHp.js';
-
-import { 
   firstAttacker, 
   secondAttacker, 
   determineFirstAttacker 
@@ -12,9 +8,15 @@ import {
   handleMenu 
 } from './handle-menu-and-selections/handleMenu.js';
 
-import { handlePokemonFirstSelection } from './handle-menu-and-selections/handlePokemonFirstSelection.js';
-import { handlePokemonSecondSelection } from './handle-menu-and-selections/handlePokemonSecondSelection.js';
-import { handleSelectionRandomPokemon } from './handle-menu-and-selections/handlePokemonRandomSelection.js';
+import { 
+  handlePokemonFirstSelection 
+} from './handle-menu-and-selections/handlePokemonFirstSelection.js';
+import { 
+  handlePokemonSecondSelection
+ } from './handle-menu-and-selections/handlePokemonSecondSelection.js';
+import { 
+  handleSelectionRandomPokemon
+ } from './handle-menu-and-selections/handlePokemonRandomSelection.js';
 
 import { 
   displayFightInProgress
@@ -38,7 +40,7 @@ import {
 
 import { 
   isProtectOrDetectCapacityActived
-} from './factors-attacks/protect-factors-attacks/protect-factors-attack.js'; 
+} from './factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js'; 
 
 import { 
   possibleRandomPokemonsList    
@@ -64,12 +66,12 @@ import {
 
 import { 
   checkIfFirstAttackerStatusHasBurningOrPoisoned,
-  checkIfFirstAttackerStatusHasParalyzed 
+  checkIfFirstAttackerStatusHasParalyzedOrFrozen 
 } from "./handle-statut-state-in-fight/check-if-first-attacker-statut-has-changed.js";
 
 import { 
   checkIfSecondAttackerStatusHasBurningOrPoisoned,
-  checkIfSecondAttackerStatusHasParalyzed
+  checkIfSecondAttackerStatusHasParalyzedOrFrozen
 } from "./handle-statut-state-in-fight/check-if-second-attacker-statut-has-changed.js";
 
 import { 
@@ -79,6 +81,16 @@ import {
 import { 
   isSecondAttackerParalyzed 
 } from "./handle-statut-state-in-fight/second-attacker-statut-state-alteration.js";
+
+import { 
+  isFirstAttackerFrozen
+ } from "./handle-statut-state-in-fight/first-attacker-statut-state-alteration.js";
+
+import { 
+  isSecondAttackerFrozen 
+} from "./handle-statut-state-in-fight/second-attacker-statut-state-alteration.js";
+
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -226,12 +238,16 @@ document.addEventListener('DOMContentLoaded', () => {
            isProtectOrDetectCapacityActived;
 
 
-           await checkIfFirstAttackerStatusHasParalyzed(
+           await checkIfFirstAttackerStatusHasParalyzedOrFrozen(
             firstAttacker, 
             sleepStatutAlteredAnimation
             );
 
-            if (!isFirstAttackerParalyzed) {
+            console.log("para", isFirstAttackerParalyzed, "frozen", isFirstAttackerFrozen);
+            if (
+              !isFirstAttackerParalyzed &&
+              !isFirstAttackerFrozen
+              ) {
 
               let randomFactor = Math.random();
       
@@ -249,9 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     secondAttacker.stats.specialDef,
                     firstAttacker.firstAttack.precision, 
                     firstAttacker.firstAttack.type,
-                    secondAttacker.type,
-                    isFirstAttackerParalyzed,
-                    isSecondAttackerParalyzed
+                    secondAttacker.type
                   );
                  
                   if (isFirstAttackActive) {
@@ -284,9 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     secondAttacker.stats.specialDef, 
                     firstAttacker.secondAttack.precision,
                     firstAttacker.secondAttack.type,
-                    secondAttacker.type,
-                    isFirstAttackerParalyzed,
-                    isSecondAttackerParalyzed
+                    secondAttacker.type
                   );
     
                   if (isSecondAttackActive) {
@@ -343,13 +355,16 @@ document.addEventListener('DOMContentLoaded', () => {
             isProtectOrDetectCapacityActived;
 
 
-            await checkIfSecondAttackerStatusHasParalyzed(
+            await checkIfSecondAttackerStatusHasParalyzedOrFrozen(
               secondAttacker, 
               sleepStatutAlteredAnimation
               );
             
-
-          if (!isSecondAttackerParalyzed) {
+              console.log("para", isSecondAttackerParalyzed, "frozen", isSecondAttackerFrozen);
+          if (
+            !isSecondAttackerParalyzed &&
+            !isSecondAttackerFrozen
+            ) {
              
            let randomFactor = Math.random();
             

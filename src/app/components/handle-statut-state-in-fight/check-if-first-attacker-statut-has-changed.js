@@ -34,7 +34,6 @@ async function checkIfFirstAttackerStatusHasBurningOrPoisoned(
       firstAttacker.primaryStatut === 'burning' ||
       firstAttacker.primaryStatut === 'poisoned'
       ) {
-      console.log("début de condition car", firstAttacker.name, "est", firstAttacker.primaryStatut);
       
       appropriateDialogues(
         firstAttacker
@@ -48,7 +47,6 @@ async function checkIfFirstAttackerStatusHasBurningOrPoisoned(
       firstAttackerStatutAlteration(firstAttacker); 
 
       await sleepStatutAlteredAnimation(firstAttackerAlterationStateDelays.firstAttackerStateDelay);
-      console.log("sleepStatutAlteredAnimation", firstAttackerAlterationStateDelays.firstAttackerStateDelay);
       
       decreaseHp();
 
@@ -64,28 +62,23 @@ async function checkIfFirstAttackerStatusHasBurningOrPoisoned(
   
     };
 
-    console.log("fin de condition");
     };
 };
 
 
 
 
-export const checkIfFirstAttackerStatusHasParalyzed =
-async function checkIfFirstAttackerStatusHasParalyzed(
+export const checkIfFirstAttackerStatusHasParalyzedOrFrozen =
+async function checkIfFirstAttackerStatusHasParalyzedOrFrozen(
   firstAttacker, 
   sleepStatutAlteredAnimation
   ) {
 
     if (
-      firstAttacker.primaryStatut === 'paralyzed'
+      firstAttacker.primaryStatut === 'paralyzed' ||
+      firstAttacker.primaryStatut === 'frozen'
       ) {
-      console.log("début de condition car", firstAttacker.name, "est", firstAttacker.primaryStatut);
-      
 
-      appropriateDialogues(
-        firstAttacker
-      )
 
       const firstAttackerAlterationStateDelays = 
       getFirstAttackerAlterationStatesDelays(
@@ -93,16 +86,12 @@ async function checkIfFirstAttackerStatusHasParalyzed(
       );
 
       firstAttackerStatutAlteration(firstAttacker); 
-      console.log("réduction des pv de", firstAttacker.name  );
 
       await sleepStatutAlteredAnimation(firstAttackerAlterationStateDelays.firstAttackerStateDelay);
-      console.log("sleepStatutAlteredAnimation", firstAttackerAlterationStateDelays.firstAttackerStateDelay);
 
-      console.log("fin de condition");
     };
 
 };
-
 
 
 function appropriateDialogues(
@@ -110,11 +99,9 @@ function appropriateDialogues(
 ) {
   if (firstAttacker.primaryStatut === 'burning') {
     openDialogueWhenPokemonHpDecreaseByBurningStatut(firstAttacker);
-    console.log("dialogue passé");
 
    } else if (firstAttacker.primaryStatut === 'poisoned') {
     openDialogueWhenPokemonHpDecreaseByPoisonedStatut(firstAttacker);
-    console.log("dialogue passé");
 
   };
 

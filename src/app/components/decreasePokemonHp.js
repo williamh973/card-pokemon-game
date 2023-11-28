@@ -9,6 +9,7 @@ import { scarabruteStats } from './models/scarabrute.model.js';
 import { krabbossStats } from './models/krabboss.model.js';
 import { salamecheStats } from './models/salameche.model.js';
 import { nidoranMaleStats } from './models/nidoranMale.model.js';
+import { crustabriStats } from './models/crustabri.model.js';
 
 
 import { pikachuCard } from './cards/pikachu.card.js';
@@ -22,12 +23,23 @@ import { scarabruteCard } from './cards/scarabrute.card.js';
 import { krabbossCard } from './cards/krabboss.card.js';
 import { salamecheCard } from './cards/salameche.card.js';
 import { nidoranMaleCard } from './cards/nidoranMale.card.js';
+import { crustabriCard } from './cards/crustabri.card.js';
 
 import { domElementsFromSelectors } from './dom-elements.js';
 
 
 export const decreaseHp = 
 function decreaseHp() {
+
+  if (
+    (domElementsFromSelectors.selectFirstPokemonButton.value === 'Crustabri') ||
+    (domElementsFromSelectors.selectSecondPokemonButton.value === 'Crustabri') || 
+    (domElementsFromSelectors.pokemonFirstLocation.contains(crustabriCard)) || 
+    (domElementsFromSelectors.pokemonSecondLocation.contains(crustabriCard))
+   ) {
+     document.getElementById('crustabriHealth').textContent = 
+     `${crustabriStats.stats.hp}`;
+};
 
   if (
       (domElementsFromSelectors.selectFirstPokemonButton.value === 'Pikachu') ||

@@ -53,9 +53,12 @@ import {
 } from '../../factors-attacks/one-hit-factors-attacks/one-hit-knock-out-second-attack.js';
 
 import { 
-  protectFactorForSecondAttack, 
+  protectFactorForSecondAttack
+} from '../../factors-attacks/protect-factors-attacks/protect-factors-second-attack.js';
+
+import { 
   isProtectOrDetectCapacityActived
-  } from '../../factors-attacks/protect-factors-attacks/protect-factors-attack.js' 
+} from '../../factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js';
     
   import {
     handleBonusAttackWhenProtectOrDetectCapacityActived,
@@ -72,6 +75,10 @@ import {
   import { 
     paralyzedStatutProbabilitysForSecondAttack
   } from "../../factors-statuts-state/paralyzed/export-to-calculate-damages-attacks/paralyzed-statut-probabilitys-for-second-attack.js";
+  
+  import { 
+    frozenStatutProbabilitysForSecondAttack
+  } from "../../factors-statuts-state/frozen/export-to-calculate-damages-attacks/frozen-statut-probabilitys-for-second-attack.js";
   
 
 
@@ -96,7 +103,7 @@ function calculateDamageSecondAttack(
         secondAttackType !== 'bonus'
         )
       ) {
-
+        console.log("ca passe dans calculate");
             openDialogueWhenPokemonMakesSecondAttack(firstAttacker);
            
             const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -182,12 +189,13 @@ function calculateDamageSecondAttack(
                  firstAttacker,
                  isSecondAttackActive
                  );
-     
+
                protectFactorForSecondAttack(
                  firstAttacker,
+                 secondAttacker,
                  isSecondAttackActive
                  );
-     
+
                  burningStatutProbabilitysForSecondAttack(
                    firstAttacker,
                    secondAttacker,
@@ -211,6 +219,14 @@ function calculateDamageSecondAttack(
                    secondAttackType,
                    secondAttackerType
                  );
+
+                 frozenStatutProbabilitysForSecondAttack(
+                  firstAttacker,
+                  secondAttacker,
+                  isSecondAttackActive,
+                  secondAttackType,
+                  secondAttackerType
+                );
      
      
                    if (degats > 0 && degats < 0.5) {
