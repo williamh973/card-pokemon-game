@@ -103,8 +103,9 @@ function calculateDamageFirstAttack(
           firstAttackType !== 'bonus'
           )
         ) {
-            console.log("ca passe dans calculate");
+
             openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
+            console.log(firstAttacker.name, "utilise", firstAttacker.firstAttack.name);
 
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
@@ -236,7 +237,6 @@ function calculateDamageFirstAttack(
                     return degats = 1;
                   };
                   
-                  console.log(firstAttacker.name, "utilise", firstAttacker.firstAttack.name);
                   return Math.round(degats);
 
          
@@ -251,7 +251,10 @@ function calculateDamageFirstAttack(
         firstAttackType !== 'bonus'
         ) {
            openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
+           console.log(firstAttacker.name, "utilise", firstAttacker.firstAttack.name);
+
            openDialogueWhenPokemonProtectingHimself(secondAttacker);
+           console.log(secondAttacker.name, "se protège !");
            return 0;
 
       } else if (

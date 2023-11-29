@@ -75,19 +75,11 @@ import {
 } from "./handle-statut-state-in-fight/check-if-second-attacker-statut-has-changed.js";
 
 import { 
-  isFirstAttackerParalyzed
- } from "./handle-statut-state-in-fight/first-attacker-statut-state-alteration.js";
+  firstAttackerStatutStateVariableList
+} from "./handle-statut-state-in-fight/first-attacker-statut-state-alteration.js";
 
 import { 
-  isSecondAttackerParalyzed 
-} from "./handle-statut-state-in-fight/second-attacker-statut-state-alteration.js";
-
-import { 
-  isFirstAttackerFrozen
- } from "./handle-statut-state-in-fight/first-attacker-statut-state-alteration.js";
-
-import { 
-  isSecondAttackerFrozen 
+  secondAttackerStatutStateVariableList
 } from "./handle-statut-state-in-fight/second-attacker-statut-state-alteration.js";
 
 
@@ -235,6 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
            isSecondAttackActive = false;
            numberOfTurns ++;
            
+
            isProtectOrDetectCapacityActived;
 
 
@@ -242,16 +235,16 @@ document.addEventListener('DOMContentLoaded', () => {
             firstAttacker, 
             sleepStatutAlteredAnimation
             );
-
-            console.log("para", isFirstAttackerParalyzed, "frozen", isFirstAttackerFrozen);
+  
+            console.log("firstAttacker avant", "para", firstAttackerStatutStateVariableList.isFirstAttackerParalyzed, "gelé", firstAttackerStatutStateVariableList.isFirstAttackerFrozen);
             if (
-              !isFirstAttackerParalyzed &&
-              !isFirstAttackerFrozen
+              !firstAttackerStatutStateVariableList.isFirstAttackerParalyzed &&
+              !firstAttackerStatutStateVariableList.isFirstAttackerFrozen
               ) {
-
-              let randomFactor = Math.random();
+                console.log("firstAttacker après", "para", firstAttackerStatutStateVariableList.isFirstAttackerParalyzed, "gelé", firstAttackerStatutStateVariableList.isFirstAttackerFrozen);
+              let randomNumber = Math.random();
       
-                if (randomFactor > 0.5) {
+                if (randomNumber > 0.5) {
     
                   isFirstAttackActive = true;
                   isSecondAttackActive = false;
@@ -331,6 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 enemyPokemon, 
                 playerSelectedPokemon
                 );
+
               break;
 
             };
@@ -344,10 +338,12 @@ document.addEventListener('DOMContentLoaded', () => {
               sleepStatutAlteredAnimation
               );
               
+              if (firstAttacker.stats.hp <= 0) {
+                firstAttacker.stats.hp = 0;
+                break;
+              }
+              
               console.log(firstAttacker.name, "a terminé son tour");
-
-
-
 
             isFirstAttackActive = false;
             isSecondAttackActive = false;
@@ -359,16 +355,17 @@ document.addEventListener('DOMContentLoaded', () => {
               secondAttacker, 
               sleepStatutAlteredAnimation
               );
+
+              console.log("secondAttacker avant", "para", secondAttackerStatutStateVariableList.isSecondAttackerParalyzed, "gelé", secondAttackerStatutStateVariableList.isSecondAttackerFrozen);
+
+              if (
+                !secondAttackerStatutStateVariableList.isSecondAttackerParalyzed && 
+                !secondAttackerStatutStateVariableList.isSecondAttackerFrozen
+                ) {
+                  
+           let randomNumber = Math.random();
             
-              console.log("para", isSecondAttackerParalyzed, "frozen", isSecondAttackerFrozen);
-          if (
-            !isSecondAttackerParalyzed &&
-            !isSecondAttackerFrozen
-            ) {
-             
-           let randomFactor = Math.random();
-            
-            if (randomFactor > 0.5) {
+            if (randomNumber > 0.5) {
               
               isFirstAttackActive = true;
               isSecondAttackActive = false;
@@ -446,6 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 enemyPokemon, 
                 playerSelectedPokemon
                 );
+
               break;
             };
 
@@ -459,7 +457,10 @@ document.addEventListener('DOMContentLoaded', () => {
               sleepStatutAlteredAnimation
               );
 
-
+              if (secondAttacker.stats.hp <= 0) {
+                secondAttacker.stats.hp = 0;
+                break;
+              }
 
             console.log("fin de boucle");
 

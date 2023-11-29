@@ -67,7 +67,6 @@ async function checkIfFirstAttackerStatusHasBurningOrPoisoned(
 
 
 
-
 export const checkIfFirstAttackerStatusHasParalyzedOrFrozen =
 async function checkIfFirstAttackerStatusHasParalyzedOrFrozen(
   firstAttacker, 
@@ -76,7 +75,8 @@ async function checkIfFirstAttackerStatusHasParalyzedOrFrozen(
 
     if (
       firstAttacker.primaryStatut === 'paralyzed' ||
-      firstAttacker.primaryStatut === 'frozen'
+      firstAttacker.primaryStatut === 'frozen' ||
+      firstAttacker.primaryStatut === 'normal'
       ) {
 
 

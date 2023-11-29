@@ -40,6 +40,7 @@ function frozenStatut10PercentProbabililityForSecondAttack(
              if (randomNumber < 10) {
                 secondAttacker.primaryStatut = 'frozen'
                 openDialogueWhenPokemonHasFrozenStatut(secondAttacker); 
+                console.log(secondAttacker.name, "est", secondAttacker.primaryStatut); 
             };
                            
     };

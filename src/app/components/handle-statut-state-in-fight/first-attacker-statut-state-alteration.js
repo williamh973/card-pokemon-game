@@ -1,53 +1,70 @@
 import { 
   openDialogueWhenPokemonBlockedByParalyzedStatut,
-  openDialogueWhenPokemonBlockedByFrozenStatut
+  openDialogueWhenPokemonBlockedByFrozenStatut,
+  openDialogueWhenPokemonHasThawedStatut,
+  openDialogueWhenPokemonAttacksDespiteParalyzedStatut
 } from '../dialogue-fight.js';
 
-export let isFirstAttackerParalyzed = false;
-export let isFirstAttackerFrozen = false;
+export let firstAttackerStatutStateVariableList = {
+  isFirstAttackerFrozen : false,
+  isFirstAttackerParalyzed : false
+};
 
 
 export const firstAttackerStatutAlteration = 
-function firstAttackerStatutAlteration(firstAttacker) {
+function firstAttackerStatutAlteration(
+  firstAttacker
+  ) {
 
    if (
       firstAttacker.primaryStatut === 'burning' ||
       firstAttacker.primaryStatut === 'poisoned'
       ) {
 
-      let percentage = 12.5;
-      let decreaseValue = (percentage / 100) * firstAttacker.stats.hpMax;
-      const newDecreaseValue = Math.round(decreaseValue);
-
-      firstAttacker.stats.hp -= newDecreaseValue;
-      return firstAttacker.stats.hp;
+        let percentage = 12.5;
+        let decreaseValue = (percentage / 100) * firstAttacker.stats.hpMax;
+        const newDecreaseValue = Math.round(decreaseValue);
+  
+        firstAttacker.stats.hp -= newDecreaseValue;
+        return firstAttacker.stats.hp;
 
     } else if (firstAttacker.primaryStatut === 'paralyzed') {
-      let randomFactor = Math.random();
-      console.log(randomFactor);
 
-      if (randomFactor <= 0.25) {
-        isFirstAttackerParalyzed = true;
-        console.log(isSecondAttackerFrozen);
-
-        openDialogueWhenPokemonBlockedByParalyzedStatut(firstAttacker);
-      } else {
-        isFirstAttackerParalyzed = false;
-        console.log(isSecondAttackerFrozen);
-
-      };
+        let randomNumber = Math.random();
+        console.log(randomNumber);
+  
+        if (randomNumber <= 0.25) {
+  
+          firstAttackerStatutStateVariableList.isFirstAttackerParalyzed = true;
+          console.log(firstAttackerStatutStateVariableList.isFirstAttackerParalyzed);
+          openDialogueWhenPokemonBlockedByParalyzedStatut(firstAttacker);
+  
+        } else {
+          firstAttackerStatutStateVariableList.isFirstAttackerParalyzed = false;
+          console.log(firstAttackerStatutStateVariableList.isFirstAttackerParalyzed);
+          openDialogueWhenPokemonAttacksDespiteParalyzedStatut(firstAttacker);
+        };
 
     } else if (firstAttacker.primaryStatut === 'frozen') {
       
-      
-      let randomFactor = Math.random();
-      
-      if (randomFactor <= 0.20) {
-        isFirstAttackerFrozen = false;
-      } else {
-        isFirstAttackerFrozen = true;
-        openDialogueWhenPokemonBlockedByFrozenStatut(firstAttacker);
-      };
-    } 
+        let randomNumber = Math.random();
+  
+        if (randomNumber <= 0.20) {
+  
+          firstAttackerStatutStateVariableList.isFirstAttackerFrozen = false;
+          firstAttacker.primaryStatut = 'normal';
+          console.log(firstAttacker.name, "est dégelé", "sont statut est maintenant", firstAttacker.primaryStatut, firstAttackerStatutStateVariableList.isFirstAttackerFrozen);
+          openDialogueWhenPokemonHasThawedStatut(firstAttacker);
+  
+        } else {
+          firstAttackerStatutStateVariableList.isFirstAttackerFrozen = true;
+          console.log(firstAttacker.name, "est toujours", firstAttacker.primaryStatut, firstAttackerStatutStateVariableList.isFirstAttackerFrozen);
+          openDialogueWhenPokemonBlockedByFrozenStatut(firstAttacker);
+        };
 
+    } else if (firstAttacker.primaryStatut === 'normal') {
+      firstAttackerStatutStateVariableList.isFirstAttackerParalyzed = false;
+      firstAttackerStatutStateVariableList.isFirstAttackerFrozen = false;
+    };
+    
 };

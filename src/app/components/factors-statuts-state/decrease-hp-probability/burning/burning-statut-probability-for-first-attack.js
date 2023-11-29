@@ -1,6 +1,10 @@
 import { 
-    openDialogueWhenPokemonHasBurningStatut
-} from '../../../dialogue-fight.js';
+    isStatusValidForBurning 
+} from "./status-valid-for-burning.js";
+
+import { 
+    burningStatut 
+} from "./burning-statut.js";
 
  
 export const burningStatut10PercentProbabililityForFirstAttack = 
@@ -33,21 +37,20 @@ function burningStatut10PercentProbabililityForFirstAttack(
             firstAttacker.firstAttack.name === 'Roue de Feu' 
         ) &&
         (
-            secondAttacker.primaryStatut !== 'burning' &&
-            secondAttacker.primaryStatut !== 'paralyzed' &&
-            secondAttacker.primaryStatut !== 'asleep' &&
-            secondAttacker.primaryStatut !== 'poisoned' &&
-            secondAttacker.primaryStatut !== 'frozen' 
+            isStatusValidForBurning(
+                secondAttacker
+            )
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 10) {
-                secondAttacker.primaryStatut = 'burning'
-                openDialogueWhenPokemonHasBurningStatut(secondAttacker); 
-            }
+            if (randomNumber < 10) {
+                burningStatut(
+                    secondAttacker
+                    );
+            };
                            
-    }
+    };
 
 };
 
@@ -82,18 +85,17 @@ function burningStatut30PercentProbabililityForFirstAttack(
             firstAttacker.firstAttack.name === 'Cortège Funèbre'
         ) &&
         (
-            secondAttacker.primaryStatut !== 'burning' &&
-            secondAttacker.primaryStatut !== 'paralyzed' &&
-            secondAttacker.primaryStatut !== 'asleep' &&
-            secondAttacker.primaryStatut !== 'poisoned' &&
-            secondAttacker.primaryStatut !== 'frozen' 
+            isStatusValidForBurning(
+                secondAttacker
+            )
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
              if (randomNumber < 30) {
-                secondAttacker.primaryStatut = 'burning'
-                openDialogueWhenPokemonHasBurningStatut(secondAttacker); 
+                burningStatut(
+                    secondAttacker
+                    );
             }
                            
     }
@@ -118,18 +120,17 @@ function burningStatut50PercentProbabililityForFirstAttack(
             firstAttacker.firstAttack.name === 'Feu Sacré' 
         ) &&
         (
-            secondAttacker.primaryStatut !== 'burning' &&
-            secondAttacker.primaryStatut !== 'paralyzed' &&
-            secondAttacker.primaryStatut !== 'asleep' &&
-            secondAttacker.primaryStatut !== 'poisoned' &&
-            secondAttacker.primaryStatut !== 'frozen' 
+            isStatusValidForBurning(
+                secondAttacker
+            ) 
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
              if (randomNumber < 50) {
-                secondAttacker.primaryStatut = 'burning'
-                openDialogueWhenPokemonHasBurningStatut(secondAttacker); 
+                burningStatut(
+                    secondAttacker
+                    );
             }
                            
     }
@@ -160,18 +161,17 @@ function burningStatut100PercentProbabililityForFirstAttack(
             firstAttacker.firstAttack.name === 'Feu Follet' 
         ) &&
         (
-            secondAttacker.primaryStatut !== 'burning' &&
-            secondAttacker.primaryStatut !== 'paralyzed' &&
-            secondAttacker.primaryStatut !== 'asleep' &&
-            secondAttacker.primaryStatut !== 'poisoned' &&
-            secondAttacker.primaryStatut !== 'frozen' 
+            isStatusValidForBurning(
+                secondAttacker
+            )
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
              if (randomNumber < 100) {
-                secondAttacker.primaryStatut = 'burning'
-                openDialogueWhenPokemonHasBurningStatut(secondAttacker); 
+                burningStatut(
+                    secondAttacker
+                    );
             }
                            
     }

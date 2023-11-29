@@ -1,6 +1,6 @@
 #container-stats {
     width: 200px;
-    height: 650px;
+    height: 700px;
     background-color: black;
     display: flex;
     flex-direction: column;
@@ -19,7 +19,7 @@
     flex-direction: column;
     gap: 10px;
     padding: 5px;
-    margin-top: 30px;
+    margin-top: 60px;
 }
 
 .stat-container {

@@ -1,7 +1,15 @@
 
+import { 
+    firstAttackerStatutStateVariableList
+  } from "../../handle-statut-state-in-fight/first-attacker-statut-state-alteration.js";
+  
+  import { 
+    secondAttackerStatutStateVariableList
+  } from "../../handle-statut-state-in-fight/second-attacker-statut-state-alteration.js";
+  
+
+
 export let isProtectOrDetectCapacityActived = false;
-
-
 
 
 export const isProtectOrDetectCapacityActivedByProtectOrDetect =
@@ -13,14 +21,24 @@ export const isProtectOrDetectCapacityActivedByProtectOrDetect =
 
     if (
         (
-            firstAttacker.primaryStatut !== 'normal' ||
-            firstAttacker.secondaryStatut !== 'normal'
-            ) 
-            ||
+            (
+                firstAttacker.primaryStatut !== 'normal' && firstAttackerStatutStateVariableList.isFirstAttackerFrozen
+                ) 
+                ||
                 (
-                    secondAttacker.primaryStatut !== 'normal' || 
-                    secondAttacker.secondaryStatut !== 'normal'
+                    firstAttacker.primaryStatut !== 'normal' && firstAttackerStatutStateVariableList.isFirstAttackerParalyzed
                     )
+                    ) 
+            ||
+            (
+                (
+                    secondAttacker.primaryStatut !== 'normal' && secondAttackerStatutStateVariableList.isSecondAttackerFrozen
+                    ) 
+                    ||
+                    (
+                        secondAttacker.primaryStatut !== 'normal' && secondAttackerStatutStateVariableList.isSecondAttackerParalyzed
+                        )
+                        ) 
 
     ) {
         setTimeout(() => {

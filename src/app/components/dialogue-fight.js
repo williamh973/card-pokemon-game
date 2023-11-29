@@ -7,7 +7,7 @@ const START_NEXT_DISPLAY_DURATION = 2000;
 const END_NEXT_DISPLAY_DURATION = 1900;
 
 const START_ALTERATION_STATUT_DISPLAY_DURATION = 0;
-const END_ALTERATION_STATUT_DISPLAY_DURATION = 2900;
+const END_ALTERATION_STATUT_DISPLAY_DURATION = 3900;
 
 
 export const displayDialogue = document.getElementById('dialogue');
@@ -436,7 +436,7 @@ function openDialogueWhenPokemonHasParalyzedStatut(pokemon) {
     domElementsFromSelectors.displayDialogue.style.display = 'flex';
     
     domElementsFromSelectors.displayDialogue.textContent = 
-    `${ pokemon.name } est paralysé !`;
+    `${ pokemon.name } est paralysé, il pourrait ne pas attaquer !`;
     
       setTimeout(function() {
         domElementsFromSelectors.displayDialogue.style.display = 'none';
@@ -463,6 +463,23 @@ function openDialogueWhenPokemonBlockedByParalyzedStatut(pokemon) {
 };
 
 
+export const openDialogueWhenPokemonAttacksDespiteParalyzedStatut =
+function openDialogueWhenPokemonAttacksDespiteParalyzedStatut(pokemon) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `${ pokemon.name } résiste à sa paralysie !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+
+    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+};
+
+
 export const openDialogueWhenPokemonHasFrozenStatut =
 function openDialogueWhenPokemonHasFrozenStatut(pokemon) {
   setTimeout(function() {
@@ -478,6 +495,24 @@ function openDialogueWhenPokemonHasFrozenStatut(pokemon) {
       
     }, START_NEXT_DISPLAY_DURATION);
 };
+
+
+export const openDialogueWhenPokemonHasThawedStatut =
+function openDialogueWhenPokemonHasThawedStatut(pokemon) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `${ pokemon.name } s'est dégelé, il peut attaquer !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+      
+    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+};
+
 
 
 export const openDialogueWhenPokemonBlockedByFrozenStatut =

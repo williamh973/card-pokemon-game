@@ -1,6 +1,10 @@
 import { 
-    openDialogueWhenPokemonHasParalyzedStatut
-} from '../../dialogue-fight.js';
+    isStatusValidForParalyzed
+} from "./status-valid-for-paralyzed.js";
+
+import { 
+    paralyzedStatut
+} from './paralyzed-statut.js';
 
 
 export const paralyzedStatut10PercentProbabililityForSecondAttack = 
@@ -31,18 +35,17 @@ function paralyzedStatut10PercentProbabililityForSecondAttack(
             firstAttacker.secondAttack.name === 'Triplattaque' 
         ) &&
         (
-            secondAttacker.primaryStatut !== 'burning' &&
-            secondAttacker.primaryStatut !== 'paralyzed' &&
-            secondAttacker.primaryStatut !== 'asleep' &&
-            secondAttacker.primaryStatut !== 'poisoned' &&
-            secondAttacker.primaryStatut !== 'frozen' 
+            isStatusValidForParalyzed(
+                secondAttacker
+            )
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 10) {
-                secondAttacker.primaryStatut = 'paralyzed'
-                openDialogueWhenPokemonHasParalyzedStatut(secondAttacker); 
+             if (randomNumber < 50) {
+                paralyzedStatut(
+                    secondAttacker
+                    ); 
             }
                            
     }
@@ -85,18 +88,17 @@ function paralyzedStatut30PercentProbabililityForSecondAttack(
             firstAttacker.secondAttack.name === 'Rebond'
         ) &&
         (
-            secondAttacker.primaryStatut !== 'burning' &&
-            secondAttacker.primaryStatut !== 'paralyzed' &&
-            secondAttacker.primaryStatut !== 'asleep' &&
-            secondAttacker.primaryStatut !== 'poisoned' &&
-            secondAttacker.primaryStatut !== 'frozen' 
+            isStatusValidForParalyzed(
+                secondAttacker
+            )
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
              if (randomNumber < 30) {
-                secondAttacker.primaryStatut = 'paralyzed'
-                openDialogueWhenPokemonHasParalyzedStatut(secondAttacker); 
+                paralyzedStatut(
+                    secondAttacker
+                    ); 
             }
                            
     }
@@ -133,18 +135,17 @@ function paralyzedStatut100PercentProbabililityForSecondAttack(
             firstAttacker.secondAttack.name === 'Para-Spore'
         ) &&
         (
-            secondAttacker.primaryStatut !== 'burning' &&
-            secondAttacker.primaryStatut !== 'paralyzed' &&
-            secondAttacker.primaryStatut !== 'asleep' &&
-            secondAttacker.primaryStatut !== 'poisoned' &&
-            secondAttacker.primaryStatut !== 'frozen' 
+            isStatusValidForParalyzed(
+                secondAttacker
+            )
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
              if (randomNumber < 100) {
-                secondAttacker.primaryStatut = 'paralyzed'
-                openDialogueWhenPokemonHasParalyzedStatut(secondAttacker); 
+                paralyzedStatut(
+                    secondAttacker
+                    ); 
             }
                            
     }

@@ -45,7 +45,9 @@ async function checkIfSecondAttackerStatusHBurningOrPoisoned(
         secondAttacker
       );
 
-      secondAttackerStatutAlteration(secondAttacker); 
+      secondAttackerStatutAlteration(
+        secondAttacker
+        ); 
 
       await sleepStatutAlteredAnimation(secondAttackerAlterationStateDelays.secondAttackerStateDelay);
 
@@ -77,7 +79,8 @@ async function checkIfSecondAttackerStatusHasParalyzedOrFrozen(
 
     if (
       secondAttacker.primaryStatut === 'paralyzed' ||
-      secondAttacker.primaryStatut === 'frozen'
+      secondAttacker.primaryStatut === 'frozen' ||
+      secondAttacker.primaryStatut === 'normal'
       ) {
       
       const secondAttackerAlterationStateDelays = 
@@ -85,7 +88,9 @@ async function checkIfSecondAttackerStatusHasParalyzedOrFrozen(
         secondAttacker
       );
 
-      secondAttackerStatutAlteration(secondAttacker); 
+      secondAttackerStatutAlteration(
+        secondAttacker
+        ); 
 
       await sleepStatutAlteredAnimation(secondAttackerAlterationStateDelays.secondAttackerStateDelay);
 
@@ -98,10 +103,10 @@ function appropriateDialogues(
   secondAttacker
 ) {
   if (secondAttacker.primaryStatut === 'burning') {
-    openDialogueWhenPokemonHpDecreaseByBurningStatut(secondAttacker);
+   return openDialogueWhenPokemonHpDecreaseByBurningStatut(secondAttacker);
 
   } else if (secondAttacker.primaryStatut === 'poisoned') {
-    openDialogueWhenPokemonHpDecreaseByPoisonedStatut(secondAttacker);
+   return openDialogueWhenPokemonHpDecreaseByPoisonedStatut(secondAttacker);
 
   };
 

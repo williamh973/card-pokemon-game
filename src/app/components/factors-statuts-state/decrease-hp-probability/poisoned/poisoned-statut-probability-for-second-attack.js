@@ -2,6 +2,10 @@ import {
     openDialogueWhenPokemonHasPoisonedStatut
 } from '../../../dialogue-fight.js';
 
+import { 
+    isStatusValidForPoisoned
+} from "./status-valid-for-poisoned.js";
+
 
 export const poisonedStatut10PercentProbabililityForSecondAttack = 
 function poisonedStatut10PercentProbabililityForSecondAttack(
@@ -24,11 +28,9 @@ function poisonedStatut10PercentProbabililityForSecondAttack(
             firstAttacker.secondAttack.name === 'Queue-Poison'
         ) &&
         (
-            secondAttacker.primaryStatut !== 'burning' &&
-            secondAttacker.primaryStatut !== 'paralyzed' &&
-            secondAttacker.primaryStatut !== 'asleep' &&
-            secondAttacker.primaryStatut !== 'poisoned' &&
-            secondAttacker.primaryStatut !== 'frozen' 
+            isStatusValidForPoisoned(
+                secondAttacker
+            )
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -64,11 +66,9 @@ function poisonedStatut20PercentProbabililityForSecondAttack(
             firstAttacker.secondAttack.name === 'Double-Dard'
         ) &&
         (
-            secondAttacker.primaryStatut !== 'burning' &&
-            secondAttacker.primaryStatut !== 'paralyzed' &&
-            secondAttacker.primaryStatut !== 'asleep' &&
-            secondAttacker.primaryStatut !== 'poisoned' &&
-            secondAttacker.primaryStatut !== 'frozen' 
+            isStatusValidForPoisoned(
+                secondAttacker
+            )
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -109,11 +109,9 @@ function poisonedStatut30PercentProbabililityForSecondAttack(
             firstAttacker.secondAttack.name === 'Direct Toxik'
         ) &&
         (
-            secondAttacker.primaryStatut !== 'burning' &&
-            secondAttacker.primaryStatut !== 'paralyzed' &&
-            secondAttacker.primaryStatut !== 'asleep' &&
-            secondAttacker.primaryStatut !== 'poisoned' &&
-            secondAttacker.primaryStatut !== 'frozen' 
+            isStatusValidForPoisoned(
+                secondAttacker
+            )
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -149,11 +147,9 @@ function poisonedStatut40PercentProbabililityForSecondAttack(
             firstAttacker.secondAttack.name === 'Puredpois'
         ) &&
         (
-            secondAttacker.primaryStatut !== 'burning' &&
-            secondAttacker.primaryStatut !== 'paralyzed' &&
-            secondAttacker.primaryStatut !== 'asleep' &&
-            secondAttacker.primaryStatut !== 'poisoned' &&
-            secondAttacker.primaryStatut !== 'frozen' 
+            isStatusValidForPoisoned(
+                secondAttacker
+            )
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -190,11 +186,9 @@ function poisonedStatut100PercentProbabililityForSecondAttack(
             firstAttacker.secondAttack.name === 'Toxik'
         ) &&
         (
-            secondAttacker.primaryStatut !== 'burning' &&
-            secondAttacker.primaryStatut !== 'paralyzed' &&
-            secondAttacker.primaryStatut !== 'asleep' &&
-            secondAttacker.primaryStatut !== 'poisoned' &&
-            secondAttacker.primaryStatut !== 'frozen' 
+            isStatusValidForPoisoned(
+                secondAttacker
+            )
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
