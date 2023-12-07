@@ -1,22 +1,32 @@
 export const getFirstAttackerAlterationStatesDelays = (firstAttacker) => {
 
   const firstAttackerState = firstAttacker.primaryStatut;
+  const firstAttackerSecondState = firstAttacker.secondaryStatut;
+
   const firstAttackerStateDelay = alterationStatesDelay(firstAttackerState); 
+  const firstAttackerSecondStateDelay = alterationStatesDelay(firstAttackerSecondState);
 
   return {
     firstAttackerState,
-    firstAttackerStateDelay
+    firstAttackerSecondState,
+    firstAttackerStateDelay,
+    firstAttackerSecondStateDelay
   };
 };
 
  
 export const getSecondAttackerAlterationStatesDelays = (secondAttacker) => {
   const secondAttackerState = secondAttacker.primaryStatut;
+  const secondAttackerSecondState = secondAttacker.secondaryStatut;
+
   const secondAttackerStateDelay = alterationStatesDelay(secondAttackerState); 
+  const secondAttackerSecondStateDelay = alterationStatesDelay(secondAttackerSecondState); 
 
   return {
     secondAttackerState,
-    secondAttackerStateDelay
+    secondAttackerSecondState,
+    secondAttackerStateDelay,
+    secondAttackerSecondStateDelay
   };
 };
  
@@ -35,10 +45,14 @@ export const getSecondAttackerAlterationStatesDelays = (secondAttacker) => {
                 return 4000;
                 case 'paralyzed':
                   return 4000;
+                  case 'confusing':
+                    return 4000;
                 default:
                   return 0; 
     }
   };
+
+
   
   export const sleepStatutAlteredAnimation =
 async function sleepStatutAlteredAnimation(state)  {

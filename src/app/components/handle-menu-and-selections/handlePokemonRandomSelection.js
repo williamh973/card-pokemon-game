@@ -11,6 +11,9 @@ import { krabbossCard } from '../cards/krabboss.card.js';
 import { salamecheCard } from '../cards/salameche.card.js';
 import { nidoranMaleCard } from '../cards/nidoranMale.card.js';
 import { crustabriCard } from '../cards/crustabri.card.js';
+import { fantominusCard } from '../cards/fantominus.card.js';
+import { ectoplasmaCard } from '../cards/ectoplasma.card.js';
+import { spectrumCard } from '../cards/spectrum.card.js';
 
 import { domElementsFromSelectors } from '../dom-elements.js';
 
@@ -25,6 +28,18 @@ export const handleSelectionRandomPokemon
   
 
   switch (pokemon) {
+    case 'Spectrum':
+      domElementsFromSelectors.pokemonSecondLocation.appendChild(spectrumCard);
+      pokemonSelected(pokemon);
+        break;
+    case 'Ectoplasma':
+      domElementsFromSelectors.pokemonSecondLocation.appendChild(ectoplasmaCard);
+      pokemonSelected(pokemon);
+        break;
+    case 'Fantominus':
+          domElementsFromSelectors.pokemonSecondLocation.appendChild(fantominusCard);
+          pokemonSelected(pokemon);
+            break;
     case 'Crustabri':
       domElementsFromSelectors.pokemonSecondLocation.appendChild(crustabriCard);
      pokemonSelected(pokemon);

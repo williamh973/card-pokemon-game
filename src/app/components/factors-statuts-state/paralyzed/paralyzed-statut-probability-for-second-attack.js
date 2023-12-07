@@ -28,9 +28,9 @@ function paralyzedStatut10PercentProbabililityForSecondAttack(
             ) 
         ) && 
         (
-            firstAttacker.secondAttack.name === 'Crocs Eclair' ||
-            firstAttacker.secondAttack.name === 'Eclair' ||
-            firstAttacker.secondAttack.name === 'Poing-Eclair' ||
+            firstAttacker.secondAttack.name === 'Crocs Éclair' ||
+            firstAttacker.secondAttack.name === 'Éclair' ||
+            firstAttacker.secondAttack.name === 'Poing-Éclair' ||
             firstAttacker.secondAttack.name === 'Tonnerre' ||
             firstAttacker.secondAttack.name === 'Triplattaque' 
         ) &&
@@ -42,7 +42,7 @@ function paralyzedStatut10PercentProbabililityForSecondAttack(
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 50) {
+             if (randomNumber < 10) {
                 paralyzedStatut(
                     secondAttacker
                     ); 
@@ -79,11 +79,11 @@ function paralyzedStatut30PercentProbabililityForSecondAttack(
         (
             firstAttacker.secondAttack.name === "Coup d'jus" ||
             firstAttacker.secondAttack.name === 'Dracosouffle' ||
-            firstAttacker.secondAttack.name === 'Etincelle' ||
+            firstAttacker.secondAttack.name === 'Étincelle' ||
             firstAttacker.secondAttack.name === 'Fatal Foudre' ||
             firstAttacker.secondAttack.name === 'Force Cachée' ||
             firstAttacker.secondAttack.name === 'Forte-Paume' ||
-            firstAttacker.secondAttack.name === 'Lechouille' ||
+            firstAttacker.secondAttack.name === 'Léchouille' ||
             firstAttacker.secondAttack.name === 'Plaquage' ||
             firstAttacker.secondAttack.name === 'Rebond'
         ) &&
@@ -129,9 +129,9 @@ function paralyzedStatut100PercentProbabililityForSecondAttack(
             ) 
         ) && 
         (
-            firstAttacker.secondAttack.name === 'Cage-Eclair' ||
+            firstAttacker.secondAttack.name === 'Cage-Éclair' ||
             firstAttacker.secondAttack.name === 'Dégommage' ||
-            firstAttacker.secondAttack.name === 'Elecanon' ||
+            firstAttacker.secondAttack.name === 'Élecanon' ||
             firstAttacker.secondAttack.name === 'Para-Spore'
         ) &&
         (

@@ -10,6 +10,9 @@ import { krabbossStats } from './models/krabboss.model.js';
 import { salamecheStats } from './models/salameche.model.js';
 import { nidoranMaleStats } from './models/nidoranMale.model.js';
 import { crustabriStats } from './models/crustabri.model.js';
+import { fantominusStats } from './models/fantominus.model.js';
+import { ectoplasmaStats } from './models/ectoplasma.model.js';
+import { spectrumStats } from './models/spectrum.model.js';
 
 
 import { pikachuCard } from './cards/pikachu.card.js';
@@ -24,6 +27,9 @@ import { krabbossCard } from './cards/krabboss.card.js';
 import { salamecheCard } from './cards/salameche.card.js';
 import { nidoranMaleCard } from './cards/nidoranMale.card.js';
 import { crustabriCard } from './cards/crustabri.card.js';
+import { fantominusCard } from './cards/fantominus.card.js';
+import { ectoplasmaCard } from './cards/ectoplasma.card.js';
+import { spectrumCard } from './cards/spectrum.card.js';
 
 import { domElementsFromSelectors } from './dom-elements.js'
 
@@ -35,12 +41,24 @@ export { firstAttacker, secondAttacker, determineFirstAttacker };
 
  const determineFirstAttacker = 
  function determineFirstAttacker() {
-  
-   if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Crustabri' ||
+
+   if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Spectrum' ||
+     domElementsFromSelectors.pokemonFirstLocation.contains(spectrumCard)) {
+     firstAttacker = spectrumStats;
+
+  } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Ectoplasma' ||
+     domElementsFromSelectors.pokemonFirstLocation.contains(ectoplasmaCard)) {
+     firstAttacker = ectoplasmaStats;
+
+  } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Fantominus' ||
+     domElementsFromSelectors.pokemonFirstLocation.contains(fantominusCard)) {
+     firstAttacker = fantominusStats;
+
+  } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Crustabri' ||
      domElementsFromSelectors.pokemonFirstLocation.contains(crustabriCard)) {
      firstAttacker = crustabriStats;
 
-} else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Pikachu' ||
+  } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Pikachu' ||
      domElementsFromSelectors.pokemonFirstLocation.contains(pikachuCard)) {
      firstAttacker = pikachuStats;
 
@@ -87,7 +105,19 @@ export { firstAttacker, secondAttacker, determineFirstAttacker };
   
 
 
- if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Crustabri' ||
+  if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Spectrum' ||
+    domElementsFromSelectors.pokemonSecondLocation.contains(spectrumCard)) {
+      secondAttacker = spectrumStats;
+  
+  } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Ectoplasma' ||
+     domElementsFromSelectors.pokemonSecondLocation.contains(ectoplasmaCard)) {
+      secondAttacker = ectoplasmaStats;
+
+  } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Fantominus' ||
+     domElementsFromSelectors.pokemonSecondLocation.contains(fantominusCard)) {
+     secondAttacker = fantominusStats;
+  
+  } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Crustabri' ||
      domElementsFromSelectors.pokemonSecondLocation.contains(crustabriCard)) {
      secondAttacker = crustabriStats;
 

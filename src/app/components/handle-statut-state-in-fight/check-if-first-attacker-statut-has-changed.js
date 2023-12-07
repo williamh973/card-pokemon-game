@@ -19,6 +19,10 @@ import {
   pokemonLose 
 } from "../pokemon-is-knock-out.js";
 
+import { 
+  firstAttackerStatutStateVariableList 
+} from "./first-attacker-statut-state-alteration.js";
+
 
 
 export const checkIfFirstAttackerStatusHasBurningOrPoisoned =
@@ -67,8 +71,8 @@ async function checkIfFirstAttackerStatusHasBurningOrPoisoned(
 
 
 
-export const checkIfFirstAttackerStatusHasParalyzedOrFrozen =
-async function checkIfFirstAttackerStatusHasParalyzedOrFrozen(
+export const checkIfFirstAttackerStatusHasParalyzedFrozenNormalOrAsleep =
+async function checkIfFirstAttackerStatusHasParalyzedFrozenNormalOrAsleep(
   firstAttacker, 
   sleepStatutAlteredAnimation
   ) {
@@ -76,7 +80,8 @@ async function checkIfFirstAttackerStatusHasParalyzedOrFrozen(
     if (
       firstAttacker.primaryStatut === 'paralyzed' ||
       firstAttacker.primaryStatut === 'frozen' ||
-      firstAttacker.primaryStatut === 'normal'
+      firstAttacker.primaryStatut === 'normal' ||
+      firstAttacker.primaryStatut === 'asleep'
       ) {
 
 
@@ -91,6 +96,49 @@ async function checkIfFirstAttackerStatusHasParalyzedOrFrozen(
 
     };
 
+};
+
+
+export const checkIfFirstAttackerStatusHasConfusing =
+async function checkIfFirstAttackerStatusHasConfusing(
+  firstAttacker, 
+  secondAttacker,
+  enemyPokemon, 
+  playerSelectedPokemon,
+  sleepStatutAlteredAnimation,
+  ) {
+
+    if (firstAttacker.secondaryStatut === 'confusing') {
+
+      const firstAttackerAlterationStateDelays = 
+      getFirstAttackerAlterationStatesDelays(
+        firstAttacker
+      );
+
+      firstAttackerStatutAlteration(
+        firstAttacker
+        ); 
+
+      await sleepStatutAlteredAnimation(firstAttackerAlterationStateDelays.firstAttackerSecondStateDelay);
+      console.log("ca passe");
+      
+      if (firstAttackerStatutStateVariableList.isFirstAttackerConfusing) {
+        decreaseHp();
+      }
+
+    if (firstAttacker.stats.hp <= 0) {
+      firstAttacker.stats.hp = 0;
+  
+      pokemonLose(
+        firstAttacker, 
+        secondAttacker, 
+        enemyPokemon, 
+        playerSelectedPokemon
+        );
+  
+    };
+
+    };
 };
 
 

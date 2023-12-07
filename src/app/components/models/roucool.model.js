@@ -1,8 +1,10 @@
 export let roucoolStats = {
     name : "Roucool",
     level : 5,
-    type : "flight",
-    logo : "./src/assets/images/logos/flight.png",
+    type : "normal",
+    secondaryType : "flight",
+    firstLogo : "./src/assets/images/logos/coloreless.png",
+    secondLogo : "./src/assets/images/logos/flight.png",
     image : "./src/assets/images/roucool.png",
     primaryStatut : "normal",
     secondaryStatut : "normal",

@@ -8,8 +8,7 @@ function frozenStatut10PercentProbabililityForSecondAttack(
     firstAttacker,
     secondAttacker,
     isSecondAttackActive,
-    secondAttackType,
-    secondAttackerType
+    secondAttackType
   ) {
     if (
         isSecondAttackActive && 

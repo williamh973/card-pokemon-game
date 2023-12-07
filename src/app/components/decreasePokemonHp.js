@@ -10,6 +10,10 @@ import { krabbossStats } from './models/krabboss.model.js';
 import { salamecheStats } from './models/salameche.model.js';
 import { nidoranMaleStats } from './models/nidoranMale.model.js';
 import { crustabriStats } from './models/crustabri.model.js';
+import { fantominusStats } from './models/fantominus.model.js';
+import { ectoplasmaStats } from './models/ectoplasma.model.js';
+import { spectrumStats } from './models/spectrum.model.js';
+
 
 
 import { pikachuCard } from './cards/pikachu.card.js';
@@ -24,12 +28,45 @@ import { krabbossCard } from './cards/krabboss.card.js';
 import { salamecheCard } from './cards/salameche.card.js';
 import { nidoranMaleCard } from './cards/nidoranMale.card.js';
 import { crustabriCard } from './cards/crustabri.card.js';
+import { fantominusCard } from './cards/fantominus.card.js';
+import { ectoplasmaCard } from './cards/ectoplasma.card.js';
+import { spectrumCard } from './cards/spectrum.card.js';
 
 import { domElementsFromSelectors } from './dom-elements.js';
 
 
 export const decreaseHp = 
 function decreaseHp() {
+
+  if (
+    (domElementsFromSelectors.selectFirstPokemonButton.value === 'Spectrum') ||
+    (domElementsFromSelectors.selectSecondPokemonButton.value === 'Spectrum') || 
+    (domElementsFromSelectors.pokemonFirstLocation.contains(spectrumCard)) || 
+    (domElementsFromSelectors.pokemonSecondLocation.contains(spectrumCard))
+   ) {
+     document.getElementById('spectrumHealth').textContent = 
+     `${spectrumStats.stats.hp}`;
+};
+
+  if (
+    (domElementsFromSelectors.selectFirstPokemonButton.value === 'Ectoplasma') ||
+    (domElementsFromSelectors.selectSecondPokemonButton.value === 'Ectoplasma') || 
+    (domElementsFromSelectors.pokemonFirstLocation.contains(ectoplasmaCard)) || 
+    (domElementsFromSelectors.pokemonSecondLocation.contains(ectoplasmaCard))
+   ) {
+     document.getElementById('ectoplasmaHealth').textContent = 
+     `${ectoplasmaStats.stats.hp}`;
+};
+
+  if (
+    (domElementsFromSelectors.selectFirstPokemonButton.value === 'Fantominus') ||
+    (domElementsFromSelectors.selectSecondPokemonButton.value === 'Fantominus') || 
+    (domElementsFromSelectors.pokemonFirstLocation.contains(fantominusCard)) || 
+    (domElementsFromSelectors.pokemonSecondLocation.contains(fantominusCard))
+   ) {
+     document.getElementById('fantominusHealth').textContent = 
+     `${fantominusStats.stats.hp}`;
+};
 
   if (
     (domElementsFromSelectors.selectFirstPokemonButton.value === 'Crustabri') ||

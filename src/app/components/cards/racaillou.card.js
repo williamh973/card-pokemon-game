@@ -23,11 +23,17 @@ export const racaillouCard = document.createElement('div');
     pvText.id = 'pv-text';
     pvText.textContent = `Pv`;
     
-    const racaillouCardType = document.createElement('span');
-    racaillouCardType.classList.add('type-logo');
-    racaillouCardType.id = 'racaillou-type';
-    racaillouCardType.style.background = `url( ${racaillouStats.logo})`; 
-    racaillouCardType.style.backgroundSize = 'cover'
+    const racaillouCardFirstType = document.createElement('span');
+    racaillouCardFirstType.classList.add('type-logo');
+    racaillouCardFirstType.id = 'racaillou-type';
+    racaillouCardFirstType.style.background = `url( ${racaillouStats.firstLogo})`; 
+    racaillouCardFirstType.style.backgroundSize = 'cover'
+
+    const racaillouCardSecondType = document.createElement('span');
+    racaillouCardSecondType.classList.add('type-logo');
+    racaillouCardSecondType.id = 'racaillou-type';
+    racaillouCardSecondType.style.background = `url( ${racaillouStats.secondLogo})`; 
+    racaillouCardSecondType.style.backgroundSize = 'cover'
     
     const containerHpAndType = document.createElement('div');
     containerHpAndType.classList.add('container-hp-logoType');
@@ -36,7 +42,9 @@ export const racaillouCard = document.createElement('div');
     
     containerHpAndType.appendChild(hp);
     containerHpAndType.appendChild(pvText);
-    containerHpAndType.appendChild(racaillouCardType)
+
+    containerHpAndType.appendChild(racaillouCardFirstType);
+    containerHpAndType.appendChild(racaillouCardSecondType);
     
     racaillouCard.appendChild(racaillouCardHead);
     

@@ -2,6 +2,7 @@ export let insecateurStats = {
     name : "Insécateur",
     level : 5,
     type : "insect",
+    secondaryType : "none",
     logo : "./src/assets/images/logos/insect.png",
     image : "./src/assets/images/insecateur.png",
     primaryStatut : "normal",

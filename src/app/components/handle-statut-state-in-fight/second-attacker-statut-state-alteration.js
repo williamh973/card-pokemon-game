@@ -1,15 +1,29 @@
 import { 
+  deseableProtectCapacity
+} from "../factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
+
+import { 
   openDialogueWhenPokemonBlockedByParalyzedStatut,
   openDialogueWhenPokemonBlockedByFrozenStatut,
   openDialogueWhenPokemonHasThawedStatut,
-  openDialogueWhenPokemonAttacksDespiteParalyzedStatut
+  openDialogueWhenPokemonAttacksDespiteParalyzedStatut,
+  openDialogueWhenPokemonIsAsleepStatut,
+  openDialogueWhenPokemonWakeUp,
+  openDialogueWhenPokemonConfused,
+  openDialogueWhenPokemonHurtByConfusing,
+  openDialogueWhenPokemonNoLongerConfused
 } from '../dialogue-fight.js';
 
 
 export let secondAttackerStatutStateVariableList = {
   isSecondAttackerFrozen : false,
-  isSecondAttackerParalyzed : false
+  isSecondAttackerParalyzed : false,
+  isSecondAttackerAsleep : false,
+  isSecondAttackerConfusing : false
 };
+
+let asleepCount = 0
+let confusingCount = 0;
 
 
  export const secondAttackerStatutAlteration = 
@@ -36,13 +50,13 @@ export let secondAttackerStatutStateVariableList = {
         if (randomNumber <= 0.25) {
     
             secondAttackerStatutStateVariableList.isSecondAttackerParalyzed = true;
-            console.log(secondAttacker.name, "est", secondAttacker.primaryStatut, "pour ce tour");
       
+            deseableProtectCapacity();
+
             openDialogueWhenPokemonBlockedByParalyzedStatut(secondAttacker);
     
           } else {
             secondAttackerStatutStateVariableList.isSecondAttackerParalyzed = false;
-            console.log(secondAttacker.name, "n'est pas paralysé pour ce tour");
 
             openDialogueWhenPokemonAttacksDespiteParalyzedStatut(secondAttacker);
         };
@@ -55,17 +69,76 @@ export let secondAttackerStatutStateVariableList = {
   
           secondAttackerStatutStateVariableList.isSecondAttackerFrozen = false;
           secondAttacker.primaryStatut = 'normal';
-          console.log(secondAttacker.name, "est dégelé", "sont statut est maintenant", secondAttacker.primaryStatut, secondAttackerStatutStateVariableList.isSecondAttackerFrozen);
+         
           openDialogueWhenPokemonHasThawedStatut(secondAttacker);
   
         } else {
-          openDialogueWhenPokemonBlockedByFrozenStatut(secondAttacker);
           secondAttackerStatutStateVariableList.isSecondAttackerFrozen = true;
+          openDialogueWhenPokemonBlockedByFrozenStatut(secondAttacker);
+
+          deseableProtectCapacity();
       };
 
-  } else if (secondAttacker.primaryStatut === 'normal') {
-    secondAttackerStatutStateVariableList.isSecondAttackerParalyzed = false;
-    secondAttackerStatutStateVariableList.isSecondAttackerFrozen = false;
-  };
+  } else if (secondAttacker.primaryStatut === 'asleep') {
+
+    let randomNumber = Math.random();
+
+      if (randomNumber <= 0.50) {
+        secondAttackerStatutStateVariableList.isSecondAttackerAsleep = true;
+          openDialogueWhenPokemonIsAsleepStatut(secondAttacker);
+          asleepCount++;
+          
+        } else {
+          secondAttackerStatutStateVariableList.isSecondAttackerAsleep = false;
+          secondAttacker.primaryStatut = 'normal'
+          openDialogueWhenPokemonWakeUp(secondAttacker);
+          asleepCount = 0;
+        };
+        
+          if (asleepCount === 3) {
+            secondAttackerStatutStateVariableList.isSecondAttackerAsleep = false;
+            secondAttacker.primaryStatut = 'normal'
+            openDialogueWhenPokemonWakeUp(secondAttacker);
+            asleepCount = 0;
+          };
+
+  } else if (secondAttacker.secondaryStatut === 'confusing') { 
+
+    let randomNumber = Math.random();
+
+    confusingCount++;
+    
+    if (randomNumber <= 0.50) {
+        openDialogueWhenPokemonConfused(secondAttacker);
+        openDialogueWhenPokemonHurtByConfusing(secondAttacker);
+        secondAttackerStatutStateVariableList.isSecondAttackerConfusing = true;
+
+         let percentage = 10;
+         let decreaseValue = (percentage / 100) * secondAttacker.stats.hpMax;
+         const newDecreaseValue = Math.round(decreaseValue);
+   
+         secondAttacker.stats.hp -= newDecreaseValue;
+         return secondAttacker.stats.hp;
+
+        } else {
+          openDialogueWhenPokemonConfused(secondAttacker);
+          secondAttackerStatutStateVariableList.isSecondAttackerConfusing = false;
+       };
+
+         if (confusingCount === 4) {
+           openDialogueWhenPokemonNoLongerConfused(secondAttacker);
+           secondAttackerStatutStateVariableList.isSecondAttackerConfusing = false;
+           secondAttacker.secondaryStatut = 'normal';
+           confusingCount = 0;
+         };
+
+   } else if (secondAttacker.primaryStatut === 'normal') {
+      secondAttackerStatutStateVariableList.isSecondAttackerParalyzed = false;
+      secondAttackerStatutStateVariableList.isSecondAttackerFrozen = false;
+      secondAttackerStatutStateVariableList.isSecondAttackerAsleep = false;
+    
+  } else if (secondAttacker.secondaryStatut === 'normal') {
+      secondAttackerStatutStateVariableList.isSecondAttackerConfusing = false;
+    };
 
 };

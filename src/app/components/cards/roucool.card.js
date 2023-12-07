@@ -23,11 +23,17 @@ import { roucoolStats } from '../models/roucool.model.js';
     pvText.id = 'pv-text';
     pvText.textContent = `Pv`;
 
-    const roucoolCardType = document.createElement('span');
-    roucoolCardType.classList.add('type-logo');
-    roucoolCardType.id = 'roucool-type';
-    roucoolCardType.style.background = `url( ${roucoolStats.logo})`; 
-    roucoolCardType.style.backgroundSize = 'cover'
+    const roucoolCardFirstType = document.createElement('span');
+    roucoolCardFirstType.classList.add('type-logo');
+    roucoolCardFirstType.id = 'roucool-type';
+    roucoolCardFirstType.style.background = `url( ${roucoolStats.firstLogo})`; 
+    roucoolCardFirstType.style.backgroundSize = 'cover';
+
+    const roucoolCardSecondType = document.createElement('span');
+    roucoolCardSecondType.classList.add('type-logo');
+    roucoolCardSecondType.id = 'roucool-type';
+    roucoolCardSecondType.style.background = `url( ${roucoolStats.secondLogo})`; 
+    roucoolCardSecondType.style.backgroundSize = 'cover';
     
     const containerHpAndType = document.createElement('div');
     containerHpAndType.classList.add('container-hp-logoType');
@@ -36,7 +42,9 @@ import { roucoolStats } from '../models/roucool.model.js';
     
     containerHpAndType.appendChild(hp);
     containerHpAndType.appendChild(pvText);
-    containerHpAndType.appendChild(roucoolCardType)
+
+    containerHpAndType.appendChild(roucoolCardFirstType);
+    containerHpAndType.appendChild(roucoolCardSecondType);
     
     roucoolCard.appendChild(roucoolCardHead);
     

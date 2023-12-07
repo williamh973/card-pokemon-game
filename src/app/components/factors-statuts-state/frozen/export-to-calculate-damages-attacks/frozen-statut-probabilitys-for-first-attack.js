@@ -9,16 +9,14 @@ import {
     firstAttacker,
     secondAttacker,
     isFirstAttackActive,
-    firstAttackType,
-    secondAttackerType
+    firstAttackType
   ) {  
 
     frozenStatut10PercentProbabililityForFirstAttack(
         firstAttacker,
         secondAttacker,
         isFirstAttackActive,
-        firstAttackType,
-        secondAttackerType
+        firstAttackType
       );
 
 

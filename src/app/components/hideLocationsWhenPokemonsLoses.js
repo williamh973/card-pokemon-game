@@ -12,11 +12,17 @@ import { krabbossCard } from './cards/krabboss.card.js';
 import { salamecheCard } from './cards/salameche.card.js';
 import { nidoranMaleCard } from './cards/nidoranMale.card.js';
 import { crustabriCard } from './cards/crustabri.card.js';
+import { fantominusCard } from './cards/fantominus.card.js';
+import { ectoplasmaCard } from './cards/ectoplasma.card.js';
+import { spectrumCard } from './cards/spectrum.card.js';
 
 import { domElementsFromSelectors } from './dom-elements.js';
 
 
 const isPokemonInSecondLocation = () => 
+  domElementsFromSelectors.pokemonSecondLocation.contains(spectrumCard) ||
+  domElementsFromSelectors.pokemonSecondLocation.contains(ectoplasmaCard) ||
+  domElementsFromSelectors.pokemonSecondLocation.contains(fantominusCard) ||
   domElementsFromSelectors.pokemonSecondLocation.contains(crustabriCard) ||
   domElementsFromSelectors.pokemonSecondLocation.contains(pikachuCard) ||
   domElementsFromSelectors.pokemonSecondLocation.contains(evoliCard) ||
@@ -32,6 +38,9 @@ const isPokemonInSecondLocation = () =>
 
 
 const isPokemonInFirstLocation = () => 
+  domElementsFromSelectors.pokemonFirstLocation.contains(spectrumCard) ||
+  domElementsFromSelectors.pokemonFirstLocation.contains(ectoplasmaCard) ||
+  domElementsFromSelectors.pokemonFirstLocation.contains(fantominusCard) ||
   domElementsFromSelectors.pokemonFirstLocation.contains(crustabriCard) ||
   domElementsFromSelectors.pokemonFirstLocation.contains(pikachuCard) ||
   domElementsFromSelectors.pokemonFirstLocation.contains(evoliCard) ||

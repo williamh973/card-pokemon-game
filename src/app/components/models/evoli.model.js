@@ -2,6 +2,7 @@ export let evoliStats = {
     name : "Évoli",
     level : 5,
     type : "normal",
+    secondaryType : "none",
     logo : "./src/assets/images/logos/coloreless.png",
     image : "./src/assets/images/evoli.png",
     primaryStatut : "normal",

@@ -1,14 +1,29 @@
 import { 
+  deseableProtectCapacity
+} from "../factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
+
+
+import { 
   openDialogueWhenPokemonBlockedByParalyzedStatut,
   openDialogueWhenPokemonBlockedByFrozenStatut,
   openDialogueWhenPokemonHasThawedStatut,
-  openDialogueWhenPokemonAttacksDespiteParalyzedStatut
+  openDialogueWhenPokemonAttacksDespiteParalyzedStatut,
+  openDialogueWhenPokemonIsAsleepStatut,
+  openDialogueWhenPokemonWakeUp,
+  openDialogueWhenPokemonConfused,
+  openDialogueWhenPokemonHurtByConfusing,
+  openDialogueWhenPokemonNoLongerConfused
 } from '../dialogue-fight.js';
 
 export let firstAttackerStatutStateVariableList = {
   isFirstAttackerFrozen : false,
-  isFirstAttackerParalyzed : false
+  isFirstAttackerParalyzed : false,
+  isFirstAttackerAsleep : false,
+  isFirstAttackerConfusing : false
 };
+
+let asleepCount = 0;
+let confusingCount = 0;
 
 
 export const firstAttackerStatutAlteration = 
@@ -38,6 +53,8 @@ function firstAttackerStatutAlteration(
           firstAttackerStatutStateVariableList.isFirstAttackerParalyzed = true;
           console.log(firstAttackerStatutStateVariableList.isFirstAttackerParalyzed);
           openDialogueWhenPokemonBlockedByParalyzedStatut(firstAttacker);
+
+          deseableProtectCapacity();
   
         } else {
           firstAttackerStatutStateVariableList.isFirstAttackerParalyzed = false;
@@ -53,18 +70,75 @@ function firstAttackerStatutAlteration(
   
           firstAttackerStatutStateVariableList.isFirstAttackerFrozen = false;
           firstAttacker.primaryStatut = 'normal';
-          console.log(firstAttacker.name, "est dégelé", "sont statut est maintenant", firstAttacker.primaryStatut, firstAttackerStatutStateVariableList.isFirstAttackerFrozen);
           openDialogueWhenPokemonHasThawedStatut(firstAttacker);
   
         } else {
           firstAttackerStatutStateVariableList.isFirstAttackerFrozen = true;
-          console.log(firstAttacker.name, "est toujours", firstAttacker.primaryStatut, firstAttackerStatutStateVariableList.isFirstAttackerFrozen);
           openDialogueWhenPokemonBlockedByFrozenStatut(firstAttacker);
+
+          deseableProtectCapacity();
         };
+
+    } else if (firstAttacker.primaryStatut === 'asleep') {
+
+      let randomNumber = Math.random();
+  
+        if (randomNumber <= 0.50) {
+            firstAttackerStatutStateVariableList.isFirstAttackerAsleep = true;
+            openDialogueWhenPokemonIsAsleepStatut(firstAttacker);
+            asleepCount++;
+            
+          } else {
+            firstAttackerStatutStateVariableList.isFirstAttackerAsleep = false;
+            firstAttacker.primaryStatut = 'normal';
+            openDialogueWhenPokemonWakeUp(firstAttacker);
+            asleepCount = 0;
+          };
+          
+            if (asleepCount === 3) {
+              firstAttackerStatutStateVariableList.isFirstAttackerAsleep = false;
+              firstAttacker.primaryStatut = 'normal';
+              openDialogueWhenPokemonWakeUp(firstAttacker);
+              asleepCount = 0;
+            };
+
+    } else if (firstAttacker.secondaryStatut === 'confusing') { 
+
+     let randomNumber = Math.random();
+     
+     confusingCount++;
+  
+        if (randomNumber <= 0.50) {
+          openDialogueWhenPokemonConfused(firstAttacker);
+          openDialogueWhenPokemonHurtByConfusing(firstAttacker);
+          firstAttackerStatutStateVariableList.isFirstAttackerConfusing = true;
+    
+          let percentage = 10;
+          let decreaseValue = (percentage / 100) * firstAttacker.stats.hpMax;
+          const newDecreaseValue = Math.round(decreaseValue);
+    
+          firstAttacker.stats.hp -= newDecreaseValue;
+          return firstAttacker.stats.hp;
+
+        } else {
+          openDialogueWhenPokemonConfused(firstAttacker);
+          firstAttackerStatutStateVariableList.isFirstAttackerConfusing = false;
+        };
+
+          if (confusingCount === 4) {
+            openDialogueWhenPokemonNoLongerConfused(firstAttacker);
+            firstAttackerStatutStateVariableList.isFirstAttackerConfusing = false;
+            firstAttacker.secondaryStatut = 'normal';
+            confusingCount = 0;
+          };
 
     } else if (firstAttacker.primaryStatut === 'normal') {
       firstAttackerStatutStateVariableList.isFirstAttackerParalyzed = false;
       firstAttackerStatutStateVariableList.isFirstAttackerFrozen = false;
+      firstAttackerStatutStateVariableList.isFirstAttackerAsleep = false;
+
+    } else if (firstAttacker.secondaryStatut === 'normal') {
+      firstAttackerStatutStateVariableList.isFirstAttackerConfusing = false;
     };
     
 };

@@ -3,9 +3,11 @@ import {
 } from '../../dialogue-fight.js';
 
 
-export const weaknessFactorForFirstAttack = function weaknessFactorForFirstAttack(
+export const weaknessFactorForFirstAttack = 
+function weaknessFactorForFirstAttack(
   firstAttackType, 
   secondAttackerType,
+  secondAttackerSecondaryType,
   isFirstAttackActive
   ) {
 
@@ -213,6 +215,83 @@ if (isFirstAttackActive &&
   (
     secondAttackerType === "fairy" &&
     firstAttackType === "poison"
+  ) ||
+  (
+    (
+      secondAttackerType === "water" && 
+      secondAttackerSecondaryType === "ice"
+      ) && 
+      firstAttackType === "fight"
+  ) ||
+  (
+    (
+      secondAttackerType === "water" && 
+      secondAttackerSecondaryType === "ice"
+      ) && 
+      firstAttackType === "electric"
+  ) ||
+  (
+    (
+      secondAttackerType === "water" && 
+      secondAttackerSecondaryType === "ice"
+      ) && 
+      firstAttackType === "plant"
+  ) ||
+  (
+    (
+      secondAttackerType === "water" && 
+      secondAttackerSecondaryType === "ice"
+      ) && 
+      firstAttackType === "rock"
+  ) ||
+  (
+    (
+      secondAttackerType === "rock" && 
+      secondAttackerSecondaryType === "ground"
+      ) && 
+      firstAttackType === "steel"
+  ) ||
+  (
+    (
+      secondAttackerType === "rock" && 
+      secondAttackerSecondaryType === "ground"
+      ) && 
+      firstAttackType === "fight"
+  ) ||
+  (
+    (
+      secondAttackerType === "rock" && 
+      secondAttackerSecondaryType === "ground"
+      ) && 
+      firstAttackType === "ice"
+  ) ||
+  (
+    (
+      secondAttackerType === "rock" && 
+      secondAttackerSecondaryType === "ground"
+      ) && 
+      firstAttackType === "ground"
+  ) ||
+  (
+    (
+      secondAttackerType === "normal" && 
+      secondAttackerSecondaryType === "flight"
+      ) && 
+      firstAttackType === "electric"
+  ) ||
+  (
+    (
+      secondAttackerType === "normal" && 
+      secondAttackerSecondaryType === "flight"
+      ) && 
+      firstAttackType === "ice"
+  ) ||
+  (
+    (
+      secondAttackerType === "normal" && 
+      secondAttackerSecondaryType === "flight"
+      ) && 
+      firstAttackType === "rock"
   )
     ) {
       openDialogueWhenPokemonMakesWeaknessAttack();

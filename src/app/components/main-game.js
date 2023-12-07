@@ -66,12 +66,14 @@ import {
 
 import { 
   checkIfFirstAttackerStatusHasBurningOrPoisoned,
-  checkIfFirstAttackerStatusHasParalyzedOrFrozen 
+  checkIfFirstAttackerStatusHasParalyzedFrozenNormalOrAsleep,
+  checkIfFirstAttackerStatusHasConfusing
 } from "./handle-statut-state-in-fight/check-if-first-attacker-statut-has-changed.js";
 
 import { 
   checkIfSecondAttackerStatusHasBurningOrPoisoned,
-  checkIfSecondAttackerStatusHasParalyzedOrFrozen
+  checkIfSecondAttackerStatusHasParalyzedFrozenNormalOrAsleep,
+  checkIfSecondAttackerStatusHasConfusing
 } from "./handle-statut-state-in-fight/check-if-second-attacker-statut-has-changed.js";
 
 import { 
@@ -231,17 +233,32 @@ document.addEventListener('DOMContentLoaded', () => {
            isProtectOrDetectCapacityActived;
 
 
-           await checkIfFirstAttackerStatusHasParalyzedOrFrozen(
+           await checkIfFirstAttackerStatusHasParalyzedFrozenNormalOrAsleep(
             firstAttacker, 
             sleepStatutAlteredAnimation
             );
+
+            await checkIfFirstAttackerStatusHasConfusing(
+              firstAttacker, 
+              secondAttacker,
+              enemyPokemon, 
+              playerSelectedPokemon,
+              sleepStatutAlteredAnimation
+              );
+
+              if (firstAttacker.stats.hp <= 0) {
+                firstAttacker.stats.hp = 0;
+                break;
+              }
   
-            console.log("firstAttacker avant", "para", firstAttackerStatutStateVariableList.isFirstAttackerParalyzed, "gelé", firstAttackerStatutStateVariableList.isFirstAttackerFrozen);
+     
             if (
               !firstAttackerStatutStateVariableList.isFirstAttackerParalyzed &&
-              !firstAttackerStatutStateVariableList.isFirstAttackerFrozen
+              !firstAttackerStatutStateVariableList.isFirstAttackerFrozen &&
+              !firstAttackerStatutStateVariableList.isFirstAttackerAsleep &&
+              !firstAttackerStatutStateVariableList.isFirstAttackerConfusing
               ) {
-                console.log("firstAttacker après", "para", firstAttackerStatutStateVariableList.isFirstAttackerParalyzed, "gelé", firstAttackerStatutStateVariableList.isFirstAttackerFrozen);
+            
               let randomNumber = Math.random();
       
                 if (randomNumber > 0.5) {
@@ -258,7 +275,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     secondAttacker.stats.specialDef,
                     firstAttacker.firstAttack.precision, 
                     firstAttacker.firstAttack.type,
-                    secondAttacker.type
+                    secondAttacker.type,
+                    secondAttacker.secondaryType
                   );
                  
                   if (isFirstAttackActive) {
@@ -268,7 +286,6 @@ document.addEventListener('DOMContentLoaded', () => {
                       );
     
                     await sleepAttacksAnimation(attackDelays.firstAttackerFirstAttackDelay);
-                    console.log("attackDelays", attackDelays.firstAttackerSecondAttackDelay);
                     
                     secondAttackerTakesDamage(
                       firstAttacker, 
@@ -291,7 +308,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     secondAttacker.stats.specialDef, 
                     firstAttacker.secondAttack.precision,
                     firstAttacker.secondAttack.type,
-                    secondAttacker.type
+                    secondAttacker.type,
+                    secondAttacker.secondaryType
                   );
     
                   if (isSecondAttackActive) {
@@ -301,7 +319,6 @@ document.addEventListener('DOMContentLoaded', () => {
                       );
     
                     await sleepAttacksAnimation(attackDelays.firstAttackerSecondAttackDelay);
-                    console.log("attackDelays", attackDelays.firstAttackerSecondAttackDelay);
     
                     secondAttackerTakesDamage(
                       firstAttacker, 
@@ -345,22 +362,44 @@ document.addEventListener('DOMContentLoaded', () => {
               
               console.log(firstAttacker.name, "a terminé son tour");
 
+
+
+
+
+
+
+
+
             isFirstAttackActive = false;
             isSecondAttackActive = false;
 
             isProtectOrDetectCapacityActived;
 
 
-            await checkIfSecondAttackerStatusHasParalyzedOrFrozen(
+            await checkIfSecondAttackerStatusHasParalyzedFrozenNormalOrAsleep(
               secondAttacker, 
               sleepStatutAlteredAnimation
               );
 
-              console.log("secondAttacker avant", "para", secondAttackerStatutStateVariableList.isSecondAttackerParalyzed, "gelé", secondAttackerStatutStateVariableList.isSecondAttackerFrozen);
+              await checkIfSecondAttackerStatusHasConfusing(
+                secondAttacker, 
+                firstAttacker,
+                enemyPokemon, 
+                playerSelectedPokemon,
+                sleepStatutAlteredAnimation
+                );
+                
+
+                if (secondAttacker.stats.hp <= 0) {
+                  secondAttacker.stats.hp = 0;
+                  break;
+                }
 
               if (
                 !secondAttackerStatutStateVariableList.isSecondAttackerParalyzed && 
-                !secondAttackerStatutStateVariableList.isSecondAttackerFrozen
+                !secondAttackerStatutStateVariableList.isSecondAttackerFrozen &&
+                !secondAttackerStatutStateVariableList.isSecondAttackerAsleep &&
+                !secondAttackerStatutStateVariableList.isSecondAttackerConfusing
                 ) {
                   
            let randomNumber = Math.random();
@@ -379,7 +418,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 firstAttacker.stats.specialDef,
                 secondAttacker.firstAttack.precision,
                 secondAttacker.firstAttack.type,
-                firstAttacker.type
+                firstAttacker.type,
+                firstAttacker.secondaryType
               );
          
             if (isFirstAttackActive) {
@@ -389,7 +429,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
 
               await sleepAttacksAnimation(attackDelays.secondAttackerFirstAttackDelay);
-              console.log("attackDelays", attackDelays.secondAttackerSecondAttackDelay);
 
               firstAttackerTakesDamage(
                 firstAttacker, 
@@ -412,7 +451,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 firstAttacker.stats.specialDef, 
                 secondAttacker.secondAttack.precision, 
                 secondAttacker.secondAttack.type,
-                firstAttacker.type
+                firstAttacker.type,
+                firstAttacker.secondaryType
               );
               
               if (isSecondAttackActive) {
@@ -422,7 +462,6 @@ document.addEventListener('DOMContentLoaded', () => {
                   );
   
                 await sleepAttacksAnimation(attackDelays.secondAttackerSecondAttackDelay);
-                console.log("attackDelays", attackDelays.secondAttackerSecondAttackDelay);
                
                 firstAttackerTakesDamage(
                   firstAttacker, 

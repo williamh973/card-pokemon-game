@@ -14,8 +14,8 @@
 }
   
 #card-roucool {
-  background-color: whitesmoke;
-  border: 10px solid #C0C0C0;
+  background-color: rgb(202, 196, 196);
+  border: 10px solid #ffc443;
 }
 
 #card-racaillou {
@@ -56,4 +56,19 @@
 #card-nidoranMale {
   background-color: rgb(201, 164, 197);
   border: 10px solid #8d437d;
+}
+
+#card-fantominus {
+  background-color: rgb(203, 186, 201);
+  border: 10px solid #2d262b;
+}
+
+#card-ectoplasma {
+  background-color: rgb(203, 186, 201);
+  border: 10px solid #432139;
+}
+
+#card-spectrum {
+  background-color: rgb(199, 170, 196);
+  border: 10px solid #4a1038;
 }

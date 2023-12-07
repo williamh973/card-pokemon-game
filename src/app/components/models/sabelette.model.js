@@ -2,6 +2,7 @@ export let sabeletteStats = {
     name : "Sabelette",
     level : 5,
     type : "ground",
+    secondaryType : "none",
     logo : "./src/assets/images/logos/ground.png",
     image : "./src/assets/images/sabelette.png",
     primaryStatut : "normal",

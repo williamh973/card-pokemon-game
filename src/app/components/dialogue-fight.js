@@ -9,6 +9,9 @@ const END_NEXT_DISPLAY_DURATION = 1900;
 const START_ALTERATION_STATUT_DISPLAY_DURATION = 0;
 const END_ALTERATION_STATUT_DISPLAY_DURATION = 3900;
 
+const START_ALTERATION_STATUT_CONFUSED_DISPLAY_DURATION = 0;
+const END_ALTERATION_STATUT_CONFUSED_DISPLAY_DURATION = 1900;
+
 
 export const displayDialogue = document.getElementById('dialogue');
 
@@ -523,6 +526,163 @@ function openDialogueWhenPokemonBlockedByFrozenStatut(pokemon) {
     
     domElementsFromSelectors.displayDialogue.textContent = 
     `Le gel empêche ${ pokemon.name } d'attaquer !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+
+    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+};
+
+
+export const openDialogueWhenPokemonHasFallingAsleep =
+function openDialogueWhenPokemonHasFallingAsleep(pokemon) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `${ pokemon.name } s'endort !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_NEXT_DISPLAY_DURATION);
+
+    }, START_NEXT_DISPLAY_DURATION);
+};
+
+
+export const openDialogueWhenPokemonIsAsleepStatut =
+function openDialogueWhenPokemonIsAsleepStatut(pokemon) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `${ pokemon.name } dort !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+
+    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+};
+
+
+export const openDialogueWhenPokemonWakeUp =
+function openDialogueWhenPokemonWakeUp(pokemon) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `${ pokemon.name } se réveille !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+
+    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+};
+
+
+export const openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack = 
+function openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack(pokemon, hpGained) {
+
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent =
+     `${ pokemon.name } regagne ${hpGained} pv !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_NEXT_DISPLAY_DURATION);
+
+  }, START_NEXT_DISPLAY_DURATION);
+
+};
+
+
+export const openDialogueWhenAttackConfusesPokemon =
+function openDialogueWhenAttackConfusesPokemon(pokemon) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `Cela rend ${ pokemon.name } confus !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_NEXT_DISPLAY_DURATION);
+
+    }, START_NEXT_DISPLAY_DURATION);
+};
+
+
+export const openDialogueWhenPokemonConfused =
+function openDialogueWhenPokemonConfused(pokemon) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `${ pokemon.name } est confus !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_ALTERATION_STATUT_CONFUSED_DISPLAY_DURATION);
+
+    }, START_ALTERATION_STATUT_CONFUSED_DISPLAY_DURATION);
+};
+
+
+export const openDialogueWhenPokemonAlreadyConfused =
+function openDialogueWhenPokemonAlreadyConfused(pokemon) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `Mais ${ pokemon.name } est déjà confus !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_NEXT_DISPLAY_DURATION);
+
+    }, START_NEXT_DISPLAY_DURATION);
+};
+
+
+
+
+export const openDialogueWhenPokemonHurtByConfusing =
+function openDialogueWhenPokemonHurtByConfusing(pokemon) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `${ pokemon.name } est blessé par la confusion !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_NEXT_DISPLAY_DURATION);
+
+    }, START_NEXT_DISPLAY_DURATION);
+};
+
+
+export const openDialogueWhenPokemonNoLongerConfused =
+function openDialogueWhenPokemonNoLongerConfused(pokemon) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `${ pokemon.name } n'est plus confus !`;
     
       setTimeout(function() {
         domElementsFromSelectors.displayDialogue.style.display = 'none';

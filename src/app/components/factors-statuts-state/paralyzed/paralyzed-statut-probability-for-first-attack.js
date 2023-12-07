@@ -29,9 +29,9 @@ function paralyzedStatut10PercentProbabililityForFirstAttack(
             ) 
         ) && 
         (
-            firstAttacker.firstAttack.name === 'Crocs Eclair' ||
-            firstAttacker.firstAttack.name === 'Eclair' ||
-            firstAttacker.firstAttack.name === 'Poing-Eclair' ||
+            firstAttacker.firstAttack.name === 'Crocs Éclair' ||
+            firstAttacker.firstAttack.name === 'Éclair' ||
+            firstAttacker.firstAttack.name === 'Poing-Éclair' ||
             firstAttacker.firstAttack.name === 'Tonnerre' ||
             firstAttacker.firstAttack.name === 'Triplattaque' 
         ) &&
@@ -80,11 +80,11 @@ function paralyzedStatut30PercentProbabililityForFirstAttack(
         (
             firstAttacker.firstAttack.name === "Coup d'jus" ||
             firstAttacker.firstAttack.name === 'Dracosouffle' ||
-            firstAttacker.firstAttack.name === 'Etincelle' ||
+            firstAttacker.firstAttack.name === 'Étincelle' ||
             firstAttacker.firstAttack.name === 'Fatal Foudre' ||
             firstAttacker.firstAttack.name === 'Force Cachée' ||
             firstAttacker.firstAttack.name === 'Forte-Paume' ||
-            firstAttacker.firstAttack.name === 'Lechouille' ||
+            firstAttacker.firstAttack.name === 'Léchouille' ||
             firstAttacker.firstAttack.name === 'Plaquage' ||
             firstAttacker.firstAttack.name === 'Rebond'
         ) &&
@@ -131,7 +131,7 @@ function paralyzedStatut100PercentProbabililityForFirstAttack(
         (
             firstAttacker.firstAttack.name === 'Cage-Eclair' ||
             firstAttacker.firstAttack.name === 'Dégommage' ||
-            firstAttacker.firstAttack.name === 'Elecanon' ||
+            firstAttacker.firstAttack.name === 'Élecanon' ||
             firstAttacker.firstAttack.name === 'Para-Spore'
         ) &&
         (

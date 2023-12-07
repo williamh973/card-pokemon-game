@@ -2,6 +2,7 @@ export let scarabruteStats = {
     name : "Scarabrute",
     level : 5,
     type : "insect",
+    secondaryType : "none",
     logo : "./src/assets/images/logos/insect.png",
     image : "./src/assets/images/scarabrute.png",
     primaryStatut : "normal",

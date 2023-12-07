@@ -5,6 +5,7 @@ import {
 export const resistanceFactorForFirstAttack = function resistanceFactorForFirstAttack(
   firstAttackType, 
   secondAttackerType,
+  secondAttackerSecondaryType,
   isFirstAttackActive
   ) {
 
@@ -284,6 +285,69 @@ if ( isFirstAttackActive &&
   (
     secondAttackerType === "fairy" &&
     firstAttackType === "dark"
+  ) ||
+  (
+    (
+      secondAttackerType === "water" && 
+      secondAttackerSecondaryType === "ice"
+      ) && 
+      firstAttackType === "water"
+  ) ||
+  (
+    (
+      secondAttackerType === "water" && 
+      secondAttackerSecondaryType === "ice"
+      ) && 
+      firstAttackType === "ice"
+  ) ||
+  (
+    (
+      secondAttackerType === "rock" && 
+      secondAttackerSecondaryType === "ground"
+      ) && 
+      firstAttackType === "fire"
+  ) ||
+  (
+    (
+      secondAttackerType === "rock" && 
+      secondAttackerSecondaryType === "ground"
+      ) && 
+      firstAttackType === "normal"
+  ) ||
+  (
+    (
+      secondAttackerType === "rock" && 
+      secondAttackerSecondaryType === "ground"
+      ) && 
+      firstAttackType === "poison"
+  ) ||
+  (
+    (
+      secondAttackerType === "rock" && 
+      secondAttackerSecondaryType === "ground"
+      ) && 
+      firstAttackType === "rock"
+  )  ||
+  (
+    (
+      secondAttackerType === "rock" && 
+      secondAttackerSecondaryType === "ground"
+      ) && 
+      firstAttackType === "flight"
+  ) ||
+  (
+    (
+      secondAttackerType === "normal" && 
+      secondAttackerSecondaryType === "flight"
+      ) && 
+      firstAttackType === "insect"
+  ) ||
+  (
+    (
+      secondAttackerType === "normal" && 
+      secondAttackerSecondaryType === "flight"
+      ) && 
+      firstAttackType === "plant"
   )
     ) {
       openDialogueWhenPokemonMakesResistanceAttack();

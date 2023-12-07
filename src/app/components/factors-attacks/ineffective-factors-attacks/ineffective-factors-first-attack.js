@@ -7,6 +7,7 @@ export const ineffectiveFactorForFirstAttack =
 function ineffectiveFactorForFirstAttack(
   firstAttackType, 
   secondAttackerType,
+  secondAttackerSecondaryType,
   isFirstAttackActive
   ) {
 
@@ -47,7 +48,28 @@ if (
   (
     secondAttackerType === "rock" &&
     firstAttackType === "electric"
-  ) 
+  )  ||
+  (
+    (
+      secondAttackerType === "rock" && 
+      secondAttackerSecondaryType === "ground"
+      ) && 
+      firstAttackType === "electric"
+  ) ||
+  (
+    (
+      secondAttackerType === "normal" && 
+      secondAttackerSecondaryType === "flight"
+      ) && 
+      firstAttackType === "ground"
+  ) ||
+  (
+    (
+      secondAttackerType === "normal" && 
+      secondAttackerSecondaryType === "flight"
+      ) && 
+      firstAttackType === "spectrum"
+  )
   ) {
     openDialogueWhenPokemonMakesIneffectiveAttack();
     return 0;

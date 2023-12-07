@@ -19,6 +19,10 @@ import {
   pokemonLose 
 } from "../pokemon-is-knock-out.js";
 
+import { 
+  secondAttackerStatutStateVariableList 
+} from "./second-attacker-statut-state-alteration.js";
+
 
 
 export const checkIfSecondAttackerStatusHasBurningOrPoisoned =
@@ -71,16 +75,17 @@ async function checkIfSecondAttackerStatusHBurningOrPoisoned(
 
 
 
-export const checkIfSecondAttackerStatusHasParalyzedOrFrozen =
-async function checkIfSecondAttackerStatusHasParalyzedOrFrozen(
+export const checkIfSecondAttackerStatusHasParalyzedFrozenNormalOrAsleep =
+async function checkIfSecondAttackerStatusHasParalyzedFrozenNormalOrAsleep(
   secondAttacker, 
   sleepStatutAlteredAnimation
   ) {
-
+   
     if (
       secondAttacker.primaryStatut === 'paralyzed' ||
       secondAttacker.primaryStatut === 'frozen' ||
-      secondAttacker.primaryStatut === 'normal'
+      secondAttacker.primaryStatut === 'normal' ||
+      secondAttacker.primaryStatut === 'asleep'
       ) {
       
       const secondAttackerAlterationStateDelays = 
@@ -97,6 +102,49 @@ async function checkIfSecondAttackerStatusHasParalyzedOrFrozen(
     };
 
 };
+
+
+export const checkIfSecondAttackerStatusHasConfusing =
+async function checkIfSecondAttackerStatusHasConfusing(
+  secondAttacker,
+  firstAttacker, 
+  enemyPokemon, 
+  playerSelectedPokemon,
+  sleepStatutAlteredAnimation,
+  ) {
+   
+    if (secondAttacker.secondaryStatut === 'confusing') {
+
+        const secondAttackerAlterationStateDelays = 
+        getSecondAttackerAlterationStatesDelays(
+          secondAttacker
+        );
+
+        secondAttackerStatutAlteration(
+          secondAttacker
+          ); 
+  
+          await sleepStatutAlteredAnimation(secondAttackerAlterationStateDelays.secondAttackerSecondStateDelay);
+      
+        if (secondAttackerStatutStateVariableList.isSecondAttackerConfusing) {
+          decreaseHp();
+        }
+
+    if (secondAttacker.stats.hp <= 0) {
+      secondAttacker.stats.hp = 0;
+  
+      pokemonLose(
+        firstAttacker, 
+        secondAttacker, 
+        enemyPokemon, 
+        playerSelectedPokemon
+        );
+  
+    };
+
+    };
+};
+
 
 
 function appropriateDialogues(

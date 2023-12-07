@@ -2,6 +2,7 @@ export let krabbossStats = {
     name : "Krabboss",
     level : 5,
     type : "water",
+    secondaryType : "none",
     logo : "./src/assets/images/logos/water.png",
     image : "./src/assets/images/krabboss.png",
     primaryStatut : "normal",

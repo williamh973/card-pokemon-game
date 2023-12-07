@@ -2,6 +2,7 @@ export let salamecheStats = {
     name : "Salamèche",
     level : 5,
     type : "fire",
+    secondaryType : "none",
     logo : "./src/assets/images/logos/fire.png",
     image : "./src/assets/images/salameche.png",
     primaryStatut : "normal",

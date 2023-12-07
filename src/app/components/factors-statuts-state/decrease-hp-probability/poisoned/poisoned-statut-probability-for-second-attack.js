@@ -105,7 +105,7 @@ function poisonedStatut30PercentProbabililityForSecondAttack(
             firstAttacker.secondAttack.name === 'Crochetvenin' ||
             firstAttacker.secondAttack.name === 'Dard-Venin' ||
             firstAttacker.secondAttack.name === 'Détricanon' ||
-            firstAttacker.secondAttack.name === 'Detritus' ||
+            firstAttacker.secondAttack.name === 'Détritus' ||
             firstAttacker.secondAttack.name === 'Direct Toxik'
         ) &&
         (

@@ -1,17 +1,16 @@
 import { 
-    isProtectOrDetectCapacityActivedByProtectOrDetect 
-} from "./protect-detect-capacity-actived.js";
+    protectionActived
+  } from './protect-detect-capacity-actived.js'; 
+
 
 import { 
     pokemonDecreasePrecision 
 } from "./precision-decrease-and-reset.js";
 
 
-
 export const protectFactorForFirstAttack = 
 function protectFactorForFirstAttack(
     firstAttacker,
-    secondAttacker,
     isFirstAttackActive
     ) {
         
@@ -21,10 +20,7 @@ function protectFactorForFirstAttack(
                 firstAttacker.firstAttack.name === 'Détection'
             ) && isFirstAttackActive
             ) {
-               isProtectOrDetectCapacityActivedByProtectOrDetect(
-                firstAttacker,
-                secondAttacker
-                );
+                protectionActived();
 
                 pokemonDecreasePrecision(
                     firstAttacker
@@ -32,4 +28,6 @@ function protectFactorForFirstAttack(
 
     }
 };
+
+
 

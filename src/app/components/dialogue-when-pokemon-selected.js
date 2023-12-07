@@ -8,6 +8,15 @@ function pokemonSelected(pokemon) {
     containerFullPopupPokemonSelected.style.display = 'flex';
 
 switch (pokemon) {
+  case 'Spectrum':
+    displayPopupPokemonSelected.innerText = 'Spectrum sélectionné !';
+     break;
+  case 'Ectoplasma':
+    displayPopupPokemonSelected.innerText = 'Ectoplasma sélectionné !';
+     break;
+  case 'Fantominus':
+    displayPopupPokemonSelected.innerText = 'Fantominus sélectionné !';
+     break;
   case 'Crustabri':
     displayPopupPokemonSelected.innerText = 'Crustabri sélectionné !';
      break;

@@ -105,7 +105,7 @@ function poisonedStatut30PercentProbabililityForFirstAttack(
             firstAttacker.firstAttack.name === 'Crochetvenin' ||
             firstAttacker.firstAttack.name === 'Dard-Venin' ||
             firstAttacker.firstAttack.name === 'Détricanon' ||
-            firstAttacker.firstAttack.name === 'Detritus' ||
+            firstAttacker.firstAttack.name === 'Détritus' ||
             firstAttacker.firstAttack.name === 'Direct Toxik'
         ) &&
         (

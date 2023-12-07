@@ -60,7 +60,7 @@ import {
 
    const secondAttackerSecondaryStatut = 
    document.getElementById('second-attacker-secondaryStatut');
-   secondAttackerSecondaryStatut.textContent = ` ${firstAttacker.secondaryStatut} `;
+   secondAttackerSecondaryStatut.textContent = ` ${secondAttacker.secondaryStatut} `;
 
    const secondAttackerAttack = 
    document.getElementById('second-attacker-attack');

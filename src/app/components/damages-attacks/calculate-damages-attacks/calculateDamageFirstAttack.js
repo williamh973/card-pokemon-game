@@ -57,8 +57,9 @@ import {
 } from '../../factors-attacks/protect-factors-attacks/protect-factors-first-attack.js';
 
 import { 
+  deseableProtectCapacity,
   isProtectOrDetectCapacityActived
-} from '../../factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js';
+} from "../../factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
 
 import {
   handleBonusAttackWhenProtectOrDetectCapacityActived,
@@ -80,6 +81,22 @@ import {
   frozenStatutProbabilitysForFirstAttack
 } from "../../factors-statuts-state/frozen/export-to-calculate-damages-attacks/frozen-statut-probabilitys-for-first-attack.js";
 
+import { 
+  asleepStatutProbabilitysForFirstAttack
+} from "../../factors-statuts-state/asleep/export-to-calculate-damages-attacks/asleep-statut-probabilitys-for-first-attack.js";
+
+import { 
+  ifPokemonHasAnAttackThatDependsOnItsOwnLevel 
+} from "../handle-level-factor-attacks/handle-level-factor-attacks.js";
+
+import { 
+  hpIncrease50PercentOfDamagesFactorForFirstAttack 
+} from "../../factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-50-percent-damages.js";
+
+import { 
+  confusingStatutProbabilitysForFirstAttack 
+} from "../../factors-statuts-state/confusing/export-to-calculate-damages-attacks/confusing-statut-probabilitys-for-first-attack.js";
+
 
 
 export const calculateDamageFirstAttack = 
@@ -92,7 +109,8 @@ function calculateDamageFirstAttack(
     secondAttackerSpecialDef, 
     firstAttackPrecision, 
     firstAttackType, 
-    secondAttackerType
+    secondAttackerType,
+    secondAttackerSecondaryType
     ) {
 
       if (
@@ -128,6 +146,7 @@ function calculateDamageFirstAttack(
                 let getWeaknessFactorList = weaknessFactorForFirstAttack(
                   firstAttackType, 
                   secondAttackerType,
+                  secondAttackerSecondaryType,
                   isFirstAttackActive
                 );
                 degats *= getWeaknessFactorList;
@@ -135,6 +154,7 @@ function calculateDamageFirstAttack(
                 let getResistanceFactorList = resistanceFactorForFirstAttack(
                   firstAttackType, 
                   secondAttackerType,
+                  secondAttackerSecondaryType,
                   isFirstAttackActive
                 );
                 degats /= getResistanceFactorList;
@@ -142,6 +162,7 @@ function calculateDamageFirstAttack(
                 let getIneffectiveFactorList = ineffectiveFactorForFirstAttack(
                   firstAttackType, 
                   secondAttackerType,
+                  secondAttackerSecondaryType,
                   isFirstAttackActive
                 );
                 degats *= getIneffectiveFactorList;
@@ -153,7 +174,22 @@ function calculateDamageFirstAttack(
                   secondAttacker
                 );
                 degats *= getAlwaysKnockOutAttacks;
-          
+
+                
+                if (
+                  firstAttacker.firstAttack.name === 'Ombre Nocturne'  || 
+                  firstAttacker.firstAttack.name === 'Frappe Atlas'
+                  ) {
+
+                    let getLevelFactorsForAttacks = ifPokemonHasAnAttackThatDependsOnItsOwnLevel(
+                      firstAttacker,
+                      isFirstAttackActive,
+                      degats
+                      );
+
+                    degats = getLevelFactorsForAttacks;
+
+                };
                 
       
                 speedIncrease5pFactorForFirstAttack(
@@ -229,9 +265,35 @@ function calculateDamageFirstAttack(
                   firstAttacker,
                   secondAttacker,
                   isFirstAttackActive,
-                  firstAttackType,
-                  secondAttackerType
+                  firstAttackType
                 );
+
+                asleepStatutProbabilitysForFirstAttack(
+                  firstAttacker,
+                  secondAttacker,
+                  isFirstAttackActive,
+                  firstAttackType
+                );
+
+                confusingStatutProbabilitysForFirstAttack(
+                  firstAttacker,
+                  secondAttacker,
+                  isFirstAttackActive,
+                  firstAttackType
+                );
+
+                if (firstAttacker.firstAttack.name === "Dévorêve") {
+         
+                  const getHpIncrease50PercentOfDamagesFactor = hpIncrease50PercentOfDamagesFactorForFirstAttack(
+                      firstAttacker, 
+                      secondAttacker,
+                      isFirstAttackActive,
+                      degats
+                      );
+
+                      degats *= getHpIncrease50PercentOfDamagesFactor
+                };
+
     
                   if (degats > 0 && degats < 0.5) {
                     return degats = 1;
@@ -255,6 +317,8 @@ function calculateDamageFirstAttack(
 
            openDialogueWhenPokemonProtectingHimself(secondAttacker);
            console.log(secondAttacker.name, "se protège !");
+
+           deseableProtectCapacity();
            return 0;
 
       } else if (

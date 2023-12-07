@@ -2,6 +2,7 @@ export let pikachuStats = {
     name : "Pikachu",
     level : 5,
     type : "electric",
+    secondaryType : "none",
     logo : "./src/assets/images/logos/electric.png",
     image : "./src/assets/images/pikachu.png",
     primaryStatut : "normal",
@@ -27,7 +28,7 @@ export let pikachuStats = {
         precisionMax : 95
       },
       secondAttack : {
-        name : "Eclair",
+        name : "Éclair",
         logo : "./src/assets/images/logos/electric.png",
         type: "electric",
         class : "special",

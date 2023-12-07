@@ -2,6 +2,7 @@ export let nidoranMaleStats = {
     name : "Nidoran♂",
     level : 5,
     type : "poison",
+    secondaryType : "none",
     logo : "./src/assets/images/logos/poison.png",
     image : "./src/assets/images/nidoranM.png",
     primaryStatut : "normal",

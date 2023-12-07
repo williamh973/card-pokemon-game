@@ -25,7 +25,11 @@ import {
 
 import { 
   protectFactorForFirstAttack
-} from '../../factors-attacks/protect-factors-attacks/protect-factors-first-attack.js' 
+} from '../../factors-attacks/protect-factors-attacks/protect-factors-first-attack.js';
+
+import { 
+  deseableProtectCapacity 
+} from "../../factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
 
 
 export function handleBonusAttackWhenProtectOrDetectCapacityActived(
@@ -71,6 +75,8 @@ export function handleBonusAttackWhenProtectOrDetectCapacityActived(
              
        }  else {
             openDialogueWhenPokemonMissAttack(firstAttacker);
+            deseableProtectCapacity();
+            console.log("isProtectOrDetectCapacityActived", isProtectOrDetectCapacityActived);
             return 0;
         }
   };

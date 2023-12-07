@@ -2,6 +2,7 @@ export let mewtwoStats = {
     name : "Mewtwo",
     level : 5,
     type : "psy",
+    secondaryType : "none",
     logo : "./src/assets/images/logos/psy.png",
     image : "./src/assets/images/mewtwo.png",
     primaryStatut : "normal",
