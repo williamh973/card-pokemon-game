@@ -1,4 +1,4 @@
-import { sabeletteStats } from '../models/sabelette.model.js';
+import { sabeletteModel } from '../models/sabelette.model.js';
 
   export const sabeletteCard = document.createElement('div');
     sabeletteCard.classList.add('card-main');
@@ -9,13 +9,13 @@ import { sabeletteStats } from '../models/sabelette.model.js';
     
     const sabeletteCardTitle = document.createElement('span');
     sabeletteCardTitle.classList.add('title');
-    sabeletteCardTitle.textContent = sabeletteStats.name;
+    sabeletteCardTitle.textContent = sabeletteModel.name;
     sabeletteCardHead.appendChild(sabeletteCardTitle);
     
     export  const hp = document.createElement('span');
     hp.classList.add('hp');
     hp.id = 'sabeletteHealth';
-    hp.textContent = `${sabeletteStats.stats.hp}`;
+    hp.textContent = `${sabeletteModel.stats.hp}`;
     sabeletteCardHead.appendChild(hp);
 
     const pvText  = document.createElement('span');
@@ -26,7 +26,7 @@ import { sabeletteStats } from '../models/sabelette.model.js';
     const sabeletteCardType = document.createElement('span');
     sabeletteCardType.classList.add('type-logo');
     sabeletteCardType.id = 'sabelette-type';
-    sabeletteCardType.style.background = `url( ${sabeletteStats.logo})`; 
+    sabeletteCardType.style.background = `url( ${sabeletteModel.logo})`; 
     sabeletteCardType.style.backgroundSize = 'cover'
     
     const containerHpAndType = document.createElement('div');
@@ -42,7 +42,7 @@ import { sabeletteStats } from '../models/sabelette.model.js';
     
     const sabeletteCardImage = document.createElement('div');
     sabeletteCardImage.classList.add('image');
-    sabeletteCardImage.style.backgroundImage = `url(${sabeletteStats.image})`; 
+    sabeletteCardImage.style.backgroundImage = `url(${sabeletteModel.image})`; 
     
     sabeletteCardImage.style.backgroundSize = 'cover';
     
@@ -60,7 +60,7 @@ import { sabeletteStats } from '../models/sabelette.model.js';
     const attackType = document.createElement('span');
     attackType.classList.add('type-logo');
   
-    attackType.style.background = `url( ${sabeletteStats.firstAttack.logo})`; 
+    attackType.style.background = `url( ${sabeletteModel.firstAttack.logo})`; 
     
     attackType.style.backgroundSize = 'cover';
 
@@ -72,15 +72,15 @@ import { sabeletteStats } from '../models/sabelette.model.js';
     
     const firstAttackName = document.createElement('div');
     firstAttackName.classList.add('attack-name');
-    firstAttackName.textContent = ` ${sabeletteStats.firstAttack.name}`;
+    firstAttackName.textContent = ` ${sabeletteModel.firstAttack.name}`;
     
     const firstAttackStrength = document.createElement('div');
     firstAttackStrength.classList.add('attack-strength');
-    firstAttackStrength.textContent = ` ${sabeletteStats.firstAttack.strength}`;
+    firstAttackStrength.textContent = ` ${sabeletteModel.firstAttack.strength}`;
     
     const sabeletteFirstAttackResume = document.createElement('div');
     sabeletteFirstAttackResume.classList.add('attack-resume');
-    sabeletteFirstAttackResume.textContent = ` ${sabeletteStats.firstAttack.resume}`;
+    sabeletteFirstAttackResume.textContent = ` ${sabeletteModel.firstAttack.resume}`;
     
     
     
@@ -94,22 +94,22 @@ import { sabeletteStats } from '../models/sabelette.model.js';
     const secondAttackType = document.createElement('span');
     secondAttackType.classList.add('type-logo');
   
-    secondAttackType.style.background = `url( ${sabeletteStats.secondAttack.logo})`; 
+    secondAttackType.style.background = `url( ${sabeletteModel.secondAttack.logo})`; 
     
     secondAttackType.style.backgroundSize = 'cover';
     
     const secondAttackName = document.createElement('div');
     secondAttackName.classList.add('attack-name');
-    secondAttackName.textContent = ` ${sabeletteStats.secondAttack.name}`;
+    secondAttackName.textContent = ` ${sabeletteModel.secondAttack.name}`;
     
     const secondAttackStrength = document.createElement('div');
     secondAttackStrength.classList.add('attack-strength');
-    secondAttackStrength.textContent = ` ${sabeletteStats.secondAttack.strength}`;
+    secondAttackStrength.textContent = ` ${sabeletteModel.secondAttack.strength}`;
     
     const sabeletteSecondAttackResume = document.createElement('div');
     sabeletteSecondAttackResume.classList.add('attack-resume');
     
-    sabeletteSecondAttackResume.textContent = ` ${sabeletteStats.secondAttack.resume}`;
+    sabeletteSecondAttackResume.textContent = ` ${sabeletteModel.secondAttack.resume}`;
     
     attacksContainer.appendChild(sabeletteFirstAttackNameAndResume);
     
@@ -138,7 +138,7 @@ import { sabeletteStats } from '../models/sabelette.model.js';
     
     const weakness = document.createElement('div');
     weakness.id = 'weakness';
-    weakness.textContent = ` ${sabeletteStats.weakness.name}`;
+    weakness.textContent = ` ${sabeletteModel.weakness.name}`;
    
     weaknessResistanceContainer.appendChild(weakness);
 
@@ -146,7 +146,7 @@ import { sabeletteStats } from '../models/sabelette.model.js';
 
     const weaknessFirstLogo = document.createElement('span');
     weaknessFirstLogo.classList.add('type-logo');
-    weaknessFirstLogo.style.background = `url( ${sabeletteStats.weakness.firstLogo})`; 
+    weaknessFirstLogo.style.background = `url( ${sabeletteModel.weakness.firstLogo})`; 
     weaknessFirstLogo.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessFirstLogo);
@@ -154,7 +154,7 @@ import { sabeletteStats } from '../models/sabelette.model.js';
 
     const weaknessSecondLogo = document.createElement('span');
     weaknessSecondLogo.classList.add('type-logo');
-    weaknessSecondLogo.style.background = `url( ${sabeletteStats.weakness.secondLogo})`; 
+    weaknessSecondLogo.style.background = `url( ${sabeletteModel.weakness.secondLogo})`; 
     weaknessSecondLogo.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessSecondLogo);
@@ -162,7 +162,7 @@ import { sabeletteStats } from '../models/sabelette.model.js';
     
     const weaknessThirdLogo = document.createElement('span');
     weaknessThirdLogo.classList.add('type-logo');
-    weaknessThirdLogo.style.background = `url( ${sabeletteStats.weakness.thirdLogo})`; 
+    weaknessThirdLogo.style.background = `url( ${sabeletteModel.weakness.thirdLogo})`; 
     weaknessThirdLogo.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessThirdLogo);
@@ -171,14 +171,14 @@ import { sabeletteStats } from '../models/sabelette.model.js';
 
     const resistanceContainer = document.createElement('div');
     resistanceContainer.id = 'resistance';
-    resistanceContainer.textContent = ` ${sabeletteStats.resistance.name}`;
+    resistanceContainer.textContent = ` ${sabeletteModel.resistance.name}`;
     
     weaknessResistanceContainer.appendChild(resistanceContainer);
     
 
     const resistanceFirstLogo = document.createElement('span');
     resistanceFirstLogo.classList.add('type-logo');
-    resistanceFirstLogo.style.background = `url(${sabeletteStats.resistance.firstLogo})`; 
+    resistanceFirstLogo.style.background = `url(${sabeletteModel.resistance.firstLogo})`; 
     resistanceFirstLogo.style.backgroundSize = 'cover';
 
     resistanceContainer.appendChild(resistanceFirstLogo);
@@ -186,7 +186,7 @@ import { sabeletteStats } from '../models/sabelette.model.js';
 
     const resistanceSecondLogo = document.createElement('span');
     resistanceSecondLogo.classList.add('type-logo');
-    resistanceSecondLogo.style.background = `url(${sabeletteStats.resistance.secondLogo})`; 
+    resistanceSecondLogo.style.background = `url(${sabeletteModel.resistance.secondLogo})`; 
     resistanceSecondLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceSecondLogo);
@@ -194,7 +194,7 @@ import { sabeletteStats } from '../models/sabelette.model.js';
 
     const resistanceThirdLogo = document.createElement('span');
     resistanceThirdLogo.classList.add('type-logo');
-    resistanceThirdLogo.style.background = `url(${sabeletteStats.resistance.thirdLogo})`; 
+    resistanceThirdLogo.style.background = `url(${sabeletteModel.resistance.thirdLogo})`; 
     resistanceThirdLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceThirdLogo);

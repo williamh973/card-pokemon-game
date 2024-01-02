@@ -33,7 +33,7 @@ function asleepStatut30PercentProbabililityForFirstAttack(
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 30) {
+             if (randomNumber <= 30) {
                 asleepStatut(
                     secondAttacker
                     ); 
@@ -78,7 +78,7 @@ function asleepStatut100PercentProbabililityForFirstAttack(
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 100) {
+             if (randomNumber <= 100) {
                 asleepStatut(
                     secondAttacker
                     ); 

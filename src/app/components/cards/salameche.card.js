@@ -1,4 +1,4 @@
-import { salamecheStats } from '../models/salameche.model.js';
+import { salamecheModel } from '../models/salameche.model.js';
 
   export const salamecheCard = document.createElement('div');
     salamecheCard.classList.add('card-main');
@@ -9,13 +9,13 @@ import { salamecheStats } from '../models/salameche.model.js';
     
     const salamecheCardTitle = document.createElement('span');
     salamecheCardTitle.classList.add('title');
-    salamecheCardTitle.textContent = salamecheStats.name;
+    salamecheCardTitle.textContent = salamecheModel.name;
     salamecheCardHead.appendChild(salamecheCardTitle);
     
     export  const hp = document.createElement('span');
     hp.classList.add('hp');
     hp.id = 'salamecheHealth';
-    hp.textContent = `${salamecheStats.stats.hp}`;
+    hp.textContent = `${salamecheModel.stats.hp}`;
     salamecheCardHead.appendChild(hp);
 
     const pvText  = document.createElement('span');
@@ -26,7 +26,7 @@ import { salamecheStats } from '../models/salameche.model.js';
     const salamecheCardType = document.createElement('span');
     salamecheCardType.classList.add('type-logo');
     salamecheCardType.id = 'salameche-type';
-    salamecheCardType.style.background = `url( ${salamecheStats.logo})`; 
+    salamecheCardType.style.background = `url( ${salamecheModel.logo})`; 
     salamecheCardType.style.backgroundSize = 'cover'
     
     const containerHpAndType = document.createElement('div');
@@ -42,7 +42,7 @@ import { salamecheStats } from '../models/salameche.model.js';
     
     const salamecheCardImage = document.createElement('div');
     salamecheCardImage.classList.add('image');
-    salamecheCardImage.style.backgroundImage = `url(${salamecheStats.image})`; 
+    salamecheCardImage.style.backgroundImage = `url(${salamecheModel.image})`; 
     
     salamecheCardImage.style.backgroundSize = 'cover';
     
@@ -60,7 +60,7 @@ import { salamecheStats } from '../models/salameche.model.js';
     const attackType = document.createElement('span');
     attackType.classList.add('type-logo');
   
-    attackType.style.background = `url( ${salamecheStats.firstAttack.logo})`; 
+    attackType.style.background = `url( ${salamecheModel.firstAttack.logo})`; 
     
     attackType.style.backgroundSize = 'cover';
 
@@ -72,15 +72,15 @@ import { salamecheStats } from '../models/salameche.model.js';
     
     const firstAttackName = document.createElement('div');
     firstAttackName.classList.add('attack-name');
-    firstAttackName.textContent = ` ${salamecheStats.firstAttack.name}`;
+    firstAttackName.textContent = ` ${salamecheModel.firstAttack.name}`;
     
     const firstAttackStrength = document.createElement('div');
     firstAttackStrength.classList.add('attack-strength');
-    firstAttackStrength.textContent = ` ${salamecheStats.firstAttack.strength}`;
+    firstAttackStrength.textContent = ` ${salamecheModel.firstAttack.strength}`;
     
     const salamecheFirstAttackResume = document.createElement('div');
     salamecheFirstAttackResume.classList.add('attack-resume');
-    salamecheFirstAttackResume.textContent = ` ${salamecheStats.firstAttack.resume}`;
+    salamecheFirstAttackResume.textContent = ` ${salamecheModel.firstAttack.resume}`;
     
     
     
@@ -94,22 +94,22 @@ import { salamecheStats } from '../models/salameche.model.js';
     const secondAttackType = document.createElement('span');
     secondAttackType.classList.add('type-logo');
   
-    secondAttackType.style.background = `url( ${salamecheStats.secondAttack.logo})`; 
+    secondAttackType.style.background = `url( ${salamecheModel.secondAttack.logo})`; 
     
     secondAttackType.style.backgroundSize = 'cover';
     
     const secondAttackName = document.createElement('div');
     secondAttackName.classList.add('attack-name');
-    secondAttackName.textContent = ` ${salamecheStats.secondAttack.name}`;
+    secondAttackName.textContent = ` ${salamecheModel.secondAttack.name}`;
     
     const secondAttackStrength = document.createElement('div');
     secondAttackStrength.classList.add('attack-strength');
-    secondAttackStrength.textContent = ` ${salamecheStats.secondAttack.strength}`;
+    secondAttackStrength.textContent = ` ${salamecheModel.secondAttack.strength}`;
     
     const salamecheSecondAttackResume = document.createElement('div');
     salamecheSecondAttackResume.classList.add('attack-resume');
     
-    salamecheSecondAttackResume.textContent = ` ${salamecheStats.secondAttack.resume}`;
+    salamecheSecondAttackResume.textContent = ` ${salamecheModel.secondAttack.resume}`;
     
     attacksContainer.appendChild(salamecheFirstAttackNameAndResume);
     
@@ -138,12 +138,12 @@ import { salamecheStats } from '../models/salameche.model.js';
     
     const weakness = document.createElement('div');
     weakness.id = 'weakness';
-    weakness.textContent = ` ${salamecheStats.weakness.name}`;
+    weakness.textContent = ` ${salamecheModel.weakness.name}`;
    
 
     const weaknessFirstType = document.createElement('span');
     weaknessFirstType.classList.add('type-logo');
-    weaknessFirstType.style.background = `url( ${salamecheStats.weakness.firstLogo})`; 
+    weaknessFirstType.style.background = `url( ${salamecheModel.weakness.firstLogo})`; 
     weaknessFirstType.style.backgroundSize = 'cover';
 
     weakness.appendChild(weaknessFirstType);
@@ -151,7 +151,7 @@ import { salamecheStats } from '../models/salameche.model.js';
 
     const weaknessSecondType = document.createElement('span');
     weaknessSecondType.classList.add('type-logo');
-    weaknessSecondType.style.background = `url( ${salamecheStats.weakness.secondLogo})`; 
+    weaknessSecondType.style.background = `url( ${salamecheModel.weakness.secondLogo})`; 
     weaknessSecondType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessSecondType);
@@ -159,7 +159,7 @@ import { salamecheStats } from '../models/salameche.model.js';
 
     const weaknessThirdType = document.createElement('span');
     weaknessThirdType.classList.add('type-logo');
-    weaknessThirdType.style.background = `url( ${salamecheStats.weakness.thirdLogo})`; 
+    weaknessThirdType.style.background = `url( ${salamecheModel.weakness.thirdLogo})`; 
     weaknessThirdType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessThirdType);
@@ -169,14 +169,14 @@ import { salamecheStats } from '../models/salameche.model.js';
     
     const resistanceContainer = document.createElement('div');
     resistanceContainer.id = 'resistance';
-    resistanceContainer.textContent = ` ${salamecheStats.resistance.name}`;
+    resistanceContainer.textContent = ` ${salamecheModel.resistance.name}`;
     
     weaknessResistanceContainer.appendChild(resistanceContainer);
     
 
     const resistanceFirstLogo = document.createElement('span');
     resistanceFirstLogo.classList.add('type-logo');
-    resistanceFirstLogo.style.background = `url(${salamecheStats.resistance.firstLogo})`; 
+    resistanceFirstLogo.style.background = `url(${salamecheModel.resistance.firstLogo})`; 
     resistanceFirstLogo.style.backgroundSize = 'cover';
 
     resistanceContainer.appendChild(resistanceFirstLogo);
@@ -184,7 +184,7 @@ import { salamecheStats } from '../models/salameche.model.js';
 
     const resistanceSecondLogo = document.createElement('span');
     resistanceSecondLogo.classList.add('type-logo');
-    resistanceSecondLogo.style.background = `url(${salamecheStats.resistance.secondLogo})`; 
+    resistanceSecondLogo.style.background = `url(${salamecheModel.resistance.secondLogo})`; 
     resistanceSecondLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceSecondLogo);
@@ -192,7 +192,7 @@ import { salamecheStats } from '../models/salameche.model.js';
 
     const resistanceThirdLogo = document.createElement('span');
     resistanceThirdLogo.classList.add('type-logo');
-    resistanceThirdLogo.style.background = `url(${salamecheStats.resistance.thirdLogo})`; 
+    resistanceThirdLogo.style.background = `url(${salamecheModel.resistance.thirdLogo})`; 
     resistanceThirdLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceThirdLogo);
@@ -200,7 +200,7 @@ import { salamecheStats } from '../models/salameche.model.js';
 
     const resistanceFourthLogo = document.createElement('span');
     resistanceFourthLogo.classList.add('type-logo');
-    resistanceFourthLogo.style.background = `url(${salamecheStats.resistance.fourthLogo})`; 
+    resistanceFourthLogo.style.background = `url(${salamecheModel.resistance.fourthLogo})`; 
     resistanceFourthLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceFourthLogo);
@@ -208,7 +208,7 @@ import { salamecheStats } from '../models/salameche.model.js';
 
     const resistanceFifthLogo = document.createElement('span');
     resistanceFifthLogo.classList.add('type-logo');
-    resistanceFifthLogo.style.background = `url(${salamecheStats.resistance.fifthLogo})`; 
+    resistanceFifthLogo.style.background = `url(${salamecheModel.resistance.fifthLogo})`; 
     resistanceFifthLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceFifthLogo);
@@ -216,7 +216,7 @@ import { salamecheStats } from '../models/salameche.model.js';
 
     const resistanceSixthLogo = document.createElement('span');
     resistanceSixthLogo.classList.add('type-logo');
-    resistanceSixthLogo.style.background = `url(${salamecheStats.resistance.sixthLogo})`; 
+    resistanceSixthLogo.style.background = `url(${salamecheModel.resistance.sixthLogo})`; 
     resistanceSixthLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceSixthLogo);

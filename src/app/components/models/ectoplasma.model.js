@@ -1,4 +1,4 @@
-export let ectoplasmaStats = {
+export let ectoplasmaModel = {
     name : "Ectoplasma",
     level : 32,
     type : "spectrum",
@@ -7,7 +7,12 @@ export let ectoplasmaStats = {
     secondLogo : "./src/assets/images/logos/poison.png",
     image : "./src/assets/images/ectoplasma.png",
     primaryStatut : "normal",
-    secondaryStatut : "normal",
+    secondaryStatut : {
+      isNormal : true,
+      isConfused : false,
+      isCursed : false,
+      isScared : false
+    },
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/psy.png",

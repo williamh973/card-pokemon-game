@@ -35,7 +35,7 @@ function poisonedStatut10PercentProbabililityForFirstAttack(
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 10) {
+             if (randomNumber <= 10) {
                 secondAttacker.primaryStatut = 'poisoned'
                 openDialogueWhenPokemonHasPoisonedStatut(secondAttacker); 
             }
@@ -73,7 +73,7 @@ function poisonedStatut20PercentProbabililityForFirstAttack(
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 20) {
+             if (randomNumber <= 20) {
                 secondAttacker.primaryStatut = 'poisoned'
                 openDialogueWhenPokemonHasPoisonedStatut(secondAttacker); 
             }
@@ -116,7 +116,7 @@ function poisonedStatut30PercentProbabililityForFirstAttack(
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 30) {
+             if (randomNumber <= 100) {
                 secondAttacker.primaryStatut = 'poisoned'
                 openDialogueWhenPokemonHasPoisonedStatut(secondAttacker); 
             }
@@ -154,7 +154,7 @@ function poisonedStatut40PercentProbabililityForFirstAttack(
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 40) {
+             if (randomNumber <= 40) {
                 secondAttacker.primaryStatut = 'poisoned'
                 openDialogueWhenPokemonHasPoisonedStatut(secondAttacker); 
             }
@@ -193,7 +193,7 @@ function poisonedStatut100PercentProbabililityForFirstAttack(
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 100) {
+             if (randomNumber <= 100) {
                 secondAttacker.primaryStatut = 'poisoned'
                 openDialogueWhenPokemonHasPoisonedStatut(secondAttacker); 
             }

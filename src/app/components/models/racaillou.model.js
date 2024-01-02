@@ -1,4 +1,4 @@
-export let racaillouStats = {
+export let racaillouModel = {
     name : "Racaillou",
     level : 5,
     type : "rock",
@@ -7,7 +7,12 @@ export let racaillouStats = {
     secondLogo : "./src/assets/images/logos/ground.png",
     image : "./src/assets/images/racaillou.png",
     primaryStatut : "normal",
-    secondaryStatut : "normal",
+    secondaryStatut : {
+      isNormal : true,
+      isConfused : false,
+      isCursed : false,
+      isScared : false
+    },
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/water.png",

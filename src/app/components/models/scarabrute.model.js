@@ -1,4 +1,4 @@
-export let scarabruteStats = {
+export let scarabruteModel = {
     name : "Scarabrute",
     level : 5,
     type : "insect",
@@ -6,7 +6,12 @@ export let scarabruteStats = {
     logo : "./src/assets/images/logos/insect.png",
     image : "./src/assets/images/scarabrute.png",
     primaryStatut : "normal",
-    secondaryStatut : "normal",
+    secondaryStatut : {
+      isNormal : true,
+      isConfused : false,
+      isCursed : false,
+      isScared : false
+    },
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/fire.png",

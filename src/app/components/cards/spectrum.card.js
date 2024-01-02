@@ -1,4 +1,4 @@
-import { spectrumStats } from '../models/spectrum.model.js';
+import { spectrumModel } from '../models/spectrum.model.js';
 
   export const spectrumCard = document.createElement('div');
     spectrumCard.classList.add('card-main');
@@ -9,13 +9,13 @@ import { spectrumStats } from '../models/spectrum.model.js';
     
     const spectrumCardTitle = document.createElement('span');
     spectrumCardTitle.classList.add('title');
-    spectrumCardTitle.textContent = spectrumStats.name;
+    spectrumCardTitle.textContent = spectrumModel.name;
     spectrumCardHead.appendChild(spectrumCardTitle);
     
     export  const hp = document.createElement('span');
     hp.classList.add('hp');
     hp.id = 'spectrumHealth';
-    hp.textContent = `${spectrumStats.stats.hp}`;
+    hp.textContent = `${spectrumModel.stats.hp}`;
     spectrumCardHead.appendChild(hp);
 
     const pvText  = document.createElement('span');
@@ -37,7 +37,7 @@ import { spectrumStats } from '../models/spectrum.model.js';
     const spectrumCardFirstLogo = document.createElement('span');
     spectrumCardFirstLogo.classList.add('type-logo');
     spectrumCardFirstLogo.id = 'spectrum-type';
-    spectrumCardFirstLogo.style.background = `url( ${spectrumStats.firstLogo})`; 
+    spectrumCardFirstLogo.style.background = `url( ${spectrumModel.firstLogo})`; 
     spectrumCardFirstLogo.style.backgroundSize = 'cover'
     
     containerHpAndType.appendChild(spectrumCardFirstLogo);
@@ -46,7 +46,7 @@ import { spectrumStats } from '../models/spectrum.model.js';
     const spectrumCardSecondLogo = document.createElement('span');
     spectrumCardSecondLogo.classList.add('type-logo');
     spectrumCardSecondLogo.id = 'spectrum-type';
-    spectrumCardSecondLogo.style.background = `url( ${spectrumStats.secondLogo})`; 
+    spectrumCardSecondLogo.style.background = `url( ${spectrumModel.secondLogo})`; 
     spectrumCardSecondLogo.style.backgroundSize = 'cover'
     
     containerHpAndType.appendChild(spectrumCardSecondLogo);
@@ -56,7 +56,7 @@ import { spectrumStats } from '../models/spectrum.model.js';
     
     const spectrumCardImage = document.createElement('div');
     spectrumCardImage.classList.add('image');
-    spectrumCardImage.style.backgroundImage = `url(${spectrumStats.image})`; 
+    spectrumCardImage.style.backgroundImage = `url(${spectrumModel.image})`; 
     
     spectrumCardImage.style.backgroundSize = 'cover';
     
@@ -74,7 +74,7 @@ import { spectrumStats } from '../models/spectrum.model.js';
     const attackType = document.createElement('span');
     attackType.classList.add('type-logo');
   
-    attackType.style.background = `url( ${spectrumStats.firstAttack.logo})`; 
+    attackType.style.background = `url( ${spectrumModel.firstAttack.logo})`; 
     
     attackType.style.backgroundSize = 'cover';
 
@@ -86,15 +86,15 @@ import { spectrumStats } from '../models/spectrum.model.js';
     
     const firstAttackName = document.createElement('div');
     firstAttackName.classList.add('attack-name');
-    firstAttackName.textContent = ` ${spectrumStats.firstAttack.name}`;
+    firstAttackName.textContent = ` ${spectrumModel.firstAttack.name}`;
     
     const firstAttackStrength = document.createElement('div');
     firstAttackStrength.classList.add('attack-strength');
-    firstAttackStrength.textContent = ` ${spectrumStats.firstAttack.strength}`;
+    firstAttackStrength.textContent = ` ${spectrumModel.firstAttack.strength}`;
     
     const spectrumFirstAttackResume = document.createElement('div');
     spectrumFirstAttackResume.classList.add('attack-resume');
-    spectrumFirstAttackResume.textContent = ` ${spectrumStats.firstAttack.resume}`;
+    spectrumFirstAttackResume.textContent = ` ${spectrumModel.firstAttack.resume}`;
     
     
     
@@ -108,22 +108,22 @@ import { spectrumStats } from '../models/spectrum.model.js';
     const secondAttackType = document.createElement('span');
     secondAttackType.classList.add('type-logo');
   
-    secondAttackType.style.background = `url( ${spectrumStats.secondAttack.logo})`; 
+    secondAttackType.style.background = `url( ${spectrumModel.secondAttack.logo})`; 
     
     secondAttackType.style.backgroundSize = 'cover';
     
     const secondAttackName = document.createElement('div');
     secondAttackName.classList.add('attack-name');
-    secondAttackName.textContent = ` ${spectrumStats.secondAttack.name}`;
+    secondAttackName.textContent = ` ${spectrumModel.secondAttack.name}`;
     
     const secondAttackStrength = document.createElement('div');
     secondAttackStrength.classList.add('attack-strength');
-    secondAttackStrength.textContent = ` ${spectrumStats.secondAttack.strength}`;
+    secondAttackStrength.textContent = ` ${spectrumModel.secondAttack.strength}`;
     
     const spectrumSecondAttackResume = document.createElement('div');
     spectrumSecondAttackResume.classList.add('attack-resume');
     
-    spectrumSecondAttackResume.textContent = ` ${spectrumStats.secondAttack.resume}`;
+    spectrumSecondAttackResume.textContent = ` ${spectrumModel.secondAttack.resume}`;
     
     attacksContainer.appendChild(spectrumFirstAttackNameAndResume);
     
@@ -152,12 +152,12 @@ import { spectrumStats } from '../models/spectrum.model.js';
     
     const weakness = document.createElement('div');
     weakness.id = 'weakness';
-    weakness.textContent = ` ${spectrumStats.weakness.name}`;
+    weakness.textContent = ` ${spectrumModel.weakness.name}`;
    
 
     const weaknessFirstType = document.createElement('span');
     weaknessFirstType.classList.add('type-logo');
-    weaknessFirstType.style.background = `url( ${spectrumStats.weakness.firstLogo})`; 
+    weaknessFirstType.style.background = `url( ${spectrumModel.weakness.firstLogo})`; 
     weaknessFirstType.style.backgroundSize = 'cover';
 
     weakness.appendChild(weaknessFirstType);
@@ -165,7 +165,7 @@ import { spectrumStats } from '../models/spectrum.model.js';
 
     const weaknessSecondType = document.createElement('span');
     weaknessSecondType.classList.add('type-logo');
-    weaknessSecondType.style.background = `url( ${spectrumStats.weakness.secondLogo})`; 
+    weaknessSecondType.style.background = `url( ${spectrumModel.weakness.secondLogo})`; 
     weaknessSecondType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessSecondType);
@@ -173,7 +173,7 @@ import { spectrumStats } from '../models/spectrum.model.js';
 
     const weaknessThirdType = document.createElement('span');
     weaknessThirdType.classList.add('type-logo');
-    weaknessThirdType.style.background = `url( ${spectrumStats.weakness.thirdLogo})`; 
+    weaknessThirdType.style.background = `url( ${spectrumModel.weakness.thirdLogo})`; 
     weaknessThirdType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessThirdType);
@@ -181,7 +181,7 @@ import { spectrumStats } from '../models/spectrum.model.js';
 
     const weaknessFourthType = document.createElement('span');
     weaknessFourthType.classList.add('type-logo');
-    weaknessFourthType.style.background = `url( ${spectrumStats.weakness.fourthLogo})`; 
+    weaknessFourthType.style.background = `url( ${spectrumModel.weakness.fourthLogo})`; 
     weaknessFourthType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessFourthType);
@@ -191,7 +191,7 @@ import { spectrumStats } from '../models/spectrum.model.js';
     
     const resistanceContainer = document.createElement('div');
     resistanceContainer.id = 'resistance';
-    resistanceContainer.textContent = ` ${spectrumStats.resistance.name}`;
+    resistanceContainer.textContent = ` ${spectrumModel.resistance.name}`;
     
     weaknessResistanceContainer.appendChild(resistanceContainer);
     
@@ -199,28 +199,28 @@ import { spectrumStats } from '../models/spectrum.model.js';
     
     const resistanceFirstLogo = document.createElement('span');
     resistanceFirstLogo.classList.add('type-logo');
-    resistanceFirstLogo.style.background = `url(${spectrumStats.resistance.firstLogo})`; 
+    resistanceFirstLogo.style.background = `url(${spectrumModel.resistance.firstLogo})`; 
     resistanceFirstLogo.style.backgroundSize = 'cover';
 
     resistanceContainer.appendChild(resistanceFirstLogo);
 
     const resistanceSecondLogo = document.createElement('span');
     resistanceSecondLogo.classList.add('type-logo');
-    resistanceSecondLogo.style.background = `url(${spectrumStats.resistance.secondLogo})`; 
+    resistanceSecondLogo.style.background = `url(${spectrumModel.resistance.secondLogo})`; 
     resistanceSecondLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceSecondLogo);
     
     const resistanceThirdLogo = document.createElement('span');
     resistanceThirdLogo.classList.add('type-logo');
-    resistanceThirdLogo.style.background = `url(${spectrumStats.resistance.thirdLogo})`; 
+    resistanceThirdLogo.style.background = `url(${spectrumModel.resistance.thirdLogo})`; 
     resistanceThirdLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceThirdLogo);
 
     const resistanceFourthLogo = document.createElement('span');
     resistanceFourthLogo.classList.add('type-logo');
-    resistanceFourthLogo.style.background = `url(${spectrumStats.resistance.fourthLogo})`; 
+    resistanceFourthLogo.style.background = `url(${spectrumModel.resistance.fourthLogo})`; 
     resistanceFourthLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceFourthLogo);

@@ -2,11 +2,6 @@ import {
     confusingStatut
 } from './confusing-statut.js';
 
-import { 
-    openDialogueWhenPokemonAlreadyConfused
-  } from '../../dialogue-fight.js';
-  
-
 
 export const confusingStatut10PercentProbabililityForFirstAttack = 
 function confusingStatut10PercentProbabililityForFirstAttack(
@@ -29,12 +24,12 @@ function confusingStatut10PercentProbabililityForFirstAttack(
             
         ) &&
         (
-            secondAttacker.secondaryStatut !== 'confusing' 
+            !secondAttacker.secondaryStatut.isConfused 
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 10) {
+             if (randomNumber <= 10) {
                 confusingStatut(
                     secondAttacker
                     ); 
@@ -69,12 +64,12 @@ function confusingStatut20PercentProbabililityForFirstAttack(
             
         ) &&
         (
-            secondAttacker.secondaryStatut !== 'confusing' 
+            !secondAttacker.secondaryStatut.isConfused 
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 20) {
+             if (randomNumber <= 20) {
                 confusingStatut(
                     secondAttacker
                     ); 
@@ -112,17 +107,18 @@ function confusingStatut100PercentProbabililityForFirstAttack(
             firstAttacker.firstAttack.name === 'Ultrason'
         ) &&
         (
-            secondAttacker.secondaryStatut !== 'confusing' 
+            !secondAttacker.secondaryStatut.isConfused 
             )
         ) {
+        
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 100) {
+             if (randomNumber <= 100) {
                 confusingStatut(
                     secondAttacker
                     ); 
             }
                            
-    }
+    };
 
 };

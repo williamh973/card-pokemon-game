@@ -1,4 +1,4 @@
-import { mewtwoStats } from '../models/mewtwo.model.js';
+import { mewtwoModel } from '../models/mewtwo.model.js';
 
   export const mewtwoCard = document.createElement('div');
     mewtwoCard.classList.add('card-main');
@@ -9,13 +9,13 @@ import { mewtwoStats } from '../models/mewtwo.model.js';
     
     const mewtwoCardTitle = document.createElement('span');
     mewtwoCardTitle.classList.add('title');
-    mewtwoCardTitle.textContent = mewtwoStats.name;
+    mewtwoCardTitle.textContent = mewtwoModel.name;
     mewtwoCardHead.appendChild(mewtwoCardTitle);
     
     export  const hp = document.createElement('span');
     hp.classList.add('hp');
     hp.id = 'mewtwoHealth';
-    hp.textContent = `${mewtwoStats.stats.hp}`;
+    hp.textContent = `${mewtwoModel.stats.hp}`;
     mewtwoCardHead.appendChild(hp);
 
     const pvText  = document.createElement('span');
@@ -26,7 +26,7 @@ import { mewtwoStats } from '../models/mewtwo.model.js';
     const mewtwoCardType = document.createElement('span');
     mewtwoCardType.classList.add('type-logo');
     mewtwoCardType.id = 'mewtwo-type';
-    mewtwoCardType.style.background = `url( ${mewtwoStats.logo})`; 
+    mewtwoCardType.style.background = `url( ${mewtwoModel.logo})`; 
     mewtwoCardType.style.backgroundSize = 'cover'
     
     const containerHpAndType = document.createElement('div');
@@ -42,7 +42,7 @@ import { mewtwoStats } from '../models/mewtwo.model.js';
     
     const mewtwoCardImage = document.createElement('div');
     mewtwoCardImage.classList.add('image');
-    mewtwoCardImage.style.backgroundImage = `url(${mewtwoStats.image})`; 
+    mewtwoCardImage.style.backgroundImage = `url(${mewtwoModel.image})`; 
     
     mewtwoCardImage.style.backgroundSize = 'cover';
     
@@ -60,7 +60,7 @@ import { mewtwoStats } from '../models/mewtwo.model.js';
     const attackType = document.createElement('span');
     attackType.classList.add('type-logo');
   
-    attackType.style.background = `url( ${mewtwoStats.firstAttack.logo})`; 
+    attackType.style.background = `url( ${mewtwoModel.firstAttack.logo})`; 
     
     attackType.style.backgroundSize = 'cover';
 
@@ -72,15 +72,15 @@ import { mewtwoStats } from '../models/mewtwo.model.js';
     
     const firstAttackName = document.createElement('div');
     firstAttackName.classList.add('attack-name');
-    firstAttackName.textContent = ` ${mewtwoStats.firstAttack.name}`;
+    firstAttackName.textContent = ` ${mewtwoModel.firstAttack.name}`;
     
     const firstAttackStrength = document.createElement('div');
     firstAttackStrength.classList.add('attack-strength');
-    firstAttackStrength.textContent = ` ${mewtwoStats.firstAttack.strength}`;
+    firstAttackStrength.textContent = ` ${mewtwoModel.firstAttack.strength}`;
     
     const mewtwoFirstAttackResume = document.createElement('div');
     mewtwoFirstAttackResume.classList.add('attack-resume');
-    mewtwoFirstAttackResume.textContent = ` ${mewtwoStats.firstAttack.resume}`;
+    mewtwoFirstAttackResume.textContent = ` ${mewtwoModel.firstAttack.resume}`;
     
     
     
@@ -94,22 +94,22 @@ import { mewtwoStats } from '../models/mewtwo.model.js';
     const secondAttackType = document.createElement('span');
     secondAttackType.classList.add('type-logo');
   
-    secondAttackType.style.background = `url( ${mewtwoStats.secondAttack.logo})`; 
+    secondAttackType.style.background = `url( ${mewtwoModel.secondAttack.logo})`; 
     
     secondAttackType.style.backgroundSize = 'cover';
     
     const secondAttackName = document.createElement('div');
     secondAttackName.classList.add('attack-name');
-    secondAttackName.textContent = ` ${mewtwoStats.secondAttack.name}`;
+    secondAttackName.textContent = ` ${mewtwoModel.secondAttack.name}`;
     
     const secondAttackStrength = document.createElement('div');
     secondAttackStrength.classList.add('attack-strength');
-    secondAttackStrength.textContent = ` ${mewtwoStats.secondAttack.strength}`;
+    secondAttackStrength.textContent = ` ${mewtwoModel.secondAttack.strength}`;
     
     const mewtwoSecondAttackResume = document.createElement('div');
     mewtwoSecondAttackResume.classList.add('attack-resume');
     
-    mewtwoSecondAttackResume.textContent = ` ${mewtwoStats.secondAttack.resume}`;
+    mewtwoSecondAttackResume.textContent = ` ${mewtwoModel.secondAttack.resume}`;
     
     attacksContainer.appendChild(mewtwoFirstAttackNameAndResume);
     
@@ -138,14 +138,14 @@ import { mewtwoStats } from '../models/mewtwo.model.js';
     
     const weakness = document.createElement('div');
     weakness.id = 'weakness';
-    weakness.textContent = ` ${mewtwoStats.weakness.name}`;
+    weakness.textContent = ` ${mewtwoModel.weakness.name}`;
    
 
     
 
     const weaknessFirstType = document.createElement('span');
     weaknessFirstType.classList.add('type-logo');
-    weaknessFirstType.style.background = `url( ${mewtwoStats.weakness.firstLogo})`; 
+    weaknessFirstType.style.background = `url( ${mewtwoModel.weakness.firstLogo})`; 
     weaknessFirstType.style.backgroundSize = 'cover';
 
     weakness.appendChild(weaknessFirstType);
@@ -153,7 +153,7 @@ import { mewtwoStats } from '../models/mewtwo.model.js';
 
     const weaknessSecondType = document.createElement('span');
     weaknessSecondType.classList.add('type-logo');
-    weaknessSecondType.style.background = `url( ${mewtwoStats.weakness.secondLogo})`; 
+    weaknessSecondType.style.background = `url( ${mewtwoModel.weakness.secondLogo})`; 
     weaknessSecondType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessSecondType);
@@ -161,7 +161,7 @@ import { mewtwoStats } from '../models/mewtwo.model.js';
 
     const weaknessThirdType = document.createElement('span');
     weaknessThirdType.classList.add('type-logo');
-    weaknessThirdType.style.background = `url( ${mewtwoStats.weakness.thirdLogo})`; 
+    weaknessThirdType.style.background = `url( ${mewtwoModel.weakness.thirdLogo})`; 
     weaknessThirdType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessThirdType);
@@ -171,7 +171,7 @@ import { mewtwoStats } from '../models/mewtwo.model.js';
     
     const resistanceContainer = document.createElement('div');
     resistanceContainer.id = 'resistance';
-    resistanceContainer.textContent = ` ${mewtwoStats.resistance.name}`;
+    resistanceContainer.textContent = ` ${mewtwoModel.resistance.name}`;
     
     weaknessResistanceContainer.appendChild(resistanceContainer);
     
@@ -179,7 +179,7 @@ import { mewtwoStats } from '../models/mewtwo.model.js';
 
     const resistanceFirstType = document.createElement('span');
     resistanceFirstType.classList.add('type-logo');
-    resistanceFirstType.style.background = `url(${mewtwoStats.resistance.firstLogo})`; 
+    resistanceFirstType.style.background = `url(${mewtwoModel.resistance.firstLogo})`; 
     resistanceFirstType.style.backgroundSize = 'cover';
 
     resistanceContainer.appendChild(resistanceFirstType);
@@ -187,7 +187,7 @@ import { mewtwoStats } from '../models/mewtwo.model.js';
 
     const resistanceSecondType = document.createElement('span');
     resistanceSecondType.classList.add('type-logo');
-    resistanceSecondType.style.background = `url(${mewtwoStats.resistance.secondLogo})`; 
+    resistanceSecondType.style.background = `url(${mewtwoModel.resistance.secondLogo})`; 
     resistanceSecondType.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceSecondType);

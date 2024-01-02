@@ -44,7 +44,7 @@ function burningStatut10PercentProbabililityForSecondAttack(
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 10) {
+             if (randomNumber <= 10) {
                 burningStatut(
                     secondAttacker
                     );
@@ -92,7 +92,7 @@ function burningStatut30PercentProbabililityForSecondAttack(
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 30) {
+             if (randomNumber <= 30) {
                 burningStatut(
                     secondAttacker
                     );
@@ -128,7 +128,7 @@ function burningStatut50PercentProbabililityForSecondAttack(
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 50) {
+             if (randomNumber <= 50) {
                 burningStatut(
                     secondAttacker
                     );
@@ -169,7 +169,7 @@ function burningStatut100PercentProbabililityForSecondAttack(
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 100) {
+             if (randomNumber <= 100) {
                 burningStatut(
                     secondAttacker
                     );

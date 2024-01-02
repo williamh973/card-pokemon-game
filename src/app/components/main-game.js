@@ -49,7 +49,7 @@ import {
 import { 
   getAttackDelays, 
   sleepAttacksAnimation 
-} from './attacks-delay.js';
+} from './animations-delays/attacks-delay.js';
 
 import { 
   firstAttackerTakesDamage,
@@ -62,27 +62,39 @@ import {
 
 import { 
   sleepStatutAlteredAnimation 
-} from './alterations-delay.js';
+} from './animations-delays/alterations-delay.js';
 
 import { 
   checkIfFirstAttackerStatusHasBurningOrPoisoned,
   checkIfFirstAttackerStatusHasParalyzedFrozenNormalOrAsleep,
-  checkIfFirstAttackerStatusHasConfusing
-} from "./handle-statut-state-in-fight/check-if-first-attacker-statut-has-changed.js";
+  checkIfFirstAttackerStatusConfusing,
+  checkIfFirstAttackerStatusScared,
+  checkIfFirstAttackerStatusCursed
+} from "./handle-statut-state-in-fight/first-attacker/check-if-first-attacker-statut-has-changed.js";
 
 import { 
   checkIfSecondAttackerStatusHasBurningOrPoisoned,
   checkIfSecondAttackerStatusHasParalyzedFrozenNormalOrAsleep,
-  checkIfSecondAttackerStatusHasConfusing
-} from "./handle-statut-state-in-fight/check-if-second-attacker-statut-has-changed.js";
+  checkIfSecondAttackerStatusConfusing,
+  checkIfSecondAttackerStatusScared,
+  checkIfSecondAttackerStatusCursed
+} from "./handle-statut-state-in-fight/second-attacker/check-if-second-attacker-statut-has-changed.js";
 
 import { 
   firstAttackerStatutStateVariableList
-} from "./handle-statut-state-in-fight/first-attacker-statut-state-alteration.js";
+} from "./handle-statut-state-in-fight/first-attacker/first-attacker-statut-state-alteration/first-attacker-primary-statut-alteration.js";
+
+import { 
+  firstAttackerSecondaryStatutStateVariableList
+} from "./handle-statut-state-in-fight/first-attacker/first-attacker-statut-state-alteration/first-attacker-secondary-statut-alteration.js";
 
 import { 
   secondAttackerStatutStateVariableList
-} from "./handle-statut-state-in-fight/second-attacker-statut-state-alteration.js";
+} from "./handle-statut-state-in-fight/second-attacker/second-attacker-statut-state-alteration/second-attacker-primary-statut-alteration.js";
+
+import { 
+  secondAttackerSecondaryStatutStateVariableList
+} from "./handle-statut-state-in-fight/second-attacker/second-attacker-statut-state-alteration/second-attacker-secondary-statut-alteration.js";
 
 
 
@@ -232,13 +244,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
            isProtectOrDetectCapacityActived;
 
+           console.log("Controle si", firstAttacker.name, "est para, gelé, normal ou endormi");
 
            await checkIfFirstAttackerStatusHasParalyzedFrozenNormalOrAsleep(
             firstAttacker, 
             sleepStatutAlteredAnimation
             );
 
-            await checkIfFirstAttackerStatusHasConfusing(
+            console.log("Controle si", firstAttacker.name, "est confus");
+            await checkIfFirstAttackerStatusConfusing(
               firstAttacker, 
               secondAttacker,
               enemyPokemon, 
@@ -251,17 +265,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
               }
   
+              console.log("Controle si", firstAttacker.name, "est effrayé");
+              await checkIfFirstAttackerStatusScared(
+                firstAttacker, 
+                sleepStatutAlteredAnimation
+                );
      
             if (
               !firstAttackerStatutStateVariableList.isFirstAttackerParalyzed &&
               !firstAttackerStatutStateVariableList.isFirstAttackerFrozen &&
               !firstAttackerStatutStateVariableList.isFirstAttackerAsleep &&
-              !firstAttackerStatutStateVariableList.isFirstAttackerConfusing
+              !firstAttackerSecondaryStatutStateVariableList.isFirstAttackerConfusing &&
+              !firstAttackerSecondaryStatutStateVariableList.isFirstAttackerScared
               ) {
             
-              let randomNumber = Math.random();
+                const randomNumber = Math.floor(Math.random() * 100) + 1;
       
-                if (randomNumber > 0.5) {
+                if (randomNumber <= 50) {
     
                   isFirstAttackActive = true;
                   isSecondAttackActive = false;
@@ -346,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             };
 
-            
+            console.log("Controle si", firstAttacker.name, "est brulé ou empoisonné");
             await checkIfFirstAttackerStatusHasBurningOrPoisoned(
               firstAttacker, 
               secondAttacker,
@@ -359,6 +379,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 firstAttacker.stats.hp = 0;
                 break;
               }
+
+              console.log("Controle si", firstAttacker.name, "est maudit");
+              await checkIfFirstAttackerStatusCursed(
+                firstAttacker, 
+                secondAttacker,
+                enemyPokemon, 
+                playerSelectedPokemon,
+                sleepStatutAlteredAnimation
+                );
+                
+                if (firstAttacker.stats.hp <= 0) {
+                  firstAttacker.stats.hp = 0;
+                  break;
+                }
               
               console.log(firstAttacker.name, "a terminé son tour");
 
@@ -375,13 +409,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             isProtectOrDetectCapacityActived;
 
-
+            console.log("Controle si", secondAttacker.name, "est para, gelé, normal ou endormi");
             await checkIfSecondAttackerStatusHasParalyzedFrozenNormalOrAsleep(
               secondAttacker, 
               sleepStatutAlteredAnimation
               );
 
-              await checkIfSecondAttackerStatusHasConfusing(
+              console.log("Controle si", secondAttacker.name, "est confus");
+              await checkIfSecondAttackerStatusConfusing(
                 secondAttacker, 
                 firstAttacker,
                 enemyPokemon, 
@@ -395,16 +430,23 @@ document.addEventListener('DOMContentLoaded', () => {
                   break;
                 }
 
+                console.log("Controle si", secondAttacker.name, "est effrayé");
+                await checkIfSecondAttackerStatusScared(
+                  secondAttacker, 
+                  sleepStatutAlteredAnimation
+                  );
+
               if (
                 !secondAttackerStatutStateVariableList.isSecondAttackerParalyzed && 
                 !secondAttackerStatutStateVariableList.isSecondAttackerFrozen &&
                 !secondAttackerStatutStateVariableList.isSecondAttackerAsleep &&
-                !secondAttackerStatutStateVariableList.isSecondAttackerConfusing
+                !secondAttackerSecondaryStatutStateVariableList.isSecondAttackerConfusing &&
+                !secondAttackerSecondaryStatutStateVariableList.isSecondAttackerScared
                 ) {
                   
-           let randomNumber = Math.random();
+            const randomNumber = Math.floor(Math.random() * 100) + 1;
             
-            if (randomNumber > 0.5) {
+            if (randomNumber <= 50) {
               
               isFirstAttackActive = true;
               isSecondAttackActive = false;
@@ -488,7 +530,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
             console.log(secondAttacker.name, "a terminé son tour");
             
+            console.log("Controle si", secondAttacker.name, "est brulé ou empoisonné");
               await checkIfSecondAttackerStatusHasBurningOrPoisoned(
+              secondAttacker, 
+              firstAttacker,
+              enemyPokemon, 
+              playerSelectedPokemon,
+              sleepStatutAlteredAnimation
+              );
+
+              if (secondAttacker.stats.hp <= 0) {
+                secondAttacker.stats.hp = 0;
+                break;
+              }
+
+
+              console.log("Controle si", secondAttacker.name, "est maudit");
+              await checkIfSecondAttackerStatusCursed(
               secondAttacker, 
               firstAttacker,
               enemyPokemon, 

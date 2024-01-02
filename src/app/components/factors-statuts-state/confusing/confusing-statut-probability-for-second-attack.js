@@ -3,6 +3,7 @@ import {
 } from './confusing-statut.js';
 
 
+
 export const confusingStatut10PercentProbabililityForSecondAttack = 
 function confusingStatut10PercentProbabililityForSecondAttack(
     firstAttacker,
@@ -23,12 +24,12 @@ function confusingStatut10PercentProbabililityForSecondAttack(
             firstAttacker.secondAttack.name === 'Rafale Psy'
         ) &&
         (
-              secondAttacker.secondaryStatut !== 'confusing' 
+            !secondAttacker.secondaryStatut.isConfused  
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 10) {
+             if (randomNumber <= 10) {
                 confusingStatut(
                     secondAttacker
                     ); 
@@ -61,12 +62,12 @@ function confusingStatut20PercentProbabililityForSecondAttack(
             firstAttacker.secondAttack.name === 'Uppercut' 
         ) &&
         (
-              secondAttacker.secondaryStatut !== 'confusing' 
+            !secondAttacker.secondaryStatut.isConfused  
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 20) {
+             if (randomNumber <= 20) {
                 confusingStatut(
                     secondAttacker
                     ); 
@@ -104,17 +105,17 @@ function confusingStatut100PercentProbabililityForSecondAttack(
             firstAttacker.secondAttack.name === 'Ultrason'
         ) &&
         (
-              secondAttacker.secondaryStatut !== 'confusing' 
+            !secondAttacker.secondaryStatut.isConfused  
             )
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 100) {
+             if (randomNumber <= 100) {
                 confusingStatut(
                     secondAttacker
                     ); 
             }
                            
-    }
+    };
 
 };

@@ -17,7 +17,7 @@ function increaseCriticalHitProbabilityWhenFocusEnergyUsed(
     isCriticalHitBoostedByFocusEnergy && 
     firstAttacker.name === 'Scarabrute'
     ) {
-      randomNumber = Math.floor(Math.random() * 128);
+      randomNumber = Math.floor(Math.random() * 128) + 1;
     }
 };
 
@@ -34,7 +34,7 @@ function criticalHit(firstAttacker) {
   let speedValueRoundToNearestEvenDividedByTwo = speedValueRoundToNearestEven / 2;
   let newSpeedValueForProbabilityIncreaseRate = speedValueRoundToNearestEvenDividedByTwo;
 
-  let randomNumber = Math.floor(Math.random() * 256);
+  let randomNumber = Math.floor(Math.random() * 256) + 1;
   
   increaseCriticalHitProbabilityWhenFocusEnergyUsed(
     firstAttacker, 

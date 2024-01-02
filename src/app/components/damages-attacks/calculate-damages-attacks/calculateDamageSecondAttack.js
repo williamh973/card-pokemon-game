@@ -37,8 +37,7 @@ import {
 import { 
     openDialogueWhenPokemonMakesSecondAttack,
     openDialogueWhenPokemonMissAttack,
-    openDialogueWhenPokemonProtectingHimself,
-    openDialogueWhenPokemonMakesIneffectiveAttack
+    openDialogueWhenPokemonProtectingHimself
 } from '../../dialogue-fight.js';
 
 import { 
@@ -97,6 +96,10 @@ import {
   import { 
     confusingStatutProbabilitysForSecondAttack 
   } from "../../factors-statuts-state/confusing/export-to-calculate-damages-attacks/confusing-statut-probabilitys-for-second-attack.js";
+  
+  import { 
+    cursedStatut100PercentProbabililityForSecondAttack 
+  } from "../../factors-statuts-state/decrease-hp-probability/cursed/cursed-statut-probability-for-second-attack.js";
   
 
 
@@ -279,32 +282,37 @@ function calculateDamageSecondAttack(
                   isSecondAttackActive,
                   secondAttackType
                 );
+
+                cursedStatut100PercentProbabililityForSecondAttack(
+                  firstAttacker,
+                  secondAttacker,
+                  isSecondAttackActive,
+                  secondAttackType
+                );
   
 
-            if (firstAttacker.secondAttack.name === "Dévorêve") {
+                if (firstAttacker.secondAttack.name === "Dévorêve") {
                   
               const getHpIncrease50PercentOfDamagesFactor = hpIncrease50PercentOfDamagesFactorForSecondAttack( 
-                 firstAttacker,
-                 secondAttacker, 
-                 isSecondAttackActive,
-                 degats
-                 );
+                  firstAttacker,
+                  secondAttacker, 
+                  isSecondAttackActive,
+                  degats
+                  );
+ 
+                  degats *= getHpIncrease50PercentOfDamagesFactor
+              };
 
-                 degats *= getHpIncrease50PercentOfDamagesFactor
-            }
 
-
-                if (degats > 0 && degats < 0.5) {
-                  return degats = 1;
-                };
+              if (degats > 0 && degats < 0.5) {
+                return degats = 1;
+              };
      
-                   console.log("degats", degats);
-                   return Math.round(degats);
-          
-             } else {
-               openDialogueWhenPokemonMissAttack(firstAttacker);
-               return 0;
-             };
+              return Math.round(degats);
+              } else {
+                openDialogueWhenPokemonMissAttack(firstAttacker);
+                return 0;
+              };
 
         } else if (
         isSecondAttackActive && 
@@ -331,7 +339,7 @@ function calculateDamageSecondAttack(
             isSecondAttackActive, 
             secondAttackPrecision
             );
-          return 0;
+            return 0;
       } 
 };
 

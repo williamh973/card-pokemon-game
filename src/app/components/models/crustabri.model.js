@@ -1,4 +1,4 @@
-export let crustabriStats = {
+export let crustabriModel = {
     name : "Crustabri",
     level : 5,
     type : "water",
@@ -7,7 +7,12 @@ export let crustabriStats = {
     secondLogo : "./src/assets/images/logos/ice.png",
     image : "./src/assets/images/crustabri.png",
     primaryStatut : "normal",
-    secondaryStatut : "normal",
+    secondaryStatut : {
+      isNormal : true,
+      isConfused : false,
+      isCursed : false,
+      isScared : false
+    },
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/fight.png",

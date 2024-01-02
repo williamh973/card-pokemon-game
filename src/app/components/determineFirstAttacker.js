@@ -1,18 +1,18 @@
-import { pikachuStats } from './models/pikachu.model.js';
-import { evoliStats } from './models/evoli.model.js';
-import { roucoolStats } from './models/roucool.model.js'
-import { racaillouStats } from './models/racaillou.model.js';
-import { insecateurStats } from './models/insecateur.model.js';
-import { sabeletteStats } from './models/sabelette.model.js';
-import { mewtwoStats } from './models/mewtwo.model.js';
-import { scarabruteStats } from './models/scarabrute.model.js';
-import { krabbossStats } from './models/krabboss.model.js';
-import { salamecheStats } from './models/salameche.model.js';
-import { nidoranMaleStats } from './models/nidoranMale.model.js';
-import { crustabriStats } from './models/crustabri.model.js';
-import { fantominusStats } from './models/fantominus.model.js';
-import { ectoplasmaStats } from './models/ectoplasma.model.js';
-import { spectrumStats } from './models/spectrum.model.js';
+import { pikachuModel } from './models/pikachu.model.js';
+import { evoliModel } from './models/evoli.model.js';
+import { roucoolModel } from './models/roucool.model.js'
+import { racaillouModel } from './models/racaillou.model.js';
+import { insecateurModel } from './models/insecateur.model.js';
+import { sabeletteModel } from './models/sabelette.model.js';
+import { mewtwoModel } from './models/mewtwo.model.js';
+import { scarabruteModel } from './models/scarabrute.model.js';
+import { krabbossModel } from './models/krabboss.model.js';
+import { salamecheModel } from './models/salameche.model.js';
+import { nidoranMaleModel } from './models/nidoranMale.model.js';
+import { crustabriModel } from './models/crustabri.model.js';
+import { fantominusModel } from './models/fantominus.model.js';
+import { ectoplasmaModel } from './models/ectoplasma.model.js';
+import { spectrumModel } from './models/spectrum.model.js';
 
 
 import { pikachuCard } from './cards/pikachu.card.js';
@@ -44,126 +44,126 @@ export { firstAttacker, secondAttacker, determineFirstAttacker };
 
    if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Spectrum' ||
      domElementsFromSelectors.pokemonFirstLocation.contains(spectrumCard)) {
-     firstAttacker = spectrumStats;
+     firstAttacker = spectrumModel;
 
   } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Ectoplasma' ||
      domElementsFromSelectors.pokemonFirstLocation.contains(ectoplasmaCard)) {
-     firstAttacker = ectoplasmaStats;
+     firstAttacker = ectoplasmaModel;
 
   } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Fantominus' ||
      domElementsFromSelectors.pokemonFirstLocation.contains(fantominusCard)) {
-     firstAttacker = fantominusStats;
+     firstAttacker = fantominusModel;
 
   } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Crustabri' ||
      domElementsFromSelectors.pokemonFirstLocation.contains(crustabriCard)) {
-     firstAttacker = crustabriStats;
+     firstAttacker = crustabriModel;
 
   } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Pikachu' ||
      domElementsFromSelectors.pokemonFirstLocation.contains(pikachuCard)) {
-     firstAttacker = pikachuStats;
+     firstAttacker = pikachuModel;
 
   } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Évoli' ||
      domElementsFromSelectors.pokemonFirstLocation.contains(evoliCard)) {
-     firstAttacker = evoliStats;
+     firstAttacker = evoliModel;
 
   } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Roucool' ||
      domElementsFromSelectors.pokemonFirstLocation.contains(roucoolCard)) {
-     firstAttacker = roucoolStats;
+     firstAttacker = roucoolModel;
 
   } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Racaillou' ||
      domElementsFromSelectors.pokemonFirstLocation.contains(racaillouCard)) {
-     firstAttacker = racaillouStats;
+     firstAttacker = racaillouModel;
 
   } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Insecateur' ||
      domElementsFromSelectors.pokemonFirstLocation.contains(insecateurCard)) {
-     firstAttacker = insecateurStats;
+     firstAttacker = insecateurModel;
 
   } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Sabelette' ||
      domElementsFromSelectors.pokemonFirstLocation.contains(sabeletteCard)) {
-     firstAttacker = sabeletteStats;
+     firstAttacker = sabeletteModel;
 
   } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Mewtwo' ||
      domElementsFromSelectors.pokemonFirstLocation.contains(mewtwoCard)) {
-     firstAttacker = mewtwoStats;
+     firstAttacker = mewtwoModel;
 
   } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Scarabrute' ||
      domElementsFromSelectors.pokemonFirstLocation.contains(scarabruteCard)) {
-     firstAttacker = scarabruteStats;
+     firstAttacker = scarabruteModel;
      
   } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Krabboss' ||
      domElementsFromSelectors.pokemonFirstLocation.contains(krabbossCard)) {
-     firstAttacker = krabbossStats;
+     firstAttacker = krabbossModel;
 
   } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Salamèche' ||
     domElementsFromSelectors.pokemonFirstLocation.contains(salamecheCard)) {
-    firstAttacker = salamecheStats;
+    firstAttacker = salamecheModel;
 
   } else if (domElementsFromSelectors.selectFirstPokemonButton.value === 'Nidoran♂' ||
     domElementsFromSelectors.pokemonFirstLocation.contains(nidoranMaleCard)) {
-    firstAttacker = nidoranMaleStats;
+    firstAttacker = nidoranMaleModel;
 }
   
 
 
   if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Spectrum' ||
     domElementsFromSelectors.pokemonSecondLocation.contains(spectrumCard)) {
-      secondAttacker = spectrumStats;
+      secondAttacker = spectrumModel;
   
   } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Ectoplasma' ||
      domElementsFromSelectors.pokemonSecondLocation.contains(ectoplasmaCard)) {
-      secondAttacker = ectoplasmaStats;
+      secondAttacker = ectoplasmaModel;
 
   } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Fantominus' ||
      domElementsFromSelectors.pokemonSecondLocation.contains(fantominusCard)) {
-     secondAttacker = fantominusStats;
+     secondAttacker = fantominusModel;
   
   } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Crustabri' ||
      domElementsFromSelectors.pokemonSecondLocation.contains(crustabriCard)) {
-     secondAttacker = crustabriStats;
+     secondAttacker = crustabriModel;
 
   } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Pikachu' ||
      domElementsFromSelectors.pokemonSecondLocation.contains(pikachuCard)) {
-     secondAttacker = pikachuStats;
+     secondAttacker = pikachuModel;
 
   } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Évoli' ||
      domElementsFromSelectors.pokemonSecondLocation.contains(evoliCard)) {
-     secondAttacker = evoliStats;
+     secondAttacker = evoliModel;
 
   } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Roucool' ||
      domElementsFromSelectors.pokemonSecondLocation.contains(roucoolCard)) {
-     secondAttacker = roucoolStats;
+     secondAttacker = roucoolModel;
 
   } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Racaillou' ||
      domElementsFromSelectors.pokemonSecondLocation.contains(racaillouCard)) {
-     secondAttacker = racaillouStats;
+     secondAttacker = racaillouModel;
 
   } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Insécateur' ||
      domElementsFromSelectors.pokemonSecondLocation.contains(insecateurCard)) {
-     secondAttacker = insecateurStats;
+     secondAttacker = insecateurModel;
 
   } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Sabelette' ||
      domElementsFromSelectors.pokemonSecondLocation.contains(sabeletteCard)) {
-     secondAttacker = sabeletteStats;
+     secondAttacker = sabeletteModel;
 
   } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Mewtwo' ||
      domElementsFromSelectors.pokemonSecondLocation.contains(mewtwoCard)) {
-     secondAttacker = mewtwoStats;
+     secondAttacker = mewtwoModel;
      
   } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Scarabrute' ||
      domElementsFromSelectors.pokemonSecondLocation.contains(scarabruteCard)) {
-     secondAttacker = scarabruteStats;
+     secondAttacker = scarabruteModel;
 
   } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Krabboss' ||
      domElementsFromSelectors.pokemonSecondLocation.contains(krabbossCard)) {
-     secondAttacker = krabbossStats;
+     secondAttacker = krabbossModel;
 
   } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Salamèche' ||
      domElementsFromSelectors.pokemonSecondLocation.contains(salamecheCard)) {
-     secondAttacker = salamecheStats;
+     secondAttacker = salamecheModel;
 
   } else if (domElementsFromSelectors.selectSecondPokemonButton.value === 'Nidoran♂' ||
   domElementsFromSelectors.pokemonSecondLocation.contains(nidoranMaleCard)) {
-  secondAttacker = nidoranMaleStats;
+  secondAttacker = nidoranMaleModel;
 }
     
   if (firstAttacker.stats.speed < secondAttacker.stats.speed) {

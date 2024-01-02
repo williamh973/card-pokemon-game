@@ -1,4 +1,4 @@
-import { ectoplasmaStats } from '../models/ectoplasma.model.js';
+import { ectoplasmaModel } from '../models/ectoplasma.model.js';
 
   export const ectoplasmaCard = document.createElement('div');
     ectoplasmaCard.classList.add('card-main');
@@ -9,13 +9,13 @@ import { ectoplasmaStats } from '../models/ectoplasma.model.js';
     
     const ectoplasmaCardTitle = document.createElement('span');
     ectoplasmaCardTitle.classList.add('title');
-    ectoplasmaCardTitle.textContent = ectoplasmaStats.name;
+    ectoplasmaCardTitle.textContent = ectoplasmaModel.name;
     ectoplasmaCardHead.appendChild(ectoplasmaCardTitle);
     
     export  const hp = document.createElement('span');
     hp.classList.add('hp');
     hp.id = 'ectoplasmaHealth';
-    hp.textContent = `${ectoplasmaStats.stats.hp}`;
+    hp.textContent = `${ectoplasmaModel.stats.hp}`;
     ectoplasmaCardHead.appendChild(hp);
 
     const pvText  = document.createElement('span');
@@ -37,7 +37,7 @@ import { ectoplasmaStats } from '../models/ectoplasma.model.js';
     const ectoplasmaCardFirstLogo = document.createElement('span');
     ectoplasmaCardFirstLogo.classList.add('type-logo');
     ectoplasmaCardFirstLogo.id = 'ectoplasma-type';
-    ectoplasmaCardFirstLogo.style.background = `url( ${ectoplasmaStats.firstLogo})`; 
+    ectoplasmaCardFirstLogo.style.background = `url( ${ectoplasmaModel.firstLogo})`; 
     ectoplasmaCardFirstLogo.style.backgroundSize = 'cover'
     
     containerHpAndType.appendChild(ectoplasmaCardFirstLogo);
@@ -46,7 +46,7 @@ import { ectoplasmaStats } from '../models/ectoplasma.model.js';
     const ectoplasmaCardSecondLogo = document.createElement('span');
     ectoplasmaCardSecondLogo.classList.add('type-logo');
     ectoplasmaCardSecondLogo.id = 'ectoplasma-type';
-    ectoplasmaCardSecondLogo.style.background = `url( ${ectoplasmaStats.secondLogo})`; 
+    ectoplasmaCardSecondLogo.style.background = `url( ${ectoplasmaModel.secondLogo})`; 
     ectoplasmaCardSecondLogo.style.backgroundSize = 'cover'
     
     containerHpAndType.appendChild(ectoplasmaCardSecondLogo);
@@ -56,7 +56,7 @@ import { ectoplasmaStats } from '../models/ectoplasma.model.js';
     
     const ectoplasmaCardImage = document.createElement('div');
     ectoplasmaCardImage.classList.add('image');
-    ectoplasmaCardImage.style.backgroundImage = `url(${ectoplasmaStats.image})`; 
+    ectoplasmaCardImage.style.backgroundImage = `url(${ectoplasmaModel.image})`; 
     
     ectoplasmaCardImage.style.backgroundSize = 'cover';
     
@@ -74,7 +74,7 @@ import { ectoplasmaStats } from '../models/ectoplasma.model.js';
     const attackType = document.createElement('span');
     attackType.classList.add('type-logo');
   
-    attackType.style.background = `url( ${ectoplasmaStats.firstAttack.logo})`; 
+    attackType.style.background = `url( ${ectoplasmaModel.firstAttack.logo})`; 
     
     attackType.style.backgroundSize = 'cover';
 
@@ -86,15 +86,15 @@ import { ectoplasmaStats } from '../models/ectoplasma.model.js';
     
     const firstAttackName = document.createElement('div');
     firstAttackName.classList.add('attack-name');
-    firstAttackName.textContent = ` ${ectoplasmaStats.firstAttack.name}`;
+    firstAttackName.textContent = ` ${ectoplasmaModel.firstAttack.name}`;
     
     const firstAttackStrength = document.createElement('div');
     firstAttackStrength.classList.add('attack-strength');
-    firstAttackStrength.textContent = ` ${ectoplasmaStats.firstAttack.strength}`;
+    firstAttackStrength.textContent = ` ${ectoplasmaModel.firstAttack.strength}`;
     
     const ectoplasmaFirstAttackResume = document.createElement('div');
     ectoplasmaFirstAttackResume.classList.add('attack-resume');
-    ectoplasmaFirstAttackResume.textContent = ` ${ectoplasmaStats.firstAttack.resume}`;
+    ectoplasmaFirstAttackResume.textContent = ` ${ectoplasmaModel.firstAttack.resume}`;
     
     
     
@@ -108,22 +108,22 @@ import { ectoplasmaStats } from '../models/ectoplasma.model.js';
     const secondAttackType = document.createElement('span');
     secondAttackType.classList.add('type-logo');
   
-    secondAttackType.style.background = `url( ${ectoplasmaStats.secondAttack.logo})`; 
+    secondAttackType.style.background = `url( ${ectoplasmaModel.secondAttack.logo})`; 
     
     secondAttackType.style.backgroundSize = 'cover';
     
     const secondAttackName = document.createElement('div');
     secondAttackName.classList.add('attack-name');
-    secondAttackName.textContent = ` ${ectoplasmaStats.secondAttack.name}`;
+    secondAttackName.textContent = ` ${ectoplasmaModel.secondAttack.name}`;
     
     const secondAttackStrength = document.createElement('div');
     secondAttackStrength.classList.add('attack-strength');
-    secondAttackStrength.textContent = ` ${ectoplasmaStats.secondAttack.strength}`;
+    secondAttackStrength.textContent = ` ${ectoplasmaModel.secondAttack.strength}`;
     
     const ectoplasmaSecondAttackResume = document.createElement('div');
     ectoplasmaSecondAttackResume.classList.add('attack-resume');
     
-    ectoplasmaSecondAttackResume.textContent = ` ${ectoplasmaStats.secondAttack.resume}`;
+    ectoplasmaSecondAttackResume.textContent = ` ${ectoplasmaModel.secondAttack.resume}`;
     
     attacksContainer.appendChild(ectoplasmaFirstAttackNameAndResume);
     
@@ -152,12 +152,12 @@ import { ectoplasmaStats } from '../models/ectoplasma.model.js';
     
     const weakness = document.createElement('div');
     weakness.id = 'weakness';
-    weakness.textContent = ` ${ectoplasmaStats.weakness.name}`;
+    weakness.textContent = ` ${ectoplasmaModel.weakness.name}`;
    
 
     const weaknessFirstType = document.createElement('span');
     weaknessFirstType.classList.add('type-logo');
-    weaknessFirstType.style.background = `url( ${ectoplasmaStats.weakness.firstLogo})`; 
+    weaknessFirstType.style.background = `url( ${ectoplasmaModel.weakness.firstLogo})`; 
     weaknessFirstType.style.backgroundSize = 'cover';
 
     weakness.appendChild(weaknessFirstType);
@@ -165,7 +165,7 @@ import { ectoplasmaStats } from '../models/ectoplasma.model.js';
 
     const weaknessSecondType = document.createElement('span');
     weaknessSecondType.classList.add('type-logo');
-    weaknessSecondType.style.background = `url( ${ectoplasmaStats.weakness.secondLogo})`; 
+    weaknessSecondType.style.background = `url( ${ectoplasmaModel.weakness.secondLogo})`; 
     weaknessSecondType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessSecondType);
@@ -173,7 +173,7 @@ import { ectoplasmaStats } from '../models/ectoplasma.model.js';
 
     const weaknessThirdType = document.createElement('span');
     weaknessThirdType.classList.add('type-logo');
-    weaknessThirdType.style.background = `url( ${ectoplasmaStats.weakness.thirdLogo})`; 
+    weaknessThirdType.style.background = `url( ${ectoplasmaModel.weakness.thirdLogo})`; 
     weaknessThirdType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessThirdType);
@@ -181,7 +181,7 @@ import { ectoplasmaStats } from '../models/ectoplasma.model.js';
 
     const weaknessFourthType = document.createElement('span');
     weaknessFourthType.classList.add('type-logo');
-    weaknessFourthType.style.background = `url( ${ectoplasmaStats.weakness.fourthLogo})`; 
+    weaknessFourthType.style.background = `url( ${ectoplasmaModel.weakness.fourthLogo})`; 
     weaknessFourthType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessFourthType);
@@ -191,7 +191,7 @@ import { ectoplasmaStats } from '../models/ectoplasma.model.js';
     
     const resistanceContainer = document.createElement('div');
     resistanceContainer.id = 'resistance';
-    resistanceContainer.textContent = ` ${ectoplasmaStats.resistance.name}`;
+    resistanceContainer.textContent = ` ${ectoplasmaModel.resistance.name}`;
     
     weaknessResistanceContainer.appendChild(resistanceContainer);
     
@@ -199,28 +199,28 @@ import { ectoplasmaStats } from '../models/ectoplasma.model.js';
     
     const resistanceFirstLogo = document.createElement('span');
     resistanceFirstLogo.classList.add('type-logo');
-    resistanceFirstLogo.style.background = `url(${ectoplasmaStats.resistance.firstLogo})`; 
+    resistanceFirstLogo.style.background = `url(${ectoplasmaModel.resistance.firstLogo})`; 
     resistanceFirstLogo.style.backgroundSize = 'cover';
 
     resistanceContainer.appendChild(resistanceFirstLogo);
 
     const resistanceSecondLogo = document.createElement('span');
     resistanceSecondLogo.classList.add('type-logo');
-    resistanceSecondLogo.style.background = `url(${ectoplasmaStats.resistance.secondLogo})`; 
+    resistanceSecondLogo.style.background = `url(${ectoplasmaModel.resistance.secondLogo})`; 
     resistanceSecondLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceSecondLogo);
     
     const resistanceThirdLogo = document.createElement('span');
     resistanceThirdLogo.classList.add('type-logo');
-    resistanceThirdLogo.style.background = `url(${ectoplasmaStats.resistance.thirdLogo})`; 
+    resistanceThirdLogo.style.background = `url(${ectoplasmaModel.resistance.thirdLogo})`; 
     resistanceThirdLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceThirdLogo);
 
     const resistanceFourthLogo = document.createElement('span');
     resistanceFourthLogo.classList.add('type-logo');
-    resistanceFourthLogo.style.background = `url(${ectoplasmaStats.resistance.fourthLogo})`; 
+    resistanceFourthLogo.style.background = `url(${ectoplasmaModel.resistance.fourthLogo})`; 
     resistanceFourthLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceFourthLogo);

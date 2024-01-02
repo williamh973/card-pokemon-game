@@ -97,6 +97,10 @@ import {
   confusingStatutProbabilitysForFirstAttack 
 } from "../../factors-statuts-state/confusing/export-to-calculate-damages-attacks/confusing-statut-probabilitys-for-first-attack.js";
 
+import { 
+  cursedStatut100PercentProbabililityForFirstAttack 
+} from "../../factors-statuts-state/decrease-hp-probability/cursed/cursed-statut-probability-for-first-attack.js";
+
 
 
 export const calculateDamageFirstAttack = 
@@ -282,6 +286,13 @@ function calculateDamageFirstAttack(
                   firstAttackType
                 );
 
+                cursedStatut100PercentProbabililityForFirstAttack(
+                  firstAttacker,
+                  secondAttacker,
+                  isFirstAttackActive,
+                  firstAttackType
+                );
+
                 if (firstAttacker.firstAttack.name === "Dévorêve") {
          
                   const getHpIncrease50PercentOfDamagesFactor = hpIncrease50PercentOfDamagesFactorForFirstAttack(
@@ -295,13 +306,11 @@ function calculateDamageFirstAttack(
                 };
 
     
-                  if (degats > 0 && degats < 0.5) {
-                    return degats = 1;
-                  };
+                if (degats > 0 && degats < 0.5) {
+                  return degats = 1;
+                };
                   
-                  return Math.round(degats);
-
-         
+                return Math.round(degats);
                 } else {
                     openDialogueWhenPokemonMissAttack(firstAttacker);
                     return 0;

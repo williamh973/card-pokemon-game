@@ -1,4 +1,4 @@
-export let pikachuStats = {
+export let pikachuModel = {
     name : "Pikachu",
     level : 5,
     type : "electric",
@@ -6,7 +6,12 @@ export let pikachuStats = {
     logo : "./src/assets/images/logos/electric.png",
     image : "./src/assets/images/pikachu.png",
     primaryStatut : "normal",
-    secondaryStatut : "normal",
+    secondaryStatut : {
+      isNormal : true,
+      isConfused : false,
+      isCursed : false,
+      isScared : false
+    },
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/ground.png"

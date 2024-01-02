@@ -1,4 +1,4 @@
-export let evoliStats = {
+export let evoliModel = {
     name : "Évoli",
     level : 5,
     type : "normal",
@@ -6,7 +6,12 @@ export let evoliStats = {
     logo : "./src/assets/images/logos/coloreless.png",
     image : "./src/assets/images/evoli.png",
     primaryStatut : "normal",
-    secondaryStatut : "normal",
+      secondaryStatut : {
+        isNormal : true,
+        isConfused : false,
+        isCursed : false,
+        isScared : false
+      },
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/fight.png"

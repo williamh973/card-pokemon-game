@@ -1,4 +1,4 @@
-export let fantominusStats = {
+export let fantominusModel = {
     name : "Fantominus",
     level : 28,
     type : "spectrum",
@@ -7,7 +7,12 @@ export let fantominusStats = {
     secondLogo : "./src/assets/images/logos/poison.png",
     image : "./src/assets/images/fantominus.png",
     primaryStatut : "normal",
-    secondaryStatut : "normal",
+    secondaryStatut : {
+      isNormal : true,
+      isConfused : false,
+      isCursed : false,
+      isScared : false
+    },
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/psy.png",

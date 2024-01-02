@@ -1,18 +1,18 @@
-import { pikachuStats } from './models/pikachu.model.js';
-import { evoliStats } from './models/evoli.model.js';
-import { roucoolStats } from './models/roucool.model.js'
-import { racaillouStats } from './models/racaillou.model.js';
-import { insecateurStats } from './models/insecateur.model.js';
-import { sabeletteStats } from './models/sabelette.model.js';
-import { mewtwoStats } from './models/mewtwo.model.js';
-import { scarabruteStats } from './models/scarabrute.model.js';
-import { krabbossStats } from './models/krabboss.model.js';
-import { salamecheStats } from './models/salameche.model.js';
-import { nidoranMaleStats } from './models/nidoranMale.model.js';
-import { crustabriStats } from './models/crustabri.model.js';
-import { fantominusStats } from './models/fantominus.model.js';
-import { ectoplasmaStats } from './models/ectoplasma.model.js';
-import { spectrumStats } from './models/spectrum.model.js';
+import { pikachuModel } from './models/pikachu.model.js';
+import { evoliModel } from './models/evoli.model.js';
+import { roucoolModel } from './models/roucool.model.js'
+import { racaillouModel } from './models/racaillou.model.js';
+import { insecateurModel } from './models/insecateur.model.js';
+import { sabeletteModel } from './models/sabelette.model.js';
+import { mewtwoModel } from './models/mewtwo.model.js';
+import { scarabruteModel } from './models/scarabrute.model.js';
+import { krabbossModel } from './models/krabboss.model.js';
+import { salamecheModel } from './models/salameche.model.js';
+import { nidoranMaleModel } from './models/nidoranMale.model.js';
+import { crustabriModel } from './models/crustabri.model.js';
+import { fantominusModel } from './models/fantominus.model.js';
+import { ectoplasmaModel } from './models/ectoplasma.model.js';
+import { spectrumModel } from './models/spectrum.model.js';
 
 
 
@@ -45,7 +45,7 @@ function decreaseHp() {
     (domElementsFromSelectors.pokemonSecondLocation.contains(spectrumCard))
    ) {
      document.getElementById('spectrumHealth').textContent = 
-     `${spectrumStats.stats.hp}`;
+     `${spectrumModel.stats.hp}`;
 };
 
   if (
@@ -55,7 +55,7 @@ function decreaseHp() {
     (domElementsFromSelectors.pokemonSecondLocation.contains(ectoplasmaCard))
    ) {
      document.getElementById('ectoplasmaHealth').textContent = 
-     `${ectoplasmaStats.stats.hp}`;
+     `${ectoplasmaModel.stats.hp}`;
 };
 
   if (
@@ -65,7 +65,7 @@ function decreaseHp() {
     (domElementsFromSelectors.pokemonSecondLocation.contains(fantominusCard))
    ) {
      document.getElementById('fantominusHealth').textContent = 
-     `${fantominusStats.stats.hp}`;
+     `${fantominusModel.stats.hp}`;
 };
 
   if (
@@ -75,7 +75,7 @@ function decreaseHp() {
     (domElementsFromSelectors.pokemonSecondLocation.contains(crustabriCard))
    ) {
      document.getElementById('crustabriHealth').textContent = 
-     `${crustabriStats.stats.hp}`;
+     `${crustabriModel.stats.hp}`;
 };
 
   if (
@@ -85,7 +85,7 @@ function decreaseHp() {
       (domElementsFromSelectors.pokemonSecondLocation.contains(pikachuCard))
      ) {
        document.getElementById('pikachuHealth').textContent = 
-       `${pikachuStats.stats.hp}`;
+       `${pikachuModel.stats.hp}`;
   };
     
     if (
@@ -95,7 +95,7 @@ function decreaseHp() {
       (domElementsFromSelectors.pokemonSecondLocation.contains(evoliCard))
   ) {
      document.getElementById('evoliHealth').textContent =
-     `${evoliStats.stats.hp}`;
+     `${evoliModel.stats.hp}`;
     };
     
     if (
@@ -105,7 +105,7 @@ function decreaseHp() {
       (domElementsFromSelectors.pokemonSecondLocation.contains(roucoolCard))
   ) {
     document.getElementById('roucoolHealth').textContent = 
-    `${roucoolStats.stats.hp}`;
+    `${roucoolModel.stats.hp}`;
     };
     
     if (
@@ -115,7 +115,7 @@ function decreaseHp() {
       (domElementsFromSelectors.pokemonSecondLocation.contains(racaillouCard))
     ) {
     document.getElementById('racaillouHealth').textContent = 
-    `${racaillouStats.stats.hp}`;
+    `${racaillouModel.stats.hp}`;
     };
 
     if (
@@ -125,7 +125,7 @@ function decreaseHp() {
       (domElementsFromSelectors.pokemonSecondLocation.contains(insecateurCard))
     ) {
     document.getElementById('insecateurHealth').textContent = 
-    `${insecateurStats.stats.hp}`;
+    `${insecateurModel.stats.hp}`;
     };
 
     if (
@@ -135,7 +135,7 @@ function decreaseHp() {
       (domElementsFromSelectors.pokemonSecondLocation.contains(sabeletteCard))
     ) {
     document.getElementById('sabeletteHealth').textContent = 
-    `${sabeletteStats.stats.hp}`;
+    `${sabeletteModel.stats.hp}`;
     };
 
     if (
@@ -145,7 +145,7 @@ function decreaseHp() {
       (domElementsFromSelectors.pokemonSecondLocation.contains(mewtwoCard))
     ) {
     document.getElementById('mewtwoHealth').textContent = 
-    `${mewtwoStats.stats.hp}`;
+    `${mewtwoModel.stats.hp}`;
     };
 
     if (
@@ -155,7 +155,7 @@ function decreaseHp() {
       (domElementsFromSelectors.pokemonSecondLocation.contains(scarabruteCard))
     ) {
     document.getElementById('scarabruteHealth').textContent = 
-    `${scarabruteStats.stats.hp}`;
+    `${scarabruteModel.stats.hp}`;
     };
 
     if (
@@ -165,7 +165,7 @@ function decreaseHp() {
       (domElementsFromSelectors.pokemonSecondLocation.contains(krabbossCard))
     ) {
     document.getElementById('krabbossHealth').textContent = 
-    `${krabbossStats.stats.hp}`;
+    `${krabbossModel.stats.hp}`;
     };
 
     if (
@@ -175,7 +175,7 @@ function decreaseHp() {
       (domElementsFromSelectors.pokemonSecondLocation.contains(salamecheCard))
     ) {
     document.getElementById('salamecheHealth').textContent = 
-    `${salamecheStats.stats.hp}`;
+    `${salamecheModel.stats.hp}`;
     };
 
     if (
@@ -185,7 +185,7 @@ function decreaseHp() {
       (domElementsFromSelectors.pokemonSecondLocation.contains(nidoranMaleCard))
     ) {
     document.getElementById('nidoranMaleHealth').textContent = 
-    `${nidoranMaleStats.stats.hp}`;
+    `${nidoranMaleModel.stats.hp}`;
     };
 
 

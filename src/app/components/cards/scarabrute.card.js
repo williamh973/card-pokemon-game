@@ -1,4 +1,4 @@
-import { scarabruteStats } from '../models/scarabrute.model.js';
+import { scarabruteModel } from '../models/scarabrute.model.js';
 
   export const scarabruteCard = document.createElement('div');
     scarabruteCard.classList.add('card-main');
@@ -9,13 +9,13 @@ import { scarabruteStats } from '../models/scarabrute.model.js';
     
     const scarabruteCardTitle = document.createElement('span');
     scarabruteCardTitle.classList.add('title');
-    scarabruteCardTitle.textContent = scarabruteStats.name;
+    scarabruteCardTitle.textContent = scarabruteModel.name;
     scarabruteCardHead.appendChild(scarabruteCardTitle);
     
     export  const hp = document.createElement('span');
     hp.classList.add('hp');
     hp.id = 'scarabruteHealth';
-    hp.textContent = `${scarabruteStats.stats.hp}`;
+    hp.textContent = `${scarabruteModel.stats.hp}`;
     scarabruteCardHead.appendChild(hp);
 
     const pvText  = document.createElement('span');
@@ -26,7 +26,7 @@ import { scarabruteStats } from '../models/scarabrute.model.js';
     const scarabruteCardType = document.createElement('span');
     scarabruteCardType.classList.add('type-logo');
     scarabruteCardType.id = 'scarabrute-type';
-    scarabruteCardType.style.background = `url( ${scarabruteStats.logo})`; 
+    scarabruteCardType.style.background = `url( ${scarabruteModel.logo})`; 
     scarabruteCardType.style.backgroundSize = 'cover'
     
     const containerHpAndType = document.createElement('div');
@@ -42,7 +42,7 @@ import { scarabruteStats } from '../models/scarabrute.model.js';
     
     const scarabruteCardImage = document.createElement('div');
     scarabruteCardImage.classList.add('image');
-    scarabruteCardImage.style.backgroundImage = `url(${scarabruteStats.image})`; 
+    scarabruteCardImage.style.backgroundImage = `url(${scarabruteModel.image})`; 
     
     scarabruteCardImage.style.backgroundSize = 'cover';
     
@@ -60,7 +60,7 @@ import { scarabruteStats } from '../models/scarabrute.model.js';
     const attackType = document.createElement('span');
     attackType.classList.add('type-logo');
   
-    attackType.style.background = `url( ${scarabruteStats.firstAttack.logo})`; 
+    attackType.style.background = `url( ${scarabruteModel.firstAttack.logo})`; 
     
     attackType.style.backgroundSize = 'cover';
 
@@ -72,15 +72,15 @@ import { scarabruteStats } from '../models/scarabrute.model.js';
     
     const firstAttackName = document.createElement('div');
     firstAttackName.classList.add('attack-name');
-    firstAttackName.textContent = ` ${scarabruteStats.firstAttack.name}`;
+    firstAttackName.textContent = ` ${scarabruteModel.firstAttack.name}`;
     
     const firstAttackStrength = document.createElement('div');
     firstAttackStrength.classList.add('attack-strength');
-    firstAttackStrength.textContent = ` ${scarabruteStats.firstAttack.strength}`;
+    firstAttackStrength.textContent = ` ${scarabruteModel.firstAttack.strength}`;
     
     const scarabruteFirstAttackResume = document.createElement('div');
     scarabruteFirstAttackResume.classList.add('attack-resume');
-    scarabruteFirstAttackResume.textContent = ` ${scarabruteStats.firstAttack.resume}`;
+    scarabruteFirstAttackResume.textContent = ` ${scarabruteModel.firstAttack.resume}`;
     
     
     
@@ -94,22 +94,22 @@ import { scarabruteStats } from '../models/scarabrute.model.js';
     const secondAttackType = document.createElement('span');
     secondAttackType.classList.add('type-logo');
   
-    secondAttackType.style.background = `url( ${scarabruteStats.secondAttack.logo})`; 
+    secondAttackType.style.background = `url( ${scarabruteModel.secondAttack.logo})`; 
     
     secondAttackType.style.backgroundSize = 'cover';
     
     const secondAttackName = document.createElement('div');
     secondAttackName.classList.add('attack-name');
-    secondAttackName.textContent = ` ${scarabruteStats.secondAttack.name}`;
+    secondAttackName.textContent = ` ${scarabruteModel.secondAttack.name}`;
     
     const secondAttackStrength = document.createElement('div');
     secondAttackStrength.classList.add('attack-strength');
-    secondAttackStrength.textContent = ` ${scarabruteStats.secondAttack.strength}`;
+    secondAttackStrength.textContent = ` ${scarabruteModel.secondAttack.strength}`;
     
     const scarabruteSecondAttackResume = document.createElement('div');
     scarabruteSecondAttackResume.classList.add('attack-resume');
     
-    scarabruteSecondAttackResume.textContent = ` ${scarabruteStats.secondAttack.resume}`;
+    scarabruteSecondAttackResume.textContent = ` ${scarabruteModel.secondAttack.resume}`;
     
     attacksContainer.appendChild(scarabruteFirstAttackNameAndResume);
     
@@ -138,12 +138,12 @@ import { scarabruteStats } from '../models/scarabrute.model.js';
     
     const weakness = document.createElement('div');
     weakness.id = 'weakness';
-    weakness.textContent = ` ${scarabruteStats.weakness.name}`;
+    weakness.textContent = ` ${scarabruteModel.weakness.name}`;
    
 
     const weaknessFirstType = document.createElement('span');
     weaknessFirstType.classList.add('type-logo');
-    weaknessFirstType.style.background = `url( ${scarabruteStats.weakness.firstLogo})`; 
+    weaknessFirstType.style.background = `url( ${scarabruteModel.weakness.firstLogo})`; 
     weaknessFirstType.style.backgroundSize = 'cover';
 
     weakness.appendChild(weaknessFirstType);
@@ -151,7 +151,7 @@ import { scarabruteStats } from '../models/scarabrute.model.js';
 
     const weaknessSecondType = document.createElement('span');
     weaknessSecondType.classList.add('type-logo');
-    weaknessSecondType.style.background = `url( ${scarabruteStats.weakness.secondLogo})`; 
+    weaknessSecondType.style.background = `url( ${scarabruteModel.weakness.secondLogo})`; 
     weaknessSecondType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessSecondType);
@@ -159,7 +159,7 @@ import { scarabruteStats } from '../models/scarabrute.model.js';
 
     const weaknessThirdType = document.createElement('span');
     weaknessThirdType.classList.add('type-logo');
-    weaknessThirdType.style.background = `url( ${scarabruteStats.weakness.thirdLogo})`; 
+    weaknessThirdType.style.background = `url( ${scarabruteModel.weakness.thirdLogo})`; 
     weaknessThirdType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessThirdType);
@@ -169,14 +169,14 @@ import { scarabruteStats } from '../models/scarabrute.model.js';
     
     const resistanceContainer = document.createElement('div');
     resistanceContainer.id = 'resistance';
-    resistanceContainer.textContent = ` ${scarabruteStats.resistance.name}`;
+    resistanceContainer.textContent = ` ${scarabruteModel.resistance.name}`;
     
     weaknessResistanceContainer.appendChild(resistanceContainer);
     
 
     const resistanceFirstLogo = document.createElement('span');
     resistanceFirstLogo.classList.add('type-logo');
-    resistanceFirstLogo.style.background = `url(${scarabruteStats.resistance.firstLogo})`; 
+    resistanceFirstLogo.style.background = `url(${scarabruteModel.resistance.firstLogo})`; 
     resistanceFirstLogo.style.backgroundSize = 'cover';
 
     resistanceContainer.appendChild(resistanceFirstLogo);
@@ -184,7 +184,7 @@ import { scarabruteStats } from '../models/scarabrute.model.js';
 
     const resistanceSecondLogo = document.createElement('span');
     resistanceSecondLogo.classList.add('type-logo');
-    resistanceSecondLogo.style.background = `url(${scarabruteStats.resistance.secondLogo})`; 
+    resistanceSecondLogo.style.background = `url(${scarabruteModel.resistance.secondLogo})`; 
     resistanceSecondLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceSecondLogo);
@@ -192,7 +192,7 @@ import { scarabruteStats } from '../models/scarabrute.model.js';
 
     const resistanceThirdLogo = document.createElement('span');
     resistanceThirdLogo.classList.add('type-logo');
-    resistanceThirdLogo.style.background = `url(${scarabruteStats.resistance.thirdLogo})`; 
+    resistanceThirdLogo.style.background = `url(${scarabruteModel.resistance.thirdLogo})`; 
     resistanceThirdLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceThirdLogo);

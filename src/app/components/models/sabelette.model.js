@@ -1,4 +1,4 @@
-export let sabeletteStats = {
+export let sabeletteModel = {
     name : "Sabelette",
     level : 5,
     type : "ground",
@@ -6,7 +6,12 @@ export let sabeletteStats = {
     logo : "./src/assets/images/logos/ground.png",
     image : "./src/assets/images/sabelette.png",
     primaryStatut : "normal",
-    secondaryStatut : "normal",
+    secondaryStatut : {
+      isNormal : true,
+      isConfused : false,
+      isCursed : false,
+      isScared : false
+    },
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/water.png",

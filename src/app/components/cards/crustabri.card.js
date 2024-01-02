@@ -1,4 +1,4 @@
-import { crustabriStats } from '../models/crustabri.model.js';
+import { crustabriModel } from '../models/crustabri.model.js';
 
   export const crustabriCard = document.createElement('div');
     crustabriCard.classList.add('card-main');
@@ -9,13 +9,13 @@ import { crustabriStats } from '../models/crustabri.model.js';
     
     const crustabriCardTitle = document.createElement('span');
     crustabriCardTitle.classList.add('title');
-    crustabriCardTitle.textContent = crustabriStats.name;
+    crustabriCardTitle.textContent = crustabriModel.name;
     crustabriCardHead.appendChild(crustabriCardTitle);
     
     export  const hp = document.createElement('span');
     hp.classList.add('hp');
     hp.id = 'crustabriHealth';
-    hp.textContent = `${crustabriStats.stats.hp}`;
+    hp.textContent = `${crustabriModel.stats.hp}`;
     crustabriCardHead.appendChild(hp);
 
     const pvText  = document.createElement('span');
@@ -37,7 +37,7 @@ import { crustabriStats } from '../models/crustabri.model.js';
     const crustabriCardFirstLogo = document.createElement('span');
     crustabriCardFirstLogo.classList.add('type-logo');
     crustabriCardFirstLogo.id = 'crustabri-type';
-    crustabriCardFirstLogo.style.background = `url( ${crustabriStats.firstLogo})`; 
+    crustabriCardFirstLogo.style.background = `url( ${crustabriModel.firstLogo})`; 
     crustabriCardFirstLogo.style.backgroundSize = 'cover'
     
     containerHpAndType.appendChild(crustabriCardFirstLogo);
@@ -46,7 +46,7 @@ import { crustabriStats } from '../models/crustabri.model.js';
     const crustabriCardSecondLogo = document.createElement('span');
     crustabriCardSecondLogo.classList.add('type-logo');
     crustabriCardSecondLogo.id = 'crustabri-type';
-    crustabriCardSecondLogo.style.background = `url( ${crustabriStats.secondLogo})`; 
+    crustabriCardSecondLogo.style.background = `url( ${crustabriModel.secondLogo})`; 
     crustabriCardSecondLogo.style.backgroundSize = 'cover'
     
     containerHpAndType.appendChild(crustabriCardSecondLogo);
@@ -56,7 +56,7 @@ import { crustabriStats } from '../models/crustabri.model.js';
     
     const crustabriCardImage = document.createElement('div');
     crustabriCardImage.classList.add('image');
-    crustabriCardImage.style.backgroundImage = `url(${crustabriStats.image})`; 
+    crustabriCardImage.style.backgroundImage = `url(${crustabriModel.image})`; 
     
     crustabriCardImage.style.backgroundSize = 'cover';
     
@@ -74,7 +74,7 @@ import { crustabriStats } from '../models/crustabri.model.js';
     const attackType = document.createElement('span');
     attackType.classList.add('type-logo');
   
-    attackType.style.background = `url( ${crustabriStats.firstAttack.logo})`; 
+    attackType.style.background = `url( ${crustabriModel.firstAttack.logo})`; 
     
     attackType.style.backgroundSize = 'cover';
 
@@ -86,15 +86,15 @@ import { crustabriStats } from '../models/crustabri.model.js';
     
     const firstAttackName = document.createElement('div');
     firstAttackName.classList.add('attack-name');
-    firstAttackName.textContent = ` ${crustabriStats.firstAttack.name}`;
+    firstAttackName.textContent = ` ${crustabriModel.firstAttack.name}`;
     
     const firstAttackStrength = document.createElement('div');
     firstAttackStrength.classList.add('attack-strength');
-    firstAttackStrength.textContent = ` ${crustabriStats.firstAttack.strength}`;
+    firstAttackStrength.textContent = ` ${crustabriModel.firstAttack.strength}`;
     
     const crustabriFirstAttackResume = document.createElement('div');
     crustabriFirstAttackResume.classList.add('attack-resume');
-    crustabriFirstAttackResume.textContent = ` ${crustabriStats.firstAttack.resume}`;
+    crustabriFirstAttackResume.textContent = ` ${crustabriModel.firstAttack.resume}`;
     
     
     
@@ -108,22 +108,22 @@ import { crustabriStats } from '../models/crustabri.model.js';
     const secondAttackType = document.createElement('span');
     secondAttackType.classList.add('type-logo');
   
-    secondAttackType.style.background = `url( ${crustabriStats.secondAttack.logo})`; 
+    secondAttackType.style.background = `url( ${crustabriModel.secondAttack.logo})`; 
     
     secondAttackType.style.backgroundSize = 'cover';
     
     const secondAttackName = document.createElement('div');
     secondAttackName.classList.add('attack-name');
-    secondAttackName.textContent = ` ${crustabriStats.secondAttack.name}`;
+    secondAttackName.textContent = ` ${crustabriModel.secondAttack.name}`;
     
     const secondAttackStrength = document.createElement('div');
     secondAttackStrength.classList.add('attack-strength');
-    secondAttackStrength.textContent = ` ${crustabriStats.secondAttack.strength}`;
+    secondAttackStrength.textContent = ` ${crustabriModel.secondAttack.strength}`;
     
     const crustabriSecondAttackResume = document.createElement('div');
     crustabriSecondAttackResume.classList.add('attack-resume');
     
-    crustabriSecondAttackResume.textContent = ` ${crustabriStats.secondAttack.resume}`;
+    crustabriSecondAttackResume.textContent = ` ${crustabriModel.secondAttack.resume}`;
     
     attacksContainer.appendChild(crustabriFirstAttackNameAndResume);
     
@@ -152,12 +152,12 @@ import { crustabriStats } from '../models/crustabri.model.js';
     
     const weakness = document.createElement('div');
     weakness.id = 'weakness';
-    weakness.textContent = ` ${crustabriStats.weakness.name}`;
+    weakness.textContent = ` ${crustabriModel.weakness.name}`;
    
 
     const weaknessFirstType = document.createElement('span');
     weaknessFirstType.classList.add('type-logo');
-    weaknessFirstType.style.background = `url( ${crustabriStats.weakness.firstLogo})`; 
+    weaknessFirstType.style.background = `url( ${crustabriModel.weakness.firstLogo})`; 
     weaknessFirstType.style.backgroundSize = 'cover';
 
     weakness.appendChild(weaknessFirstType);
@@ -165,7 +165,7 @@ import { crustabriStats } from '../models/crustabri.model.js';
 
     const weaknessSecondType = document.createElement('span');
     weaknessSecondType.classList.add('type-logo');
-    weaknessSecondType.style.background = `url( ${crustabriStats.weakness.secondLogo})`; 
+    weaknessSecondType.style.background = `url( ${crustabriModel.weakness.secondLogo})`; 
     weaknessSecondType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessSecondType);
@@ -173,7 +173,7 @@ import { crustabriStats } from '../models/crustabri.model.js';
 
     const weaknessThirdType = document.createElement('span');
     weaknessThirdType.classList.add('type-logo');
-    weaknessThirdType.style.background = `url( ${crustabriStats.weakness.thirdLogo})`; 
+    weaknessThirdType.style.background = `url( ${crustabriModel.weakness.thirdLogo})`; 
     weaknessThirdType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessThirdType);
@@ -181,7 +181,7 @@ import { crustabriStats } from '../models/crustabri.model.js';
 
     const weaknessFourthType = document.createElement('span');
     weaknessFourthType.classList.add('type-logo');
-    weaknessFourthType.style.background = `url( ${crustabriStats.weakness.fourthLogo})`; 
+    weaknessFourthType.style.background = `url( ${crustabriModel.weakness.fourthLogo})`; 
     weaknessFourthType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessFourthType);
@@ -191,14 +191,14 @@ import { crustabriStats } from '../models/crustabri.model.js';
     
     const resistanceContainer = document.createElement('div');
     resistanceContainer.id = 'resistance';
-    resistanceContainer.textContent = ` ${crustabriStats.resistance.name}`;
+    resistanceContainer.textContent = ` ${crustabriModel.resistance.name}`;
     
     weaknessResistanceContainer.appendChild(resistanceContainer);
     
 
     const resistanceFirstLogo = document.createElement('span');
     resistanceFirstLogo.classList.add('type-logo');
-    resistanceFirstLogo.style.background = `url(${crustabriStats.resistance.firstLogo})`; 
+    resistanceFirstLogo.style.background = `url(${crustabriModel.resistance.firstLogo})`; 
     resistanceFirstLogo.style.backgroundSize = 'cover';
 
     resistanceContainer.appendChild(resistanceFirstLogo);
@@ -206,7 +206,7 @@ import { crustabriStats } from '../models/crustabri.model.js';
 
     const resistanceSecondLogo = document.createElement('span');
     resistanceSecondLogo.classList.add('type-logo');
-    resistanceSecondLogo.style.background = `url(${crustabriStats.resistance.secondLogo})`; 
+    resistanceSecondLogo.style.background = `url(${crustabriModel.resistance.secondLogo})`; 
     resistanceSecondLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceSecondLogo);

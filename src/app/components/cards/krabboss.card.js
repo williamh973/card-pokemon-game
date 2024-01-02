@@ -1,4 +1,4 @@
-import { krabbossStats } from '../models/krabboss.model.js';
+import { krabbossModel } from '../models/krabboss.model.js';
 
   export const krabbossCard = document.createElement('div');
     krabbossCard.classList.add('card-main');
@@ -9,13 +9,13 @@ import { krabbossStats } from '../models/krabboss.model.js';
     
     const krabbossCardTitle = document.createElement('span');
     krabbossCardTitle.classList.add('title');
-    krabbossCardTitle.textContent = krabbossStats.name;
+    krabbossCardTitle.textContent = krabbossModel.name;
     krabbossCardHead.appendChild(krabbossCardTitle);
     
     export  const hp = document.createElement('span');
     hp.classList.add('hp');
     hp.id = 'krabbossHealth';
-    hp.textContent = `${krabbossStats.stats.hp}`;
+    hp.textContent = `${krabbossModel.stats.hp}`;
     krabbossCardHead.appendChild(hp);
 
     const pvText  = document.createElement('span');
@@ -26,7 +26,7 @@ import { krabbossStats } from '../models/krabboss.model.js';
     const krabbossCardType = document.createElement('span');
     krabbossCardType.classList.add('type-logo');
     krabbossCardType.id = 'krabboss-type';
-    krabbossCardType.style.background = `url( ${krabbossStats.logo})`; 
+    krabbossCardType.style.background = `url( ${krabbossModel.logo})`; 
     krabbossCardType.style.backgroundSize = 'cover'
     
     const containerHpAndType = document.createElement('div');
@@ -42,7 +42,7 @@ import { krabbossStats } from '../models/krabboss.model.js';
     
     const krabbossCardImage = document.createElement('div');
     krabbossCardImage.classList.add('image');
-    krabbossCardImage.style.backgroundImage = `url(${krabbossStats.image})`; 
+    krabbossCardImage.style.backgroundImage = `url(${krabbossModel.image})`; 
     
     krabbossCardImage.style.backgroundSize = 'cover';
     
@@ -60,7 +60,7 @@ import { krabbossStats } from '../models/krabboss.model.js';
     const attackType = document.createElement('span');
     attackType.classList.add('type-logo');
   
-    attackType.style.background = `url( ${krabbossStats.firstAttack.logo})`; 
+    attackType.style.background = `url( ${krabbossModel.firstAttack.logo})`; 
     
     attackType.style.backgroundSize = 'cover';
 
@@ -72,15 +72,15 @@ import { krabbossStats } from '../models/krabboss.model.js';
     
     const firstAttackName = document.createElement('div');
     firstAttackName.classList.add('attack-name');
-    firstAttackName.textContent = ` ${krabbossStats.firstAttack.name}`;
+    firstAttackName.textContent = ` ${krabbossModel.firstAttack.name}`;
     
     const firstAttackStrength = document.createElement('div');
     firstAttackStrength.classList.add('attack-strength');
-    firstAttackStrength.textContent = ` ${krabbossStats.firstAttack.strength}`;
+    firstAttackStrength.textContent = ` ${krabbossModel.firstAttack.strength}`;
     
     const krabbossFirstAttackResume = document.createElement('div');
     krabbossFirstAttackResume.classList.add('attack-resume');
-    krabbossFirstAttackResume.textContent = ` ${krabbossStats.firstAttack.resume}`;
+    krabbossFirstAttackResume.textContent = ` ${krabbossModel.firstAttack.resume}`;
     
     
     
@@ -94,22 +94,22 @@ import { krabbossStats } from '../models/krabboss.model.js';
     const secondAttackType = document.createElement('span');
     secondAttackType.classList.add('type-logo');
   
-    secondAttackType.style.background = `url( ${krabbossStats.secondAttack.logo})`; 
+    secondAttackType.style.background = `url( ${krabbossModel.secondAttack.logo})`; 
     
     secondAttackType.style.backgroundSize = 'cover';
     
     const secondAttackName = document.createElement('div');
     secondAttackName.classList.add('attack-name');
-    secondAttackName.textContent = ` ${krabbossStats.secondAttack.name}`;
+    secondAttackName.textContent = ` ${krabbossModel.secondAttack.name}`;
     
     const secondAttackStrength = document.createElement('div');
     secondAttackStrength.classList.add('attack-strength');
-    secondAttackStrength.textContent = ` ${krabbossStats.secondAttack.strength}`;
+    secondAttackStrength.textContent = ` ${krabbossModel.secondAttack.strength}`;
     
     const krabbossSecondAttackResume = document.createElement('div');
     krabbossSecondAttackResume.classList.add('attack-resume');
     
-    krabbossSecondAttackResume.textContent = ` ${krabbossStats.secondAttack.resume}`;
+    krabbossSecondAttackResume.textContent = ` ${krabbossModel.secondAttack.resume}`;
     
     attacksContainer.appendChild(krabbossFirstAttackNameAndResume);
     
@@ -138,12 +138,12 @@ import { krabbossStats } from '../models/krabboss.model.js';
     
     const weakness = document.createElement('div');
     weakness.id = 'weakness';
-    weakness.textContent = ` ${krabbossStats.weakness.name}`;
+    weakness.textContent = ` ${krabbossModel.weakness.name}`;
    
 
     const weaknessFirstType = document.createElement('span');
     weaknessFirstType.classList.add('type-logo');
-    weaknessFirstType.style.background = `url( ${krabbossStats.weakness.firstLogo})`; 
+    weaknessFirstType.style.background = `url( ${krabbossModel.weakness.firstLogo})`; 
     weaknessFirstType.style.backgroundSize = 'cover';
 
     weakness.appendChild(weaknessFirstType);
@@ -151,7 +151,7 @@ import { krabbossStats } from '../models/krabboss.model.js';
 
     const weaknessSecondType = document.createElement('span');
     weaknessSecondType.classList.add('type-logo');
-    weaknessSecondType.style.background = `url( ${krabbossStats.weakness.secondLogo})`; 
+    weaknessSecondType.style.background = `url( ${krabbossModel.weakness.secondLogo})`; 
     weaknessSecondType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessSecondType);
@@ -161,14 +161,14 @@ import { krabbossStats } from '../models/krabboss.model.js';
     
     const resistanceContainer = document.createElement('div');
     resistanceContainer.id = 'resistance';
-    resistanceContainer.textContent = ` ${krabbossStats.resistance.name}`;
+    resistanceContainer.textContent = ` ${krabbossModel.resistance.name}`;
     
     weaknessResistanceContainer.appendChild(resistanceContainer);
     
 
     const resistanceFirstLogo = document.createElement('span');
     resistanceFirstLogo.classList.add('type-logo');
-    resistanceFirstLogo.style.background = `url(${krabbossStats.resistance.firstLogo})`; 
+    resistanceFirstLogo.style.background = `url(${krabbossModel.resistance.firstLogo})`; 
     resistanceFirstLogo.style.backgroundSize = 'cover';
 
     resistanceContainer.appendChild(resistanceFirstLogo);
@@ -176,7 +176,7 @@ import { krabbossStats } from '../models/krabboss.model.js';
 
     const resistanceSecondLogo = document.createElement('span');
     resistanceSecondLogo.classList.add('type-logo');
-    resistanceSecondLogo.style.background = `url(${krabbossStats.resistance.secondLogo})`; 
+    resistanceSecondLogo.style.background = `url(${krabbossModel.resistance.secondLogo})`; 
     resistanceSecondLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceSecondLogo);
@@ -184,7 +184,7 @@ import { krabbossStats } from '../models/krabboss.model.js';
 
     const resistanceThirdLogo = document.createElement('span');
     resistanceThirdLogo.classList.add('type-logo');
-    resistanceThirdLogo.style.background = `url(${krabbossStats.resistance.thirdLogo})`; 
+    resistanceThirdLogo.style.background = `url(${krabbossModel.resistance.thirdLogo})`; 
     resistanceThirdLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceThirdLogo);
@@ -192,7 +192,7 @@ import { krabbossStats } from '../models/krabboss.model.js';
 
     const resistanceFourthLogo = document.createElement('span');
     resistanceFourthLogo.classList.add('type-logo');
-    resistanceFourthLogo.style.background = `url(${krabbossStats.resistance.fourthLogo})`; 
+    resistanceFourthLogo.style.background = `url(${krabbossModel.resistance.fourthLogo})`; 
     resistanceFourthLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceFourthLogo);

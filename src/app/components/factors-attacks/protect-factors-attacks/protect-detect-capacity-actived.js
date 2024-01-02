@@ -9,5 +9,5 @@ export function protectionActived() {
 
 export function deseableProtectCapacity() {
     isProtectOrDetectCapacityActived = false;
-    console.log("isProtectOrDetectCapacityActived", isProtectOrDetectCapacityActived);
+    // console.log("isProtectOrDetectCapacityActived", isProtectOrDetectCapacityActived);
   };

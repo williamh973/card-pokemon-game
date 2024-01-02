@@ -1,4 +1,4 @@
-import { evoliStats } from '../models/evoli.model.js';
+import { evoliModel } from '../models/evoli.model.js';
 
 export const evoliCard = document.createElement('div');
     evoliCard.classList.add('card-main');
@@ -9,13 +9,13 @@ export const evoliCard = document.createElement('div');
     
     const evoliCardTitle = document.createElement('span');
     evoliCardTitle.classList.add('title');
-    evoliCardTitle.textContent = evoliStats.name;
+    evoliCardTitle.textContent = evoliModel.name;
     evoliCardHead.appendChild(evoliCardTitle);
      
 export const hp = document.createElement('span');
     hp.classList.add('hp');
     hp.id = 'evoliHealth';
-    hp.textContent = `${evoliStats.stats.hp}`;
+    hp.textContent = `${evoliModel.stats.hp}`;
     evoliCardHead.appendChild(hp);
 
     const pvText  = document.createElement('span');
@@ -26,7 +26,7 @@ export const hp = document.createElement('span');
     const evoliCardType = document.createElement('span');
     evoliCardType.classList.add('type-logo');
     evoliCardType.id = 'evoli-type';
-    evoliCardType.style.background = `url( ${evoliStats.logo})`; 
+    evoliCardType.style.background = `url( ${evoliModel.logo})`; 
     evoliCardType.style.backgroundSize = 'cover'
     
     const containerHpAndType = document.createElement('div');
@@ -42,7 +42,7 @@ export const hp = document.createElement('span');
     
     const evoliCardImage = document.createElement('div');
     evoliCardImage.classList.add('image');
-    evoliCardImage.style.backgroundImage = `url(${evoliStats.image})`; 
+    evoliCardImage.style.backgroundImage = `url(${evoliModel.image})`; 
     
     evoliCardImage.style.backgroundSize = 'cover';
     
@@ -60,7 +60,7 @@ export const hp = document.createElement('span');
     const attackType = document.createElement('span');
     attackType.classList.add('type-logo');
   
-    attackType.style.background = `url( ${evoliStats.firstAttack.logo})`; 
+    attackType.style.background = `url( ${evoliModel.firstAttack.logo})`; 
     
     attackType.style.backgroundSize = 'cover';
 
@@ -72,15 +72,15 @@ export const hp = document.createElement('span');
     
     const firstAttackName = document.createElement('div');
     firstAttackName.classList.add('attack-name');
-    firstAttackName.textContent = ` ${evoliStats.firstAttack.name}`;
+    firstAttackName.textContent = ` ${evoliModel.firstAttack.name}`;
     
     const firstAttackStrength = document.createElement('div');
     firstAttackStrength.classList.add('attack-strength');
-    firstAttackStrength.textContent = ` ${evoliStats.firstAttack.strength}`;
+    firstAttackStrength.textContent = ` ${evoliModel.firstAttack.strength}`;
     
     const evoliFirstAttackResume = document.createElement('div');
     evoliFirstAttackResume.classList.add('attack-resume');
-    evoliFirstAttackResume.textContent = ` ${evoliStats.firstAttack.resume}`;
+    evoliFirstAttackResume.textContent = ` ${evoliModel.firstAttack.resume}`;
     
     
     
@@ -94,22 +94,22 @@ export const hp = document.createElement('span');
     const secondAttackType = document.createElement('span');
     secondAttackType.classList.add('type-logo');
   
-    secondAttackType.style.background = `url( ${evoliStats.secondAttack.logo})`; 
+    secondAttackType.style.background = `url( ${evoliModel.secondAttack.logo})`; 
     
     secondAttackType.style.backgroundSize = 'cover';
     
     const secondAttackName = document.createElement('div');
     secondAttackName.classList.add('attack-name');
-    secondAttackName.textContent = ` ${evoliStats.secondAttack.name}`;
+    secondAttackName.textContent = ` ${evoliModel.secondAttack.name}`;
     
     const secondAttackStrength = document.createElement('div');
     secondAttackStrength.classList.add('attack-strength');
-    secondAttackStrength.textContent = ` ${evoliStats.secondAttack.strength}`;
+    secondAttackStrength.textContent = ` ${evoliModel.secondAttack.strength}`;
     
     const evoliSecondAttackResume = document.createElement('div');
     evoliSecondAttackResume.classList.add('attack-resume');
     
-    evoliSecondAttackResume.textContent = ` ${evoliStats.secondAttack.resume}`;
+    evoliSecondAttackResume.textContent = ` ${evoliModel.secondAttack.resume}`;
     
     attacksContainer.appendChild(evoliFirstAttackNameAndResume);
     
@@ -138,12 +138,12 @@ export const hp = document.createElement('span');
     
     const weakness = document.createElement('div');
     weakness.id = 'weakness';
-    weakness.textContent = ` ${evoliStats.weakness.name}`;
+    weakness.textContent = ` ${evoliModel.weakness.name}`;
    
     const weaknessType = document.createElement('span');
     weaknessType.classList.add('type-logo');
   
-    weaknessType.style.background = `url( ${evoliStats.weakness.firstLogo})`; 
+    weaknessType.style.background = `url( ${evoliModel.weakness.firstLogo})`; 
     
     weaknessType.style.backgroundSize = 'cover';
     weakness.appendChild(weaknessType);
@@ -152,12 +152,12 @@ export const hp = document.createElement('span');
     
     const resistance = document.createElement('div');
     resistance.id = 'resistance';
-    resistance.textContent = ` ${evoliStats.resistance.name}`;
+    resistance.textContent = ` ${evoliModel.resistance.name}`;
     
     const resistanceType = document.createElement('span');
     resistanceType.classList.add('type-logo');
   
-    resistanceType.style.background = `url( ${evoliStats.resistance.firstLogo})`; 
+    resistanceType.style.background = `url( ${evoliModel.resistance.firstLogo})`; 
     
     resistanceType.style.backgroundSize = 'cover';
  

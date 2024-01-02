@@ -1,4 +1,4 @@
-export let nidoranMaleStats = {
+export let nidoranMaleModel = {
     name : "Nidoran♂",
     level : 5,
     type : "poison",
@@ -6,7 +6,12 @@ export let nidoranMaleStats = {
     logo : "./src/assets/images/logos/poison.png",
     image : "./src/assets/images/nidoranM.png",
     primaryStatut : "normal",
-    secondaryStatut : "normal",
+    secondaryStatut : {
+      isNormal : true,
+      isConfused : false,
+      isCursed : false,
+      isScared : false
+    },
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/psy.png",

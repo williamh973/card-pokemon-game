@@ -23,6 +23,12 @@ import {
           const newHpValue = currentHp + increasingValue;
           const actualIncrease = (newHpValue > maxHp) ? (maxHp - currentHp) : increasingValue;
           firstAttacker.stats.hp = Math.min(newHpValue, maxHp);
+
+          openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack(
+            firstAttacker, 
+            actualIncrease
+            );
+
           return actualIncrease;
 
         } else if (firstAttacker.stats.hp >= firstAttacker.stats.hpMax) {
@@ -69,23 +75,12 @@ import {
           ) 
           ) {
 
-          const hpGained = increaseHp(
-            firstAttacker,
-            degats
-            );
-  
-          openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack(
-            firstAttacker, 
-            hpGained
-            );
-
             increaseHp(
               firstAttacker,
               degats
               );
 
           currentHpGreaterThanHpMaxAfterIncreased(firstAttacker);
-          
           return 1;
       } else if (
         ( 
@@ -124,23 +119,12 @@ import {
       )
       ) {
         
-        const hpGained = increaseHp(
-          firstAttacker, 
-          degats
-          );
-  
-        openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack(
-            firstAttacker, 
-            hpGained
-            );
-
         increaseHp(
-          firstAttacker,
+          firstAttacker, 
           degats
           );
 
         currentHpGreaterThanHpMaxAfterIncreased(firstAttacker);
-        console.log(degats);
         return 1;
     } else if (
         ( 

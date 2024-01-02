@@ -1,4 +1,4 @@
-import { pikachuStats } from '../models/pikachu.model.js';
+import { pikachuModel } from '../models/pikachu.model.js';
 
  
 export const pikachuCard = document.createElement('div');
@@ -10,13 +10,13 @@ export const pikachuCard = document.createElement('div');
     
     const title = document.createElement('span');
     title.classList.add('title');
-    title.textContent = pikachuStats.name;
+    title.textContent = pikachuModel.name;
     pikachuCardHead.appendChild(title);
     
 export const hp = document.createElement('div');
     hp.classList.add('hp');
     hp.id = 'pikachuHealth';
-    hp.textContent = `${pikachuStats.stats.hp}`;
+    hp.textContent = `${pikachuModel.stats.hp}`;
 
     const pvText  = document.createElement('span');
     pvText.classList.add('pv-text');
@@ -26,7 +26,7 @@ export const hp = document.createElement('div');
     const type = document.createElement('span');
     type.classList.add('type-logo');
     type.id = 'pikachu-type';
-    type.style.background = `url( ${pikachuStats.logo})`; 
+    type.style.background = `url( ${pikachuModel.logo})`; 
     type.style.backgroundSize = 'cover'
     
     const containerHpAndType = document.createElement('div');
@@ -42,7 +42,7 @@ export const hp = document.createElement('div');
     
     const image = document.createElement('div');
     image.classList.add('image');
-    image.style.background = `url( ${pikachuStats.image})`; 
+    image.style.background = `url( ${pikachuModel.image})`; 
     
     image.style.backgroundSize = 'cover';
     
@@ -60,7 +60,7 @@ export const hp = document.createElement('div');
     const attackType = document.createElement('span');
     attackType.classList.add('type-logo');
   
-    attackType.style.background = `url( ${pikachuStats.firstAttack.logo})`; 
+    attackType.style.background = `url( ${pikachuModel.firstAttack.logo})`; 
     
     attackType.style.backgroundSize = 'cover';
 
@@ -72,15 +72,15 @@ export const hp = document.createElement('div');
     
     const firstAttackName = document.createElement('div');
     firstAttackName.classList.add('attack-name');
-    firstAttackName.textContent = ` ${pikachuStats.firstAttack.name}`;
+    firstAttackName.textContent = ` ${pikachuModel.firstAttack.name}`;
     
     const firstAttackStrength = document.createElement('div');
     firstAttackStrength.classList.add('attack-strength');
-    firstAttackStrength.textContent = ` ${pikachuStats.firstAttack.strength}`;
+    firstAttackStrength.textContent = ` ${pikachuModel.firstAttack.strength}`;
     
     const pikachuFirstAttackResume = document.createElement('div');
     pikachuFirstAttackResume.classList.add('attack-resume');
-    pikachuFirstAttackResume.textContent = ` ${pikachuStats.firstAttack.resume}`;
+    pikachuFirstAttackResume.textContent = ` ${pikachuModel.firstAttack.resume}`;
     
     
     
@@ -94,22 +94,22 @@ export const hp = document.createElement('div');
     const secondAttackType = document.createElement('span');
     secondAttackType.classList.add('type-logo');
   
-    secondAttackType.style.background = `url( ${pikachuStats.secondAttack.logo})`; 
+    secondAttackType.style.background = `url( ${pikachuModel.secondAttack.logo})`; 
     
     secondAttackType.style.backgroundSize = 'cover';
     
     const secondAttackName = document.createElement('div');
     secondAttackName.classList.add('attack-name');
-    secondAttackName.textContent = ` ${pikachuStats.secondAttack.name}`;
+    secondAttackName.textContent = ` ${pikachuModel.secondAttack.name}`;
     
     const secondAttackStrength = document.createElement('div');
     secondAttackStrength.classList.add('attack-strength');
-    secondAttackStrength.textContent = ` ${pikachuStats.secondAttack.strength}`;
+    secondAttackStrength.textContent = ` ${pikachuModel.secondAttack.strength}`;
     
     const pikachuSecondAttackResume = document.createElement('div');
     pikachuSecondAttackResume.classList.add('attack-resume');
     
-    pikachuSecondAttackResume.textContent = ` ${pikachuStats.secondAttack.resume}`;
+    pikachuSecondAttackResume.textContent = ` ${pikachuModel.secondAttack.resume}`;
     
     attacksContainer.appendChild(pikachuFirstAttackNameAndResume);
     
@@ -138,14 +138,14 @@ export const hp = document.createElement('div');
     
     const weakness = document.createElement('div');
     weakness.id = 'weakness';
-    weakness.textContent = ` ${pikachuStats.weakness.name}`;
+    weakness.textContent = ` ${pikachuModel.weakness.name}`;
    
     weaknessResistanceContainer.appendChild(weakness);
 
 
     const weaknessType = document.createElement('span');
     weaknessType.classList.add('type-logo');
-    weaknessType.style.background = `url( ${pikachuStats.weakness.firstLogo})`; 
+    weaknessType.style.background = `url( ${pikachuModel.weakness.firstLogo})`; 
     weaknessType.style.backgroundSize = 'cover';
 
     weakness.appendChild(weaknessType);
@@ -154,14 +154,14 @@ export const hp = document.createElement('div');
   
     const resistance = document.createElement('div');
     resistance.id = 'resistance';
-    resistance.textContent = ` ${pikachuStats.resistance.name}`;
+    resistance.textContent = ` ${pikachuModel.resistance.name}`;
     
     weaknessResistanceContainer.appendChild(resistance);
 
 
     const resistanceFirstLogo = document.createElement('span');
     resistanceFirstLogo.classList.add('type-logo');
-    resistanceFirstLogo.style.background = `url( ${pikachuStats.resistance.firstLogo})`; 
+    resistanceFirstLogo.style.background = `url( ${pikachuModel.resistance.firstLogo})`; 
     resistanceFirstLogo.style.backgroundSize = 'cover';
  
     resistance.appendChild(resistanceFirstLogo);
@@ -170,7 +170,7 @@ export const hp = document.createElement('div');
 
     const resistanceSecondLogo = document.createElement('span');
     resistanceSecondLogo.classList.add('type-logo');
-    resistanceSecondLogo.style.background = `url(${pikachuStats.resistance.secondLogo})`; 
+    resistanceSecondLogo.style.background = `url(${pikachuModel.resistance.secondLogo})`; 
     resistanceSecondLogo.style.backgroundSize = 'cover';
  
     resistance.appendChild(resistanceSecondLogo);
@@ -178,7 +178,7 @@ export const hp = document.createElement('div');
 
     const resistanceThirdLogo = document.createElement('span');
     resistanceThirdLogo.classList.add('type-logo');
-    resistanceThirdLogo.style.background = `url(${pikachuStats.resistance.thirdLogo})`; 
+    resistanceThirdLogo.style.background = `url(${pikachuModel.resistance.thirdLogo})`; 
     resistanceThirdLogo.style.backgroundSize = 'cover';
  
     resistance.appendChild(resistanceThirdLogo);

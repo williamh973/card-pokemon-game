@@ -42,7 +42,7 @@ function paralyzedStatut10PercentProbabililityForSecondAttack(
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 10) {
+             if (randomNumber <= 10) {
                 paralyzedStatut(
                     secondAttacker
                     ); 
@@ -95,7 +95,7 @@ function paralyzedStatut30PercentProbabililityForSecondAttack(
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 30) {
+             if (randomNumber <= 30) {
                 paralyzedStatut(
                     secondAttacker
                     ); 
@@ -142,7 +142,7 @@ function paralyzedStatut100PercentProbabililityForSecondAttack(
         ) {
             const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-             if (randomNumber < 100) {
+             if (randomNumber <= 100) {
                 paralyzedStatut(
                     secondAttacker
                     ); 

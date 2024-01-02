@@ -1,4 +1,4 @@
-import { nidoranMaleStats } from '../models/nidoranMale.model.js';
+import { nidoranMaleModel } from '../models/nidoranMale.model.js';
 
 export const nidoranMaleCard = document.createElement('div');
     nidoranMaleCard.classList.add('card-main');
@@ -9,13 +9,13 @@ export const nidoranMaleCard = document.createElement('div');
     
     const nidoranMaleCardTitle = document.createElement('span');
     nidoranMaleCardTitle.classList.add('title');
-    nidoranMaleCardTitle.textContent = nidoranMaleStats.name;
+    nidoranMaleCardTitle.textContent = nidoranMaleModel.name;
     nidoranMaleCardHead.appendChild(nidoranMaleCardTitle);
      
 export const hp = document.createElement('span');
     hp.classList.add('hp');
     hp.id = 'nidoranMaleHealth';
-    hp.textContent = `${nidoranMaleStats.stats.hp}`;
+    hp.textContent = `${nidoranMaleModel.stats.hp}`;
     nidoranMaleCardHead.appendChild(hp);
 
     const pvText  = document.createElement('span');
@@ -26,7 +26,7 @@ export const hp = document.createElement('span');
     const nidoranMaleCardType = document.createElement('span');
     nidoranMaleCardType.classList.add('type-logo');
     nidoranMaleCardType.id = 'nidoranMale-type';
-    nidoranMaleCardType.style.background = `url( ${nidoranMaleStats.logo})`; 
+    nidoranMaleCardType.style.background = `url( ${nidoranMaleModel.logo})`; 
     nidoranMaleCardType.style.backgroundSize = 'cover'
     
     const containerHpAndType = document.createElement('div');
@@ -42,7 +42,7 @@ export const hp = document.createElement('span');
     
     const nidoranMaleCardImage = document.createElement('div');
     nidoranMaleCardImage.classList.add('image');
-    nidoranMaleCardImage.style.backgroundImage = `url(${nidoranMaleStats.image})`; 
+    nidoranMaleCardImage.style.backgroundImage = `url(${nidoranMaleModel.image})`; 
     
     nidoranMaleCardImage.style.backgroundSize = 'cover';
     
@@ -60,7 +60,7 @@ export const hp = document.createElement('span');
     const attackType = document.createElement('span');
     attackType.classList.add('type-logo');
   
-    attackType.style.background = `url( ${nidoranMaleStats.firstAttack.logo})`; 
+    attackType.style.background = `url( ${nidoranMaleModel.firstAttack.logo})`; 
     
     attackType.style.backgroundSize = 'cover';
 
@@ -72,15 +72,15 @@ export const hp = document.createElement('span');
     
     const firstAttackName = document.createElement('div');
     firstAttackName.classList.add('attack-name');
-    firstAttackName.textContent = ` ${nidoranMaleStats.firstAttack.name}`;
+    firstAttackName.textContent = ` ${nidoranMaleModel.firstAttack.name}`;
     
     const firstAttackStrength = document.createElement('div');
     firstAttackStrength.classList.add('attack-strength');
-    firstAttackStrength.textContent = ` ${nidoranMaleStats.firstAttack.strength}`;
+    firstAttackStrength.textContent = ` ${nidoranMaleModel.firstAttack.strength}`;
     
     const nidoranMaleFirstAttackResume = document.createElement('div');
     nidoranMaleFirstAttackResume.classList.add('attack-resume');
-    nidoranMaleFirstAttackResume.textContent = ` ${nidoranMaleStats.firstAttack.resume}`;
+    nidoranMaleFirstAttackResume.textContent = ` ${nidoranMaleModel.firstAttack.resume}`;
     
     
     
@@ -94,22 +94,22 @@ export const hp = document.createElement('span');
     const secondAttackType = document.createElement('span');
     secondAttackType.classList.add('type-logo');
   
-    secondAttackType.style.background = `url( ${nidoranMaleStats.secondAttack.logo})`; 
+    secondAttackType.style.background = `url( ${nidoranMaleModel.secondAttack.logo})`; 
     
     secondAttackType.style.backgroundSize = 'cover';
     
     const secondAttackName = document.createElement('div');
     secondAttackName.classList.add('attack-name');
-    secondAttackName.textContent = ` ${nidoranMaleStats.secondAttack.name}`;
+    secondAttackName.textContent = ` ${nidoranMaleModel.secondAttack.name}`;
     
     const secondAttackStrength = document.createElement('div');
     secondAttackStrength.classList.add('attack-strength');
-    secondAttackStrength.textContent = ` ${nidoranMaleStats.secondAttack.strength}`;
+    secondAttackStrength.textContent = ` ${nidoranMaleModel.secondAttack.strength}`;
     
     const nidoranMaleSecondAttackResume = document.createElement('div');
     nidoranMaleSecondAttackResume.classList.add('attack-resume');
     
-    nidoranMaleSecondAttackResume.textContent = ` ${nidoranMaleStats.secondAttack.resume}`;
+    nidoranMaleSecondAttackResume.textContent = ` ${nidoranMaleModel.secondAttack.resume}`;
     
     attacksContainer.appendChild(nidoranMaleFirstAttackNameAndResume);
     
@@ -138,11 +138,11 @@ export const hp = document.createElement('span');
     
     const weakness = document.createElement('div');
     weakness.id = 'weakness';
-    weakness.textContent = ` ${nidoranMaleStats.weakness.name}`;
+    weakness.textContent = ` ${nidoranMaleModel.weakness.name}`;
    
     const weaknessFirstLogo = document.createElement('span');
     weaknessFirstLogo.classList.add('type-logo');
-    weaknessFirstLogo.style.background = `url( ${nidoranMaleStats.weakness.firstLogo})`; 
+    weaknessFirstLogo.style.background = `url( ${nidoranMaleModel.weakness.firstLogo})`; 
     weaknessFirstLogo.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessFirstLogo);
@@ -150,7 +150,7 @@ export const hp = document.createElement('span');
 
     const weaknessSecondLogo = document.createElement('span');
     weaknessSecondLogo.classList.add('type-logo');
-    weaknessSecondLogo.style.background = `url( ${nidoranMaleStats.weakness.secondLogo})`; 
+    weaknessSecondLogo.style.background = `url( ${nidoranMaleModel.weakness.secondLogo})`; 
     weaknessSecondLogo.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessSecondLogo);
@@ -161,14 +161,14 @@ export const hp = document.createElement('span');
 
     const resistance = document.createElement('div');
     resistance.id = 'resistance';
-    resistance.textContent = ` ${nidoranMaleStats.resistance.name}`;
+    resistance.textContent = ` ${nidoranMaleModel.resistance.name}`;
 
     weaknessResistanceContainer.appendChild(resistance);
     
     
     const resistanceFirstLogo = document.createElement('span');
     resistanceFirstLogo.classList.add('type-logo');
-    resistanceFirstLogo.style.background = `url( ${nidoranMaleStats.resistance.firstLogo})`; 
+    resistanceFirstLogo.style.background = `url( ${nidoranMaleModel.resistance.firstLogo})`; 
     resistanceFirstLogo.style.backgroundSize = 'cover';
  
     resistance.appendChild(resistanceFirstLogo);
@@ -176,7 +176,7 @@ export const hp = document.createElement('span');
 
     const resistanceSecondLogo = document.createElement('span');
     resistanceSecondLogo.classList.add('type-logo');
-    resistanceSecondLogo.style.background = `url( ${nidoranMaleStats.resistance.secondLogo})`; 
+    resistanceSecondLogo.style.background = `url( ${nidoranMaleModel.resistance.secondLogo})`; 
     resistanceSecondLogo.style.backgroundSize = 'cover';
  
     resistance.appendChild(resistanceSecondLogo);
@@ -184,7 +184,7 @@ export const hp = document.createElement('span');
 
     const resistanceThirdLogo = document.createElement('span');
     resistanceThirdLogo.classList.add('type-logo');
-    resistanceThirdLogo.style.background = `url( ${nidoranMaleStats.resistance.thirdLogo})`; 
+    resistanceThirdLogo.style.background = `url( ${nidoranMaleModel.resistance.thirdLogo})`; 
     resistanceThirdLogo.style.backgroundSize = 'cover';
  
     resistance.appendChild(resistanceThirdLogo);
@@ -192,7 +192,7 @@ export const hp = document.createElement('span');
 
     const resistanceFourthLogo = document.createElement('span');
     resistanceFourthLogo.classList.add('type-logo');
-    resistanceFourthLogo.style.background = `url( ${nidoranMaleStats.resistance.fourthLogo})`; 
+    resistanceFourthLogo.style.background = `url( ${nidoranMaleModel.resistance.fourthLogo})`; 
     resistanceFourthLogo.style.backgroundSize = 'cover';
  
     resistance.appendChild(resistanceFourthLogo);

@@ -1,4 +1,4 @@
-export let mewtwoStats = {
+export let mewtwoModel = {
     name : "Mewtwo",
     level : 5,
     type : "psy",
@@ -6,7 +6,12 @@ export let mewtwoStats = {
     logo : "./src/assets/images/logos/psy.png",
     image : "./src/assets/images/mewtwo.png",
     primaryStatut : "normal",
-    secondaryStatut : "normal",
+    secondaryStatut : {
+      isNormal : true,
+      isConfused : false,
+      isCursed : false,
+      isScared : false
+    },
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/insect.png",

@@ -4,9 +4,11 @@ import {
 
 
 export const confusingStatut = 
-function confusingStatut(secondAttacker) {
+function  confusingStatut(secondAttacker) {
 
-  secondAttacker.secondaryStatut = 'confusing';
+  secondAttacker.secondaryStatut.isConfused = true;  
+  secondAttacker.secondaryStatut.isNormal = false;
+
   openDialogueWhenAttackConfusesPokemon(secondAttacker);
 
 }; 

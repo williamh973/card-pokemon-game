@@ -1,4 +1,4 @@
-export let roucoolStats = {
+export let roucoolModel = {
     name : "Roucool",
     level : 5,
     type : "normal",
@@ -7,7 +7,12 @@ export let roucoolStats = {
     secondLogo : "./src/assets/images/logos/flight.png",
     image : "./src/assets/images/roucool.png",
     primaryStatut : "normal",
-    secondaryStatut : "normal",
+    secondaryStatut : {
+      isNormal : true,
+      isConfused : false,
+      isCursed : false,
+      isScared : false
+    },
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/electric.png",

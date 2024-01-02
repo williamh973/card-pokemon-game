@@ -587,14 +587,14 @@ function openDialogueWhenPokemonWakeUp(pokemon) {
 
 
 export const openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack = 
-function openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack(pokemon, hpGained) {
+function openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack(pokemon, actualIncrease) {
 
   setTimeout(function() {
     domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
     domElementsFromSelectors.displayDialogue.style.display = 'flex';
     
     domElementsFromSelectors.displayDialogue.textContent =
-     `${ pokemon.name } regagne ${hpGained} pv !`;
+     `${ pokemon.name } regagne ${actualIncrease} pv !`;
     
       setTimeout(function() {
         domElementsFromSelectors.displayDialogue.style.display = 'none';
@@ -683,6 +683,40 @@ function openDialogueWhenPokemonNoLongerConfused(pokemon) {
     
     domElementsFromSelectors.displayDialogue.textContent = 
     `${ pokemon.name } n'est plus confus !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+
+    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+};
+
+
+export const openDialogueWhenPokemonCursed =
+function openDialogueWhenPokemonCursed(pokemon) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `${ pokemon.name } est maudit !`;
+    
+      setTimeout(function() {
+        domElementsFromSelectors.displayDialogue.style.display = 'none';
+      }, END_NEXT_DISPLAY_DURATION);
+
+    }, START_NEXT_DISPLAY_DURATION);
+};
+
+
+export const openDialogueWhenPokemonHurtsByCurse =
+function openDialogueWhenPokemonHurtsByCurse(pokemon) {
+  setTimeout(function() {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display = 'flex';
+    domElementsFromSelectors.displayDialogue.style.display = 'flex';
+    
+    domElementsFromSelectors.displayDialogue.textContent = 
+    `${ pokemon.name } est touché par la malédiction !`;
     
       setTimeout(function() {
         domElementsFromSelectors.displayDialogue.style.display = 'none';

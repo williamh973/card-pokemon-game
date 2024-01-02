@@ -1,4 +1,4 @@
-export let salamecheStats = {
+export let salamecheModel = {
     name : "Salamèche",
     level : 5,
     type : "fire",
@@ -6,7 +6,12 @@ export let salamecheStats = {
     logo : "./src/assets/images/logos/fire.png",
     image : "./src/assets/images/salameche.png",
     primaryStatut : "normal",
-    secondaryStatut : "normal",
+    secondaryStatut : {
+      isNormal : true,
+      isConfused : false,
+      isCursed : false,
+      isScared : false
+    },
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/water.png",

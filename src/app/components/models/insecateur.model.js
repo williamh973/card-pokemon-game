@@ -1,4 +1,4 @@
-export let insecateurStats = {
+export let insecateurModel = {
     name : "Insécateur",
     level : 5,
     type : "insect",
@@ -6,7 +6,12 @@ export let insecateurStats = {
     logo : "./src/assets/images/logos/insect.png",
     image : "./src/assets/images/insecateur.png",
     primaryStatut : "normal",
-    secondaryStatut : "normal",
+    secondaryStatut : {
+      isNormal : true,
+      isConfused : false,
+      isCursed : false,
+      isScared : false
+    },
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/flight.png",

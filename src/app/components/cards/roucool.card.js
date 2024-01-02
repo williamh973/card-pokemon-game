@@ -1,4 +1,4 @@
-import { roucoolStats } from '../models/roucool.model.js';
+import { roucoolModel } from '../models/roucool.model.js';
 
     export  const roucoolCard = document.createElement('div');
     roucoolCard.classList.add('card-main');
@@ -9,13 +9,13 @@ import { roucoolStats } from '../models/roucool.model.js';
     
     const roucoolCardTitle = document.createElement('span');
     roucoolCardTitle.classList.add('title');
-    roucoolCardTitle.textContent = roucoolStats.name;
+    roucoolCardTitle.textContent = roucoolModel.name;
     roucoolCardHead.appendChild(roucoolCardTitle);
     
     export   const hp = document.createElement('span');
     hp.classList.add('hp');
     hp.id = 'roucoolHealth';
-    hp.textContent = `${roucoolStats.stats.hp}`;
+    hp.textContent = `${roucoolModel.stats.hp}`;
     roucoolCardHead.appendChild(hp);
     
     const pvText  = document.createElement('span');
@@ -26,13 +26,13 @@ import { roucoolStats } from '../models/roucool.model.js';
     const roucoolCardFirstType = document.createElement('span');
     roucoolCardFirstType.classList.add('type-logo');
     roucoolCardFirstType.id = 'roucool-type';
-    roucoolCardFirstType.style.background = `url( ${roucoolStats.firstLogo})`; 
+    roucoolCardFirstType.style.background = `url( ${roucoolModel.firstLogo})`; 
     roucoolCardFirstType.style.backgroundSize = 'cover';
 
     const roucoolCardSecondType = document.createElement('span');
     roucoolCardSecondType.classList.add('type-logo');
     roucoolCardSecondType.id = 'roucool-type';
-    roucoolCardSecondType.style.background = `url( ${roucoolStats.secondLogo})`; 
+    roucoolCardSecondType.style.background = `url( ${roucoolModel.secondLogo})`; 
     roucoolCardSecondType.style.backgroundSize = 'cover';
     
     const containerHpAndType = document.createElement('div');
@@ -50,7 +50,7 @@ import { roucoolStats } from '../models/roucool.model.js';
     
     const roucoolCardImage = document.createElement('div');
     roucoolCardImage.classList.add('image');
-    roucoolCardImage.style.backgroundImage = `url(${roucoolStats.image})`; 
+    roucoolCardImage.style.backgroundImage = `url(${roucoolModel.image})`; 
     
     roucoolCardImage.style.backgroundSize = 'cover';
     
@@ -68,7 +68,7 @@ import { roucoolStats } from '../models/roucool.model.js';
     const attackType = document.createElement('span');
     attackType.classList.add('type-logo');
   
-    attackType.style.background = `url( ${roucoolStats.firstAttack.logo})`; 
+    attackType.style.background = `url( ${roucoolModel.firstAttack.logo})`; 
     
     attackType.style.backgroundSize = 'cover';
 
@@ -80,15 +80,15 @@ import { roucoolStats } from '../models/roucool.model.js';
     
     const firstAttackName = document.createElement('div');
     firstAttackName.classList.add('attack-name');
-    firstAttackName.textContent = ` ${roucoolStats.firstAttack.name}`;
+    firstAttackName.textContent = ` ${roucoolModel.firstAttack.name}`;
     
     const firstAttackStrength = document.createElement('div');
     firstAttackStrength.classList.add('attack-strength');
-    firstAttackStrength.textContent = ` ${roucoolStats.firstAttack.strength}`;
+    firstAttackStrength.textContent = ` ${roucoolModel.firstAttack.strength}`;
     
     const roucoolFirstAttackResume = document.createElement('div');
     roucoolFirstAttackResume.classList.add('attack-resume');
-    roucoolFirstAttackResume.textContent = ` ${roucoolStats.firstAttack.resume}`;
+    roucoolFirstAttackResume.textContent = ` ${roucoolModel.firstAttack.resume}`;
     
     
     
@@ -102,22 +102,22 @@ import { roucoolStats } from '../models/roucool.model.js';
     const secondAttackType = document.createElement('span');
     secondAttackType.classList.add('type-logo');
   
-    secondAttackType.style.background = `url( ${roucoolStats.secondAttack.logo})`; 
+    secondAttackType.style.background = `url( ${roucoolModel.secondAttack.logo})`; 
     
     secondAttackType.style.backgroundSize = 'cover';
     
     const secondAttackName = document.createElement('div');
     secondAttackName.classList.add('attack-name');
-    secondAttackName.textContent = ` ${roucoolStats.secondAttack.name}`;
+    secondAttackName.textContent = ` ${roucoolModel.secondAttack.name}`;
     
     const secondAttackStrength = document.createElement('div');
     secondAttackStrength.classList.add('attack-strength');
-    secondAttackStrength.textContent = ` ${roucoolStats.secondAttack.strength}`;
+    secondAttackStrength.textContent = ` ${roucoolModel.secondAttack.strength}`;
     
     const roucoolSecondAttackResume = document.createElement('div');
     roucoolSecondAttackResume.classList.add('attack-resume');
     
-    roucoolSecondAttackResume.textContent = ` ${roucoolStats.secondAttack.resume}`;
+    roucoolSecondAttackResume.textContent = ` ${roucoolModel.secondAttack.resume}`;
     
     attacksContainer.appendChild(roucoolFirstAttackNameAndResume);
     
@@ -146,14 +146,14 @@ import { roucoolStats } from '../models/roucool.model.js';
     
     const weakness = document.createElement('div');
     weakness.id = 'weakness';
-    weakness.textContent = ` ${roucoolStats.weakness.name}`;
+    weakness.textContent = ` ${roucoolModel.weakness.name}`;
    
     weaknessResistanceContainer.appendChild(weakness);
 
 
     const weaknessFirstLogo = document.createElement('span');
     weaknessFirstLogo.classList.add('type-logo');
-    weaknessFirstLogo.style.background = `url( ${roucoolStats.weakness.firstLogo})`; 
+    weaknessFirstLogo.style.background = `url( ${roucoolModel.weakness.firstLogo})`; 
     weaknessFirstLogo.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessFirstLogo);
@@ -161,7 +161,7 @@ import { roucoolStats } from '../models/roucool.model.js';
 
     const weaknessSecondLogo = document.createElement('span');
     weaknessSecondLogo.classList.add('type-logo');
-    weaknessSecondLogo.style.background = `url( ${roucoolStats.weakness.secondLogo})`; 
+    weaknessSecondLogo.style.background = `url( ${roucoolModel.weakness.secondLogo})`; 
     weaknessSecondLogo.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessSecondLogo);
@@ -169,7 +169,7 @@ import { roucoolStats } from '../models/roucool.model.js';
     
     const weaknessThirdLogo = document.createElement('span');
     weaknessThirdLogo.classList.add('type-logo');
-    weaknessThirdLogo.style.background = `url( ${roucoolStats.weakness.thirdLogo})`; 
+    weaknessThirdLogo.style.background = `url( ${roucoolModel.weakness.thirdLogo})`; 
     weaknessThirdLogo.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessThirdLogo);
@@ -179,14 +179,14 @@ import { roucoolStats } from '../models/roucool.model.js';
 
     const resistance = document.createElement('div');
     resistance.id = 'resistance';
-    resistance.textContent = ` ${roucoolStats.resistance.name}`;
+    resistance.textContent = ` ${roucoolModel.resistance.name}`;
     
     weaknessResistanceContainer.appendChild(resistance);
     
     
     const resistanceFirstLogo = document.createElement('span');
     resistanceFirstLogo.classList.add('type-logo');
-    resistanceFirstLogo.style.background = `url(${roucoolStats.resistance.firstLogo})`; 
+    resistanceFirstLogo.style.background = `url(${roucoolModel.resistance.firstLogo})`; 
     resistanceFirstLogo.style.backgroundSize = 'cover';
  
     resistance.appendChild(resistanceFirstLogo);
@@ -194,7 +194,7 @@ import { roucoolStats } from '../models/roucool.model.js';
  
     const resistanceSecondLogo = document.createElement('span');
     resistanceSecondLogo.classList.add('type-logo');
-    resistanceSecondLogo.style.background = `url(${roucoolStats.resistance.secondLogo})`; 
+    resistanceSecondLogo.style.background = `url(${roucoolModel.resistance.secondLogo})`; 
     resistanceSecondLogo.style.backgroundSize = 'cover';
  
     resistance.appendChild(resistanceSecondLogo);
@@ -202,7 +202,7 @@ import { roucoolStats } from '../models/roucool.model.js';
 
     const resistanceThirdLogo = document.createElement('span');
     resistanceThirdLogo.classList.add('type-logo');
-    resistanceThirdLogo.style.background = `url(${roucoolStats.resistance.thirdLogo})`; 
+    resistanceThirdLogo.style.background = `url(${roucoolModel.resistance.thirdLogo})`; 
     resistanceThirdLogo.style.backgroundSize = 'cover';
  
     resistance.appendChild(resistanceThirdLogo);
@@ -210,7 +210,7 @@ import { roucoolStats } from '../models/roucool.model.js';
 
     const resistanceFourthLogo = document.createElement('span');
     resistanceFourthLogo.classList.add('type-logo');
-    resistanceFourthLogo.style.background = `url(${roucoolStats.resistance.fourthLogo})`; 
+    resistanceFourthLogo.style.background = `url(${roucoolModel.resistance.fourthLogo})`; 
     resistanceFourthLogo.style.backgroundSize = 'cover';
  
     resistance.appendChild(resistanceFourthLogo);

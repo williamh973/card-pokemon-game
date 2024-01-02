@@ -1,4 +1,4 @@
-export let spectrumStats = {
+export let spectrumModel = {
     name : "Spectrum",
     level : 5,
     type : "spectrum",
@@ -7,7 +7,12 @@ export let spectrumStats = {
     secondLogo : "./src/assets/images/logos/poison.png",
     image : "./src/assets/images/spectrum.png",
     primaryStatut : "normal",
-    secondaryStatut : "normal",
+    secondaryStatut : {
+      isNormal : true,
+      isConfused : false,
+      isCursed : false,
+      isScared : false
+    },
       weakness : {
         name : "Faiblesse",
         firstLogo : "./src/assets/images/logos/psy.png",

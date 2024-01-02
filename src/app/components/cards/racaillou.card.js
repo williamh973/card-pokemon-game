@@ -1,4 +1,4 @@
-import { racaillouStats } from '../models/racaillou.model.js';
+import { racaillouModel } from '../models/racaillou.model.js';
 
 export const racaillouCard = document.createElement('div');
     racaillouCard.classList.add('card-main');
@@ -9,13 +9,13 @@ export const racaillouCard = document.createElement('div');
     
     const racaillouCardTitle = document.createElement('span');
     racaillouCardTitle.classList.add('title');
-    racaillouCardTitle.textContent = racaillouStats.name;
+    racaillouCardTitle.textContent = racaillouModel.name;
     racaillouCardHead.appendChild(racaillouCardTitle);
     
     export  const hp = document.createElement('span');
     hp.classList.add('hp');
     hp.id = 'racaillouHealth';
-    hp.textContent = `${racaillouStats.stats.hp}`;
+    hp.textContent = `${racaillouModel.stats.hp}`;
     racaillouCardHead.appendChild(hp);
 
     const pvText  = document.createElement('span');
@@ -26,13 +26,13 @@ export const racaillouCard = document.createElement('div');
     const racaillouCardFirstType = document.createElement('span');
     racaillouCardFirstType.classList.add('type-logo');
     racaillouCardFirstType.id = 'racaillou-type';
-    racaillouCardFirstType.style.background = `url( ${racaillouStats.firstLogo})`; 
+    racaillouCardFirstType.style.background = `url( ${racaillouModel.firstLogo})`; 
     racaillouCardFirstType.style.backgroundSize = 'cover'
 
     const racaillouCardSecondType = document.createElement('span');
     racaillouCardSecondType.classList.add('type-logo');
     racaillouCardSecondType.id = 'racaillou-type';
-    racaillouCardSecondType.style.background = `url( ${racaillouStats.secondLogo})`; 
+    racaillouCardSecondType.style.background = `url( ${racaillouModel.secondLogo})`; 
     racaillouCardSecondType.style.backgroundSize = 'cover'
     
     const containerHpAndType = document.createElement('div');
@@ -50,7 +50,7 @@ export const racaillouCard = document.createElement('div');
     
     const racaillouCardImage = document.createElement('div');
     racaillouCardImage.classList.add('image');
-    racaillouCardImage.style.backgroundImage = `url(${racaillouStats.image})`; 
+    racaillouCardImage.style.backgroundImage = `url(${racaillouModel.image})`; 
     
     racaillouCardImage.style.backgroundSize = 'cover';
     
@@ -68,7 +68,7 @@ export const racaillouCard = document.createElement('div');
     const attackType = document.createElement('span');
     attackType.classList.add('type-logo');
   
-    attackType.style.background = `url( ${racaillouStats.firstAttack.logo})`; 
+    attackType.style.background = `url( ${racaillouModel.firstAttack.logo})`; 
     
     attackType.style.backgroundSize = 'cover';
 
@@ -80,15 +80,15 @@ export const racaillouCard = document.createElement('div');
     
     const firstAttackName = document.createElement('div');
     firstAttackName.classList.add('attack-name');
-    firstAttackName.textContent = ` ${racaillouStats.firstAttack.name}`;
+    firstAttackName.textContent = ` ${racaillouModel.firstAttack.name}`;
     
     const firstAttackStrength = document.createElement('div');
     firstAttackStrength.classList.add('attack-strength');
-    firstAttackStrength.textContent = ` ${racaillouStats.firstAttack.strength}`;
+    firstAttackStrength.textContent = ` ${racaillouModel.firstAttack.strength}`;
     
     const racaillouFirstAttackResume = document.createElement('div');
     racaillouFirstAttackResume.classList.add('attack-resume');
-    racaillouFirstAttackResume.textContent = ` ${racaillouStats.firstAttack.resume}`;
+    racaillouFirstAttackResume.textContent = ` ${racaillouModel.firstAttack.resume}`;
     
     
     
@@ -102,22 +102,22 @@ export const racaillouCard = document.createElement('div');
     const secondAttackType = document.createElement('span');
     secondAttackType.classList.add('type-logo');
   
-    secondAttackType.style.background = `url( ${racaillouStats.secondAttack.logo})`; 
+    secondAttackType.style.background = `url( ${racaillouModel.secondAttack.logo})`; 
     
     secondAttackType.style.backgroundSize = 'cover';
     
     const secondAttackName = document.createElement('div');
     secondAttackName.classList.add('attack-name');
-    secondAttackName.textContent = ` ${racaillouStats.secondAttack.name}`;
+    secondAttackName.textContent = ` ${racaillouModel.secondAttack.name}`;
     
     const secondAttackStrength = document.createElement('div');
     secondAttackStrength.classList.add('attack-strength');
-    secondAttackStrength.textContent = ` ${racaillouStats.secondAttack.strength}`;
+    secondAttackStrength.textContent = ` ${racaillouModel.secondAttack.strength}`;
     
     const racaillouSecondAttackResume = document.createElement('div');
     racaillouSecondAttackResume.classList.add('attack-resume');
     
-    racaillouSecondAttackResume.textContent = ` ${racaillouStats.secondAttack.resume}`;
+    racaillouSecondAttackResume.textContent = ` ${racaillouModel.secondAttack.resume}`;
     
     attacksContainer.appendChild(racaillouFirstAttackNameAndResume);
     
@@ -146,11 +146,11 @@ export const racaillouCard = document.createElement('div');
     
     const weakness = document.createElement('div');
     weakness.id = 'weakness';
-    weakness.textContent = ` ${racaillouStats.weakness.name}`;
+    weakness.textContent = ` ${racaillouModel.weakness.name}`;
    
     const weaknessfirstLogo = document.createElement('span');
     weaknessfirstLogo.classList.add('type-logo');
-    weaknessfirstLogo.style.background = `url( ${racaillouStats.weakness.firstLogo})`; 
+    weaknessfirstLogo.style.background = `url( ${racaillouModel.weakness.firstLogo})`; 
     weaknessfirstLogo.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessfirstLogo);
@@ -158,7 +158,7 @@ export const racaillouCard = document.createElement('div');
 
     const weaknessSecondLogo = document.createElement('span');
     weaknessSecondLogo.classList.add('type-logo');
-    weaknessSecondLogo.style.background = `url( ${racaillouStats.weakness.secondLogo})`; 
+    weaknessSecondLogo.style.background = `url( ${racaillouModel.weakness.secondLogo})`; 
     weaknessSecondLogo.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessSecondLogo);
@@ -166,7 +166,7 @@ export const racaillouCard = document.createElement('div');
     
     const weaknessThirdLogo = document.createElement('span');
     weaknessThirdLogo.classList.add('type-logo');
-    weaknessThirdLogo.style.background = `url( ${racaillouStats.weakness.thirdLogo})`; 
+    weaknessThirdLogo.style.background = `url( ${racaillouModel.weakness.thirdLogo})`; 
     weaknessThirdLogo.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessThirdLogo);
@@ -178,14 +178,14 @@ export const racaillouCard = document.createElement('div');
 
     const resistance = document.createElement('div');
     resistance.id = 'resistance';
-    resistance.textContent = ` ${racaillouStats.resistance.name}`;
+    resistance.textContent = ` ${racaillouModel.resistance.name}`;
     
     weaknessResistanceContainer.appendChild(resistance);
     
     
     const resistanceFirstLogo = document.createElement('span');
     resistanceFirstLogo.classList.add('type-logo');
-    resistanceFirstLogo.style.background = `url(${racaillouStats.resistance.firstLogo})`; 
+    resistanceFirstLogo.style.background = `url(${racaillouModel.resistance.firstLogo})`; 
     resistanceFirstLogo.style.backgroundSize = 'cover';
  
     resistance.appendChild(resistanceFirstLogo);
@@ -193,7 +193,7 @@ export const racaillouCard = document.createElement('div');
  
     const resistanceSecondLogo = document.createElement('span');
     resistanceSecondLogo.classList.add('type-logo');
-    resistanceSecondLogo.style.background = `url(${racaillouStats.resistance.secondLogo})`; 
+    resistanceSecondLogo.style.background = `url(${racaillouModel.resistance.secondLogo})`; 
     resistanceSecondLogo.style.backgroundSize = 'cover';
  
     resistance.appendChild(resistanceSecondLogo);
@@ -201,7 +201,7 @@ export const racaillouCard = document.createElement('div');
 
     const resistanceThirdLogo = document.createElement('span');
     resistanceThirdLogo.classList.add('type-logo');
-    resistanceThirdLogo.style.background = `url(${racaillouStats.resistance.thirdLogo})`; 
+    resistanceThirdLogo.style.background = `url(${racaillouModel.resistance.thirdLogo})`; 
     resistanceThirdLogo.style.backgroundSize = 'cover';
  
     resistance.appendChild(resistanceThirdLogo);
@@ -209,7 +209,7 @@ export const racaillouCard = document.createElement('div');
 
     const resistanceFourthLogo = document.createElement('span');
     resistanceFourthLogo.classList.add('type-logo');
-    resistanceFourthLogo.style.background = `url(${racaillouStats.resistance.fourthLogo})`; 
+    resistanceFourthLogo.style.background = `url(${racaillouModel.resistance.fourthLogo})`; 
     resistanceFourthLogo.style.backgroundSize = 'cover';
  
     resistance.appendChild(resistanceFourthLogo);

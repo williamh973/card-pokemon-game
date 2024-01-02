@@ -1,4 +1,4 @@
-import { fantominusStats } from '../models/fantominus.model.js';
+import { fantominusModel } from '../models/fantominus.model.js';
 
   export const fantominusCard = document.createElement('div');
     fantominusCard.classList.add('card-main');
@@ -9,13 +9,13 @@ import { fantominusStats } from '../models/fantominus.model.js';
     
     const fantominusCardTitle = document.createElement('span');
     fantominusCardTitle.classList.add('title');
-    fantominusCardTitle.textContent = fantominusStats.name;
+    fantominusCardTitle.textContent = fantominusModel.name;
     fantominusCardHead.appendChild(fantominusCardTitle);
     
     export  const hp = document.createElement('span');
     hp.classList.add('hp');
     hp.id = 'fantominusHealth';
-    hp.textContent = `${fantominusStats.stats.hp}`;
+    hp.textContent = `${fantominusModel.stats.hp}`;
     fantominusCardHead.appendChild(hp);
 
     const pvText  = document.createElement('span');
@@ -37,7 +37,7 @@ import { fantominusStats } from '../models/fantominus.model.js';
     const fantominusCardFirstLogo = document.createElement('span');
     fantominusCardFirstLogo.classList.add('type-logo');
     fantominusCardFirstLogo.id = 'fantominus-type';
-    fantominusCardFirstLogo.style.background = `url( ${fantominusStats.firstLogo})`; 
+    fantominusCardFirstLogo.style.background = `url( ${fantominusModel.firstLogo})`; 
     fantominusCardFirstLogo.style.backgroundSize = 'cover'
     
     containerHpAndType.appendChild(fantominusCardFirstLogo);
@@ -46,7 +46,7 @@ import { fantominusStats } from '../models/fantominus.model.js';
     const fantominusCardSecondLogo = document.createElement('span');
     fantominusCardSecondLogo.classList.add('type-logo');
     fantominusCardSecondLogo.id = 'fantominus-type';
-    fantominusCardSecondLogo.style.background = `url( ${fantominusStats.secondLogo})`; 
+    fantominusCardSecondLogo.style.background = `url( ${fantominusModel.secondLogo})`; 
     fantominusCardSecondLogo.style.backgroundSize = 'cover'
     
     containerHpAndType.appendChild(fantominusCardSecondLogo);
@@ -56,7 +56,7 @@ import { fantominusStats } from '../models/fantominus.model.js';
     
     const fantominusCardImage = document.createElement('div');
     fantominusCardImage.classList.add('image');
-    fantominusCardImage.style.backgroundImage = `url(${fantominusStats.image})`; 
+    fantominusCardImage.style.backgroundImage = `url(${fantominusModel.image})`; 
     
     fantominusCardImage.style.backgroundSize = 'cover';
     
@@ -74,7 +74,7 @@ import { fantominusStats } from '../models/fantominus.model.js';
     const attackType = document.createElement('span');
     attackType.classList.add('type-logo');
   
-    attackType.style.background = `url( ${fantominusStats.firstAttack.logo})`; 
+    attackType.style.background = `url( ${fantominusModel.firstAttack.logo})`; 
     
     attackType.style.backgroundSize = 'cover';
 
@@ -86,15 +86,15 @@ import { fantominusStats } from '../models/fantominus.model.js';
     
     const firstAttackName = document.createElement('div');
     firstAttackName.classList.add('attack-name');
-    firstAttackName.textContent = ` ${fantominusStats.firstAttack.name}`;
+    firstAttackName.textContent = ` ${fantominusModel.firstAttack.name}`;
     
     const firstAttackStrength = document.createElement('div');
     firstAttackStrength.classList.add('attack-strength');
-    firstAttackStrength.textContent = ` ${fantominusStats.firstAttack.strength}`;
+    firstAttackStrength.textContent = ` ${fantominusModel.firstAttack.strength}`;
     
     const fantominusFirstAttackResume = document.createElement('div');
     fantominusFirstAttackResume.classList.add('attack-resume');
-    fantominusFirstAttackResume.textContent = ` ${fantominusStats.firstAttack.resume}`;
+    fantominusFirstAttackResume.textContent = ` ${fantominusModel.firstAttack.resume}`;
     
     
     
@@ -108,22 +108,22 @@ import { fantominusStats } from '../models/fantominus.model.js';
     const secondAttackType = document.createElement('span');
     secondAttackType.classList.add('type-logo');
   
-    secondAttackType.style.background = `url( ${fantominusStats.secondAttack.logo})`; 
+    secondAttackType.style.background = `url( ${fantominusModel.secondAttack.logo})`; 
     
     secondAttackType.style.backgroundSize = 'cover';
     
     const secondAttackName = document.createElement('div');
     secondAttackName.classList.add('attack-name');
-    secondAttackName.textContent = ` ${fantominusStats.secondAttack.name}`;
+    secondAttackName.textContent = ` ${fantominusModel.secondAttack.name}`;
     
     const secondAttackStrength = document.createElement('div');
     secondAttackStrength.classList.add('attack-strength');
-    secondAttackStrength.textContent = ` ${fantominusStats.secondAttack.strength}`;
+    secondAttackStrength.textContent = ` ${fantominusModel.secondAttack.strength}`;
     
     const fantominusSecondAttackResume = document.createElement('div');
     fantominusSecondAttackResume.classList.add('attack-resume');
     
-    fantominusSecondAttackResume.textContent = ` ${fantominusStats.secondAttack.resume}`;
+    fantominusSecondAttackResume.textContent = ` ${fantominusModel.secondAttack.resume}`;
     
     attacksContainer.appendChild(fantominusFirstAttackNameAndResume);
     
@@ -152,12 +152,12 @@ import { fantominusStats } from '../models/fantominus.model.js';
     
     const weakness = document.createElement('div');
     weakness.id = 'weakness';
-    weakness.textContent = ` ${fantominusStats.weakness.name}`;
+    weakness.textContent = ` ${fantominusModel.weakness.name}`;
    
 
     const weaknessFirstType = document.createElement('span');
     weaknessFirstType.classList.add('type-logo');
-    weaknessFirstType.style.background = `url( ${fantominusStats.weakness.firstLogo})`; 
+    weaknessFirstType.style.background = `url( ${fantominusModel.weakness.firstLogo})`; 
     weaknessFirstType.style.backgroundSize = 'cover';
 
     weakness.appendChild(weaknessFirstType);
@@ -165,7 +165,7 @@ import { fantominusStats } from '../models/fantominus.model.js';
 
     const weaknessSecondType = document.createElement('span');
     weaknessSecondType.classList.add('type-logo');
-    weaknessSecondType.style.background = `url( ${fantominusStats.weakness.secondLogo})`; 
+    weaknessSecondType.style.background = `url( ${fantominusModel.weakness.secondLogo})`; 
     weaknessSecondType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessSecondType);
@@ -173,7 +173,7 @@ import { fantominusStats } from '../models/fantominus.model.js';
 
     const weaknessThirdType = document.createElement('span');
     weaknessThirdType.classList.add('type-logo');
-    weaknessThirdType.style.background = `url( ${fantominusStats.weakness.thirdLogo})`; 
+    weaknessThirdType.style.background = `url( ${fantominusModel.weakness.thirdLogo})`; 
     weaknessThirdType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessThirdType);
@@ -181,7 +181,7 @@ import { fantominusStats } from '../models/fantominus.model.js';
 
     const weaknessFourthType = document.createElement('span');
     weaknessFourthType.classList.add('type-logo');
-    weaknessFourthType.style.background = `url( ${fantominusStats.weakness.fourthLogo})`; 
+    weaknessFourthType.style.background = `url( ${fantominusModel.weakness.fourthLogo})`; 
     weaknessFourthType.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessFourthType);
@@ -191,7 +191,7 @@ import { fantominusStats } from '../models/fantominus.model.js';
     
     const resistanceContainer = document.createElement('div');
     resistanceContainer.id = 'resistance';
-    resistanceContainer.textContent = ` ${fantominusStats.resistance.name}`;
+    resistanceContainer.textContent = ` ${fantominusModel.resistance.name}`;
     
     weaknessResistanceContainer.appendChild(resistanceContainer);
     
@@ -199,28 +199,28 @@ import { fantominusStats } from '../models/fantominus.model.js';
     
     const resistanceFirstLogo = document.createElement('span');
     resistanceFirstLogo.classList.add('type-logo');
-    resistanceFirstLogo.style.background = `url(${fantominusStats.resistance.firstLogo})`; 
+    resistanceFirstLogo.style.background = `url(${fantominusModel.resistance.firstLogo})`; 
     resistanceFirstLogo.style.backgroundSize = 'cover';
 
     resistanceContainer.appendChild(resistanceFirstLogo);
 
     const resistanceSecondLogo = document.createElement('span');
     resistanceSecondLogo.classList.add('type-logo');
-    resistanceSecondLogo.style.background = `url(${fantominusStats.resistance.secondLogo})`; 
+    resistanceSecondLogo.style.background = `url(${fantominusModel.resistance.secondLogo})`; 
     resistanceSecondLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceSecondLogo);
     
     const resistanceThirdLogo = document.createElement('span');
     resistanceThirdLogo.classList.add('type-logo');
-    resistanceThirdLogo.style.background = `url(${fantominusStats.resistance.thirdLogo})`; 
+    resistanceThirdLogo.style.background = `url(${fantominusModel.resistance.thirdLogo})`; 
     resistanceThirdLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceThirdLogo);
 
     const resistanceFourthLogo = document.createElement('span');
     resistanceFourthLogo.classList.add('type-logo');
-    resistanceFourthLogo.style.background = `url(${fantominusStats.resistance.fourthLogo})`; 
+    resistanceFourthLogo.style.background = `url(${fantominusModel.resistance.fourthLogo})`; 
     resistanceFourthLogo.style.backgroundSize = 'cover';
  
     resistanceContainer.appendChild(resistanceFourthLogo);

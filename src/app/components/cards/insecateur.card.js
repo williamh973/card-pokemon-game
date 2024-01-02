@@ -1,4 +1,4 @@
-import { insecateurStats } from '../models/insecateur.model.js';
+import { insecateurModel } from '../models/insecateur.model.js';
 
   export const insecateurCard = document.createElement('div');
     insecateurCard.classList.add('card-main');
@@ -9,13 +9,13 @@ import { insecateurStats } from '../models/insecateur.model.js';
     
     const insecateurCardTitle = document.createElement('span');
     insecateurCardTitle.classList.add('title');
-    insecateurCardTitle.textContent = insecateurStats.name;
+    insecateurCardTitle.textContent = insecateurModel.name;
     insecateurCardHead.appendChild(insecateurCardTitle);
     
     export  const hp = document.createElement('span');
     hp.classList.add('hp');
     hp.id = 'insecateurHealth';
-    hp.textContent = `${insecateurStats.stats.hp}`;
+    hp.textContent = `${insecateurModel.stats.hp}`;
     insecateurCardHead.appendChild(hp);
 
     const pvText  = document.createElement('span');
@@ -26,7 +26,7 @@ import { insecateurStats } from '../models/insecateur.model.js';
     const insecateurCardType = document.createElement('span');
     insecateurCardType.classList.add('type-logo');
     insecateurCardType.id = 'insecateur-type';
-    insecateurCardType.style.background = `url( ${insecateurStats.logo})`; 
+    insecateurCardType.style.background = `url( ${insecateurModel.logo})`; 
     insecateurCardType.style.backgroundSize = 'cover'
     
     const containerHpAndType = document.createElement('div');
@@ -42,7 +42,7 @@ import { insecateurStats } from '../models/insecateur.model.js';
     
     const insecateurCardImage = document.createElement('div');
     insecateurCardImage.classList.add('image');
-    insecateurCardImage.style.backgroundImage = `url(${insecateurStats.image})`; 
+    insecateurCardImage.style.backgroundImage = `url(${insecateurModel.image})`; 
     
     insecateurCardImage.style.backgroundSize = 'cover';
     
@@ -60,7 +60,7 @@ import { insecateurStats } from '../models/insecateur.model.js';
     const attackType = document.createElement('span');
     attackType.classList.add('type-logo');
   
-    attackType.style.background = `url( ${insecateurStats.firstAttack.logo})`; 
+    attackType.style.background = `url( ${insecateurModel.firstAttack.logo})`; 
     
     attackType.style.backgroundSize = 'cover';
 
@@ -72,15 +72,15 @@ import { insecateurStats } from '../models/insecateur.model.js';
     
     const firstAttackName = document.createElement('div');
     firstAttackName.classList.add('attack-name');
-    firstAttackName.textContent = ` ${insecateurStats.firstAttack.name}`;
+    firstAttackName.textContent = ` ${insecateurModel.firstAttack.name}`;
     
     const firstAttackStrength = document.createElement('div');
     firstAttackStrength.classList.add('attack-strength');
-    firstAttackStrength.textContent = ` ${insecateurStats.firstAttack.strength}`;
+    firstAttackStrength.textContent = ` ${insecateurModel.firstAttack.strength}`;
     
     const InsecateurFirstAttackResume = document.createElement('div');
     InsecateurFirstAttackResume.classList.add('attack-resume');
-    InsecateurFirstAttackResume.textContent = ` ${insecateurStats.firstAttack.resume}`;
+    InsecateurFirstAttackResume.textContent = ` ${insecateurModel.firstAttack.resume}`;
     
     
     
@@ -94,22 +94,22 @@ import { insecateurStats } from '../models/insecateur.model.js';
     const secondAttackType = document.createElement('span');
     secondAttackType.classList.add('type-logo');
   
-    secondAttackType.style.background = `url( ${insecateurStats.secondAttack.logo})`; 
+    secondAttackType.style.background = `url( ${insecateurModel.secondAttack.logo})`; 
     
     secondAttackType.style.backgroundSize = 'cover';
     
     const secondAttackName = document.createElement('div');
     secondAttackName.classList.add('attack-name');
-    secondAttackName.textContent = ` ${insecateurStats.secondAttack.name}`;
+    secondAttackName.textContent = ` ${insecateurModel.secondAttack.name}`;
     
     const secondAttackStrength = document.createElement('div');
     secondAttackStrength.classList.add('attack-strength');
-    secondAttackStrength.textContent = ` ${insecateurStats.secondAttack.strength}`;
+    secondAttackStrength.textContent = ` ${insecateurModel.secondAttack.strength}`;
     
     const InsecateurSecondAttackResume = document.createElement('div');
     InsecateurSecondAttackResume.classList.add('attack-resume');
     
-    InsecateurSecondAttackResume.textContent = ` ${insecateurStats.secondAttack.resume}`;
+    InsecateurSecondAttackResume.textContent = ` ${insecateurModel.secondAttack.resume}`;
     
     attacksContainer.appendChild(InsecateurFirstAttackNameAndResume);
     
@@ -138,11 +138,11 @@ import { insecateurStats } from '../models/insecateur.model.js';
     
     const weakness = document.createElement('div');
     weakness.id = 'weakness';
-    weakness.textContent = ` ${insecateurStats.weakness.name}`;
+    weakness.textContent = ` ${insecateurModel.weakness.name}`;
    
     const weaknessFirstLogo = document.createElement('span');
     weaknessFirstLogo.classList.add('type-logo');
-    weaknessFirstLogo.style.background = `url( ${insecateurStats.weakness.firstLogo} )`; 
+    weaknessFirstLogo.style.background = `url( ${insecateurModel.weakness.firstLogo} )`; 
     weaknessFirstLogo.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessFirstLogo);
@@ -150,7 +150,7 @@ import { insecateurStats } from '../models/insecateur.model.js';
 
     const weaknessSecondLogo = document.createElement('span');
     weaknessSecondLogo.classList.add('type-logo');
-    weaknessSecondLogo.style.background = `url( ${insecateurStats.weakness.secondLogo} )`; 
+    weaknessSecondLogo.style.background = `url( ${insecateurModel.weakness.secondLogo} )`; 
     weaknessSecondLogo.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessSecondLogo);
@@ -158,7 +158,7 @@ import { insecateurStats } from '../models/insecateur.model.js';
 
     const weaknessThirdLogo = document.createElement('span');
     weaknessThirdLogo.classList.add('type-logo');
-    weaknessThirdLogo.style.background = `url( ${insecateurStats.weakness.thirdLogo} )`; 
+    weaknessThirdLogo.style.background = `url( ${insecateurModel.weakness.thirdLogo} )`; 
     weaknessThirdLogo.style.backgroundSize = 'cover';
     
     weakness.appendChild(weaknessThirdLogo);
@@ -169,11 +169,11 @@ import { insecateurStats } from '../models/insecateur.model.js';
     
     const resistance = document.createElement('div');
     resistance.id = 'resistance';
-    resistance.textContent = ` ${insecateurStats.resistance.name}`;
+    resistance.textContent = ` ${insecateurModel.resistance.name}`;
     
     const resistanceFirstLogo = document.createElement('span');
     resistanceFirstLogo.classList.add('type-logo');
-    resistanceFirstLogo.style.background = `url(${insecateurStats.resistance.firstLogo})`; 
+    resistanceFirstLogo.style.background = `url(${insecateurModel.resistance.firstLogo})`; 
     resistanceFirstLogo.style.backgroundSize = 'cover';
  
     resistance.appendChild(resistanceFirstLogo);
@@ -181,7 +181,7 @@ import { insecateurStats } from '../models/insecateur.model.js';
 
     const resistanceSecondLogo = document.createElement('span');
     resistanceSecondLogo.classList.add('type-logo');
-    resistanceSecondLogo.style.background = `url(${insecateurStats.resistance.secondLogo})`; 
+    resistanceSecondLogo.style.background = `url(${insecateurModel.resistance.secondLogo})`; 
     resistanceSecondLogo.style.backgroundSize = 'cover';
  
     resistance.appendChild(resistanceSecondLogo);
@@ -189,7 +189,7 @@ import { insecateurStats } from '../models/insecateur.model.js';
 
     const resistanceThirdLogo = document.createElement('span');
     resistanceThirdLogo.classList.add('type-logo');
-    resistanceThirdLogo.style.background = `url(${insecateurStats.resistance.thirdLogo})`; 
+    resistanceThirdLogo.style.background = `url(${insecateurModel.resistance.thirdLogo})`; 
     resistanceThirdLogo.style.backgroundSize = 'cover';
  
     resistance.appendChild(resistanceThirdLogo);
