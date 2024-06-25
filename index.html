@@ -1,136 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Card Pokemon</title>
-    <meta name="description" content="Description de la page">
-    
-    <link rel="stylesheet" href="./styles/style-head.css">
-    <link rel="stylesheet" href="./styles/style-fight-in-progress.css">
-    <link rel="stylesheet" href="./styles/style-ring.css">
-    <link rel="stylesheet" href="./styles/style-bottom.css">
-    <link rel="stylesheet" href="./styles/style-cards-specific.css">
-    <link rel="stylesheet" href="./styles/style-cards.css">
-    <link rel="stylesheet" href="./styles/style-dialogues.css">
-    <link rel="stylesheet" href="./styles/style-display-result.css">
-    <link rel="stylesheet" href="./styles/style-pseudo-form.css">
+    <meta name="description" content="Description de la page" />
 
-   <script src="./pseudo-form.js" type="module" defer></script>
+    <link rel="stylesheet" href="./styles/style-head.css" />
+    <link rel="stylesheet" href="./styles/style-fight-in-progress.css" />
+    <link rel="stylesheet" href="./styles/style-ring.css" />
+    <link rel="stylesheet" href="./styles/style-bottom.css" />
+    <link rel="stylesheet" href="./styles/style-cards-specific.css" />
+    <link rel="stylesheet" href="./styles/style-cards.css" />
+    <link rel="stylesheet" href="./styles/style-dialogues.css" />
+    <link rel="stylesheet" href="./styles/style-display-result.css" />
+    <link rel="stylesheet" href="./styles/style-pseudo-form.css" />
+
+    <script src="./pseudo-form.js" type="module" defer></script>
     <script src="./stats/pikachuStats.js" type="module" defer></script>
     <script src="./stats/evoliStats.js" type="module" defer></script>
     <script src="./stats/roucoolStats.js" type="module" defer></script>
     <script src="./stats/racaillouStats.js" type="module" defer></script>
-    
+
     <script src="./cards/pikachuCard.js" type="module" defer></script>
     <script src="./cards/roucoolCard.js" type="module" defer></script>
     <script src="./cards/evoliCard.js" type="module" defer></script>
     <script src="./cards/racaillouCard.js" type="module" defer></script>
-   
+
     <script src="./result-fight.js" type="module" defer></script>
-  <script src="main-game.js" type="module" defer
-      ></script>
-</head>
+    <script src="main-game.js" type="module" defer></script>
+  </head>
 
-
-<body id="body">
-  
-  <div class="container-head">
-        
-        <div id="container-title">
-          <img id="title" src="./images/pokemon-logo.png">
-        </div>
-
-    <select id="menu">
-      <option value="default">Sélectionner un mode</option>
-      <option value="definite-fight">Combat défini</option>
-      <option value="random-fight"   >Combat aléatoire</option>
-      <option value="close-menu">Fermer le menu</option>
-    </select>      
-
-          <select id="pokemonFirstSelection">
-         <option value="choose" selected>Choisissez votre Pokémon</option>
-            <option value="pikachu">Pikachu</option>
-            <option value="evoli"
-             >Evoli</option>
-            <option value="roucool">Roucool</option>
-            <option value="racaillou">Racaillou</option>
-          </select>
-          
-          <div id="container-vs">
-             <p id="vs">VS</p>
-          </div>
-    
-          <select id="pokemonSecondSelection">
-         <option value="choose" selected>Choisissez le Pokémon adverse</option>
-            <option value="pikachu">Pikachu</option>
-            <option value="evoli"
-             >Evoli</option>
-            <option value="roucool">Roucool</option>
-            <option value="racaillou">Racaillou</option>
-          </select>
-          
-          <button id="pokemonRandomSelection">
-            Cliquer pour générer un pokémon
-          </button>
-          
-        <div id="container-display-pokemon-selected">
-          <div id="pokemon-selected"></div>
-        </div>
-          
-        <div id="container-players">
-          <div id="first-player"></div>
-        </div>
-  
-      
+  <body id="body">
+    <div class="container-head">
+      <div id="container-title">
+        <img id="title" src="./images/pokemon-logo.png" />
       </div>
-      
+
+      <select id="menu">
+        <option value="default">Sélectionner un mode</option>
+        <option value="definite-fight">Combat défini</option>
+        <option value="random-fight">Combat aléatoire</option>
+        <option value="close-menu">Fermer le menu</option>
+      </select>
+
+      <select id="pokemonFirstSelection">
+        <option value="choose" selected>Choisissez votre Pokémon</option>
+        <option value="pikachu">Pikachu</option>
+        <option value="evoli">Evoli</option>
+        <option value="roucool">Roucool</option>
+        <option value="racaillou">Racaillou</option>
+      </select>
+
+      <div id="container-vs">
+        <p id="vs">VS</p>
+      </div>
+
+      <select id="pokemonSecondSelection">
+        <option value="choose" selected>Choisissez le Pokémon adverse</option>
+        <option value="pikachu">Pikachu</option>
+        <option value="evoli">Evoli</option>
+        <option value="roucool">Roucool</option>
+        <option value="racaillou">Racaillou</option>
+      </select>
+
+      <button id="pokemonRandomSelection">
+        Cliquer pour générer un pokémon
+      </button>
+
+      <div id="container-display-pokemon-selected">
+        <div id="pokemon-selected"></div>
+      </div>
+
+      <div id="container-players">
+        <div id="first-player"></div>
+      </div>
+    </div>
+
     <div id="ring">
-      
       <div class="pokemon-location" id="pokemon-first-location">
         <div class="big-circle">
-         <div class="little-circle"></div>
+          <div class="little-circle"></div>
         </div>
       </div>
-    
-      
+
       <div class="pokemon-location" id="pokemon-second-location">
         <div class="big-circle">
-         <div class="little-circle"></div>
+          <div class="little-circle"></div>
         </div>
       </div>
-      
     </div>
-    
+
     <div class="container-btn-fight">
       <button id="fightButton">Fight !</button>
     </div>
-  
+
     <div id="container-display-result">
       <div id="result"></div>
     </div>
-    
+
     <div id="container-display-dialogue">
       <div id="dialogue"></div>
     </div>
-    
+
     <div id="fight-in-progress"></div>
 
+    <div id="playerFormContainer">
+      <div id="container-logo-pokemon">
+        <img id="logo-pokemon" src="./images/pokemon-logo.png" />
+      </div>
 
-  <div id="playerFormContainer">
-    
-    <div id="container-logo-pokemon">
-      <img id="logo-pokemon" src="./images/pokemon-logo.png">
-    </div>
-    
-    <form id="playerNamesForm">
-      <label for="playerName">Entrer votre nom :</label>
-        <input type="text" id="playerName" required>
-  
+      <form id="playerNamesForm">
+        <label for="playerName">Entrer votre nom :</label>
+        <input type="text" id="playerName" required />
+
         <button id="submitButton" type="submit">C'est parti !</button>
-    </form>
-  
-  </div>
-
-</body>
+      </form>
+    </div>
+  </body>
 </html>

@@ -77,13 +77,12 @@ input {
   font-size: 20px;
   font-weight: bolder;
 }
-  
-  
 
 @keyframes logoPokemonMoveUp {
   from {
     transform: translateY(0);
-  } to {
+  }
+  to {
     transform: translateY(-150px);
   }
 }
@@ -91,7 +90,8 @@ input {
 @keyframes displayForm {
   from {
     opacity: 0;
-  } to {
+  }
+  to {
     opacity: 1;
   }
 }
