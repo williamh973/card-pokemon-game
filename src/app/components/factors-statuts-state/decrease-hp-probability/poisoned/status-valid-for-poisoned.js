@@ -1,10 +1,11 @@
-export const isStatusValidForPoisoned = 
-function isStatusValidForPoisoned(secondAttacker) {
-    return (
-        secondAttacker.primaryStatut !== 'burning' &&
-        secondAttacker.primaryStatut !== 'paralyzed' &&
-        secondAttacker.primaryStatut !== 'asleep' &&
-        secondAttacker.primaryStatut !== 'poisoned' &&
-        secondAttacker.primaryStatut !== 'frozen' 
-    );
-  }
+export const isStatusValidForPoisoned = function isStatusValidForPoisoned(
+  secondAttacker,
+) {
+  return (
+    secondAttacker.primaryStatut !== "burning" &&
+    secondAttacker.primaryStatut !== "paralyzed" &&
+    secondAttacker.primaryStatut !== "asleep" &&
+    secondAttacker.primaryStatut !== "poisoned" &&
+    secondAttacker.primaryStatut !== "frozen"
+  );
+};

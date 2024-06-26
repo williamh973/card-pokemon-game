@@ -1,23 +1,16 @@
-import { 
-    frozenStatut10PercentProbabililityForFirstAttack
-  } from "../frozen-statut-probability-for-first-attack.js";
+import { frozenStatut10PercentProbabililityForFirstAttack } from "../frozen-statut-probability-for-first-attack.js";
 
-
-
-  export const frozenStatutProbabilitysForFirstAttack =
+export const frozenStatutProbabilitysForFirstAttack =
   function frozenStatutProbabilitysForFirstAttack(
     firstAttacker,
     secondAttacker,
     isFirstAttackActive,
-    firstAttackType
-  ) {  
-
+    firstAttackType,
+  ) {
     frozenStatut10PercentProbabililityForFirstAttack(
-        firstAttacker,
-        secondAttacker,
-        isFirstAttackActive,
-        firstAttackType
-      );
-
-
+      firstAttacker,
+      secondAttacker,
+      isFirstAttackActive,
+      firstAttackType,
+    );
   };

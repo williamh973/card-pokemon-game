@@ -1,59 +1,59 @@
 export let roucoolModel = {
-    name : "Roucool",
-    level : 5,
-    type : "normal",
-    secondaryType : "flight",
-    firstLogo : "./src/assets/images/logos/coloreless.png",
-    secondLogo : "./src/assets/images/logos/flight.png",
-    image : "./src/assets/images/roucool.png",
-    primaryStatut : "normal",
-    secondaryStatut : {
-      isNormal : true,
-      isConfused : false,
-      isCursed : false,
-      isScared : false
-    },
-      weakness : {
-        name : "Faiblesse",
-        firstLogo : "./src/assets/images/logos/electric.png",
-        secondLogo : "./src/assets/images/logos/rock.png",
-        thirdLogo : "./src/assets/images/logos/ice.png",
-      },
-      resistance : {
-        name : "Résistance",
-        firstLogo : "./src/assets/images/logos/fight.png",
-        secondLogo : "./src/assets/images/logos/insect.png",
-        thirdLogo : "./src/assets/images/logos/plant.png",
-        fourthLogo : "./src/assets/images/logos/ground.png"
-      },
-    firstAttack : {
-      name : "Charge",
-      logo : "./src/assets/images/logos/coloreless.png",
-      type: "normal",
-      class : "physical",
-      resume : "Une attaque de base",
-      strength : 35,
-      precision : 95,
-      precisionMax : 95
-    },
-    secondAttack : {
-      name : "Tornade",
-      logo : "./src/assets/images/logos/flight.png",
-      type: "flight",
-      class : "special",
-      resume : "Le lanceur bat des ailes pour générer une bourrasque qui blesse la cible",
-      strength : 40,
-      precision : 100,
-      precisionMax : 100
-    },
-    stats : {
-      attack : 45,
-      defense : 40,
-      specialAtt : 35,
-      specialDef : 35,
-      speed : 56,
-      hp : 40,
-      hpMax : 40 
-    }
-  };
-  
+  name: "Roucool",
+  level: 5,
+  type: "normal",
+  secondaryType: "flight",
+  firstLogo: "./src/assets/images/logos/coloreless.png",
+  secondLogo: "./src/assets/images/logos/flight.png",
+  image: "./src/assets/images/roucool.png",
+  primaryStatut: "normal",
+  secondaryStatut: {
+    isNormal: true,
+    isConfused: false,
+    isCursed: false,
+    isScared: false,
+  },
+  weakness: {
+    name: "Faiblesse",
+    firstLogo: "./src/assets/images/logos/electric.png",
+    secondLogo: "./src/assets/images/logos/rock.png",
+    thirdLogo: "./src/assets/images/logos/ice.png",
+  },
+  resistance: {
+    name: "Résistance",
+    firstLogo: "./src/assets/images/logos/fight.png",
+    secondLogo: "./src/assets/images/logos/insect.png",
+    thirdLogo: "./src/assets/images/logos/plant.png",
+    fourthLogo: "./src/assets/images/logos/ground.png",
+  },
+  firstAttack: {
+    name: "Charge",
+    logo: "./src/assets/images/logos/coloreless.png",
+    type: "normal",
+    class: "physical",
+    resume: "Une attaque de base",
+    strength: 35,
+    precision: 95,
+    precisionMax: 95,
+  },
+  secondAttack: {
+    name: "Tornade",
+    logo: "./src/assets/images/logos/flight.png",
+    type: "flight",
+    class: "special",
+    resume:
+      "Le lanceur bat des ailes pour générer une bourrasque qui blesse la cible",
+    strength: 40,
+    precision: 100,
+    precisionMax: 100,
+  },
+  stats: {
+    attack: 45,
+    defense: 40,
+    specialAtt: 35,
+    specialDef: 35,
+    speed: 56,
+    hp: 40,
+    hpMax: 40,
+  },
+};

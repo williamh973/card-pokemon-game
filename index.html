@@ -1,190 +1,147 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Card Pokemon</title>
-    <meta name="description" content="Description de la page">
-    
-    <link rel="stylesheet" href="./styles/main.style.css">
-    <link rel="stylesheet" href="./styles/head.style.css">
-    <link rel="stylesheet" href="./styles/fight-in-progress.style.css">
-    <link rel="stylesheet" href="./styles/ring.style.css">
-    <link rel="stylesheet" href="./styles/bottom.style.css">
-    <link rel="stylesheet" href="./styles/cards-specific.style.css">
-    <link rel="stylesheet" href="./styles/cards.style.css">
-    <link rel="stylesheet" href="./styles/dialogues.style.css">
-    <link rel="stylesheet" href="./styles/display-result.style.css">
-    <link rel="stylesheet" href="./styles/player-form-container-for-start.style.css">
-    <link rel="stylesheet" href="./styles/pokemon-stats-container.style.css">
-    <script src="./src/app/components/main-game.js" type="module" defer></script>
-</head>
+    <meta name="description" content="Description de la page" />
 
+    <link rel="stylesheet" href="./styles/main.style.css" />
+    <link rel="stylesheet" href="./styles/head.style.css" />
+    <link rel="stylesheet" href="./styles/fight-in-progress.style.css" />
+    <link rel="stylesheet" href="./styles/ring.style.css" />
+    <link rel="stylesheet" href="./styles/bottom.style.css" />
+    <link rel="stylesheet" href="./styles/cards-specific.style.css" />
+    <link rel="stylesheet" href="./styles/cards.style.css" />
+    <link rel="stylesheet" href="./styles/dialogues.style.css" />
+    <link rel="stylesheet" href="./styles/display-result.style.css" />
+    <link
+      rel="stylesheet"
+      href="./styles/player-form-container-for-start.style.css"
+    />
+    <link rel="stylesheet" href="./styles/pokemon-stats-container.style.css" />
+    <script
+      src="./src/app/components/main-game.js"
+      type="module"
+      defer
+    ></script>
+  </head>
 
-<body>
+  <body>
+    <section id="playerForm-section">
+      <form id="player-form">
+        <img id="logo-pokemon" src="./src/assets/images/pokemon-logo.png" />
+        <input
+          type="text"
+          id="playerForm-input"
+          placeholder="Entrer votre nom ici *"
+          required
+        />
+        <button id="playerForm-submitButton" type="submit">
+          C'est parti !
+        </button>
+      </form>
+    </section>
 
-  <div id="playerFormContainerForStart">
-      
-    <div id="container-logo-pokemon">
-      <img id="logo-pokemon" src="./src/assets/images/pokemon-logo.png">
-    </div>
-    
-    <form id="playerNamesForm">
-      <label for="playerName">Entrer votre nom :</label>
-        <input type="text" id="playerName" required>
-  
-        <button id="submitButton" type="submit">C'est parti !</button>
-    </form>
-  
-  </div>
+    <main id="main">
+      <section id="fight-in-progress"></section>
 
-  <!-- ---------------------------------------------------------- -->
-  <!-- <iframe id="container-stats" src="./pokemons-stats-container.html"></iframe> -->
+      <section id="container-head">
+        <div id="container-logo">
+          <img id="logo" src="./src/assets/images/pokemon-logo.png" />
+        </div>
 
-
-  <div id="container-stats">
-        
-    <div id="first-attacker-stats-container">
-       <div class="stat-container" id="first-attacker-name"></div>
-       <div class="stat-container" id="first-attacker-primaryStatut"></div>
-       <div class="stat-container" id="first-attacker-secondaryStatut"></div>
-       <div class="stat-container" id="first-attacker-attack"></div>
-       <div class="stat-container" id="first-attacker-defense"></div>
-       <div class="stat-container" id="first-attacker-specialAtt"></div>
-       <div class="stat-container" id="first-attacker-specialDef"></div>
-       <div class="stat-container" id="first-attacker-speed"></div>
-       <div class="stat-container" id="first-attacker-hp"></div>
-    </div>
- 
-     <div id="second-attacker-stats-container">
-       <div class="stat-container" id="second-attacker-name"></div>
-       <div class="stat-container" id="second-attacker-primaryStatut"></div>
-       <div class="stat-container" id="second-attacker-secondaryStatut"></div>
-       <div class="stat-container" id="second-attacker-attack"></div>
-       <div class="stat-container" id="second-attacker-defense"></div>
-       <div class="stat-container" id="second-attacker-specialAtt"></div>
-       <div class="stat-container" id="second-attacker-specialDef"></div>
-       <div class="stat-container" id="second-attacker-speed"></div>
-       <div class="stat-container" id="second-attacker-hp"></div>
-     </div>
- 
-   </div>
-
-
-  <div id="main">
-  
-    <div id="fight-in-progress"></div>
-  
-    <div class="container-head">
-          
-          <div id="container-title">
-            <img id="title" src="./src/assets/images/pokemon-logo.png">
-          </div>
-  
+        <nav>
           <select id="menu">
             <option value="default">Sélectionner un mode</option>
             <option value="definite-fight">Combat défini</option>
             <option value="random-fight">Adversaire aléatoire</option>
             <option value="close-menu">Fermer le menu</option>
-          </select>   
-      
-          <div id="container-title-selections-vs-container-players">
-            <div class="title-mod" id="definite-fight-title">Combat défini</div>
-            <div class="title-mod" id="random-fight-title">Adversaire aléatoire</div>
-   
-            <select id="pokemonFirstSelection">
-              <option value="choose" selected>Choisissez votre Pokémon</option>
-              <option value="Spectrum">Spectrum</option>
-              <option value="Ectoplasma">Ectoplasma</option>
-              <option value="Fantominus">Fantominus</option>
-              <option value="Crustabri">Crustabri</option>
-              <option value="Pikachu">Pikachu</option>
-              <option value="Évoli">Evoli</option>
-              <option value="Roucool">Roucool</option>
-              <option value="Racaillou">Racaillou</option>
-              <option value="Insécateur">Insécateur</option>
-              <option value="Sabelette">Sabelette</option>
-              <option value="Mewtwo">Mewtwo</option>
-              <option value="Scarabrute">Scarabrute</option>
-              <option value="Krabboss">Krabboss</option>
-              <option value="Salamèche">Salamèche</option>
-              <option value="Nidoran♂">Nidoran♂</option>
-            </select>
+          </select>
+        </nav>
 
-
-             
-            <div id="container-vs">
-               <p id="vs">VS</p>
-            </div>
-       
-            <select id="pokemonSecondSelection">
-              <option value="choose" selected>Choisissez le Pokémon adverse</option>
-              <option value="Spectrum">Spectrum</option>
-              <option value="Ectoplasma">Ectoplasma</option>
-              <option value="Fantominus">Fantominus</option>
-              <option value="Crustabri">Crustabri</option>
-              <option value="Pikachu">Pikachu</option>
-              <option value="Évoli">Evoli</option>
-              <option value="Roucool">Roucool</option>
-              <option value="Racaillou">Racaillou</option>
-              <option value="Insécateur">Insécateur</option>
-              <option value="Sabelette">Sabelette</option>
-              <option value="Mewtwo">Mewtwo</option>
-              <option value="Scarabrute">Scarabrute</option>
-              <option value="Krabboss">Krabboss</option>
-              <option value="Salamèche">Salamèche</option>
-              <option value="Nidoran♂">Nidoran♂</option>
-            </select>
-             
-            <button id="pokemonRandomSelection">
-              Cliquer pour générer un pokémon
-            </button>
-             
-            <div id="container-display-pokemon-selected">
-              <div id="pokemon-selected"></div>
-            </div>
-             
-            <div id="container-players">
-              <div id="first-player"></div>
-            </div>
+        <div id="container-title-selections-vs-container-players">
+          <div class="title-mod" id="definite-fight-title">Combat défini</div>
+          <div class="title-mod" id="random-fight-title">
+            Adversaire aléatoire
           </div>
-        
-        </div>
-        
-      <div id="ring">
 
-        <div class="pokemon-location" id="pokemon-first-location">
-          <div class="big-circle">
-           <div class="little-circle"></div>
+          <select id="pokemonFirstSelection">
+            <option value="choose" selected>Choisissez votre Pokémon</option>
+            <option value="Spectrum">Spectrum</option>
+            <option value="Ectoplasma">Ectoplasma</option>
+            <option value="Fantominus">Fantominus</option>
+            <option value="Crustabri">Crustabri</option>
+            <option value="Pikachu">Pikachu</option>
+            <option value="Évoli">Evoli</option>
+            <option value="Roucool">Roucool</option>
+            <option value="Racaillou">Racaillou</option>
+            <option value="Insécateur">Insécateur</option>
+            <option value="Sabelette">Sabelette</option>
+            <option value="Mewtwo">Mewtwo</option>
+            <option value="Scarabrute">Scarabrute</option>
+            <option value="Krabboss">Krabboss</option>
+            <option value="Salamèche">Salamèche</option>
+            <option value="Nidoran♂">Nidoran♂</option>
+          </select>
+
+          <div id="container-vs">
+            <p id="vs">VS</p>
+          </div>
+
+          <select id="pokemonSecondSelection">
+            <option value="choose" selected>
+              Choisissez le Pokémon adverse
+            </option>
+            <option value="Spectrum">Spectrum</option>
+            <option value="Ectoplasma">Ectoplasma</option>
+            <option value="Fantominus">Fantominus</option>
+            <option value="Crustabri">Crustabri</option>
+            <option value="Pikachu">Pikachu</option>
+            <option value="Évoli">Evoli</option>
+            <option value="Roucool">Roucool</option>
+            <option value="Racaillou">Racaillou</option>
+            <option value="Insécateur">Insécateur</option>
+            <option value="Sabelette">Sabelette</option>
+            <option value="Mewtwo">Mewtwo</option>
+            <option value="Scarabrute">Scarabrute</option>
+            <option value="Krabboss">Krabboss</option>
+            <option value="Salamèche">Salamèche</option>
+            <option value="Nidoran♂">Nidoran♂</option>
+          </select>
+
+          <button id="pokemonRandomSelection">
+            Cliquer pour générer un pokémon
+          </button>
+
+          <div id="container-display-pokemon-selected">
+            <div id="pokemon-selected"></div>
+          </div>
+
+          <div id="container-players">
+            <div id="first-player"></div>
           </div>
         </div>
-      
-        
-        <div class="pokemon-location" id="pokemon-second-location">
-          <div class="big-circle">
-           <div class="little-circle"></div>
-          </div>
-        </div>
-        
-      </div>
-      
-      <div id="bottom-container">
-  
+      </section>
+
+      <section id="ring">
+        <div class="pokemon-location" id="pokemon-first-location"></div>
+        <div class="pokemon-location" id="pokemon-second-location"></div>
+      </section>
+
+      <section id="bottom-container">
         <div id="container-btn-fight">
           <button id="fightButton">Fight !</button>
         </div>
-      
-        <div id="container-display-result">
-          <div id="result"></div>
-        </div>
-        
-        <div id="container-display-dialogue">
-          <div id="dialogue"></div>
-        </div>
-  
-      </div> 
-  
-  </div>
 
-</body>
+        <section id="container-display-result">
+          <div id="result"></div>
+        </section>
+
+        <section id="container-display-dialogue">
+          <div id="dialogue"></div>
+        </section>
+      </section>
+    </main>
+  </body>
 </html>

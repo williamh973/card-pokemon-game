@@ -1,57 +1,63 @@
-#playerFormContainerForStart {
-  width: 400px;
+#playerForm-section {
+  width: 100vw;
   height: 100vh;
-  /* position: fixed;
-  top: 0; 
-  left: 0; */
-  background-color: whitesmoke;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
 }
 
-#container-logo-pokemon {
-  position: absolute;
-  top: 250px;
-  left: 50;
-  width: 400px;
-  background-color: whitesmoke;
+#player-form {
+  width: 40%;
+  min-width: 400px;
+  height: auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: logoPokemonMoveUp 5s ease-in-out forwards;
-  /* animation-delay: 2s; */
-  z-index: 1;
+  background-color: whitesmoke;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px;
+  opacity: 0;
+  animation: displayForm 3s ease-in-out forwards;
+  z-index: 0;
 }
 
 #logo-pokemon {
-  width: 70%;
+  width: 45%;
+  min-width: 300px;
+  height: auto;
   padding: 10px 0;
   font-style: italic;
   background-color: whitesmoke;
 }
 
-form {
-  width: 80%;
-  background-color: whitesmoke;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 30px 0;
-  opacity: 0;
-  animation: displayForm 3s ease-in-out forwards;
-  /* animation-delay: 4s; */
-  z-index: 0;
+#playerForm-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ced4da;
+  color: #495057;
+  box-sizing: border-box;
+  font-size: 1rem;
+  margin-bottom: 10px;
 }
 
-input {
-  padding: 5px;
-  height: 20px;
-  outline-color: blueviolet;
+#playerForm-input {
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-#submitButton {
+#playerForm-input:focus {
+  border-color: #cc00ff;
+  box-shadow: 0 0 5px #cc00ff73;
+  outline: none;
+}
+
+#playerForm-input:hover {
+  border-color: #cc00ff;
+  cursor: pointer;
+}
+
+#playerForm-submitButton {
   width: 100%;
   height: 50px;
   border: none;
@@ -64,14 +70,14 @@ input {
   font-size: 20px;
   font-weight: bolder;
 }
-#submitButton:hover {
+#playerForm-submitButton:hover {
   cursor: pointer;
 }
-#submitButton:active {
+#playerForm-submitButton:active {
   background-color: lightgreen;
 }
 
-#submitButton:disabled {
+#playerForm-submitButton:disabled {
   background-color: lightgray;
   color: gray;
   cursor: not-allowed;
@@ -85,21 +91,12 @@ input {
   font-size: 20px;
   font-weight: bolder;
 }
-  
-  
-
-@keyframes logoPokemonMoveUp {
-  from {
-    transform: translateY(0);
-  } to {
-    transform: translateY(-150px);
-  }
-}
 
 @keyframes displayForm {
   from {
     opacity: 0;
-  } to {
+  }
+  to {
     opacity: 1;
   }
 }

@@ -1,12 +1,13 @@
 body {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.714);
+  width: 100vw;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.714);
 }
 
 #main {
-    width: 400px;
-    display: none;
+  width: inherit;
+  height: auto;
+  display: none;
 }
-

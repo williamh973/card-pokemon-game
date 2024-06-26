@@ -1,25 +1,24 @@
 import { updatePlayerScore } from "./updatePlayerScore.js";
 
-import { pikachuCard } from './cards/pikachu.card.js';
-import { evoliCard } from './cards/evoli.card.js';
-import { roucoolCard } from './cards/roucool.card.js';
-import { racaillouCard } from './cards/racaillou.card.js';
-import { insecateurCard } from './cards/insecateur.card.js';
-import { sabeletteCard } from './cards/sabelette.card.js';
-import { mewtwoCard } from './cards/mewtwo.card.js';
-import { scarabruteCard } from './cards/scarabrute.card.js';
-import { krabbossCard } from './cards/krabboss.card.js';
-import { salamecheCard } from './cards/salameche.card.js';
-import { nidoranMaleCard } from './cards/nidoranMale.card.js';
-import { crustabriCard } from './cards/crustabri.card.js';
-import { fantominusCard } from './cards/fantominus.card.js';
-import { ectoplasmaCard } from './cards/ectoplasma.card.js';
-import { spectrumCard } from './cards/spectrum.card.js';
+import { pikachuCard } from "./cards/pikachu.card.js";
+import { evoliCard } from "./cards/evoli.card.js";
+import { roucoolCard } from "./cards/roucool.card.js";
+import { racaillouCard } from "./cards/racaillou.card.js";
+import { insecateurCard } from "./cards/insecateur.card.js";
+import { sabeletteCard } from "./cards/sabelette.card.js";
+import { mewtwoCard } from "./cards/mewtwo.card.js";
+import { scarabruteCard } from "./cards/scarabrute.card.js";
+import { krabbossCard } from "./cards/krabboss.card.js";
+import { salamecheCard } from "./cards/salameche.card.js";
+import { nidoranMaleCard } from "./cards/nidoranMale.card.js";
+import { crustabriCard } from "./cards/crustabri.card.js";
+import { fantominusCard } from "./cards/fantominus.card.js";
+import { ectoplasmaCard } from "./cards/ectoplasma.card.js";
+import { spectrumCard } from "./cards/spectrum.card.js";
 
-import { domElementsFromSelectors } from './dom-elements.js';
+import { domElementsFromSelectors } from "./dom-elements.js";
 
-
-const isPokemonInSecondLocation = () => 
+const isPokemonInSecondLocation = () =>
   domElementsFromSelectors.pokemonSecondLocation.contains(spectrumCard) ||
   domElementsFromSelectors.pokemonSecondLocation.contains(ectoplasmaCard) ||
   domElementsFromSelectors.pokemonSecondLocation.contains(fantominusCard) ||
@@ -34,10 +33,9 @@ const isPokemonInSecondLocation = () =>
   domElementsFromSelectors.pokemonSecondLocation.contains(scarabruteCard) ||
   domElementsFromSelectors.pokemonSecondLocation.contains(krabbossCard) ||
   domElementsFromSelectors.pokemonSecondLocation.contains(salamecheCard) ||
-  domElementsFromSelectors.pokemonSecondLocation.contains(nidoranMaleCard)
+  domElementsFromSelectors.pokemonSecondLocation.contains(nidoranMaleCard);
 
-
-const isPokemonInFirstLocation = () => 
+const isPokemonInFirstLocation = () =>
   domElementsFromSelectors.pokemonFirstLocation.contains(spectrumCard) ||
   domElementsFromSelectors.pokemonFirstLocation.contains(ectoplasmaCard) ||
   domElementsFromSelectors.pokemonFirstLocation.contains(fantominusCard) ||
@@ -52,65 +50,50 @@ const isPokemonInFirstLocation = () =>
   domElementsFromSelectors.pokemonFirstLocation.contains(scarabruteCard) ||
   domElementsFromSelectors.pokemonFirstLocation.contains(krabbossCard) ||
   domElementsFromSelectors.pokemonFirstLocation.contains(salamecheCard) ||
-  domElementsFromSelectors.pokemonFirstLocation.contains(nidoranMaleCard)
+  domElementsFromSelectors.pokemonFirstLocation.contains(nidoranMaleCard);
 
-
-  
-export const hideSecondAttackerWhenLose = 
-function hideSecondAttackerWhenLose(
-  secondAttacker, 
-  enemyPokemon
-  ) {
-  if  (
-    secondAttacker.name === enemyPokemon && 
-    isPokemonInSecondLocation()
-    ) {
-      updatePlayerScore();
-      domElementsFromSelectors.pokemonSecondLocation.innerHTML = '';
-  };
+export const hideSecondAttackerWhenLose = function hideSecondAttackerWhenLose(
+  secondAttacker,
+  enemyPokemon,
+) {
+  if (secondAttacker.name === enemyPokemon && isPokemonInSecondLocation()) {
+    updatePlayerScore();
+    domElementsFromSelectors.pokemonSecondLocation.innerHTML = "";
+  }
 };
 
-export const hideFirstAttackerWhenLose = 
-function hideFirstAttackerWhenLose(
-  firstAttacker, 
-  enemyPokemon
-  ) {
-  if (
-    firstAttacker.name === enemyPokemon && 
-    isPokemonInFirstLocation()
-    ) {
-      updatePlayerScore();
-      domElementsFromSelectors.pokemonSecondLocation.innerHTML = '';
-  };
+export const hideFirstAttackerWhenLose = function hideFirstAttackerWhenLose(
+  firstAttacker,
+  enemyPokemon,
+) {
+  if (firstAttacker.name === enemyPokemon && isPokemonInFirstLocation()) {
+    updatePlayerScore();
+    domElementsFromSelectors.pokemonSecondLocation.innerHTML = "";
+  }
 };
 
-
-export const hidePlayerSecondAttackerWhenLose = 
-function hidePlayerSecondAttackerWhenLose(
-  secondAttacker, 
-  playerSelectedPokemon
+export const hidePlayerSecondAttackerWhenLose =
+  function hidePlayerSecondAttackerWhenLose(
+    secondAttacker,
+    playerSelectedPokemon,
   ) {
-  if  (
-    secondAttacker.name === playerSelectedPokemon && 
-    isPokemonInFirstLocation()
+    if (
+      secondAttacker.name === playerSelectedPokemon &&
+      isPokemonInFirstLocation()
     ) {
-      domElementsFromSelectors.pokemonFirstLocation.innerHTML = '';
+      domElementsFromSelectors.pokemonFirstLocation.innerHTML = "";
+    }
   };
-};
 
-export const hidePlayerFirstAttackerWhenLose = 
-function hidePlayerFirstAttackerWhenLose(
-  firstAttacker, 
-  playerSelectedPokemon
+export const hidePlayerFirstAttackerWhenLose =
+  function hidePlayerFirstAttackerWhenLose(
+    firstAttacker,
+    playerSelectedPokemon,
   ) {
-  if  (
-    firstAttacker.name === playerSelectedPokemon && 
-    isPokemonInFirstLocation()
+    if (
+      firstAttacker.name === playerSelectedPokemon &&
+      isPokemonInFirstLocation()
     ) {
-      domElementsFromSelectors.pokemonFirstLocation.innerHTML = '';
+      domElementsFromSelectors.pokemonFirstLocation.innerHTML = "";
+    }
   };
-};
-
-
-
-

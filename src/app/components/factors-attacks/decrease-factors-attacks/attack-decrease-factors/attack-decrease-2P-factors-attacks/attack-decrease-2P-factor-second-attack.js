@@ -1,20 +1,20 @@
+import { openDialogueWhenPokemonMakesAttackDecrease2pFactorAttack } from "../../../../dialogue-fight.js";
 
-import { openDialogueWhenPokemonMakesAttackDecrease2pFactorAttack } from '../../../../dialogue-fight.js';
-
-export const attackDecrease2pFactorForSecondAttack = 
-function attackDecrease2pFactorForSecondAttack(
-  firstAttacker, secondAttacker, isSecondAttackActive
+export const attackDecrease2pFactorForSecondAttack =
+  function attackDecrease2pFactorForSecondAttack(
+    firstAttacker,
+    secondAttacker,
+    isSecondAttackActive,
   ) {
     if (
-      (
-        firstAttacker.secondAttack.name === "Rugissement" ||
-        firstAttacker.secondAttack.name === 'Surpuissance'
-        ) && isSecondAttackActive
-        ) {
-       const decreasingValue = 2;
-       const newdecreasingValue = secondAttacker.stats.attack -= decreasingValue;
-       openDialogueWhenPokemonMakesAttackDecrease2pFactorAttack(secondAttacker);
-       return newdecreasingValue;
+      (firstAttacker.secondAttack.name === "Rugissement" ||
+        firstAttacker.secondAttack.name === "Surpuissance") &&
+      isSecondAttackActive
+    ) {
+      const decreasingValue = 2;
+      const newdecreasingValue = (secondAttacker.stats.attack -=
+        decreasingValue);
+      openDialogueWhenPokemonMakesAttackDecrease2pFactorAttack(secondAttacker);
+      return newdecreasingValue;
     }
-        
-};
+  };

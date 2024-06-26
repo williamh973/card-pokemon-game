@@ -4,36 +4,23 @@
 }
 
 #ring {
-  width: 400px;
-  background-color: black;
-  /* margin-bottom: 70px; */
-}
-
-.pokemon-location {
   width: 80%;
-  height: 100%;
-  min-height: 200px;
+  height: auto;
   display: flex;
-  justify-content: center;
-  align-items: center ;
+  flex-wrap: wrap;
   background-color: black;
-  border: 1px dashed grey;
   margin: auto;
 }
 
-.big-circle {
-  width: 80px;
-  height: 80px;
-  border: 1px dashed grey;
-  border-radius: 50%;
+.pokemon-location {
+  width: 30%;
+  height: 100%;
+  min-width: 300px;
+  min-height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.little-circle {
-  width: 20px;
-  height: 20px;
+  background-color: black;
   border: 1px dashed grey;
-  border-radius: 50%;
+  margin: auto;
 }

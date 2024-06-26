@@ -1,33 +1,18 @@
-import { 
-    protectionActived
-  } from './protect-detect-capacity-actived.js'; 
+import { protectionActived } from "./protect-detect-capacity-actived.js";
 
+import { pokemonDecreasePrecision } from "./precision-decrease-and-reset.js";
 
-import { 
-    pokemonDecreasePrecision 
-} from "./precision-decrease-and-reset.js";
-
-
-export const protectFactorForFirstAttack = 
-function protectFactorForFirstAttack(
-    firstAttacker,
+export const protectFactorForFirstAttack = function protectFactorForFirstAttack(
+  firstAttacker,
+  isFirstAttackActive,
+) {
+  if (
+    (firstAttacker.firstAttack.name === "Abri" ||
+      firstAttacker.firstAttack.name === "Détection") &&
     isFirstAttackActive
-    ) {
-        
-    if ( 
-            (
-                firstAttacker.firstAttack.name === "Abri" ||
-                firstAttacker.firstAttack.name === 'Détection'
-            ) && isFirstAttackActive
-            ) {
-                protectionActived();
+  ) {
+    protectionActived();
 
-                pokemonDecreasePrecision(
-                    firstAttacker
-                    );
-
-    }
+    pokemonDecreasePrecision(firstAttacker);
+  }
 };
-
-
-
