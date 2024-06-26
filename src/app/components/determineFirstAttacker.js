@@ -28,7 +28,7 @@ let pokemonModelList = {
   Sabelette: sabeletteModel,
   Mewtwo: mewtwoModel,
   Scarabrute: scarabruteModel,
-  Kraboss: krabbossModel,
+  Krabboss: krabbossModel,
   Salamèche: salamecheModel,
   "Nidoran♂": nidoranMaleModel,
   Crustabri: crustabriModel,

@@ -1,42 +1,31 @@
-let firstPlayerScore = 0;
+import { playerFormElements } from "./game-variables/player/player-form.js";
+import { playerInfos } from "./game-variables/player/player-infos.js";
 
 const mainContainer = document.getElementById("main");
 
-export const domElementInFormPlayer = {
-  playerFormContainer: document.getElementById("playerForm-section"),
-  playerFormsubmitButton: document.getElementById("playerForm-submitButton"),
-  firstPlayer: document.getElementById("first-player"),
-  secondPlayer: document.getElementById("second-player"),
-  playerName: "",
-  firstPlayerScore,
-  playerNameInput: document.getElementById("playerForm-input"),
-};
-
 function initFormPlayerSubmitButton() {
-  domElementInFormPlayer.playerFormsubmitButton.disabled = true;
+  playerFormElements.playerFormSubmitButton.disabled = true;
 }
 initFormPlayerSubmitButton();
 
-function isCheckPlayerFormInputCompleted() {
-  domElementInFormPlayer.playerNameInput.addEventListener("input", () => {
-    if (domElementInFormPlayer.playerNameInput.value === "") {
-      domElementInFormPlayer.playerFormsubmitButton.disabled = true;
-    } else {
-      domElementInFormPlayer.playerName =
-        domElementInFormPlayer.playerNameInput.value;
-      domElementInFormPlayer.playerFormsubmitButton.disabled = false;
-    }
-  });
-}
-isCheckPlayerFormInputCompleted();
+playerFormElements.playerFormInput.addEventListener("input", () => {
+  if (playerFormElements.playerFormInput.value === "") {
+    playerFormElements.playerFormSubmitButton.disabled = true;
+  } else {
+    playerInfos.playerName = playerFormElements.playerFormInput.value;
+    playerFormElements.playerFormSubmitButton.disabled = false;
+  }
+});
 
 function isPlayerFormSubmitButtonClicked() {
-  domElementInFormPlayer.playerFormsubmitButton.addEventListener(
+  playerFormElements.playerFormSubmitButton.addEventListener(
     "click",
     (event) => {
       event.preventDefault();
-      domElementInFormPlayer.firstPlayer.innerText = ` ${domElementInFormPlayer.playerName} : ${domElementInFormPlayer.firstPlayerScore} points`;
-      domElementInFormPlayer.playerFormContainer.style.display = "none";
+      console.log("Form submitted");
+
+      playerInfos.firstPlayer.innerText = ` ${playerInfos.playerName} : ${playerInfos.firstPlayerScore} points`;
+      playerFormElements.playerFormSection.style.display = "none";
       mainContainer.style.display = "block";
     }
   );
