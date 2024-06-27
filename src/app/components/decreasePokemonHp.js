@@ -32,7 +32,7 @@ import { spectrumCard } from "./cards/spectrum.card.js";
 
 import { domElementsFromSelectors } from "../shared/game-variables/dom/dom-elements.js";
 
-export const decreaseHp = function decreaseHp() {
+export function decreaseHp() {
   if (
     domElementsFromSelectors.selectFirstPokemonButton.value === "Spectrum" ||
     domElementsFromSelectors.selectSecondPokemonButton.value === "Spectrum" ||
@@ -197,4 +197,4 @@ export const decreaseHp = function decreaseHp() {
       "nidoranMaleHealth"
     ).textContent = `${nidoranMaleModel.stats.hp}`;
   }
-};
+}

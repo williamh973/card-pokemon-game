@@ -9,7 +9,7 @@ import {
   openDialogueWhenPokemonWakeUp,
 } from "../../../dialogue-fight.js";
 
-export let firstAttackerStatutStateVariableList = {
+export const firstAttackerStatutStateVariableList = {
   isFirstAttackerFrozen: false,
   isFirstAttackerParalyzed: false,
   isFirstAttackerAsleep: false,

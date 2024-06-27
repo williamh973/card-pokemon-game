@@ -1,8 +1,8 @@
 import { openDialogueWhenAttackConfusesPokemon } from "../../dialogue-fight.js";
 
-export const confusingStatut = function confusingStatut(secondAttacker) {
+export function confusingStatut(secondAttacker) {
   secondAttacker.secondaryStatut.isConfused = true;
   secondAttacker.secondaryStatut.isNormal = false;
 
   openDialogueWhenAttackConfusesPokemon(secondAttacker);
-};
+}

@@ -1,7 +1,7 @@
-export const levelFactorForSecondAttack = function levelFactorForSecondAttack(
+export function levelFactorForSecondAttack(
   firstAttacker,
   isSecondAttackActive,
-  degats,
+  degats
 ) {
   if (
     isSecondAttackActive &&
@@ -13,4 +13,4 @@ export const levelFactorForSecondAttack = function levelFactorForSecondAttack(
 
     return degats;
   }
-};
+}

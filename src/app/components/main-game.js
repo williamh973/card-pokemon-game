@@ -42,44 +42,10 @@ import { firstAttackerStatutStateVariableList } from "./handle-statut-state-in-f
 import { firstAttackerSecondaryStatutStateVariableList } from "./handle-statut-state-in-fight/first-attacker/first-attacker-statut-state-alteration/first-attacker-secondary-statut-alteration.js";
 import { secondAttackerStatutStateVariableList } from "./handle-statut-state-in-fight/second-attacker/second-attacker-statut-state-alteration/second-attacker-primary-statut-alteration.js";
 import { secondAttackerSecondaryStatutStateVariableList } from "./handle-statut-state-in-fight/second-attacker/second-attacker-statut-state-alteration/second-attacker-secondary-statut-alteration.js";
+import { pokemonVariables } from "../shared/game-variables/pokemon/pokemon.js";
+import { battleVariable } from "../shared/game-variables/battle/battle.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  let isFirstPokemonSelected = false;
-  let isSecondPokemonSelected = false;
-  let playerSelectedPokemon = "";
-  let enemyPokemon = "";
-  let isFirstAttackActive = false;
-  let isSecondAttackActive = false;
-
-  domElementsFromSelectors.headContainer =
-    document.getElementById("container-head");
-
-  domElementsFromSelectors.selectFirstPokemonButton = document.getElementById(
-    "pokemonFirstSelection"
-  );
-
-  domElementsFromSelectors.selectSecondPokemonButton = document.getElementById(
-    "pokemonSecondSelection"
-  );
-
-  domElementsFromSelectors.fightButtonContainer = document.getElementById(
-    "container-btn-fight"
-  );
-
-  domElementsFromSelectors.fightButton = document.getElementById("fightButton");
-
-  domElementsFromSelectors.fightInProgress =
-    document.getElementById("fight-in-progress");
-
-  domElementsFromSelectors.pokemonRandomSelectionButton =
-    document.getElementById("pokemonRandomSelection");
-
-  domElementsFromSelectors.displayDialogue =
-    document.getElementById("dialogue");
-
-  domElementsFromSelectors.containerFullPopupDialogueFight =
-    document.getElementById("container-display-dialogue");
-
   domElementsFromSelectors.headContainer.appendChild(
     domElementsFromSelectors.fightInProgress
   );
@@ -94,15 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
       handlePokemonFirstSelection(
         domElementsFromSelectors.selectFirstPokemonButton.value
       );
-      isFirstPokemonSelected = true;
-
-      playerSelectedPokemon =
+      pokemonVariables.isFirstPokemonSelected = true;
+      pokemonVariables.playerSelectedPokemon =
         domElementsFromSelectors.selectFirstPokemonButton.value;
-
       domElementsFromSelectors.fightButtonContainer.style.display = "flex";
-
       activateFightButton();
-
       domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
         "none";
       domElementsFromSelectors.displayDialogue.style.display = "none";
@@ -115,14 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
       handlePokemonSecondSelection(
         domElementsFromSelectors.selectSecondPokemonButton.value
       );
-      isSecondPokemonSelected = true;
-
-      enemyPokemon = domElementsFromSelectors.selectSecondPokemonButton.value;
-
+      pokemonVariables.isSecondPokemonSelected = true;
+      pokemonVariables.enemyPokemon =
+        domElementsFromSelectors.selectSecondPokemonButton.value;
       domElementsFromSelectors.fightButtonContainer.style.display = "flex";
-
       activateFightButton();
-
       domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
         "none";
       domElementsFromSelectors.displayDialogue.style.display = "none";
@@ -137,16 +96,11 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       const pokemon = possibleRandomPokemonsList[randomIndex];
       domElementsFromSelectors.selectSecondPokemonButton.value = pokemon;
-
       handleSelectionRandomPokemon(pokemon);
-
-      isSecondPokemonSelected = true;
-      enemyPokemon = pokemon;
-
+      pokemonVariables.isSecondPokemonSelected = true;
+      pokemonVariables.enemyPokemon = pokemon;
       domElementsFromSelectors.fightButtonContainer.style.display = "flex";
-
       activateFightButton();
-
       domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
         "none";
       domElementsFromSelectors.displayDialogue.style.display = "none";
@@ -155,12 +109,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   domElementsFromSelectors.fightButton.disabled = true;
 
-  let loopRunning = false;
-  let numberOfTurns = 0;
-
   domElementsFromSelectors.fightButton.addEventListener("click", () => {
     async function fight() {
-      loopRunning = true;
+      battleVariable.loopRunning = true;
 
       displayFightInProgress();
       determineFirstAttacker();
@@ -168,13 +119,11 @@ document.addEventListener("DOMContentLoaded", () => {
       while (
         firstAttacker.stats.hp > 0 &&
         secondAttacker.stats.hp > 0 &&
-        loopRunning
+        battleVariable.loopRunning
       ) {
-        displayStatsPokemonsContainer(firstAttacker, secondAttacker);
-
-        isFirstAttackActive = false;
-        isSecondAttackActive = false;
-        numberOfTurns++;
+        pokemonVariables.isFirstAttackActive = false;
+        pokemonVariables.isSecondAttackActive = false;
+        battleVariable.numberOfTurns++;
 
         isProtectOrDetectCapacityActived;
         await checkIfFirstAttackerStatusHasParalyzedFrozenNormalOrAsleep(
@@ -185,8 +134,8 @@ document.addEventListener("DOMContentLoaded", () => {
         await checkIfFirstAttackerStatusConfusing(
           firstAttacker,
           secondAttacker,
-          enemyPokemon,
-          playerSelectedPokemon,
+          pokemonVariables.enemyPokemon,
+          pokemonVariables.playerSelectedPokemon,
           sleepStatutAlteredAnimation
         );
 
@@ -209,13 +158,13 @@ document.addEventListener("DOMContentLoaded", () => {
           const randomNumber = Math.floor(Math.random() * 100) + 1;
 
           if (randomNumber <= 50) {
-            isFirstAttackActive = true;
-            isSecondAttackActive = false;
+            pokemonVariables.isFirstAttackActive = true;
+            pokemonVariables.isSecondAttackActive = false;
 
             let damageFirstAttack = calculateDamageFirstAttack(
               firstAttacker,
               secondAttacker,
-              isFirstAttackActive,
+              pokemonVariables.isFirstAttackActive,
               firstAttacker.firstAttack.strength,
               firstAttacker.stats.specialAtt,
               secondAttacker.stats.specialDef,
@@ -225,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
               secondAttacker.secondaryType
             );
 
-            if (isFirstAttackActive) {
+            if (pokemonVariables.isFirstAttackActive) {
               const attackDelays = getAttackDelays(
                 firstAttacker,
                 secondAttacker
@@ -242,13 +191,13 @@ document.addEventListener("DOMContentLoaded", () => {
               );
             }
           } else {
-            isFirstAttackActive = false;
-            isSecondAttackActive = true;
+            pokemonVariables.isFirstAttackActive = false;
+            pokemonVariables.isSecondAttackActive = true;
 
             let damageSecondAttack = calculateDamageSecondAttack(
               firstAttacker,
               secondAttacker,
-              isSecondAttackActive,
+              pokemonVariables.isSecondAttackActive,
               firstAttacker.secondAttack.strength,
               firstAttacker.stats.specialAtt,
               secondAttacker.stats.specialDef,
@@ -258,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
               secondAttacker.secondaryType
             );
 
-            if (isSecondAttackActive) {
+            if (pokemonVariables.isSecondAttackActive) {
               const attackDelays = getAttackDelays(
                 firstAttacker,
                 secondAttacker
@@ -283,8 +232,8 @@ document.addEventListener("DOMContentLoaded", () => {
           pokemonLose(
             firstAttacker,
             secondAttacker,
-            enemyPokemon,
-            playerSelectedPokemon
+            pokemonVariables.enemyPokemon,
+            pokemonVariables.playerSelectedPokemon
           );
 
           break;
@@ -293,8 +242,8 @@ document.addEventListener("DOMContentLoaded", () => {
         await checkIfFirstAttackerStatusHasBurningOrPoisoned(
           firstAttacker,
           secondAttacker,
-          enemyPokemon,
-          playerSelectedPokemon,
+          pokemonVariables.enemyPokemon,
+          pokemonVariables.playerSelectedPokemon,
           sleepStatutAlteredAnimation
         );
 
@@ -306,8 +255,8 @@ document.addEventListener("DOMContentLoaded", () => {
         await checkIfFirstAttackerStatusCursed(
           firstAttacker,
           secondAttacker,
-          enemyPokemon,
-          playerSelectedPokemon,
+          pokemonVariables.enemyPokemon,
+          pokemonVariables.playerSelectedPokemon,
           sleepStatutAlteredAnimation
         );
 
@@ -316,8 +265,8 @@ document.addEventListener("DOMContentLoaded", () => {
           break;
         }
 
-        isFirstAttackActive = false;
-        isSecondAttackActive = false;
+        pokemonVariables.isFirstAttackActive = false;
+        pokemonVariables.isSecondAttackActive = false;
 
         isProtectOrDetectCapacityActived;
 
@@ -329,8 +278,8 @@ document.addEventListener("DOMContentLoaded", () => {
         await checkIfSecondAttackerStatusConfusing(
           secondAttacker,
           firstAttacker,
-          enemyPokemon,
-          playerSelectedPokemon,
+          pokemonVariables.enemyPokemon,
+          pokemonVariables.playerSelectedPokemon,
           sleepStatutAlteredAnimation
         );
 
@@ -354,13 +303,13 @@ document.addEventListener("DOMContentLoaded", () => {
           const randomNumber = Math.floor(Math.random() * 100) + 1;
 
           if (randomNumber <= 50) {
-            isFirstAttackActive = true;
-            isSecondAttackActive = false;
+            pokemonVariables.isFirstAttackActive = true;
+            pokemonVariables.isSecondAttackActive = false;
 
             let damageFirstAttack = calculateDamageFirstAttack(
               secondAttacker,
               firstAttacker,
-              isFirstAttackActive,
+              pokemonVariables.isFirstAttackActive,
               secondAttacker.firstAttack.strength,
               secondAttacker.stats.specialAtt,
               firstAttacker.stats.specialDef,
@@ -370,7 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
               firstAttacker.secondaryType
             );
 
-            if (isFirstAttackActive) {
+            if (pokemonVariables.isFirstAttackActive) {
               const attackDelays = getAttackDelays(
                 firstAttacker,
                 secondAttacker
@@ -387,13 +336,13 @@ document.addEventListener("DOMContentLoaded", () => {
               );
             }
           } else {
-            isFirstAttackActive = false;
-            isSecondAttackActive = true;
+            pokemonVariables.isFirstAttackActive = false;
+            pokemonVariables.isSecondAttackActive = true;
 
             let damageSecondAttack = calculateDamageSecondAttack(
               secondAttacker,
               firstAttacker,
-              isSecondAttackActive,
+              pokemonVariables.isSecondAttackActive,
               secondAttacker.secondAttack.strength,
               secondAttacker.stats.specialAtt,
               firstAttacker.stats.specialDef,
@@ -403,7 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
               firstAttacker.secondaryType
             );
 
-            if (isSecondAttackActive) {
+            if (pokemonVariables.isSecondAttackActive) {
               const attackDelays = getAttackDelays(
                 firstAttacker,
                 secondAttacker
@@ -428,8 +377,8 @@ document.addEventListener("DOMContentLoaded", () => {
           pokemonLose(
             firstAttacker,
             secondAttacker,
-            enemyPokemon,
-            playerSelectedPokemon
+            pokemonVariables.enemyPokemon,
+            pokemonVariables.playerSelectedPokemon
           );
 
           break;
@@ -438,8 +387,8 @@ document.addEventListener("DOMContentLoaded", () => {
         await checkIfSecondAttackerStatusHasBurningOrPoisoned(
           secondAttacker,
           firstAttacker,
-          enemyPokemon,
-          playerSelectedPokemon,
+          pokemonVariables.enemyPokemon,
+          pokemonVariables.playerSelectedPokemon,
           sleepStatutAlteredAnimation
         );
 
@@ -451,8 +400,8 @@ document.addEventListener("DOMContentLoaded", () => {
         await checkIfSecondAttackerStatusCursed(
           secondAttacker,
           firstAttacker,
-          enemyPokemon,
-          playerSelectedPokemon,
+          pokemonVariables.enemyPokemon,
+          pokemonVariables.playerSelectedPokemon,
           sleepStatutAlteredAnimation
         );
 
@@ -462,19 +411,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     }
-
     fight();
   });
 
   function activateFightButton() {
-    if (isFirstPokemonSelected && isSecondPokemonSelected) {
+    if (
+      pokemonVariables.isFirstPokemonSelected &&
+      pokemonVariables.isSecondPokemonSelected
+    ) {
       domElementsFromSelectors.fightButton.disabled = false;
     }
   }
 
   document.addEventListener("keydown", function (event) {
-    if (event.key === "a" || event.keyCode === 65) {
-      loopRunning = false;
+    if (event.key === "a") {
+      battleVariable.loopRunning = false;
     }
   });
 });

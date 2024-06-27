@@ -146,483 +146,460 @@ export const openDialogueWhenPokemonMakesIneffectiveAttack =
     }, START_NEXT_DISPLAY_DURATION);
   };
 
-export const openDialogueWhenPokemonKo = function openDialogueWhenPokemonKo() {
+export function openDialogueWhenPokemonKo() {
   setTimeout(function () {
     domElementsFromSelectors.displayDialogue.style.display = "flex";
     domElementsFromSelectors.displayDialogue.textContent =
       "Choisir un autre pokemon.";
   }, 3000);
-};
+}
 
-export const openDialogueWhenPokemonMakesSpeedIncrease5pFactorAttack =
-  function openDialogueWhenPokemonMakesSpeedIncrease5pFactorAttack(pokemon) {
+export function openDialogueWhenPokemonMakesSpeedIncrease5pFactorAttack(
+  pokemon
+) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
+
+    domElementsFromSelectors.displayDialogue.textContent = `Vitesse de ${pokemon.name} augmente !`;
+
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `Vitesse de ${pokemon.name} augmente !`;
+export function openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack(
+  pokemon
+) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `Vitesse de ${pokemon.name} augmente beaucoup !`;
 
-export const openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack =
-  function openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `Vitesse de ${pokemon.name} augmente beaucoup !`;
+export function openDialogueWhenPokemonMakesDefenseIncrease5pFactorAttack(
+  pokemon
+) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `La Défense de ${pokemon.name} augmente !`;
 
-export const openDialogueWhenPokemonMakesDefenseIncrease5pFactorAttack =
-  function openDialogueWhenPokemonMakesDefenseIncrease5pFactorAttack(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `La Défense de ${pokemon.name} augmente !`;
+export function openDialogueWhenPokemonMakesDefenseIncrease10pFactorAttack(
+  pokemon
+) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `La Défense de ${pokemon.name} augmente beaucoup !`;
 
-export const openDialogueWhenPokemonMakesDefenseIncrease10pFactorAttack =
-  function openDialogueWhenPokemonMakesDefenseIncrease10pFactorAttack(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `La Défense de ${pokemon.name} augmente beaucoup !`;
+export function openDialogueWhenPokemonMakesHpIncrease5pFactorAttack(
+  pokemon,
+  hpGained
+) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} regagne ${hpGained} pv !`;
 
-export const openDialogueWhenPokemonMakesHpIncrease5pFactorAttack =
-  function openDialogueWhenPokemonMakesHpIncrease5pFactorAttack(
-    pokemon,
-    hpGained
-  ) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} regagne ${hpGained} pv !`;
+export function openDialogueWhenPokemonMissHpIncrease5pFactorAttack() {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `Cela n'a aucun effet !`;
 
-export const openDialogueWhenPokemonMissHpIncrease5pFactorAttack =
-  function openDialogueWhenPokemonMissHpIncrease5pFactorAttack() {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `Cela n'a aucun effet !`;
+export function openDialogueWhenPokemonMakesAttackDecrease2pFactorAttack(
+  secondAttacker
+) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `L'Attaque de ${secondAttacker.name} baisse !`;
 
-export const openDialogueWhenPokemonMakesAttackDecrease2pFactorAttack =
-  function openDialogueWhenPokemonMakesAttackDecrease2pFactorAttack(
-    secondAttacker
-  ) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `L'Attaque de ${secondAttacker.name} baisse !`;
+export function openDialogueWhenPokemonHasBeenKoByOneHitKnockout(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} est KO en un coup !`;
 
-export const openDialogueWhenPokemonHasBeenKoByOneHitKnockout =
-  function openDialogueWhenPokemonHasBeenKoByOneHitKnockout(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} est KO en un coup !`;
+export function openDialogueWhenPokemonReadyToProtectItself(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} se tient près !`;
 
-export const openDialogueWhenPokemonReadyToProtectItself =
-  function openDialogueWhenPokemonReadyToProtectItself(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} se tient près !`;
+export function openDialogueWhenPokemonProtectingHimself(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} se protège !`;
 
-export const openDialogueWhenPokemonProtectingHimself =
-  function openDialogueWhenPokemonProtectingHimself(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} se protège !`;
+export function openDialogueWhenPokemonHasBurningStatut(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} est brûlé !`;
 
-export const openDialogueWhenPokemonHasBurningStatut =
-  function openDialogueWhenPokemonHasBurningStatut(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} est brûlé !`;
+export function openDialogueWhenPokemonHpDecreaseByBurningStatut(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} souffre de sa brûlure !`;
 
-export const openDialogueWhenPokemonHpDecreaseByBurningStatut =
-  function openDialogueWhenPokemonHpDecreaseByBurningStatut(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+  }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} souffre de sa brûlure !`;
+export function openDialogueWhenPokemonHasPoisonedStatut(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
-    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} est empoisoné !`;
 
-export const openDialogueWhenPokemonHasPoisonedStatut =
-  function openDialogueWhenPokemonHasPoisonedStatut(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} est empoisoné !`;
+export function openDialogueWhenPokemonHpDecreaseByPoisonedStatut(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} souffre du poison !`;
 
-export const openDialogueWhenPokemonHpDecreaseByPoisonedStatut =
-  function openDialogueWhenPokemonHpDecreaseByPoisonedStatut(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+  }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} souffre du poison !`;
+export function openDialogueWhenPokemonHasParalyzedStatut(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
-    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} est paralysé, il pourrait ne pas attaquer !`;
 
-export const openDialogueWhenPokemonHasParalyzedStatut =
-  function openDialogueWhenPokemonHasParalyzedStatut(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} est paralysé, il pourrait ne pas attaquer !`;
+export function openDialogueWhenPokemonBlockedByParalyzedStatut(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `La paralysie empêche ${pokemon.name} d'attaquer !`;
 
-export const openDialogueWhenPokemonBlockedByParalyzedStatut =
-  function openDialogueWhenPokemonBlockedByParalyzedStatut(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+  }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `La paralysie empêche ${pokemon.name} d'attaquer !`;
+export function openDialogueWhenPokemonAttacksDespiteParalyzedStatut(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
-    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} résiste à sa paralysie !`;
 
-export const openDialogueWhenPokemonAttacksDespiteParalyzedStatut =
-  function openDialogueWhenPokemonAttacksDespiteParalyzedStatut(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+  }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} résiste à sa paralysie !`;
+export function openDialogueWhenPokemonHasFrozenStatut(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
-    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} est gelé !`;
 
-export const openDialogueWhenPokemonHasFrozenStatut =
-  function openDialogueWhenPokemonHasFrozenStatut(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} est gelé !`;
+export function openDialogueWhenPokemonHasThawedStatut(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} s'est dégelé, il peut attaquer !`;
 
-export const openDialogueWhenPokemonHasThawedStatut =
-  function openDialogueWhenPokemonHasThawedStatut(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+  }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} s'est dégelé, il peut attaquer !`;
+export function openDialogueWhenPokemonBlockedByFrozenStatut(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
-    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `Le gel empêche ${pokemon.name} d'attaquer !`;
 
-export const openDialogueWhenPokemonBlockedByFrozenStatut =
-  function openDialogueWhenPokemonBlockedByFrozenStatut(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+  }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `Le gel empêche ${pokemon.name} d'attaquer !`;
+export function openDialogueWhenPokemonHasFallingAsleep(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
-    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} s'endort !`;
 
-export const openDialogueWhenPokemonHasFallingAsleep =
-  function openDialogueWhenPokemonHasFallingAsleep(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} s'endort !`;
+export function openDialogueWhenPokemonIsAsleepStatut(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} dort !`;
 
-export const openDialogueWhenPokemonIsAsleepStatut =
-  function openDialogueWhenPokemonIsAsleepStatut(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+  }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} dort !`;
+export function openDialogueWhenPokemonWakeUp(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
-    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} se réveille !`;
 
-export const openDialogueWhenPokemonWakeUp =
-  function openDialogueWhenPokemonWakeUp(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+  }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} se réveille !`;
+export function openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack(
+  pokemon,
+  actualIncrease
+) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
-    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} regagne ${actualIncrease} pv !`;
 
-export const openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack =
-  function openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack(
-    pokemon,
-    actualIncrease
-  ) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} regagne ${actualIncrease} pv !`;
+export function openDialogueWhenAttackConfusesPokemon(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `Cela rend ${pokemon.name} confus !`;
 
-export const openDialogueWhenAttackConfusesPokemon =
-  function openDialogueWhenAttackConfusesPokemon(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `Cela rend ${pokemon.name} confus !`;
+export function openDialogueWhenPokemonConfused(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} est confus !`;
 
-export const openDialogueWhenPokemonConfused =
-  function openDialogueWhenPokemonConfused(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_ALTERATION_STATUT_CONFUSED_DISPLAY_DURATION);
+  }, START_ALTERATION_STATUT_CONFUSED_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} est confus !`;
+export function openDialogueWhenPokemonAlreadyConfused(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_ALTERATION_STATUT_CONFUSED_DISPLAY_DURATION);
-    }, START_ALTERATION_STATUT_CONFUSED_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `Mais ${pokemon.name} est déjà confus !`;
 
-export const openDialogueWhenPokemonAlreadyConfused =
-  function openDialogueWhenPokemonAlreadyConfused(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `Mais ${pokemon.name} est déjà confus !`;
+export function openDialogueWhenPokemonHurtByConfusing(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} est blessé par la confusion !`;
 
-export const openDialogueWhenPokemonHurtByConfusing =
-  function openDialogueWhenPokemonHurtByConfusing(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} est blessé par la confusion !`;
+export function openDialogueWhenPokemonNoLongerConfused(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} n'est plus confus !`;
 
-export const openDialogueWhenPokemonNoLongerConfused =
-  function openDialogueWhenPokemonNoLongerConfused(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+  }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} n'est plus confus !`;
+export function openDialogueWhenPokemonCursed(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
-    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} est maudit !`;
 
-export const openDialogueWhenPokemonCursed =
-  function openDialogueWhenPokemonCursed(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_NEXT_DISPLAY_DURATION);
+  }, START_NEXT_DISPLAY_DURATION);
+}
 
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} est maudit !`;
+export function openDialogueWhenPokemonHurtsByCurse(pokemon) {
+  setTimeout(function () {
+    domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
+      "flex";
+    domElementsFromSelectors.displayDialogue.style.display = "flex";
 
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_NEXT_DISPLAY_DURATION);
-    }, START_NEXT_DISPLAY_DURATION);
-  };
+    domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} est touché par la malédiction !`;
 
-export const openDialogueWhenPokemonHurtsByCurse =
-  function openDialogueWhenPokemonHurtsByCurse(pokemon) {
     setTimeout(function () {
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "flex";
-      domElementsFromSelectors.displayDialogue.style.display = "flex";
-
-      domElementsFromSelectors.displayDialogue.textContent = `${pokemon.name} est touché par la malédiction !`;
-
-      setTimeout(function () {
-        domElementsFromSelectors.displayDialogue.style.display = "none";
-      }, END_ALTERATION_STATUT_DISPLAY_DURATION);
-    }, START_ALTERATION_STATUT_DISPLAY_DURATION);
-  };
+      domElementsFromSelectors.displayDialogue.style.display = "none";
+    }, END_ALTERATION_STATUT_DISPLAY_DURATION);
+  }, START_ALTERATION_STATUT_DISPLAY_DURATION);
+}

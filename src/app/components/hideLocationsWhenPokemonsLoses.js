@@ -52,25 +52,19 @@ const isPokemonInFirstLocation = () =>
   domElementsFromSelectors.pokemonFirstLocation.contains(salamecheCard) ||
   domElementsFromSelectors.pokemonFirstLocation.contains(nidoranMaleCard);
 
-export const hideSecondAttackerWhenLose = function hideSecondAttackerWhenLose(
-  secondAttacker,
-  enemyPokemon
-) {
+export function hideSecondAttackerWhenLose(secondAttacker, enemyPokemon) {
   if (secondAttacker.name === enemyPokemon && isPokemonInSecondLocation()) {
     updatePlayerScore();
     domElementsFromSelectors.pokemonSecondLocation.innerHTML = "";
   }
-};
+}
 
-export const hideFirstAttackerWhenLose = function hideFirstAttackerWhenLose(
-  firstAttacker,
-  enemyPokemon
-) {
+export function hideFirstAttackerWhenLose(firstAttacker, enemyPokemon) {
   if (firstAttacker.name === enemyPokemon && isPokemonInFirstLocation()) {
     updatePlayerScore();
     domElementsFromSelectors.pokemonSecondLocation.innerHTML = "";
   }
-};
+}
 
 export const hidePlayerSecondAttackerWhenLose =
   function hidePlayerSecondAttackerWhenLose(

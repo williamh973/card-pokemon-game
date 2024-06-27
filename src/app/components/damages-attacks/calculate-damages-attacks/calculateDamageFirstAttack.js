@@ -1,61 +1,37 @@
 import { weaknessFactorForFirstAttack } from "../../factors-attacks/weakness-factors-attacks/weakness-factor-first-attack.js";
-
 import { resistanceFactorForFirstAttack } from "../../factors-attacks/resistance-factors-attacks/resistance-factor-first-attack.js";
-
 import { ineffectiveFactorForFirstAttack } from "../../factors-attacks/ineffective-factors-attacks/ineffective-factors-first-attack.js";
-
 import { speedIncrease5pFactorForFirstAttack } from "../../factors-attacks/increase-factors-attacks/speed-increase-factor-attacks/speed-increase-5P-factor-attacks.js";
-
 import { speedIncrease10pFactorForFirstAttack } from "../../factors-attacks/increase-factors-attacks/speed-increase-factor-attacks/speed-increase-10P-factor-attacks.js";
-
 import { defenseIncrease5pFactorForFirstAttack } from "../../factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-5P-factors-attacks/defense-increase-5P-factor-first-attack.js";
-
 import { defenseIncrease10pFactorForFirstAttack } from "../../factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-10P-factors-attacks/defense-increase-10P-factor-first-attack.js";
-
 import { attackDecrease2pFactorForFirstAttack } from "../../factors-attacks/decrease-factors-attacks/attack-decrease-factors/attack-decrease-2P-factors-attacks/attack-decrease-2P-factor-first-attack.js";
-
 import { hpIncrease5pFactorForFirstAttack } from "../../factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-5P-factor-attacks.js";
-
 import {
   openDialogueWhenPokemonMakesFirstAttack,
   openDialogueWhenPokemonMissAttack,
   openDialogueWhenPokemonProtectingHimself,
 } from "../../dialogue-fight.js";
-
 import { criticalHit } from "../../factors-attacks/critical-hit-factor/critical-hit-factor.js";
-
 import { criticalHitIncreaseByFocusEnergyForFirstAttack } from "../../factors-attacks/increase-factors-attacks/critical-hit-increase-factors-attacks/critical-hit-increase-focus-energy-first-attack.js";
-
 import { oneHitKnockoutFactorForFirstAttack } from "../../factors-attacks/one-hit-factors-attacks/one-hit-knock-out-first-attack.js";
-
 import { protectFactorForFirstAttack } from "../../factors-attacks/protect-factors-attacks/protect-factors-first-attack.js";
-
 import {
   deseableProtectCapacity,
   isProtectOrDetectCapacityActived,
 } from "../../factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
-
 import { handleBonusAttackWhenProtectOrDetectCapacityActived } from "../handle-bonus-attack-when-protect-or-detect-capacity-actived/handle-bonus-attack-when-protect-or-detect-capacity-actived-first-attack.js";
-
 import { poisonedStatutProbabilitysForFirstAttack } from "../../factors-statuts-state/decrease-hp-probability/poisoned/export-to-calculate-damages-attacks/poisoned-statut-probabilitys-for-first-attack.js";
-
 import { burningStatutProbabilitysForFirstAttack } from "../../factors-statuts-state/decrease-hp-probability/burning/export-to-calculate-damages-attacks/burning-statut-probabilitys-for-first-attack.js";
-
 import { paralyzedStatutProbabilitysForFirstAttack } from "../../factors-statuts-state/paralyzed/export-to-calculate-damages-attacks/paralyzed-statut-probabilitys-for-first-attack.js";
-
 import { frozenStatutProbabilitysForFirstAttack } from "../../factors-statuts-state/frozen/export-to-calculate-damages-attacks/frozen-statut-probabilitys-for-first-attack.js";
-
 import { asleepStatutProbabilitysForFirstAttack } from "../../factors-statuts-state/asleep/export-to-calculate-damages-attacks/asleep-statut-probabilitys-for-first-attack.js";
-
 import { ifPokemonHasAnAttackThatDependsOnItsOwnLevel } from "../handle-level-factor-attacks/handle-level-factor-attacks.js";
-
 import { hpIncrease50PercentOfDamagesFactorForFirstAttack } from "../../factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-50-percent-damages.js";
-
 import { confusingStatutProbabilitysForFirstAttack } from "../../factors-statuts-state/confusing/export-to-calculate-damages-attacks/confusing-statut-probabilitys-for-first-attack.js";
-
 import { cursedStatut100PercentProbabililityForFirstAttack } from "../../factors-statuts-state/decrease-hp-probability/cursed/cursed-statut-probability-for-first-attack.js";
 
-export const calculateDamageFirstAttack = function calculateDamageFirstAttack(
+export function calculateDamageFirstAttack(
   firstAttacker,
   secondAttacker,
   isFirstAttackActive,
@@ -244,9 +220,7 @@ export const calculateDamageFirstAttack = function calculateDamageFirstAttack(
     firstAttackType !== "bonus"
   ) {
     openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
-
     openDialogueWhenPokemonProtectingHimself(secondAttacker);
-
     deseableProtectCapacity();
     return 0;
   } else if (
@@ -261,4 +235,4 @@ export const calculateDamageFirstAttack = function calculateDamageFirstAttack(
     );
     return 0;
   }
-};
+}

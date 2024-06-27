@@ -10,7 +10,7 @@ import {
 let confusingCount = 0;
 let randomNumber = Math.random();
 
-export let firstAttackerSecondaryStatutStateVariableList = {
+export const firstAttackerSecondaryStatutStateVariableList = {
   isFirstAttackerConfusing: false,
   isFirstAttackerScared: false,
 };

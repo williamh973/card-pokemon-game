@@ -8,7 +8,7 @@ function roundToNearestEven(number) {
 function increaseCriticalHitProbabilityWhenFocusEnergyUsed(
   firstAttacker,
   isCriticalHitBoostedByFocusEnergy,
-  randomNumber,
+  randomNumber
 ) {
   if (
     isCriticalHitBoostedByFocusEnergy &&
@@ -20,9 +20,9 @@ function increaseCriticalHitProbabilityWhenFocusEnergyUsed(
 
 export let criticalHitDamageIncreaseRate;
 
-export const criticalHit = function criticalHit(firstAttacker) {
+export function criticalHit(firstAttacker) {
   let speedValueRoundToNearestEven = roundToNearestEven(
-    firstAttacker.stats.speed,
+    firstAttacker.stats.speed
   );
   let speedValueRoundToNearestEvenDividedByTwo =
     speedValueRoundToNearestEven / 2;
@@ -34,7 +34,7 @@ export const criticalHit = function criticalHit(firstAttacker) {
   increaseCriticalHitProbabilityWhenFocusEnergyUsed(
     firstAttacker,
     isCriticalHitBoostedByFocusEnergy,
-    randomNumber,
+    randomNumber
   );
 
   if (randomNumber < newSpeedValueForProbabilityIncreaseRate) {
@@ -46,4 +46,4 @@ export const criticalHit = function criticalHit(firstAttacker) {
   } else {
     return 1;
   }
-};
+}

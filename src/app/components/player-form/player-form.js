@@ -4,7 +4,6 @@ import { domElementsFromSelectors } from "../../shared/game-variables/dom/dom-el
 
 document.addEventListener("DOMContentLoaded", () => {
   const playerFormContainer = document.getElementById("playerForm-container");
-  console.log(playerFormContainer);
 
   fetch("./src/app/components/player-form/player-form.html")
     .then((response) => response.text())

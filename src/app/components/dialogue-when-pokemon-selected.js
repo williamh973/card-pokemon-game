@@ -1,9 +1,9 @@
 const containerFullPopupPokemonSelected = document.getElementById(
-  "container-display-pokemon-selected",
+  "container-display-pokemon-selected"
 );
 const displayPopupPokemonSelected = document.getElementById("pokemon-selected");
 
-export const pokemonSelected = function pokemonSelected(pokemon) {
+export function pokemonSelected(pokemon) {
   containerFullPopupPokemonSelected.style.display = "flex";
 
   switch (pokemon) {
@@ -57,4 +57,4 @@ export const pokemonSelected = function pokemonSelected(pokemon) {
   setTimeout(function () {
     containerFullPopupPokemonSelected.style.display = "none";
   }, 1500);
-};
+}

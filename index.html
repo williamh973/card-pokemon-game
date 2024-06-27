@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Card Pokemon</title>
+    <title>Card Pokemon game</title>
     <meta name="description" content="Description de la page" />
 
-    <link rel="stylesheet" href="./styles/main.style.css" />
+    <link rel="stylesheet" href="./style.css" type="text/css" />
     <link rel="stylesheet" href="./styles/head.style.css" />
     <link rel="stylesheet" href="./styles/fight-in-progress.style.css" />
     <link rel="stylesheet" href="./styles/ring.style.css" />
@@ -29,11 +29,9 @@
   </head>
 
   <body>
-    <div id="playerForm-container"></div>
+    <section id="playerForm-container"></section>
 
     <main id="main">
-      <section id="fight-in-progress"></section>
-
       <section id="container-head">
         <div id="container-logo">
           <img
@@ -44,7 +42,7 @@
 
         <nav>
           <select id="menu">
-            <option value="default">Sélectionner un mode</option>
+            <option value="default">Sélectionner un mode de jeu</option>
             <option value="definite-fight">Combat défini</option>
             <option value="random-fight">Adversaire aléatoire</option>
             <option value="close-menu">Fermer le menu</option>
@@ -104,6 +102,8 @@
           <button id="pokemonRandomSelection">
             Cliquer pour générer un pokémon
           </button>
+
+          <div id="fight-in-progress"></div>
 
           <div id="container-display-pokemon-selected">
             <div id="pokemon-selected"></div>

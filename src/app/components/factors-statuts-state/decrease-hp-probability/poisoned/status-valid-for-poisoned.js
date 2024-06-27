@@ -1,6 +1,4 @@
-export const isStatusValidForPoisoned = function isStatusValidForPoisoned(
-  secondAttacker,
-) {
+export function isStatusValidForPoisoned(secondAttacker) {
   return (
     secondAttacker.primaryStatut !== "burning" &&
     secondAttacker.primaryStatut !== "paralyzed" &&
@@ -8,4 +6,4 @@ export const isStatusValidForPoisoned = function isStatusValidForPoisoned(
     secondAttacker.primaryStatut !== "poisoned" &&
     secondAttacker.primaryStatut !== "frozen"
   );
-};
+}
