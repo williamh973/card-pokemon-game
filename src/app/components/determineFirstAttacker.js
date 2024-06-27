@@ -39,7 +39,6 @@ let pokemonModelList = {
 
 function getPokemonModel(pokemonName) {
   const model = pokemonModelList[pokemonName];
-  console.log("model", model);
   return model;
 }
 
