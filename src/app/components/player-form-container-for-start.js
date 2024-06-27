@@ -1,33 +1,58 @@
 import { playerFormElements } from "./game-variables/player/player-form.js";
 import { playerInfos } from "./game-variables/player/player-infos.js";
 
-const mainContainer = document.getElementById("main");
+document.addEventListener("DOMContentLoaded", () => {
+  const playerFormContainer = document.getElementById("playerForm-container");
 
-function initFormPlayerSubmitButton() {
-  playerFormElements.playerFormSubmitButton.disabled = true;
-}
-initFormPlayerSubmitButton();
+  fetch("./player-form.html")
+    .then((response) => response.text())
+    .then((data) => {
+      playerFormContainer.innerHTML = data;
+      initializePlayerFormElements();
+      initializePlayerInfos();
+      initializePlayerForm();
+    })
+    .catch((error) => console.error("Error loading player form:", error));
 
-playerFormElements.playerFormInput.addEventListener("input", () => {
-  if (playerFormElements.playerFormInput.value === "") {
+  function initializePlayerFormElements() {
+    playerFormElements.playerFormSection =
+      document.getElementById("playerForm-section");
+    playerFormElements.playerFormInput =
+      document.getElementById("playerForm-input");
+    playerFormElements.playerFormSubmitButton = document.getElementById(
+      "playerForm-submitButton"
+    );
+  }
+
+  function initializePlayerInfos() {
+    playerInfos.firstPlayer = document.getElementById("first-player");
+    playerInfos.playerName = "";
+    playerInfos.firstPlayerScore = 0;
+  }
+
+  function initializePlayerForm() {
     playerFormElements.playerFormSubmitButton.disabled = true;
-  } else {
-    playerInfos.playerName = playerFormElements.playerFormInput.value;
-    playerFormElements.playerFormSubmitButton.disabled = false;
+
+    playerFormElements.playerFormInput.addEventListener("input", () => {
+      if (playerFormElements.playerFormInput.value === "") {
+        playerFormElements.playerFormSubmitButton.disabled = true;
+      } else {
+        playerInfos.playerName = playerFormElements.playerFormInput.value;
+        playerFormElements.playerFormSubmitButton.disabled = false;
+      }
+    });
+
+    function isPlayerFormSubmitButtonClicked() {
+      playerFormElements.playerFormSubmitButton.addEventListener(
+        "click",
+        (event) => {
+          event.preventDefault();
+          playerInfos.firstPlayer.innerText = ` ${playerInfos.playerName} : ${playerInfos.firstPlayerScore} points`;
+          playerFormElements.playerFormSection.style.display = "none";
+          mainContainer.style.display = "block";
+        }
+      );
+    }
+    isPlayerFormSubmitButtonClicked();
   }
 });
-
-function isPlayerFormSubmitButtonClicked() {
-  playerFormElements.playerFormSubmitButton.addEventListener(
-    "click",
-    (event) => {
-      event.preventDefault();
-      console.log("Form submitted");
-
-      playerInfos.firstPlayer.innerText = ` ${playerInfos.playerName} : ${playerInfos.firstPlayerScore} points`;
-      playerFormElements.playerFormSection.style.display = "none";
-      mainContainer.style.display = "block";
-    }
-  );
-}
-isPlayerFormSubmitButtonClicked();
