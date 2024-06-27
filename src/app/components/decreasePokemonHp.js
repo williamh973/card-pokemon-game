@@ -30,7 +30,7 @@ import { fantominusCard } from "./cards/fantominus.card.js";
 import { ectoplasmaCard } from "./cards/ectoplasma.card.js";
 import { spectrumCard } from "./cards/spectrum.card.js";
 
-import { domElementsFromSelectors } from "./dom-elements.js";
+import { domElementsFromSelectors } from "../shared/game-variables/dom/dom-elements.js";
 
 export const decreaseHp = function decreaseHp() {
   if (
@@ -39,8 +39,9 @@ export const decreaseHp = function decreaseHp() {
     domElementsFromSelectors.pokemonFirstLocation.contains(spectrumCard) ||
     domElementsFromSelectors.pokemonSecondLocation.contains(spectrumCard)
   ) {
-    document.getElementById("spectrumHealth").textContent =
-      `${spectrumModel.stats.hp}`;
+    document.getElementById(
+      "spectrumHealth"
+    ).textContent = `${spectrumModel.stats.hp}`;
   }
 
   if (
@@ -49,8 +50,9 @@ export const decreaseHp = function decreaseHp() {
     domElementsFromSelectors.pokemonFirstLocation.contains(ectoplasmaCard) ||
     domElementsFromSelectors.pokemonSecondLocation.contains(ectoplasmaCard)
   ) {
-    document.getElementById("ectoplasmaHealth").textContent =
-      `${ectoplasmaModel.stats.hp}`;
+    document.getElementById(
+      "ectoplasmaHealth"
+    ).textContent = `${ectoplasmaModel.stats.hp}`;
   }
 
   if (
@@ -59,8 +61,9 @@ export const decreaseHp = function decreaseHp() {
     domElementsFromSelectors.pokemonFirstLocation.contains(fantominusCard) ||
     domElementsFromSelectors.pokemonSecondLocation.contains(fantominusCard)
   ) {
-    document.getElementById("fantominusHealth").textContent =
-      `${fantominusModel.stats.hp}`;
+    document.getElementById(
+      "fantominusHealth"
+    ).textContent = `${fantominusModel.stats.hp}`;
   }
 
   if (
@@ -69,8 +72,9 @@ export const decreaseHp = function decreaseHp() {
     domElementsFromSelectors.pokemonFirstLocation.contains(crustabriCard) ||
     domElementsFromSelectors.pokemonSecondLocation.contains(crustabriCard)
   ) {
-    document.getElementById("crustabriHealth").textContent =
-      `${crustabriModel.stats.hp}`;
+    document.getElementById(
+      "crustabriHealth"
+    ).textContent = `${crustabriModel.stats.hp}`;
   }
 
   if (
@@ -79,8 +83,9 @@ export const decreaseHp = function decreaseHp() {
     domElementsFromSelectors.pokemonFirstLocation.contains(pikachuCard) ||
     domElementsFromSelectors.pokemonSecondLocation.contains(pikachuCard)
   ) {
-    document.getElementById("pikachuHealth").textContent =
-      `${pikachuModel.stats.hp}`;
+    document.getElementById(
+      "pikachuHealth"
+    ).textContent = `${pikachuModel.stats.hp}`;
   }
 
   if (
@@ -89,8 +94,9 @@ export const decreaseHp = function decreaseHp() {
     domElementsFromSelectors.pokemonFirstLocation.contains(evoliCard) ||
     domElementsFromSelectors.pokemonSecondLocation.contains(evoliCard)
   ) {
-    document.getElementById("evoliHealth").textContent =
-      `${evoliModel.stats.hp}`;
+    document.getElementById(
+      "evoliHealth"
+    ).textContent = `${evoliModel.stats.hp}`;
   }
 
   if (
@@ -99,8 +105,9 @@ export const decreaseHp = function decreaseHp() {
     domElementsFromSelectors.pokemonFirstLocation.contains(roucoolCard) ||
     domElementsFromSelectors.pokemonSecondLocation.contains(roucoolCard)
   ) {
-    document.getElementById("roucoolHealth").textContent =
-      `${roucoolModel.stats.hp}`;
+    document.getElementById(
+      "roucoolHealth"
+    ).textContent = `${roucoolModel.stats.hp}`;
   }
 
   if (
@@ -109,8 +116,9 @@ export const decreaseHp = function decreaseHp() {
     domElementsFromSelectors.pokemonFirstLocation.contains(racaillouCard) ||
     domElementsFromSelectors.pokemonSecondLocation.contains(racaillouCard)
   ) {
-    document.getElementById("racaillouHealth").textContent =
-      `${racaillouModel.stats.hp}`;
+    document.getElementById(
+      "racaillouHealth"
+    ).textContent = `${racaillouModel.stats.hp}`;
   }
 
   if (
@@ -119,8 +127,9 @@ export const decreaseHp = function decreaseHp() {
     domElementsFromSelectors.pokemonFirstLocation.contains(insecateurCard) ||
     domElementsFromSelectors.pokemonSecondLocation.contains(insecateurCard)
   ) {
-    document.getElementById("insecateurHealth").textContent =
-      `${insecateurModel.stats.hp}`;
+    document.getElementById(
+      "insecateurHealth"
+    ).textContent = `${insecateurModel.stats.hp}`;
   }
 
   if (
@@ -129,8 +138,9 @@ export const decreaseHp = function decreaseHp() {
     domElementsFromSelectors.pokemonFirstLocation.contains(sabeletteCard) ||
     domElementsFromSelectors.pokemonSecondLocation.contains(sabeletteCard)
   ) {
-    document.getElementById("sabeletteHealth").textContent =
-      `${sabeletteModel.stats.hp}`;
+    document.getElementById(
+      "sabeletteHealth"
+    ).textContent = `${sabeletteModel.stats.hp}`;
   }
 
   if (
@@ -139,8 +149,9 @@ export const decreaseHp = function decreaseHp() {
     domElementsFromSelectors.pokemonFirstLocation.contains(mewtwoCard) ||
     domElementsFromSelectors.pokemonSecondLocation.contains(mewtwoCard)
   ) {
-    document.getElementById("mewtwoHealth").textContent =
-      `${mewtwoModel.stats.hp}`;
+    document.getElementById(
+      "mewtwoHealth"
+    ).textContent = `${mewtwoModel.stats.hp}`;
   }
 
   if (
@@ -149,8 +160,9 @@ export const decreaseHp = function decreaseHp() {
     domElementsFromSelectors.pokemonFirstLocation.contains(scarabruteCard) ||
     domElementsFromSelectors.pokemonSecondLocation.contains(scarabruteCard)
   ) {
-    document.getElementById("scarabruteHealth").textContent =
-      `${scarabruteModel.stats.hp}`;
+    document.getElementById(
+      "scarabruteHealth"
+    ).textContent = `${scarabruteModel.stats.hp}`;
   }
 
   if (
@@ -159,8 +171,9 @@ export const decreaseHp = function decreaseHp() {
     domElementsFromSelectors.pokemonFirstLocation.contains(krabbossCard) ||
     domElementsFromSelectors.pokemonSecondLocation.contains(krabbossCard)
   ) {
-    document.getElementById("krabbossHealth").textContent =
-      `${krabbossModel.stats.hp}`;
+    document.getElementById(
+      "krabbossHealth"
+    ).textContent = `${krabbossModel.stats.hp}`;
   }
 
   if (
@@ -169,8 +182,9 @@ export const decreaseHp = function decreaseHp() {
     domElementsFromSelectors.pokemonFirstLocation.contains(salamecheCard) ||
     domElementsFromSelectors.pokemonSecondLocation.contains(salamecheCard)
   ) {
-    document.getElementById("salamecheHealth").textContent =
-      `${salamecheModel.stats.hp}`;
+    document.getElementById(
+      "salamecheHealth"
+    ).textContent = `${salamecheModel.stats.hp}`;
   }
 
   if (
@@ -179,7 +193,8 @@ export const decreaseHp = function decreaseHp() {
     domElementsFromSelectors.pokemonFirstLocation.contains(nidoranMaleCard) ||
     domElementsFromSelectors.pokemonSecondLocation.contains(nidoranMaleCard)
   ) {
-    document.getElementById("nidoranMaleHealth").textContent =
-      `${nidoranMaleModel.stats.hp}`;
+    document.getElementById(
+      "nidoranMaleHealth"
+    ).textContent = `${nidoranMaleModel.stats.hp}`;
   }
 };

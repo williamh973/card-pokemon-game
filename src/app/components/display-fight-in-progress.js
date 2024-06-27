@@ -1,4 +1,4 @@
-import { domElementsFromSelectors } from "./dom-elements.js";
+import { domElementsFromSelectors } from "../shared/game-variables/dom/dom-elements.js";
 
 export function displayFightInProgress() {
   domElementsFromSelectors.logoContainer.style.display = "none";

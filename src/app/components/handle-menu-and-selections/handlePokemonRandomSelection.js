@@ -15,7 +15,7 @@ import { fantominusCard } from "../cards/fantominus.card.js";
 import { ectoplasmaCard } from "../cards/ectoplasma.card.js";
 import { spectrumCard } from "../cards/spectrum.card.js";
 
-import { domElementsFromSelectors } from "../dom-elements.js";
+import { domElementsFromSelectors } from "../../shared/game-variables/dom/dom-elements.js";
 
 export function handleSelectionRandomPokemon(pokemon) {
   domElementsFromSelectors.pokemonSecondLocation.innerHTML = "";

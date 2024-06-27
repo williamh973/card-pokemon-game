@@ -10,7 +10,7 @@ import { handleSelectionRandomPokemon } from "./handle-menu-and-selections/handl
 import { displayFightInProgress } from "./display-fight-in-progress.js";
 import { calculateDamageFirstAttack } from "./damages-attacks/calculate-damages-attacks/calculateDamageFirstAttack.js";
 import { calculateDamageSecondAttack } from "./damages-attacks/calculate-damages-attacks/calculateDamageSecondAttack.js";
-import { domElementsFromSelectors } from "./dom-elements.js";
+import { domElementsFromSelectors } from "../shared/game-variables/dom/dom-elements.js";
 import { displayStatsPokemonsContainer } from "./pokemon-stats-container.js";
 import { isProtectOrDetectCapacityActived } from "./factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
 import { possibleRandomPokemonsList } from "./handle-menu-and-selections/possible-random-pokemons-list.js";

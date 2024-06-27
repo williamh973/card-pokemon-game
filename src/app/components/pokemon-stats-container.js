@@ -1,4 +1,4 @@
-import { domElementsFromSelectors } from "./dom-elements.js";
+import { domElementsFromSelectors } from "../shared/game-variables/dom/dom-elements.js";
 
 // domElementsFromSelectors.pokemonStatsContainer =
 //   document.getElementById("container-stats");

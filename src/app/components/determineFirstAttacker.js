@@ -13,7 +13,7 @@ import { crustabriModel } from "./models/crustabri.model.js";
 import { fantominusModel } from "./models/fantominus.model.js";
 import { ectoplasmaModel } from "./models/ectoplasma.model.js";
 import { spectrumModel } from "./models/spectrum.model.js";
-import { domElementsFromSelectors } from "./dom-elements.js";
+import { domElementsFromSelectors } from "../shared/game-variables/dom/dom-elements.js";
 
 export { firstAttacker, secondAttacker, determineFirstAttacker };
 

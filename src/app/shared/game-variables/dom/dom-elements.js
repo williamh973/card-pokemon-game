@@ -1,4 +1,5 @@
 export const domElementsFromSelectors = {
+  mainContainer: document.getElementById("main"),
   headContainer: document.getElementById("container-head"),
   logoContainer: document.getElementById("container-logo"),
   logo: document.getElementById("logo"),

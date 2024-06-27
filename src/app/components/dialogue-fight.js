@@ -1,4 +1,4 @@
-import { domElementsFromSelectors } from "./dom-elements.js";
+import { domElementsFromSelectors } from "../shared/game-variables/dom/dom-elements.js";
 
 const END_ATTACKS_DISPLAY_DURATION = 4000;
 
@@ -71,7 +71,7 @@ export const openDialogueWhenPokemonCriticalHitBoostedByFocusEnergy =
 
 export const openDialogueWhenPokemonCriticalHitAlreadyBoostedByFocusEnergy =
   function openDialogueWhenPokemonCriticalHitAlreadyBoostedByFocusEnergy(
-    attacker,
+    attacker
   ) {
     setTimeout(function () {
       domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
@@ -217,7 +217,7 @@ export const openDialogueWhenPokemonMakesDefenseIncrease10pFactorAttack =
 export const openDialogueWhenPokemonMakesHpIncrease5pFactorAttack =
   function openDialogueWhenPokemonMakesHpIncrease5pFactorAttack(
     pokemon,
-    hpGained,
+    hpGained
   ) {
     setTimeout(function () {
       domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
@@ -249,7 +249,7 @@ export const openDialogueWhenPokemonMissHpIncrease5pFactorAttack =
 
 export const openDialogueWhenPokemonMakesAttackDecrease2pFactorAttack =
   function openDialogueWhenPokemonMakesAttackDecrease2pFactorAttack(
-    secondAttacker,
+    secondAttacker
   ) {
     setTimeout(function () {
       domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
@@ -507,7 +507,7 @@ export const openDialogueWhenPokemonWakeUp =
 export const openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack =
   function openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack(
     pokemon,
-    actualIncrease,
+    actualIncrease
   ) {
     setTimeout(function () {
       domElementsFromSelectors.containerFullPopupDialogueFight.style.display =

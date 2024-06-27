@@ -1,15 +1,18 @@
-import { playerFormElements } from "./game-variables/player/player-form.js";
-import { playerInfos } from "./game-variables/player/player-infos.js";
+import { playerFormElements } from "../../shared/game-variables/player/player-form.js";
+import { playerInfos } from "../../shared/game-variables/player/player-infos.js";
+import { domElementsFromSelectors } from "../../shared/game-variables/dom/dom-elements.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const playerFormContainer = document.getElementById("playerForm-container");
+  console.log(playerFormContainer);
 
-  fetch("./player-form.html")
+  fetch("./src/app/components/player-form/player-form.html")
     .then((response) => response.text())
     .then((data) => {
       playerFormContainer.innerHTML = data;
       initializePlayerFormElements();
       initializePlayerInfos();
+      initializeMainGameContainer();
       initializePlayerForm();
     })
     .catch((error) => console.error("Error loading player form:", error));
@@ -28,6 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
     playerInfos.firstPlayer = document.getElementById("first-player");
     playerInfos.playerName = "";
     playerInfos.firstPlayerScore = 0;
+  }
+
+  function initializeMainGameContainer() {
+    domElementsFromSelectors.mainContainer = document.getElementById("main");
   }
 
   function initializePlayerForm() {
@@ -49,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
           event.preventDefault();
           playerInfos.firstPlayer.innerText = ` ${playerInfos.playerName} : ${playerInfos.firstPlayerScore} points`;
           playerFormElements.playerFormSection.style.display = "none";
-          mainContainer.style.display = "block";
+          domElementsFromSelectors.mainContainer.style.display = "block";
         }
       );
     }

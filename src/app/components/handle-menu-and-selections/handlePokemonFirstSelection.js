@@ -14,7 +14,7 @@ import { fantominusCard } from "../cards/fantominus.card.js";
 import { ectoplasmaCard } from "../cards/ectoplasma.card.js";
 import { spectrumCard } from "../cards/spectrum.card.js";
 
-import { domElementsFromSelectors } from "../dom-elements.js";
+import { domElementsFromSelectors } from "../../shared/game-variables/dom/dom-elements.js";
 import { pokemonSelected } from "../dialogue-when-pokemon-selected.js";
 
 export function handlePokemonFirstSelection(pokemon) {

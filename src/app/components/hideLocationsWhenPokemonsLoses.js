@@ -16,7 +16,7 @@ import { fantominusCard } from "./cards/fantominus.card.js";
 import { ectoplasmaCard } from "./cards/ectoplasma.card.js";
 import { spectrumCard } from "./cards/spectrum.card.js";
 
-import { domElementsFromSelectors } from "./dom-elements.js";
+import { domElementsFromSelectors } from "../shared/game-variables/dom/dom-elements.js";
 
 const isPokemonInSecondLocation = () =>
   domElementsFromSelectors.pokemonSecondLocation.contains(spectrumCard) ||
@@ -54,7 +54,7 @@ const isPokemonInFirstLocation = () =>
 
 export const hideSecondAttackerWhenLose = function hideSecondAttackerWhenLose(
   secondAttacker,
-  enemyPokemon,
+  enemyPokemon
 ) {
   if (secondAttacker.name === enemyPokemon && isPokemonInSecondLocation()) {
     updatePlayerScore();
@@ -64,7 +64,7 @@ export const hideSecondAttackerWhenLose = function hideSecondAttackerWhenLose(
 
 export const hideFirstAttackerWhenLose = function hideFirstAttackerWhenLose(
   firstAttacker,
-  enemyPokemon,
+  enemyPokemon
 ) {
   if (firstAttacker.name === enemyPokemon && isPokemonInFirstLocation()) {
     updatePlayerScore();
@@ -75,7 +75,7 @@ export const hideFirstAttackerWhenLose = function hideFirstAttackerWhenLose(
 export const hidePlayerSecondAttackerWhenLose =
   function hidePlayerSecondAttackerWhenLose(
     secondAttacker,
-    playerSelectedPokemon,
+    playerSelectedPokemon
   ) {
     if (
       secondAttacker.name === playerSelectedPokemon &&
@@ -88,7 +88,7 @@ export const hidePlayerSecondAttackerWhenLose =
 export const hidePlayerFirstAttackerWhenLose =
   function hidePlayerFirstAttackerWhenLose(
     firstAttacker,
-    playerSelectedPokemon,
+    playerSelectedPokemon
   ) {
     if (
       firstAttacker.name === playerSelectedPokemon &&

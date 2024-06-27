@@ -16,7 +16,7 @@ import { spectrumCard } from "../cards/spectrum.card.js";
 
 import { pokemonSelected } from "../dialogue-when-pokemon-selected.js";
 
-import { domElementsFromSelectors } from "../dom-elements.js";
+import { domElementsFromSelectors } from "../../shared/game-variables/dom/dom-elements.js";
 
 export const handlePokemonSecondSelection =
   function handlePokemonSecondSelection(pokemon) {
@@ -25,25 +25,25 @@ export const handlePokemonSecondSelection =
     switch (pokemon) {
       case "Spectrum":
         domElementsFromSelectors.pokemonSecondLocation.appendChild(
-          spectrumCard,
+          spectrumCard
         );
         pokemonSelected(pokemon);
         break;
       case "Ectoplasma":
         domElementsFromSelectors.pokemonSecondLocation.appendChild(
-          ectoplasmaCard,
+          ectoplasmaCard
         );
         pokemonSelected(pokemon);
         break;
       case "Fantominus":
         domElementsFromSelectors.pokemonSecondLocation.appendChild(
-          fantominusCard,
+          fantominusCard
         );
         pokemonSelected(pokemon);
         break;
       case "Crustabri":
         domElementsFromSelectors.pokemonSecondLocation.appendChild(
-          crustabriCard,
+          crustabriCard
         );
         pokemonSelected(pokemon);
         break;
@@ -61,19 +61,19 @@ export const handlePokemonSecondSelection =
         break;
       case "Racaillou":
         domElementsFromSelectors.pokemonSecondLocation.appendChild(
-          racaillouCard,
+          racaillouCard
         );
         pokemonSelected(pokemon);
         break;
       case "Insécateur":
         domElementsFromSelectors.pokemonSecondLocation.appendChild(
-          insecateurCard,
+          insecateurCard
         );
         pokemonSelected(pokemon);
         break;
       case "Sabelette":
         domElementsFromSelectors.pokemonSecondLocation.appendChild(
-          sabeletteCard,
+          sabeletteCard
         );
         pokemonSelected(pokemon);
         break;
@@ -83,25 +83,25 @@ export const handlePokemonSecondSelection =
         break;
       case "Scarabrute":
         domElementsFromSelectors.pokemonSecondLocation.appendChild(
-          scarabruteCard,
+          scarabruteCard
         );
         pokemonSelected(pokemon);
         break;
       case "Krabboss":
         domElementsFromSelectors.pokemonSecondLocation.appendChild(
-          krabbossCard,
+          krabbossCard
         );
         pokemonSelected(pokemon);
         break;
       case "Salamèche":
         domElementsFromSelectors.pokemonSecondLocation.appendChild(
-          salamecheCard,
+          salamecheCard
         );
         pokemonSelected(pokemon);
         break;
       case "Nidoran♂":
         domElementsFromSelectors.pokemonSecondLocation.appendChild(
-          nidoranMaleCard,
+          nidoranMaleCard
         );
         pokemonSelected(pokemon);
         break;

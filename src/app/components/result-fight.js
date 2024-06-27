@@ -1,9 +1,9 @@
 import { firstAttacker, secondAttacker } from "./determineFirstAttacker.js";
 
-import { domElementsFromSelectors } from "./dom-elements.js";
+import { domElementsFromSelectors } from "../shared/game-variables/dom/dom-elements.js";
 
 const containerFullPopupResultFight = document.getElementById(
-  "container-display-result",
+  "container-display-result"
 );
 
 const displayResult = document.getElementById("result");
