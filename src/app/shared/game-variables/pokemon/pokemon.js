@@ -1,6 +1,4 @@
 export const pokemonVariables = {
-  firstAttacker: "",
-  secondAttacker: "",
   isFirstPokemonSelected: false,
   isSecondPokemonSelected: false,
   playerSelectedPokemon: "",

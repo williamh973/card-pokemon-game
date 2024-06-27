@@ -3,7 +3,7 @@ import { domElementsFromSelectors } from "../shared/game-variables/dom/dom-eleme
 export function displayFightInProgress() {
   domElementsFromSelectors.logoContainer.style.display = "none";
   domElementsFromSelectors.logo.style.display = "none";
-  domElementsFromSelectors.menuButton.style.display = "none";
+  domElementsFromSelectors.menuContainer.style.display = "none";
   domElementsFromSelectors.selectFirstPokemonButton.style.display = "none";
   domElementsFromSelectors.versusContainer.style.display = "none";
   domElementsFromSelectors.versus.style.display = "none";
@@ -17,7 +17,7 @@ export function displayFightInProgress() {
 export function hideFightInProgress() {
   domElementsFromSelectors.logoContainer.style.display = "flex";
   domElementsFromSelectors.logo.style.display = "flex";
-  domElementsFromSelectors.menuButton.style.display = "flex";
+  domElementsFromSelectors.menuContainer.style.display = "flex";
   domElementsFromSelectors.selectFirstPokemonButton.style.display = "flex";
   domElementsFromSelectors.versusContainer.style.display = "flex";
   domElementsFromSelectors.versus.style.display = "flex";

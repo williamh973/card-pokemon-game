@@ -3,7 +3,7 @@ import {
   secondAttacker,
   determineFirstAttacker,
 } from "./determineFirstAttacker.js";
-import { handleMenu } from "./handle-menu-and-selections/handleMenu.js";
+// import { handleMenu } from "./handle-menu-and-selections/handleMenu.js";
 import { handlePokemonFirstSelection } from "./handle-menu-and-selections/handlePokemonFirstSelection.js";
 import { handlePokemonSecondSelection } from "./handle-menu-and-selections/handlePokemonSecondSelection.js";
 import { handleSelectionRandomPokemon } from "./handle-menu-and-selections/handlePokemonRandomSelection.js";
@@ -49,10 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
   domElementsFromSelectors.headContainer.appendChild(
     domElementsFromSelectors.fightInProgress
   );
-
-  menu.addEventListener("change", () => {
-    handleMenu(menu.value);
-  });
 
   domElementsFromSelectors.selectFirstPokemonButton.addEventListener(
     "change",

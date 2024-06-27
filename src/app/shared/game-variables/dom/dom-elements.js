@@ -5,6 +5,7 @@ export const domElementsFromSelectors = {
   logo: document.getElementById("logo"),
   versusContainer: document.getElementById("container-vs"),
   versus: document.getElementById("vs"),
+  menuContainer: document.getElementById("menu-container"),
   menuButton: document.getElementById("menu"),
   definiteFighTitle: document.getElementById("definite-fight-title"),
   randomFighTitle: document.getElementById("random-fight-title"),

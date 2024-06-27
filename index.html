@@ -22,6 +22,11 @@
       defer
     ></script>
     <script
+      src="./src/app/components/menu/menu.js"
+      type="module"
+      defer
+    ></script>
+    <script
       src="./src/app/components/main-game.js"
       type="module"
       defer
@@ -29,7 +34,7 @@
   </head>
 
   <body>
-    <section id="playerForm-container"></section>
+    <div id="playerForm-container"></div>
 
     <main id="main">
       <section id="container-head">
@@ -40,14 +45,7 @@
           />
         </div>
 
-        <nav>
-          <select id="menu">
-            <option value="default">Sélectionner un mode de jeu</option>
-            <option value="definite-fight">Combat défini</option>
-            <option value="random-fight">Adversaire aléatoire</option>
-            <option value="close-menu">Fermer le menu</option>
-          </select>
-        </nav>
+        <div id="menu-container"></div>
 
         <div id="container-title-selections-vs-container-players">
           <div class="title-mod" id="definite-fight-title">Combat défini</div>

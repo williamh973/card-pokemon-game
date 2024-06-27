@@ -1,6 +1,6 @@
 import { domElementsFromSelectors } from "../../shared/game-variables/dom/dom-elements.js";
 
-export const handleMenu = function handleMenu(gameMod) {
+export function handleMenu(gameMod) {
   switch (gameMod) {
     case "default":
       domElementsFromSelectors.definiteFighTitle.style.display = "none";
@@ -49,4 +49,4 @@ export const handleMenu = function handleMenu(gameMod) {
       domElementsFromSelectors.randomFightMod = false;
       break;
   }
-};
+}
