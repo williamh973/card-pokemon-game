@@ -94,18 +94,6 @@
   font-size: 20px;
   font-weight: bolder;
 }
-<<<<<<< HEAD:styles/style-pseudo-form.css
-
-@keyframes logoPokemonMoveUp {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-150px);
-  }
-}
-=======
->>>>>>> refacto:src/app/components/player-form/player-form.css
 
 @keyframes displayForm {
   from {

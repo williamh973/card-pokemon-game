@@ -30,12 +30,6 @@
   border-radius: 10px;
 }
 
-<<<<<<< HEAD:styles/style-head.css
-#pokemonFirstSelection,
-#pokemonSecondSelection,
-#pokemonRandomSelection {
-  width: 100%;
-=======
 .title-mod {
   width: 350px;
   height: 50px;
@@ -53,7 +47,6 @@
 #pokemonSecondSelection,
 #pokemonRandomSelection {
   width: 350px;
->>>>>>> refacto:styles/head.style.css
   height: 50px;
   text-align: center;
   justify-content: center;
