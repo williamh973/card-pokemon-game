@@ -1,0 +1,117 @@
+#playerForm-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+#player-form {
+  position: relative;
+  width: 40%;
+  min-width: 400px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px;
+  opacity: 0;
+  animation: displayForm 3s ease-in-out forwards;
+  z-index: 1;
+}
+
+#logo-pokemon {
+  width: 45%;
+  min-width: 300px;
+  height: auto;
+  padding: 10px 0;
+  font-style: italic;
+  background-color: whitesmoke;
+}
+
+#playerForm-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ced4da;
+  color: #495057;
+  box-sizing: border-box;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+#playerForm-input {
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#playerForm-input:focus {
+  border-color: #cc00ff;
+  box-shadow: 0 0 5px #cc00ff73;
+  outline: none;
+}
+
+#playerForm-input:hover {
+  border-color: #cc00ff;
+  cursor: pointer;
+}
+
+#playerForm-submitButton {
+  width: 100%;
+  height: 50px;
+  border: none;
+  background-color: green;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  font-size: 20px;
+  font-weight: bolder;
+}
+#playerForm-submitButton:hover {
+  cursor: pointer;
+}
+#playerForm-submitButton:active {
+  background-color: lightgreen;
+}
+
+#playerForm-submitButton:disabled {
+  background-color: lightgray;
+  color: gray;
+  cursor: not-allowed;
+  width: 100%;
+  height: 50px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  font-size: 20px;
+  font-weight: bolder;
+}
+<<<<<<< HEAD:styles/style-pseudo-form.css
+
+@keyframes logoPokemonMoveUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-150px);
+  }
+}
+=======
+>>>>>>> refacto:src/app/components/player-form/player-form.css
+
+@keyframes displayForm {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

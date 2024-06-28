@@ -1,0 +1,130 @@
+.card-main {
+  width: 210px;
+  height: 325px;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  margin: auto;
+  font-size: 12px;
+  margin: 50px 0;
+<<<<<<< HEAD:styles/style-cards.css
+=======
+}
+.card-main:hover {
+  transition: all 200ms;
+  scale: 1.2;
+>>>>>>> refacto:styles/cards.style.css
+}
+
+.card-head {
+  width: 90%;
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Sans-Serif;
+  font-weight: bold;
+  border-radius: 5px;
+  margin: auto;
+}
+
+.title {
+  font-size: 13px;
+}
+
+.container-hp-logoType {
+  width: 65px;
+  height: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.hp {
+  font-size: 13px;
+}
+
+.type-logo {
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.image {
+  width: 90%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  border: 4px solid lightgrey;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+}
+
+.attacks-container {
+  width: 95%;
+  height: 115px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.attackType-name-strength-container {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+
+.attack-and-resume {
+  width: 90%;
+  height: 45px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.attack-name {
+  font-size: 12px;
+  font-weight: bold;
+  margin: auto;
+}
+
+.attack-strength {
+  font-weight: bold;
+  font-size: 12px;
+  text-align: right;
+}
+
+.attack-resume {
+  font-weight: normal;
+  font-size: 9px;
+  margin: auto;
+  text-align: center;
+}
+
+.weakness-resistance-container {
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid lightgrey;
+  margin-top: 2px;
+}
+
+#weakness,
+#resistance {
+  width: 100%;
+  font-size: 9px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

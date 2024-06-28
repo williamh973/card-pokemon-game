@@ -1,0 +1,15 @@
+#container-display-dialogue {
+  width: 80%;
+  height: 65px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  border: 4px solid blueviolet;
+  border-radius: 5px;
+  margin: auto;
+}
+
+#dialogue {
+  display: none;
+}
