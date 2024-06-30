@@ -3,17 +3,11 @@ import {
   secondAttacker,
   determineFirstAttacker,
 } from "./determineFirstAttacker.js";
-// import { handleMenu } from "./handle-menu-and-selections/handleMenu.js";
-import { handlePokemonFirstSelection } from "./handle-menu-and-selections/handlePokemonFirstSelection.js";
-import { handlePokemonSecondSelection } from "./handle-menu-and-selections/handlePokemonSecondSelection.js";
-import { handleSelectionRandomPokemon } from "./handle-menu-and-selections/handlePokemonRandomSelection.js";
 import { displayFightInProgress } from "./display-fight-in-progress.js";
 import { calculateDamageFirstAttack } from "./damages-attacks/calculate-damages-attacks/calculateDamageFirstAttack.js";
 import { calculateDamageSecondAttack } from "./damages-attacks/calculate-damages-attacks/calculateDamageSecondAttack.js";
-import { domElementsFromSelectors } from "../shared/game-variables/dom/dom-elements.js";
-import { displayStatsPokemonsContainer } from "./pokemon-stats-container.js";
+import { domElements } from "../shared/dom/dom-elements.js";
 import { isProtectOrDetectCapacityActived } from "./factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
-import { possibleRandomPokemonsList } from "./handle-menu-and-selections/possible-random-pokemons-list.js";
 import {
   getAttackDelays,
   sleepAttacksAnimation,
@@ -42,70 +36,15 @@ import { firstAttackerStatutStateVariableList } from "./handle-statut-state-in-f
 import { firstAttackerSecondaryStatutStateVariableList } from "./handle-statut-state-in-fight/first-attacker/first-attacker-statut-state-alteration/first-attacker-secondary-statut-alteration.js";
 import { secondAttackerStatutStateVariableList } from "./handle-statut-state-in-fight/second-attacker/second-attacker-statut-state-alteration/second-attacker-primary-statut-alteration.js";
 import { secondAttackerSecondaryStatutStateVariableList } from "./handle-statut-state-in-fight/second-attacker/second-attacker-statut-state-alteration/second-attacker-secondary-statut-alteration.js";
-import { pokemonVariables } from "../shared/game-variables/pokemon/pokemon.js";
-import { battleVariable } from "../shared/game-variables/battle/battle.js";
+import { pokemonVariables } from "../shared/pokemon/pokemon-variables.js";
+import { battleVariable } from "../shared/battle/battle.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  domElementsFromSelectors.headContainer.appendChild(
-    domElementsFromSelectors.fightInProgress
-  );
+  domElements.headContainer.appendChild(domElements.fightInProgress);
 
-  domElementsFromSelectors.selectFirstPokemonButton.addEventListener(
-    "change",
-    () => {
-      handlePokemonFirstSelection(
-        domElementsFromSelectors.selectFirstPokemonButton.value
-      );
-      pokemonVariables.isFirstPokemonSelected = true;
-      pokemonVariables.playerSelectedPokemon =
-        domElementsFromSelectors.selectFirstPokemonButton.value;
-      domElementsFromSelectors.fightButtonContainer.style.display = "flex";
-      activateFightButton();
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "none";
-      domElementsFromSelectors.displayDialogue.style.display = "none";
-    }
-  );
+  domElements.fightButton.disabled = true;
 
-  domElementsFromSelectors.selectSecondPokemonButton.addEventListener(
-    "change",
-    () => {
-      handlePokemonSecondSelection(
-        domElementsFromSelectors.selectSecondPokemonButton.value
-      );
-      pokemonVariables.isSecondPokemonSelected = true;
-      pokemonVariables.enemyPokemon =
-        domElementsFromSelectors.selectSecondPokemonButton.value;
-      domElementsFromSelectors.fightButtonContainer.style.display = "flex";
-      activateFightButton();
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "none";
-      domElementsFromSelectors.displayDialogue.style.display = "none";
-    }
-  );
-
-  domElementsFromSelectors.pokemonRandomSelectionButton.addEventListener(
-    "click",
-    () => {
-      const randomIndex = Math.floor(
-        Math.random() * possibleRandomPokemonsList.length
-      );
-      const pokemon = possibleRandomPokemonsList[randomIndex];
-      domElementsFromSelectors.selectSecondPokemonButton.value = pokemon;
-      handleSelectionRandomPokemon(pokemon);
-      pokemonVariables.isSecondPokemonSelected = true;
-      pokemonVariables.enemyPokemon = pokemon;
-      domElementsFromSelectors.fightButtonContainer.style.display = "flex";
-      activateFightButton();
-      domElementsFromSelectors.containerFullPopupDialogueFight.style.display =
-        "none";
-      domElementsFromSelectors.displayDialogue.style.display = "none";
-    }
-  );
-
-  domElementsFromSelectors.fightButton.disabled = true;
-
-  domElementsFromSelectors.fightButton.addEventListener("click", () => {
+  domElements.fightButton.addEventListener("click", () => {
     async function fight() {
       battleVariable.loopRunning = true;
 
@@ -415,7 +354,7 @@ document.addEventListener("DOMContentLoaded", () => {
       pokemonVariables.isFirstPokemonSelected &&
       pokemonVariables.isSecondPokemonSelected
     ) {
-      domElementsFromSelectors.fightButton.disabled = false;
+      domElements.fightButton.disabled = false;
     }
   }
 

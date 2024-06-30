@@ -1,12 +1,12 @@
-import { domElementsFromSelectors } from "../shared/game-variables/dom/dom-elements.js";
+import { domElements } from "../shared/dom/dom-elements.js";
 
-// domElementsFromSelectors.pokemonStatsContainer =
+// domElements.pokemonStatsContainer =
 //   document.getElementById("container-stats");
-// domElementsFromSelectors.pokemonStatsContainer.style.display = "none";
+// domElements.pokemonStatsContainer.style.display = "none";
 
 export const displayStatsPokemonsContainer =
   function displayStatsPokemonsContainer(firstAttacker, secondAttacker) {
-    // domElementsFromSelectors.pokemonStatsContainer.style.display = "block";
+    // domElements.pokemonStatsContainer.style.display = "block";
     // const firstAttackerNameCont = document.getElementById(
     //   "first-attacker-name",
     // );

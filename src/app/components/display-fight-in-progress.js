@@ -1,28 +1,26 @@
-import { domElementsFromSelectors } from "../shared/game-variables/dom/dom-elements.js";
+import { domElements } from "../shared/dom/dom-elements.js";
+import { pokemonSelectors } from "../shared/header/pokemon-selectors.js";
+import { menuSelectors } from "../shared/header/menu-selectors.js";
 
 export function displayFightInProgress() {
-  domElementsFromSelectors.logoContainer.style.display = "none";
-  domElementsFromSelectors.logo.style.display = "none";
-  domElementsFromSelectors.menuContainer.style.display = "none";
-  domElementsFromSelectors.selectFirstPokemonButton.style.display = "none";
-  domElementsFromSelectors.versusContainer.style.display = "none";
-  domElementsFromSelectors.versus.style.display = "none";
-  domElementsFromSelectors.selectSecondPokemonButton.style.display = "none";
-  domElementsFromSelectors.pokemonRandomSelectionButton.style.display = "none";
-  domElementsFromSelectors.fightButtonContainer.style.display = "none";
-  domElementsFromSelectors.fightInProgress.style.display = "flex";
-  domElementsFromSelectors.fightInProgress.textContent = "Combat en cours";
+  domElements.logo.style.display = "none";
+  domElements.menuContainer.style.display = "none";
+  pokemonSelectors.selectFirstPokemonButton.style.display = "none";
+  menuSelectors.versus.style.display = "none";
+  domElements.selectSecondPokemonButton.style.display = "none";
+  domElements.pokemonRandomSelectionButton.style.display = "none";
+  domElements.fightButtonContainer.style.display = "none";
+  domElements.fightInProgress.style.display = "flex";
+  domElements.fightInProgress.textContent = "Combat en cours";
 }
 
 export function hideFightInProgress() {
-  domElementsFromSelectors.logoContainer.style.display = "flex";
-  domElementsFromSelectors.logo.style.display = "flex";
-  domElementsFromSelectors.menuContainer.style.display = "flex";
-  domElementsFromSelectors.selectFirstPokemonButton.style.display = "flex";
-  domElementsFromSelectors.versusContainer.style.display = "flex";
-  domElementsFromSelectors.versus.style.display = "flex";
-  domElementsFromSelectors.selectSecondPokemonButton.style.display = "flex";
-  domElementsFromSelectors.pokemonRandomSelectionButton.style.display = "flex";
-  domElementsFromSelectors.fightButtonContainer.style.display = "flex";
-  domElementsFromSelectors.fightInProgress.style.display = "none";
+  domElements.logo.style.display = "flex";
+  domElements.menuContainer.style.display = "flex";
+  pokemonSelectors.selectFirstPokemonButton.style.display = "flex";
+  menuSelectors.versus.style.display = "flex";
+  domElements.selectSecondPokemonButton.style.display = "flex";
+  domElements.pokemonRandomSelectionButton.style.display = "flex";
+  domElements.fightButtonContainer.style.display = "flex";
+  domElements.fightInProgress.style.display = "none";
 }

@@ -1,19 +1,20 @@
-import { pikachuModel } from "./models/pikachu.model.js";
-import { evoliModel } from "./models/evoli.model.js";
-import { roucoolModel } from "./models/roucool.model.js";
-import { racaillouModel } from "./models/racaillou.model.js";
-import { insecateurModel } from "./models/insecateur.model.js";
-import { sabeletteModel } from "./models/sabelette.model.js";
-import { mewtwoModel } from "./models/mewtwo.model.js";
-import { scarabruteModel } from "./models/scarabrute.model.js";
-import { krabbossModel } from "./models/krabboss.model.js";
-import { salamecheModel } from "./models/salameche.model.js";
-import { nidoranMaleModel } from "./models/nidoranMale.model.js";
-import { crustabriModel } from "./models/crustabri.model.js";
-import { fantominusModel } from "./models/fantominus.model.js";
-import { ectoplasmaModel } from "./models/ectoplasma.model.js";
-import { spectrumModel } from "./models/spectrum.model.js";
-import { domElementsFromSelectors } from "../shared/game-variables/dom/dom-elements.js";
+import { pikachuModel } from "../shared/pokemon/models/pikachu.model.js";
+import { evoliModel } from "../shared/pokemon/models/evoli.model.js";
+import { roucoolModel } from "../shared/pokemon/models/roucool.model.js";
+import { racaillouModel } from "../shared/pokemon/models/racaillou.model.js";
+import { insecateurModel } from "../shared/pokemon/models/insecateur.model.js";
+import { sabeletteModel } from "../shared/pokemon/models/sabelette.model.js";
+import { mewtwoModel } from "../shared/pokemon/models/mewtwo.model.js";
+import { scarabruteModel } from "../shared/pokemon/models/scarabrute.model.js";
+import { krabbossModel } from "../shared/pokemon/models/krabboss.model.js";
+import { salamecheModel } from "../shared/pokemon/models/salameche.model.js";
+import { nidoranMaleModel } from "../shared/pokemon/models/nidoranMale.model.js";
+import { crustabriModel } from "../shared/pokemon/models/crustabri.model.js";
+import { fantominusModel } from "../shared/pokemon/models/fantominus.model.js";
+import { ectoplasmaModel } from "../shared/pokemon/models/ectoplasma.model.js";
+import { spectrumModel } from "../shared/pokemon/models/spectrum.model.js";
+
+import { domElements } from "../shared/dom/dom-elements.js";
 
 export { firstAttacker, secondAttacker, determineFirstAttacker };
 
@@ -44,12 +45,10 @@ function getPokemonModel(pokemonName) {
 }
 
 function determineFirstAttacker() {
-  firstAttacker = getPokemonModel(
-    domElementsFromSelectors.selectFirstPokemonButton.value
-  );
+  firstAttacker = getPokemonModel(domElements.selectFirstPokemonButton.value);
   secondAttacker = getPokemonModel(
-    domElementsFromSelectors.selectSecondPokemonButton.value ||
-      domElementsFromSelectors.pokemonRandomSelectionButton.value
+    domElements.selectSecondPokemonButton.value ||
+      domElements.pokemonRandomSelectionButton.value
   );
 
   if (firstAttacker.stats.speed < secondAttacker.stats.speed) {

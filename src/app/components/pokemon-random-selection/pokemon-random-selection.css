@@ -1,0 +1,19 @@
+#pokemonRandomSelection {
+  width: 350px;
+  height: 50px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  font-size: 17px;
+  font-weight: bold;
+  border: none;
+  background-color: rgb(189, 189, 189);
+  display: none;
+  margin: auto;
+}
+
+#pokemonRandomSelection:hover {
+  cursor: pointer;
+  background-color: rgb(138, 138, 138);
+}

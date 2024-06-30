@@ -17,12 +17,27 @@
     <link rel="stylesheet" href="./styles/display-result.style.css" />
 
     <script
+      src="./src/app/components/menu/menu.js"
+      type="module"
+      defer
+    ></script>
+    <script
       src="./src/app/components/player-form/player-form.js"
       type="module"
       defer
     ></script>
     <script
-      src="./src/app/components/menu/menu.js"
+      src="./src/app/components/pokemon-first-selection/pokemon-first-selection.js"
+      type="module"
+      defer
+    ></script>
+    <script
+      src="./src/app/components/pokemon-second-selection/pokemon-second-selection.js"
+      type="module"
+      defer
+    ></script>
+    <script
+      src="./src/app/components/pokemon-random-selection/pokemon-random-selection.js"
       type="module"
       defer
     ></script>
@@ -34,16 +49,16 @@
   </head>
 
   <body>
-    <div id="playerForm-container"></div>
+    <section>
+      <div id="playerForm-container"></div>
+    </section>
 
     <main id="main">
-      <section id="container-head">
-        <div id="container-logo">
-          <img
-            id="logo"
-            src="./src/assets/images/logos/player-form/pokemon-logo.png"
-          />
-        </div>
+      <div id="header-container">
+        <img
+          id="logo"
+          src="./src/assets/images/logos/player-form/pokemon-logo.png"
+        />
 
         <div id="menu-container"></div>
 
@@ -53,53 +68,12 @@
             Adversaire aléatoire
           </div>
 
-          <select id="pokemonFirstSelection">
-            <option value="choose" selected>Choisissez votre Pokémon</option>
-            <option value="Spectrum">Spectrum</option>
-            <option value="Ectoplasma">Ectoplasma</option>
-            <option value="Fantominus">Fantominus</option>
-            <option value="Crustabri">Crustabri</option>
-            <option value="Pikachu">Pikachu</option>
-            <option value="Évoli">Evoli</option>
-            <option value="Roucool">Roucool</option>
-            <option value="Racaillou">Racaillou</option>
-            <option value="Insécateur">Insécateur</option>
-            <option value="Sabelette">Sabelette</option>
-            <option value="Mewtwo">Mewtwo</option>
-            <option value="Scarabrute">Scarabrute</option>
-            <option value="Krabboss">Krabboss</option>
-            <option value="Salamèche">Salamèche</option>
-            <option value="Nidoran♂">Nidoran♂</option>
-          </select>
+          <div id="pokemon-firstSelection-container"></div>
 
-          <div id="container-vs">
-            <p id="vs">VS</p>
-          </div>
+          <p id="vs">VS</p>
 
-          <select id="pokemonSecondSelection">
-            <option value="choose" selected>
-              Choisissez le Pokémon adverse
-            </option>
-            <option value="Spectrum">Spectrum</option>
-            <option value="Ectoplasma">Ectoplasma</option>
-            <option value="Fantominus">Fantominus</option>
-            <option value="Crustabri">Crustabri</option>
-            <option value="Pikachu">Pikachu</option>
-            <option value="Évoli">Evoli</option>
-            <option value="Roucool">Roucool</option>
-            <option value="Racaillou">Racaillou</option>
-            <option value="Insécateur">Insécateur</option>
-            <option value="Sabelette">Sabelette</option>
-            <option value="Mewtwo">Mewtwo</option>
-            <option value="Scarabrute">Scarabrute</option>
-            <option value="Krabboss">Krabboss</option>
-            <option value="Salamèche">Salamèche</option>
-            <option value="Nidoran♂">Nidoran♂</option>
-          </select>
-
-          <button id="pokemonRandomSelection">
-            Cliquer pour générer un pokémon
-          </button>
+          <div id="pokemon-secondSelection-container"></div>
+          <div id="pokemon-randomSelection-container"></div>
 
           <div id="fight-in-progress"></div>
 
@@ -111,7 +85,7 @@
             <div id="first-player"></div>
           </div>
         </div>
-      </section>
+      </div>
 
       <section id="ring">
         <div class="pokemon-location" id="pokemon-first-location"></div>

@@ -1,6 +1,6 @@
-import { playerFormElements } from "../../shared/game-variables/player/player-form.js";
-import { playerInfos } from "../../shared/game-variables/player/player-infos.js";
-import { domElementsFromSelectors } from "../../shared/game-variables/dom/dom-elements.js";
+import { playerFormElements } from "../../shared/player/player-form.js";
+import { playerInfos } from "../../shared/player/player-infos.js";
+import { domElements } from "../../shared/dom/dom-elements.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const playerFormContainer = document.getElementById("playerForm-container");
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function initializeMainGameContainer() {
-    domElementsFromSelectors.mainContainer = document.getElementById("main");
+    domElements.main = document.getElementById("main");
   }
 
   function initializePlayerForm() {
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
           event.preventDefault();
           playerInfos.firstPlayer.innerText = ` ${playerInfos.playerName} : ${playerInfos.firstPlayerScore} points`;
           playerFormElements.playerFormSection.style.display = "none";
-          domElementsFromSelectors.mainContainer.style.display = "block";
+          domElements.main.style.display = "block";
         }
       );
     }

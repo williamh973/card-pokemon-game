@@ -1,4 +1,4 @@
-import { playerInfos } from "../shared/game-variables/player/player-infos.js";
+import { playerInfos } from "../shared/player/player-infos.js";
 
 export function updatePlayerScore() {
   playerInfos.firstPlayerScore += 1;
