@@ -1,4 +1,4 @@
-export const possibleRandomPokemonsList = [
+export const pokemonNameList = [
   "Pikachu",
   "Évoli",
   "Roucool",

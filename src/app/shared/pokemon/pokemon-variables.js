@@ -5,4 +5,5 @@ export const pokemonVariables = {
   enemyPokemon: "",
   isFirstAttackActive: false,
   isSecondAttackActive: false,
+  selection: "sélectionné !",
 };

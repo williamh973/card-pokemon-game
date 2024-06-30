@@ -2,7 +2,7 @@ import { domElements } from "../../shared/dom/dom-elements.js";
 import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
 import { handleSelectionRandomPokemon } from "../handle-menu-and-selections/handlePokemonRandomSelection.js";
 import { pokemonSelectors } from "../../shared/header/pokemon-selectors.js";
-import { possibleRandomPokemonsList } from "../handle-menu-and-selections/possible-random-pokemons-list.js";
+import { pokemonNameList } from "../../shared/pokemon/pokemon-name-list.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   fetch(
@@ -19,10 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     pokemonSelectors.selectRandomSelectionButton.addEventListener(
       "click",
       () => {
-        const randomIndex = Math.floor(
-          Math.random() * possibleRandomPokemonsList.length
-        );
-        const pokemon = possibleRandomPokemonsList[randomIndex];
+        const randomIndex = Math.floor(Math.random() * pokemonNameList.length);
+        const pokemon = pokemonNameList[randomIndex];
         pokemonSelectors.selectSecondPokemonButton.value = pokemon;
         handleSelectionRandomPokemon(pokemon);
         pokemonVariables.isSecondPokemonSelected = true;

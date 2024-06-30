@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function initializePlayerInfos() {
-    playerInfos.firstPlayer = document.getElementById("first-player");
+    playerInfos.firstPlayer = document.getElementById("player-info-container");
     playerInfos.playerName = "";
     playerInfos.firstPlayerScore = 0;
   }

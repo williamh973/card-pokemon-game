@@ -42,6 +42,11 @@
       defer
     ></script>
     <script
+      src="./src/app/components/pokemon-selected-confirm-popup/pokemon-selected-confirm-popup.js"
+      type="module"
+      defer
+    ></script>
+    <script
       src="./src/app/components/main-game.js"
       type="module"
       defer
@@ -63,8 +68,8 @@
         <div id="menu-container"></div>
 
         <div id="container-title-selections-vs-container-players">
-          <div class="title-mod" id="definite-fight-title">Combat défini</div>
-          <div class="title-mod" id="random-fight-title">
+          <div class="title-mod" id="definite-mod-title">Combat défini</div>
+          <div class="title-mod" id="random-mod-title">
             Adversaire aléatoire
           </div>
 
@@ -77,12 +82,11 @@
 
           <div id="fight-in-progress"></div>
 
-          <div id="container-display-pokemon-selected">
-            <div id="pokemon-selected"></div>
-          </div>
+          <div id="container-display-pokemon-selected"></div>
 
-          <div id="container-players">
-            <div id="first-player"></div>
+          <div id="players-computer-container">
+            <div id="player-info-container" class="infos-container"></div>
+            <div id="computer-info-container" class="infos-container"></div>
           </div>
         </div>
       </div>
