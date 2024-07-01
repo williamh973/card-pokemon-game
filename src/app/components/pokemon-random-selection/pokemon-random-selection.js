@@ -3,6 +3,7 @@ import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
 import { handleSelectionRandomPokemon } from "../handle-menu-and-selections/handlePokemonRandomSelection.js";
 import { pokemonSelectors } from "../../shared/header/pokemon-selectors.js";
 import { pokemonNameList } from "../../shared/pokemon/pokemon-name-list.js";
+import { activateBattleButton } from "../battle/battle-button.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   fetch(
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         pokemonVariables.isSecondPokemonSelected = true;
         pokemonVariables.enemyPokemon = pokemon;
         domElements.fightButtonContainer.style.display = "flex";
-        activateFightButton();
+        activateBattleButton();
         domElements.containerFullPopupDialogueFight.style.display = "none";
         domElements.displayDialogue.style.display = "none";
       }

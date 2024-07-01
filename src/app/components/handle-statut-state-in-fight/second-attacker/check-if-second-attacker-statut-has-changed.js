@@ -13,7 +13,7 @@ import {
   getSecondAttackerCursedStatutAlterationDelays,
 } from "../../animations-delays/alterations-delay.js";
 
-import { decreaseHp } from "../../decreasePokemonHp.js";
+import { updateDisplayPokemonHp } from "../../update-display-Pokemon-hp.js";
 
 import {
   openDialogueWhenPokemonHpDecreaseByBurningStatut,
@@ -28,7 +28,7 @@ export const checkIfSecondAttackerStatusHasBurningOrPoisoned =
     firstAttacker,
     enemyPokemon,
     playerSelectedPokemon,
-    sleepStatutAlteredAnimation,
+    sleepStatutAlteredAnimation
   ) {
     if (
       secondAttacker.primaryStatut === "burning" ||
@@ -42,10 +42,10 @@ export const checkIfSecondAttackerStatusHasBurningOrPoisoned =
       secondAttackerPrimaryStatutAlteration(secondAttacker);
 
       await sleepStatutAlteredAnimation(
-        secondAttackerAlterationStateDelays.secondAttackerStateDelay,
+        secondAttackerAlterationStateDelays.secondAttackerStateDelay
       );
 
-      decreaseHp();
+      updateDisplayPokemonHp(firstAttacker, secondAttacker);
 
       if (secondAttacker.stats.hp <= 0) {
         secondAttacker.stats.hp = 0;
@@ -54,7 +54,7 @@ export const checkIfSecondAttackerStatusHasBurningOrPoisoned =
           firstAttacker,
           secondAttacker,
           enemyPokemon,
-          playerSelectedPokemon,
+          playerSelectedPokemon
         );
       }
     }
@@ -63,7 +63,7 @@ export const checkIfSecondAttackerStatusHasBurningOrPoisoned =
 export const checkIfSecondAttackerStatusHasParalyzedFrozenNormalOrAsleep =
   async function checkIfSecondAttackerStatusHasParalyzedFrozenNormalOrAsleep(
     secondAttacker,
-    sleepStatutAlteredAnimation,
+    sleepStatutAlteredAnimation
   ) {
     if (
       secondAttacker.primaryStatut === "paralyzed" ||
@@ -77,7 +77,7 @@ export const checkIfSecondAttackerStatusHasParalyzedFrozenNormalOrAsleep =
       secondAttackerPrimaryStatutAlteration(secondAttacker);
 
       await sleepStatutAlteredAnimation(
-        secondAttackerAlterationStateDelays.secondAttackerStateDelay,
+        secondAttackerAlterationStateDelays.secondAttackerStateDelay
       );
     }
   };
@@ -88,7 +88,7 @@ export const checkIfSecondAttackerStatusConfusing =
     firstAttacker,
     enemyPokemon,
     playerSelectedPokemon,
-    sleepStatutAlteredAnimation,
+    sleepStatutAlteredAnimation
   ) {
     if (
       secondAttacker.secondaryStatut.isConfused ||
@@ -100,10 +100,10 @@ export const checkIfSecondAttackerStatusConfusing =
       secondAttackerSecondaryStatutConfusingAlteration(secondAttacker);
 
       await sleepStatutAlteredAnimation(
-        secondAttackerAlterationStateDelays.secondAttackerSecondStateConfusedDelay,
+        secondAttackerAlterationStateDelays.secondAttackerSecondStateConfusedDelay
       );
 
-      decreaseHp();
+      updateDisplayPokemonHp(firstAttacker, secondAttacker);
 
       if (secondAttacker.stats.hp <= 0) {
         secondAttacker.stats.hp = 0;
@@ -112,7 +112,7 @@ export const checkIfSecondAttackerStatusConfusing =
           firstAttacker,
           secondAttacker,
           enemyPokemon,
-          playerSelectedPokemon,
+          playerSelectedPokemon
         );
       }
     }
@@ -121,7 +121,7 @@ export const checkIfSecondAttackerStatusConfusing =
 export const checkIfSecondAttackerStatusScared =
   async function checkIfSecondAttackerStatusScared(
     secondAttacker,
-    sleepStatutAlteredAnimation,
+    sleepStatutAlteredAnimation
   ) {
     if (
       secondAttacker.secondaryStatut.isScared ||
@@ -133,7 +133,7 @@ export const checkIfSecondAttackerStatusScared =
       secondAttackerSecondaryStatutScaredAlteration(secondAttacker);
 
       await sleepStatutAlteredAnimation(
-        secondAttackerAlterationStateDelays.secondAttackerSecondStateScaredDelay,
+        secondAttackerAlterationStateDelays.secondAttackerSecondStateScaredDelay
       );
     }
   };
@@ -144,7 +144,7 @@ export const checkIfSecondAttackerStatusCursed =
     firstAttacker,
     enemyPokemon,
     playerSelectedPokemon,
-    sleepStatutAlteredAnimation,
+    sleepStatutAlteredAnimation
   ) {
     if (
       secondAttacker.secondaryStatut.isCursed ||
@@ -156,10 +156,10 @@ export const checkIfSecondAttackerStatusCursed =
       secondAttackerSecondaryStatutCursedAlteration(secondAttacker);
 
       await sleepStatutAlteredAnimation(
-        secondAttackerAlterationStateDelays.secondAttackerSecondStateCursedDelay,
+        secondAttackerAlterationStateDelays.secondAttackerSecondStateCursedDelay
       );
 
-      decreaseHp();
+      updateDisplayPokemonHp(firstAttacker, secondAttacker);
 
       if (secondAttacker.stats.hp <= 0) {
         secondAttacker.stats.hp = 0;
@@ -168,7 +168,7 @@ export const checkIfSecondAttackerStatusCursed =
           firstAttacker,
           secondAttacker,
           enemyPokemon,
-          playerSelectedPokemon,
+          playerSelectedPokemon
         );
       }
     }

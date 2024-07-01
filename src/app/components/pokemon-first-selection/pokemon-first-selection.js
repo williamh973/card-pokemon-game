@@ -2,6 +2,7 @@ import { domElements } from "../../shared/dom/dom-elements.js";
 import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
 import { handlePokemonFirstSelection } from "../handle-menu-and-selections/handlePokemonFirstSelection.js";
 import { pokemonSelectors } from "../../shared/header/pokemon-selectors.js";
+import { activateBattleButton } from "../battle/battle-button.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   fetch(
@@ -23,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       pokemonVariables.playerSelectedPokemon =
         pokemonSelectors.selectFirstPokemonButton.value;
       domElements.fightButtonContainer.style.display = "flex";
-      activateFightButton();
+      activateBattleButton();
       domElements.containerFullPopupDialogueFight.style.display = "none";
       domElements.displayDialogue.style.display = "none";
     });

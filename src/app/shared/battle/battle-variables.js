@@ -1,4 +1,4 @@
 export const battleVariable = {
-  loopRunning: false,
+  isLoopRunning: false,
   numberOfTurns: 0,
 };

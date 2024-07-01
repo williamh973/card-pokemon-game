@@ -1,13 +1,12 @@
 import { cursedStatut } from "./cursed-statut.js";
-
-import { decreaseHp } from "../../../decreasePokemonHp.js";
+import { updateDisplayPokemonHp } from "../../../update-display-Pokemon-hp.js";
 
 export const cursedStatut100PercentProbabililityForFirstAttack =
   function confusingStatut100PercentProbabililityForFirstAttack(
     firstAttacker,
     secondAttacker,
     isFirstAttackActive,
-    firstAttackType,
+    firstAttackType
   ) {
     if (
       isFirstAttackActive &&
@@ -22,7 +21,7 @@ export const cursedStatut100PercentProbabililityForFirstAttack =
 
       if (randomNumber <= 100 && firstAttacker.stats.hp > hpValue) {
         cursedStatut(firstAttacker, secondAttacker);
-        decreaseHp();
+        updateDisplayPokemonHp(firstAttacker, secondAttacker);
       }
     }
   };

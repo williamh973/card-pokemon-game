@@ -13,7 +13,7 @@ import {
   getFirstAttackerCursedStatutAlterationDelays,
 } from "../../animations-delays/alterations-delay.js";
 
-import { decreaseHp } from "../../decreasePokemonHp.js";
+import { updateDisplayPokemonHp } from "../../update-display-Pokemon-hp.js";
 
 import {
   openDialogueWhenPokemonHpDecreaseByBurningStatut,
@@ -22,42 +22,41 @@ import {
 
 import { pokemonLose } from "../../pokemon-is-knock-out.js";
 
-export const checkIfFirstAttackerStatusHasBurningOrPoisoned =
-  async function checkIfFirstAttackerStatusHasBurningOrPoisoned(
-    firstAttacker,
-    secondAttacker,
-    enemyPokemon,
-    playerSelectedPokemon,
-    sleepStatutAlteredAnimation
+export async function checkIfFirstAttackerStatusHasBurningOrPoisoned(
+  firstAttacker,
+  secondAttacker,
+  enemyPokemon,
+  playerSelectedPokemon,
+  sleepStatutAlteredAnimation
+) {
+  if (
+    firstAttacker.primaryStatut === "burning" ||
+    firstAttacker.primaryStatut === "poisoned"
   ) {
-    if (
-      firstAttacker.primaryStatut === "burning" ||
-      firstAttacker.primaryStatut === "poisoned"
-    ) {
-      appropriateDialogues(firstAttacker);
+    appropriateDialogues(firstAttacker);
 
-      const firstAttackerAlterationStateDelays =
-        getFirstAttackerPrimaryStatutAlterationDelays(firstAttacker);
+    const firstAttackerAlterationStateDelays =
+      getFirstAttackerPrimaryStatutAlterationDelays(firstAttacker);
 
-      firstAttackerPrimaryStatutAlteration(firstAttacker);
+    firstAttackerPrimaryStatutAlteration(firstAttacker);
 
-      await sleepStatutAlteredAnimation(
-        firstAttackerAlterationStateDelays.firstAttackerStateDelay
+    await sleepStatutAlteredAnimation(
+      firstAttackerAlterationStateDelays.firstAttackerStateDelay
+    );
+    updateDisplayPokemonHp(firstAttacker, secondAttacker);
+
+    if (firstAttacker.stats.hp <= 0) {
+      firstAttacker.stats.hp = 0;
+
+      pokemonLose(
+        firstAttacker,
+        secondAttacker,
+        enemyPokemon,
+        playerSelectedPokemon
       );
-      decreaseHp();
-
-      if (firstAttacker.stats.hp <= 0) {
-        firstAttacker.stats.hp = 0;
-
-        pokemonLose(
-          firstAttacker,
-          secondAttacker,
-          enemyPokemon,
-          playerSelectedPokemon
-        );
-      }
     }
-  };
+  }
+}
 
 export const checkIfFirstAttackerStatusHasParalyzedFrozenNormalOrAsleep =
   async function checkIfFirstAttackerStatusHasParalyzedFrozenNormalOrAsleep(
@@ -102,7 +101,7 @@ export const checkIfFirstAttackerStatusConfusing =
         firstAttackerAlterationStateDelays.firstAttackerSecondStateConfusedDelay
       );
 
-      decreaseHp();
+      updateDisplayPokemonHp(firstAttacker, secondAttacker);
 
       if (firstAttacker.stats.hp <= 0) {
         firstAttacker.stats.hp = 0;
@@ -158,7 +157,7 @@ export const checkIfFirstAttackerStatusCursed =
         firstAttackerAlterationStateDelays.firstAttackerSecondStateCursedDelay
       );
 
-      decreaseHp();
+      updateDisplayPokemonHp(firstAttacker, secondAttacker);
 
       if (firstAttacker.stats.hp <= 0) {
         firstAttacker.stats.hp = 0;

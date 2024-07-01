@@ -37,7 +37,7 @@ import { firstAttackerSecondaryStatutStateVariableList } from "./handle-statut-s
 import { secondAttackerStatutStateVariableList } from "./handle-statut-state-in-fight/second-attacker/second-attacker-statut-state-alteration/second-attacker-primary-statut-alteration.js";
 import { secondAttackerSecondaryStatutStateVariableList } from "./handle-statut-state-in-fight/second-attacker/second-attacker-statut-state-alteration/second-attacker-secondary-statut-alteration.js";
 import { pokemonVariables } from "../shared/pokemon/pokemon-variables.js";
-import { battleVariable } from "../shared/battle/battle.js";
+import { battleVariable } from "../shared/battle/battle-variables.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   domElements.headContainer.appendChild(domElements.fightInProgress);
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   domElements.fightButton.addEventListener("click", () => {
     async function fight() {
-      battleVariable.loopRunning = true;
+      battleVariable.isLoopRunning = true;
 
       displayFightInProgress();
       determineFirstAttacker();
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
       while (
         firstAttacker.stats.hp > 0 &&
         secondAttacker.stats.hp > 0 &&
-        battleVariable.loopRunning
+        battleVariable.isLoopRunning
       ) {
         pokemonVariables.isFirstAttackActive = false;
         pokemonVariables.isSecondAttackActive = false;
@@ -349,18 +349,9 @@ document.addEventListener("DOMContentLoaded", () => {
     fight();
   });
 
-  function activateFightButton() {
-    if (
-      pokemonVariables.isFirstPokemonSelected &&
-      pokemonVariables.isSecondPokemonSelected
-    ) {
-      domElements.fightButton.disabled = false;
-    }
-  }
-
   document.addEventListener("keydown", function (event) {
     if (event.key === "a") {
-      battleVariable.loopRunning = false;
+      battleVariable.isLoopRunning = false;
     }
   });
 });

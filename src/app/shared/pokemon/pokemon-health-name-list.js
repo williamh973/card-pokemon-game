@@ -1,0 +1,17 @@
+export const pokemonHealthNameList = {
+  Pikachu: "pikachuHealth",
+  Évoli: "evoliHealth",
+  Roucool: "roucoolHealth",
+  Racaillou: "racaillouHealth",
+  Insécateur: "insecateurHealth",
+  Sabelette: "sabeletteHealth",
+  Mewtwo: "mewtwoHealth",
+  Scarabrute: "scarabruteHealth",
+  Krabboss: "krabbossHealth",
+  Salamèche: "salamecheHealth",
+  "Nidoran♂": "nidoranMaleHealth",
+  Crustabri: "crustabriHealth",
+  Fantominus: "fantominusHealth",
+  Ectoplasma: "ectoplasmaHealth",
+  Spectrum: "spectrumHealth",
+};

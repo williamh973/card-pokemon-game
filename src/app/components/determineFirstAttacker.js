@@ -1,5 +1,5 @@
-import { domElements } from "../shared/dom/dom-elements.js";
 import { pokemonModelList } from "../shared/pokemon/pokemon-model-list.js";
+import { pokemonSelectors } from "../shared/header/pokemon-selectors.js";
 
 export { firstAttacker, secondAttacker, determineFirstAttacker };
 
@@ -12,10 +12,12 @@ function getPokemonModel(pokemonName) {
 }
 
 function determineFirstAttacker() {
-  firstAttacker = getPokemonModel(domElements.selectFirstPokemonButton.value);
+  firstAttacker = getPokemonModel(
+    pokemonSelectors.selectFirstPokemonButton.value
+  );
   secondAttacker = getPokemonModel(
-    domElements.selectSecondPokemonButton.value ||
-      domElements.pokemonRandomSelectionButton.value
+    pokemonSelectors.selectSecondPokemonButton.value ||
+      pokemonSelectors.selectRandomSelectionButton.value
   );
 
   if (firstAttacker.stats.speed < secondAttacker.stats.speed) {

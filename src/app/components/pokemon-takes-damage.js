@@ -1,23 +1,22 @@
-import { decreaseHp } from "./decreasePokemonHp.js";
-
+import { updateDisplayPokemonHp } from "./update-display-Pokemon-hp.js";
 import { displayStatsPokemonsContainer } from "./pokemon-stats-container.js";
 
 export function firstAttackerTakesDamage(
   firstAttacker,
   secondAttacker,
-  damage,
+  damage
 ) {
   firstAttacker.stats.hp -= Math.max(damage, 0);
-  decreaseHp();
+  updateDisplayPokemonHp(firstAttacker, secondAttacker);
   displayStatsPokemonsContainer(firstAttacker, secondAttacker);
 }
 
 export function secondAttackerTakesDamage(
   firstAttacker,
   secondAttacker,
-  damage,
+  damage
 ) {
   secondAttacker.stats.hp -= Math.max(damage, 0);
-  decreaseHp();
+  updateDisplayPokemonHp(firstAttacker, secondAttacker);
   displayStatsPokemonsContainer(firstAttacker, secondAttacker);
 }
