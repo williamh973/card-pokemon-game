@@ -1,4 +1,4 @@
-import { openDialogueWhenPokemonHasFallingAsleep } from "../../dialogue-fight.js";
+import { openDialogueWhenPokemonHasFallingAsleep } from "../../dialogue-battle.js";
 
 export function asleepStatut(secondAttacker) {
   secondAttacker.primaryStatut = "asleep";

@@ -1,6 +1,7 @@
 import { playerFormElements } from "../../shared/player/player-form.js";
 import { playerInfos } from "../../shared/player/player-infos.js";
 import { domElements } from "../../shared/dom/dom-elements.js";
+import { battleSelectors } from "../../shared/battle/battle-selectors.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const playerFormContainer = document.getElementById("playerForm-container");
@@ -56,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
           playerInfos.firstPlayer.innerText = ` ${playerInfos.playerName} : ${playerInfos.firstPlayerScore} points`;
           playerFormElements.playerFormSection.style.display = "none";
           domElements.main.style.display = "block";
+          battleSelectors.startBattleButton.disabled = true;
         }
       );
     }

@@ -1,4 +1,4 @@
-import { openDialogueWhenPokemonHasPoisonedStatut } from "../../../dialogue-fight.js";
+import { openDialogueWhenPokemonHasPoisonedStatut } from "../../../dialogue-battle.js";
 
 import { isStatusValidForPoisoned } from "./status-valid-for-poisoned.js";
 
@@ -8,7 +8,7 @@ export const poisonedStatut10PercentProbabililityForSecondAttack =
     secondAttacker,
     isSecondAttackActive,
     secondAttackType,
-    secondAttackerType,
+    secondAttackerType
   ) {
     if (
       isSecondAttackActive &&
@@ -32,7 +32,7 @@ export const poisonedStatut20PercentProbabililityForSecondAttack =
     secondAttacker,
     isSecondAttackActive,
     secondAttackType,
-    secondAttackerType,
+    secondAttackerType
   ) {
     if (
       isSecondAttackActive &&
@@ -56,7 +56,7 @@ export const poisonedStatut30PercentProbabililityForSecondAttack =
     secondAttacker,
     isSecondAttackActive,
     secondAttackType,
-    secondAttackerType,
+    secondAttackerType
   ) {
     if (
       isSecondAttackActive &&
@@ -85,7 +85,7 @@ export const poisonedStatut40PercentProbabililityForSecondAttack =
     secondAttacker,
     isSecondAttackActive,
     secondAttackType,
-    secondAttackerType,
+    secondAttackerType
   ) {
     if (
       isSecondAttackActive &&
@@ -109,7 +109,7 @@ export const poisonedStatut100PercentProbabililityForSecondAttack =
     secondAttacker,
     isSecondAttackActive,
     secondAttackType,
-    secondAttackerType,
+    secondAttackerType
   ) {
     if (
       isSecondAttackActive &&

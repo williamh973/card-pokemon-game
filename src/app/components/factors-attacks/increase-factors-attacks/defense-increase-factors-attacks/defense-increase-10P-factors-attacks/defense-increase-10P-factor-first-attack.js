@@ -1,9 +1,9 @@
-import { openDialogueWhenPokemonMakesDefenseIncrease10pFactorAttack } from "../../../../dialogue-fight.js";
+import { openDialogueWhenPokemonMakesDefenseIncrease10pFactorAttack } from "../../../../dialogue-battle.js";
 
 export const defenseIncrease10pFactorForFirstAttack =
   function defenseIncrease10pFactorForFirstAttack(
     pokemon,
-    isFirstAttackActive,
+    isFirstAttackActive
   ) {
     if (
       (pokemon.firstAttack.name === "Accupression" ||

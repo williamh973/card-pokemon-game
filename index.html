@@ -8,9 +8,9 @@
 
     <link rel="stylesheet" href="./style.css" type="text/css" />
     <link rel="stylesheet" href="./styles/head.style.css" />
-    <link rel="stylesheet" href="./styles/fight-in-progress.style.css" />
+    <link rel="stylesheet" href="./styles/battle-in-progress.style.css" />
     <link rel="stylesheet" href="./styles/ring.style.css" />
-    <link rel="stylesheet" href="./styles/bottom.style.css" />
+    <link rel="stylesheet" href="./styles/start-battle-button.style.css" />
     <link rel="stylesheet" href="./styles/cards-specific.style.css" />
     <link rel="stylesheet" href="./styles/cards.style.css" />
     <link rel="stylesheet" href="./styles/dialogues.style.css" />
@@ -78,7 +78,7 @@
           <div id="pokemon-secondSelection-container"></div>
           <div id="pokemon-randomSelection-container"></div>
 
-          <div id="fight-in-progress"></div>
+          <div id="battle-in-progress">Combat en cours</div>
 
           <div id="container-display-pokemon-selected"></div>
 
@@ -94,18 +94,16 @@
         <div class="pokemon-location" id="pokemon-second-location"></div>
       </section>
 
+      <section id="container-display-result">
+        <div id="result"></div>
+      </section>
+
       <footer id="bottom-container">
-        <div id="container-btn-fight">
-          <button id="fightButton">Battle !</button>
-        </div>
+        <button id="start-battle-button">Battle !</button>
 
-        <section id="container-display-result">
-          <div id="result"></div>
-        </section>
-
-        <section id="container-display-dialogue">
+        <div id="dialogue-container">
           <div id="dialogue"></div>
-        </section>
+        </div>
       </footer>
     </main>
   </body>

@@ -1,0 +1,35 @@
+#start-battle-button,
+#start-battle-button:disabled {
+  width: 80%;
+  height: 70px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+#start-battle-button:enabled {
+  background-color: rgb(0, 78, 0);
+  color: whitesmoke;
+}
+
+#start-battle-button:disabled {
+  background-color: lightgray;
+  color: gray;
+}
+
+#start-battle-button:disabled:hover {
+  cursor: not-allowed;
+}
+
+#start-battle-button:enabled:hover {
+  background-color: green;
+  cursor: pointer;
+}
+
+#start-battle-button:active {
+  background-color: lightgreen;
+}

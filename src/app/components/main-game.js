@@ -2,8 +2,8 @@ import {
   firstAttacker,
   secondAttacker,
   determineFirstAttacker,
-} from "./determineFirstAttacker.js";
-import { displayFightInProgress } from "./display-fight-in-progress.js";
+} from "./determine-first-attacker.js";
+import { displayBattleInProgress } from "./display-battle-in-progress.js";
 import { calculateDamageFirstAttack } from "./damages-attacks/calculate-damages-attacks/calculateDamageFirstAttack.js";
 import { calculateDamageSecondAttack } from "./damages-attacks/calculate-damages-attacks/calculateDamageSecondAttack.js";
 import { domElements } from "../shared/dom/dom-elements.js";
@@ -38,17 +38,14 @@ import { secondAttackerStatutStateVariableList } from "./handle-statut-state-in-
 import { secondAttackerSecondaryStatutStateVariableList } from "./handle-statut-state-in-fight/second-attacker/second-attacker-statut-state-alteration/second-attacker-secondary-statut-alteration.js";
 import { pokemonVariables } from "../shared/pokemon/pokemon-variables.js";
 import { battleVariable } from "../shared/battle/battle-variables.js";
+import { battleSelectors } from "../shared/battle/battle-selectors.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  domElements.headContainer.appendChild(domElements.fightInProgress);
-
-  domElements.fightButton.disabled = true;
-
-  domElements.fightButton.addEventListener("click", () => {
-    async function fight() {
+  battleSelectors.startBattleButton.addEventListener("click", () => {
+    async function battle() {
       battleVariable.isLoopRunning = true;
 
-      displayFightInProgress();
+      displayBattleInProgress();
       determineFirstAttacker();
 
       while (
@@ -346,7 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     }
-    fight();
+    battle();
   });
 
   document.addEventListener("keydown", function (event) {

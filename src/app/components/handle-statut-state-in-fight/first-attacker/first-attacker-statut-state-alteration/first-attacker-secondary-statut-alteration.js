@@ -5,7 +5,7 @@ import {
   openDialogueWhenPokemonHurtByConfusing,
   openDialogueWhenPokemonNoLongerConfused,
   openDialogueWhenPokemonHurtsByCurse,
-} from "../../../dialogue-fight.js";
+} from "../../../dialogue-battle.js";
 
 let confusingCount = 0;
 let randomNumber = Math.random();

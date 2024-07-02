@@ -1,5 +1,5 @@
 import { isCriticalHitBoostedByFocusEnergy } from "../increase-factors-attacks/critical-hit-increase-factors-attacks/critical-hit-increase-focus-energy-second-attack.js";
-import { openDialogueWhenPokemonMakesCriticalHit } from "../../dialogue-fight.js";
+import { openDialogueWhenPokemonMakesCriticalHit } from "../../dialogue-battle.js";
 
 function roundToNearestEven(number) {
   return Math.round(number / 2) * 2;

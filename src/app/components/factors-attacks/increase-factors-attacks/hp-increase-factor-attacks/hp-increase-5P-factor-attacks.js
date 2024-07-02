@@ -1,7 +1,7 @@
 import {
   openDialogueWhenPokemonMakesHpIncrease5pFactorAttack,
   openDialogueWhenPokemonMissHpIncrease5pFactorAttack,
-} from "../../../dialogue-fight.js";
+} from "../../../dialogue-battle.js";
 
 function increaseHp(pokemon) {
   const increasingValue = 5;

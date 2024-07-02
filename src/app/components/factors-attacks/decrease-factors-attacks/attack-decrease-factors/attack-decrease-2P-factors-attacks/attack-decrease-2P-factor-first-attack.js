@@ -1,10 +1,10 @@
-import { openDialogueWhenPokemonMakesAttackDecrease2pFactorAttack } from "../../../../dialogue-fight.js";
+import { openDialogueWhenPokemonMakesAttackDecrease2pFactorAttack } from "../../../../dialogue-battle.js";
 
 export const attackDecrease2pFactorForFirstAttack =
   function attackDecrease2pFactorForFirstAttack(
     firstAttacker,
     secondAttacker,
-    isFirstAttackActive,
+    isFirstAttackActive
   ) {
     if (
       (firstAttacker.firstAttack.name === "Rugissement" ||

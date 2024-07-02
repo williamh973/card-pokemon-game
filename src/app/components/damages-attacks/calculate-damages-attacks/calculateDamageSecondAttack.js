@@ -19,7 +19,7 @@ import {
   openDialogueWhenPokemonMakesSecondAttack,
   openDialogueWhenPokemonMissAttack,
   openDialogueWhenPokemonProtectingHimself,
-} from "../../dialogue-fight.js";
+} from "../../dialogue-battle.js";
 
 import { criticalHit } from "../../factors-attacks/critical-hit-factor/critical-hit-factor.js";
 

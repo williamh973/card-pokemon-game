@@ -1,0 +1,23 @@
+#battle-in-progress {
+  width: 100%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: black;
+  background-color: whitesmoke;
+  animation: blink 1s linear infinite;
+  display: none;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+    color: black;
+  }
+  50% {
+    opacity: 0.5;
+    color: black;
+  }
+}

@@ -1,14 +1,14 @@
 import {
   openDialogueWhenPokemonCriticalHitBoostedByFocusEnergy,
   openDialogueWhenPokemonCriticalHitAlreadyBoostedByFocusEnergy,
-} from "../../../dialogue-fight.js";
+} from "../../../dialogue-battle.js";
 
 export let isCriticalHitBoostedByFocusEnergy = false;
 
 export const criticalHitIncreaseByFocusEnergyForSecondAttack =
   function criticalHitIncreaseByFocusEnergyForSecondAttack(
     pokemon,
-    isSecondAttackActive,
+    isSecondAttackActive
   ) {
     if (
       pokemon.secondAttack.name === "Puissance" &&

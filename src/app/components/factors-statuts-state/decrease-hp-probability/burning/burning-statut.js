@@ -1,4 +1,4 @@
-import { openDialogueWhenPokemonHasBurningStatut } from "../../../dialogue-fight.js";
+import { openDialogueWhenPokemonHasBurningStatut } from "../../../dialogue-battle.js";
 
 export const burningStatut = function burningStatut(secondAttacker) {
   secondAttacker.primaryStatut = "burning";

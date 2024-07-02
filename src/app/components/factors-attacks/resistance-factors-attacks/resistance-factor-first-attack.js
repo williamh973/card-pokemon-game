@@ -1,11 +1,11 @@
-import { openDialogueWhenPokemonMakesResistanceAttack } from "../../dialogue-fight.js";
+import { openDialogueWhenPokemonMakesResistanceAttack } from "../../dialogue-battle.js";
 
 export const resistanceFactorForFirstAttack =
   function resistanceFactorForFirstAttack(
     firstAttackType,
     secondAttackerType,
     secondAttackerSecondaryType,
-    isFirstAttackActive,
+    isFirstAttackActive
   ) {
     if (
       (isFirstAttackActive &&

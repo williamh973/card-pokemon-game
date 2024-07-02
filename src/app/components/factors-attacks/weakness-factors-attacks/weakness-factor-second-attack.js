@@ -1,11 +1,11 @@
-import { openDialogueWhenPokemonMakesWeaknessAttack } from "../../dialogue-fight.js";
+import { openDialogueWhenPokemonMakesWeaknessAttack } from "../../dialogue-battle.js";
 
 export const weaknessFactorForSecondAttack =
   function weaknessFactorForSecondAttack(
     secondAttackType,
     secondAttackerType,
     secondAttackerSecondaryType,
-    isSecondAttackActive,
+    isSecondAttackActive
   ) {
     if (
       (isSecondAttackActive &&

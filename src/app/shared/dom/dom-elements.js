@@ -11,13 +11,6 @@ export const domElements = {
   randomModTitle: document.getElementById("random-mod-title"),
   pokemonFirstLocation: document.getElementById("pokemon-first-location"),
   pokemonSecondLocation: document.getElementById("pokemon-second-location"),
-  containerFullPopupDialogueFight: document.getElementById(
-    "container-display-dialogue"
-  ),
-  fightInProgress: document.getElementById("fight-in-progress"),
-  fightButtonContainer: document.getElementById("container-btn-fight"),
-  fightButton: document.getElementById("fightButton"),
-  displayDialogue: document.getElementById("dialogue"),
   isDefiniteModActived: false,
   isRandomModActived: false,
 

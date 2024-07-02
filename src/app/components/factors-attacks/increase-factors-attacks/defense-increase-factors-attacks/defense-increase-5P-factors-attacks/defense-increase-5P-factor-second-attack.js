@@ -1,9 +1,9 @@
-import { openDialogueWhenPokemonMakesDefenseIncrease5pFactorAttack } from "../../../../dialogue-fight.js";
+import { openDialogueWhenPokemonMakesDefenseIncrease5pFactorAttack } from "../../../../dialogue-battle.js";
 
 export const defenseIncrease5pFactorForSecondAttack =
   function defenseIncrease5pFactorForSecondAttack(
     pokemon,
-    isSecondAttackActive,
+    isSecondAttackActive
   ) {
     if (
       (pokemon.secondAttack.name === "Pouvoir Antique" ||

@@ -1,7 +1,7 @@
 import { updateDisplayPokemonHp } from "./update-display-Pokemon-hp.js";
-import { openDisplayResult } from "./result-fight.js";
-import { openDialogueWhenPokemonKo } from "./dialogue-fight.js";
-import { hideFightInProgress } from "./display-fight-in-progress.js";
+import { displayBattleResult } from "./display-battle-result.js";
+import { openDialogueWhenPokemonKo } from "./dialogue-battle.js";
+import { hideBattleInProgress } from "./display-battle-in-progress.js";
 import {
   hideFirstAttackerWhenLose,
   hideSecondAttackerWhenLose,
@@ -17,9 +17,9 @@ export function pokemonLose(
   playerSelectedPokemon
 ) {
   updateDisplayPokemonHp(firstAttacker, secondAttacker);
-  openDisplayResult();
+  displayBattleResult();
   openDialogueWhenPokemonKo();
-  hideFightInProgress();
+  hideBattleInProgress();
 
   if (firstAttacker.stats.hp === 0) {
     hideFirstAttackerWhenLose(firstAttacker, enemyPokemon);

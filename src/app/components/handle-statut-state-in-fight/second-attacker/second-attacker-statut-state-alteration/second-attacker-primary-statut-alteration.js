@@ -7,7 +7,7 @@ import {
   openDialogueWhenPokemonAttacksDespiteParalyzedStatut,
   openDialogueWhenPokemonIsAsleepStatut,
   openDialogueWhenPokemonWakeUp,
-} from "../../../dialogue-fight.js";
+} from "../../../dialogue-battle.js";
 
 let asleepCount = 0;
 let randomNumber = Math.random();

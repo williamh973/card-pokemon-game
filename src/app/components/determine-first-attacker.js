@@ -15,10 +15,16 @@ function determineFirstAttacker() {
   firstAttacker = getPokemonModel(
     pokemonSelectors.selectFirstPokemonButton.value
   );
-  secondAttacker = getPokemonModel(
-    pokemonSelectors.selectSecondPokemonButton.value ||
+
+  if (pokemonSelectors.selectSecondPokemonButton.value !== "none") {
+    secondAttacker = getPokemonModel(
+      pokemonSelectors.selectSecondPokemonButton.value
+    );
+  } else {
+    secondAttacker = getPokemonModel(
       pokemonSelectors.selectRandomSelectionButton.value
-  );
+    );
+  }
 
   if (firstAttacker.stats.speed < secondAttacker.stats.speed) {
     [firstAttacker, secondAttacker] = [secondAttacker, firstAttacker];

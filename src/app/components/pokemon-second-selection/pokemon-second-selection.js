@@ -2,7 +2,8 @@ import { domElements } from "../../shared/dom/dom-elements.js";
 import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
 import { handlePokemonSecondSelection } from "../handle-menu-and-selections/handlePokemonSecondSelection.js";
 import { pokemonSelectors } from "../../shared/header/pokemon-selectors.js";
-import { activateBattleButton } from "../battle/battle-button.js";
+import { activateStartBattleButton } from "../battle/start-battle-button.js";
+import { battleSelectors } from "../../shared/battle/battle-selectors.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   fetch(
@@ -22,13 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
         handlePokemonSecondSelection(
           pokemonSelectors.selectSecondPokemonButton.value
         );
+        pokemonVariables.isRandomPokemonSelected = false;
         pokemonVariables.isSecondPokemonSelected = true;
         pokemonVariables.enemyPokemon =
           pokemonSelectors.selectSecondPokemonButton.value;
-        domElements.fightButtonContainer.style.display = "flex";
-        activateBattleButton();
-        domElements.containerFullPopupDialogueFight.style.display = "none";
-        domElements.displayDialogue.style.display = "none";
+        battleSelectors.startBattleButton.style.display = "flex";
+        activateStartBattleButton();
+        battleSelectors.displayDialogue.style.display = "none";
       }
     );
   }

@@ -3,7 +3,8 @@ import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
 import { handleSelectionRandomPokemon } from "../handle-menu-and-selections/handlePokemonRandomSelection.js";
 import { pokemonSelectors } from "../../shared/header/pokemon-selectors.js";
 import { pokemonNameList } from "../../shared/pokemon/pokemon-name-list.js";
-import { activateBattleButton } from "../battle/battle-button.js";
+import { activateStartBattleButton } from "../battle/start-battle-button.js";
+import { battleSelectors } from "../../shared/battle/battle-selectors.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   fetch(
@@ -20,16 +21,25 @@ document.addEventListener("DOMContentLoaded", () => {
     pokemonSelectors.selectRandomSelectionButton.addEventListener(
       "click",
       () => {
-        const randomIndex = Math.floor(Math.random() * pokemonNameList.length);
-        const pokemon = pokemonNameList[randomIndex];
-        pokemonSelectors.selectSecondPokemonButton.value = pokemon;
-        handleSelectionRandomPokemon(pokemon);
-        pokemonVariables.isSecondPokemonSelected = true;
-        pokemonVariables.enemyPokemon = pokemon;
-        domElements.fightButtonContainer.style.display = "flex";
-        activateBattleButton();
-        domElements.containerFullPopupDialogueFight.style.display = "none";
-        domElements.displayDialogue.style.display = "none";
+        function onGetPokemonFromPokemonNameList() {
+          const randomIndex = Math.floor(
+            Math.random() * pokemonNameList.length
+          );
+          const pokemonSelected = pokemonNameList[randomIndex];
+          pokemonSelectors.selectRandomSelectionButton.value = pokemonSelected;
+        }
+        onGetPokemonFromPokemonNameList();
+
+        handleSelectionRandomPokemon(
+          pokemonSelectors.selectRandomSelectionButton.value
+        );
+        pokemonVariables.isSecondPokemonSelected = false;
+        pokemonVariables.isRandomPokemonSelected = true;
+        pokemonVariables.enemyPokemon =
+          pokemonSelectors.selectRandomSelectionButton.value;
+        battleSelectors.startBattleButton.style.display = "flex";
+        activateStartBattleButton();
+        battleSelectors.displayDialogue.style.display = "none";
       }
     );
   }

@@ -1,8 +1,8 @@
-import { openDialogueWhenPokemonCursed } from "../../../dialogue-fight.js";
+import { openDialogueWhenPokemonCursed } from "../../../dialogue-battle.js";
 
 export const cursedStatut = function cursedStatut(
   firstAttacker,
-  secondAttacker,
+  secondAttacker
 ) {
   secondAttacker.secondaryStatut.isCursed = true;
   secondAttacker.secondaryStatut.isNormal = false;

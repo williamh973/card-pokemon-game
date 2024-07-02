@@ -1,4 +1,4 @@
-import { openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack } from "../../../dialogue-fight.js";
+import { openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack } from "../../../dialogue-battle.js";
 
 export const speedIncrease10pFactorForFirstAttack =
   function speedIncrease10pFactorForFirstAttack(pokemon, isFirstAttackActive) {
@@ -18,7 +18,7 @@ export const speedIncrease10pFactorForFirstAttack =
 export const speedIncrease10pFactorForSecondAttack =
   function speedIncrease10pFactorForSecondAttack(
     pokemon,
-    isSecondAttackActive,
+    isSecondAttackActive
   ) {
     if (
       (pokemon.secondAttack.name === "Accupression" ||

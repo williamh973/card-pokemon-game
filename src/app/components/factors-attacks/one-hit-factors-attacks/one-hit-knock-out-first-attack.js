@@ -1,11 +1,11 @@
-import { openDialogueWhenPokemonHasBeenKoByOneHitKnockout } from "../../dialogue-fight.js";
+import { openDialogueWhenPokemonHasBeenKoByOneHitKnockout } from "../../dialogue-battle.js";
 
 export const oneHitKnockoutFactorForFirstAttack =
   function oneHitKnockoutFactorForFirstAttack(
     isFirstAttackActive,
     secondAttackerType,
     firstAttacker,
-    secondAttacker,
+    secondAttacker
   ) {
     if (
       isFirstAttackActive &&

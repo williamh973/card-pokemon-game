@@ -18,7 +18,7 @@ import { updateDisplayPokemonHp } from "../../update-display-Pokemon-hp.js";
 import {
   openDialogueWhenPokemonHpDecreaseByBurningStatut,
   openDialogueWhenPokemonHpDecreaseByPoisonedStatut,
-} from "../../dialogue-fight.js";
+} from "../../dialogue-battle.js";
 
 import { pokemonLose } from "../../pokemon-is-knock-out.js";
 
