@@ -6,7 +6,6 @@ import { pokemonVariables } from "../shared/pokemon/pokemon-variables.js";
 
 export function displayBattleResult() {
   const POPUP_DISPLAY_TIMELAPS = 3000;
-
   battleSelectors.displayBattleResultContainer.style.display = "flex";
 
   if (firstAttacker.stats.hp <= 0) {
@@ -31,12 +30,6 @@ export function displayBattleResult() {
     } else {
       pokemonVariables.isRandomPokemonSelected = false;
     }
-    console.log(
-      pokemonVariables.pokemonKo,
-      pokemonVariables.isFirstPokemonSelected,
-      pokemonVariables.isSecondPokemonSelected,
-      pokemonVariables.isRandomPokemonSelected
-    );
   }
   updatePokemonSelectionStatus();
 

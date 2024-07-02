@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="./styles/cards-specific.style.css" />
     <link rel="stylesheet" href="./styles/cards.style.css" />
     <link rel="stylesheet" href="./styles/dialogues.style.css" />
-    <link rel="stylesheet" href="./styles/display-result.style.css" />
 
     <script
       src="./src/app/components/menu/menu.js"
@@ -43,6 +42,11 @@
     ></script>
     <script
       src="./src/app/components/pokemon-selected-confirm-popup/pokemon-selected-confirm-popup.js"
+      type="module"
+      defer
+    ></script>
+    <script
+      src="./src/app/components/battle-result-popup/battle-result-popup.js"
       type="module"
       defer
     ></script>
@@ -94,9 +98,7 @@
         <div class="pokemon-location" id="pokemon-second-location"></div>
       </section>
 
-      <section id="container-display-result">
-        <div id="result"></div>
-      </section>
+      <section id="container-display-result"></section>
 
       <footer id="bottom-container">
         <button id="start-battle-button">Battle !</button>

@@ -6,13 +6,10 @@
   margin: auto;
   font-size: 12px;
   margin: 50px 0;
-<<<<<<< HEAD:styles/style-cards.css
-=======
 }
 .card-main:hover {
   transition: all 200ms;
   scale: 1.2;
->>>>>>> refacto:styles/cards.style.css
 }
 
 .card-head {
