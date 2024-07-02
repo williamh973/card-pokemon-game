@@ -1,6 +1,6 @@
-import { pokemonSelectors } from "../shared/header/pokemon-selectors.js";
-import { menuSelectors } from "../shared/header/menu-selectors.js";
-import { battleSelectors } from "../shared/battle/battle-selectors.js";
+import { pokemonSelectors } from "../../shared/header/pokemon-selectors.js";
+import { menuSelectors } from "../../shared/header/menu-selectors.js";
+import { battleSelectors } from "../../shared/battle/battle-selectors.js";
 
 export function displayBattleInProgress() {
   menuSelectors.logo.style.display = "none";

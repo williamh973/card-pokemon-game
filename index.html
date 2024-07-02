@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="./styles/start-battle-button.style.css" />
     <link rel="stylesheet" href="./styles/cards-specific.style.css" />
     <link rel="stylesheet" href="./styles/cards.style.css" />
-    <link rel="stylesheet" href="./styles/dialogues.style.css" />
 
     <script
       src="./src/app/components/menu/menu.js"
@@ -51,7 +50,12 @@
       defer
     ></script>
     <script
-      src="./src/app/components/main-game.js"
+      src="./src/app/components/battle-dialogues/battle-dialogues.js"
+      type="module"
+      defer
+    ></script>
+    <script
+      src="./src/app/game-logic/battle/battle.js"
       type="module"
       defer
     ></script>
@@ -102,10 +106,7 @@
 
       <footer id="bottom-container">
         <button id="start-battle-button">Battle !</button>
-
-        <div id="dialogue-container">
-          <div id="dialogue"></div>
-        </div>
+        <div id="dialogue-container"></div>
       </footer>
     </main>
   </body>

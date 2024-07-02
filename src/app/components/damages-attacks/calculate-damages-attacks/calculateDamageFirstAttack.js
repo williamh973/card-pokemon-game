@@ -11,7 +11,7 @@ import {
   openDialogueWhenPokemonMakesFirstAttack,
   openDialogueWhenPokemonMissAttack,
   openDialogueWhenPokemonProtectingHimself,
-} from "../../dialogue-battle.js";
+} from "../../battle-dialogues/dialogues/dialogue-battle.js";
 import { criticalHit } from "../../factors-attacks/critical-hit-factor/critical-hit-factor.js";
 import { criticalHitIncreaseByFocusEnergyForFirstAttack } from "../../factors-attacks/increase-factors-attacks/critical-hit-increase-factors-attacks/critical-hit-increase-focus-energy-first-attack.js";
 import { oneHitKnockoutFactorForFirstAttack } from "../../factors-attacks/one-hit-factors-attacks/one-hit-knock-out-first-attack.js";

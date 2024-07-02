@@ -1,4 +1,4 @@
-import { handleMenu } from "../handle-menu-and-selections/handleMenu.js";
+import { handleMenu } from "./handle-menu/handleMenu.js";
 import { menuSelectors } from "../../shared/header/menu-selectors.js";
 
 document.addEventListener("DOMContentLoaded", () => {

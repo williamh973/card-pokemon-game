@@ -1,4 +1,4 @@
-import { battleSelectors } from "../shared/battle/battle-selectors.js";
+import { battleSelectors } from "../../../shared/battle/battle-selectors.js";
 
 const END_ATTACKS_DISPLAY_DURATION = 4000;
 const START_NEXT_DISPLAY_DURATION = 2000;

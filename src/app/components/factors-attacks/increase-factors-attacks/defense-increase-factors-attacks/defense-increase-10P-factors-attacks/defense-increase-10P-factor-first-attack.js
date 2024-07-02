@@ -1,4 +1,4 @@
-import { openDialogueWhenPokemonMakesDefenseIncrease10pFactorAttack } from "../../../../dialogue-battle.js";
+import { openDialogueWhenPokemonMakesDefenseIncrease10pFactorAttack } from "../../../../battle-dialogues/dialogues/dialogue-battle.js";
 
 export const defenseIncrease10pFactorForFirstAttack =
   function defenseIncrease10pFactorForFirstAttack(

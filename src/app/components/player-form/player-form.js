@@ -1,28 +1,26 @@
-import { playerFormElements } from "../../shared/player/player-form.js";
+import { playerSelectors } from "../../shared/player/player-selectors.js";
 import { playerInfos } from "../../shared/player/player-infos.js";
 import { domElements } from "../../shared/dom/dom-elements.js";
 import { battleSelectors } from "../../shared/battle/battle-selectors.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const playerFormContainer = document.getElementById("playerForm-container");
-
   fetch("./src/app/components/player-form/player-form.html")
     .then((response) => response.text())
     .then((data) => {
-      playerFormContainer.innerHTML = data;
-      initializePlayerFormElements();
+      playerSelectors.playerFormContainer.innerHTML = data;
+      initializeplayerSelectors();
       initializePlayerInfos();
       initializeMainGameContainer();
       initializePlayerForm();
     })
     .catch((error) => console.error("Error loading player form:", error));
 
-  function initializePlayerFormElements() {
-    playerFormElements.playerFormSection =
+  function initializeplayerSelectors() {
+    playerSelectors.playerFormSection =
       document.getElementById("playerForm-section");
-    playerFormElements.playerFormInput =
+    playerSelectors.playerFormInput =
       document.getElementById("playerForm-input");
-    playerFormElements.playerFormSubmitButton = document.getElementById(
+    playerSelectors.playerFormSubmitButton = document.getElementById(
       "playerForm-submitButton"
     );
   }
@@ -38,24 +36,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function initializePlayerForm() {
-    playerFormElements.playerFormSubmitButton.disabled = true;
+    playerSelectors.playerFormSubmitButton.disabled = true;
 
-    playerFormElements.playerFormInput.addEventListener("input", () => {
-      if (playerFormElements.playerFormInput.value === "") {
-        playerFormElements.playerFormSubmitButton.disabled = true;
+    playerSelectors.playerFormInput.addEventListener("input", () => {
+      if (playerSelectors.playerFormInput.value === "") {
+        playerSelectors.playerFormSubmitButton.disabled = true;
       } else {
-        playerInfos.playerName = playerFormElements.playerFormInput.value;
-        playerFormElements.playerFormSubmitButton.disabled = false;
+        playerInfos.playerName = playerSelectors.playerFormInput.value;
+        playerSelectors.playerFormSubmitButton.disabled = false;
       }
     });
 
     function isPlayerFormSubmitButtonClicked() {
-      playerFormElements.playerFormSubmitButton.addEventListener(
+      playerSelectors.playerFormSubmitButton.addEventListener(
         "click",
         (event) => {
           event.preventDefault();
           playerInfos.firstPlayer.innerText = ` ${playerInfos.playerName} : ${playerInfos.firstPlayerScore} points`;
-          playerFormElements.playerFormSection.style.display = "none";
+          playerSelectors.playerFormSection.style.display = "none";
           domElements.main.style.display = "block";
           battleSelectors.startBattleButton.disabled = true;
         }

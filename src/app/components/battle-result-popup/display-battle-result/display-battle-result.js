@@ -1,8 +1,11 @@
-import { firstAttacker, secondAttacker } from "./determine-first-attacker.js";
-import { domElements } from "../shared/dom/dom-elements.js";
-import { battleSelectors } from "../shared/battle/battle-selectors.js";
-import { pokemonSelectors } from "../shared/header/pokemon-selectors.js";
-import { pokemonVariables } from "../shared/pokemon/pokemon-variables.js";
+import {
+  firstAttacker,
+  secondAttacker,
+} from "../../../game-logic/battle/determine-first-attacker.js";
+import { domElements } from "../../../shared/dom/dom-elements.js";
+import { battleSelectors } from "../../../shared/battle/battle-selectors.js";
+import { pokemonSelectors } from "../../../shared/header/pokemon-selectors.js";
+import { pokemonVariables } from "../../../shared/pokemon/pokemon-variables.js";
 
 export function displayBattleResult() {
   const POPUP_DISPLAY_TIMELAPS = 3000;

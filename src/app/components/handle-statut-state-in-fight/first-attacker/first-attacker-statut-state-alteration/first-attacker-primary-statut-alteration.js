@@ -7,7 +7,7 @@ import {
   openDialogueWhenPokemonAttacksDespiteParalyzedStatut,
   openDialogueWhenPokemonIsAsleepStatut,
   openDialogueWhenPokemonWakeUp,
-} from "../../../dialogue-battle.js";
+} from "../../../battle-dialogues/dialogues/dialogue-battle.js";
 
 export const firstAttackerStatutStateVariableList = {
   isFirstAttackerFrozen: false,

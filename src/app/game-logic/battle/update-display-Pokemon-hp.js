@@ -1,4 +1,4 @@
-import { pokemonHealthNameList } from "../shared/pokemon/pokemon-health-name-list.js";
+import { pokemonHealthNameList } from "../../shared/pokemon/pokemon-health-name-list.js";
 
 export function updateDisplayPokemonHp(firstAttacker, secondAttacker) {
   const firstAttackerHealthName = pokemonHealthNameList[firstAttacker.name];

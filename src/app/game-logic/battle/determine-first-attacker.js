@@ -1,6 +1,6 @@
-import { pokemonModelList } from "../shared/pokemon/pokemon-model-list.js";
-import { pokemonSelectors } from "../shared/header/pokemon-selectors.js";
-import { pokemonVariables } from "../shared/pokemon/pokemon-variables.js";
+import { pokemonModelList } from "../../shared/pokemon/pokemon-model-list.js";
+import { pokemonSelectors } from "../../shared/header/pokemon-selectors.js";
+import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
 
 export { firstAttacker, secondAttacker, determineFirstAttacker };
 

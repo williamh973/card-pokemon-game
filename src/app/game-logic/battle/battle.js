@@ -4,10 +4,10 @@ import {
   determineFirstAttacker,
 } from "./determine-first-attacker.js";
 import { displayBattleInProgress } from "./display-battle-in-progress.js";
-import { calculateDamageFirstAttack } from "./damages-attacks/calculate-damages-attacks/calculateDamageFirstAttack.js";
-import { calculateDamageSecondAttack } from "./damages-attacks/calculate-damages-attacks/calculateDamageSecondAttack.js";
-import { domElements } from "../shared/dom/dom-elements.js";
-import { isProtectOrDetectCapacityActived } from "./factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
+import { calculateDamageFirstAttack } from "../../components/damages-attacks/calculate-damages-attacks/calculateDamageFirstAttack.js";
+import { calculateDamageSecondAttack } from "../../components/damages-attacks/calculate-damages-attacks/calculateDamageSecondAttack.js";
+import { domElements } from "../../shared/dom/dom-elements.js";
+import { isProtectOrDetectCapacityActived } from "../../components/factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
 import {
   getAttackDelays,
   sleepAttacksAnimation,
@@ -24,21 +24,21 @@ import {
   checkIfFirstAttackerStatusConfusing,
   checkIfFirstAttackerStatusScared,
   checkIfFirstAttackerStatusCursed,
-} from "./handle-statut-state-in-fight/first-attacker/check-if-first-attacker-statut-has-changed.js";
+} from "../../components/handle-statut-state-in-fight/first-attacker/check-if-first-attacker-statut-has-changed.js";
 import {
   checkIfSecondAttackerStatusHasBurningOrPoisoned,
   checkIfSecondAttackerStatusHasParalyzedFrozenNormalOrAsleep,
   checkIfSecondAttackerStatusConfusing,
   checkIfSecondAttackerStatusScared,
   checkIfSecondAttackerStatusCursed,
-} from "./handle-statut-state-in-fight/second-attacker/check-if-second-attacker-statut-has-changed.js";
-import { firstAttackerStatutStateVariableList } from "./handle-statut-state-in-fight/first-attacker/first-attacker-statut-state-alteration/first-attacker-primary-statut-alteration.js";
-import { firstAttackerSecondaryStatutStateVariableList } from "./handle-statut-state-in-fight/first-attacker/first-attacker-statut-state-alteration/first-attacker-secondary-statut-alteration.js";
-import { secondAttackerStatutStateVariableList } from "./handle-statut-state-in-fight/second-attacker/second-attacker-statut-state-alteration/second-attacker-primary-statut-alteration.js";
-import { secondAttackerSecondaryStatutStateVariableList } from "./handle-statut-state-in-fight/second-attacker/second-attacker-statut-state-alteration/second-attacker-secondary-statut-alteration.js";
-import { pokemonVariables } from "../shared/pokemon/pokemon-variables.js";
-import { battleVariable } from "../shared/battle/battle-variables.js";
-import { battleSelectors } from "../shared/battle/battle-selectors.js";
+} from "../../components/handle-statut-state-in-fight/second-attacker/check-if-second-attacker-statut-has-changed.js";
+import { firstAttackerStatutStateVariableList } from "../../components/handle-statut-state-in-fight/first-attacker/first-attacker-statut-state-alteration/first-attacker-primary-statut-alteration.js";
+import { firstAttackerSecondaryStatutStateVariableList } from "../../components/handle-statut-state-in-fight/first-attacker/first-attacker-statut-state-alteration/first-attacker-secondary-statut-alteration.js";
+import { secondAttackerStatutStateVariableList } from "../../components/handle-statut-state-in-fight/second-attacker/second-attacker-statut-state-alteration/second-attacker-primary-statut-alteration.js";
+import { secondAttackerSecondaryStatutStateVariableList } from "../../components/handle-statut-state-in-fight/second-attacker/second-attacker-statut-state-alteration/second-attacker-secondary-statut-alteration.js";
+import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
+import { battleVariable } from "../../shared/battle/battle-variables.js";
+import { battleSelectors } from "../../shared/battle/battle-selectors.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   battleSelectors.startBattleButton.addEventListener("click", () => {

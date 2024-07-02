@@ -1,4 +1,4 @@
-import { openDialogueWhenPokemonHasBeenKoByOneHitKnockout } from "../../dialogue-battle.js";
+import { openDialogueWhenPokemonHasBeenKoByOneHitKnockout } from "../../battle-dialogues/dialogues/dialogue-battle.js";
 
 export const oneHitKnockoutFactorForSecondAttack =
   function oneHitKnockoutFactorForSecondAttack(

@@ -1,6 +1,6 @@
-import { domElements } from "../../shared/dom/dom-elements.js";
-import { pokemonSelectors } from "../../shared/header/pokemon-selectors.js";
-import { menuSelectors } from "../../shared/header/menu-selectors.js";
+import { domElements } from "../../../shared/dom/dom-elements.js";
+import { pokemonSelectors } from "../../../shared/header/pokemon-selectors.js";
+import { menuSelectors } from "../../../shared/header/menu-selectors.js";
 
 export function handleMenu(gameMod) {
   switch (gameMod) {

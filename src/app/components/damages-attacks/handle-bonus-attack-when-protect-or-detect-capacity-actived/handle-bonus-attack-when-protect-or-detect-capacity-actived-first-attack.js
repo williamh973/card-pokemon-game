@@ -1,7 +1,7 @@
 import {
   openDialogueWhenPokemonMakesFirstAttack,
   openDialogueWhenPokemonMissAttack,
-} from "../../dialogue-battle.js";
+} from "../../battle-dialogues/dialogues/dialogue-battle.js";
 
 import { speedIncrease5pFactorForFirstAttack } from "../../factors-attacks/increase-factors-attacks/speed-increase-factor-attacks/speed-increase-5P-factor-attacks.js";
 

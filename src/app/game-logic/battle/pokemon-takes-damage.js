@@ -1,5 +1,5 @@
 import { updateDisplayPokemonHp } from "./update-display-Pokemon-hp.js";
-import { displayStatsPokemonsContainer } from "./pokemon-stats-container.js";
+import { displayStatsPokemonsContainer } from "../../components/pokemon-stats-container.js";
 
 export function firstAttackerTakesDamage(
   firstAttacker,

@@ -1,4 +1,4 @@
-import { openDialogueWhenPokemonHasPoisonedStatut } from "../../../dialogue-battle.js";
+import { openDialogueWhenPokemonHasPoisonedStatut } from "../../../battle-dialogues/dialogues/dialogue-battle.js";
 
 import { isStatusValidForPoisoned } from "./status-valid-for-poisoned.js";
 

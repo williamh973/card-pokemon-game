@@ -1,4 +1,4 @@
-import { openDialogueWhenPokemonHasFrozenStatut } from "../../dialogue-battle.js";
+import { openDialogueWhenPokemonHasFrozenStatut } from "../../battle-dialogues/dialogues/dialogue-battle.js";
 
 export const frozenStatut10PercentProbabililityForSecondAttack =
   function frozenStatut10PercentProbabililityForSecondAttack(

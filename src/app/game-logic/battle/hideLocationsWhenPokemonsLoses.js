@@ -1,22 +1,22 @@
-import { updatePlayerScore } from "./updatePlayerScore.js";
+import { updatePlayerScore } from "../score/updatePlayerScore.js";
 
-import { pikachuCard } from "../shared/pokemon/cards/pikachu.card.js";
-import { evoliCard } from "../shared/pokemon/cards/evoli.card.js";
-import { roucoolCard } from "../shared/pokemon/cards/roucool.card.js";
-import { racaillouCard } from "../shared/pokemon/cards/racaillou.card.js";
-import { insecateurCard } from "../shared/pokemon/cards/insecateur.card.js";
-import { sabeletteCard } from "../shared/pokemon/cards/sabelette.card.js";
-import { mewtwoCard } from "../shared/pokemon/cards/mewtwo.card.js";
-import { scarabruteCard } from "../shared/pokemon/cards/scarabrute.card.js";
-import { krabbossCard } from "../shared/pokemon/cards/krabboss.card.js";
-import { salamecheCard } from "../shared/pokemon/cards/salameche.card.js";
-import { nidoranMaleCard } from "../shared/pokemon/cards/nidoranMale.card.js";
-import { crustabriCard } from "../shared/pokemon/cards/crustabri.card.js";
-import { fantominusCard } from "../shared/pokemon/cards/fantominus.card.js";
-import { ectoplasmaCard } from "../shared/pokemon/cards/ectoplasma.card.js";
-import { spectrumCard } from "../shared/pokemon/cards/spectrum.card.js";
+import { pikachuCard } from "../../shared/pokemon/cards/pikachu.card.js";
+import { evoliCard } from "../../shared/pokemon/cards/evoli.card.js";
+import { roucoolCard } from "../../shared/pokemon/cards/roucool.card.js";
+import { racaillouCard } from "../../shared/pokemon/cards/racaillou.card.js";
+import { insecateurCard } from "../../shared/pokemon/cards/insecateur.card.js";
+import { sabeletteCard } from "../../shared/pokemon/cards/sabelette.card.js";
+import { mewtwoCard } from "../../shared/pokemon/cards/mewtwo.card.js";
+import { scarabruteCard } from "../../shared/pokemon/cards/scarabrute.card.js";
+import { krabbossCard } from "../../shared/pokemon/cards/krabboss.card.js";
+import { salamecheCard } from "../../shared/pokemon/cards/salameche.card.js";
+import { nidoranMaleCard } from "../../shared/pokemon/cards/nidoranMale.card.js";
+import { crustabriCard } from "../../shared/pokemon/cards/crustabri.card.js";
+import { fantominusCard } from "../../shared/pokemon/cards/fantominus.card.js";
+import { ectoplasmaCard } from "../../shared/pokemon/cards/ectoplasma.card.js";
+import { spectrumCard } from "../../shared/pokemon/cards/spectrum.card.js";
 
-import { domElements } from "../shared/dom/dom-elements.js";
+import { domElements } from "../../shared/dom/dom-elements.js";
 
 const isPokemonInSecondLocation = () =>
   domElements.pokemonSecondLocation.contains(spectrumCard) ||

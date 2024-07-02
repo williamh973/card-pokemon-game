@@ -1,7 +1,7 @@
 import {
   openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack,
   openDialogueWhenPokemonMissAttack,
-} from "../../../dialogue-battle.js";
+} from "../../../battle-dialogues/dialogues/dialogue-battle.js";
 
 function increaseHp(firstAttacker, degats) {
   if (firstAttacker.stats.hp < firstAttacker.stats.hpMax) {

@@ -1,4 +1,4 @@
-import { openDialogueWhenPokemonHasParalyzedStatut } from "../../dialogue-battle.js";
+import { openDialogueWhenPokemonHasParalyzedStatut } from "../../battle-dialogues/dialogues/dialogue-battle.js";
 
 export const paralyzedStatut = function paralyzedStatut(secondAttacker) {
   secondAttacker.primaryStatut = "paralyzed";

@@ -1,4 +1,4 @@
-import { openDialogueWhenPokemonMakesIneffectiveAttack } from "../../dialogue-battle.js";
+import { openDialogueWhenPokemonMakesIneffectiveAttack } from "../../battle-dialogues/dialogues/dialogue-battle.js";
 
 export const ineffectiveFactorForSecondAttack =
   function ineffectiveFactorForSecondAttack(

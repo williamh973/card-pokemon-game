@@ -11,16 +11,16 @@ import {
   getFirstAttackerConfusingStatutAlterationDelays,
   getFirstAttackerScaredStatutAlterationDelays,
   getFirstAttackerCursedStatutAlterationDelays,
-} from "../../animations-delays/alterations-delay.js";
+} from "../../../game-logic/battle/animations-delays/alterations-delay.js";
 
-import { updateDisplayPokemonHp } from "../../update-display-Pokemon-hp.js";
+import { updateDisplayPokemonHp } from "../../../game-logic/battle/update-display-Pokemon-hp.js";
 
 import {
   openDialogueWhenPokemonHpDecreaseByBurningStatut,
   openDialogueWhenPokemonHpDecreaseByPoisonedStatut,
-} from "../../dialogue-battle.js";
+} from "../../battle-dialogues/dialogues/dialogue-battle.js";
 
-import { pokemonLose } from "../../pokemon-is-knock-out.js";
+import { pokemonLose } from "../../../game-logic/battle/pokemon-is-knock-out.js";
 
 export async function checkIfFirstAttackerStatusHasBurningOrPoisoned(
   firstAttacker,

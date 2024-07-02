@@ -1,9 +1,8 @@
-import { domElements } from "../../shared/dom/dom-elements.js";
 import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
-import { handleSelectionRandomPokemon } from "../handle-menu-and-selections/handlePokemonRandomSelection.js";
+import { handleSelectionRandomPokemon } from "./handle-random-selection/handlePokemonRandomSelection.js";
 import { pokemonSelectors } from "../../shared/header/pokemon-selectors.js";
 import { pokemonNameList } from "../../shared/pokemon/pokemon-name-list.js";
-import { activateStartBattleButton } from "../battle/start-battle-button.js";
+import { activateStartBattleButton } from "../../game-logic/battle/start-battle-button.js";
 import { battleSelectors } from "../../shared/battle/battle-selectors.js";
 
 document.addEventListener("DOMContentLoaded", () => {

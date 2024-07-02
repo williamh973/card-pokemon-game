@@ -1,4 +1,4 @@
-import { openDialogueWhenPokemonCursed } from "../../../dialogue-battle.js";
+import { openDialogueWhenPokemonCursed } from "../../../battle-dialogues/dialogues/dialogue-battle.js";
 
 export const cursedStatut = function cursedStatut(
   firstAttacker,

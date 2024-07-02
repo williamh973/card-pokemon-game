@@ -1,4 +1,4 @@
-import { openDialogueWhenPokemonMakesResistanceAttack } from "../../dialogue-battle.js";
+import { openDialogueWhenPokemonMakesResistanceAttack } from "../../battle-dialogues/dialogues/dialogue-battle.js";
 
 export const resistanceFactorForSecondAttack =
   function resistanceFactorForSecondAttack(

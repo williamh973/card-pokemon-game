@@ -1,6 +1,6 @@
 import { cursedStatut } from "./cursed-statut.js";
 
-import { updateDisplayPokemonHp } from "../../../update-display-Pokemon-hp.js";
+import { updateDisplayPokemonHp } from "../../../../game-logic/battle/update-display-Pokemon-hp.js";
 
 export const cursedStatut100PercentProbabililityForSecondAttack =
   function cursedStatut100PercentProbabililityForSecondAttack(
