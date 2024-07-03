@@ -5,17 +5,13 @@ import { hideBattleInProgress } from "./display-battle-in-progress.js";
 import {
   hideFirstAttackerWhenLose,
   hideSecondAttackerWhenLose,
-  hidePlayerSecondAttackerWhenLose,
-  hidePlayerFirstAttackerWhenLose,
 } from "./hideLocationsWhenPokemonsLoses.js";
 import { displayStatsPokemonsContainer } from "../../components/pokemon-stats-container.js";
+import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
 
-export function pokemonLose(
-  firstAttacker,
-  secondAttacker,
-  enemyPokemon,
-  playerSelectedPokemon
-) {
+import { pokemonCardList } from "../../shared/pokemon/pokemon-card-list.js";
+
+export function pokemonLose(firstAttacker, secondAttacker, enemyPokemon) {
   updateDisplayPokemonHp(firstAttacker, secondAttacker);
   displayBattleResult();
   openDialogueWhenPokemonKo();
@@ -23,11 +19,18 @@ export function pokemonLose(
 
   if (firstAttacker.stats.hp === 0) {
     hideFirstAttackerWhenLose(firstAttacker, enemyPokemon);
-    hidePlayerFirstAttackerWhenLose(firstAttacker, playerSelectedPokemon);
   } else if (secondAttacker.stats.hp === 0) {
     hideSecondAttackerWhenLose(secondAttacker, enemyPokemon);
-    hidePlayerSecondAttackerWhenLose(secondAttacker, playerSelectedPokemon);
   }
-
+  animationWhenPokemonKo();
   displayStatsPokemonsContainer(firstAttacker, secondAttacker);
+
+  function animationWhenPokemonKo() {
+    const pokemonCard = pokemonCardList[pokemonVariables.pokemonKo];
+    pokemonCard.classList.add("slide-out");
+
+    pokemonCard.addEventListener("animationend", () => {
+      pokemonCard.remove();
+    });
+  }
 }

@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       displayBattleInProgress();
       determineFirstAttacker();
-
+      console.log(firstAttacker, secondAttacker);
       while (
         firstAttacker.stats.hp > 0 &&
         secondAttacker.stats.hp > 0 &&

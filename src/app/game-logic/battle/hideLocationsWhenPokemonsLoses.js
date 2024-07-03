@@ -1,93 +1,44 @@
 import { updatePlayerScore } from "../score/updatePlayerScore.js";
-
-import { pikachuCard } from "../../shared/pokemon/cards/pikachu.card.js";
-import { evoliCard } from "../../shared/pokemon/cards/evoli.card.js";
-import { roucoolCard } from "../../shared/pokemon/cards/roucool.card.js";
-import { racaillouCard } from "../../shared/pokemon/cards/racaillou.card.js";
-import { insecateurCard } from "../../shared/pokemon/cards/insecateur.card.js";
-import { sabeletteCard } from "../../shared/pokemon/cards/sabelette.card.js";
-import { mewtwoCard } from "../../shared/pokemon/cards/mewtwo.card.js";
-import { scarabruteCard } from "../../shared/pokemon/cards/scarabrute.card.js";
-import { krabbossCard } from "../../shared/pokemon/cards/krabboss.card.js";
-import { salamecheCard } from "../../shared/pokemon/cards/salameche.card.js";
-import { nidoranMaleCard } from "../../shared/pokemon/cards/nidoranMale.card.js";
-import { crustabriCard } from "../../shared/pokemon/cards/crustabri.card.js";
-import { fantominusCard } from "../../shared/pokemon/cards/fantominus.card.js";
-import { ectoplasmaCard } from "../../shared/pokemon/cards/ectoplasma.card.js";
-import { spectrumCard } from "../../shared/pokemon/cards/spectrum.card.js";
-
 import { domElements } from "../../shared/dom/dom-elements.js";
+import { pokemonCardList } from "../../shared/pokemon/pokemon-card-list.js";
+import { pokemonSelectors } from "../../shared/header/pokemon-selectors.js";
 
-const isPokemonInSecondLocation = () =>
-  domElements.pokemonSecondLocation.contains(spectrumCard) ||
-  domElements.pokemonSecondLocation.contains(ectoplasmaCard) ||
-  domElements.pokemonSecondLocation.contains(fantominusCard) ||
-  domElements.pokemonSecondLocation.contains(crustabriCard) ||
-  domElements.pokemonSecondLocation.contains(pikachuCard) ||
-  domElements.pokemonSecondLocation.contains(evoliCard) ||
-  domElements.pokemonSecondLocation.contains(roucoolCard) ||
-  domElements.pokemonSecondLocation.contains(racaillouCard) ||
-  domElements.pokemonSecondLocation.contains(insecateurCard) ||
-  domElements.pokemonSecondLocation.contains(sabeletteCard) ||
-  domElements.pokemonSecondLocation.contains(mewtwoCard) ||
-  domElements.pokemonSecondLocation.contains(scarabruteCard) ||
-  domElements.pokemonSecondLocation.contains(krabbossCard) ||
-  domElements.pokemonSecondLocation.contains(salamecheCard) ||
-  domElements.pokemonSecondLocation.contains(nidoranMaleCard);
+function getPokemonCards() {
+  const firstPokemonCard =
+    pokemonCardList[pokemonSelectors.selectFirstPokemonButton.value];
+  const secondPokemonCard =
+    pokemonCardList[pokemonSelectors.selectSecondPokemonButton.value];
+  const randomPokemonCard =
+    pokemonCardList[pokemonSelectors.selectRandomSelectionButton.value];
+  return { firstPokemonCard, secondPokemonCard, randomPokemonCard };
+}
 
-const isPokemonInFirstLocation = () =>
-  domElements.pokemonFirstLocation.contains(spectrumCard) ||
-  domElements.pokemonFirstLocation.contains(ectoplasmaCard) ||
-  domElements.pokemonFirstLocation.contains(fantominusCard) ||
-  domElements.pokemonFirstLocation.contains(crustabriCard) ||
-  domElements.pokemonFirstLocation.contains(pikachuCard) ||
-  domElements.pokemonFirstLocation.contains(evoliCard) ||
-  domElements.pokemonFirstLocation.contains(roucoolCard) ||
-  domElements.pokemonFirstLocation.contains(racaillouCard) ||
-  domElements.pokemonFirstLocation.contains(insecateurCard) ||
-  domElements.pokemonFirstLocation.contains(sabeletteCard) ||
-  domElements.pokemonFirstLocation.contains(mewtwoCard) ||
-  domElements.pokemonFirstLocation.contains(scarabruteCard) ||
-  domElements.pokemonFirstLocation.contains(krabbossCard) ||
-  domElements.pokemonFirstLocation.contains(salamecheCard) ||
-  domElements.pokemonFirstLocation.contains(nidoranMaleCard);
+function isPokemonInFirstLocation(pokemonCard) {
+  return domElements.pokemonFirstLocation.contains(pokemonCard);
+}
 
-export function hideSecondAttackerWhenLose(secondAttacker, enemyPokemon) {
-  if (secondAttacker.name === enemyPokemon && isPokemonInSecondLocation()) {
-    updatePlayerScore();
-    domElements.pokemonSecondLocation.innerHTML = "";
-  }
+function isPokemonInSecondLocation(pokemonCard) {
+  return domElements.pokemonSecondLocation.contains(pokemonCard);
 }
 
 export function hideFirstAttackerWhenLose(firstAttacker, enemyPokemon) {
-  if (firstAttacker.name === enemyPokemon && isPokemonInFirstLocation()) {
+  const { firstPokemonCard } = getPokemonCards();
+  if (
+    firstAttacker.name === enemyPokemon &&
+    isPokemonInFirstLocation(firstPokemonCard)
+  ) {
     updatePlayerScore();
-    domElements.pokemonSecondLocation.innerHTML = "";
   }
 }
 
-export const hidePlayerSecondAttackerWhenLose =
-  function hidePlayerSecondAttackerWhenLose(
-    secondAttacker,
-    playerSelectedPokemon
+export function hideSecondAttackerWhenLose(secondAttacker, enemyPokemon) {
+  const { secondPokemonCard, randomPokemonCard } = getPokemonCards();
+  if (
+    (secondAttacker.name === enemyPokemon &&
+      isPokemonInSecondLocation(secondPokemonCard)) ||
+    (secondAttacker.name === enemyPokemon &&
+      isPokemonInSecondLocation(randomPokemonCard))
   ) {
-    if (
-      secondAttacker.name === playerSelectedPokemon &&
-      isPokemonInFirstLocation()
-    ) {
-      domElements.pokemonFirstLocation.innerHTML = "";
-    }
-  };
-
-export const hidePlayerFirstAttackerWhenLose =
-  function hidePlayerFirstAttackerWhenLose(
-    firstAttacker,
-    playerSelectedPokemon
-  ) {
-    if (
-      firstAttacker.name === playerSelectedPokemon &&
-      isPokemonInFirstLocation()
-    ) {
-      domElements.pokemonFirstLocation.innerHTML = "";
-    }
-  };
+    updatePlayerScore();
+  }
+}

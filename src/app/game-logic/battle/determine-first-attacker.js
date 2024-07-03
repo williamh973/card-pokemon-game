@@ -1,6 +1,5 @@
 import { pokemonModelList } from "../../shared/pokemon/pokemon-model-list.js";
 import { pokemonSelectors } from "../../shared/header/pokemon-selectors.js";
-import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
 
 export { firstAttacker, secondAttacker, determineFirstAttacker };
 
@@ -25,6 +24,8 @@ function determineFirstAttacker() {
     secondAttacker = getPokemonModel(
       pokemonSelectors.selectRandomSelectionButton.value
     );
+    console.log(secondAttacker);
+    console.log(pokemonSelectors.selectRandomSelectionButton.value);
   }
 
   if (firstAttacker.stats.speed < secondAttacker.stats.speed) {

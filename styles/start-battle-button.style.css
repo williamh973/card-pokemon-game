@@ -14,6 +14,7 @@
 #start-battle-button:enabled {
   background-color: rgb(0, 78, 0);
   color: whitesmoke;
+  animation: pulse 1s infinite;
 }
 
 #start-battle-button:disabled {
@@ -32,4 +33,20 @@
 
 #start-battle-button:active {
   background-color: lightgreen;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(0, 78, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 128, 0, 1);
+    background-color: rgb(0, 128, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(0, 78, 0, 0.5);
+  }
 }
