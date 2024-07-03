@@ -1,26 +1,24 @@
 export const getAttackDelays = (firstAttacker, secondAttacker) => {
   const firstAttackerFirstAttackName = firstAttacker.firstAttack.name;
-
   const firstAttackerSecondAttackName = firstAttacker.secondAttack.name;
 
   const secondAttackerFirstAttackName = secondAttacker.firstAttack.name;
-
   const secondAttackerSecondAttackName = secondAttacker.secondAttack.name;
 
   const firstAttackerFirstAttackDelay = getAttackDelay(
-    firstAttackerFirstAttackName,
+    firstAttackerFirstAttackName
   );
 
   const firstAttackerSecondAttackDelay = getAttackDelay(
-    firstAttackerSecondAttackName,
+    firstAttackerSecondAttackName
   );
 
   const secondAttackerFirstAttackDelay = getAttackDelay(
-    secondAttackerFirstAttackName,
+    secondAttackerFirstAttackName
   );
 
   const secondAttackerSecondAttackDelay = getAttackDelay(
-    secondAttackerSecondAttackName,
+    secondAttackerSecondAttackName
   );
 
   return {

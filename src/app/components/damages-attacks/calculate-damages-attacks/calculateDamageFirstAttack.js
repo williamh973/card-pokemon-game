@@ -7,11 +7,9 @@ import { defenseIncrease5pFactorForFirstAttack } from "../../factors-attacks/inc
 import { defenseIncrease10pFactorForFirstAttack } from "../../factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-10P-factors-attacks/defense-increase-10P-factor-first-attack.js";
 import { attackDecrease2pFactorForFirstAttack } from "../../factors-attacks/decrease-factors-attacks/attack-decrease-factors/attack-decrease-2P-factors-attacks/attack-decrease-2P-factor-first-attack.js";
 import { hpIncrease5pFactorForFirstAttack } from "../../factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-5P-factor-attacks.js";
-import {
-  openDialogueWhenPokemonMakesFirstAttack,
-  openDialogueWhenPokemonMissAttack,
-  openDialogueWhenPokemonProtectingHimself,
-} from "../../battle-dialogues/dialogues/dialogue-battle.js";
+import { openDialogueWhenPokemonMakesFirstAttack } from "../../battle-dialogues/dialogues/pokemon-makes-attacks.dialogue.js";
+import { openDialogueWhenPokemonMissAttack } from "../../battle-dialogues/dialogues/pokemon-miss-attack.dialogue.js";
+import { openDialogueWhenPokemonProtectingHimself } from "../../battle-dialogues/dialogues/pokemon-protecting-himself.dialogue.js";
 import { criticalHit } from "../../factors-attacks/critical-hit-factor/critical-hit-factor.js";
 import { criticalHitIncreaseByFocusEnergyForFirstAttack } from "../../factors-attacks/increase-factors-attacks/critical-hit-increase-factors-attacks/critical-hit-increase-focus-energy-first-attack.js";
 import { oneHitKnockoutFactorForFirstAttack } from "../../factors-attacks/one-hit-factors-attacks/one-hit-knock-out-first-attack.js";

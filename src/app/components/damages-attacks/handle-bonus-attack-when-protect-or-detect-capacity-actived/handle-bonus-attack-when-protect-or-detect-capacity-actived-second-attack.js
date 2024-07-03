@@ -1,20 +1,11 @@
-import {
-  openDialogueWhenPokemonMakesSecondAttack,
-  openDialogueWhenPokemonMissAttack,
-} from "../../battle-dialogues/dialogues/dialogue-battle.js";
-
+import { openDialogueWhenPokemonMakesSecondAttack } from "../../battle-dialogues/dialogues/pokemon-makes-attacks.dialogue.js";
+import { openDialogueWhenPokemonMissAttack } from "../../battle-dialogues/dialogues/pokemon-miss-attack.dialogue.js";
 import { speedIncrease5pFactorForSecondAttack } from "../../factors-attacks/increase-factors-attacks/speed-increase-factor-attacks/speed-increase-5P-factor-attacks.js";
-
 import { speedIncrease10pFactorForSecondAttack } from "../../factors-attacks/increase-factors-attacks/speed-increase-factor-attacks/speed-increase-10P-factor-attacks.js";
-
 import { defenseIncrease5pFactorForSecondAttack } from "../../factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-5P-factors-attacks/defense-increase-5P-factor-second-attack.js";
-
 import { defenseIncrease10pFactorForSecondAttack } from "../../factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-10P-factors-attacks/defense-increase-10P-factor-second-attack.js";
-
 import { hpIncrease5pFactorForSecondAttack } from "../../factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-5P-factor-attacks.js";
-
 import { protectFactorForSecondAttack } from "../../factors-attacks/protect-factors-attacks/protect-factors-second-attack.js";
-
 import { deseableProtectCapacity } from "../../factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
 
 export function handleBonusAttackWhenProtectOrDetectCapacityActived(

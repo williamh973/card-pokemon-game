@@ -1,7 +1,5 @@
-import {
-  openDialogueWhenPokemonCriticalHitBoostedByFocusEnergy,
-  openDialogueWhenPokemonCriticalHitAlreadyBoostedByFocusEnergy,
-} from "../../../battle-dialogues/dialogues/dialogue-battle.js";
+import { openDialogueWhenPokemonCriticalHitBoostedByFocusEnergy } from "../../../battle-dialogues/dialogues/pokemon-critical-hit-boosted-by-focus-energy.dialogue.js";
+import { openDialogueWhenPokemonCriticalHitAlreadyBoostedByFocusEnergy } from "../../../battle-dialogues/dialogues/pokemon-critical-hit-already-boosted-by-focus-energy.dialogue.js";
 
 export let isCriticalHitBoostedByFocusEnergy = false;
 

@@ -2,9 +2,9 @@ import { protectionActived } from "./protect-detect-capacity-actived.js";
 
 import { pokemonDecreasePrecision } from "./precision-decrease-and-reset.js";
 
-export const protectFactorForFirstAttack = function protectFactorForFirstAttack(
+export function protectFactorForFirstAttack(
   firstAttacker,
-  isFirstAttackActive,
+  isFirstAttackActive
 ) {
   if (
     (firstAttacker.firstAttack.name === "Abri" ||
@@ -15,4 +15,4 @@ export const protectFactorForFirstAttack = function protectFactorForFirstAttack(
 
     pokemonDecreasePrecision(firstAttacker);
   }
-};
+}

@@ -1,6 +1,6 @@
 import { isProtectOrDetectCapacityActived } from "./protect-detect-capacity-actived.js";
 
-import { openDialogueWhenPokemonReadyToProtectItself } from "../../battle-dialogues/dialogues/dialogue-battle.js";
+import { openDialogueWhenPokemonReadyToProtectItself } from "../../battle-dialogues/dialogues/pokemon-ready-to-protect-itself.dialogue.js";
 
 export let protectCount = 0;
 

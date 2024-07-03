@@ -1,7 +1,5 @@
-import {
-  openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack,
-  openDialogueWhenPokemonMissAttack,
-} from "../../../battle-dialogues/dialogues/dialogue-battle.js";
+import { openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack } from "../../../battle-dialogues/dialogues/pokemon-makes-hp-increase-50-percent-of-damage-factor-attack.dialogue.js";
+import { openDialogueWhenPokemonMissAttack } from "../../../battle-dialogues/dialogues/pokemon-miss-attack.dialogue.js";
 
 function increaseHp(firstAttacker, degats) {
   if (firstAttacker.stats.hp < firstAttacker.stats.hpMax) {
@@ -38,54 +36,52 @@ function currentHpGreaterThanHpMaxAfterIncreased(firstAttacker) {
   }
 }
 
-export const hpIncrease50PercentOfDamagesFactorForFirstAttack =
-  function hpIncrease50PercentOfDamagesFactorForFirstAttack(
-    firstAttacker,
-    secondAttacker,
-    isFirstAttackActive,
-    degats
+export function hpIncrease50PercentOfDamagesFactorForFirstAttack(
+  firstAttacker,
+  secondAttacker,
+  isFirstAttackActive,
+  degats
+) {
+  if (
+    firstAttacker.firstAttack.name === "Dévorêve" &&
+    secondAttacker.primaryStatut === "asleep" &&
+    isFirstAttackActive
   ) {
-    if (
-      firstAttacker.firstAttack.name === "Dévorêve" &&
-      secondAttacker.primaryStatut === "asleep" &&
-      isFirstAttackActive
-    ) {
-      increaseHp(firstAttacker, degats);
+    increaseHp(firstAttacker, degats);
 
-      currentHpGreaterThanHpMaxAfterIncreased(firstAttacker);
-      return 1;
-    } else if (
-      firstAttacker.firstAttack.name === "Dévorêve" &&
-      secondAttacker.primaryStatut !== "asleep" &&
-      isFirstAttackActive
-    ) {
-      openDialogueWhenPokemonMissAttack(firstAttacker);
-      return 0;
-    }
-  };
-
-export const hpIncrease50PercentOfDamagesFactorForSecondAttack =
-  function hpIncrease50PercentOfDamagesFactorForSecondAttack(
-    firstAttacker,
-    secondAttacker,
-    isSecondAttackActive,
-    degats
+    currentHpGreaterThanHpMaxAfterIncreased(firstAttacker);
+    return 1;
+  } else if (
+    firstAttacker.firstAttack.name === "Dévorêve" &&
+    secondAttacker.primaryStatut !== "asleep" &&
+    isFirstAttackActive
   ) {
-    if (
-      firstAttacker.secondAttack.name === "Dévorêve" &&
-      secondAttacker.primaryStatut === "asleep" &&
-      isSecondAttackActive
-    ) {
-      increaseHp(firstAttacker, degats);
+    openDialogueWhenPokemonMissAttack(firstAttacker);
+    return 0;
+  }
+}
 
-      currentHpGreaterThanHpMaxAfterIncreased(firstAttacker);
-      return 1;
-    } else if (
-      firstAttacker.secondAttack.name === "Dévorêve" &&
-      secondAttacker.primaryStatut !== "asleep" &&
-      isSecondAttackActive
-    ) {
-      openDialogueWhenPokemonMissAttack(firstAttacker);
-      return 0;
-    }
-  };
+export function hpIncrease50PercentOfDamagesFactorForSecondAttack(
+  firstAttacker,
+  secondAttacker,
+  isSecondAttackActive,
+  degats
+) {
+  if (
+    firstAttacker.secondAttack.name === "Dévorêve" &&
+    secondAttacker.primaryStatut === "asleep" &&
+    isSecondAttackActive
+  ) {
+    increaseHp(firstAttacker, degats);
+
+    currentHpGreaterThanHpMaxAfterIncreased(firstAttacker);
+    return 1;
+  } else if (
+    firstAttacker.secondAttack.name === "Dévorêve" &&
+    secondAttacker.primaryStatut !== "asleep" &&
+    isSecondAttackActive
+  ) {
+    openDialogueWhenPokemonMissAttack(firstAttacker);
+    return 0;
+  }
+}

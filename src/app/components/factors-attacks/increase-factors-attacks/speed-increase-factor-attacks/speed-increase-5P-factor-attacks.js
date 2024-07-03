@@ -1,4 +1,4 @@
-import { openDialogueWhenPokemonMakesSpeedIncrease5pFactorAttack } from "../../../battle-dialogues/dialogues/dialogue-battle.js";
+import { openDialogueWhenPokemonMakesSpeedIncrease5pFactorAttack } from "../../../battle-dialogues/dialogues/pokemon-makes-speed-increase-5p-factor-attack.dialogue.js";
 
 export const speedIncrease5pFactorForFirstAttack =
   function speedIncrease5pFactorForFirstAttack(pokemon, isFirstAttackActive) {

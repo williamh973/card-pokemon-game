@@ -15,11 +15,10 @@ import { attackDecrease2pFactorForSecondAttack } from "../../factors-attacks/dec
 
 import { hpIncrease5pFactorForSecondAttack } from "../../factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-5P-factor-attacks.js";
 
-import {
-  openDialogueWhenPokemonMakesSecondAttack,
-  openDialogueWhenPokemonMissAttack,
-  openDialogueWhenPokemonProtectingHimself,
-} from "../../battle-dialogues/dialogues/dialogue-battle.js";
+import { openDialogueWhenPokemonMakesSecondAttack } from "../../battle-dialogues/dialogues/pokemon-makes-attacks.dialogue.js";
+
+import { openDialogueWhenPokemonMissAttack } from "../../battle-dialogues/dialogues/pokemon-miss-attack.dialogue.js";
+import { openDialogueWhenPokemonProtectingHimself } from "../../battle-dialogues/dialogues/pokemon-protecting-himself.dialogue.js";
 
 import { criticalHit } from "../../factors-attacks/critical-hit-factor/critical-hit-factor.js";
 

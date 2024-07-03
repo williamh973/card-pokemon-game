@@ -1,6 +1,6 @@
 import { updateDisplayPokemonHp } from "./update-display-Pokemon-hp.js";
 import { displayBattleResult } from "../../components/battle-result-popup/display-battle-result/display-battle-result.js";
-import { openDialogueWhenPokemonKo } from "../../components/battle-dialogues/dialogues/dialogue-battle.js";
+import { openDialogueWhenPokemonKo } from "../../components/battle-dialogues/dialogues/pokemon-ko.dialogue.js";
 import { hideBattleInProgress } from "./display-battle-in-progress.js";
 import {
   hideFirstAttackerWhenLose,
