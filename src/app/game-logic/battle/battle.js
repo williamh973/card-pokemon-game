@@ -6,7 +6,6 @@ import {
 import { displayBattleInProgress } from "./display-battle-in-progress.js";
 import { calculateDamageFirstAttack } from "../../components/damages-attacks/calculate-damages-attacks/calculateDamageFirstAttack.js";
 import { calculateDamageSecondAttack } from "../../components/damages-attacks/calculate-damages-attacks/calculateDamageSecondAttack.js";
-import { domElements } from "../../shared/dom/dom-elements.js";
 import { isProtectOrDetectCapacityActived } from "../../components/factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
 import {
   getAttackDelays,
@@ -39,23 +38,20 @@ import { secondAttackerSecondaryStatutStateVariableList } from "../../components
 import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
 import { battleVariable } from "../../shared/battle/battle-variables.js";
 import { battleSelectors } from "../../shared/battle/battle-selectors.js";
+import { updateNumberOfTurns } from "./number-of-turn/update-number-of-turn.js";
+import { initNumberOfTurn } from "./number-of-turn/init-number-of-turn.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   battleSelectors.startBattleButton.addEventListener("click", () => {
     async function battle() {
-      battleVariable.isLoopRunning = true;
-
+      initNumberOfTurn();
       displayBattleInProgress();
       determineFirstAttacker();
-      console.log(firstAttacker, secondAttacker);
-      while (
-        firstAttacker.stats.hp > 0 &&
-        secondAttacker.stats.hp > 0 &&
-        battleVariable.isLoopRunning
-      ) {
+
+      while (firstAttacker.stats.hp > 0 && secondAttacker.stats.hp > 0) {
         pokemonVariables.isFirstAttackActive = false;
         pokemonVariables.isSecondAttackActive = false;
-        battleVariable.numberOfTurns++;
+        updateNumberOfTurns();
 
         isProtectOrDetectCapacityActived;
         await checkIfFirstAttackerStatusHasParalyzedFrozenNormalOrAsleep(
@@ -346,9 +342,9 @@ document.addEventListener("DOMContentLoaded", () => {
     battle();
   });
 
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "a") {
-      battleVariable.isLoopRunning = false;
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "p") {
+      alert("pause");
     }
   });
 });

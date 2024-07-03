@@ -10,5 +10,6 @@ export const battleSelectors = {
     return document.getElementById("dialogue");
   },
   battleInProgress: document.getElementById("battle-in-progress"),
+  numberOfTurnContainer: document.getElementById("numberOfTurn-container"),
   startBattleButton: document.getElementById("start-battle-button"),
 };

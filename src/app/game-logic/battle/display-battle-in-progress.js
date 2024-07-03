@@ -12,6 +12,7 @@ export function displayBattleInProgress() {
   battleSelectors.startBattleButton.style.display = "none";
   battleSelectors.displayDialogueBattleContainer.style.display = "flex";
   battleSelectors.battleInProgress.style.display = "flex";
+  battleSelectors.numberOfTurnContainer.style.display = "flex";
 }
 
 export function hideBattleInProgress() {
@@ -24,4 +25,5 @@ export function hideBattleInProgress() {
   battleSelectors.displayDialogueBattleContainer.style.display = "none";
   battleSelectors.startBattleButton.style.display = "flex";
   battleSelectors.battleInProgress.style.display = "none";
+  battleSelectors.numberOfTurnContainer.style.display = "none";
 }

@@ -24,8 +24,6 @@ function determineFirstAttacker() {
     secondAttacker = getPokemonModel(
       pokemonSelectors.selectRandomSelectionButton.value
     );
-    console.log(secondAttacker);
-    console.log(pokemonSelectors.selectRandomSelectionButton.value);
   }
 
   if (firstAttacker.stats.speed < secondAttacker.stats.speed) {
