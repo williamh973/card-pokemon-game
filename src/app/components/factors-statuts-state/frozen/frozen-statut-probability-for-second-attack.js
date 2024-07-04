@@ -1,3 +1,4 @@
+import { addStatusAnimations } from "../../../game-logic/battle/animations/animations-statuts/add-statut-animation.js";
 import { openDialogueWhenPokemonHasFrozenStatut } from "../../battle-dialogues/dialogues/pokemon-has-frozen-statut.dialogue.js";
 
 export function frozenStatut10PercentProbabililityForSecondAttack(
@@ -25,6 +26,7 @@ export function frozenStatut10PercentProbabililityForSecondAttack(
 
     if (randomNumber <= 10) {
       secondAttacker.primaryStatut = "frozen";
+      addStatusAnimations(secondAttacker);
       openDialogueWhenPokemonHasFrozenStatut(secondAttacker);
     }
   }

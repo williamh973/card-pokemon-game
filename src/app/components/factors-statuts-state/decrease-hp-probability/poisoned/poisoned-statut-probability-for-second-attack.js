@@ -1,3 +1,4 @@
+import { addStatusAnimations } from "../../../../game-logic/battle/animations/animations-statuts/add-statut-animation.js";
 import { openDialogueWhenPokemonHasPoisonedStatut } from "../../../battle-dialogues/dialogues/pokemon--has-poisoned-statut.dialogue.js";
 
 import { isStatusValidForPoisoned } from "./status-valid-for-poisoned.js";
@@ -20,6 +21,7 @@ export function poisonedStatut10PercentProbabililityForSecondAttack(
 
     if (randomNumber <= 10) {
       secondAttacker.primaryStatut = "poisoned";
+      addStatusAnimations(secondAttacker);
       openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
     }
   }
@@ -43,6 +45,7 @@ export function poisonedStatut20PercentProbabililityForSecondAttack(
 
     if (randomNumber <= 20) {
       secondAttacker.primaryStatut = "poisoned";
+      addStatusAnimations(secondAttacker);
       openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
     }
   }
@@ -71,6 +74,7 @@ export function poisonedStatut30PercentProbabililityForSecondAttack(
 
     if (randomNumber <= 30) {
       secondAttacker.primaryStatut = "poisoned";
+      addStatusAnimations(secondAttacker);
       openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
     }
   }
@@ -94,6 +98,7 @@ export function poisonedStatut40PercentProbabililityForSecondAttack(
 
     if (randomNumber <= 40) {
       secondAttacker.primaryStatut = "poisoned";
+      addStatusAnimations(secondAttacker);
       openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
     }
   }
@@ -118,6 +123,7 @@ export function poisonedStatut100PercentProbabililityForSecondAttack(
 
     if (randomNumber <= 100) {
       secondAttacker.primaryStatut = "poisoned";
+      addStatusAnimations(secondAttacker);
       openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
     }
   }
