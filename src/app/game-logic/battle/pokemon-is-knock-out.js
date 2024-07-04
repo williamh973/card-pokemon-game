@@ -6,16 +6,15 @@ import {
   hideFirstAttackerWhenLose,
   hideSecondAttackerWhenLose,
 } from "./hideLocationsWhenPokemonsLoses.js";
-import { displayStatsPokemonsContainer } from "../../components/pokemon-stats-container.js";
-import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
-
-import { pokemonCardList } from "../../shared/pokemon/pokemon-card-list.js";
+import { animationWhenPokemonKo } from "./animations/pokemon-ko.animation.js";
+import { stopPokemonKoStatutAnimation } from "./statut/stop-pokemon-ko-statut-animation.js";
 
 export function pokemonLose(firstAttacker, secondAttacker, enemyPokemon) {
   updateDisplayPokemonHp(firstAttacker, secondAttacker);
   displayBattleResult();
   openDialogueWhenPokemonKo();
   hideBattleInProgress();
+  stopPokemonKoStatutAnimation();
 
   if (firstAttacker.stats.hp === 0) {
     hideFirstAttackerWhenLose(firstAttacker, enemyPokemon);
@@ -23,14 +22,6 @@ export function pokemonLose(firstAttacker, secondAttacker, enemyPokemon) {
     hideSecondAttackerWhenLose(secondAttacker, enemyPokemon);
   }
   animationWhenPokemonKo();
-  displayStatsPokemonsContainer(firstAttacker, secondAttacker);
 
-  function animationWhenPokemonKo() {
-    const pokemonCard = pokemonCardList[pokemonVariables.pokemonKo];
-    pokemonCard.classList.add("slide-out");
-
-    pokemonCard.addEventListener("animationend", () => {
-      pokemonCard.remove();
-    });
-  }
+  // displayStatsPokemonsContainer(firstAttacker, secondAttacker);
 }

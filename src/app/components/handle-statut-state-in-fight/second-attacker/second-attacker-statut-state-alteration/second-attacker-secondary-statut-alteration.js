@@ -3,13 +3,9 @@ import { openDialogueWhenPokemonConfusedStatut } from "../../../battle-dialogues
 import { openDialogueWhenPokemonHurtByConfusing } from "../../../battle-dialogues/dialogues/pokemon-hurt-by-confusing.js";
 import { openDialogueWhenPokemonNoLongerConfused } from "../../../battle-dialogues/dialogues/pokemon-no-longer-confused.js";
 import { openDialogueWhenPokemonHurtsByCurse } from "../../../battle-dialogues/dialogues/pokemon-hurts-by-curse.js";
+import { pokemonVariables } from "../../../../shared/pokemon/pokemon-variables.js";
 let confusingCount = 0;
 let randomNumber = Math.random();
-
-export let secondAttackerSecondaryStatutStateVariableList = {
-  isSecondAttackerConfusing: false,
-  isSecondAttackerScared: false,
-};
 
 export function secondAttackerSecondaryStatutConfusingAlteration(
   secondAttacker
@@ -20,7 +16,7 @@ export function secondAttackerSecondaryStatutConfusingAlteration(
       randomNumber = Math.random();
 
       if (randomNumber <= 0.5) {
-        secondAttackerSecondaryStatutStateVariableList.isSecondAttackerConfusing = true;
+        pokemonVariables.isSecondAttackerConfusing = true;
         openDialogueWhenPokemonConfusedStatut(secondAttacker);
         openDialogueWhenPokemonHurtByConfusing(secondAttacker);
         deseableProtectCapacity();
@@ -32,12 +28,12 @@ export function secondAttackerSecondaryStatutConfusingAlteration(
         secondAttacker.stats.hp -= newDecreaseValue;
       } else {
         openDialogueWhenPokemonConfusedStatut(secondAttacker);
-        secondAttackerSecondaryStatutStateVariableList.isSecondAttackerConfusing = false;
+        pokemonVariables.isSecondAttackerConfusing = false;
       }
 
       if (confusingCount === 4) {
         openDialogueWhenPokemonNoLongerConfused(secondAttacker);
-        secondAttackerSecondaryStatutStateVariableList.isSecondAttackerConfusing = false;
+        pokemonVariables.isSecondAttackerConfusing = false;
         secondAttacker.secondaryStatut.isConfused = false;
         secondAttacker.secondaryStatut.isNormal = true;
         confusingCount = 0;
@@ -48,7 +44,7 @@ export function secondAttackerSecondaryStatutConfusingAlteration(
 
 export function secondAttackerSecondaryStatutScaredAlteration(secondAttacker) {
   if (secondAttacker.secondaryStatut.isScared) {
-    return (secondAttackerSecondaryStatutStateVariableList.isSecondAttackerScared = true);
+    return (pokemonVariables.isSecondAttackerScared = true);
   }
 }
 

@@ -31,12 +31,7 @@ import {
   checkIfSecondAttackerStatusScared,
   checkIfSecondAttackerStatusCursed,
 } from "../../components/handle-statut-state-in-fight/second-attacker/check-if-second-attacker-statut-has-changed.js";
-import { firstAttackerStatutStateVariableList } from "../../components/handle-statut-state-in-fight/first-attacker/first-attacker-statut-state-alteration/first-attacker-primary-statut-alteration.js";
-import { firstAttackerSecondaryStatutStateVariableList } from "../../components/handle-statut-state-in-fight/first-attacker/first-attacker-statut-state-alteration/first-attacker-secondary-statut-alteration.js";
-import { secondAttackerStatutStateVariableList } from "../../components/handle-statut-state-in-fight/second-attacker/second-attacker-statut-state-alteration/second-attacker-primary-statut-alteration.js";
-import { secondAttackerSecondaryStatutStateVariableList } from "../../components/handle-statut-state-in-fight/second-attacker/second-attacker-statut-state-alteration/second-attacker-secondary-statut-alteration.js";
 import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
-import { battleVariable } from "../../shared/battle/battle-variables.js";
 import { battleSelectors } from "../../shared/battle/battle-selectors.js";
 import { updateNumberOfTurns } from "./number-of-turn/update-number-of-turn.js";
 import { initNumberOfTurn } from "./number-of-turn/init-number-of-turn.js";
@@ -77,11 +72,11 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         if (
-          !firstAttackerStatutStateVariableList.isFirstAttackerParalyzed &&
-          !firstAttackerStatutStateVariableList.isFirstAttackerFrozen &&
-          !firstAttackerStatutStateVariableList.isFirstAttackerAsleep &&
-          !firstAttackerSecondaryStatutStateVariableList.isFirstAttackerConfusing &&
-          !firstAttackerSecondaryStatutStateVariableList.isFirstAttackerScared
+          !pokemonVariables.isFirstAttackerParalyzed &&
+          !pokemonVariables.isFirstAttackerFrozen &&
+          !pokemonVariables.isFirstAttackerAsleep &&
+          !pokemonVariables.isFirstAttackerConfusing &&
+          !pokemonVariables.isFirstAttackerScared
         ) {
           const randomNumber = Math.floor(Math.random() * 100) + 1;
 
@@ -222,11 +217,11 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         if (
-          !secondAttackerStatutStateVariableList.isSecondAttackerParalyzed &&
-          !secondAttackerStatutStateVariableList.isSecondAttackerFrozen &&
-          !secondAttackerStatutStateVariableList.isSecondAttackerAsleep &&
-          !secondAttackerSecondaryStatutStateVariableList.isSecondAttackerConfusing &&
-          !secondAttackerSecondaryStatutStateVariableList.isSecondAttackerScared
+          !pokemonVariables.isSecondAttackerParalyzed &&
+          !pokemonVariables.isSecondAttackerFrozen &&
+          !pokemonVariables.isSecondAttackerAsleep &&
+          !pokemonVariables.isSecondAttackerConfusing &&
+          !pokemonVariables.isSecondAttackerScared
         ) {
           const randomNumber = Math.floor(Math.random() * 100) + 1;
 
@@ -340,11 +335,5 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
     battle();
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "p") {
-      alert("pause");
-    }
   });
 });
