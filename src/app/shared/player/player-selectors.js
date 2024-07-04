@@ -2,7 +2,13 @@ export const playerSelectors = {
   get playerFormContainer() {
     return document.getElementById("playerForm-container");
   },
-  playerFormSection: document.getElementById("playerForm-section"),
-  playerFormInput: document.getElementById("playerForm-input"),
-  playerFormSubmitButton: document.getElementById("playerForm-submitButton"),
+  get playerFormSection() {
+    return document.getElementById("playerForm-section");
+  },
+  get playerFormInput() {
+    return document.getElementById("playerForm-input");
+  },
+  get playerFormSubmitButton() {
+    return document.getElementById("playerForm-submitButton");
+  },
 };

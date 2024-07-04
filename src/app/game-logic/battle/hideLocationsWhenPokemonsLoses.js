@@ -2,6 +2,7 @@ import { updatePlayerScore } from "../score/updatePlayerScore.js";
 import { domElements } from "../../shared/dom/dom-elements.js";
 import { pokemonCardList } from "../../shared/pokemon/pokemon-card-list.js";
 import { pokemonSelectors } from "../../shared/header/pokemon-selectors.js";
+import { updateComputerScore } from "../score/updateComputerScore.js";
 
 function getPokemonCards() {
   const firstPokemonCard =
@@ -28,6 +29,8 @@ export function hideFirstAttackerWhenLose(firstAttacker, enemyPokemon) {
     isPokemonInFirstLocation(firstPokemonCard)
   ) {
     updatePlayerScore();
+  } else {
+    updateComputerScore();
   }
 }
 
@@ -40,5 +43,7 @@ export function hideSecondAttackerWhenLose(secondAttacker, enemyPokemon) {
       isPokemonInSecondLocation(randomPokemonCard))
   ) {
     updatePlayerScore();
+  } else {
+    updateComputerScore();
   }
 }

@@ -1,5 +1,5 @@
 export const playerInfos = {
-  firstPlayer: document.getElementById("player-info-container"),
+  playerContainer: document.getElementById("player-info-container"),
   playerName: "",
-  firstPlayerScore: 0,
+  playerScore: 0,
 };
