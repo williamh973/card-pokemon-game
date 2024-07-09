@@ -110,11 +110,8 @@ export function calculateDamageFirstAttack(
       }
 
       speedIncrease5pFactorForFirstAttack(firstAttacker, isFirstAttackActive);
-
       speedIncrease10pFactorForFirstAttack(firstAttacker, isFirstAttackActive);
-
       defenseIncrease5pFactorForFirstAttack(firstAttacker, isFirstAttackActive);
-
       defenseIncrease10pFactorForFirstAttack(
         firstAttacker,
         isFirstAttackActive

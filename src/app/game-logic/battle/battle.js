@@ -8,15 +8,15 @@ import { calculateDamageFirstAttack } from "../../components/damages-attacks/cal
 import { calculateDamageSecondAttack } from "../../components/damages-attacks/calculate-damages-attacks/calculateDamageSecondAttack.js";
 import { isProtectOrDetectCapacityActived } from "../../components/factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
 import {
-  getAttackDelays,
+  handleAttacksDelayAndAnimations,
   sleepAttacksAnimation,
-} from "./animations-delays/attacks-delay.js";
+} from "./animations/animations-delays/attacks-delay.js";
 import {
   firstAttackerTakesDamage,
   secondAttackerTakesDamage,
 } from "./pokemon-takes-damage.js";
 import { pokemonLose } from "./pokemon-is-knock-out.js";
-import { sleepStatutAlteredAnimation } from "./animations-delays/alterations-delay.js";
+import { sleepStatutAlteredAnimation } from "./animations/animations-delays/alterations-delay.js";
 import {
   checkIfFirstAttackerStatusHasBurningOrPoisoned,
   checkIfFirstAttackerStatusHasParalyzedFrozenNormalOrAsleep,
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             if (pokemonVariables.isFirstAttackActive) {
-              const attackDelays = getAttackDelays(
+              const attackDelays = handleAttacksDelayAndAnimations(
                 firstAttacker,
                 secondAttacker
               );
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             if (pokemonVariables.isSecondAttackActive) {
-              const attackDelays = getAttackDelays(
+              const attackDelays = handleAttacksDelayAndAnimations(
                 firstAttacker,
                 secondAttacker
               );
@@ -243,7 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             if (pokemonVariables.isFirstAttackActive) {
-              const attackDelays = getAttackDelays(
+              const attackDelays = handleAttacksDelayAndAnimations(
                 firstAttacker,
                 secondAttacker
               );
@@ -276,7 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             if (pokemonVariables.isSecondAttackActive) {
-              const attackDelays = getAttackDelays(
+              const attackDelays = handleAttacksDelayAndAnimations(
                 firstAttacker,
                 secondAttacker
               );

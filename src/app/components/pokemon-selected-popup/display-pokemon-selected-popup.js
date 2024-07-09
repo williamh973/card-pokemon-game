@@ -2,7 +2,7 @@ import { domElements } from "../../shared/dom/dom-elements.js";
 import { pokemonNameList } from "../../shared/pokemon/pokemon-name-list.js";
 import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
 
-export function pokemonSelected(pokemon) {
+export function displayPokemonSelectedPopup(pokemon) {
   const POPUP_DISPLAY_TIMELAPS = 1_500;
 
   pokemonNameList.find((pokemonFromPokemonList) => {

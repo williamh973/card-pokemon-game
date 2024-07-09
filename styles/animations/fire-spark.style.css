@@ -1,0 +1,13 @@
+.fire-spark {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 165, 0, 1) 0%,
+    rgba(255, 69, 0, 1) 100%
+  );
+  border-radius: 50%;
+  z-index: 1000;
+  pointer-events: none;
+}

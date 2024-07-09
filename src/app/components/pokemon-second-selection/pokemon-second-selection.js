@@ -1,5 +1,5 @@
 import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
-import { handlePokemonSecondSelection } from "./handle-second-selection/handlePokemonSecondSelection.js";
+import { displaySecondPokemonSelection } from "./handle-second-selection/display-second-pokemon-selection.js";
 import { pokemonSelectors } from "../../shared/header/pokemon-selectors.js";
 import { activateStartBattleButton } from "../../game-logic/battle/start-battle-button.js";
 import { battleSelectors } from "../../shared/battle/battle-selectors.js";
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pokemonSelectors.selectSecondPokemonButton.addEventListener(
       "change",
       () => {
-        handlePokemonSecondSelection(
+        displaySecondPokemonSelection(
           pokemonSelectors.selectSecondPokemonButton.value
         );
         pokemonVariables.isRandomPokemonSelected = false;

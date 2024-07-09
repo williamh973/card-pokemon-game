@@ -10,6 +10,7 @@
   flex-wrap: wrap;
   background-color: black;
   margin: auto;
+  /* border: 2px solid red; */
 }
 
 .pokemon-location {

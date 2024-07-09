@@ -1,0 +1,17 @@
+export const pokemonCardIdList = {
+  Pikachu: "card-pikachu",
+  Évoli: "card-evoli",
+  Roucool: "card-roucool",
+  Racaillou: "card-racaillou",
+  Insécateur: "card-insecateur",
+  Sabelette: "card-sabelette",
+  Mewtwo: "card-mewtwo",
+  Scarabrute: "card-scarabrute",
+  Krabboss: "card-krabboss",
+  Salamèche: "card-salameche",
+  "Nidoran♂": "card-nidoranMale",
+  Crustabri: "card-crustabri",
+  Fantominus: "card-fantominus",
+  Ectoplasma: "card-ectoplasma",
+  Spectrum: "card-spectrum",
+};

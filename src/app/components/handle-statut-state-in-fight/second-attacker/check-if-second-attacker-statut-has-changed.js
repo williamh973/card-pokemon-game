@@ -11,7 +11,7 @@ import {
   getSecondAttackerConfusingStatutAlterationDelays,
   getSecondAttackerScaredStatutAlterationDelays,
   getSecondAttackerCursedStatutAlterationDelays,
-} from "../../../game-logic/battle/animations-delays/alterations-delay.js";
+} from "../../../game-logic/battle/animations/animations-delays/alterations-delay.js";
 
 import { updateDisplayPokemonHp } from "../../../game-logic/battle/update-display-Pokemon-hp.js";
 

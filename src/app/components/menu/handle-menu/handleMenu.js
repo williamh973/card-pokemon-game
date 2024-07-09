@@ -34,6 +34,7 @@ export function handleMenu(gameMod) {
       pokemonSelectors.selectSecondPokemonButton.style.display = "none";
       pokemonSelectors.selectSecondPokemonButton.value = "none";
       pokemonSelectors.selectRandomSelectionButton.style.display = "flex";
+      pokemonSelectors.selectRandomSelectionButton.disabled = true;
       break;
     case "close-menu":
       domElements.isDefiniteModActived = false;

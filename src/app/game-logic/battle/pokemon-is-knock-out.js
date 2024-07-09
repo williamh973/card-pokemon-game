@@ -7,14 +7,14 @@ import {
   hideSecondAttackerWhenLose,
 } from "./hideLocationsWhenPokemonsLoses.js";
 import { animationWhenPokemonKo } from "./animations/pokemon-ko.animation.js";
-import { stopPokemonKoStatutAnimation } from "./statut/stop-pokemon-ko-statut-animation.js";
+import { stopAlterationStatutAnimationWhenPokemonKo } from "./statut/stop-alteration-statut-animation-when-pokemon-ko.js";
 
 export function pokemonLose(firstAttacker, secondAttacker, enemyPokemon) {
   updateDisplayPokemonHp(firstAttacker, secondAttacker);
   displayBattleResult();
   openDialogueWhenPokemonKo();
   hideBattleInProgress();
-  stopPokemonKoStatutAnimation();
+  stopAlterationStatutAnimationWhenPokemonKo();
 
   if (firstAttacker.stats.hp === 0) {
     hideFirstAttackerWhenLose(firstAttacker, enemyPokemon);

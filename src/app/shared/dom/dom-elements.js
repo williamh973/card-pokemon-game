@@ -7,6 +7,9 @@ export const domElements = {
   },
   headContainer: document.getElementById("header-container"),
   main: document.getElementById("main"),
+  get ring() {
+    return document.getElementById("ring");
+  },
   definiteModTitle: document.getElementById("definite-mod-title"),
   randomModTitle: document.getElementById("random-mod-title"),
   pokemonFirstLocation: document.getElementById("pokemon-first-location"),

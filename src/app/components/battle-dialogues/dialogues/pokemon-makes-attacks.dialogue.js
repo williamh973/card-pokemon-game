@@ -7,7 +7,7 @@ export function openDialogueWhenPokemonMakesFirstAttack(attacker) {
 
   setTimeout(function () {
     battleSelectors.displayDialogue.style.display = "none";
-  }, dialogueConstant.END_ATTACKS_DISPLAY_DURATION);
+  }, dialogueConstant.ATTACKS_DISPLAY_DURATION);
 }
 
 export function openDialogueWhenPokemonMakesSecondAttack(attacker) {
@@ -17,5 +17,5 @@ export function openDialogueWhenPokemonMakesSecondAttack(attacker) {
 
   setTimeout(function () {
     battleSelectors.displayDialogue.style.display = "none";
-  }, dialogueConstant.END_ATTACKS_DISPLAY_DURATION);
+  }, dialogueConstant.ATTACKS_DISPLAY_DURATION);
 }

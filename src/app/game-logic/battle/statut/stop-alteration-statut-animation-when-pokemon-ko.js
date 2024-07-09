@@ -2,7 +2,7 @@ import { pokemonCardList } from "../../../shared/pokemon/pokemon-card-list.js";
 import { pokemonModelList } from "../../../shared/pokemon/pokemon-model-list.js";
 import { pokemonVariables } from "../../../shared/pokemon/pokemon-variables.js";
 
-export function stopPokemonKoStatutAnimation() {
+export function stopAlterationStatutAnimationWhenPokemonKo() {
   function getPokemonModel() {
     const findPokemonModel = pokemonModelList[pokemonVariables.pokemonKo];
     return findPokemonModel;
