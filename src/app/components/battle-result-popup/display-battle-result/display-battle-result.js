@@ -9,17 +9,13 @@ import { pokemonVariables } from "../../../shared/pokemon/pokemon-variables.js";
 
 export function displayBattleResult() {
   const POPUP_DISPLAY_TIMELAPS = 3000;
-  battleSelectors.displayBattleResultContainer.style.display = "flex";
 
-  if (firstAttacker.stats.hp <= 0) {
-    pokemonVariables.pokemonKo = firstAttacker.name;
-    battleSelectors.displayBattleResult.textContent = `${firstAttacker.name} est KO !`;
-  } else if (secondAttacker.stats.hp <= 0) {
-    pokemonVariables.pokemonKo = secondAttacker.name;
-    battleSelectors.displayBattleResult.textContent = `${secondAttacker.name} est KO !`;
-  }
+  const openBattleResultPopup = () => {
+    battleSelectors.displayBattleResultContainer.style.display = "flex";
+    battleSelectors.displayBattleResult.textContent = `${pokemonVariables.pokemonKo} est KO !`;
+  };
 
-  function updatePokemonSelectionStatus() {
+  const updatePokemonSelectionStatus = () => {
     if (
       pokemonVariables.pokemonKo ===
       pokemonSelectors.selectFirstPokemonButton.value
@@ -33,22 +29,35 @@ export function displayBattleResult() {
     } else {
       pokemonVariables.isRandomPokemonSelected = false;
     }
-  }
-  updatePokemonSelectionStatus();
+  };
 
-  setTimeout(function () {
-    battleSelectors.displayBattleResultContainer.style.display = "none";
-    battleSelectors.startBattleButton.disabled = true;
-    battleSelectors.startBattleButton.style.display = "none";
+  const displayMenu = () => {
+    setTimeout(function () {
+      battleSelectors.displayBattleResultContainer.style.display = "none";
+      battleSelectors.startBattleButton.disabled = true;
+      battleSelectors.startBattleButton.style.display = "none";
 
-    if (domElements.isDefiniteModActived) {
-      pokemonSelectors.selectFirstPokemonButton.style.display = "flex";
-      pokemonSelectors.selectSecondPokemonButton.style.display = "flex";
-      pokemonSelectors.selectRandomSelectionButton.style.display = "none";
-    } else if (domElements.isRandomModActived) {
-      pokemonSelectors.selectFirstPokemonButton.style.display = "flex";
-      pokemonSelectors.selectRandomSelectionButton.style.display = "flex";
-      pokemonSelectors.selectSecondPokemonButton.style.display = "none";
+      if (domElements.isDefiniteModActived) {
+        pokemonSelectors.selectFirstPokemonButton.style.display = "flex";
+        pokemonSelectors.selectSecondPokemonButton.style.display = "flex";
+        pokemonSelectors.selectRandomSelectionButton.style.display = "none";
+      } else if (domElements.isRandomAdversaryModActivated) {
+        pokemonSelectors.selectFirstPokemonButton.style.display = "flex";
+        pokemonSelectors.selectRandomSelectionButton.style.display = "flex";
+        pokemonSelectors.selectSecondPokemonButton.style.display = "none";
+      }
+    }, POPUP_DISPLAY_TIMELAPS);
+  };
+
+  const determinePokemonKo = () => {
+    if (firstAttacker.stats.hp <= 0) {
+      pokemonVariables.pokemonKo = firstAttacker.name;
+    } else if (secondAttacker.stats.hp <= 0) {
+      pokemonVariables.pokemonKo = secondAttacker.name;
     }
-  }, POPUP_DISPLAY_TIMELAPS);
+    openBattleResultPopup();
+    updatePokemonSelectionStatus();
+    displayMenu();
+  };
+  determinePokemonKo();
 }

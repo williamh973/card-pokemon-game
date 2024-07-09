@@ -5,17 +5,19 @@ export const domElements = {
   get displayPopupPokemonSelected() {
     return document.getElementById("pokemon-selected");
   },
-  headContainer: document.getElementById("header-container"),
-  main: document.getElementById("main"),
   get ring() {
     return document.getElementById("ring");
   },
+  main: document.getElementById("main"),
+  headContainer: document.getElementById("header-container"),
   definiteModTitle: document.getElementById("definite-mod-title"),
-  randomModTitle: document.getElementById("random-mod-title"),
+  randomAdversaryModTitle: document.getElementById(
+    "random-adversary-mod-title"
+  ),
   pokemonFirstLocation: document.getElementById("pokemon-first-location"),
   pokemonSecondLocation: document.getElementById("pokemon-second-location"),
   isDefiniteModActived: false,
-  isRandomModActived: false,
+  isRandomAdversaryModActivated: false,
 
   pokemonStatsContainer: document.getElementById("container-stats"),
 };
