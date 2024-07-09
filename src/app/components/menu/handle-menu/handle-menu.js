@@ -3,16 +3,20 @@ import { pokemonSelectors } from "../../../shared/header/pokemon-selectors.js";
 import { menuSelectors } from "../../../shared/header/menu-selectors.js";
 
 export function handleMenu(gameMod) {
+  const closedMenu = () => {
+    domElements.isDefiniteModActived = false;
+    domElements.isRandomModActived = false;
+    domElements.definiteModTitle.style.display = "none";
+    domElements.randomModTitle.style.display = "none";
+    pokemonSelectors.selectFirstPokemonButton.style.display = "none";
+    menuSelectors.versus.style.display = "none";
+    pokemonSelectors.selectSecondPokemonButton.style.display = "none";
+    pokemonSelectors.selectRandomSelectionButton.style.display = "none";
+  };
+
   switch (gameMod) {
     case "default":
-      domElements.isDefiniteModActived = false;
-      domElements.isRandomModActived = false;
-      domElements.definiteModTitle.style.display = "none";
-      domElements.randomModTitle.style.display = "none";
-      pokemonSelectors.selectFirstPokemonButton.style.display = "none";
-      menuSelectors.versus.style.display = "none";
-      pokemonSelectors.selectSecondPokemonButton.style.display = "none";
-      domElements.pokemonRandomSelectionButton.style.display = "none";
+      closedMenu();
       break;
     case "definite-mod":
       domElements.isDefiniteModActived = true;
@@ -37,14 +41,7 @@ export function handleMenu(gameMod) {
       pokemonSelectors.selectRandomSelectionButton.disabled = true;
       break;
     case "close-menu":
-      domElements.isDefiniteModActived = false;
-      domElements.isRandomModActived = false;
-      domElements.definiteModTitle.style.display = "none";
-      domElements.randomModTitle.style.display = "none";
-      pokemonSelectors.selectFirstPokemonButton.style.display = "none";
-      menuSelectors.versus.style.display = "none";
-      pokemonSelectors.selectSecondPokemonButton.style.display = "none";
-      pokemonSelectors.selectRandomSelectionButton.style.display = "none";
+      closedMenu();
       break;
   }
 }

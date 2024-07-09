@@ -20,11 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
       displayFirstPokemonSelection(
         pokemonSelectors.selectFirstPokemonButton.value
       );
+
+      function displayStartBattleButton() {
+        battleSelectors.startBattleButton.style.display = "flex";
+      }
+
       pokemonVariables.isFirstPokemonSelected = true;
       pokemonVariables.playerSelectedPokemon =
         pokemonSelectors.selectFirstPokemonButton.value;
       pokemonSelectors.selectRandomSelectionButton.disabled = false;
-      battleSelectors.startBattleButton.style.display = "flex";
+      displayStartBattleButton();
       activateStartBattleButton();
       battleSelectors.displayDialogue.style.display = "none";
     });

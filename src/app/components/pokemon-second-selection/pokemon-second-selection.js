@@ -22,11 +22,16 @@ document.addEventListener("DOMContentLoaded", () => {
         displaySecondPokemonSelection(
           pokemonSelectors.selectSecondPokemonButton.value
         );
+
+        function displayStartBattleButton() {
+          battleSelectors.startBattleButton.style.display = "flex";
+        }
+
         pokemonVariables.isRandomPokemonSelected = false;
         pokemonVariables.isSecondPokemonSelected = true;
         pokemonVariables.enemyPokemon =
           pokemonSelectors.selectSecondPokemonButton.value;
-        battleSelectors.startBattleButton.style.display = "flex";
+        displayStartBattleButton();
         activateStartBattleButton();
         battleSelectors.displayDialogue.style.display = "none";
       }
