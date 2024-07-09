@@ -13,16 +13,16 @@ function getPokemonModel(pokemonName) {
 
 function determineFirstAttacker() {
   firstAttacker = getPokemonModel(
-    pokemonSelectors.selectFirstPokemonButton.value
+    pokemonSelectors.firstPokemonSelectionButton.value
   );
 
-  if (pokemonSelectors.selectSecondPokemonButton.value !== "none") {
+  if (pokemonSelectors.secondPokemonSelectionButton.value !== "none") {
     secondAttacker = getPokemonModel(
-      pokemonSelectors.selectSecondPokemonButton.value
+      pokemonSelectors.secondPokemonSelectionButton.value
     );
   } else {
     secondAttacker = getPokemonModel(
-      pokemonSelectors.selectRandomSelectionButton.value
+      pokemonSelectors.randomAdversarySelectionButton.value
     );
   }
 

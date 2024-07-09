@@ -6,11 +6,11 @@ import { updateComputerScore } from "../score/updateComputerScore.js";
 
 function getPokemonCards() {
   const firstPokemonCard =
-    pokemonCardList[pokemonSelectors.selectFirstPokemonButton.value];
+    pokemonCardList[pokemonSelectors.firstPokemonSelectionButton.value];
   const secondPokemonCard =
-    pokemonCardList[pokemonSelectors.selectSecondPokemonButton.value];
+    pokemonCardList[pokemonSelectors.secondPokemonSelectionButton.value];
   const randomPokemonCard =
-    pokemonCardList[pokemonSelectors.selectRandomSelectionButton.value];
+    pokemonCardList[pokemonSelectors.randomAdversarySelectionButton.value];
   return { firstPokemonCard, secondPokemonCard, randomPokemonCard };
 }
 

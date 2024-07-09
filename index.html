@@ -43,6 +43,11 @@
       defer
     ></script>
     <script
+      src="./src/app/components/pokemon-random-all-selection/pokemon-random-all-selection.js"
+      type="module"
+      defer
+    ></script>
+    <script
       src="./src/app/components/pokemon-selected-popup/pokemon-selected-popup.js"
       type="module"
       defer
@@ -92,11 +97,13 @@
           <div class="title-mod" id="random-adversary-mod-title">
             Adversaire aléatoire
           </div>
+          <div class="title-mod" id="random-all-mod-title">Tout aléatoire</div>
 
           <div id="pokemon-firstSelection-container"></div>
           <p id="vs">VS</p>
           <div id="pokemon-secondSelection-container"></div>
           <div id="pokemon-randomSelection-container"></div>
+          <div id="pokemon-randomAllSelection-container"></div>
 
           <div id="battle-in-progress">Combat en cours</div>
           <div id="numberOfTurn-container">0</div>

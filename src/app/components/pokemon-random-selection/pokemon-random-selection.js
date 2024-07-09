@@ -17,13 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((reject) => reject);
 
   function initializeRandomSelection() {
-    pokemonSelectors.selectRandomSelectionButton.addEventListener(
+    pokemonSelectors.randomAdversarySelectionButton.addEventListener(
       "click",
       () => {
         onGetRandomPokemonFromPokemonNameList();
 
         displayRandomPokemonSelection(
-          pokemonSelectors.selectRandomSelectionButton.value
+          pokemonSelectors.randomAdversarySelectionButton.value
         );
 
         function displayStartBattleButton() {
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         pokemonVariables.isSecondPokemonSelected = false;
         pokemonVariables.isRandomPokemonSelected = true;
         pokemonVariables.enemyPokemon =
-          pokemonSelectors.selectRandomSelectionButton.value;
+          pokemonSelectors.randomAdversarySelectionButton.value;
         displayStartBattleButton();
         activateStartBattleButton();
         battleSelectors.displayDialogue.style.display = "none";

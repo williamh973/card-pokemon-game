@@ -3,11 +3,11 @@ import { pokemonSelectors } from "../../shared/header/pokemon-selectors.js";
 
 export function getPokemonCardIds() {
   const firstPokemonCardId =
-    pokemonCardIdList[pokemonSelectors.selectFirstPokemonButton.value];
+    pokemonCardIdList[pokemonSelectors.firstPokemonSelectionButton.value];
   const secondPokemonCardId =
-    pokemonCardIdList[pokemonSelectors.selectSecondPokemonButton.value];
+    pokemonCardIdList[pokemonSelectors.secondPokemonSelectionButton.value];
   const randomPokemonCardId =
-    pokemonCardIdList[pokemonSelectors.selectRandomSelectionButton.value];
+    pokemonCardIdList[pokemonSelectors.randomAdversarySelectionButton.value];
 
   return {
     firstPokemonCardId,

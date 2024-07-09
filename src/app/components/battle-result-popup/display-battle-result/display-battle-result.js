@@ -18,12 +18,12 @@ export function displayBattleResult() {
   const updatePokemonSelectionStatus = () => {
     if (
       pokemonVariables.pokemonKo ===
-      pokemonSelectors.selectFirstPokemonButton.value
+      pokemonSelectors.firstPokemonSelectionButton.value
     ) {
       pokemonVariables.isFirstPokemonSelected = false;
     } else if (
       pokemonVariables.pokemonKo ===
-      pokemonSelectors.selectSecondPokemonButton.value
+      pokemonSelectors.secondPokemonSelectionButton.value
     ) {
       pokemonVariables.isSecondPokemonSelected = false;
     } else {
@@ -38,13 +38,18 @@ export function displayBattleResult() {
       battleSelectors.startBattleButton.style.display = "none";
 
       if (domElements.isDefiniteModActived) {
-        pokemonSelectors.selectFirstPokemonButton.style.display = "flex";
-        pokemonSelectors.selectSecondPokemonButton.style.display = "flex";
-        pokemonSelectors.selectRandomSelectionButton.style.display = "none";
+        pokemonSelectors.firstPokemonSelectionButton.style.display = "flex";
+        pokemonSelectors.secondPokemonSelectionButton.style.display = "flex";
+        pokemonSelectors.randomAdversarySelectionButton.style.display = "none";
       } else if (domElements.isRandomAdversaryModActivated) {
-        pokemonSelectors.selectFirstPokemonButton.style.display = "flex";
-        pokemonSelectors.selectRandomSelectionButton.style.display = "flex";
-        pokemonSelectors.selectSecondPokemonButton.style.display = "none";
+        pokemonSelectors.firstPokemonSelectionButton.style.display = "flex";
+        pokemonSelectors.randomAdversarySelectionButton.style.display = "flex";
+        pokemonSelectors.secondPokemonSelectionButton.style.display = "none";
+      } else {
+        pokemonSelectors.firstPokemonSelectionButton.style.display = "none";
+        pokemonSelectors.randomAdversarySelectionButton.style.display = "none";
+        pokemonSelectors.secondPokemonSelectionButton.style.display = "none";
+        pokemonSelectors.randomAllSelectionButton.style.display = "none";
       }
     }, POPUP_DISPLAY_TIMELAPS);
   };

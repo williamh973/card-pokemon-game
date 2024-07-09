@@ -14,10 +14,12 @@ export const domElements = {
   randomAdversaryModTitle: document.getElementById(
     "random-adversary-mod-title"
   ),
+  randomAllModTitle: document.getElementById("random-all-mod-title"),
   pokemonFirstLocation: document.getElementById("pokemon-first-location"),
   pokemonSecondLocation: document.getElementById("pokemon-second-location"),
   isDefiniteModActived: false,
   isRandomAdversaryModActivated: false,
+  isRandomAllModActivated: false,
 
   pokemonStatsContainer: document.getElementById("container-stats"),
 };

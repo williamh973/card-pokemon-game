@@ -6,12 +6,14 @@ export function handleMenu(gameMod) {
   const closedMenu = () => {
     domElements.isDefiniteModActived = false;
     domElements.isRandomAdversaryModActivated = false;
+    domElements.isRandomAllModActivated = false;
     domElements.definiteModTitle.style.display = "none";
     domElements.randomAdversaryModTitle.style.display = "none";
-    pokemonSelectors.selectFirstPokemonButton.style.display = "none";
+    domElements.randomAllModTitle.style.display = "none";
+    pokemonSelectors.firstPokemonSelectionButton.style.display = "none";
     menuSelectors.versus.style.display = "none";
-    pokemonSelectors.selectSecondPokemonButton.style.display = "none";
-    pokemonSelectors.selectRandomSelectionButton.style.display = "none";
+    pokemonSelectors.secondPokemonSelectionButton.style.display = "none";
+    pokemonSelectors.randomAdversarySelectionButton.style.display = "none";
   };
 
   switch (gameMod) {
@@ -21,36 +23,44 @@ export function handleMenu(gameMod) {
     case "definite-mod":
       domElements.isDefiniteModActived = true;
       domElements.isRandomAdversaryModActivated = false;
+      domElements.isRandomAllModActivated = false;
       domElements.definiteModTitle.style.display = "flex";
       domElements.randomAdversaryModTitle.style.display = "none";
-      pokemonSelectors.selectFirstPokemonButton.style.display = "flex";
+      domElements.randomAllModTitle.style.display = "none";
+      pokemonSelectors.firstPokemonSelectionButton.style.display = "flex";
       menuSelectors.versus.style.display = "flex";
-      pokemonSelectors.selectSecondPokemonButton.style.display = "flex";
-      pokemonSelectors.selectRandomSelectionButton.style.display = "none";
+      pokemonSelectors.secondPokemonSelectionButton.style.display = "flex";
+      pokemonSelectors.randomAdversarySelectionButton.style.display = "none";
       break;
     case "random-adversary-mod":
       domElements.isRandomAdversaryModActivated = true;
+      domElements.isRandomAllModActivated = false;
       domElements.isDefiniteModActived = false;
       domElements.definiteModTitle.style.display = "none";
       domElements.randomAdversaryModTitle.style.display = "flex";
-      pokemonSelectors.selectFirstPokemonButton.style.display = "flex";
+      domElements.randomAllModTitle.style.display = "none";
+      pokemonSelectors.firstPokemonSelectionButton.style.display = "flex";
       menuSelectors.versus.style.display = "flex";
-      pokemonSelectors.selectSecondPokemonButton.style.display = "none";
-      pokemonSelectors.selectSecondPokemonButton.value = "none";
-      pokemonSelectors.selectRandomSelectionButton.style.display = "flex";
-      pokemonSelectors.selectRandomSelectionButton.disabled = true;
+      pokemonSelectors.secondPokemonSelectionButton.style.display = "none";
+      pokemonSelectors.secondPokemonSelectionButton.value = "none";
+      pokemonSelectors.randomAdversarySelectionButton.style.display = "flex";
+      pokemonSelectors.randomAdversarySelectionButton.disabled = true;
       break;
     case "random-all-mod":
-      domElements.isRandomAdversaryModActivated = true;
+      domElements.isRandomAllModActivated = true;
+      domElements.isRandomAdversaryModActivated = false;
       domElements.isDefiniteModActived = false;
       domElements.definiteModTitle.style.display = "none";
-      domElements.randomAdversaryModTitle.style.display = "flex";
-      pokemonSelectors.selectFirstPokemonButton.style.display = "flex";
-      menuSelectors.versus.style.display = "flex";
-      pokemonSelectors.selectSecondPokemonButton.style.display = "none";
-      pokemonSelectors.selectSecondPokemonButton.value = "none";
-      pokemonSelectors.selectRandomSelectionButton.style.display = "flex";
-      pokemonSelectors.selectRandomSelectionButton.disabled = true;
+      domElements.randomAdversaryModTitle.style.display = "none";
+      domElements.randomAllModTitle.style.display = "flex";
+      menuSelectors.versus.style.display = "none";
+      pokemonSelectors.randomAllSelectionButton.style.display = "flex";
+      pokemonSelectors.randomAdversarySelectionButton.style.display = "none";
+      pokemonSelectors.randomAdversarySelectionButton.value = "none";
+      pokemonSelectors.firstPokemonSelectionButton.style.display = "none";
+      pokemonSelectors.firstPokemonSelectionButton.value = "none";
+      pokemonSelectors.secondPokemonSelectionButton.style.display = "none";
+      pokemonSelectors.secondPokemonSelectionButton.value = "none";
       break;
     case "close-menu":
       closedMenu();

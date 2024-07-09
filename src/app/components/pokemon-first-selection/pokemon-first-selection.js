@@ -16,22 +16,25 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((reject) => reject);
 
   function initializeFirstSelection() {
-    pokemonSelectors.selectFirstPokemonButton.addEventListener("change", () => {
-      displayFirstPokemonSelection(
-        pokemonSelectors.selectFirstPokemonButton.value
-      );
+    pokemonSelectors.firstPokemonSelectionButton.addEventListener(
+      "change",
+      () => {
+        displayFirstPokemonSelection(
+          pokemonSelectors.firstPokemonSelectionButton.value
+        );
 
-      function displayStartBattleButton() {
-        battleSelectors.startBattleButton.style.display = "flex";
+        function displayStartBattleButton() {
+          battleSelectors.startBattleButton.style.display = "flex";
+        }
+
+        pokemonVariables.isFirstPokemonSelected = true;
+        pokemonVariables.playerSelectedPokemon =
+          pokemonSelectors.firstPokemonSelectionButton.value;
+        pokemonSelectors.randomAdversarySelectionButton.disabled = false;
+        displayStartBattleButton();
+        activateStartBattleButton();
+        battleSelectors.displayDialogue.style.display = "none";
       }
-
-      pokemonVariables.isFirstPokemonSelected = true;
-      pokemonVariables.playerSelectedPokemon =
-        pokemonSelectors.selectFirstPokemonButton.value;
-      pokemonSelectors.selectRandomSelectionButton.disabled = false;
-      displayStartBattleButton();
-      activateStartBattleButton();
-      battleSelectors.displayDialogue.style.display = "none";
-    });
+    );
   }
 });

@@ -33,15 +33,15 @@ export function activateStartBattleButton() {
 
   function onGetPokemonModel() {
     const firstPokemonModel =
-      pokemonModelList[pokemonSelectors.selectFirstPokemonButton.value];
+      pokemonModelList[pokemonSelectors.firstPokemonSelectionButton.value];
     let secondPokemonModel = null;
 
     if (pokemonVariables.isSecondPokemonSelected) {
       secondPokemonModel =
-        pokemonModelList[pokemonSelectors.selectSecondPokemonButton.value];
+        pokemonModelList[pokemonSelectors.secondPokemonSelectionButton.value];
     } else if (pokemonVariables.isRandomPokemonSelected) {
       secondPokemonModel =
-        pokemonModelList[pokemonSelectors.selectRandomSelectionButton.value];
+        pokemonModelList[pokemonSelectors.randomAdversarySelectionButton.value];
     }
 
     checkPokemonsSelected(firstPokemonModel, secondPokemonModel);
