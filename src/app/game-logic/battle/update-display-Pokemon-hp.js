@@ -4,11 +4,9 @@ export function updateDisplayPokemonHp(firstAttacker, secondAttacker) {
   const firstAttackerHealthName = pokemonHealthNameList[firstAttacker.name];
   const secondAttackerHealthName = pokemonHealthNameList[secondAttacker.name];
 
-  document.getElementById(
-    firstAttackerHealthName
-  ).textContent = `${firstAttacker.stats.hp}`;
+  const firstAttackerHp = document.getElementById(firstAttackerHealthName);
+  const secondAttackerHp = document.getElementById(secondAttackerHealthName);
 
-  document.getElementById(
-    secondAttackerHealthName
-  ).textContent = `${secondAttacker.stats.hp}`;
+  firstAttackerHp.textContent = `${firstAttacker.stats.hp}`;
+  secondAttackerHp.textContent = `${secondAttacker.stats.hp}`;
 }
