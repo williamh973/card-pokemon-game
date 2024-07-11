@@ -1,5 +1,5 @@
-import { openDialogueWhenPokemonMakesHpIncrease5pFactorAttack } from "../../../battle-dialogues/dialogues/pokemon-makes-hp-increase-5p-factor-attack.dialogue.js";
-import { openDialogueWhenPokemonMissHpIncrease5pFactorAttack } from "../../../battle-dialogues/dialogues/pokemon-miss-hp-increase-5p-factor-attack.dialogue.js";
+import { openDialogueWhenPokemonMakesHpIncrease5pFactorAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-makes-hp-increase-5p-factor-attack.dialogue.js";
+import { openDialogueWhenPokemonMissHpIncrease5pFactorAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-miss-hp-increase-5p-factor-attack.dialogue.js";
 
 function increaseHp(pokemon) {
   const increasingValue = 5;

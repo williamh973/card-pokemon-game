@@ -1,5 +1,5 @@
-import { levelFactorForFirstAttack } from "../../../game-logic/battle/attacks/factors-attacks/level-factors-attacks/level-factor-first-attack.js";
-import { levelFactorForSecondAttack } from "../../../game-logic/battle/attacks/factors-attacks/level-factors-attacks/level-factor-second-attack.js";
+import { levelFactorForFirstAttack } from "../../../attacks/factors-attacks/level-factors-attacks/level-factor-first-attack.js";
+import { levelFactorForSecondAttack } from "../../../attacks/factors-attacks/level-factors-attacks/level-factor-second-attack.js";
 
 export function ifPokemonHasAnAttackThatDependsOnItsOwnLevel(
   firstAttacker,
@@ -29,6 +29,8 @@ export function ifPokemonHasAnAttackThatDependsOnItsOwnLevel(
       damages
     );
     damages = getLevelFactorForSecondAttack;
+    return damages;
+  } else {
     return damages;
   }
 }

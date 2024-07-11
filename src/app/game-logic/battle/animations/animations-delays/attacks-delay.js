@@ -41,22 +41,22 @@ export const handleAttacksDelayAndAnimations = (
 const getAttackDelayAndStartAnimations = (attackName) => {
   switch (attackName) {
     case "Charge":
-      console.log("Charge :", attackName);
+      // console.log("Charge :", attackName);
       return 4000;
     case "Jet-Pierres":
-      console.log("Jet-Pierres :", attackName);
+      // console.log("Jet-Pierres :", attackName);
       return 4000;
     case "Hâte":
-      console.log("Hâte :", attackName);
+      // console.log("Hâte :", attackName);
       return 4000;
     case "Tranche":
-      console.log("Tranche :", attackName);
+      // console.log("Tranche :", attackName);
       return 4000;
     case "Flammèche":
-      console.log("Flammèche :", attackName);
+      // console.log("Flammèche :", attackName);
       return 4000;
     default:
-      console.log("not in attacks list :", attackName);
+      // console.log("not in attacks list :", attackName);
       return 4000;
   }
 };

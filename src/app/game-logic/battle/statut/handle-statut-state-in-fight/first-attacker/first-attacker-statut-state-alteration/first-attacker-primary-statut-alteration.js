@@ -1,4 +1,4 @@
-import { deseableProtectCapacity } from "../../../factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
+import { deseableProtectCapacity } from "../../../../attacks/factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
 
 import { openDialogueWhenPokemonBlockedByParalyzedStatut } from "../../../../../../components/battle-dialogues/dialogues/pokemon-blocked-by-paralyzed-statut.dialogue.js";
 import { openDialogueWhenPokemonAttacksDespiteParalyzedStatut } from "../../../../../../components/battle-dialogues/dialogues/pokemon-attacks-despite-paralyzed-statut.dialogue.js";

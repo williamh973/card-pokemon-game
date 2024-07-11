@@ -4,9 +4,9 @@ import {
   determineFirstAttacker,
 } from "./determine-first-attacker.js";
 import { displayBattleInProgress } from "./display-battle-in-progress.js";
-import { calculateDamageFirstAttack } from "../../components/damages-attacks/calculate-damages-attacks/calculate-damage-first-attack.js";
-import { calculateDamageSecondAttack } from "../../components/damages-attacks/calculate-damages-attacks/calculate-damage-second-attack.js";
-import { isProtectOrDetectCapacityActived } from "../../components/factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
+import { calculateDamageFirstAttack } from "./attacks/damages-attacks/calculate-damages-attacks/calculate-damage-first-attack.js";
+import { calculateDamageSecondAttack } from "./attacks/damages-attacks/calculate-damages-attacks/calculate-damage-second-attack.js";
+import { isProtectOrDetectCapacityActived } from "./attacks/factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
 import {
   handleAttacksDelayAndAnimations,
   sleepAttacksAnimation,

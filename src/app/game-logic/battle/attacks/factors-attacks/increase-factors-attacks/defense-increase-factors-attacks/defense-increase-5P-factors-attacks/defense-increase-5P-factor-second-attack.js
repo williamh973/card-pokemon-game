@@ -1,4 +1,4 @@
-import { openDialogueWhenPokemonMakesDefenseIncrease5pFactorAttack } from "../../../../battle-dialogues/dialogues/pokemon-makes-defense-increase-5p-factor-attack.dialogue.js";
+import { openDialogueWhenPokemonMakesDefenseIncrease5pFactorAttack } from "../../../../../../../components/battle-dialogues/dialogues/pokemon-makes-defense-increase-5p-factor-attack.dialogue.js";
 
 export function defenseIncrease5pFactorForSecondAttack(
   pokemon,

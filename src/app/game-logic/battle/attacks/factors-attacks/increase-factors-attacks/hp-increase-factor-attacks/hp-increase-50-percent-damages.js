@@ -1,5 +1,5 @@
-import { openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack } from "../../../battle-dialogues/dialogues/pokemon-makes-hp-increase-50-percent-of-damage-factor-attack.dialogue.js";
-import { openDialogueWhenPokemonMissAttack } from "../../../battle-dialogues/dialogues/pokemon-miss-attack.dialogue.js";
+import { openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-makes-hp-increase-50-percent-of-damage-factor-attack.dialogue.js";
+import { openDialogueWhenPokemonMissAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-miss-attack.dialogue.js";
 
 function increaseHp(firstAttacker, damages) {
   if (firstAttacker.stats.hp < firstAttacker.stats.hpMax) {
