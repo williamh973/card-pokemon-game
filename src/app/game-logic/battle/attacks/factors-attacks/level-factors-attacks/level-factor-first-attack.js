@@ -1,7 +1,7 @@
-export const levelFactorForFirstAttack = function levelFactorForFirstAttack(
+export function levelFactorForFirstAttack(
   firstAttacker,
   isFirstAttackActive,
-  degats,
+  damages
 ) {
   if (
     isFirstAttackActive &&
@@ -9,7 +9,7 @@ export const levelFactorForFirstAttack = function levelFactorForFirstAttack(
       firstAttacker.firstAttack.name === "Ombre Nocturne")
   ) {
     const levelOfFirstAttacker = firstAttacker.level;
-    degats = levelOfFirstAttacker;
-    return degats;
+    damages = levelOfFirstAttacker;
+    return damages;
   }
-};
+}

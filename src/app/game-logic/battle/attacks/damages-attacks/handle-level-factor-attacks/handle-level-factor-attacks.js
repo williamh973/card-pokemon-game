@@ -4,7 +4,7 @@ import { levelFactorForSecondAttack } from "../../../game-logic/battle/attacks/f
 export function ifPokemonHasAnAttackThatDependsOnItsOwnLevel(
   firstAttacker,
   isAttackActive,
-  degats
+  damages
 ) {
   if (
     (firstAttacker.firstAttack.name === "Frappe Atlas" ||
@@ -14,10 +14,10 @@ export function ifPokemonHasAnAttackThatDependsOnItsOwnLevel(
     let getLevelFactorForFirstAttack = levelFactorForFirstAttack(
       firstAttacker,
       isAttackActive,
-      degats
+      damages
     );
-    degats = getLevelFactorForFirstAttack;
-    return degats;
+    damages = getLevelFactorForFirstAttack;
+    return damages;
   } else if (
     (firstAttacker.secondAttack.name === "Frappe Atlas" ||
       firstAttacker.secondAttack.name === "Ombre Nocturne") &&
@@ -26,9 +26,9 @@ export function ifPokemonHasAnAttackThatDependsOnItsOwnLevel(
     let getLevelFactorForSecondAttack = levelFactorForSecondAttack(
       firstAttacker,
       isAttackActive,
-      degats
+      damages
     );
-    degats = getLevelFactorForSecondAttack;
-    return degats;
+    damages = getLevelFactorForSecondAttack;
+    return damages;
   }
 }

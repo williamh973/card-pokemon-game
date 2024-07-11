@@ -1,9 +1,9 @@
 import { openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack } from "../../../battle-dialogues/dialogues/pokemon-makes-hp-increase-50-percent-of-damage-factor-attack.dialogue.js";
 import { openDialogueWhenPokemonMissAttack } from "../../../battle-dialogues/dialogues/pokemon-miss-attack.dialogue.js";
 
-function increaseHp(firstAttacker, degats) {
+function increaseHp(firstAttacker, damages) {
   if (firstAttacker.stats.hp < firstAttacker.stats.hpMax) {
-    const increasingValue = degats / 2;
+    const increasingValue = damages / 2;
 
     const currentHp = firstAttacker.stats.hp;
     const maxHp = firstAttacker.stats.hpMax;
@@ -40,14 +40,14 @@ export function hpIncrease50PercentOfDamagesFactorForFirstAttack(
   firstAttacker,
   secondAttacker,
   isFirstAttackActive,
-  degats
+  damages
 ) {
   if (
     firstAttacker.firstAttack.name === "Dévorêve" &&
     secondAttacker.primaryStatut === "asleep" &&
     isFirstAttackActive
   ) {
-    increaseHp(firstAttacker, degats);
+    increaseHp(firstAttacker, damages);
 
     currentHpGreaterThanHpMaxAfterIncreased(firstAttacker);
     return 1;
@@ -65,14 +65,14 @@ export function hpIncrease50PercentOfDamagesFactorForSecondAttack(
   firstAttacker,
   secondAttacker,
   isSecondAttackActive,
-  degats
+  damages
 ) {
   if (
     firstAttacker.secondAttack.name === "Dévorêve" &&
     secondAttacker.primaryStatut === "asleep" &&
     isSecondAttackActive
   ) {
-    increaseHp(firstAttacker, degats);
+    increaseHp(firstAttacker, damages);
 
     currentHpGreaterThanHpMaxAfterIncreased(firstAttacker);
     return 1;

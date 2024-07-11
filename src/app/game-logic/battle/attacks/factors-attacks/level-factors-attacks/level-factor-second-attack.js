@@ -1,7 +1,7 @@
 export function levelFactorForSecondAttack(
   firstAttacker,
   isSecondAttackActive,
-  degats
+  damages
 ) {
   if (
     isSecondAttackActive &&
@@ -9,8 +9,8 @@ export function levelFactorForSecondAttack(
       firstAttacker.secondAttack.name === "Ombre Nocturne")
   ) {
     const levelOfFirstAttacker = firstAttacker.level;
-    degats = levelOfFirstAttacker;
+    damages = levelOfFirstAttacker;
 
-    return degats;
+    return damages;
   }
 }

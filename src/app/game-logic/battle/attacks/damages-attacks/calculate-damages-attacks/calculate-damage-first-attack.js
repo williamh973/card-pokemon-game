@@ -51,17 +51,17 @@ export function calculateDamageFirstAttack(
     const randomNumber = Math.floor(Math.random() * 100) + 1;
 
     if (randomNumber <= firstAttackPrecision) {
-      let degats =
+      let damages =
         (((2 * firstAttacker.stats.attack) / secondAttacker.stats.defense) *
           firstAttackStrength *
           (firstAttackerSpecialAtt / secondAttackerSpecialDef)) /
         20;
 
       let getCriticalHit = criticalHit(firstAttacker);
-      degats *= getCriticalHit;
+      damages *= getCriticalHit;
 
       let randomFactor = Math.random() * (1.0 - 0.85) + 0.85;
-      degats *= randomFactor;
+      damages *= randomFactor;
 
       let getWeaknessFactorList = weaknessFactorForFirstAttack(
         firstAttackType,
@@ -69,7 +69,7 @@ export function calculateDamageFirstAttack(
         secondAttackerSecondaryType,
         isFirstAttackActive
       );
-      degats *= getWeaknessFactorList;
+      damages *= getWeaknessFactorList;
 
       let getResistanceFactorList = resistanceFactorForFirstAttack(
         firstAttackType,
@@ -77,7 +77,7 @@ export function calculateDamageFirstAttack(
         secondAttackerSecondaryType,
         isFirstAttackActive
       );
-      degats /= getResistanceFactorList;
+      damages /= getResistanceFactorList;
 
       let getIneffectiveFactorList = ineffectiveFactorForFirstAttack(
         firstAttackType,
@@ -85,7 +85,7 @@ export function calculateDamageFirstAttack(
         secondAttackerSecondaryType,
         isFirstAttackActive
       );
-      degats *= getIneffectiveFactorList;
+      damages *= getIneffectiveFactorList;
 
       let getAlwaysKnockOutAttacks = oneHitKnockoutFactorForFirstAttack(
         isFirstAttackActive,
@@ -93,7 +93,7 @@ export function calculateDamageFirstAttack(
         firstAttacker,
         secondAttacker
       );
-      degats *= getAlwaysKnockOutAttacks;
+      damages *= getAlwaysKnockOutAttacks;
 
       if (
         firstAttacker.firstAttack.name === "Ombre Nocturne" ||
@@ -103,10 +103,10 @@ export function calculateDamageFirstAttack(
           ifPokemonHasAnAttackThatDependsOnItsOwnLevel(
             firstAttacker,
             isFirstAttackActive,
-            degats
+            damages
           );
 
-        degats = getLevelFactorsForAttacks;
+        damages = getLevelFactorsForAttacks;
       }
 
       speedIncrease5pFactorForFirstAttack(firstAttacker, isFirstAttackActive);
@@ -194,17 +194,17 @@ export function calculateDamageFirstAttack(
             firstAttacker,
             secondAttacker,
             isFirstAttackActive,
-            degats
+            damages
           );
 
-        degats *= getHpIncrease50PercentOfDamagesFactor;
+        damages *= getHpIncrease50PercentOfDamagesFactor;
       }
 
-      if (degats > 0 && degats < 0.5) {
-        return (degats = 1);
+      if (damages > 0 && damages < 0.5) {
+        return (damages = 1);
       }
 
-      return Math.round(degats);
+      return Math.round(damages);
     } else {
       openDialogueWhenPokemonMissAttack(firstAttacker);
       return 0;
