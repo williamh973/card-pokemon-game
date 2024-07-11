@@ -39,17 +39,17 @@ import { burningStatutProbabilitysForSecondAttack } from "../../factors-statuts-
 
 import { poisonedStatutProbabilitysForSecondAttack } from "../../factors-statuts-state/decrease-hp-probability/poisoned/export-to-calculate-damages-attacks/poisoned-statut-probabilitys-for-second-attack.js";
 
-import { paralyzedStatutProbabilitysForSecondAttack } from "../../factors-statuts-state/paralyzed/export-to-calculate-damages-attacks/paralyzed-statut-probabilitys-for-second-attack.js";
+import { paralyzedStatutProbabilitysForSecondAttack } from "../../../game-logic/battle/statut/factors-statuts-state/paralyzed/export-to-calculate-damages-attacks/paralyzed-statut-probabilitys-for-second-attack.js";
 
-import { frozenStatutProbabilitysForSecondAttack } from "../../factors-statuts-state/frozen/export-to-calculate-damages-attacks/frozen-statut-probabilitys-for-second-attack.js";
+import { frozenStatutProbabilitysForSecondAttack } from "../../../game-logic/battle/statut/factors-statuts-state/frozen/export-to-calculate-damages-attacks/frozen-statut-probabilitys-for-second-attack.js";
 
-import { asleepStatutProbabilitysForSecondAttack } from "../../factors-statuts-state/asleep/export-to-calculate-damages-attacks/asleep-statut-probabilitys-for-second-attack.js";
+import { asleepStatutProbabilitysForSecondAttack } from "../../../game-logic/battle/statut/factors-statuts-state/asleep/export-to-calculate-damages-attacks/asleep-statut-probabilitys-for-second-attack.js";
 
 import { ifPokemonHasAnAttackThatDependsOnItsOwnLevel } from "../handle-level-factor-attacks/handle-level-factor-attacks.js";
 
 import { hpIncrease50PercentOfDamagesFactorForSecondAttack } from "../../factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-50-percent-damages.js";
 
-import { confusingStatutProbabilitysForSecondAttack } from "../../factors-statuts-state/confusing/export-to-calculate-damages-attacks/confusing-statut-probabilitys-for-second-attack.js";
+import { confusingStatutProbabilitysForSecondAttack } from "../../../game-logic/battle/statut/factors-statuts-state/confusing/export-to-calculate-damages-attacks/confusing-statut-probabilitys-for-second-attack.js";
 
 import { cursedStatut100PercentProbabililityForSecondAttack } from "../../factors-statuts-state/decrease-hp-probability/cursed/cursed-statut-probability-for-second-attack.js";
 

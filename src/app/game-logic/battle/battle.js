@@ -23,14 +23,14 @@ import {
   checkIfFirstAttackerStatusConfusing,
   checkIfFirstAttackerStatusScared,
   checkIfFirstAttackerStatusCursed,
-} from "../../components/handle-statut-state-in-fight/first-attacker/check-if-first-attacker-statut-has-changed.js";
+} from "./statut/handle-statut-state-in-fight/first-attacker/check-if-first-attacker-statut-has-changed.js";
 import {
   checkIfSecondAttackerStatusHasBurningOrPoisoned,
   checkIfSecondAttackerStatusHasParalyzedFrozenNormalOrAsleep,
   checkIfSecondAttackerStatusConfusing,
   checkIfSecondAttackerStatusScared,
   checkIfSecondAttackerStatusCursed,
-} from "../../components/handle-statut-state-in-fight/second-attacker/check-if-second-attacker-statut-has-changed.js";
+} from "./statut/handle-statut-state-in-fight/second-attacker/check-if-second-attacker-statut-has-changed.js";
 import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
 import { battleSelectors } from "../../shared/battle/battle-selectors.js";
 import { updateNumberOfTurns } from "./number-of-turn/update-number-of-turn.js";

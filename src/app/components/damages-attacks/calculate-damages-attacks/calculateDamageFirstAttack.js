@@ -21,12 +21,12 @@ import {
 import { handleBonusAttackWhenProtectOrDetectCapacityActived } from "../handle-bonus-attack-when-protect-or-detect-capacity-actived/handle-bonus-attack-when-protect-or-detect-capacity-actived-first-attack.js";
 import { poisonedStatutProbabilitysForFirstAttack } from "../../factors-statuts-state/decrease-hp-probability/poisoned/export-to-calculate-damages-attacks/poisoned-statut-probabilitys-for-first-attack.js";
 import { burningStatutProbabilitysForFirstAttack } from "../../factors-statuts-state/decrease-hp-probability/burning/export-to-calculate-damages-attacks/burning-statut-probabilitys-for-first-attack.js";
-import { paralyzedStatutProbabilitysForFirstAttack } from "../../factors-statuts-state/paralyzed/export-to-calculate-damages-attacks/paralyzed-statut-probabilitys-for-first-attack.js";
-import { frozenStatutProbabilitysForFirstAttack } from "../../factors-statuts-state/frozen/export-to-calculate-damages-attacks/frozen-statut-probabilitys-for-first-attack.js";
-import { asleepStatutProbabilitysForFirstAttack } from "../../factors-statuts-state/asleep/export-to-calculate-damages-attacks/asleep-statut-probabilitys-for-first-attack.js";
+import { paralyzedStatutProbabilitysForFirstAttack } from "../../../game-logic/battle/statut/factors-statuts-state/paralyzed/export-to-calculate-damages-attacks/paralyzed-statut-probabilitys-for-first-attack.js";
+import { frozenStatutProbabilitysForFirstAttack } from "../../../game-logic/battle/statut/factors-statuts-state/frozen/export-to-calculate-damages-attacks/frozen-statut-probabilitys-for-first-attack.js";
+import { asleepStatutProbabilitysForFirstAttack } from "../../../game-logic/battle/statut/factors-statuts-state/asleep/export-to-calculate-damages-attacks/asleep-statut-probabilitys-for-first-attack.js";
 import { ifPokemonHasAnAttackThatDependsOnItsOwnLevel } from "../handle-level-factor-attacks/handle-level-factor-attacks.js";
 import { hpIncrease50PercentOfDamagesFactorForFirstAttack } from "../../factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-50-percent-damages.js";
-import { confusingStatutProbabilitysForFirstAttack } from "../../factors-statuts-state/confusing/export-to-calculate-damages-attacks/confusing-statut-probabilitys-for-first-attack.js";
+import { confusingStatutProbabilitysForFirstAttack } from "../../../game-logic/battle/statut/factors-statuts-state/confusing/export-to-calculate-damages-attacks/confusing-statut-probabilitys-for-first-attack.js";
 import { cursedStatut100PercentProbabililityForFirstAttack } from "../../factors-statuts-state/decrease-hp-probability/cursed/cursed-statut-probability-for-first-attack.js";
 
 export function calculateDamageFirstAttack(
