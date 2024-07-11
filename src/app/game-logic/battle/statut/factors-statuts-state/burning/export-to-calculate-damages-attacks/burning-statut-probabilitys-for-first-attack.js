@@ -11,14 +11,14 @@ export const burningStatutProbabilitysForFirstAttack =
     secondAttacker,
     isFirstAttackActive,
     firstAttackType,
-    secondAttackerType,
+    secondAttackerType
   ) {
     burningStatut10PercentProbabililityForFirstAttack(
       firstAttacker,
       secondAttacker,
       isFirstAttackActive,
       firstAttackType,
-      secondAttackerType,
+      secondAttackerType
     );
 
     burningStatut30PercentProbabililityForFirstAttack(
@@ -26,7 +26,7 @@ export const burningStatutProbabilitysForFirstAttack =
       secondAttacker,
       isFirstAttackActive,
       firstAttackType,
-      secondAttackerType,
+      secondAttackerType
     );
 
     burningStatut50PercentProbabililityForFirstAttack(
@@ -34,7 +34,7 @@ export const burningStatutProbabilitysForFirstAttack =
       secondAttacker,
       isFirstAttackActive,
       firstAttackType,
-      secondAttackerType,
+      secondAttackerType
     );
 
     burningStatut100PercentProbabililityForFirstAttack(
@@ -42,6 +42,6 @@ export const burningStatutProbabilitysForFirstAttack =
       secondAttacker,
       isFirstAttackActive,
       firstAttackType,
-      secondAttackerType,
+      secondAttackerType
     );
   };

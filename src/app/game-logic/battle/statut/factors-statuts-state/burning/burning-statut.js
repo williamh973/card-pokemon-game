@@ -1,5 +1,5 @@
-import { addStatusAnimations } from "../../../../game-logic/battle/animations/animations-statuts/add-statut-animation.js";
-import { openDialogueWhenPokemonHasBurningStatut } from "../../../battle-dialogues/dialogues/pokemon-has-burning-statut.dialogue.js";
+import { addStatusAnimations } from "../../../animations/animations-statuts/add-statut-animation.js";
+import { openDialogueWhenPokemonHasBurningStatut } from "../../../../../components/battle-dialogues/dialogues/pokemon-has-burning-statut.dialogue.js";
 
 export function burningStatut(secondAttacker) {
   secondAttacker.primaryStatut = "burning";

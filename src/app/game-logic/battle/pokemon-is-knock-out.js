@@ -5,7 +5,7 @@ import { hideBattleInProgress } from "./display-battle-in-progress.js";
 import {
   hideFirstAttackerWhenLose,
   hideSecondAttackerWhenLose,
-} from "./hideLocationsWhenPokemonsLoses.js";
+} from "./hide-locations-when-pokemons-loses.js";
 import { animationWhenPokemonKo } from "./animations/pokemon-ko.animation.js";
 import { stopAlterationStatutAnimationWhenPokemonKo } from "./statut/stop-alteration-statut-animation-when-pokemon-ko.js";
 

@@ -12,14 +12,14 @@ export const poisonedStatutProbabilitysForSecondAttack =
     secondAttacker,
     isSecondAttackActive,
     secondAttackType,
-    secondAttackerType,
+    secondAttackerType
   ) {
     poisonedStatut10PercentProbabililityForSecondAttack(
       firstAttacker,
       secondAttacker,
       isSecondAttackActive,
       secondAttackType,
-      secondAttackerType,
+      secondAttackerType
     );
 
     poisonedStatut20PercentProbabililityForSecondAttack(
@@ -27,7 +27,7 @@ export const poisonedStatutProbabilitysForSecondAttack =
       secondAttacker,
       isSecondAttackActive,
       secondAttackType,
-      secondAttackerType,
+      secondAttackerType
     );
 
     poisonedStatut30PercentProbabililityForSecondAttack(
@@ -35,7 +35,7 @@ export const poisonedStatutProbabilitysForSecondAttack =
       secondAttacker,
       isSecondAttackActive,
       secondAttackType,
-      secondAttackerType,
+      secondAttackerType
     );
 
     poisonedStatut40PercentProbabililityForSecondAttack(
@@ -43,7 +43,7 @@ export const poisonedStatutProbabilitysForSecondAttack =
       secondAttacker,
       isSecondAttackActive,
       secondAttackType,
-      secondAttackerType,
+      secondAttackerType
     );
 
     poisonedStatut100PercentProbabililityForSecondAttack(
@@ -51,6 +51,6 @@ export const poisonedStatutProbabilitysForSecondAttack =
       secondAttacker,
       isSecondAttackActive,
       secondAttackType,
-      secondAttackerType,
+      secondAttackerType
     );
   };

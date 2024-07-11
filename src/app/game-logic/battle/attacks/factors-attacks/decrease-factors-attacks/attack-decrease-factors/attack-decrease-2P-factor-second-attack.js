@@ -1,4 +1,4 @@
-import { openDialogueWhenPokemonMakesAttackDecrease2pFactorAttack } from "../../../../battle-dialogues/dialogues/pokemon-makes-attack-decrease-2p-factor-attack.dialogue.js";
+import { openDialogueWhenPokemonMakesAttackDecrease2pFactorAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-makes-attack-decrease-2p-factor-attack.dialogue.js";
 
 export function attackDecrease2pFactorForSecondAttack(
   firstAttacker,

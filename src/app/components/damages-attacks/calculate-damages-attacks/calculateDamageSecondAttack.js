@@ -11,7 +11,7 @@ import { speedIncrease10pFactorForSecondAttack } from "../../factors-attacks/inc
 import { defenseIncrease5pFactorForSecondAttack } from "../../factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-5P-factors-attacks/defense-increase-5P-factor-second-attack.js";
 import { defenseIncrease10pFactorForSecondAttack } from "../../factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-10P-factors-attacks/defense-increase-10P-factor-second-attack.js";
 
-import { attackDecrease2pFactorForSecondAttack } from "../../factors-attacks/decrease-factors-attacks/attack-decrease-factors/attack-decrease-2P-factors-attacks/attack-decrease-2P-factor-second-attack.js";
+import { attackDecrease2pFactorForSecondAttack } from "../../../game-logic/battle/attacks/factors-attacks/decrease-factors-attacks/attack-decrease-factors/attack-decrease-2P-factor-second-attack.js";
 
 import { hpIncrease5pFactorForSecondAttack } from "../../factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-5P-factor-attacks.js";
 
@@ -20,7 +20,7 @@ import { openDialogueWhenPokemonMakesSecondAttack } from "../../battle-dialogues
 import { openDialogueWhenPokemonMissAttack } from "../../battle-dialogues/dialogues/pokemon-miss-attack.dialogue.js";
 import { openDialogueWhenPokemonProtectingHimself } from "../../battle-dialogues/dialogues/pokemon-protecting-himself.dialogue.js";
 
-import { criticalHit } from "../../factors-attacks/critical-hit-factor/critical-hit-factor.js";
+import { criticalHit } from "../../../game-logic/battle/attacks/factors-attacks/critical-hit-factor/critical-hit-factor.js";
 
 import { criticalHitIncreaseByFocusEnergyForSecondAttack } from "../../factors-attacks/increase-factors-attacks/critical-hit-increase-factors-attacks/critical-hit-increase-focus-energy-second-attack.js";
 
@@ -35,9 +35,9 @@ import {
 
 import { handleBonusAttackWhenProtectOrDetectCapacityActived } from "../handle-bonus-attack-when-protect-or-detect-capacity-actived/handle-bonus-attack-when-protect-or-detect-capacity-actived-second-attack.js";
 
-import { burningStatutProbabilitysForSecondAttack } from "../../factors-statuts-state/decrease-hp-probability/burning/export-to-calculate-damages-attacks/burning-statut-probabilitys-for-second-attack.js";
+import { burningStatutProbabilitysForSecondAttack } from "../../../game-logic/battle/statut/factors-statuts-state/burning/export-to-calculate-damages-attacks/burning-statut-probabilitys-for-second-attack.js";
 
-import { poisonedStatutProbabilitysForSecondAttack } from "../../factors-statuts-state/decrease-hp-probability/poisoned/export-to-calculate-damages-attacks/poisoned-statut-probabilitys-for-second-attack.js";
+import { poisonedStatutProbabilitysForSecondAttack } from "../../../game-logic/battle/statut/factors-statuts-state/poisoned/export-to-calculate-damages-attacks/poisoned-statut-probabilitys-for-second-attack.js";
 
 import { paralyzedStatutProbabilitysForSecondAttack } from "../../../game-logic/battle/statut/factors-statuts-state/paralyzed/export-to-calculate-damages-attacks/paralyzed-statut-probabilitys-for-second-attack.js";
 
@@ -51,7 +51,7 @@ import { hpIncrease50PercentOfDamagesFactorForSecondAttack } from "../../factors
 
 import { confusingStatutProbabilitysForSecondAttack } from "../../../game-logic/battle/statut/factors-statuts-state/confusing/export-to-calculate-damages-attacks/confusing-statut-probabilitys-for-second-attack.js";
 
-import { cursedStatut100PercentProbabililityForSecondAttack } from "../../factors-statuts-state/decrease-hp-probability/cursed/cursed-statut-probability-for-second-attack.js";
+import { cursedStatut100PercentProbabililityForSecondAttack } from "../../../game-logic/battle/statut/factors-statuts-state/cursed/cursed-statut-probability-for-second-attack.js";
 
 export const calculateDamageSecondAttack = function calculateDamageSecondAttack(
   firstAttacker,

@@ -1,11 +1,10 @@
-import { levelFactorForFirstAttack } from "../../factors-attacks/level-factors-attacks/level-factor-first-attack.js";
-
-import { levelFactorForSecondAttack } from "../../factors-attacks/level-factors-attacks/level-factor-second-attack.js";
+import { levelFactorForFirstAttack } from "../../../game-logic/battle/attacks/factors-attacks/level-factors-attacks/level-factor-first-attack.js";
+import { levelFactorForSecondAttack } from "../../../game-logic/battle/attacks/factors-attacks/level-factors-attacks/level-factor-second-attack.js";
 
 export function ifPokemonHasAnAttackThatDependsOnItsOwnLevel(
   firstAttacker,
   isAttackActive,
-  degats,
+  degats
 ) {
   if (
     (firstAttacker.firstAttack.name === "Frappe Atlas" ||
@@ -15,7 +14,7 @@ export function ifPokemonHasAnAttackThatDependsOnItsOwnLevel(
     let getLevelFactorForFirstAttack = levelFactorForFirstAttack(
       firstAttacker,
       isAttackActive,
-      degats,
+      degats
     );
     degats = getLevelFactorForFirstAttack;
     return degats;
@@ -27,7 +26,7 @@ export function ifPokemonHasAnAttackThatDependsOnItsOwnLevel(
     let getLevelFactorForSecondAttack = levelFactorForSecondAttack(
       firstAttacker,
       isAttackActive,
-      degats,
+      degats
     );
     degats = getLevelFactorForSecondAttack;
     return degats;

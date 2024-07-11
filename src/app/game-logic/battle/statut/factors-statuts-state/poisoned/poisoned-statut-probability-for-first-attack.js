@@ -1,5 +1,5 @@
-import { addStatusAnimations } from "../../../../game-logic/battle/animations/animations-statuts/add-statut-animation.js";
-import { openDialogueWhenPokemonHasPoisonedStatut } from "../../../battle-dialogues/dialogues/pokemon--has-poisoned-statut.dialogue.js";
+import { addStatusAnimations } from "../../../animations/animations-statuts/add-statut-animation.js";
+import { openDialogueWhenPokemonHasPoisonedStatut } from "../../../../../components/battle-dialogues/dialogues/pokemon--has-poisoned-statut.dialogue.js";
 
 import { isStatusValidForPoisoned } from "./status-valid-for-poisoned.js";
 

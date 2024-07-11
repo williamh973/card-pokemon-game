@@ -1,4 +1,4 @@
-import { openDialogueWhenPokemonCursedStatut } from "../../../battle-dialogues/dialogues/pokemon-cursed-statut.js";
+import { openDialogueWhenPokemonCursedStatut } from "../../../../../components/battle-dialogues/dialogues/pokemon-cursed-statut.js";
 
 export function cursedStatut(firstAttacker, secondAttacker) {
   secondAttacker.secondaryStatut.isCursed = true;

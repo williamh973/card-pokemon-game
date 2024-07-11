@@ -8,7 +8,7 @@ export const burningStatut10PercentProbabililityForSecondAttack =
     secondAttacker,
     isSecondAttackActive,
     secondAttackType,
-    secondAttackerType,
+    secondAttackerType
   ) {
     if (
       isSecondAttackActive &&
@@ -40,7 +40,7 @@ export const burningStatut30PercentProbabililityForSecondAttack =
     secondAttacker,
     isSecondAttackActive,
     secondAttackType,
-    secondAttackerType,
+    secondAttackerType
   ) {
     if (
       isSecondAttackActive &&
@@ -73,7 +73,7 @@ export const burningStatut50PercentProbabililityForSecondAttack =
     secondAttacker,
     isSecondAttackActive,
     secondAttackType,
-    secondAttackerType,
+    secondAttackerType
   ) {
     if (
       isSecondAttackActive &&
@@ -96,7 +96,7 @@ export const burningStatut100PercentProbabililityForSecondAttack =
     secondAttacker,
     isSecondAttackActive,
     secondAttackType,
-    secondAttackerType,
+    secondAttackerType
   ) {
     if (
       isSecondAttackActive &&

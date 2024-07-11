@@ -1,17 +1,18 @@
 import { cursedStatut } from "./cursed-statut.js";
-import { updateDisplayPokemonHp } from "../../../../game-logic/battle/update-display-Pokemon-hp.js";
 
-export const cursedStatut100PercentProbabililityForFirstAttack =
-  function confusingStatut100PercentProbabililityForFirstAttack(
+import { updateDisplayPokemonHp } from "../../../update-display-Pokemon-hp.js";
+
+export const cursedStatut100PercentProbabililityForSecondAttack =
+  function cursedStatut100PercentProbabililityForSecondAttack(
     firstAttacker,
     secondAttacker,
-    isFirstAttackActive,
-    firstAttackType
+    isSecondAttackActive,
+    secondAttackType
   ) {
     if (
-      isFirstAttackActive &&
-      firstAttackType === "malus" &&
-      firstAttacker.firstAttack.name === "Malédiction" &&
+      isSecondAttackActive &&
+      secondAttackType === "malus" &&
+      firstAttacker.secondAttack.name === "Malédiction" &&
       !secondAttacker.secondaryStatut.isCursed
     ) {
       let percentage = 50;
