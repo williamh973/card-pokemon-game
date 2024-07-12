@@ -5,15 +5,14 @@ import { paralyzedStatut } from "./paralyzed-statut.js";
 export function paralyzedStatut10PercentProbabililityForSecondAttack(
   firstAttacker,
   secondAttacker,
-  isSecondAttackActive,
-  secondAttackType,
-  secondAttackerType
+  isSecondAttackActive
 ) {
   if (
     isSecondAttackActive &&
-    (secondAttackType === "electric" || secondAttackType === "normal") &&
-    secondAttackerType !== "rock" &&
-    secondAttackerType !== "electric" &&
+    (firstAttacker.secondAttack.type === "electric" ||
+      firstAttacker.secondAttack.type === "normal") &&
+    secondAttacker.type !== "rock" &&
+    secondAttacker.type !== "electric" &&
     (firstAttacker.secondAttack.name === "Crocs Éclair" ||
       firstAttacker.secondAttack.name === "Éclair" ||
       firstAttacker.secondAttack.name === "Poing-Éclair" ||
@@ -32,19 +31,17 @@ export function paralyzedStatut10PercentProbabililityForSecondAttack(
 export function paralyzedStatut30PercentProbabililityForSecondAttack(
   firstAttacker,
   secondAttacker,
-  isSecondAttackActive,
-  secondAttackType,
-  secondAttackerType
+  isSecondAttackActive
 ) {
   if (
     isSecondAttackActive &&
-    (secondAttackType === "electric" ||
-      secondAttackType === "normal" ||
-      secondAttackType === "dragon" ||
-      secondAttackType === "fight" ||
-      secondAttackType === "flight") &&
-    secondAttackerType !== "rock" &&
-    secondAttackerType !== "electric" &&
+    (firstAttacker.secondAttack.type === "electric" ||
+      firstAttacker.secondAttack.type === "normal" ||
+      firstAttacker.secondAttack.type === "dragon" ||
+      firstAttacker.secondAttack.type === "fight" ||
+      firstAttacker.secondAttack.type === "flight") &&
+    secondAttacker.type !== "rock" &&
+    secondAttacker.type !== "electric" &&
     (firstAttacker.secondAttack.name === "Coup d'jus" ||
       firstAttacker.secondAttack.name === "Dracosouffle" ||
       firstAttacker.secondAttack.name === "Étincelle" ||
@@ -67,17 +64,15 @@ export function paralyzedStatut30PercentProbabililityForSecondAttack(
 export function paralyzedStatut100PercentProbabililityForSecondAttack(
   firstAttacker,
   secondAttacker,
-  isSecondAttackActive,
-  secondAttackType,
-  secondAttackerType
+  isSecondAttackActive
 ) {
   if (
     isSecondAttackActive &&
-    (secondAttackType === "electric" ||
-      secondAttackType === "dark" ||
-      secondAttackType === "plant") &&
-    secondAttackerType !== "rock" &&
-    secondAttackerType !== "electric" &&
+    (firstAttacker.secondAttack.type === "electric" ||
+      firstAttacker.secondAttack.type === "dark" ||
+      firstAttacker.secondAttack.type === "plant") &&
+    secondAttacker.type !== "rock" &&
+    secondAttacker.type !== "electric" &&
     (firstAttacker.secondAttack.name === "Cage-Éclair" ||
       firstAttacker.secondAttack.name === "Dégommage" ||
       firstAttacker.secondAttack.name === "Élecanon" ||

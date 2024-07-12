@@ -1,98 +1,147 @@
 import { openDialogueWhenPokemonMakesWeaknessAttack } from "../../../../../components/battle-dialogues/dialogues/pokemon-makes-weakness-attack.dialogue.js";
 
 export function weaknessFactorForFirstAttack(
-  firstAttackType,
-  secondAttackerType,
-  secondAttackerSecondaryType,
+  firstAttacker,
+  secondAttacker,
   isFirstAttackActive
 ) {
   if (
     (isFirstAttackActive &&
-      secondAttackerType === "water" &&
-      firstAttackType === "plant") ||
-    (secondAttackerType === "water" && firstAttackType === "electric") ||
-    (secondAttackerType === "plant" && firstAttackType === "fire") ||
-    (secondAttackerType === "plant" && firstAttackType === "flight") ||
-    (secondAttackerType === "plant" && firstAttackType === "insect") ||
-    (secondAttackerType === "plant" && firstAttackType === "poison") ||
-    (secondAttackerType === "plant" && firstAttackType === "ice") ||
-    (secondAttackerType === "fire" && firstAttackType === "water") ||
-    (secondAttackerType === "fire" && firstAttackType === "rock") ||
-    (secondAttackerType === "fire" && firstAttackType === "ground") ||
-    (secondAttackerType === "electric" && firstAttackType === "ground") ||
-    (secondAttackerType === "flight" && firstAttackType === "electric") ||
-    (secondAttackerType === "flight" && firstAttackType === "rock") ||
-    (secondAttackerType === "flight" && firstAttackType === "ice") ||
-    (secondAttackerType === "psy" && firstAttackType === "insect") ||
-    (secondAttackerType === "psy" && firstAttackType === "spectrum") ||
-    (secondAttackerType === "psy" && firstAttackType === "dark") ||
-    (secondAttackerType === "rock" && firstAttackType === "water") ||
-    (secondAttackerType === "rock" && firstAttackType === "plant") ||
-    (secondAttackerType === "rock" && firstAttackType === "fight") ||
-    (secondAttackerType === "rock" && firstAttackType === "steel") ||
-    (secondAttackerType === "rock" && firstAttackType === "ground") ||
-    (secondAttackerType === "ground" && firstAttackType === "water") ||
-    (secondAttackerType === "ground" && firstAttackType === "plant") ||
-    (secondAttackerType === "ground" && firstAttackType === "ice") ||
-    (secondAttackerType === "ice" && firstAttackType === "fight") ||
-    (secondAttackerType === "ice" && firstAttackType === "steel") ||
-    (secondAttackerType === "ice" && firstAttackType === "fire") ||
-    (secondAttackerType === "ice" && firstAttackType === "rock") ||
-    (secondAttackerType === "steel" && firstAttackType === "fight") ||
-    (secondAttackerType === "steel" && firstAttackType === "fire") ||
-    (secondAttackerType === "steel" && firstAttackType === "ground") ||
-    (secondAttackerType === "poison" && firstAttackType === "psy") ||
-    (secondAttackerType === "poison" && firstAttackType === "ground") ||
-    (secondAttackerType === "spectrum" && firstAttackType === "spectrum") ||
-    (secondAttackerType === "spectrum" && firstAttackType === "dark") ||
-    (secondAttackerType === "dark" && firstAttackType === "fight") ||
-    (secondAttackerType === "dark" && firstAttackType === "fairy") ||
-    (secondAttackerType === "dark" && firstAttackType === "insect") ||
-    (secondAttackerType === "insect" && firstAttackType === "flight") ||
-    (secondAttackerType === "insect" && firstAttackType === "fire") ||
-    (secondAttackerType === "insect" && firstAttackType === "rock") ||
-    (secondAttackerType === "fight" && firstAttackType === "flight") ||
-    (secondAttackerType === "fight" && firstAttackType === "psy") ||
-    (secondAttackerType === "fight" && firstAttackType === "fairy") ||
-    (secondAttackerType === "normal" && firstAttackType === "fight") ||
-    (secondAttackerType === "dragon" && firstAttackType === "ice") ||
-    (secondAttackerType === "dragon" && firstAttackType === "dragon") ||
-    (secondAttackerType === "dragon" && firstAttackType === "fairy") ||
-    (secondAttackerType === "fairy" && firstAttackType === "steel") ||
-    (secondAttackerType === "fairy" && firstAttackType === "poison") ||
-    (secondAttackerType === "water" &&
-      secondAttackerSecondaryType === "ice" &&
-      firstAttackType === "fight") ||
-    (secondAttackerType === "water" &&
-      secondAttackerSecondaryType === "ice" &&
-      firstAttackType === "electric") ||
-    (secondAttackerType === "water" &&
-      secondAttackerSecondaryType === "ice" &&
-      firstAttackType === "plant") ||
-    (secondAttackerType === "water" &&
-      secondAttackerSecondaryType === "ice" &&
-      firstAttackType === "rock") ||
-    (secondAttackerType === "rock" &&
-      secondAttackerSecondaryType === "ground" &&
-      firstAttackType === "steel") ||
-    (secondAttackerType === "rock" &&
-      secondAttackerSecondaryType === "ground" &&
-      firstAttackType === "fight") ||
-    (secondAttackerType === "rock" &&
-      secondAttackerSecondaryType === "ground" &&
-      firstAttackType === "ice") ||
-    (secondAttackerType === "rock" &&
-      secondAttackerSecondaryType === "ground" &&
-      firstAttackType === "ground") ||
-    (secondAttackerType === "normal" &&
-      secondAttackerSecondaryType === "flight" &&
-      firstAttackType === "electric") ||
-    (secondAttackerType === "normal" &&
-      secondAttackerSecondaryType === "flight" &&
-      firstAttackType === "ice") ||
-    (secondAttackerType === "normal" &&
-      secondAttackerSecondaryType === "flight" &&
-      firstAttackType === "rock")
+      secondAttacker.type === "water" &&
+      firstAttacker.firstAttack.type === "plant") ||
+    (secondAttacker.type === "water" &&
+      firstAttacker.firstAttack.type === "electric") ||
+    (secondAttacker.type === "plant" &&
+      firstAttacker.firstAttack.type === "fire") ||
+    (secondAttacker.type === "plant" &&
+      firstAttacker.firstAttack.type === "flight") ||
+    (secondAttacker.type === "plant" &&
+      firstAttacker.firstAttack.type === "insect") ||
+    (secondAttacker.type === "plant" &&
+      firstAttacker.firstAttack.type === "poison") ||
+    (secondAttacker.type === "plant" &&
+      firstAttacker.firstAttack.type === "ice") ||
+    (secondAttacker.type === "fire" &&
+      firstAttacker.firstAttack.type === "water") ||
+    (secondAttacker.type === "fire" &&
+      firstAttacker.firstAttack.type === "rock") ||
+    (secondAttacker.type === "fire" &&
+      firstAttacker.firstAttack.type === "ground") ||
+    (secondAttacker.type === "electric" &&
+      firstAttacker.firstAttack.type === "ground") ||
+    (secondAttacker.type === "flight" &&
+      firstAttacker.firstAttack.type === "electric") ||
+    (secondAttacker.type === "flight" &&
+      firstAttacker.firstAttack.type === "rock") ||
+    (secondAttacker.type === "flight" &&
+      firstAttacker.firstAttack.type === "ice") ||
+    (secondAttacker.type === "psy" &&
+      firstAttacker.firstAttack.type === "insect") ||
+    (secondAttacker.type === "psy" &&
+      firstAttacker.firstAttack.type === "spectrum") ||
+    (secondAttacker.type === "psy" &&
+      firstAttacker.firstAttack.type === "dark") ||
+    (secondAttacker.type === "rock" &&
+      firstAttacker.firstAttack.type === "water") ||
+    (secondAttacker.type === "rock" &&
+      firstAttacker.firstAttack.type === "plant") ||
+    (secondAttacker.type === "rock" &&
+      firstAttacker.firstAttack.type === "fight") ||
+    (secondAttacker.type === "rock" &&
+      firstAttacker.firstAttack.type === "steel") ||
+    (secondAttacker.type === "rock" &&
+      firstAttacker.firstAttack.type === "ground") ||
+    (secondAttacker.type === "ground" &&
+      firstAttacker.firstAttack.type === "water") ||
+    (secondAttacker.type === "ground" &&
+      firstAttacker.firstAttack.type === "plant") ||
+    (secondAttacker.type === "ground" &&
+      firstAttacker.firstAttack.type === "ice") ||
+    (secondAttacker.type === "ice" &&
+      firstAttacker.firstAttack.type === "fight") ||
+    (secondAttacker.type === "ice" &&
+      firstAttacker.firstAttack.type === "steel") ||
+    (secondAttacker.type === "ice" &&
+      firstAttacker.firstAttack.type === "fire") ||
+    (secondAttacker.type === "ice" &&
+      firstAttacker.firstAttack.type === "rock") ||
+    (secondAttacker.type === "steel" &&
+      firstAttacker.firstAttack.type === "fight") ||
+    (secondAttacker.type === "steel" &&
+      firstAttacker.firstAttack.type === "fire") ||
+    (secondAttacker.type === "steel" &&
+      firstAttacker.firstAttack.type === "ground") ||
+    (secondAttacker.type === "poison" &&
+      firstAttacker.firstAttack.type === "psy") ||
+    (secondAttacker.type === "poison" &&
+      firstAttacker.firstAttack.type === "ground") ||
+    (secondAttacker.type === "spectrum" &&
+      firstAttacker.firstAttack.type === "spectrum") ||
+    (secondAttacker.type === "spectrum" &&
+      firstAttacker.firstAttack.type === "dark") ||
+    (secondAttacker.type === "dark" &&
+      firstAttacker.firstAttack.type === "fight") ||
+    (secondAttacker.type === "dark" &&
+      firstAttacker.firstAttack.type === "fairy") ||
+    (secondAttacker.type === "dark" &&
+      firstAttacker.firstAttack.type === "insect") ||
+    (secondAttacker.type === "insect" &&
+      firstAttacker.firstAttack.type === "flight") ||
+    (secondAttacker.type === "insect" &&
+      firstAttacker.firstAttack.type === "fire") ||
+    (secondAttacker.type === "insect" &&
+      firstAttacker.firstAttack.type === "rock") ||
+    (secondAttacker.type === "fight" &&
+      firstAttacker.firstAttack.type === "flight") ||
+    (secondAttacker.type === "fight" &&
+      firstAttacker.firstAttack.type === "psy") ||
+    (secondAttacker.type === "fight" &&
+      firstAttacker.firstAttack.type === "fairy") ||
+    (secondAttacker.type === "normal" &&
+      firstAttacker.firstAttack.type === "fight") ||
+    (secondAttacker.type === "dragon" &&
+      firstAttacker.firstAttack.type === "ice") ||
+    (secondAttacker.type === "dragon" &&
+      firstAttacker.firstAttack.type === "dragon") ||
+    (secondAttacker.type === "dragon" &&
+      firstAttacker.firstAttack.type === "fairy") ||
+    (secondAttacker.type === "fairy" &&
+      firstAttacker.firstAttack.type === "steel") ||
+    (secondAttacker.type === "fairy" &&
+      firstAttacker.firstAttack.type === "poison") ||
+    (secondAttacker.type === "water" &&
+      secondAttacker.secondaryType === "ice" &&
+      firstAttacker.firstAttack.type === "fight") ||
+    (secondAttacker.type === "water" &&
+      secondAttacker.secondaryType === "ice" &&
+      firstAttacker.firstAttack.type === "electric") ||
+    (secondAttacker.type === "water" &&
+      secondAttacker.secondaryType === "ice" &&
+      firstAttacker.firstAttack.type === "plant") ||
+    (secondAttacker.type === "water" &&
+      secondAttacker.secondaryType === "ice" &&
+      firstAttacker.firstAttack.type === "rock") ||
+    (secondAttacker.type === "rock" &&
+      secondAttacker.secondaryType === "ground" &&
+      firstAttacker.firstAttack.type === "steel") ||
+    (secondAttacker.type === "rock" &&
+      secondAttacker.secondaryType === "ground" &&
+      firstAttacker.firstAttack.type === "fight") ||
+    (secondAttacker.type === "rock" &&
+      secondAttacker.secondaryType === "ground" &&
+      firstAttacker.firstAttack.type === "ice") ||
+    (secondAttacker.type === "rock" &&
+      secondAttacker.secondaryType === "ground" &&
+      firstAttacker.firstAttack.type === "ground") ||
+    (secondAttacker.type === "normal" &&
+      secondAttacker.secondaryType === "flight" &&
+      firstAttacker.firstAttack.type === "electric") ||
+    (secondAttacker.type === "normal" &&
+      secondAttacker.secondaryType === "flight" &&
+      firstAttacker.firstAttack.type === "ice") ||
+    (secondAttacker.type === "normal" &&
+      secondAttacker.secondaryType === "flight" &&
+      firstAttacker.firstAttack.type === "rock")
   ) {
     openDialogueWhenPokemonMakesWeaknessAttack();
     return 5;

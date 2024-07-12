@@ -6,51 +6,38 @@ import {
   poisonedStatut100PercentProbabililityForFirstAttack,
 } from "../poisoned-statut-probability-for-first-attack.js";
 
-export const poisonedStatutProbabilitysForFirstAttack =
-  function poisonedStatutProbabilitysForFirstAttack(
+export function poisonedStatutProbabilitysForFirstAttack(
+  firstAttacker,
+  secondAttacker,
+  isFirstAttackActive
+) {
+  poisonedStatut10PercentProbabililityForFirstAttack(
     firstAttacker,
     secondAttacker,
-    isFirstAttackActive,
-    firstAttackType,
-    secondAttackerType
-  ) {
-    poisonedStatut10PercentProbabililityForFirstAttack(
-      firstAttacker,
-      secondAttacker,
-      isFirstAttackActive,
-      firstAttackType,
-      secondAttackerType
-    );
+    isFirstAttackActive
+  );
 
-    poisonedStatut20PercentProbabililityForFirstAttack(
-      firstAttacker,
-      secondAttacker,
-      isFirstAttackActive,
-      firstAttackType,
-      secondAttackerType
-    );
+  poisonedStatut20PercentProbabililityForFirstAttack(
+    firstAttacker,
+    secondAttacker,
+    isFirstAttackActive
+  );
 
-    poisonedStatut30PercentProbabililityForFirstAttack(
-      firstAttacker,
-      secondAttacker,
-      isFirstAttackActive,
-      firstAttackType,
-      secondAttackerType
-    );
+  poisonedStatut30PercentProbabililityForFirstAttack(
+    firstAttacker,
+    secondAttacker,
+    isFirstAttackActive
+  );
 
-    poisonedStatut40PercentProbabililityForFirstAttack(
-      firstAttacker,
-      secondAttacker,
-      isFirstAttackActive,
-      firstAttackType,
-      secondAttackerType
-    );
+  poisonedStatut40PercentProbabililityForFirstAttack(
+    firstAttacker,
+    secondAttacker,
+    isFirstAttackActive
+  );
 
-    poisonedStatut100PercentProbabililityForFirstAttack(
-      firstAttacker,
-      secondAttacker,
-      isFirstAttackActive,
-      firstAttackType,
-      secondAttackerType
-    );
-  };
+  poisonedStatut100PercentProbabililityForFirstAttack(
+    firstAttacker,
+    secondAttacker,
+    isFirstAttackActive
+  );
+}

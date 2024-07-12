@@ -4,35 +4,26 @@ import {
   paralyzedStatut100PercentProbabililityForSecondAttack,
 } from "../paralyzed-statut-probability-for-second-attack.js";
 
-export const paralyzedStatutProbabilitysForSecondAttack =
-  function paralyzedStatutProbabilitysForSecondAttack(
+export function paralyzedStatutProbabilitysForSecondAttack(
+  firstAttacker,
+  secondAttacker,
+  isSecondAttackActive
+) {
+  paralyzedStatut10PercentProbabililityForSecondAttack(
     firstAttacker,
     secondAttacker,
-    isSecondAttackActive,
-    secondAttackType,
-    secondAttackerType
-  ) {
-    paralyzedStatut10PercentProbabililityForSecondAttack(
-      firstAttacker,
-      secondAttacker,
-      isSecondAttackActive,
-      secondAttackType,
-      secondAttackerType
-    );
+    isSecondAttackActive
+  );
 
-    paralyzedStatut30PercentProbabililityForSecondAttack(
-      firstAttacker,
-      secondAttacker,
-      isSecondAttackActive,
-      secondAttackType,
-      secondAttackerType
-    );
+  paralyzedStatut30PercentProbabililityForSecondAttack(
+    firstAttacker,
+    secondAttacker,
+    isSecondAttackActive
+  );
 
-    paralyzedStatut100PercentProbabililityForSecondAttack(
-      firstAttacker,
-      secondAttacker,
-      isSecondAttackActive,
-      secondAttackType,
-      secondAttackerType
-    );
-  };
+  paralyzedStatut100PercentProbabililityForSecondAttack(
+    firstAttacker,
+    secondAttacker,
+    isSecondAttackActive
+  );
+}

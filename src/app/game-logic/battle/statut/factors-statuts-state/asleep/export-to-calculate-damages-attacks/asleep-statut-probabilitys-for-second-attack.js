@@ -3,24 +3,20 @@ import {
   asleepStatut100PercentProbabililityForSecondAttack,
 } from "../asleep-statut-probability-for-second-attack.js";
 
-export const asleepStatutProbabilitysForSecondAttack =
-  function asleepStatutProbabilitysForSecondAttack(
+export function asleepStatutProbabilitysForSecondAttack(
+  firstAttacker,
+  secondAttacker,
+  isSecondAttackActive
+) {
+  asleepStatut30PercentProbabililityForSecondAttack(
     firstAttacker,
     secondAttacker,
-    isSecondAttackActive,
-    secondAttackType
-  ) {
-    asleepStatut30PercentProbabililityForSecondAttack(
-      firstAttacker,
-      secondAttacker,
-      isSecondAttackActive,
-      secondAttackType
-    );
+    isSecondAttackActive
+  );
 
-    asleepStatut100PercentProbabililityForSecondAttack(
-      firstAttacker,
-      secondAttacker,
-      isSecondAttackActive,
-      secondAttackType
-    );
-  };
+  asleepStatut100PercentProbabililityForSecondAttack(
+    firstAttacker,
+    secondAttacker,
+    isSecondAttackActive
+  );
+}

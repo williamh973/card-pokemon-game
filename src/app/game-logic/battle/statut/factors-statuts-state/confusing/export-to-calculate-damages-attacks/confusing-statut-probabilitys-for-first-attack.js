@@ -4,31 +4,26 @@ import {
   confusingStatut100PercentProbabililityForFirstAttack,
 } from "../confusing-statut-probability-for-first-attack.js";
 
-export const confusingStatutProbabilitysForFirstAttack =
-  function confusingStatutProbabilitysForFirstAttack(
+export function confusingStatutProbabilitysForFirstAttack(
+  firstAttacker,
+  secondAttacker,
+  isFirstAttackActive
+) {
+  confusingStatut10PercentProbabililityForFirstAttack(
     firstAttacker,
     secondAttacker,
-    isFirstAttackActive,
-    firstAttackType
-  ) {
-    confusingStatut10PercentProbabililityForFirstAttack(
-      firstAttacker,
-      secondAttacker,
-      isFirstAttackActive,
-      firstAttackType
-    );
+    isFirstAttackActive
+  );
 
-    confusingStatut20PercentProbabililityForFirstAttack(
-      firstAttacker,
-      secondAttacker,
-      isFirstAttackActive,
-      firstAttackType
-    );
+  confusingStatut20PercentProbabililityForFirstAttack(
+    firstAttacker,
+    secondAttacker,
+    isFirstAttackActive
+  );
 
-    confusingStatut100PercentProbabililityForFirstAttack(
-      firstAttacker,
-      secondAttacker,
-      isFirstAttackActive,
-      firstAttackType
-    );
-  };
+  confusingStatut100PercentProbabililityForFirstAttack(
+    firstAttacker,
+    secondAttacker,
+    isFirstAttackActive
+  );
+}

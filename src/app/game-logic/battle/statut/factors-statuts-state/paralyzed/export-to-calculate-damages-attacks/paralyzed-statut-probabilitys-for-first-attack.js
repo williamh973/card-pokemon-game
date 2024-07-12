@@ -7,31 +7,23 @@ import {
 export function paralyzedStatutProbabilitysForFirstAttack(
   firstAttacker,
   secondAttacker,
-  isFirstAttackActive,
-  firstAttackType,
-  secondAttackerType
+  isFirstAttackActive
 ) {
   paralyzedStatut10PercentProbabililityForFirstAttack(
     firstAttacker,
     secondAttacker,
-    isFirstAttackActive,
-    firstAttackType,
-    secondAttackerType
+    isFirstAttackActive
   );
 
   paralyzedStatut30PercentProbabililityForFirstAttack(
     firstAttacker,
     secondAttacker,
-    isFirstAttackActive,
-    firstAttackType,
-    secondAttackerType
+    isFirstAttackActive
   );
 
   paralyzedStatut100PercentProbabililityForFirstAttack(
     firstAttacker,
     secondAttacker,
-    isFirstAttackActive,
-    firstAttackType,
-    secondAttackerType
+    isFirstAttackActive
   );
 }

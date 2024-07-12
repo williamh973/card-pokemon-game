@@ -5,43 +5,32 @@ import {
   burningStatut100PercentProbabililityForSecondAttack,
 } from "../burning-statut-probability-for-second-attack.js";
 
-export const burningStatutProbabilitysForSecondAttack =
-  function burningStatutProbabilitysForSecondAttack(
+export function burningStatutProbabilitysForSecondAttack(
+  firstAttacker,
+  secondAttacker,
+  isSecondAttackActive
+) {
+  burningStatut10PercentProbabililityForSecondAttack(
     firstAttacker,
     secondAttacker,
-    isSecondAttackActive,
-    secondAttackType,
-    secondAttackerType
-  ) {
-    burningStatut10PercentProbabililityForSecondAttack(
-      firstAttacker,
-      secondAttacker,
-      isSecondAttackActive,
-      secondAttackType,
-      secondAttackerType
-    );
+    isSecondAttackActive
+  );
 
-    burningStatut30PercentProbabililityForSecondAttack(
-      firstAttacker,
-      secondAttacker,
-      isSecondAttackActive,
-      secondAttackType,
-      secondAttackerType
-    );
+  burningStatut30PercentProbabililityForSecondAttack(
+    firstAttacker,
+    secondAttacker,
+    isSecondAttackActive
+  );
 
-    burningStatut50PercentProbabililityForSecondAttack(
-      firstAttacker,
-      secondAttacker,
-      isSecondAttackActive,
-      secondAttackType,
-      secondAttackerType
-    );
+  burningStatut50PercentProbabililityForSecondAttack(
+    firstAttacker,
+    secondAttacker,
+    isSecondAttackActive
+  );
 
-    burningStatut100PercentProbabililityForSecondAttack(
-      firstAttacker,
-      secondAttacker,
-      isSecondAttackActive,
-      secondAttackType,
-      secondAttackerType
-    );
-  };
+  burningStatut100PercentProbabililityForSecondAttack(
+    firstAttacker,
+    secondAttacker,
+    isSecondAttackActive
+  );
+}

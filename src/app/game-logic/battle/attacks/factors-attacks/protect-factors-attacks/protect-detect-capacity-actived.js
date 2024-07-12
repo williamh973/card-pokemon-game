@@ -4,6 +4,6 @@ export function protectionActived() {
   isProtectOrDetectCapacityActived = true;
 }
 
-export function deseableProtectCapacity() {
+export function disabledProtectCapacity() {
   isProtectOrDetectCapacityActived = false;
 }

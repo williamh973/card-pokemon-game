@@ -15,7 +15,7 @@ import { criticalHitIncreaseByFocusEnergyForFirstAttack } from "../../../attacks
 import { oneHitKnockoutFactorForFirstAttack } from "../../../attacks/factors-attacks/one-hit-factors-attacks/one-hit-knock-out-first-attack.js";
 import { protectFactorForFirstAttack } from "../../../attacks/factors-attacks/protect-factors-attacks/protect-factors-first-attack.js";
 import {
-  deseableProtectCapacity,
+  disabledProtectCapacity,
   isProtectOrDetectCapacityActived,
 } from "../../../attacks/factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
 import { handleBonusAttackWhenProtectOrDetectCapacityActived } from "../handle-bonus-attack-when-protect-or-detect-capacity-actived/handle-bonus-attack-when-protect-or-detect-capacity-actived-first-attack.js";
@@ -27,35 +27,31 @@ import { asleepStatutProbabilitysForFirstAttack } from "../../../statut/factors-
 import { ifPokemonHasAnAttackThatDependsOnItsOwnLevel } from "../handle-level-factor-attacks/handle-level-factor-attacks.js";
 import { hpIncrease50PercentOfDamagesFactorForFirstAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-50-percent-damages.js";
 import { confusingStatutProbabilitysForFirstAttack } from "../../../statut/factors-statuts-state/confusing/export-to-calculate-damages-attacks/confusing-statut-probabilitys-for-first-attack.js";
-import { cursedStatut100PercentProbabililityForFirstAttack } from "../../../statut/factors-statuts-state/cursed/cursed-statut-probability-for-first-attack.js";
+import { cursedStatut100PercentProbability } from "../../../statut/factors-statuts-state/cursed/cursed-statut-probability.js";
+import { baseDamage } from "../base-damages/base-damage.js";
+import { minimumDamage } from "../minimum-damage/minimum-damage.js";
 
 export function calculateDamageFirstAttack(
   firstAttacker,
   secondAttacker,
-  isFirstAttackActive,
-  firstAttackStrength,
-  firstAttackerSpecialAtt,
-  secondAttackerSpecialDef,
-  firstAttackPrecision,
-  firstAttackType,
-  secondAttackerType,
-  secondAttackerSecondaryType
+  isFirstAttackActive
 ) {
   if (
     isFirstAttackActive &&
     !isProtectOrDetectCapacityActived &&
-    (firstAttackType === "bonus" || firstAttackType !== "bonus")
+    (firstAttacker.firstAttack.type === "bonus" ||
+      firstAttacker.firstAttack.type !== "bonus")
   ) {
     openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
 
     const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-    if (randomNumber <= firstAttackPrecision) {
-      let damages =
-        (((2 * firstAttacker.stats.attack) / secondAttacker.stats.defense) *
-          firstAttackStrength *
-          (firstAttackerSpecialAtt / secondAttackerSpecialDef)) /
-        20;
+    if (randomNumber <= firstAttacker.firstAttack.precision) {
+      let damages = baseDamage(
+        firstAttacker,
+        firstAttacker.firstAttack.strength,
+        secondAttacker
+      );
 
       let getCriticalHit = criticalHit(firstAttacker);
       damages *= getCriticalHit;
@@ -64,34 +60,30 @@ export function calculateDamageFirstAttack(
       damages *= randomFactor;
 
       let getWeaknessFactorList = weaknessFactorForFirstAttack(
-        firstAttackType,
-        secondAttackerType,
-        secondAttackerSecondaryType,
+        firstAttacker,
+        secondAttacker,
         isFirstAttackActive
       );
       damages *= getWeaknessFactorList;
 
       let getResistanceFactorList = resistanceFactorForFirstAttack(
-        firstAttackType,
-        secondAttackerType,
-        secondAttackerSecondaryType,
+        firstAttacker,
+        secondAttacker,
         isFirstAttackActive
       );
       damages /= getResistanceFactorList;
 
       let getIneffectiveFactorList = ineffectiveFactorForFirstAttack(
-        firstAttackType,
-        secondAttackerType,
-        secondAttackerSecondaryType,
+        firstAttacker,
+        secondAttacker,
         isFirstAttackActive
       );
       damages *= getIneffectiveFactorList;
 
       let getAlwaysKnockOutAttacks = oneHitKnockoutFactorForFirstAttack(
-        isFirstAttackActive,
-        secondAttackerType,
         firstAttacker,
-        secondAttacker
+        secondAttacker,
+        isFirstAttackActive
       );
       damages *= getAlwaysKnockOutAttacks;
 
@@ -103,13 +95,6 @@ export function calculateDamageFirstAttack(
         );
 
       damages = getLevelFactorsForAttacks;
-
-      console.log(
-        firstAttacker.name,
-        firstAttacker.stats.hp,
-        secondAttacker.name,
-        secondAttacker.stats.hp
-      );
 
       speedIncrease5pFactorForFirstAttack(firstAttacker, isFirstAttackActive);
       speedIncrease10pFactorForFirstAttack(firstAttacker, isFirstAttackActive);
@@ -141,66 +126,56 @@ export function calculateDamageFirstAttack(
       burningStatutProbabilitysForFirstAttack(
         firstAttacker,
         secondAttacker,
-        isFirstAttackActive,
-        firstAttackType,
-        secondAttackerType
+        isFirstAttackActive
       );
 
       poisonedStatutProbabilitysForFirstAttack(
         firstAttacker,
         secondAttacker,
-        isFirstAttackActive,
-        firstAttackType,
-        secondAttackerType
+        isFirstAttackActive
       );
 
       paralyzedStatutProbabilitysForFirstAttack(
         firstAttacker,
         secondAttacker,
-        isFirstAttackActive,
-        firstAttackType,
-        secondAttackerType
+        isFirstAttackActive
       );
 
       frozenStatutProbabilitysForFirstAttack(
         firstAttacker,
         secondAttacker,
-        isFirstAttackActive,
-        firstAttackType
+        isFirstAttackActive
       );
 
       asleepStatutProbabilitysForFirstAttack(
         firstAttacker,
         secondAttacker,
-        isFirstAttackActive,
-        firstAttackType
+        isFirstAttackActive
       );
 
       confusingStatutProbabilitysForFirstAttack(
         firstAttacker,
         secondAttacker,
-        isFirstAttackActive,
-        firstAttackType
+        isFirstAttackActive
       );
 
-      cursedStatut100PercentProbabililityForFirstAttack(
+      cursedStatut100PercentProbability(
         firstAttacker,
+        firstAttacker.firstAttack.type,
+        firstAttacker.firstAttack.name,
         secondAttacker,
-        isFirstAttackActive,
-        firstAttackType
+        isFirstAttackActive
       );
 
-      if (firstAttacker.firstAttack.name === "Dévorêve") {
-        const getHpIncrease50PercentOfDamagesFactor =
-          hpIncrease50PercentOfDamagesFactorForFirstAttack(
-            firstAttacker,
-            secondAttacker,
-            isFirstAttackActive,
-            damages
-          );
+      const getHpIncrease50PercentOfDamagesFactor =
+        hpIncrease50PercentOfDamagesFactorForFirstAttack(
+          firstAttacker,
+          secondAttacker,
+          isFirstAttackActive,
+          damages
+        );
 
-        damages *= getHpIncrease50PercentOfDamagesFactor;
-      }
+      damages *= getHpIncrease50PercentOfDamagesFactor;
 
       if (damages > 0 && damages < 0.5) {
         return (damages = 1);
@@ -214,21 +189,21 @@ export function calculateDamageFirstAttack(
   } else if (
     isFirstAttackActive &&
     isProtectOrDetectCapacityActived &&
-    firstAttackType !== "bonus"
+    firstAttacker.firstAttack.type !== "bonus"
   ) {
     openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
     openDialogueWhenPokemonProtectingHimself(secondAttacker);
-    deseableProtectCapacity();
+    disabledProtectCapacity();
     return 0;
   } else if (
     isFirstAttackActive &&
     isProtectOrDetectCapacityActived &&
-    firstAttackType === "bonus"
+    firstAttacker.firstAttack.type === "bonus"
   ) {
     handleBonusAttackWhenProtectOrDetectCapacityActived(
       firstAttacker,
       isFirstAttackActive,
-      firstAttackPrecision
+      firstAttacker.firstAttack.precision
     );
     return 0;
   }

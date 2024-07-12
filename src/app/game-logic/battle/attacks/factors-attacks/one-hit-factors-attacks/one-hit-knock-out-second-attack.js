@@ -1,14 +1,13 @@
 import { openDialogueWhenPokemonHasBeenKoByOneHitKnockout } from "../../../../../components/battle-dialogues/dialogues/pokemon-has-been-ko-by-one-hit-knockout.dialogue.js";
 
 export function oneHitKnockoutFactorForSecondAttack(
-  isSecondAttackActive,
-  secondAttackerType,
   firstAttacker,
-  secondAttacker
+  secondAttacker,
+  isSecondAttackActive
 ) {
   if (
     isSecondAttackActive &&
-    secondAttackerType !== "spectrum" &&
+    secondAttacker.type !== "spectrum" &&
     (firstAttacker.secondAttack.name === "Guillotine" ||
       firstAttacker.secondAttack.name === "Empal'Korne")
   ) {
@@ -17,7 +16,7 @@ export function oneHitKnockoutFactorForSecondAttack(
     return 1;
   } else if (
     isSecondAttackActive &&
-    secondAttackerType === "spectrum" &&
+    secondAttacker.type === "spectrum" &&
     (firstAttacker.secondAttack.name === "Guillotine" ||
       firstAttacker.secondAttack.name === "Empal'Korne")
   ) {

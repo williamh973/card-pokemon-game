@@ -1,4 +1,4 @@
-import { deseableProtectCapacity } from "../../../../attacks/factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
+import { disabledProtectCapacity } from "../../../../attacks/factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
 
 import { openDialogueWhenPokemonBlockedByParalyzedStatut } from "../../../../../../components/battle-dialogues/dialogues/pokemon-blocked-by-paralyzed-statut.dialogue.js";
 import { openDialogueWhenPokemonAttacksDespiteParalyzedStatut } from "../../../../../../components/battle-dialogues/dialogues/pokemon-attacks-despite-paralyzed-statut.dialogue.js";
@@ -35,7 +35,7 @@ export function secondAttackerPrimaryStatutAlteration(secondAttacker) {
       if (randomNumber <= 0.25) {
         pokemonVariables.isSecondAttackerParalyzed = true;
         openDialogueWhenPokemonBlockedByParalyzedStatut(secondAttacker);
-        deseableProtectCapacity();
+        disabledProtectCapacity();
       } else {
         pokemonVariables.isSecondAttackerParalyzed = false;
         openDialogueWhenPokemonAttacksDespiteParalyzedStatut(secondAttacker);
@@ -52,7 +52,7 @@ export function secondAttackerPrimaryStatutAlteration(secondAttacker) {
       } else {
         pokemonVariables.isSecondAttackerFrozen = true;
         openDialogueWhenPokemonBlockedByFrozenStatut(secondAttacker);
-        deseableProtectCapacity();
+        disabledProtectCapacity();
       }
       break;
 
@@ -62,7 +62,7 @@ export function secondAttackerPrimaryStatutAlteration(secondAttacker) {
       if (randomNumber <= 0.5) {
         pokemonVariables.isSecondAttackerAsleep = true;
         openDialogueWhenPokemonIsAsleepStatut(secondAttacker);
-        deseableProtectCapacity();
+        disabledProtectCapacity();
         asleepCount++;
       } else {
         pokemonVariables.isSecondAttackerAsleep = false;

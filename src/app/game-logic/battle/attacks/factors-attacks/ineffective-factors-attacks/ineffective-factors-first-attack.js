@@ -1,37 +1,43 @@
 import { openDialogueWhenPokemonMakesIneffectiveAttack } from "../../../../../components/battle-dialogues/dialogues/pokemon-makes-ineffective-attack.dialogue.js";
 
-export const ineffectiveFactorForFirstAttack =
-  function ineffectiveFactorForFirstAttack(
-    firstAttackType,
-    secondAttackerType,
-    secondAttackerSecondaryType,
-    isFirstAttackActive
+export function ineffectiveFactorForFirstAttack(
+  firstAttacker,
+  secondAttacker,
+  isFirstAttackActive
+) {
+  if (
+    (isFirstAttackActive &&
+      secondAttacker.type === "spectrum" &&
+      firstAttacker.firstAttack.type === "normal") ||
+    (secondAttacker.type === "spectrum" &&
+      firstAttacker.firstAttack.type === "fight") ||
+    (secondAttacker.type === "steel" &&
+      firstAttacker.firstAttack.type === "poison") ||
+    (secondAttacker.type === "flight" &&
+      firstAttacker.firstAttack.type === "ground") ||
+    (secondAttacker.type === "plant" &&
+      firstAttacker.firstAttack.type === "water") ||
+    (secondAttacker.type === "normal" &&
+      firstAttacker.firstAttack.type === "spectrum") ||
+    (secondAttacker.type === "dark" &&
+      firstAttacker.firstAttack.type === "psy") ||
+    (secondAttacker.type === "fairy" &&
+      firstAttacker.firstAttack.type === "dragon") ||
+    (secondAttacker.type === "rock" &&
+      firstAttacker.firstAttack.type === "electric") ||
+    (secondAttacker.type === "rock" &&
+      secondAttacker.secondaryType === "ground" &&
+      firstAttacker.firstAttack.type === "electric") ||
+    (secondAttacker.type === "normal" &&
+      secondAttacker.secondaryType === "flight" &&
+      firstAttacker.firstAttack.type === "ground") ||
+    (secondAttacker.type === "normal" &&
+      secondAttacker.secondaryType === "flight" &&
+      firstAttacker.firstAttack.type === "spectrum")
   ) {
-    if (
-      (isFirstAttackActive &&
-        secondAttackerType === "spectrum" &&
-        firstAttackType === "normal") ||
-      (secondAttackerType === "spectrum" && firstAttackType === "fight") ||
-      (secondAttackerType === "steel" && firstAttackType === "poison") ||
-      (secondAttackerType === "flight" && firstAttackType === "ground") ||
-      (secondAttackerType === "plant" && firstAttackType === "water") ||
-      (secondAttackerType === "normal" && firstAttackType === "spectrum") ||
-      (secondAttackerType === "dark" && firstAttackType === "psy") ||
-      (secondAttackerType === "fairy" && firstAttackType === "dragon") ||
-      (secondAttackerType === "rock" && firstAttackType === "electric") ||
-      (secondAttackerType === "rock" &&
-        secondAttackerSecondaryType === "ground" &&
-        firstAttackType === "electric") ||
-      (secondAttackerType === "normal" &&
-        secondAttackerSecondaryType === "flight" &&
-        firstAttackType === "ground") ||
-      (secondAttackerType === "normal" &&
-        secondAttackerSecondaryType === "flight" &&
-        firstAttackType === "spectrum")
-    ) {
-      openDialogueWhenPokemonMakesIneffectiveAttack();
-      return 0;
-    } else {
-      return 1;
-    }
-  };
+    openDialogueWhenPokemonMakesIneffectiveAttack();
+    return 0;
+  } else {
+    return 1;
+  }
+}

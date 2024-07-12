@@ -58,6 +58,8 @@ export function hpIncrease50PercentOfDamagesFactorForFirstAttack(
   ) {
     openDialogueWhenPokemonMissAttack(firstAttacker);
     return 0;
+  } else {
+    return 0;
   }
 }
 
@@ -82,6 +84,8 @@ export function hpIncrease50PercentOfDamagesFactorForSecondAttack(
     isSecondAttackActive
   ) {
     openDialogueWhenPokemonMissAttack(firstAttacker);
+    return 0;
+  } else {
     return 0;
   }
 }

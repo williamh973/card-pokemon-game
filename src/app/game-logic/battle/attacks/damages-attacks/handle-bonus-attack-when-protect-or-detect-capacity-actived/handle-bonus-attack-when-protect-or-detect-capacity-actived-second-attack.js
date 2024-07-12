@@ -6,7 +6,7 @@ import { defenseIncrease5pFactorForSecondAttack } from "../../../attacks/factors
 import { defenseIncrease10pFactorForSecondAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-10P-factors-attacks/defense-increase-10P-factor-second-attack.js";
 import { hpIncrease5pFactorForSecondAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-5P-factor-attacks.js";
 import { protectFactorForSecondAttack } from "../../../attacks/factors-attacks/protect-factors-attacks/protect-factors-second-attack.js";
-import { deseableProtectCapacity } from "../../../attacks/factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
+import { disabledProtectCapacity } from "../../../attacks/factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
 
 export function handleBonusAttackWhenProtectOrDetectCapacityActived(
   firstAttacker,
@@ -34,7 +34,7 @@ export function handleBonusAttackWhenProtectOrDetectCapacityActived(
     protectFactorForSecondAttack(firstAttacker, isSecondAttackActive);
   } else {
     openDialogueWhenPokemonMissAttack(firstAttacker);
-    deseableProtectCapacity();
+    disabledProtectCapacity();
     return 0;
   }
 }

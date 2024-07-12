@@ -87,14 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let damageFirstAttack = calculateDamageFirstAttack(
               firstAttacker,
               secondAttacker,
-              pokemonVariables.isFirstAttackActive,
-              firstAttacker.firstAttack.strength,
-              firstAttacker.stats.specialAtt,
-              secondAttacker.stats.specialDef,
-              firstAttacker.firstAttack.precision,
-              firstAttacker.firstAttack.type,
-              secondAttacker.type,
-              secondAttacker.secondaryType
+              pokemonVariables.isFirstAttackActive
             );
 
             if (pokemonVariables.isFirstAttackActive) {
@@ -120,14 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let damageSecondAttack = calculateDamageSecondAttack(
               firstAttacker,
               secondAttacker,
-              pokemonVariables.isSecondAttackActive,
-              firstAttacker.secondAttack.strength,
-              firstAttacker.stats.specialAtt,
-              secondAttacker.stats.specialDef,
-              firstAttacker.secondAttack.precision,
-              firstAttacker.secondAttack.type,
-              secondAttacker.type,
-              secondAttacker.secondaryType
+              pokemonVariables.isSecondAttackActive
             );
 
             if (pokemonVariables.isSecondAttackActive) {
@@ -232,14 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let damageFirstAttack = calculateDamageFirstAttack(
               secondAttacker,
               firstAttacker,
-              pokemonVariables.isFirstAttackActive,
-              secondAttacker.firstAttack.strength,
-              secondAttacker.stats.specialAtt,
-              firstAttacker.stats.specialDef,
-              secondAttacker.firstAttack.precision,
-              secondAttacker.firstAttack.type,
-              firstAttacker.type,
-              firstAttacker.secondaryType
+              pokemonVariables.isFirstAttackActive
             );
 
             if (pokemonVariables.isFirstAttackActive) {
@@ -265,14 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let damageSecondAttack = calculateDamageSecondAttack(
               secondAttacker,
               firstAttacker,
-              pokemonVariables.isSecondAttackActive,
-              secondAttacker.secondAttack.strength,
-              secondAttacker.stats.specialAtt,
-              firstAttacker.stats.specialDef,
-              secondAttacker.secondAttack.precision,
-              secondAttacker.secondAttack.type,
-              firstAttacker.type,
-              firstAttacker.secondaryType
+              pokemonVariables.isSecondAttackActive
             );
 
             if (pokemonVariables.isSecondAttackActive) {

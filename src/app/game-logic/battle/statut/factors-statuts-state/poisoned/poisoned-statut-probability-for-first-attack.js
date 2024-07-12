@@ -6,14 +6,12 @@ import { isStatusValidForPoisoned } from "./status-valid-for-poisoned.js";
 export function poisonedStatut10PercentProbabililityForFirstAttack(
   firstAttacker,
   secondAttacker,
-  isFirstAttackActive,
-  firstAttackType,
-  secondAttackerType
+  isFirstAttackActive
 ) {
   if (
     isFirstAttackActive &&
-    firstAttackType === "poison" &&
-    (secondAttackerType !== "poison" || secondAttackerType !== "steel") &&
+    firstAttacker.firstAttack.type === "poison" &&
+    (secondAttacker.type !== "poison" || secondAttacker.type !== "steel") &&
     firstAttacker.firstAttack.name === "Queue-Poison" &&
     isStatusValidForPoisoned(secondAttacker)
   ) {
@@ -30,14 +28,12 @@ export function poisonedStatut10PercentProbabililityForFirstAttack(
 export function poisonedStatut20PercentProbabililityForFirstAttack(
   firstAttacker,
   secondAttacker,
-  isFirstAttackActive,
-  firstAttackType,
-  secondAttackerType
+  isFirstAttackActive
 ) {
   if (
     isFirstAttackActive &&
-    firstAttackType === "poison" &&
-    (secondAttackerType !== "poison" || secondAttackerType !== "steel") &&
+    firstAttacker.firstAttack.type === "poison" &&
+    (secondAttacker.type !== "poison" || secondAttacker.type !== "steel") &&
     firstAttacker.firstAttack.name === "Double-Dard" &&
     isStatusValidForPoisoned(secondAttacker)
   ) {
@@ -54,14 +50,12 @@ export function poisonedStatut20PercentProbabililityForFirstAttack(
 export function poisonedStatut30PercentProbabililityForFirstAttack(
   firstAttacker,
   secondAttacker,
-  isFirstAttackActive,
-  firstAttackType,
-  secondAttackerType
+  isFirstAttackActive
 ) {
   if (
     isFirstAttackActive &&
-    firstAttackType === "poison" &&
-    (secondAttackerType !== "poison" || secondAttackerType !== "steel") &&
+    firstAttacker.firstAttack.type === "poison" &&
+    (secondAttacker.type !== "poison" || secondAttacker.type !== "steel") &&
     (firstAttacker.firstAttack.name === "Bomb-Beurk" ||
       firstAttacker.firstAttack.name === "Crochetvenin" ||
       firstAttacker.firstAttack.name === "Dard-Venin" ||
@@ -83,14 +77,12 @@ export function poisonedStatut30PercentProbabililityForFirstAttack(
 export function poisonedStatut40PercentProbabililityForFirstAttack(
   firstAttacker,
   secondAttacker,
-  isFirstAttackActive,
-  firstAttackType,
-  secondAttackerType
+  isFirstAttackActive
 ) {
   if (
     isFirstAttackActive &&
-    firstAttackType === "poison" &&
-    (secondAttackerType !== "poison" || secondAttackerType !== "steel") &&
+    firstAttacker.firstAttack.type === "poison" &&
+    (secondAttacker.type !== "poison" || secondAttacker.type !== "steel") &&
     firstAttacker.firstAttack.name === "Puredpois" &&
     isStatusValidForPoisoned(secondAttacker)
   ) {
@@ -107,14 +99,12 @@ export function poisonedStatut40PercentProbabililityForFirstAttack(
 export function poisonedStatut100PercentProbabililityForFirstAttack(
   firstAttacker,
   secondAttacker,
-  isFirstAttackActive,
-  firstAttackType,
-  secondAttackerType
+  isFirstAttackActive
 ) {
   if (
     isFirstAttackActive &&
-    firstAttackType === "poison" &&
-    (secondAttackerType !== "poison" || secondAttackerType !== "steel") &&
+    firstAttacker.firstAttack.type === "poison" &&
+    (secondAttacker.type !== "poison" || secondAttacker.type !== "steel") &&
     (firstAttacker.firstAttack.name === "Gaz Toxik" ||
       firstAttacker.firstAttack.name === "Toxik") &&
     isStatusValidForPoisoned(secondAttacker)

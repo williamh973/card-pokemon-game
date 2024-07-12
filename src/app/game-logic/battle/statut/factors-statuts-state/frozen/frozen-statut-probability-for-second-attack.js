@@ -4,12 +4,12 @@ import { openDialogueWhenPokemonHasFrozenStatut } from "../../../../../component
 export function frozenStatut10PercentProbabililityForSecondAttack(
   firstAttacker,
   secondAttacker,
-  isSecondAttackActive,
-  secondAttackType
+  isSecondAttackActive
 ) {
   if (
     isSecondAttackActive &&
-    (secondAttackType === "ice" || secondAttackType === "normal") &&
+    (firstAttacker.secondAttack.type === "ice" ||
+      firstAttacker.secondAttack.type === "normal") &&
     (firstAttacker.secondAttack.name === "Blizzard" ||
       firstAttacker.secondAttack.name === "Crocs Givre" ||
       firstAttacker.secondAttack.name === "Laser Glace" ||

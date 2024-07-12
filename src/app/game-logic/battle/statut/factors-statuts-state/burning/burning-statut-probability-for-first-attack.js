@@ -5,14 +5,13 @@ import { burningStatut } from "./burning-statut.js";
 export function burningStatut10PercentProbabililityForFirstAttack(
   firstAttacker,
   secondAttacker,
-  isFirstAttackActive,
-  firstAttackType,
-  secondAttackerType
+  isFirstAttackActive
 ) {
   if (
     isFirstAttackActive &&
-    (firstAttackType === "fire" || firstAttackType === "normal") &&
-    secondAttackerType !== "fire" &&
+    (firstAttacker.firstAttack.type === "fire" ||
+      firstAttacker.firstAttack.type === "normal") &&
+    secondAttacker.type !== "fire" &&
     (firstAttacker.firstAttack.name === "Flammèche" ||
       firstAttacker.firstAttack.name === "Triplattaque" ||
       firstAttacker.firstAttack.name === "Boutefeu" ||
@@ -36,18 +35,16 @@ export function burningStatut10PercentProbabililityForFirstAttack(
 export function burningStatut30PercentProbabililityForFirstAttack(
   firstAttacker,
   secondAttacker,
-  isFirstAttackActive,
-  firstAttackType,
-  secondAttackerType
+  isFirstAttackActive
 ) {
   if (
     isFirstAttackActive &&
-    (firstAttackType === "fire" ||
-      firstAttackType === "water" ||
-      firstAttackType === "ice" ||
-      firstAttackType === "ground" ||
-      firstAttackType === "spectrum") &&
-    secondAttackerType !== "fire" &&
+    (firstAttacker.firstAttack.type === "fire" ||
+      firstAttacker.firstAttack.type === "water" ||
+      firstAttacker.firstAttack.type === "ice" ||
+      firstAttacker.firstAttack.type === "ground" ||
+      firstAttacker.firstAttack.type === "spectrum") &&
+    secondAttacker.type !== "fire" &&
     (firstAttacker.firstAttack.name === "Ébullilave" ||
       firstAttacker.firstAttack.name === "Ébullition" ||
       firstAttacker.firstAttack.name === "Feu Glacé" ||
@@ -68,14 +65,12 @@ export function burningStatut30PercentProbabililityForFirstAttack(
 export function burningStatut50PercentProbabililityForFirstAttack(
   firstAttacker,
   secondAttacker,
-  isFirstAttackActive,
-  firstAttackType,
-  secondAttackerType
+  isFirstAttackActive
 ) {
   if (
     isFirstAttackActive &&
-    firstAttackType === "fire" &&
-    secondAttackerType !== "fire" &&
+    firstAttacker.firstAttack.type === "fire" &&
+    secondAttacker.type !== "fire" &&
     firstAttacker.firstAttack.name === "Feu Sacré" &&
     isStatusValidForBurning(secondAttacker)
   ) {
@@ -90,14 +85,13 @@ export function burningStatut50PercentProbabililityForFirstAttack(
 export function burningStatut100PercentProbabililityForFirstAttack(
   firstAttacker,
   secondAttacker,
-  isFirstAttackActive,
-  firstAttackType,
-  secondAttackerType
+  isFirstAttackActive
 ) {
   if (
     isFirstAttackActive &&
-    (firstAttackType === "fire" || firstAttackType === "dark") &&
-    secondAttackerType !== "fire" &&
+    (firstAttacker.firstAttack.type === "fire" ||
+      firstAttacker.firstAttack.type === "dark") &&
+    secondAttacker.type !== "fire" &&
     (firstAttacker.firstAttack.name === "Dégommage" ||
       firstAttacker.firstAttack.name === "Feu d'Enfer" ||
       firstAttacker.firstAttack.name === "Feu Follet") &&

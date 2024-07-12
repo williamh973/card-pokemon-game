@@ -5,43 +5,32 @@ import {
   burningStatut100PercentProbabililityForFirstAttack,
 } from "../burning-statut-probability-for-first-attack.js";
 
-export const burningStatutProbabilitysForFirstAttack =
-  function burningStatutProbabilitysForFirstAttack(
+export function burningStatutProbabilitysForFirstAttack(
+  firstAttacker,
+  secondAttacker,
+  isFirstAttackActive
+) {
+  burningStatut10PercentProbabililityForFirstAttack(
     firstAttacker,
     secondAttacker,
-    isFirstAttackActive,
-    firstAttackType,
-    secondAttackerType
-  ) {
-    burningStatut10PercentProbabililityForFirstAttack(
-      firstAttacker,
-      secondAttacker,
-      isFirstAttackActive,
-      firstAttackType,
-      secondAttackerType
-    );
+    isFirstAttackActive
+  );
 
-    burningStatut30PercentProbabililityForFirstAttack(
-      firstAttacker,
-      secondAttacker,
-      isFirstAttackActive,
-      firstAttackType,
-      secondAttackerType
-    );
+  burningStatut30PercentProbabililityForFirstAttack(
+    firstAttacker,
+    secondAttacker,
+    isFirstAttackActive
+  );
 
-    burningStatut50PercentProbabililityForFirstAttack(
-      firstAttacker,
-      secondAttacker,
-      isFirstAttackActive,
-      firstAttackType,
-      secondAttackerType
-    );
+  burningStatut50PercentProbabililityForFirstAttack(
+    firstAttacker,
+    secondAttacker,
+    isFirstAttackActive
+  );
 
-    burningStatut100PercentProbabililityForFirstAttack(
-      firstAttacker,
-      secondAttacker,
-      isFirstAttackActive,
-      firstAttackType,
-      secondAttackerType
-    );
-  };
+  burningStatut100PercentProbabililityForFirstAttack(
+    firstAttacker,
+    secondAttacker,
+    isFirstAttackActive
+  );
+}
