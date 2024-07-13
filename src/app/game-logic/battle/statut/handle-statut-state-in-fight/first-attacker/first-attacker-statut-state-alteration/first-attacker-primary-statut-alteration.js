@@ -1,4 +1,4 @@
-import { disabledProtectCapacity } from "../../../../attacks/factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
+import { disabledProtectCapacity } from "../../../../attacks/factors-attacks/protect-detect-factor/protect-factors-attacks/protect-detect-capacity-actived.js";
 
 import { openDialogueWhenPokemonBlockedByParalyzedStatut } from "../../../../../../components/battle-dialogues/dialogues/pokemon-blocked-by-paralyzed-statut.dialogue.js";
 import { openDialogueWhenPokemonAttacksDespiteParalyzedStatut } from "../../../../../../components/battle-dialogues/dialogues/pokemon-attacks-despite-paralyzed-statut.dialogue.js";
@@ -7,6 +7,7 @@ import { openDialogueWhenPokemonBlockedByFrozenStatut } from "../../../../../../
 import { openDialogueWhenPokemonIsAsleepStatut } from "../../../../../../components/battle-dialogues/dialogues/pokemon-has-asleep-statut.dialogue.js";
 import { openDialogueWhenPokemonWakeUp } from "../../../../../../components/battle-dialogues/dialogues/pokemon-wake-up.dialogue.js";
 import { pokemonVariables } from "../../../../../../shared/pokemon/pokemon-variables.js";
+import { removeAsleepStatutAnimation } from "../../../../animations/animations-statuts/remove/remove-asleep-statut-animation.js";
 
 let asleepCount = 0;
 let randomNumber = Math.random();
@@ -68,6 +69,7 @@ export function firstAttackerPrimaryStatutAlteration(firstAttacker) {
         pokemonVariables.isFirstAttackerAsleep = false;
         firstAttacker.primaryStatut = "normal";
         openDialogueWhenPokemonWakeUp(firstAttacker);
+        removeAsleepStatutAnimation(firstAttacker);
         asleepCount = 0;
       }
 

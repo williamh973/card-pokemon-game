@@ -13,18 +13,18 @@ import { openDialogueWhenPokemonProtectingHimself } from "../../../../../compone
 import { criticalHit } from "../../../attacks/factors-attacks/critical-hit-factor/critical-hit-factor.js";
 import { criticalHitIncreaseByFocusEnergyForSecondAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/critical-hit-increase-factors-attacks/critical-hit-increase-focus-energy-second-attack.js";
 import { oneHitKnockoutFactorForSecondAttack } from "../../../attacks/factors-attacks/one-hit-factors-attacks/one-hit-knock-out-second-attack.js";
-import { protectFactorForSecondAttack } from "../../../attacks/factors-attacks/protect-factors-attacks/protect-factors-second-attack.js";
+import { protectFactorForSecondAttack } from "../../factors-attacks/protect-detect-factor/protect-factors-attacks/protect-factors-second-attack.js";
 import {
   isProtectOrDetectCapacityActived,
   disabledProtectCapacity,
-} from "../../../attacks/factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
-import { handleBonusAttackWhenProtectOrDetectCapacityActived } from "../handle-bonus-attack-when-protect-or-detect-capacity-actived/handle-bonus-attack-when-protect-or-detect-capacity-actived-second-attack.js";
+} from "../../factors-attacks/protect-detect-factor/protect-factors-attacks/protect-detect-capacity-actived.js";
+import { handleBonusAttackWhenProtectOrDetectCapacityActived } from "../../factors-attacks/protect-detect-factor/handle-bonus-attack-when-protect-or-detect-capacity-actived/handle-bonus-attack-when-protect-or-detect-capacity-actived-second-attack.js";
 import { burningStatutProbabilitysForSecondAttack } from "../../../statut/factors-statuts-state/burning/export-to-calculate-damages-attacks/burning-statut-probabilitys-for-second-attack.js";
 import { poisonedStatutProbabilitysForSecondAttack } from "../../../statut/factors-statuts-state/poisoned/export-to-calculate-damages-attacks/poisoned-statut-probabilitys-for-second-attack.js";
 import { paralyzedStatutProbabilitysForSecondAttack } from "../../../statut/factors-statuts-state/paralyzed/export-to-calculate-damages-attacks/paralyzed-statut-probabilitys-for-second-attack.js";
 import { frozenStatutProbabilitysForSecondAttack } from "../../../statut/factors-statuts-state/frozen/export-to-calculate-damages-attacks/frozen-statut-probabilitys-for-second-attack.js";
 import { asleepStatutProbabilitysForSecondAttack } from "../../../statut/factors-statuts-state/asleep/export-to-calculate-damages-attacks/asleep-statut-probabilitys-for-second-attack.js";
-import { ifPokemonHasAnAttackThatDependsOnItsOwnLevel } from "../handle-level-factor-attacks/handle-level-factor-attacks.js";
+import { ifPokemonHasAnAttackThatDependsOnItsOwnLevel } from "../../factors-attacks/level-factors-attacks/handle-level-factor-attacks/handle-level-factor-attacks.js";
 import { hpIncrease50PercentOfDamagesFactorForSecondAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-50-percent-damages.js";
 import { confusingStatutProbabilitysForSecondAttack } from "../../../statut/factors-statuts-state/confusing/export-to-calculate-damages-attacks/confusing-statut-probabilitys-for-second-attack.js";
 import { cursedStatut100PercentProbability } from "../../../statut/factors-statuts-state/cursed/cursed-statut-probability.js";
@@ -95,6 +95,20 @@ export function calculateDamageSecondAttack(
         );
 
       damages = getLevelFactorsForAttacks;
+
+      const getHpIncrease50PercentOfDamagesFactor =
+        hpIncrease50PercentOfDamagesFactorForSecondAttack(
+          firstAttacker,
+          secondAttacker,
+          isSecondAttackActive,
+          damages
+        );
+
+      damages *= getHpIncrease50PercentOfDamagesFactor;
+
+      let minimumDamages = minimumDamage(damages);
+
+      // damages = minimumDamages;
 
       speedIncrease5pFactorForSecondAttack(firstAttacker, isSecondAttackActive);
 
@@ -176,19 +190,7 @@ export function calculateDamageSecondAttack(
         isSecondAttackActive
       );
 
-      const getHpIncrease50PercentOfDamagesFactor =
-        hpIncrease50PercentOfDamagesFactorForSecondAttack(
-          firstAttacker,
-          secondAttacker,
-          isSecondAttackActive,
-          damages
-        );
-
-      damages *= getHpIncrease50PercentOfDamagesFactor;
-
-      if (damages > 0 && damages < 0.5) {
-        return (damages = 1);
-      }
+      // console.log(damages);
 
       return Math.round(damages);
     } else {

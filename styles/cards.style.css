@@ -7,13 +7,16 @@
   margin: auto;
   font-size: 12px;
   margin: 50px 0;
-  animation: slideIn 500ms ease-out;
   z-index: 0;
 }
 
 .card-main:hover {
   transition: all 200ms;
   scale: 1.2;
+}
+
+.slide-in {
+  animation: slideIn 500ms ease-out;
 }
 
 .slide-out {

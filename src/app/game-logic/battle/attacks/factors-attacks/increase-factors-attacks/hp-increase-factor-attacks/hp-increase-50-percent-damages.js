@@ -1,29 +1,6 @@
 import { openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-makes-hp-increase-50-percent-of-damage-factor-attack.dialogue.js";
 import { openDialogueWhenPokemonMissAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-miss-attack.dialogue.js";
 
-function increaseHp(firstAttacker, damages) {
-  if (firstAttacker.stats.hp < firstAttacker.stats.hpMax) {
-    const increasingValue = damages / 2;
-
-    const currentHp = firstAttacker.stats.hp;
-    const maxHp = firstAttacker.stats.hpMax;
-
-    const newHpValue = currentHp + increasingValue;
-    const actualIncrease =
-      newHpValue > maxHp ? maxHp - currentHp : increasingValue;
-    firstAttacker.stats.hp = Math.min(newHpValue, maxHp);
-
-    openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack(
-      firstAttacker,
-      actualIncrease
-    );
-
-    return actualIncrease;
-  } else if (firstAttacker.stats.hp >= firstAttacker.stats.hpMax) {
-    isCurrentHpAlreadyAboveHpMax(firstAttacker);
-  }
-}
-
 function isCurrentHpAlreadyAboveHpMax(firstAttacker) {
   firstAttacker.stats.hp = firstAttacker.stats.hpMax;
   return firstAttacker.stats.hp;
@@ -33,6 +10,35 @@ function currentHpGreaterThanHpMaxAfterIncreased(firstAttacker) {
   if (firstAttacker.stats.hp >= firstAttacker.stats.hpMax) {
     firstAttacker.stats.hp = firstAttacker.stats.hpMax;
     return firstAttacker.stats.hp;
+  }
+}
+
+function increasingHpValue(firstAttacker, increasingValue, currentHp, maxHp) {
+  const newHpValue = currentHp + increasingValue;
+  if (newHpValue > maxHp) {
+    const actualIncrease = maxHp - currentHp;
+    firstAttacker.stats.hp = Math.min(newHpValue, maxHp);
+
+    openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack(
+      firstAttacker,
+      actualIncrease
+    );
+    return actualIncrease;
+  } else {
+    return increasingValue;
+  }
+}
+
+function checkFirstAttackerPossibleIncreaseHp(
+  firstAttacker,
+  increasingValue,
+  currentHp,
+  maxHp
+) {
+  if (firstAttacker.stats.hp < firstAttacker.stats.hpMax) {
+    increasingHpValue(firstAttacker, increasingValue, currentHp, maxHp);
+  } else if (firstAttacker.stats.hp >= firstAttacker.stats.hpMax) {
+    isCurrentHpAlreadyAboveHpMax(firstAttacker);
   }
 }
 
@@ -47,7 +53,7 @@ export function hpIncrease50PercentOfDamagesFactorForFirstAttack(
     secondAttacker.primaryStatut === "asleep" &&
     isFirstAttackActive
   ) {
-    increaseHp(firstAttacker, damages);
+    checkFirstAttackerPossibleIncreaseHp(firstAttacker, damages);
 
     currentHpGreaterThanHpMaxAfterIncreased(firstAttacker);
     return 1;
@@ -59,7 +65,7 @@ export function hpIncrease50PercentOfDamagesFactorForFirstAttack(
     openDialogueWhenPokemonMissAttack(firstAttacker);
     return 0;
   } else {
-    return 0;
+    return 1;
   }
 }
 
@@ -74,7 +80,16 @@ export function hpIncrease50PercentOfDamagesFactorForSecondAttack(
     secondAttacker.primaryStatut === "asleep" &&
     isSecondAttackActive
   ) {
-    increaseHp(firstAttacker, damages);
+    const increasingValue = damages / 2;
+    const currentHp = firstAttacker.stats.hp;
+    const maxHp = firstAttacker.stats.hpMax;
+
+    checkFirstAttackerPossibleIncreaseHp(
+      firstAttacker,
+      increasingValue,
+      currentHp,
+      maxHp
+    );
 
     currentHpGreaterThanHpMaxAfterIncreased(firstAttacker);
     return 1;
@@ -86,6 +101,6 @@ export function hpIncrease50PercentOfDamagesFactorForSecondAttack(
     openDialogueWhenPokemonMissAttack(firstAttacker);
     return 0;
   } else {
-    return 0;
+    return 1;
   }
 }

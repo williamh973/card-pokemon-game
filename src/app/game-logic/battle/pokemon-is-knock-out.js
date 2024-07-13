@@ -1,5 +1,10 @@
 import { updateDisplayPokemonHp } from "./update-display-Pokemon-hp.js";
-import { displayBattleResult } from "../../components/battle-result-popup/display-battle-result/display-battle-result.js";
+import {
+  determinePokemonKo,
+  displayMenu,
+  openBattleResultPopup,
+  updatePokemonSelectionStatus,
+} from "../../components/battle-result-popup/display-battle-result/display-battle-result.js";
 import { openDialogueWhenPokemonKo } from "../../components/battle-dialogues/dialogues/pokemon-ko.dialogue.js";
 import { hideBattleInProgress } from "./display-battle-in-progress.js";
 import {
@@ -7,21 +12,23 @@ import {
   hideSecondAttackerWhenLose,
 } from "./hide-locations-when-pokemons-loses.js";
 import { animationWhenPokemonKo } from "./animations/pokemon-ko.animation.js";
-import { stopAlterationStatutAnimationWhenPokemonKo } from "./statut/stop-alteration-statut-animation-when-pokemon-ko.js";
+import { removeStatutAnimationWhenPokemonKo } from "./animations/animations-statuts/remove/remove-statut-animation-when-pokemon-ko.js";
 
 export function pokemonLose(firstAttacker, secondAttacker, enemyPokemon) {
+  determinePokemonKo(firstAttacker, secondAttacker);
   updateDisplayPokemonHp(firstAttacker, secondAttacker);
-  displayBattleResult();
-  openDialogueWhenPokemonKo();
+  updatePokemonSelectionStatus();
+  removeStatutAnimationWhenPokemonKo();
+  openBattleResultPopup();
+  animationWhenPokemonKo();
   hideBattleInProgress();
-  stopAlterationStatutAnimationWhenPokemonKo();
+  openDialogueWhenPokemonKo();
+  displayMenu();
 
   if (firstAttacker.stats.hp === 0) {
     hideFirstAttackerWhenLose(firstAttacker, enemyPokemon);
   } else if (secondAttacker.stats.hp === 0) {
     hideSecondAttackerWhenLose(secondAttacker, enemyPokemon);
   }
-  animationWhenPokemonKo();
-
   // displayStatsPokemonsContainer(firstAttacker, secondAttacker);
 }

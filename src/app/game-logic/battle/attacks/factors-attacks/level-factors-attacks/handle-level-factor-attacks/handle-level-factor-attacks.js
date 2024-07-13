@@ -1,5 +1,5 @@
-import { levelFactorForFirstAttack } from "../../../attacks/factors-attacks/level-factors-attacks/level-factor-first-attack.js";
-import { levelFactorForSecondAttack } from "../../../attacks/factors-attacks/level-factors-attacks/level-factor-second-attack.js";
+import { levelFactorForFirstAttack } from "../level-factor-first-attack.js";
+import { levelFactorForSecondAttack } from "../level-factor-second-attack.js";
 
 export function ifPokemonHasAnAttackThatDependsOnItsOwnLevel(
   firstAttacker,

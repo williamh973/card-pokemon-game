@@ -1,16 +1,19 @@
 import { domElements } from "../../../shared/dom/dom-elements.js";
 import { displayPokemonSelectedPopup } from "../../pokemon-selected-popup/display-pokemon-selected-popup.js";
 import { pokemonCardList } from "../../../shared/pokemon/pokemon-card-list.js";
+import { pokemonDisplayAnimation } from "../../../game-logic/battle/animations/pokemon-display-animation.js";
 
 export function displayFirstPokemonSelection(pokemon) {
-  function updatePokemonCardDisplay(card) {
+  function updatePokemonCardDisplay(pokemonCard) {
     domElements.pokemonFirstLocation.innerHTML = "";
-    domElements.pokemonFirstLocation.appendChild(card);
+    pokemonDisplayAnimation(pokemonCard);
+    domElements.pokemonFirstLocation.appendChild(pokemonCard);
+    // pokemonCard.classList.remove("slide-in");
   }
 
   function getPokemonCard() {
-    const card = pokemonCardList[pokemon];
-    updatePokemonCardDisplay(card);
+    const pokemonCard = pokemonCardList[pokemon];
+    updatePokemonCardDisplay(pokemonCard);
     displayPokemonSelectedPopup(pokemon);
   }
   getPokemonCard();

@@ -1,4 +1,4 @@
-import { disabledProtectCapacity } from "../../../../attacks/factors-attacks/protect-factors-attacks/protect-detect-capacity-actived.js";
+import { disabledProtectCapacity } from "../../../../attacks/factors-attacks/protect-detect-factor/protect-factors-attacks/protect-detect-capacity-actived.js";
 import { openDialogueWhenPokemonConfusedStatut } from "../../../../../../components/battle-dialogues/dialogues/pokemon-confused-statut.dialogue.js";
 import { openDialogueWhenPokemonHurtByConfusing } from "../../../../../../components/battle-dialogues/dialogues/pokemon-hurt-by-confusing.js";
 import { openDialogueWhenPokemonNoLongerConfused } from "../../../../../../components/battle-dialogues/dialogues/pokemon-no-longer-confused.js";
