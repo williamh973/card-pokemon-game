@@ -1,4 +1,4 @@
-import { openDialogueWhenPokemonMakesFirstAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-makes-attacks.dialogue.js";
+import { openDialogueWhenPokemonMakesAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-makes-attacks.dialogue.js";
 import { openDialogueWhenPokemonMissAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-miss-attack.dialogue.js";
 import { speedIncrease5pFactorForFirstAttack } from "../../increase-factors-attacks/speed-increase-factor-attacks/speed-increase-5P-factor-attacks.js";
 import { speedIncrease10pFactorForFirstAttack } from "../../increase-factors-attacks/speed-increase-factor-attacks/speed-increase-10P-factor-attacks.js";
@@ -11,7 +11,7 @@ import { disabledProtectCapacity } from "../protect-factors-attacks/protect-dete
 export function handleBonusAttackWhenProtectOrDetectCapacityActived(
   firstAttacker
 ) {
-  openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
+  openDialogueWhenPokemonMakesAttack(firstAttacker);
 
   const randomNumber = Math.floor(Math.random() * 100) + 1;
 

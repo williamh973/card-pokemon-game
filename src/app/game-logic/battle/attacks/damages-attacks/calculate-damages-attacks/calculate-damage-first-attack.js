@@ -1,5 +1,5 @@
-import { weaknessFactorForFirstAttack } from "../../../attacks/factors-attacks/weakness-factors-attacks/weakness-factor-first-attack.js";
-import { resistanceFactorForFirstAttack } from "../../../attacks/factors-attacks/resistance-factors-attacks/resistance-factor-first-attack.js";
+import { weaknessFactorAttack } from "../../../attacks/factors-attacks/weakness-factors-attacks/weakness-factor-attack.js";
+import { resistanceFactorAttack } from "../../../attacks/factors-attacks/resistance-factors-attacks/resistance-factor-first-attack.js";
 import { ineffectiveFactorForFirstAttack } from "../../../attacks/factors-attacks/ineffective-factors-attacks/ineffective-factors-first-attack.js";
 import { speedIncrease5pFactorForFirstAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/speed-increase-factor-attacks/speed-increase-5P-factor-attacks.js";
 import { speedIncrease10pFactorForFirstAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/speed-increase-factor-attacks/speed-increase-10P-factor-attacks.js";
@@ -7,7 +7,7 @@ import { defenseIncrease5pFactorForFirstAttack } from "../../../attacks/factors-
 import { defenseIncrease10pFactorForFirstAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-10P-factors-attacks/defense-increase-10P-factor-first-attack.js";
 import { attackDecrease2pFactorForFirstAttack } from "../../../attacks/factors-attacks/decrease-factors-attacks/attack-decrease-factors/attack-decrease-2P-factor-first-attack.js";
 import { hpIncrease5pFactorForFirstAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-5P-factor-attacks.js";
-import { openDialogueWhenPokemonMakesFirstAttack } from "../../../../../components/battle-dialogues/dialogues/pokemon-makes-attacks.dialogue.js";
+import { openDialogueWhenPokemonMakesAttack } from "../../../../../components/battle-dialogues/dialogues/pokemon-makes-attacks.dialogue.js";
 import { openDialogueWhenPokemonMissAttack } from "../../../../../components/battle-dialogues/dialogues/pokemon-miss-attack.dialogue.js";
 import { openDialogueWhenPokemonProtectingHimself } from "../../../../../components/battle-dialogues/dialogues/pokemon-protecting-himself.dialogue.js";
 import { criticalHit } from "../../../attacks/factors-attacks/critical-hit-factor/critical-hit-factor.js";
@@ -33,25 +33,32 @@ import { minimumDamage } from "../minimum-damage/minimum-damage.js";
 import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
 
 export function calculateDamagesAttack(firstAttacker, secondAttacker) {
+  const isFirstAttackActive = pokemonVariables.isFirstAttackActive;
+  const isSecondAttackActive = pokemonVariables.isSecondAttackActive;
+  const firstAttackerFirstAttackBonusType =
+    firstAttacker.firstAttack.type === "bonus" ||
+    firstAttacker.firstAttack.type !== "bonus";
+  const firstAttackerSecondAttackBonusType =
+    firstAttacker.secondAttack.type === "bonus" ||
+    firstAttacker.secondAttack.type !== "bonus";
+
+  const firstAttackerAttack = pokemonVariables.isFirstAttackActive
+    ? firstAttacker.firstAttack
+    : firstAttacker.secondAttack;
+
   if (
-    (pokemonVariables.isFirstAttackActive ||
-      pokemonVariables.isSecondAttackActive) &&
-    !isProtectOrDetectCapacityActived &&
-    (firstAttacker.firstAttack.type === "bonus" ||
-      firstAttacker.firstAttack.type !== "bonus") &&
-    (firstAttacker.secondAttack.type === "bonus" ||
-      firstAttacker.secondAttack.type !== "bonus")
+    isFirstAttackActive ||
+    (isSecondAttackActive &&
+      !isProtectOrDetectCapacityActived &&
+      firstAttackerFirstAttackBonusType &&
+      firstAttackerSecondAttackBonusType)
   ) {
-    openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
+    openDialogueWhenPokemonMakesAttack(firstAttacker);
 
     const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-    if (randomNumber <= firstAttacker.firstAttack.precision) {
-      let damages = baseDamage(
-        firstAttacker,
-        firstAttacker.firstAttack.strength,
-        secondAttacker
-      );
+    if (randomNumber <= firstAttackerAttack.precision) {
+      let damages = baseDamage(firstAttacker, secondAttacker);
 
       let getCriticalHit = criticalHit(firstAttacker);
       damages *= getCriticalHit;
@@ -59,66 +66,66 @@ export function calculateDamagesAttack(firstAttacker, secondAttacker) {
       let randomFactor = Math.random() * (1.0 - 0.85) + 0.85;
       damages *= randomFactor;
 
-      let getWeaknessFactorList = weaknessFactorForFirstAttack(
-        firstAttacker,
-        secondAttacker
+      let getWeaknessFactorList = weaknessFactorAttack(
+        secondAttacker,
+        firstAttackerAttack
       );
       damages *= getWeaknessFactorList;
 
-      let getResistanceFactorList = resistanceFactorForFirstAttack(
-        firstAttacker,
-        secondAttacker
+      let getResistanceFactorList = resistanceFactorAttack(
+        secondAttacker,
+        firstAttackerAttack
       );
       damages /= getResistanceFactorList;
 
-      let getIneffectiveFactorList = ineffectiveFactorForFirstAttack(
-        firstAttacker,
-        secondAttacker
-      );
-      damages *= getIneffectiveFactorList;
+      // let getIneffectiveFactorList = ineffectiveFactorForFirstAttack(
+      //   firstAttacker,
+      //   secondAttacker
+      // );
+      // damages *= getIneffectiveFactorList;
 
-      let getAlwaysKnockOutAttacks = oneHitKnockoutFactorForFirstAttack(
-        firstAttacker,
-        secondAttacker
-      );
-      damages *= getAlwaysKnockOutAttacks;
+      // let getAlwaysKnockOutAttacks = oneHitKnockoutFactorForFirstAttack(
+      //   firstAttacker,
+      //   secondAttacker
+      // );
+      // damages *= getAlwaysKnockOutAttacks;
 
-      let getLevelFactorsForAttacks = attackThatDependsFirstAttackerLevel(
-        firstAttacker,
-        damages
-      );
-      damages = getLevelFactorsForAttacks;
+      // let getLevelFactorsForAttacks = attackThatDependsFirstAttackerLevel(
+      //   firstAttacker,
+      //   damages
+      // );
+      // damages = getLevelFactorsForAttacks;
 
-      const getHpIncrease50PercentOfDamagesFactor =
-        hpIncrease50PercentOfDamagesFactorForFirstAttack(
-          firstAttacker,
-          secondAttacker,
-          damages
-        );
-      damages *= getHpIncrease50PercentOfDamagesFactor;
+      // const getHpIncrease50PercentOfDamagesFactor =
+      //   hpIncrease50PercentOfDamagesFactorForFirstAttack(
+      //     firstAttacker,
+      //     secondAttacker,
+      //     damages
+      //   );
+      // damages *= getHpIncrease50PercentOfDamagesFactor;
 
-      let minimumDamages = minimumDamage(damages);
+      // let minimumDamages = minimumDamage(damages);
 
-      speedIncrease5pFactorForFirstAttack(firstAttacker);
-      speedIncrease10pFactorForFirstAttack(firstAttacker);
-      defenseIncrease5pFactorForFirstAttack(firstAttacker);
-      defenseIncrease10pFactorForFirstAttack(firstAttacker);
-      hpIncrease5pFactorForFirstAttack(firstAttacker);
-      attackDecrease2pFactorForFirstAttack(firstAttacker, secondAttacker);
-      criticalHitIncreaseByFocusEnergyForFirstAttack(firstAttacker);
-      protectFactorForFirstAttack(firstAttacker, secondAttacker);
+      // speedIncrease5pFactorForFirstAttack(firstAttacker);
+      // speedIncrease10pFactorForFirstAttack(firstAttacker);
+      // defenseIncrease5pFactorForFirstAttack(firstAttacker);
+      // defenseIncrease10pFactorForFirstAttack(firstAttacker);
+      // hpIncrease5pFactorForFirstAttack(firstAttacker);
+      // attackDecrease2pFactorForFirstAttack(firstAttacker, secondAttacker);
+      // criticalHitIncreaseByFocusEnergyForFirstAttack(firstAttacker);
+      // protectFactorForFirstAttack(firstAttacker, secondAttacker);
 
-      burningStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
-      poisonedStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
-      paralyzedStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
-      frozenStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
-      asleepStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
-      confusingStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
-      cursedStatut100PercentProbability(
-        firstAttacker,
-        secondAttacker,
-        pokemonVariables.isFirstAttackActive
-      );
+      // burningStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
+      // poisonedStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
+      // paralyzedStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
+      // frozenStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
+      // asleepStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
+      // confusingStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
+      // cursedStatut100PercentProbability(
+      //   firstAttacker,
+      //   secondAttacker,
+      //   pokemonVariables.isFirstAttackActive
+      // );
 
       return Math.round(damages);
     } else {
@@ -130,7 +137,7 @@ export function calculateDamagesAttack(firstAttacker, secondAttacker) {
     isProtectOrDetectCapacityActived &&
     firstAttacker.firstAttack.type !== "bonus"
   ) {
-    openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
+    openDialogueWhenPokemonMakesAttack(firstAttacker);
     openDialogueWhenPokemonProtectingHimself(secondAttacker);
     disabledProtectCapacity();
     return 0;

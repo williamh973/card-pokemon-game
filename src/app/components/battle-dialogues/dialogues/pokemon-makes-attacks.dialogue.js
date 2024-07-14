@@ -6,7 +6,7 @@ function getText(firstAttacker, attackName) {
   return `${firstAttacker.name} utilise ${attackName} !`;
 }
 
-export function openDialogueWhenPokemonMakesFirstAttack(firstAttacker) {
+export function openDialogueWhenPokemonMakesAttack(firstAttacker) {
   battleSelectors.displayDialogue.style.display = "flex";
 
   if (pokemonVariables.isFirstAttackActive) {
