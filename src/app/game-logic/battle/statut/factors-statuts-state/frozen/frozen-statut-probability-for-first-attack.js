@@ -1,13 +1,13 @@
 import { addStatusAnimations } from "../../../animations/animations-statuts/add-statut-animation.js";
 import { openDialogueWhenPokemonHasFrozenStatut } from "../../../../../components/battle-dialogues/dialogues/pokemon-has-frozen-statut.dialogue.js";
+import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
 
 export function frozenStatut10PercentProbabililityForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   if (
-    isFirstAttackActive &&
+    pokemonVariables.isFirstAttackActive &&
     (firstAttacker.firstAttack.type === "ice" ||
       firstAttacker.firstAttack.type === "normal") &&
     (firstAttacker.firstAttack.name === "Blizzard" ||

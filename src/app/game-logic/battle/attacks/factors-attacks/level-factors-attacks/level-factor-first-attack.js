@@ -1,15 +1,6 @@
-export function levelFactorForFirstAttack(
-  firstAttacker,
-  isFirstAttackActive,
-  damages
-) {
-  if (
-    isFirstAttackActive &&
-    (firstAttacker.firstAttack.name === "Frappe Atlas" ||
-      firstAttacker.firstAttack.name === "Ombre Nocturne")
-  ) {
-    const levelOfFirstAttacker = firstAttacker.level;
-    damages = levelOfFirstAttacker;
-    return damages;
-  }
+export function levelFactorForFirstAttack(firstAttacker, damages) {
+  const getFirstAttackerLevel = firstAttacker.level;
+  damages = getFirstAttackerLevel;
+  console.log("damages de getFirstAttackerLevel ", damages);
+  return damages;
 }

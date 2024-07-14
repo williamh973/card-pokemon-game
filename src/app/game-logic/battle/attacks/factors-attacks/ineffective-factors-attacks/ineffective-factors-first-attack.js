@@ -1,12 +1,9 @@
 import { openDialogueWhenPokemonMakesIneffectiveAttack } from "../../../../../components/battle-dialogues/dialogues/pokemon-makes-ineffective-attack.dialogue.js";
+import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
 
-export function ineffectiveFactorForFirstAttack(
-  firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
-) {
+export function ineffectiveFactorForFirstAttack(firstAttacker, secondAttacker) {
   if (
-    (isFirstAttackActive &&
+    (pokemonVariables.isFirstAttackActive &&
       secondAttacker.type === "spectrum" &&
       firstAttacker.firstAttack.type === "normal") ||
     (secondAttacker.type === "spectrum" &&

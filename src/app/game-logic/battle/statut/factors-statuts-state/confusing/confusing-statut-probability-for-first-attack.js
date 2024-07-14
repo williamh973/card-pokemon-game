@@ -1,12 +1,12 @@
+import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
 import { confusingStatut } from "./confusing-statut.js";
 
 export function confusingStatut10PercentProbabililityForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   if (
-    isFirstAttackActive &&
+    pokemonVariables.isFirstAttackActive &&
     firstAttacker.firstAttack.type === "psy" &&
     (firstAttacker.firstAttack.name === "Choc Mental" ||
       firstAttacker.firstAttack.name === "Rafale Psy") &&
@@ -22,11 +22,10 @@ export function confusingStatut10PercentProbabililityForFirstAttack(
 
 export function confusingStatut20PercentProbabililityForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   if (
-    isFirstAttackActive &&
+    pokemonVariables.isFirstAttackActive &&
     (firstAttacker.firstAttack.type === "normal" ||
       firstAttacker.firstAttack.type === "water") &&
     (firstAttacker.firstAttack.name === "Escalade" ||
@@ -44,11 +43,10 @@ export function confusingStatut20PercentProbabililityForFirstAttack(
 
 export function confusingStatut100PercentProbabililityForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   if (
-    isFirstAttackActive &&
+    pokemonVariables.isFirstAttackActive &&
     (firstAttacker.firstAttack.type === "normal" ||
       firstAttacker.firstAttack.type === "fairy" ||
       firstAttacker.firstAttack.type === "dark" ||

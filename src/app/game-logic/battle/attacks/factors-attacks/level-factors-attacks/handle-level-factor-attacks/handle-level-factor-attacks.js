@@ -1,36 +1,37 @@
+import { pokemonVariables } from "../../../../../../shared/pokemon/pokemon-variables.js";
 import { levelFactorForFirstAttack } from "../level-factor-first-attack.js";
-import { levelFactorForSecondAttack } from "../level-factor-second-attack.js";
 
-export function ifPokemonHasAnAttackThatDependsOnItsOwnLevel(
+export function attackThatDependsFirstAttackerLevel(
   firstAttacker,
-  isAttackActive,
+  isSecondAttackActive,
   damages
 ) {
+  console.log(
+    "isFirstAttackActive",
+    pokemonVariables.isFirstAttackActive,
+    "isSecondAttackActive",
+    isSecondAttackActive
+  );
   if (
-    (firstAttacker.firstAttack.name === "Frappe Atlas" ||
+    ((firstAttacker.firstAttack.name === "Frappe Atlas" ||
       firstAttacker.firstAttack.name === "Ombre Nocturne") &&
-    isAttackActive
+      pokemonVariables.isFirstAttackActive) ||
+    ((firstAttacker.secondAttack.name === "Frappe Atlas" ||
+      firstAttacker.secondAttack.name === "Ombre Nocturne") &&
+      isSecondAttackActive)
   ) {
+    console.log(
+      firstAttacker.firstAttack.name,
+      firstAttacker.secondAttack.name
+    );
     let getLevelFactorForFirstAttack = levelFactorForFirstAttack(
       firstAttacker,
-      isAttackActive,
       damages
     );
     damages = getLevelFactorForFirstAttack;
     return damages;
-  } else if (
-    (firstAttacker.secondAttack.name === "Frappe Atlas" ||
-      firstAttacker.secondAttack.name === "Ombre Nocturne") &&
-    isAttackActive
-  ) {
-    let getLevelFactorForSecondAttack = levelFactorForSecondAttack(
-      firstAttacker,
-      isAttackActive,
-      damages
-    );
-    damages = getLevelFactorForSecondAttack;
-    return damages;
   } else {
+    console.log("la condition ne passe pas", damages);
     return damages;
   }
 }

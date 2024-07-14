@@ -1,14 +1,14 @@
 import { isStatusValidForParalyzed } from "./status-valid-for-paralyzed.js";
 
 import { paralyzedStatut } from "./paralyzed-statut.js";
+import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
 
 export function paralyzedStatut10PercentProbabililityForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   if (
-    isFirstAttackActive &&
+    pokemonVariables.isFirstAttackActive &&
     (firstAttacker.firstAttack.type === "electric" ||
       firstAttacker.firstAttack.type === "normal") &&
     secondAttacker.type !== "rock" &&
@@ -30,11 +30,10 @@ export function paralyzedStatut10PercentProbabililityForFirstAttack(
 
 export function paralyzedStatut30PercentProbabililityForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   if (
-    isFirstAttackActive &&
+    pokemonVariables.isFirstAttackActive &&
     (firstAttacker.firstAttack.type === "electric" ||
       firstAttacker.firstAttack.type === "normal" ||
       firstAttacker.firstAttack.type === "dragon" ||
@@ -63,11 +62,10 @@ export function paralyzedStatut30PercentProbabililityForFirstAttack(
 
 export function paralyzedStatut100PercentProbabililityForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   if (
-    isFirstAttackActive &&
+    pokemonVariables.isFirstAttackActive &&
     (firstAttacker.firstAttack.type === "electric" ||
       firstAttacker.firstAttack.type === "dark" ||
       firstAttacker.firstAttack.type === "plant") &&

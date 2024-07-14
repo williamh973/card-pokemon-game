@@ -7,6 +7,5 @@ function getPokemonCard(pokemonName) {
 
 export function removeAsleepStatutAnimation(pokemon) {
   const pokemonCard = getPokemonCard(pokemon.name);
-  console.log(pokemonCard);
   pokemonCard.classList.remove("asleep");
 }

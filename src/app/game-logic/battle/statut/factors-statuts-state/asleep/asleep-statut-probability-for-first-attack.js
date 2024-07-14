@@ -1,13 +1,13 @@
 import { isStatusValidForAsleep } from "./status-valid-for-asleep.js";
 import { asleepStatut } from "./asleep-statut.js";
+import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
 
 export function asleepStatut30PercentProbabililityForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   if (
-    isFirstAttackActive &&
+    pokemonVariables.isFirstAttackActive &&
     firstAttacker.firstAttack.type === "normal" &&
     firstAttacker.firstAttack.name === "Force Cachée" &&
     isStatusValidForAsleep(secondAttacker)
@@ -22,11 +22,10 @@ export function asleepStatut30PercentProbabililityForFirstAttack(
 
 export function asleepStatut100PercentProbabililityForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   if (
-    isFirstAttackActive &&
+    pokemonVariables.isFirstAttackActive &&
     (firstAttacker.firstAttack.type === "normal" ||
       firstAttacker.firstAttack.type === "psy" ||
       firstAttacker.firstAttack.type === "plant" ||

@@ -6,24 +6,20 @@ import {
 
 export function confusingStatutProbabilitysForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   confusingStatut10PercentProbabililityForFirstAttack(
     firstAttacker,
-    secondAttacker,
-    isFirstAttackActive
+    secondAttacker
   );
 
   confusingStatut20PercentProbabililityForFirstAttack(
     firstAttacker,
-    secondAttacker,
-    isFirstAttackActive
+    secondAttacker
   );
 
   confusingStatut100PercentProbabililityForFirstAttack(
     firstAttacker,
-    secondAttacker,
-    isFirstAttackActive
+    secondAttacker
   );
 }

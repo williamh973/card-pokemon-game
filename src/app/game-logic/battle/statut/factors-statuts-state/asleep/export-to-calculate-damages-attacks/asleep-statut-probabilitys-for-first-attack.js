@@ -5,18 +5,15 @@ import {
 
 export function asleepStatutProbabilitysForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   asleepStatut30PercentProbabililityForFirstAttack(
     firstAttacker,
-    secondAttacker,
-    isFirstAttackActive
+    secondAttacker
   );
 
   asleepStatut100PercentProbabililityForFirstAttack(
     firstAttacker,
-    secondAttacker,
-    isFirstAttackActive
+    secondAttacker
   );
 }

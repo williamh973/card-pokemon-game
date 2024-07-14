@@ -1,9 +1,7 @@
 import { openDialogueWhenPokemonMakesDefenseIncrease5pFactorAttack } from "../../../../../../../components/battle-dialogues/dialogues/pokemon-makes-defense-increase-5p-factor-attack.dialogue.js";
+import { pokemonVariables } from "../../../../../../../shared/pokemon/pokemon-variables.js";
 
-export function defenseIncrease5pFactorForFirstAttack(
-  pokemon,
-  isFirstAttackActive
-) {
+export function defenseIncrease5pFactorForFirstAttack(pokemon) {
   if (
     (pokemon.firstAttack.name === "Pouvoir Antique" ||
       pokemon.firstAttack.name === "Gonflette" ||
@@ -18,7 +16,7 @@ export function defenseIncrease5pFactorForFirstAttack(
       pokemon.firstAttack.name === "Vent Mauvais" ||
       pokemon.firstAttack.name === "Repli" ||
       pokemon.firstAttack.name === "Coud'Krane") &&
-    isFirstAttackActive
+    pokemonVariables.isFirstAttackActive
   ) {
     const increasingValue = 5;
     const newDefenseValue = (pokemon.stats.defense += increasingValue);

@@ -2,14 +2,14 @@ import { addStatusAnimations } from "../../../animations/animations-statuts/add-
 import { openDialogueWhenPokemonHasPoisonedStatut } from "../../../../../components/battle-dialogues/dialogues/pokemon--has-poisoned-statut.dialogue.js";
 
 import { isStatusValidForPoisoned } from "./status-valid-for-poisoned.js";
+import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
 
 export function poisonedStatut10PercentProbabililityForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   if (
-    isFirstAttackActive &&
+    pokemonVariables.isFirstAttackActive &&
     firstAttacker.firstAttack.type === "poison" &&
     (secondAttacker.type !== "poison" || secondAttacker.type !== "steel") &&
     firstAttacker.firstAttack.name === "Queue-Poison" &&
@@ -27,11 +27,10 @@ export function poisonedStatut10PercentProbabililityForFirstAttack(
 
 export function poisonedStatut20PercentProbabililityForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   if (
-    isFirstAttackActive &&
+    pokemonVariables.isFirstAttackActive &&
     firstAttacker.firstAttack.type === "poison" &&
     (secondAttacker.type !== "poison" || secondAttacker.type !== "steel") &&
     firstAttacker.firstAttack.name === "Double-Dard" &&
@@ -49,11 +48,10 @@ export function poisonedStatut20PercentProbabililityForFirstAttack(
 
 export function poisonedStatut30PercentProbabililityForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   if (
-    isFirstAttackActive &&
+    pokemonVariables.isFirstAttackActive &&
     firstAttacker.firstAttack.type === "poison" &&
     (secondAttacker.type !== "poison" || secondAttacker.type !== "steel") &&
     (firstAttacker.firstAttack.name === "Bomb-Beurk" ||
@@ -76,11 +74,10 @@ export function poisonedStatut30PercentProbabililityForFirstAttack(
 
 export function poisonedStatut40PercentProbabililityForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   if (
-    isFirstAttackActive &&
+    pokemonVariables.isFirstAttackActive &&
     firstAttacker.firstAttack.type === "poison" &&
     (secondAttacker.type !== "poison" || secondAttacker.type !== "steel") &&
     firstAttacker.firstAttack.name === "Puredpois" &&
@@ -98,11 +95,10 @@ export function poisonedStatut40PercentProbabililityForFirstAttack(
 
 export function poisonedStatut100PercentProbabililityForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   if (
-    isFirstAttackActive &&
+    pokemonVariables.isFirstAttackActive &&
     firstAttacker.firstAttack.type === "poison" &&
     (secondAttacker.type !== "poison" || secondAttacker.type !== "steel") &&
     (firstAttacker.firstAttack.name === "Gaz Toxik" ||

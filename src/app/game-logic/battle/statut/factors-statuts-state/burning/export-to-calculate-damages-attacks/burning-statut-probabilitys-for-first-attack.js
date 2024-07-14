@@ -7,30 +7,25 @@ import {
 
 export function burningStatutProbabilitysForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   burningStatut10PercentProbabililityForFirstAttack(
     firstAttacker,
-    secondAttacker,
-    isFirstAttackActive
+    secondAttacker
   );
 
   burningStatut30PercentProbabililityForFirstAttack(
     firstAttacker,
-    secondAttacker,
-    isFirstAttackActive
+    secondAttacker
   );
 
   burningStatut50PercentProbabililityForFirstAttack(
     firstAttacker,
-    secondAttacker,
-    isFirstAttackActive
+    secondAttacker
   );
 
   burningStatut100PercentProbabililityForFirstAttack(
     firstAttacker,
-    secondAttacker,
-    isFirstAttackActive
+    secondAttacker
   );
 }

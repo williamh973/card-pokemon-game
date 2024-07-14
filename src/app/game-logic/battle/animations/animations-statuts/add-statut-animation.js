@@ -17,6 +17,5 @@ export function addStatusAnimations(pokemon) {
 
   if (pokemonCard && pokemonModel) {
     pokemonCard.classList.add(pokemonModel.primaryStatut);
-    console.log(pokemonCard);
   }
 }

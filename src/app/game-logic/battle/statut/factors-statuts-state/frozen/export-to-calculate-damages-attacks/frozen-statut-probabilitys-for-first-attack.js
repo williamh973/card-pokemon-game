@@ -2,12 +2,10 @@ import { frozenStatut10PercentProbabililityForFirstAttack } from "../frozen-stat
 
 export function frozenStatutProbabilitysForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   frozenStatut10PercentProbabililityForFirstAttack(
     firstAttacker,
-    secondAttacker,
-    isFirstAttackActive
+    secondAttacker
   );
 }

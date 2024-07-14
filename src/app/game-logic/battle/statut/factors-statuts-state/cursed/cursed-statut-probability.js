@@ -15,15 +15,13 @@ export function firstAttackerDecrease50PercentHp(firstAttacker) {
 
 export function cursedStatut100PercentProbability(
   firstAttacker,
-  attackType,
-  attackName,
   secondAttacker,
   isAttackActive
 ) {
   if (
     isAttackActive &&
-    attackType === "malus" &&
-    attackName === "Malédiction" &&
+    firstAttacker.firstAttack.type === "malus" &&
+    firstAttacker.firstAttack.name === "Malédiction" &&
     !checkSecondAttackerAlreadyCursed(secondAttacker)
   ) {
     let firstAttackerHpDecreasedValue =
@@ -33,5 +31,14 @@ export function cursedStatut100PercentProbability(
       cursedStatut(firstAttacker, secondAttacker);
       updateDisplayPokemonHp(firstAttacker, secondAttacker);
     }
+  } else if (
+    isAttackActive &&
+    firstAttacker.firstAttack.type === "malus" &&
+    firstAttacker.firstAttack.name === "Malédiction" &&
+    checkSecondAttackerAlreadyCursed(secondAttacker)
+  ) {
+    openDialoguePokemonAlreadyCursed(secondAttacker);
+  } else {
+    return;
   }
 }

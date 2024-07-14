@@ -1,19 +1,25 @@
 import { dialogueConstant } from "../../../shared/battle/dialogues/dialogue-constant.js";
 import { battleSelectors } from "../../../shared/battle/battle-selectors.js";
+import { pokemonVariables } from "../../../shared/pokemon/pokemon-variables.js";
 
-export function openDialogueWhenPokemonMakesFirstAttack(attacker) {
-  battleSelectors.displayDialogue.style.display = "flex";
-  battleSelectors.displayDialogue.textContent = `${attacker.name} utilise ${attacker.firstAttack.name} !`;
-
-  setTimeout(function () {
-    battleSelectors.displayDialogue.style.display = "none";
-  }, dialogueConstant.ATTACKS_DISPLAY_DURATION);
+function getText(firstAttacker, attackName) {
+  return `${firstAttacker.name} utilise ${attackName} !`;
 }
 
-export function openDialogueWhenPokemonMakesSecondAttack(attacker) {
+export function openDialogueWhenPokemonMakesFirstAttack(firstAttacker) {
   battleSelectors.displayDialogue.style.display = "flex";
 
-  battleSelectors.displayDialogue.textContent = `${attacker.name} utilise ${attacker.secondAttack.name} !`;
+  if (pokemonVariables.isFirstAttackActive) {
+    battleSelectors.displayDialogue.textContent = getText(
+      firstAttacker,
+      firstAttacker.firstAttack.name
+    );
+  } else if (pokemonVariables.isSecondAttackActive) {
+    battleSelectors.displayDialogue.textContent = getText(
+      firstAttacker,
+      firstAttacker.secondAttack.name
+    );
+  }
 
   setTimeout(function () {
     battleSelectors.displayDialogue.style.display = "none";

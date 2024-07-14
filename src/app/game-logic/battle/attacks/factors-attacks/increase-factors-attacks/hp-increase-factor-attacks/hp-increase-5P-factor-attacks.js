@@ -1,5 +1,6 @@
 import { openDialogueWhenPokemonMakesHpIncrease5pFactorAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-makes-hp-increase-5p-factor-attack.dialogue.js";
 import { openDialogueWhenPokemonMissHpIncrease5pFactorAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-miss-hp-increase-5p-factor-attack.dialogue.js";
+import { pokemonVariables } from "../../../../../../shared/pokemon/pokemon-variables.js";
 
 function increaseHp(pokemon) {
   const increasingValue = 5;
@@ -29,26 +30,25 @@ function currentHpGreaterThanHpMaxAfterIncreased(pokemon) {
   }
 }
 
-export const hpIncrease5pFactorForFirstAttack =
-  function hpIncrease5pFactorForFirstAttack(pokemon, isFirstAttackActive) {
-    if (
-      pokemon.firstAttack.name === "Soin" &&
-      isFirstAttackActive &&
-      pokemon.stats.hp < pokemon.stats.hpMax
-    ) {
-      const hpGained = increaseHp(pokemon);
+export function hpIncrease5pFactorForFirstAttack(pokemon) {
+  if (
+    pokemon.firstAttack.name === "Soin" &&
+    pokemonVariables.isFirstAttackActive &&
+    pokemon.stats.hp < pokemon.stats.hpMax
+  ) {
+    const hpGained = increaseHp(pokemon);
 
-      openDialogueWhenPokemonMakesHpIncrease5pFactorAttack(pokemon, hpGained);
-      increaseHp(pokemon);
-      currentHpGreaterThanHpMaxAfterIncreased(pokemon);
-    } else if (
-      pokemon.firstAttack.name === "Soin" &&
-      isFirstAttackActive &&
-      pokemon.stats.hp >= pokemon.stats.hpMax
-    ) {
-      isCurrentHpAlreadyAboveHpMax(pokemon);
-    }
-  };
+    openDialogueWhenPokemonMakesHpIncrease5pFactorAttack(pokemon, hpGained);
+    increaseHp(pokemon);
+    currentHpGreaterThanHpMaxAfterIncreased(pokemon);
+  } else if (
+    pokemon.firstAttack.name === "Soin" &&
+    pokemonVariables.isFirstAttackActive &&
+    pokemon.stats.hp >= pokemon.stats.hpMax
+  ) {
+    isCurrentHpAlreadyAboveHpMax(pokemon);
+  }
+}
 
 export const hpIncrease5pFactorForSecondAttack =
   function hpIncrease5pFactorForSecondAttack(pokemon, isSecondAttackActive) {

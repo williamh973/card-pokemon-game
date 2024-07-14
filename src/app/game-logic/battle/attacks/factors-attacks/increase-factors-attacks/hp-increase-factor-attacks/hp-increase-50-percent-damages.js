@@ -1,5 +1,6 @@
 import { openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-makes-hp-increase-50-percent-of-damage-factor-attack.dialogue.js";
 import { openDialogueWhenPokemonMissAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-miss-attack.dialogue.js";
+import { pokemonVariables } from "../../../../../../shared/pokemon/pokemon-variables.js";
 
 function isCurrentHpAlreadyAboveHpMax(firstAttacker) {
   firstAttacker.stats.hp = firstAttacker.stats.hpMax;
@@ -45,13 +46,12 @@ function checkFirstAttackerPossibleIncreaseHp(
 export function hpIncrease50PercentOfDamagesFactorForFirstAttack(
   firstAttacker,
   secondAttacker,
-  isFirstAttackActive,
   damages
 ) {
   if (
     firstAttacker.firstAttack.name === "Dévorêve" &&
     secondAttacker.primaryStatut === "asleep" &&
-    isFirstAttackActive
+    pokemonVariables.isFirstAttackActive
   ) {
     checkFirstAttackerPossibleIncreaseHp(firstAttacker, damages);
 
@@ -60,7 +60,7 @@ export function hpIncrease50PercentOfDamagesFactorForFirstAttack(
   } else if (
     firstAttacker.firstAttack.name === "Dévorêve" &&
     secondAttacker.primaryStatut !== "asleep" &&
-    isFirstAttackActive
+    pokemonVariables.isFirstAttackActive
   ) {
     openDialogueWhenPokemonMissAttack(firstAttacker);
     return 0;

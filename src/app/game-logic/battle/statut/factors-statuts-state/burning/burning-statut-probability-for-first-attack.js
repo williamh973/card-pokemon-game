@@ -1,14 +1,13 @@
 import { isStatusValidForBurning } from "./status-valid-for-burning.js";
-
 import { burningStatut } from "./burning-statut.js";
+import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
 
 export function burningStatut10PercentProbabililityForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   if (
-    isFirstAttackActive &&
+    pokemonVariables.isFirstAttackActive &&
     (firstAttacker.firstAttack.type === "fire" ||
       firstAttacker.firstAttack.type === "normal") &&
     secondAttacker.type !== "fire" &&
@@ -34,11 +33,10 @@ export function burningStatut10PercentProbabililityForFirstAttack(
 
 export function burningStatut30PercentProbabililityForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   if (
-    isFirstAttackActive &&
+    pokemonVariables.isFirstAttackActive &&
     (firstAttacker.firstAttack.type === "fire" ||
       firstAttacker.firstAttack.type === "water" ||
       firstAttacker.firstAttack.type === "ice" ||
@@ -64,11 +62,10 @@ export function burningStatut30PercentProbabililityForFirstAttack(
 
 export function burningStatut50PercentProbabililityForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   if (
-    isFirstAttackActive &&
+    pokemonVariables.isFirstAttackActive &&
     firstAttacker.firstAttack.type === "fire" &&
     secondAttacker.type !== "fire" &&
     firstAttacker.firstAttack.name === "Feu Sacré" &&
@@ -84,11 +81,10 @@ export function burningStatut50PercentProbabililityForFirstAttack(
 
 export function burningStatut100PercentProbabililityForFirstAttack(
   firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
+  secondAttacker
 ) {
   if (
-    isFirstAttackActive &&
+    pokemonVariables.isFirstAttackActive &&
     (firstAttacker.firstAttack.type === "fire" ||
       firstAttacker.firstAttack.type === "dark") &&
     secondAttacker.type !== "fire" &&

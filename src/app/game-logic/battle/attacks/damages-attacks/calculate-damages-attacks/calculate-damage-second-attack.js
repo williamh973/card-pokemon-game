@@ -24,18 +24,14 @@ import { poisonedStatutProbabilitysForSecondAttack } from "../../../statut/facto
 import { paralyzedStatutProbabilitysForSecondAttack } from "../../../statut/factors-statuts-state/paralyzed/export-to-calculate-damages-attacks/paralyzed-statut-probabilitys-for-second-attack.js";
 import { frozenStatutProbabilitysForSecondAttack } from "../../../statut/factors-statuts-state/frozen/export-to-calculate-damages-attacks/frozen-statut-probabilitys-for-second-attack.js";
 import { asleepStatutProbabilitysForSecondAttack } from "../../../statut/factors-statuts-state/asleep/export-to-calculate-damages-attacks/asleep-statut-probabilitys-for-second-attack.js";
-import { ifPokemonHasAnAttackThatDependsOnItsOwnLevel } from "../../factors-attacks/level-factors-attacks/handle-level-factor-attacks/handle-level-factor-attacks.js";
+import { attackThatDependsFirstAttackerLevel } from "../../factors-attacks/level-factors-attacks/handle-level-factor-attacks/handle-level-factor-attacks.js";
 import { hpIncrease50PercentOfDamagesFactorForSecondAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-50-percent-damages.js";
 import { confusingStatutProbabilitysForSecondAttack } from "../../../statut/factors-statuts-state/confusing/export-to-calculate-damages-attacks/confusing-statut-probabilitys-for-second-attack.js";
 import { cursedStatut100PercentProbability } from "../../../statut/factors-statuts-state/cursed/cursed-statut-probability.js";
 import { baseDamage } from "../base-damages/base-damage.js";
 import { minimumDamage } from "../minimum-damage/minimum-damage.js";
 
-export function calculateDamageSecondAttack(
-  firstAttacker,
-  secondAttacker,
-  isSecondAttackActive
-) {
+export function calculateDamagesAttack(firstAttacker, secondAttacker) {
   if (
     isSecondAttackActive &&
     !isProtectOrDetectCapacityActived &&
@@ -87,12 +83,11 @@ export function calculateDamageSecondAttack(
       );
       damages *= getAlwaysKnockOutAttacks;
 
-      let getLevelFactorsForAttacks =
-        ifPokemonHasAnAttackThatDependsOnItsOwnLevel(
-          firstAttacker,
-          isSecondAttackActive,
-          damages
-        );
+      let getLevelFactorsForAttacks = attackThatDependsFirstAttackerLevel(
+        firstAttacker,
+        isSecondAttackActive,
+        damages
+      );
 
       damages = getLevelFactorsForAttacks;
 
@@ -189,8 +184,6 @@ export function calculateDamageSecondAttack(
         secondAttacker,
         isSecondAttackActive
       );
-
-      // console.log(damages);
 
       return Math.round(damages);
     } else {

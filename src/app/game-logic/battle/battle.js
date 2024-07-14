@@ -4,8 +4,7 @@ import {
   determineFirstAttacker,
 } from "./determine-first-attacker.js";
 import { displayBattleInProgress } from "./display-battle-in-progress.js";
-import { calculateDamageFirstAttack } from "./attacks/damages-attacks/calculate-damages-attacks/calculate-damage-first-attack.js";
-import { calculateDamageSecondAttack } from "./attacks/damages-attacks/calculate-damages-attacks/calculate-damage-second-attack.js";
+import { calculateDamagesAttack } from "./attacks/damages-attacks/calculate-damages-attacks/calculate-damage-first-attack.js";
 import { isProtectOrDetectCapacityActived } from "./attacks/factors-attacks/protect-detect-factor/protect-factors-attacks/protect-detect-capacity-actived.js";
 import {
   handleAttacksDelayAndAnimations,
@@ -84,10 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
             pokemonVariables.isFirstAttackActive = true;
             pokemonVariables.isSecondAttackActive = false;
 
-            let damageFirstAttack = calculateDamageFirstAttack(
+            let damageFirstAttack = calculateDamagesAttack(
               firstAttacker,
-              secondAttacker,
-              pokemonVariables.isFirstAttackActive
+              secondAttacker
             );
 
             if (pokemonVariables.isFirstAttackActive) {
@@ -110,10 +108,9 @@ document.addEventListener("DOMContentLoaded", () => {
             pokemonVariables.isFirstAttackActive = false;
             pokemonVariables.isSecondAttackActive = true;
 
-            let damageSecondAttack = calculateDamageSecondAttack(
+            let damageSecondAttack = calculateDamagesAttack(
               firstAttacker,
-              secondAttacker,
-              pokemonVariables.isSecondAttackActive
+              secondAttacker
             );
 
             if (pokemonVariables.isSecondAttackActive) {
@@ -215,10 +212,9 @@ document.addEventListener("DOMContentLoaded", () => {
             pokemonVariables.isFirstAttackActive = true;
             pokemonVariables.isSecondAttackActive = false;
 
-            let damageFirstAttack = calculateDamageFirstAttack(
+            let damageFirstAttack = calculateDamagesAttack(
               secondAttacker,
-              firstAttacker,
-              pokemonVariables.isFirstAttackActive
+              firstAttacker
             );
 
             if (pokemonVariables.isFirstAttackActive) {
@@ -241,10 +237,9 @@ document.addEventListener("DOMContentLoaded", () => {
             pokemonVariables.isFirstAttackActive = false;
             pokemonVariables.isSecondAttackActive = true;
 
-            let damageSecondAttack = calculateDamageSecondAttack(
+            let damageSecondAttack = calculateDamagesAttack(
               secondAttacker,
-              firstAttacker,
-              pokemonVariables.isSecondAttackActive
+              firstAttacker
             );
 
             if (pokemonVariables.isSecondAttackActive) {

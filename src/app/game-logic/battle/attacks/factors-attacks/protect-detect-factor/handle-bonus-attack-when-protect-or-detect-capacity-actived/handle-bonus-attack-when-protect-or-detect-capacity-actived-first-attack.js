@@ -9,26 +9,19 @@ import { protectFactorForFirstAttack } from "../protect-factors-attacks/protect-
 import { disabledProtectCapacity } from "../protect-factors-attacks/protect-detect-capacity-actived.js";
 
 export function handleBonusAttackWhenProtectOrDetectCapacityActived(
-  firstAttacker,
-  isFirstAttackActive,
-  firstAttackPrecision
+  firstAttacker
 ) {
   openDialogueWhenPokemonMakesFirstAttack(firstAttacker);
 
   const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-  if (randomNumber <= firstAttackPrecision) {
-    speedIncrease5pFactorForFirstAttack(firstAttacker, isFirstAttackActive);
-
-    speedIncrease10pFactorForFirstAttack(firstAttacker, isFirstAttackActive);
-
-    defenseIncrease5pFactorForFirstAttack(firstAttacker, isFirstAttackActive);
-
-    defenseIncrease10pFactorForFirstAttack(firstAttacker, isFirstAttackActive);
-
-    hpIncrease5pFactorForFirstAttack(firstAttacker, isFirstAttackActive);
-
-    protectFactorForFirstAttack(firstAttacker, isFirstAttackActive);
+  if (randomNumber <= firstAttacker.firstAttack.precision) {
+    speedIncrease5pFactorForFirstAttack(firstAttacker);
+    speedIncrease10pFactorForFirstAttack(firstAttacker);
+    defenseIncrease5pFactorForFirstAttack(firstAttacker);
+    defenseIncrease10pFactorForFirstAttack(firstAttacker);
+    hpIncrease5pFactorForFirstAttack(firstAttacker);
+    protectFactorForFirstAttack(firstAttacker);
   } else {
     openDialogueWhenPokemonMissAttack(firstAttacker);
     disabledProtectCapacity();

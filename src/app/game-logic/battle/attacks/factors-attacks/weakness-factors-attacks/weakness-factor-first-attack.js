@@ -1,12 +1,9 @@
 import { openDialogueWhenPokemonMakesWeaknessAttack } from "../../../../../components/battle-dialogues/dialogues/pokemon-makes-weakness-attack.dialogue.js";
+import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
 
-export function weaknessFactorForFirstAttack(
-  firstAttacker,
-  secondAttacker,
-  isFirstAttackActive
-) {
+export function weaknessFactorForFirstAttack(firstAttacker, secondAttacker) {
   if (
-    (isFirstAttackActive &&
+    (pokemonVariables.isFirstAttackActive &&
       secondAttacker.type === "water" &&
       firstAttacker.firstAttack.type === "plant") ||
     (secondAttacker.type === "water" &&
