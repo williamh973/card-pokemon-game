@@ -1,6 +1,6 @@
 import { weaknessFactorAttack } from "../../../attacks/factors-attacks/weakness-factors-attacks/weakness-factor-attack.js";
-import { resistanceFactorAttack } from "../../../attacks/factors-attacks/resistance-factors-attacks/resistance-factor-first-attack.js";
-import { ineffectiveFactorForFirstAttack } from "../../../attacks/factors-attacks/ineffective-factors-attacks/ineffective-factors-first-attack.js";
+import { resistanceFactorAttack } from "../../factors-attacks/resistance-factors-attacks/resistance-factor-attacks.js";
+import { ineffectiveFactorAttack } from "../../../attacks/factors-attacks/ineffective-factors-attacks/ineffective-factors-attack.js";
 import { speedIncrease5pFactorForFirstAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/speed-increase-factor-attacks/speed-increase-5P-factor-attacks.js";
 import { speedIncrease10pFactorForFirstAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/speed-increase-factor-attacks/speed-increase-10P-factor-attacks.js";
 import { defenseIncrease5pFactorForFirstAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-5P-factors-attacks/defense-increase-5P-factor-first-attack.js";
@@ -78,11 +78,11 @@ export function calculateDamagesAttack(firstAttacker, secondAttacker) {
       );
       damages /= getResistanceFactorList;
 
-      // let getIneffectiveFactorList = ineffectiveFactorForFirstAttack(
-      //   firstAttacker,
-      //   secondAttacker
-      // );
-      // damages *= getIneffectiveFactorList;
+      let getIneffectiveFactorList = ineffectiveFactorAttack(
+        secondAttacker,
+        firstAttackerAttack
+      );
+      damages *= getIneffectiveFactorList;
 
       // let getAlwaysKnockOutAttacks = oneHitKnockoutFactorForFirstAttack(
       //   firstAttacker,
