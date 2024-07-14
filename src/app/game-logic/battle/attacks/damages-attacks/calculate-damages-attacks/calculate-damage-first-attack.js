@@ -12,7 +12,7 @@ import { openDialogueWhenPokemonMissAttack } from "../../../../../components/bat
 import { openDialogueWhenPokemonProtectingHimself } from "../../../../../components/battle-dialogues/dialogues/pokemon-protecting-himself.dialogue.js";
 import { criticalHit } from "../../../attacks/factors-attacks/critical-hit-factor/critical-hit-factor.js";
 import { criticalHitIncreaseByFocusEnergyForFirstAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/critical-hit-increase-factors-attacks/critical-hit-increase-focus-energy-first-attack.js";
-import { oneHitKnockoutFactorForFirstAttack } from "../../../attacks/factors-attacks/one-hit-factors-attacks/one-hit-knock-out-first-attack.js";
+import { oneHitKnockoutFactorAttack } from "../../../attacks/factors-attacks/one-hit-factors-attacks/one-hit-knock-out-first-attack.js";
 import { protectFactorForFirstAttack } from "../../factors-attacks/protect-detect-factor/protect-factors-attacks/protect-factors-first-attack.js";
 import {
   disabledProtectCapacity,
@@ -33,8 +33,6 @@ import { minimumDamage } from "../minimum-damage/minimum-damage.js";
 import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
 
 export function calculateDamagesAttack(firstAttacker, secondAttacker) {
-  const isFirstAttackActive = pokemonVariables.isFirstAttackActive;
-  const isSecondAttackActive = pokemonVariables.isSecondAttackActive;
   const firstAttackerFirstAttackBonusType =
     firstAttacker.firstAttack.type === "bonus" ||
     firstAttacker.firstAttack.type !== "bonus";
@@ -47,8 +45,8 @@ export function calculateDamagesAttack(firstAttacker, secondAttacker) {
     : firstAttacker.secondAttack;
 
   if (
-    isFirstAttackActive ||
-    (isSecondAttackActive &&
+    pokemonVariables.isFirstAttackActive ||
+    (pokemonVariables.isSecondAttackActive &&
       !isProtectOrDetectCapacityActived &&
       firstAttackerFirstAttackBonusType &&
       firstAttackerSecondAttackBonusType)
@@ -84,11 +82,11 @@ export function calculateDamagesAttack(firstAttacker, secondAttacker) {
       );
       damages *= getIneffectiveFactorList;
 
-      // let getAlwaysKnockOutAttacks = oneHitKnockoutFactorForFirstAttack(
-      //   firstAttacker,
-      //   secondAttacker
-      // );
-      // damages *= getAlwaysKnockOutAttacks;
+      let getAlwaysKnockOutAttacks = oneHitKnockoutFactorAttack(
+        secondAttacker,
+        firstAttackerAttack
+      );
+      damages *= getAlwaysKnockOutAttacks;
 
       // let getLevelFactorsForAttacks = attackThatDependsFirstAttackerLevel(
       //   firstAttacker,
