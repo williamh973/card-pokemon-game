@@ -2,43 +2,27 @@ import { isProtectOrDetectCapacityActived } from "./protect-detect-capacity-acti
 import { openDialogueWhenPokemonReadyToProtectItself } from "../../../../../../components/battle-dialogues/dialogues/pokemon-ready-to-protect-itself.dialogue.js";
 
 export let protectCount = 0;
+const possibleAttacksList = ["Abri", "Détection"];
 
-export function pokemonDecreasePrecision(pokemon) {
+export function pokemonDecreasePrecision(firstAttacker, firstAttackerAttack) {
   if (isProtectOrDetectCapacityActived) {
-    openDialogueWhenPokemonReadyToProtectItself(pokemon);
+    openDialogueWhenPokemonReadyToProtectItself(firstAttacker);
 
     protectCount++;
 
-    if (
-      pokemon.firstAttack.name === "Abri" ||
-      pokemon.firstAttack.name === "Detection"
-    ) {
-      pokemon.firstAttack.precision -= 15;
-    } else if (
-      pokemon.secondAttack.name === "Abri" ||
-      pokemon.secondAttack.name === "Detection"
-    ) {
-      pokemon.secondAttack.precision -= 15;
+    if (possibleAttacksList.includes(firstAttackerAttack.name)) {
+      firstAttackerAttack.precision -= 15;
     }
-
-    resetPrecisionAttack(pokemon);
+    resetPrecisionAttack(firstAttackerAttack);
   }
 }
 
-function resetPrecisionAttack(pokemon) {
+function resetPrecisionAttack(firstAttackerAttack) {
   if (protectCount === 5) {
     protectCount = 0;
 
-    if (
-      pokemon.firstAttack.name === "Abri" ||
-      pokemon.firstAttack.name === "Detection"
-    ) {
-      pokemon.firstAttack.precision = pokemon.firstAttack.precisionMax;
-    } else if (
-      pokemon.secondAttack.name === "Abri" ||
-      pokemon.secondAttack.name === "Detection"
-    ) {
-      pokemon.secondAttack.precision = pokemon.secondAttack.precisionMax;
+    if (possibleAttacksList.includes(firstAttackerAttack.name)) {
+      firstAttackerAttack.precision = firstAttackerAttack.precisionMax;
     }
   }
 }

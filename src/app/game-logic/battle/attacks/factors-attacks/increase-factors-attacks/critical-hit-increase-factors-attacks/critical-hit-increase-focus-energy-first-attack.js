@@ -3,28 +3,35 @@ import { openDialogueWhenPokemonCriticalHitAlreadyBoostedByFocusEnergy } from ".
 import { pokemonVariables } from "../../../../../../shared/pokemon/pokemon-variables.js";
 
 export let isCriticalHitBoostedByFocusEnergy = false;
+const possibleAttacksList = ["Puissance"];
+const possiblePokemonsList = ["Scarabrute"];
 
-export function criticalHitIncreaseByFocusEnergyForFirstAttack(pokemon) {
+export function criticalHitIncreaseByFocusEnergyAttack(
+  firstAttacker,
+  firstAttackerAttack
+) {
   if (
-    pokemon.firstAttack.name === "Puissance" &&
-    pokemon.name === "Scarabrute" &&
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    possiblePokemonsList.includes(firstAttacker.name) &&
     pokemonVariables.isFirstAttackActive &&
     !isCriticalHitBoostedByFocusEnergy
   ) {
-    openDialogueWhenPokemonCriticalHitBoostedByFocusEnergy(pokemon);
+    openDialogueWhenPokemonCriticalHitBoostedByFocusEnergy(firstAttacker);
     isCriticalHitBoostedByFocusEnergy = true;
   } else if (
-    pokemon.firstAttack.name === "Puissance" &&
-    pokemon.name === "Scarabrute" &&
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    possiblePokemonsList.includes(firstAttacker.name) &&
     pokemonVariables.isFirstAttackActive &&
     isCriticalHitBoostedByFocusEnergy
   ) {
-    pokemonAlreadyBoostedByFocusEnergy(pokemon);
+    pokemonAlreadyBoostedByFocusEnergy(firstAttacker);
   }
 }
 
-function pokemonAlreadyBoostedByFocusEnergy(pokemon) {
+function pokemonAlreadyBoostedByFocusEnergy(firstAttacker) {
   if (isCriticalHitBoostedByFocusEnergy) {
-    openDialogueWhenPokemonCriticalHitAlreadyBoostedByFocusEnergy(pokemon);
+    openDialogueWhenPokemonCriticalHitAlreadyBoostedByFocusEnergy(
+      firstAttacker
+    );
   }
 }

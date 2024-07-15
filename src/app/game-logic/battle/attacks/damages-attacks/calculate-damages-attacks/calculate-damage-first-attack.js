@@ -1,19 +1,19 @@
 import { weaknessFactorAttack } from "../../../attacks/factors-attacks/weakness-factors-attacks/weakness-factor-attack.js";
 import { resistanceFactorAttack } from "../../factors-attacks/resistance-factors-attacks/resistance-factor-attacks.js";
 import { ineffectiveFactorAttack } from "../../../attacks/factors-attacks/ineffective-factors-attacks/ineffective-factors-attack.js";
-import { speedIncrease5pFactorForFirstAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/speed-increase-factor-attacks/speed-increase-5P-factor-attacks.js";
-import { speedIncrease10pFactorForFirstAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/speed-increase-factor-attacks/speed-increase-10P-factor-attacks.js";
-import { defenseIncrease5pFactorForFirstAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-5P-factors-attacks/defense-increase-5P-factor-first-attack.js";
-import { defenseIncrease10pFactorForFirstAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-10P-factors-attacks/defense-increase-10P-factor-first-attack.js";
-import { attackDecrease2pFactorForFirstAttack } from "../../../attacks/factors-attacks/decrease-factors-attacks/attack-decrease-factors/attack-decrease-2P-factor-first-attack.js";
-import { hpIncrease5pFactorForFirstAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-5P-factor-attacks.js";
+import { speedIncrease5pFactorAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/speed-increase-factor-attacks/speed-increase-5P-factor-attacks.js";
+import { speedIncrease10pFactorAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/speed-increase-factor-attacks/speed-increase-10P-factor-attacks.js";
+import { defenseIncrease5pFactorAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-5P-factors-attacks/defense-increase-5P-factor-first-attack.js";
+import { defenseIncrease10pFactorAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-10P-factors-attacks/defense-increase-10P-factor-first-attack.js";
+import { attackDecrease2pFactorAttack } from "../../../attacks/factors-attacks/decrease-factors-attacks/attack-decrease-factors/attack-decrease-2P-factor-first-attack.js";
+import { hpIncrease5pFactorAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-5P-factor-attacks.js";
 import { openDialogueWhenPokemonMakesAttack } from "../../../../../components/battle-dialogues/dialogues/pokemon-makes-attacks.dialogue.js";
 import { openDialogueWhenPokemonMissAttack } from "../../../../../components/battle-dialogues/dialogues/pokemon-miss-attack.dialogue.js";
 import { openDialogueWhenPokemonProtectingHimself } from "../../../../../components/battle-dialogues/dialogues/pokemon-protecting-himself.dialogue.js";
 import { criticalHit } from "../../../attacks/factors-attacks/critical-hit-factor/critical-hit-factor.js";
-import { criticalHitIncreaseByFocusEnergyForFirstAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/critical-hit-increase-factors-attacks/critical-hit-increase-focus-energy-first-attack.js";
+import { criticalHitIncreaseByFocusEnergyAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/critical-hit-increase-factors-attacks/critical-hit-increase-focus-energy-first-attack.js";
 import { oneHitKnockoutFactorAttack } from "../../../attacks/factors-attacks/one-hit-factors-attacks/one-hit-knock-out-first-attack.js";
-import { protectFactorForFirstAttack } from "../../factors-attacks/protect-detect-factor/protect-factors-attacks/protect-factors-first-attack.js";
+import { protectFactorAttack } from "../../factors-attacks/protect-detect-factor/protect-factors-attacks/protect-factors-first-attack.js";
 import {
   disabledProtectCapacity,
   isProtectOrDetectCapacityActived,
@@ -86,8 +86,6 @@ export function calculateDamagesAttack(firstAttacker, secondAttacker) {
         );
       damages *= getHpIncrease50PercentOfDamagesFactor;
 
-      let minimumDamages = minimumDamage(damages);
-
       let getWeaknessFactorList = weaknessFactorAttack(
         secondAttacker,
         firstAttackerAttack
@@ -106,14 +104,17 @@ export function calculateDamagesAttack(firstAttacker, secondAttacker) {
       );
       damages *= getIneffectiveFactorList;
 
-      // speedIncrease5pFactorForFirstAttack(firstAttacker);
-      // speedIncrease10pFactorForFirstAttack(firstAttacker);
-      // defenseIncrease5pFactorForFirstAttack(firstAttacker);
-      // defenseIncrease10pFactorForFirstAttack(firstAttacker);
-      // hpIncrease5pFactorForFirstAttack(firstAttacker);
-      // attackDecrease2pFactorForFirstAttack(firstAttacker, secondAttacker);
-      // criticalHitIncreaseByFocusEnergyForFirstAttack(firstAttacker);
-      // protectFactorForFirstAttack(firstAttacker, secondAttacker);
+      speedIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
+      speedIncrease10pFactorAttack(firstAttacker, firstAttackerAttack);
+      defenseIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
+      defenseIncrease10pFactorAttack(firstAttacker, firstAttackerAttack);
+      hpIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
+      attackDecrease2pFactorAttack(secondAttacker, firstAttackerAttack);
+      criticalHitIncreaseByFocusEnergyAttack(
+        firstAttacker,
+        firstAttackerAttack
+      );
+      protectFactorAttack(firstAttacker, firstAttackerAttack);
 
       // burningStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
       // poisonedStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
@@ -127,6 +128,7 @@ export function calculateDamagesAttack(firstAttacker, secondAttacker) {
       //   pokemonVariables.isFirstAttackActive
       // );
 
+      damages = minimumDamage(damages);
       return Math.round(damages);
     } else {
       openDialogueWhenPokemonMissAttack(firstAttacker);
