@@ -1,4 +1,4 @@
-import { frozenStatut10PercentProbabililityAttack } from "../frozen-statut-probability-for-first-attack.js";
+import { frozenStatut10PercentProbabililityAttack } from "../frozen-statut-probability-attack.js";
 
 export function frozenStatutProbabilitysAttack(
   secondAttacker,

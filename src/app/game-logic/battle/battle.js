@@ -4,7 +4,7 @@ import {
   determineFirstAttacker,
 } from "./determine-first-attacker.js";
 import { displayBattleInProgress } from "./display-battle-in-progress.js";
-import { calculateDamagesAttack } from "./attacks/damages-attacks/calculate-damages-attacks/calculate-damage-first-attack.js";
+import { calculateDamagesAttack } from "./attacks/damages-attacks/calculate-damages-attacks/calculate-damage-attack.js";
 import { isProtectOrDetectCapacityActived } from "./attacks/factors-attacks/protect-detect-factor/protect-factors-attacks/protect-detect-capacity-actived.js";
 import {
   handleAttacksDelayAndAnimations,

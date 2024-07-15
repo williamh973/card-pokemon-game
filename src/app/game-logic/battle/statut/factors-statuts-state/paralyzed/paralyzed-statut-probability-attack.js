@@ -84,10 +84,6 @@ export function paralyzedStatut100PercentProbabililityAttack(
     secondAttacker.type !== "electric" &&
     isStatusValidForParalyzed(secondAttacker)
   ) {
-    const randomNumber = Math.floor(Math.random() * 100) + 1;
-
-    if (randomNumber <= 100) {
-      paralyzedStatut(secondAttacker);
-    }
+    paralyzedStatut(secondAttacker);
   }
 }

@@ -2,7 +2,7 @@ import {
   paralyzedStatut10PercentProbabililityAttack,
   paralyzedStatut30PercentProbabililityAttack,
   paralyzedStatut100PercentProbabililityAttack,
-} from "../paralyzed-statut-probability-for-first-attack.js";
+} from "../paralyzed-statut-probability-attack.js";
 
 export function paralyzedStatutProbabilitysAttack(
   secondAttacker,

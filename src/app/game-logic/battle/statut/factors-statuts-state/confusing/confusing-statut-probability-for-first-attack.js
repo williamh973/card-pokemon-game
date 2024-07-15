@@ -1,15 +1,14 @@
 import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
 import { confusingStatut } from "./confusing-statut.js";
 
-export function confusingStatut10PercentProbabililityForFirstAttack(
-  firstAttacker,
-  secondAttacker
+export function confusingStatut10PercentProbabililityAttack(
+  secondAttacker,
+  firstAttackerAttack
 ) {
+  const possibleAttacksList = ["Choc Mental", "Rafale Psy"];
   if (
-    pokemonVariables.isFirstAttackActive &&
-    firstAttacker.firstAttack.type === "psy" &&
-    (firstAttacker.firstAttack.name === "Choc Mental" ||
-      firstAttacker.firstAttack.name === "Rafale Psy") &&
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    firstAttackerAttack.type === "psy" &&
     !secondAttacker.secondaryStatut.isConfused
   ) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -20,17 +19,15 @@ export function confusingStatut10PercentProbabililityForFirstAttack(
   }
 }
 
-export function confusingStatut20PercentProbabililityForFirstAttack(
-  firstAttacker,
-  secondAttacker
+export function confusingStatut20PercentProbabililityAttack(
+  secondAttacker,
+  firstAttackerAttack
 ) {
+  const possibleAttacksList = ["Escalade", "Vibraqua", "Uppercut"];
   if (
-    pokemonVariables.isFirstAttackActive &&
-    (firstAttacker.firstAttack.type === "normal" ||
-      firstAttacker.firstAttack.type === "water") &&
-    (firstAttacker.firstAttack.name === "Escalade" ||
-      firstAttacker.firstAttack.name === "Vibraqua" ||
-      firstAttacker.firstAttack.name === "Uppercut") &&
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    (firstAttackerAttack.type === "normal" ||
+      firstAttackerAttack.type === "water") &&
     !secondAttacker.secondaryStatut.isConfused
   ) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -41,23 +38,25 @@ export function confusingStatut20PercentProbabililityForFirstAttack(
   }
 }
 
-export function confusingStatut100PercentProbabililityForFirstAttack(
-  firstAttacker,
-  secondAttacker
+export function confusingStatut100PercentProbabililityAttack(
+  secondAttacker,
+  firstAttackerAttack
 ) {
+  const possibleAttacksList = [
+    "Danse-Folle",
+    "Doux Baiser",
+    "Dynamopoing",
+    "Flatterie",
+    "Onde Folie",
+    "Vantardise",
+    "Ultrason",
+  ];
   if (
-    pokemonVariables.isFirstAttackActive &&
-    (firstAttacker.firstAttack.type === "normal" ||
-      firstAttacker.firstAttack.type === "fairy" ||
-      firstAttacker.firstAttack.type === "dark" ||
-      firstAttacker.firstAttack.type === "spectrum") &&
-    (firstAttacker.firstAttack.name === "Danse-Folle" ||
-      firstAttacker.firstAttack.name === "Doux Baiser" ||
-      firstAttacker.firstAttack.name === "Dynamopoing" ||
-      firstAttacker.firstAttack.name === "Flatterie" ||
-      firstAttacker.firstAttack.name === "Onde Folie" ||
-      firstAttacker.firstAttack.name === "Vantardise" ||
-      firstAttacker.firstAttack.name === "Ultrason") &&
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    (firstAttackerAttack.type === "normal" ||
+      firstAttackerAttack.type === "fairy" ||
+      firstAttackerAttack.type === "dark" ||
+      firstAttackerAttack.type === "spectrum") &&
     !secondAttacker.secondaryStatut.isConfused
   ) {
     confusingStatut(secondAttacker);

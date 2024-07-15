@@ -4,7 +4,7 @@ import {
   poisonedStatut30PercentProbabililityAttack,
   poisonedStatut40PercentProbabililityAttack,
   poisonedStatut100PercentProbabililityAttack,
-} from "../poisoned-statut-probability-for-first-attack.js";
+} from "../poisoned-statut-probability-attack.js";
 
 export function poisonedStatutProbabilitysAttack(
   secondAttacker,

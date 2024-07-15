@@ -1,4 +1,4 @@
-import { levelFactorForFirstAttack } from "../level-factor-first-attack.js";
+import { levelFactorForFirstAttack } from "../level-factor-attack.js";
 
 const possibleAttacksList = ["Frappe Atlas", "Ombre Nocturne"];
 

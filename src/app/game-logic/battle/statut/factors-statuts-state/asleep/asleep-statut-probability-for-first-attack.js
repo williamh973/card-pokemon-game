@@ -1,15 +1,14 @@
 import { isStatusValidForAsleep } from "./status-valid-for-asleep.js";
 import { asleepStatut } from "./asleep-statut.js";
-import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
 
-export function asleepStatut30PercentProbabililityForFirstAttack(
-  firstAttacker,
-  secondAttacker
+export function asleepStatut30PercentProbabililityAttack(
+  secondAttacker,
+  firstAttackerAttack
 ) {
+  const possibleAttacksList = ["Force Cachée"];
   if (
-    pokemonVariables.isFirstAttackActive &&
-    firstAttacker.firstAttack.type === "normal" &&
-    firstAttacker.firstAttack.name === "Force Cachée" &&
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    firstAttackerAttack.type === "normal" &&
     isStatusValidForAsleep(secondAttacker)
   ) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -20,29 +19,27 @@ export function asleepStatut30PercentProbabililityForFirstAttack(
   }
 }
 
-export function asleepStatut100PercentProbabililityForFirstAttack(
-  firstAttacker,
-  secondAttacker
+export function asleepStatut100PercentProbabililityAttack(
+  secondAttacker,
+  firstAttackerAttack
 ) {
+  const possibleAttacksList = [
+    "Berceuse",
+    "Grobisou",
+    "Hypnose",
+    "Poudre Dodo",
+    "Siffl'herbe",
+    "Spore",
+    "Trou Noir",
+  ];
   if (
-    pokemonVariables.isFirstAttackActive &&
-    (firstAttacker.firstAttack.type === "normal" ||
-      firstAttacker.firstAttack.type === "psy" ||
-      firstAttacker.firstAttack.type === "plant" ||
-      firstAttacker.firstAttack.type === "dark") &&
-    (firstAttacker.firstAttack.name === "Berceuse" ||
-      firstAttacker.firstAttack.name === "Grobisou" ||
-      firstAttacker.firstAttack.name === "Hypnose" ||
-      firstAttacker.firstAttack.name === "Poudre Dodo" ||
-      firstAttacker.firstAttack.name === "Siffl'herbe" ||
-      firstAttacker.firstAttack.name === "Spore" ||
-      firstAttacker.firstAttack.name === "Trou Noir") &&
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    (firstAttackerAttack.type === "normal" ||
+      firstAttackerAttack.type === "psy" ||
+      firstAttackerAttack.type === "plant" ||
+      firstAttackerAttack.type === "dark") &&
     isStatusValidForAsleep(secondAttacker)
   ) {
-    const randomNumber = Math.floor(Math.random() * 100) + 1;
-
-    if (randomNumber <= 100) {
-      asleepStatut(secondAttacker);
-    }
+    asleepStatut(secondAttacker);
   }
 }

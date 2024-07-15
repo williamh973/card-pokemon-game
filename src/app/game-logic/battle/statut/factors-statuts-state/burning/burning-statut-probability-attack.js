@@ -96,10 +96,6 @@ export function burningStatut100PercentProbabililityAttack(
     secondAttacker.type !== "fire" &&
     isStatusValidForBurning(secondAttacker)
   ) {
-    const randomNumber = Math.floor(Math.random() * 100) + 1;
-
-    if (randomNumber <= 100) {
-      burningStatut(secondAttacker);
-    }
+    burningStatut(secondAttacker);
   }
 }

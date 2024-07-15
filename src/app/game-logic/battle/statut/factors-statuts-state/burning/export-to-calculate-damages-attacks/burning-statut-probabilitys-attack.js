@@ -3,7 +3,7 @@ import {
   burningStatut30PercentProbabililityAttack,
   burningStatut50PercentProbabililityAttack,
   burningStatut100PercentProbabililityAttack,
-} from "../burning-statut-probability-for-first-attack.js";
+} from "../burning-statut-probability-attack.js";
 
 export function burningStatutProbabilitysAttack(
   secondAttacker,
