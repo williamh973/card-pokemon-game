@@ -64,6 +64,29 @@ export function calculateDamagesAttack(firstAttacker, secondAttacker) {
       let randomFactor = Math.random() * (1.0 - 0.85) + 0.85;
       damages *= randomFactor;
 
+      let getAlwaysKnockOutAttacks = oneHitKnockoutFactorAttack(
+        secondAttacker,
+        firstAttackerAttack
+      );
+      damages *= getAlwaysKnockOutAttacks;
+
+      let getLevelFactorsForAttacks = attackThatDependsFirstAttackerLevel(
+        firstAttacker,
+        firstAttackerAttack,
+        damages
+      );
+      damages = getLevelFactorsForAttacks;
+
+      // const getHpIncrease50PercentOfDamagesFactor =
+      //   hpIncrease50PercentOfDamagesFactorForFirstAttack(
+      //     firstAttacker,
+      //     secondAttacker,
+      //     damages
+      //   );
+      // damages *= getHpIncrease50PercentOfDamagesFactor;
+
+      // let minimumDamages = minimumDamage(damages);
+
       let getWeaknessFactorList = weaknessFactorAttack(
         secondAttacker,
         firstAttackerAttack
@@ -81,28 +104,6 @@ export function calculateDamagesAttack(firstAttacker, secondAttacker) {
         firstAttackerAttack
       );
       damages *= getIneffectiveFactorList;
-
-      let getAlwaysKnockOutAttacks = oneHitKnockoutFactorAttack(
-        secondAttacker,
-        firstAttackerAttack
-      );
-      damages *= getAlwaysKnockOutAttacks;
-
-      // let getLevelFactorsForAttacks = attackThatDependsFirstAttackerLevel(
-      //   firstAttacker,
-      //   damages
-      // );
-      // damages = getLevelFactorsForAttacks;
-
-      // const getHpIncrease50PercentOfDamagesFactor =
-      //   hpIncrease50PercentOfDamagesFactorForFirstAttack(
-      //     firstAttacker,
-      //     secondAttacker,
-      //     damages
-      //   );
-      // damages *= getHpIncrease50PercentOfDamagesFactor;
-
-      // let minimumDamages = minimumDamage(damages);
 
       // speedIncrease5pFactorForFirstAttack(firstAttacker);
       // speedIncrease10pFactorForFirstAttack(firstAttacker);

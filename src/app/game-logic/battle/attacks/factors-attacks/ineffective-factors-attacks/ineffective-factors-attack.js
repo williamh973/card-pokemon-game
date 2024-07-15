@@ -10,15 +10,15 @@ export function ineffectiveFactorAttack(secondAttacker, firstAttackerAttack) {
       secondAttacker.secondaryType
     ] || [];
 
-  if (simpleTypeIneffective.includes(secondAttacker.type)) {
+  if (simpleTypeIneffective.includes(firstAttackerAttack.type)) {
     openDialogueWhenPokemonMakesIneffectiveAttack();
-    return 5;
+    return 0;
   }
 
   if (secondAttacker.secondaryType) {
     if (doubleTypeIneffective.includes(firstAttackerAttack.type)) {
       openDialogueWhenPokemonMakesIneffectiveAttack();
-      return 5;
+      return 0;
     }
   }
 

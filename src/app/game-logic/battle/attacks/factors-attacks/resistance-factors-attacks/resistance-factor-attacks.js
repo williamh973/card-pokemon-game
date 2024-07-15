@@ -10,7 +10,7 @@ export function resistanceFactorAttack(secondAttacker, firstAttackerAttack) {
       secondAttacker.secondaryType
     ] || [];
 
-  if (simpleTypeResistances.includes(secondAttacker.type)) {
+  if (simpleTypeResistances.includes(firstAttackerAttack.type)) {
     openDialogueWhenPokemonMakesResistanceAttack();
     return 5;
   }
