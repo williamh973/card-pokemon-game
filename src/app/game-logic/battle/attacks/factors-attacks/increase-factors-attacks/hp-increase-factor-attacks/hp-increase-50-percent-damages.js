@@ -43,60 +43,25 @@ function checkFirstAttackerPossibleIncreaseHp(
   }
 }
 
-export function hpIncrease50PercentOfDamagesFactorForFirstAttack(
+export function hpIncrease50PercentOfDamagesFactorAttack(
   firstAttacker,
+  firstAttackerAttack,
   secondAttacker,
   damages
 ) {
+  const possibleAttacksList = ["Dévorêve"];
+
   if (
-    firstAttacker.firstAttack.name === "Dévorêve" &&
-    secondAttacker.primaryStatut === "asleep" &&
-    pokemonVariables.isFirstAttackActive
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    secondAttacker.primaryStatut === "asleep"
   ) {
     checkFirstAttackerPossibleIncreaseHp(firstAttacker, damages);
 
     currentHpGreaterThanHpMaxAfterIncreased(firstAttacker);
     return 1;
   } else if (
-    firstAttacker.firstAttack.name === "Dévorêve" &&
-    secondAttacker.primaryStatut !== "asleep" &&
-    pokemonVariables.isFirstAttackActive
-  ) {
-    openDialogueWhenPokemonMissAttack(firstAttacker);
-    return 0;
-  } else {
-    return 1;
-  }
-}
-
-export function hpIncrease50PercentOfDamagesFactorForSecondAttack(
-  firstAttacker,
-  secondAttacker,
-  isSecondAttackActive,
-  damages
-) {
-  if (
-    firstAttacker.secondAttack.name === "Dévorêve" &&
-    secondAttacker.primaryStatut === "asleep" &&
-    isSecondAttackActive
-  ) {
-    const increasingValue = damages / 2;
-    const currentHp = firstAttacker.stats.hp;
-    const maxHp = firstAttacker.stats.hpMax;
-
-    checkFirstAttackerPossibleIncreaseHp(
-      firstAttacker,
-      increasingValue,
-      currentHp,
-      maxHp
-    );
-
-    currentHpGreaterThanHpMaxAfterIncreased(firstAttacker);
-    return 1;
-  } else if (
-    firstAttacker.secondAttack.name === "Dévorêve" &&
-    secondAttacker.primaryStatut !== "asleep" &&
-    isSecondAttackActive
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    secondAttacker.primaryStatut !== "asleep"
   ) {
     openDialogueWhenPokemonMissAttack(firstAttacker);
     return 0;

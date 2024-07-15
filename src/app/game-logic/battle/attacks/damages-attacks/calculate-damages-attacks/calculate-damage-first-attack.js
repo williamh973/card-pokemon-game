@@ -25,7 +25,7 @@ import { paralyzedStatutProbabilitysForFirstAttack } from "../../../statut/facto
 import { frozenStatutProbabilitysForFirstAttack } from "../../../statut/factors-statuts-state/frozen/export-to-calculate-damages-attacks/frozen-statut-probabilitys-for-first-attack.js";
 import { asleepStatutProbabilitysForFirstAttack } from "../../../statut/factors-statuts-state/asleep/export-to-calculate-damages-attacks/asleep-statut-probabilitys-for-first-attack.js";
 import { attackThatDependsFirstAttackerLevel } from "../../factors-attacks/level-factors-attacks/handle-level-factor-attacks/handle-level-factor-attacks.js";
-import { hpIncrease50PercentOfDamagesFactorForFirstAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-50-percent-damages.js";
+import { hpIncrease50PercentOfDamagesFactorAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-50-percent-damages.js";
 import { confusingStatutProbabilitysForFirstAttack } from "../../../statut/factors-statuts-state/confusing/export-to-calculate-damages-attacks/confusing-statut-probabilitys-for-first-attack.js";
 import { cursedStatut100PercentProbability } from "../../../statut/factors-statuts-state/cursed/cursed-statut-probability.js";
 import { baseDamage } from "../base-damages/base-damage.js";
@@ -77,15 +77,16 @@ export function calculateDamagesAttack(firstAttacker, secondAttacker) {
       );
       damages = getLevelFactorsForAttacks;
 
-      // const getHpIncrease50PercentOfDamagesFactor =
-      //   hpIncrease50PercentOfDamagesFactorForFirstAttack(
-      //     firstAttacker,
-      //     secondAttacker,
-      //     damages
-      //   );
-      // damages *= getHpIncrease50PercentOfDamagesFactor;
+      let getHpIncrease50PercentOfDamagesFactor =
+        hpIncrease50PercentOfDamagesFactorAttack(
+          firstAttacker,
+          firstAttackerAttack,
+          secondAttacker,
+          damages
+        );
+      damages *= getHpIncrease50PercentOfDamagesFactor;
 
-      // let minimumDamages = minimumDamage(damages);
+      let minimumDamages = minimumDamage(damages);
 
       let getWeaknessFactorList = weaknessFactorAttack(
         secondAttacker,
