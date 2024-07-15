@@ -1,37 +1,37 @@
 import {
-  poisonedStatut10PercentProbabililityForFirstAttack,
-  poisonedStatut20PercentProbabililityForFirstAttack,
-  poisonedStatut30PercentProbabililityForFirstAttack,
-  poisonedStatut40PercentProbabililityForFirstAttack,
-  poisonedStatut100PercentProbabililityForFirstAttack,
+  poisonedStatut10PercentProbabililityAttack,
+  poisonedStatut20PercentProbabililityAttack,
+  poisonedStatut30PercentProbabililityAttack,
+  poisonedStatut40PercentProbabililityAttack,
+  poisonedStatut100PercentProbabililityAttack,
 } from "../poisoned-statut-probability-for-first-attack.js";
 
-export function poisonedStatutProbabilitysForFirstAttack(
-  firstAttacker,
-  secondAttacker
+export function poisonedStatutProbabilitysAttack(
+  secondAttacker,
+  firstAttackerAttack
 ) {
-  poisonedStatut10PercentProbabililityForFirstAttack(
-    firstAttacker,
-    secondAttacker
+  poisonedStatut10PercentProbabililityAttack(
+    secondAttacker,
+    firstAttackerAttack
   );
 
-  poisonedStatut20PercentProbabililityForFirstAttack(
-    firstAttacker,
-    secondAttacker
+  poisonedStatut20PercentProbabililityAttack(
+    secondAttacker,
+    firstAttackerAttack
   );
 
-  poisonedStatut30PercentProbabililityForFirstAttack(
-    firstAttacker,
-    secondAttacker
+  poisonedStatut30PercentProbabililityAttack(
+    secondAttacker,
+    firstAttackerAttack
   );
 
-  poisonedStatut40PercentProbabililityForFirstAttack(
-    firstAttacker,
-    secondAttacker
+  poisonedStatut40PercentProbabililityAttack(
+    secondAttacker,
+    firstAttackerAttack
   );
 
-  poisonedStatut100PercentProbabililityForFirstAttack(
-    firstAttacker,
-    secondAttacker
+  poisonedStatut100PercentProbabililityAttack(
+    secondAttacker,
+    firstAttackerAttack
   );
 }

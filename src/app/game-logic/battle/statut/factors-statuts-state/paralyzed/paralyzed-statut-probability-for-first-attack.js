@@ -1,23 +1,24 @@
 import { isStatusValidForParalyzed } from "./status-valid-for-paralyzed.js";
-
 import { paralyzedStatut } from "./paralyzed-statut.js";
-import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
 
-export function paralyzedStatut10PercentProbabililityForFirstAttack(
-  firstAttacker,
-  secondAttacker
+export function paralyzedStatut10PercentProbabililityAttack(
+  secondAttacker,
+  firstAttackerAttack
 ) {
+  const possibleAttacksList = [
+    "Crocs Éclair",
+    "Éclair",
+    "Poing-Éclair",
+    "Tonnerre",
+    "Triplattaque",
+  ];
+
   if (
-    pokemonVariables.isFirstAttackActive &&
-    (firstAttacker.firstAttack.type === "electric" ||
-      firstAttacker.firstAttack.type === "normal") &&
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    (firstAttackerAttack.type === "electric" ||
+      firstAttackerAttack.type === "normal") &&
     secondAttacker.type !== "rock" &&
     secondAttacker.type !== "electric" &&
-    (firstAttacker.firstAttack.name === "Crocs Éclair" ||
-      firstAttacker.firstAttack.name === "Éclair" ||
-      firstAttacker.firstAttack.name === "Poing-Éclair" ||
-      firstAttacker.firstAttack.name === "Tonnerre" ||
-      firstAttacker.firstAttack.name === "Triplattaque") &&
     isStatusValidForParalyzed(secondAttacker)
   ) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -28,28 +29,31 @@ export function paralyzedStatut10PercentProbabililityForFirstAttack(
   }
 }
 
-export function paralyzedStatut30PercentProbabililityForFirstAttack(
-  firstAttacker,
-  secondAttacker
+export function paralyzedStatut30PercentProbabililityAttack(
+  secondAttacker,
+  firstAttackerAttack
 ) {
+  const possibleAttacksList = [
+    "Coup d'jus",
+    "Dracosouffle",
+    "Étincelle",
+    "Fatal Foudre",
+    "Force Cachée",
+    "Forte-Paume",
+    "Léchouille",
+    "Plaquage",
+    "Rebond",
+  ];
+
   if (
-    pokemonVariables.isFirstAttackActive &&
-    (firstAttacker.firstAttack.type === "electric" ||
-      firstAttacker.firstAttack.type === "normal" ||
-      firstAttacker.firstAttack.type === "dragon" ||
-      firstAttacker.firstAttack.type === "fight" ||
-      firstAttacker.firstAttack.type === "flight") &&
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    (firstAttackerAttack.type === "electric" ||
+      firstAttackerAttack.type === "normal" ||
+      firstAttackerAttack.type === "dragon" ||
+      firstAttackerAttack.type === "fight" ||
+      firstAttackerAttack.type === "flight") &&
     secondAttacker.type !== "rock" &&
     secondAttacker.type !== "electric" &&
-    (firstAttacker.firstAttack.name === "Coup d'jus" ||
-      firstAttacker.firstAttack.name === "Dracosouffle" ||
-      firstAttacker.firstAttack.name === "Étincelle" ||
-      firstAttacker.firstAttack.name === "Fatal Foudre" ||
-      firstAttacker.firstAttack.name === "Force Cachée" ||
-      firstAttacker.firstAttack.name === "Forte-Paume" ||
-      firstAttacker.firstAttack.name === "Léchouille" ||
-      firstAttacker.firstAttack.name === "Plaquage" ||
-      firstAttacker.firstAttack.name === "Rebond") &&
     isStatusValidForParalyzed(secondAttacker)
   ) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -60,21 +64,24 @@ export function paralyzedStatut30PercentProbabililityForFirstAttack(
   }
 }
 
-export function paralyzedStatut100PercentProbabililityForFirstAttack(
-  firstAttacker,
-  secondAttacker
+export function paralyzedStatut100PercentProbabililityAttack(
+  secondAttacker,
+  firstAttackerAttack
 ) {
+  const possibleAttacksList = [
+    "Cage-Eclair",
+    "Dégommage",
+    "Élecanon",
+    "Para-Spore",
+  ];
+
   if (
-    pokemonVariables.isFirstAttackActive &&
-    (firstAttacker.firstAttack.type === "electric" ||
-      firstAttacker.firstAttack.type === "dark" ||
-      firstAttacker.firstAttack.type === "plant") &&
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    (firstAttackerAttack.type === "electric" ||
+      firstAttackerAttack.type === "dark" ||
+      firstAttackerAttack.type === "plant") &&
     secondAttacker.type !== "rock" &&
     secondAttacker.type !== "electric" &&
-    (firstAttacker.firstAttack.name === "Cage-Eclair" ||
-      firstAttacker.firstAttack.name === "Dégommage" ||
-      firstAttacker.firstAttack.name === "Élecanon" ||
-      firstAttacker.firstAttack.name === "Para-Spore") &&
     isStatusValidForParalyzed(secondAttacker)
   ) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;

@@ -1,25 +1,25 @@
 import {
-  paralyzedStatut10PercentProbabililityForFirstAttack,
-  paralyzedStatut30PercentProbabililityForFirstAttack,
-  paralyzedStatut100PercentProbabililityForFirstAttack,
+  paralyzedStatut10PercentProbabililityAttack,
+  paralyzedStatut30PercentProbabililityAttack,
+  paralyzedStatut100PercentProbabililityAttack,
 } from "../paralyzed-statut-probability-for-first-attack.js";
 
-export function paralyzedStatutProbabilitysForFirstAttack(
-  firstAttacker,
-  secondAttacker
+export function paralyzedStatutProbabilitysAttack(
+  secondAttacker,
+  firstAttackerAttack
 ) {
-  paralyzedStatut10PercentProbabililityForFirstAttack(
-    firstAttacker,
-    secondAttacker
+  paralyzedStatut10PercentProbabililityAttack(
+    secondAttacker,
+    firstAttackerAttack
   );
 
-  paralyzedStatut30PercentProbabililityForFirstAttack(
-    firstAttacker,
-    secondAttacker
+  paralyzedStatut30PercentProbabililityAttack(
+    secondAttacker,
+    firstAttackerAttack
   );
 
-  paralyzedStatut100PercentProbabililityForFirstAttack(
-    firstAttacker,
-    secondAttacker
+  paralyzedStatut100PercentProbabililityAttack(
+    secondAttacker,
+    firstAttackerAttack
   );
 }

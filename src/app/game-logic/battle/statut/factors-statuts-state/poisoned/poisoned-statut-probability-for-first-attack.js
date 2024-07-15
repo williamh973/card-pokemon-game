@@ -1,18 +1,16 @@
 import { addStatusAnimations } from "../../../animations/animations-statuts/add-statut-animation.js";
 import { openDialogueWhenPokemonHasPoisonedStatut } from "../../../../../components/battle-dialogues/dialogues/pokemon--has-poisoned-statut.dialogue.js";
-
 import { isStatusValidForPoisoned } from "./status-valid-for-poisoned.js";
-import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
 
-export function poisonedStatut10PercentProbabililityForFirstAttack(
-  firstAttacker,
-  secondAttacker
+export function poisonedStatut10PercentProbabililityAttack(
+  secondAttacker,
+  firstAttackerAttack
 ) {
+  const possibleAttacksList = ["Queue-Poison"];
   if (
-    pokemonVariables.isFirstAttackActive &&
-    firstAttacker.firstAttack.type === "poison" &&
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    firstAttackerAttack.type === "poison" &&
     (secondAttacker.type !== "poison" || secondAttacker.type !== "steel") &&
-    firstAttacker.firstAttack.name === "Queue-Poison" &&
     isStatusValidForPoisoned(secondAttacker)
   ) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -25,15 +23,15 @@ export function poisonedStatut10PercentProbabililityForFirstAttack(
   }
 }
 
-export function poisonedStatut20PercentProbabililityForFirstAttack(
-  firstAttacker,
-  secondAttacker
+export function poisonedStatut20PercentProbabililityAttack(
+  secondAttacker,
+  firstAttackerAttack
 ) {
+  const possibleAttacksList = ["Double-Dard"];
   if (
-    pokemonVariables.isFirstAttackActive &&
-    firstAttacker.firstAttack.type === "poison" &&
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    firstAttackerAttack.type === "poison" &&
     (secondAttacker.type !== "poison" || secondAttacker.type !== "steel") &&
-    firstAttacker.firstAttack.name === "Double-Dard" &&
     isStatusValidForPoisoned(secondAttacker)
   ) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -46,20 +44,22 @@ export function poisonedStatut20PercentProbabililityForFirstAttack(
   }
 }
 
-export function poisonedStatut30PercentProbabililityForFirstAttack(
-  firstAttacker,
-  secondAttacker
+export function poisonedStatut30PercentProbabililityAttack(
+  secondAttacker,
+  firstAttackerAttack
 ) {
+  const possibleAttacksList = [
+    "Bomb-Beurk",
+    "Crochetvenin",
+    "Dard-Venin",
+    "Détricanon",
+    "Détritus",
+    "Direct Toxik",
+  ];
   if (
-    pokemonVariables.isFirstAttackActive &&
-    firstAttacker.firstAttack.type === "poison" &&
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    firstAttackerAttack.type === "poison" &&
     (secondAttacker.type !== "poison" || secondAttacker.type !== "steel") &&
-    (firstAttacker.firstAttack.name === "Bomb-Beurk" ||
-      firstAttacker.firstAttack.name === "Crochetvenin" ||
-      firstAttacker.firstAttack.name === "Dard-Venin" ||
-      firstAttacker.firstAttack.name === "Détricanon" ||
-      firstAttacker.firstAttack.name === "Détritus" ||
-      firstAttacker.firstAttack.name === "Direct Toxik") &&
     isStatusValidForPoisoned(secondAttacker)
   ) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -72,15 +72,15 @@ export function poisonedStatut30PercentProbabililityForFirstAttack(
   }
 }
 
-export function poisonedStatut40PercentProbabililityForFirstAttack(
-  firstAttacker,
-  secondAttacker
+export function poisonedStatut40PercentProbabililityAttack(
+  secondAttacker,
+  firstAttackerAttack
 ) {
+  const possibleAttacksList = ["Puredpois"];
   if (
-    pokemonVariables.isFirstAttackActive &&
-    firstAttacker.firstAttack.type === "poison" &&
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    firstAttackerAttack.type === "poison" &&
     (secondAttacker.type !== "poison" || secondAttacker.type !== "steel") &&
-    firstAttacker.firstAttack.name === "Puredpois" &&
     isStatusValidForPoisoned(secondAttacker)
   ) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -93,16 +93,15 @@ export function poisonedStatut40PercentProbabililityForFirstAttack(
   }
 }
 
-export function poisonedStatut100PercentProbabililityForFirstAttack(
-  firstAttacker,
-  secondAttacker
+export function poisonedStatut100PercentProbabililityAttack(
+  secondAttacker,
+  firstAttackerAttack
 ) {
+  const possibleAttacksList = ["Gaz Toxik", "Toxik"];
   if (
-    pokemonVariables.isFirstAttackActive &&
-    firstAttacker.firstAttack.type === "poison" &&
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    firstAttackerAttack.type === "poison" &&
     (secondAttacker.type !== "poison" || secondAttacker.type !== "steel") &&
-    (firstAttacker.firstAttack.name === "Gaz Toxik" ||
-      firstAttacker.firstAttack.name === "Toxik") &&
     isStatusValidForPoisoned(secondAttacker)
   ) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;

@@ -19,10 +19,10 @@ import {
   isProtectOrDetectCapacityActived,
 } from "../../factors-attacks/protect-detect-factor/protect-factors-attacks/protect-detect-capacity-actived.js";
 import { handleBonusAttackWhenProtectOrDetectCapacityActived } from "../../factors-attacks/protect-detect-factor/handle-bonus-attack-when-protect-or-detect-capacity-actived/handle-bonus-attack-when-protect-or-detect-capacity-actived-first-attack.js";
-import { poisonedStatutProbabilitysForFirstAttack } from "../../../statut/factors-statuts-state/poisoned/export-to-calculate-damages-attacks/poisoned-statut-probabilitys-for-first-attack.js";
-import { burningStatutProbabilitysForFirstAttack } from "../../../statut/factors-statuts-state/burning/export-to-calculate-damages-attacks/burning-statut-probabilitys-for-first-attack.js";
-import { paralyzedStatutProbabilitysForFirstAttack } from "../../../statut/factors-statuts-state/paralyzed/export-to-calculate-damages-attacks/paralyzed-statut-probabilitys-for-first-attack.js";
-import { frozenStatutProbabilitysForFirstAttack } from "../../../statut/factors-statuts-state/frozen/export-to-calculate-damages-attacks/frozen-statut-probabilitys-for-first-attack.js";
+import { poisonedStatutProbabilitysAttack } from "../../../statut/factors-statuts-state/poisoned/export-to-calculate-damages-attacks/poisoned-statut-probabilitys-for-first-attack.js";
+import { burningStatutProbabilitysAttack } from "../../../statut/factors-statuts-state/burning/export-to-calculate-damages-attacks/burning-statut-probabilitys-for-first-attack.js";
+import { paralyzedStatutProbabilitysAttack } from "../../../statut/factors-statuts-state/paralyzed/export-to-calculate-damages-attacks/paralyzed-statut-probabilitys-for-first-attack.js";
+import { frozenStatutProbabilitysAttack } from "../../../statut/factors-statuts-state/frozen/export-to-calculate-damages-attacks/frozen-statut-probabilitys-for-first-attack.js";
 import { asleepStatutProbabilitysForFirstAttack } from "../../../statut/factors-statuts-state/asleep/export-to-calculate-damages-attacks/asleep-statut-probabilitys-for-first-attack.js";
 import { attackThatDependsFirstAttackerLevel } from "../../factors-attacks/level-factors-attacks/handle-level-factor-attacks/handle-level-factor-attacks.js";
 import { hpIncrease50PercentOfDamagesFactorAttack } from "../../../attacks/factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-50-percent-damages.js";
@@ -116,12 +116,12 @@ export function calculateDamagesAttack(firstAttacker, secondAttacker) {
       );
       protectFactorAttack(firstAttacker, firstAttackerAttack);
 
-      // burningStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
-      // poisonedStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
-      // paralyzedStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
-      // frozenStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
-      // asleepStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
-      // confusingStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker);
+      burningStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
+      poisonedStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
+      paralyzedStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
+      frozenStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
+      // asleepStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker, firstAttackerAttack);
+      // confusingStatutProbabilitysForFirstAttack(firstAttacker, secondAttacker, firstAttackerAttack);
       // cursedStatut100PercentProbability(
       //   firstAttacker,
       //   secondAttacker,

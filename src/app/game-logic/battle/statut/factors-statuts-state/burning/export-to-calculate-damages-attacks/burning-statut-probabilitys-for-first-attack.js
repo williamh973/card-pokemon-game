@@ -1,31 +1,28 @@
 import {
-  burningStatut10PercentProbabililityForFirstAttack,
-  burningStatut30PercentProbabililityForFirstAttack,
-  burningStatut50PercentProbabililityForFirstAttack,
-  burningStatut100PercentProbabililityForFirstAttack,
+  burningStatut10PercentProbabililityAttack,
+  burningStatut30PercentProbabililityAttack,
+  burningStatut50PercentProbabililityAttack,
+  burningStatut100PercentProbabililityAttack,
 } from "../burning-statut-probability-for-first-attack.js";
 
-export function burningStatutProbabilitysForFirstAttack(
-  firstAttacker,
-  secondAttacker
+export function burningStatutProbabilitysAttack(
+  secondAttacker,
+  firstAttackerAttack
 ) {
-  burningStatut10PercentProbabililityForFirstAttack(
-    firstAttacker,
-    secondAttacker
+  burningStatut10PercentProbabililityAttack(
+    secondAttacker,
+    firstAttackerAttack
   );
-
-  burningStatut30PercentProbabililityForFirstAttack(
-    firstAttacker,
-    secondAttacker
+  burningStatut30PercentProbabililityAttack(
+    secondAttacker,
+    firstAttackerAttack
   );
-
-  burningStatut50PercentProbabililityForFirstAttack(
-    firstAttacker,
-    secondAttacker
+  burningStatut50PercentProbabililityAttack(
+    secondAttacker,
+    firstAttackerAttack
   );
-
-  burningStatut100PercentProbabililityForFirstAttack(
-    firstAttacker,
-    secondAttacker
+  burningStatut100PercentProbabililityAttack(
+    secondAttacker,
+    firstAttackerAttack
   );
 }
