@@ -34,6 +34,7 @@ import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
 import { battleSelectors } from "../../shared/battle/battle-selectors.js";
 import { updateNumberOfTurns } from "./number-of-turn/update-number-of-turn.js";
 import { initNumberOfTurn } from "./number-of-turn/init-number-of-turn.js";
+import { checkIfFirstAttackerCanAttack } from "./statut/handle-statut-state-in-fight/first-attacker/check-if-first-attacker-can-attack.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   battleSelectors.startBattleButton.addEventListener("click", () => {
@@ -70,13 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
           sleepStatutAlteredAnimation
         );
 
-        if (
-          !pokemonVariables.isFirstAttackerParalyzed &&
-          !pokemonVariables.isFirstAttackerFrozen &&
-          !pokemonVariables.isFirstAttackerAsleep &&
-          !pokemonVariables.isFirstAttackerConfusing &&
-          !pokemonVariables.isFirstAttackerScared
-        ) {
+        if (checkIfFirstAttackerCanAttack()) {
           const randomNumber = Math.floor(Math.random() * 100) + 1;
 
           if (randomNumber <= 50) {
