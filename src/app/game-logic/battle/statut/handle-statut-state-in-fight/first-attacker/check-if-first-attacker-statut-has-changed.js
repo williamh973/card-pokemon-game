@@ -17,7 +17,6 @@ import { updateDisplayPokemonHp } from "../../../../../game-logic/battle/update-
 
 import { openDialogueWhenPokemonHpDecreaseByBurningStatut } from "../../../../../components/battle-dialogues/dialogues/pokemon-hp-decrease-by-burning-statut.dialogue.js";
 import { openDialogueWhenPokemonHpDecreaseByPoisonedStatut } from "../../../../../components/battle-dialogues/dialogues/pokemon-hp-decrease-by-poisoned-statut.dialogue.js";
-
 import { pokemonLose } from "../../../../../game-logic/battle/pokemon-is-knock-out.js";
 
 export async function checkIfFirstAttackerStatusHasBurningOrPoisoned(

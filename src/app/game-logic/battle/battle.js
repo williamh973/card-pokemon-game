@@ -89,14 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             if (pokemonVariables.isFirstAttackActive) {
-              const attackDelays = handleAttacksDelayAndAnimations(
-                firstAttacker,
-                secondAttacker
-              );
+              const attackDelays =
+                handleAttacksDelayAndAnimations(firstAttacker);
 
-              await sleepAttacksAnimation(
-                attackDelays.firstAttackerFirstAttackDelay
-              );
+              await sleepAttacksAnimation(attackDelays.pokemonAttackDelay);
 
               secondAttackerTakesDamage(
                 firstAttacker,
@@ -114,14 +110,10 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             if (pokemonVariables.isSecondAttackActive) {
-              const attackDelays = handleAttacksDelayAndAnimations(
-                firstAttacker,
-                secondAttacker
-              );
+              const attackDelays =
+                handleAttacksDelayAndAnimations(firstAttacker);
 
-              await sleepAttacksAnimation(
-                attackDelays.firstAttackerSecondAttackDelay
-              );
+              await sleepAttacksAnimation(attackDelays.pokemonAttackDelay);
 
               secondAttackerTakesDamage(
                 firstAttacker,
@@ -218,14 +210,10 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             if (pokemonVariables.isFirstAttackActive) {
-              const attackDelays = handleAttacksDelayAndAnimations(
-                firstAttacker,
-                secondAttacker
-              );
+              const attackDelays =
+                handleAttacksDelayAndAnimations(secondAttacker);
 
-              await sleepAttacksAnimation(
-                attackDelays.secondAttackerFirstAttackDelay
-              );
+              await sleepAttacksAnimation(attackDelays.pokemonAttackDelay);
 
               firstAttackerTakesDamage(
                 firstAttacker,
@@ -243,14 +231,10 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             if (pokemonVariables.isSecondAttackActive) {
-              const attackDelays = handleAttacksDelayAndAnimations(
-                firstAttacker,
-                secondAttacker
-              );
+              const attackDelays =
+                handleAttacksDelayAndAnimations(secondAttacker);
 
-              await sleepAttacksAnimation(
-                attackDelays.secondAttackerSecondAttackDelay
-              );
+              await sleepAttacksAnimation(attackDelays.pokemonAttackDelay);
 
               firstAttackerTakesDamage(
                 firstAttacker,

@@ -1,56 +1,35 @@
-import { addAttackAnimation } from "../animations-attacks/animations-attacks.js";
 import { pokemonVariables } from "../../../../shared/pokemon/pokemon-variables.js";
-import { dialogueConstant } from "../../../../shared/battle/dialogues/dialogue-constant.js";
+import { addAttackAnimation } from "../animations-attacks/animations-attacks.js";
 
-export const handleAttacksDelayAndAnimations = (
-  firstAttacker,
-  secondAttacker
-) => {
-  const firstAttackerFirstAttackName = firstAttacker.firstAttack.name;
-  const firstAttackerSecondAttackName = firstAttacker.secondAttack.name;
+export const handleAttacksDelayAndAnimations = (pokemon) => {
+  const pokemonAttack = pokemonVariables.isFirstAttackActive
+    ? pokemon.firstAttack.name
+    : pokemon.secondAttack.name;
 
-  const firstAttackerFirstAttackDelay = getAttackDelayAndStartAnimations(
-    firstAttackerFirstAttackName
-  );
-  const firstAttackerSecondAttackDelay = getAttackDelayAndStartAnimations(
-    firstAttackerSecondAttackName
-  );
+  const pokemontAttackName = pokemonAttack;
 
-  const secondAttackerFirstAttackName = secondAttacker.firstAttack.name;
-  const secondAttackerSecondAttackName = secondAttacker.secondAttack.name;
-
-  const secondAttackerFirstAttackDelay = getAttackDelayAndStartAnimations(
-    secondAttackerFirstAttackName
-  );
-  const secondAttackerSecondAttackDelay = getAttackDelayAndStartAnimations(
-    secondAttackerSecondAttackName
-  );
+  const pokemonAttackDelay =
+    getAttackDelayAndStartAnimations(pokemontAttackName);
 
   return {
-    firstAttackerFirstAttackName,
-    firstAttackerSecondAttackName,
-    firstAttackerFirstAttackDelay,
-    firstAttackerSecondAttackDelay,
-    secondAttackerFirstAttackName,
-    secondAttackerSecondAttackName,
-    secondAttackerFirstAttackDelay,
-    secondAttackerSecondAttackDelay,
+    pokemontAttackName,
+    pokemonAttackDelay,
   };
 };
 
 const getAttackDelayAndStartAnimations = (attackName) => {
   switch (attackName) {
     case "Charge":
-      // console.log("Charge :", attackName);
+      console.log("Charge :", attackName);
       return 4000;
     case "Jet-Pierres":
-      // console.log("Jet-Pierres :", attackName);
+      console.log("Jet-Pierres :", attackName);
       return 4000;
     case "Hâte":
-      // console.log("Hâte :", attackName);
+      console.log("Hâte :", attackName);
       return 4000;
     case "Tranche":
-      // console.log("Tranche :", attackName);
+      console.log("Tranche :", attackName);
       return 4000;
     case "Flammèche":
       // console.log("Flammèche :", attackName);
