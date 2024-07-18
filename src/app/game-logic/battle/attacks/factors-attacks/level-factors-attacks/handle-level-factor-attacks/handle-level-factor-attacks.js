@@ -14,7 +14,6 @@ export function attackThatDependsFirstAttackerLevel(
       damages
     );
     damages = getLevelFactorForFirstAttack;
-    console.log(firstAttackerAttack.name, damages);
     return damages;
   }
   return initialDamages;

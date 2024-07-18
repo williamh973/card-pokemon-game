@@ -1,6 +1,4 @@
-export const isStatusValidForAsleep = function isStatusValidForAsleep(
-  secondAttacker,
-) {
+export function isStatusValidForAsleep(secondAttacker) {
   return (
     secondAttacker.primaryStatut !== "burning" &&
     secondAttacker.primaryStatut !== "paralyzed" &&
@@ -8,4 +6,4 @@ export const isStatusValidForAsleep = function isStatusValidForAsleep(
     secondAttacker.primaryStatut !== "poisoned" &&
     secondAttacker.primaryStatut !== "frozen"
   );
-};
+}

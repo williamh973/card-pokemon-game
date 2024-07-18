@@ -16,25 +16,17 @@ import {
 } from "./pokemon-takes-damage.js";
 import { pokemonLose } from "./pokemon-is-knock-out.js";
 import { sleepStatutAlteredAnimation } from "./animations/animations-delays/alterations-delay.js";
-import {
-  checkIfFirstAttackerStatusHasBurningOrPoisoned,
-  checkIfFirstAttackerStatusHasParalyzedFrozenNormalOrAsleep,
-  checkIfFirstAttackerStatusConfusing,
-  checkIfFirstAttackerStatusScared,
-  checkIfFirstAttackerStatusCursed,
-} from "./statut/handle-statut-state-in-fight/first-attacker/check-if-first-attacker-statut-has-changed.js";
-import {
-  checkIfSecondAttackerStatusHasBurningOrPoisoned,
-  checkIfSecondAttackerStatusHasParalyzedFrozenNormalOrAsleep,
-  checkIfSecondAttackerStatusConfusing,
-  checkIfSecondAttackerStatusScared,
-  checkIfSecondAttackerStatusCursed,
-} from "./statut/handle-statut-state-in-fight/second-attacker/check-if-second-attacker-statut-has-changed.js";
+import { checkIfPokemonStatusCursed } from "./statut/handle-statut-state-in-fight/check-statut-in-battle/check-if-pokemon-statut-cursed.js";
 import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
 import { battleSelectors } from "../../shared/battle/battle-selectors.js";
 import { updateNumberOfTurns } from "./number-of-turn/update-number-of-turn.js";
 import { initNumberOfTurn } from "./number-of-turn/init-number-of-turn.js";
-import { checkIfFirstAttackerCanAttack } from "./statut/handle-statut-state-in-fight/first-attacker/check-if-first-attacker-can-attack.js";
+import { checkIfPokemonCanAttack } from "./statut/handle-statut-state-in-fight/check-if-pokemon-can-attack.js";
+import { checkIfPokemonStatutScared } from "./statut/handle-statut-state-in-fight/check-statut-in-battle/check-if-pokemon-statut-scared.js";
+import { checkIfPokemonStatusHasParalyzedFrozenNormalOrAsleep } from "./statut/handle-statut-state-in-fight/check-statut-in-battle/check-if-pokemon-statut-paralyzed-frozen-normal-alseep.js";
+import { updateDisplayPokemonHp } from "./update-display-Pokemon-hp.js";
+import { checkIfPokemonStatusHasBurningOrPoisoned } from "./statut/handle-statut-state-in-fight/check-statut-in-battle/check-if-pokemon-statut-burning-poisoned.js";
+import { checkIfPokemonStatusConfusing } from "./statut/handle-statut-state-in-fight/check-statut-in-battle/check-if-pokemon-statut-confused.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   battleSelectors.startBattleButton.addEventListener("click", () => {
@@ -44,34 +36,57 @@ document.addEventListener("DOMContentLoaded", () => {
       determineFirstAttacker();
 
       while (firstAttacker.stats.hp > 0 && secondAttacker.stats.hp > 0) {
+        pokemonVariables.isFirstAttackerTurn = true;
+        pokemonVariables.isSecondAttackerTurn = false;
         pokemonVariables.isFirstAttackActive = false;
         pokemonVariables.isSecondAttackActive = false;
+        pokemonVariables.isFirstAttackerCanAttack = false;
+        pokemonVariables.isSecondAttackerCanAttack = false;
+        console.log(
+          "isFirstAttackerTurn",
+          pokemonVariables.isFirstAttackerTurn
+        );
+
         updateNumberOfTurns();
 
         isProtectOrDetectCapacityActived;
-        await checkIfFirstAttackerStatusHasParalyzedFrozenNormalOrAsleep(
+        await checkIfPokemonStatusHasParalyzedFrozenNormalOrAsleep(
           firstAttacker,
           sleepStatutAlteredAnimation
         );
 
-        await checkIfFirstAttackerStatusConfusing(
+        await checkIfPokemonStatusConfusing(
           firstAttacker,
-          secondAttacker,
-          pokemonVariables.enemyPokemon,
-          pokemonVariables.playerSelectedPokemon,
           sleepStatutAlteredAnimation
         );
+
+        updateDisplayPokemonHp(firstAttacker, secondAttacker);
 
         if (firstAttacker.stats.hp <= 0) {
           firstAttacker.stats.hp = 0;
+
+          pokemonLose(
+            firstAttacker,
+            secondAttacker,
+            enemyPokemon,
+            playerSelectedPokemon
+          );
+
           break;
         }
-        await checkIfFirstAttackerStatusScared(
+        await checkIfPokemonStatutScared(
           firstAttacker,
           sleepStatutAlteredAnimation
         );
 
-        if (checkIfFirstAttackerCanAttack()) {
+        checkIfPokemonCanAttack(pokemonVariables.isFirstAttackerTurn);
+
+        if (pokemonVariables.isFirstAttackerCanAttack) {
+          console.log(
+            firstAttacker.name,
+            "isFirstAttackerCanAttack",
+            pokemonVariables.isFirstAttackerCanAttack
+          );
           const randomNumber = Math.floor(Math.random() * 100) + 1;
 
           if (randomNumber <= 50) {
@@ -132,67 +147,95 @@ document.addEventListener("DOMContentLoaded", () => {
           break;
         }
 
-        await checkIfFirstAttackerStatusHasBurningOrPoisoned(
+        await checkIfPokemonStatusHasBurningOrPoisoned(
           firstAttacker,
-          secondAttacker,
-          pokemonVariables.enemyPokemon,
-          pokemonVariables.playerSelectedPokemon,
           sleepStatutAlteredAnimation
         );
 
+        updateDisplayPokemonHp(firstAttacker, secondAttacker);
+
         if (firstAttacker.stats.hp <= 0) {
           firstAttacker.stats.hp = 0;
+
+          pokemonLose(
+            firstAttacker,
+            secondAttacker,
+            pokemonVariables.enemyPokemon,
+            pokemonVariables.playerSelectedPokemon
+          );
+
           break;
         }
 
-        await checkIfFirstAttackerStatusCursed(
+        await checkIfPokemonStatusCursed(
           firstAttacker,
-          secondAttacker,
-          pokemonVariables.enemyPokemon,
-          pokemonVariables.playerSelectedPokemon,
           sleepStatutAlteredAnimation
         );
 
+        updateDisplayPokemonHp(firstAttacker, secondAttacker);
+
         if (firstAttacker.stats.hp <= 0) {
           firstAttacker.stats.hp = 0;
+
+          pokemonLose(
+            firstAttacker,
+            secondAttacker,
+            enemyPokemon,
+            playerSelectedPokemon
+          );
+
           break;
         }
 
+        pokemonVariables.isFirstAttackerTurn = false;
+        pokemonVariables.isSecondAttackerTurn = true;
         pokemonVariables.isFirstAttackActive = false;
         pokemonVariables.isSecondAttackActive = false;
+        console.log(
+          "isSecondAttackerTurn",
+          pokemonVariables.isSecondAttackerTurn
+        );
 
         isProtectOrDetectCapacityActived;
 
-        await checkIfSecondAttackerStatusHasParalyzedFrozenNormalOrAsleep(
+        await checkIfPokemonStatusHasParalyzedFrozenNormalOrAsleep(
           secondAttacker,
           sleepStatutAlteredAnimation
         );
 
-        await checkIfSecondAttackerStatusConfusing(
+        await checkIfPokemonStatusConfusing(
           secondAttacker,
-          firstAttacker,
-          pokemonVariables.enemyPokemon,
-          pokemonVariables.playerSelectedPokemon,
           sleepStatutAlteredAnimation
         );
+
+        updateDisplayPokemonHp(firstAttacker, secondAttacker);
 
         if (secondAttacker.stats.hp <= 0) {
           secondAttacker.stats.hp = 0;
+
+          pokemonLose(
+            firstAttacker,
+            secondAttacker,
+            enemyPokemon,
+            playerSelectedPokemon
+          );
+
           break;
         }
 
-        await checkIfSecondAttackerStatusScared(
+        await checkIfPokemonStatutScared(
           secondAttacker,
           sleepStatutAlteredAnimation
         );
 
-        if (
-          !pokemonVariables.isSecondAttackerParalyzed &&
-          !pokemonVariables.isSecondAttackerFrozen &&
-          !pokemonVariables.isSecondAttackerAsleep &&
-          !pokemonVariables.isSecondAttackerConfusing &&
-          !pokemonVariables.isSecondAttackerScared
-        ) {
+        checkIfPokemonCanAttack(pokemonVariables.isSecondAttackerTurn);
+
+        if (pokemonVariables.isSecondAttackerCanAttack) {
+          console.log(
+            secondAttacker.name,
+            "isSecondAttackerCanAttack",
+            pokemonVariables.isSecondAttackerCanAttack
+          );
           const randomNumber = Math.floor(Math.random() * 100) + 1;
 
           if (randomNumber <= 50) {
@@ -253,24 +296,28 @@ document.addEventListener("DOMContentLoaded", () => {
           break;
         }
 
-        await checkIfSecondAttackerStatusHasBurningOrPoisoned(
+        await checkIfPokemonStatusHasBurningOrPoisoned(
           secondAttacker,
-          firstAttacker,
-          pokemonVariables.enemyPokemon,
-          pokemonVariables.playerSelectedPokemon,
           sleepStatutAlteredAnimation
         );
 
+        updateDisplayPokemonHp(firstAttacker, secondAttacker);
+
         if (secondAttacker.stats.hp <= 0) {
           secondAttacker.stats.hp = 0;
+
+          pokemonLose(
+            firstAttacker,
+            secondAttacker,
+            pokemonVariables.enemyPokemon,
+            pokemonVariables.playerSelectedPokemon
+          );
+
           break;
         }
 
-        await checkIfSecondAttackerStatusCursed(
+        await checkIfPokemonStatusCursed(
           secondAttacker,
-          firstAttacker,
-          pokemonVariables.enemyPokemon,
-          pokemonVariables.playerSelectedPokemon,
           sleepStatutAlteredAnimation
         );
 

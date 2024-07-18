@@ -10,7 +10,6 @@ export function firstAttackerTakesDamage(
   firstAttacker.stats.hp -= Math.max(damage, 0);
   updateDisplayPokemonHp(firstAttacker, secondAttacker);
   updateHpColor(firstAttacker, secondAttacker);
-
   displayStatsPokemonsContainer(firstAttacker, secondAttacker);
 }
 

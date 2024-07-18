@@ -1,108 +1,43 @@
-export const getFirstAttackerPrimaryStatutAlterationDelays = (
-  firstAttacker
-) => {
-  const firstAttackerState = firstAttacker.primaryStatut;
-  const firstAttackerStateDelay = alterationStatesDelay(firstAttackerState);
+export const getStatutAlterationDelays = (pokemon) => {
+  const getPrimaryStatut = pokemon.primaryStatut;
+  const getStatutAnimationDelay = alterationStatesDelay(getPrimaryStatut);
 
   return {
-    firstAttackerState,
-    firstAttackerStateDelay,
+    getPrimaryStatut,
+    getStatutAnimationDelay,
   };
 };
 
-export const getFirstAttackerConfusingStatutAlterationDelays = (
-  firstAttacker
-) => {
-  const firstAttackerSecondStateConfused =
-    firstAttacker.secondaryStatut.isConfused;
-  const firstAttackerSecondStateConfusedDelay = alterationSecondaryStatutDelay(
-    firstAttackerSecondStateConfused
-  );
+export const getConfusedStatutAnimationDelays = (pokemon) => {
+  const getConfusedStatut = pokemon.secondaryStatut.isConfused;
+  const getConfusedStatutAnimationDelay =
+    alterationSecondaryStatutDelay(getConfusedStatut);
 
   return {
-    firstAttackerSecondStateConfused,
-    firstAttackerSecondStateConfusedDelay,
+    getConfusedStatut,
+    getConfusedStatutAnimationDelay,
   };
 };
 
-export const getFirstAttackerCursedStatutAlterationDelays = (firstAttacker) => {
-  const firstAttackerSecondStateCursed = firstAttacker.secondaryStatut.isCursed;
-  const firstAttackerSecondStateCursedDelay = alterationSecondaryStatutDelay(
-    firstAttackerSecondStateCursed
-  );
+export const getCursedStatutAnimationDelays = (pokemon) => {
+  const getCursedStatut = pokemon.secondaryStatut.isCursed;
+  const getCursedStatutAnimationDelay =
+    alterationSecondaryStatutDelay(getCursedStatut);
 
   return {
-    firstAttackerSecondStateCursed,
-    firstAttackerSecondStateCursedDelay,
+    getCursedStatut,
+    getCursedStatutAnimationDelay,
   };
 };
 
-export const getFirstAttackerScaredStatutAlterationDelays = (firstAttacker) => {
-  const firstAttackerSecondStateScared = firstAttacker.secondaryStatut.isScared;
-  const firstAttackerSecondStateScaredDelay = alterationSecondaryStatutDelay(
-    firstAttackerSecondStateScared
-  );
+export const getScaredStatutAnimationDelays = (pokemon) => {
+  const getScaredStatut = pokemon.secondaryStatut.isScared;
+  const getScaredStatutAnimationDelay =
+    alterationSecondaryStatutDelay(getScaredStatut);
 
   return {
-    firstAttackerSecondStateScared,
-    firstAttackerSecondStateScaredDelay,
-  };
-};
-
-export const getSecondAttackerPrimaryStatutAlterationDelays = (
-  secondAttacker
-) => {
-  const secondAttackerState = secondAttacker.primaryStatut;
-  const secondAttackerStateDelay = alterationStatesDelay(secondAttackerState);
-
-  return {
-    secondAttackerState,
-    secondAttackerStateDelay,
-  };
-};
-
-export const getSecondAttackerConfusingStatutAlterationDelays = (
-  secondAttacker
-) => {
-  const secondAttackerSecondStateConfused =
-    secondAttacker.secondaryStatut.isConfused;
-  const secondAttackerSecondStateConfusedDelay = alterationSecondaryStatutDelay(
-    secondAttackerSecondStateConfused
-  );
-
-  return {
-    secondAttackerSecondStateConfused,
-    secondAttackerSecondStateConfusedDelay,
-  };
-};
-
-export const getSecondAttackerCursedStatutAlterationDelays = (
-  secondAttacker
-) => {
-  const secondAttackerSecondStateCursed =
-    secondAttacker.secondaryStatut.isCursed;
-  const secondAttackerSecondStateCursedDelay = alterationSecondaryStatutDelay(
-    secondAttackerSecondStateCursed
-  );
-
-  return {
-    secondAttackerSecondStateCursed,
-    secondAttackerSecondStateCursedDelay,
-  };
-};
-
-export const getSecondAttackerScaredStatutAlterationDelays = (
-  secondAttacker
-) => {
-  const secondAttackerSecondStateScared =
-    secondAttacker.secondaryStatut.isScared;
-  const secondAttackerSecondStateScaredDelay = alterationSecondaryStatutDelay(
-    secondAttackerSecondStateScared
-  );
-
-  return {
-    secondAttackerSecondStateScared,
-    secondAttackerSecondStateScaredDelay,
+    getScaredStatut,
+    getScaredStatutAnimationDelay,
   };
 };
 
@@ -132,7 +67,6 @@ const alterationSecondaryStatutDelay = (state) => {
   }
 };
 
-export const sleepStatutAlteredAnimation =
-  async function sleepStatutAlteredAnimation(state) {
-    return new Promise((resolve) => setTimeout(resolve, state));
-  };
+export async function sleepStatutAlteredAnimation(state) {
+  return new Promise((resolve) => setTimeout(resolve, state));
+}
