@@ -23,7 +23,7 @@ export function paralyzedStatut10PercentProbabililityAttack(
   ) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-    if (randomNumber <= 100) {
+    if (randomNumber <= 10) {
       paralyzedStatut(secondAttacker);
     }
   }

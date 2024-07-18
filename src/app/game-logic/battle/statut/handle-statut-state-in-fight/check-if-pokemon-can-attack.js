@@ -9,18 +9,6 @@ export async function checkIfPokemonCanAttack(attackerTurn) {
     !pokemonVariables.isFirstAttackerConfusing &&
     !pokemonVariables.isFirstAttackerScared
   ) {
-    console.log(
-      "isFirstAttackerParalyzed",
-      pokemonVariables.isFirstAttackerParalyzed,
-      "isFirstAttackerAsleep",
-      pokemonVariables.isFirstAttackerAsleep,
-      "isFirstAttackerFrozen",
-      pokemonVariables.isFirstAttackerFrozen,
-      "isFirstAttackerConfusing",
-      pokemonVariables.isFirstAttackerConfusing,
-      "isFirstAttackerScared",
-      pokemonVariables.isFirstAttackerScared
-    );
     return (pokemonVariables.isFirstAttackerCanAttack = true);
   } else if (
     attackerTurn === pokemonVariables.isSecondAttackerTurn &&
@@ -30,18 +18,6 @@ export async function checkIfPokemonCanAttack(attackerTurn) {
     !pokemonVariables.isSecondAttackerConfusing &&
     !pokemonVariables.isSecondAttackerScared
   ) {
-    console.log(
-      "isSecondAttackerParalyzed",
-      pokemonVariables.isSecondAttackerParalyzed,
-      "isSecondAttackerAsleep",
-      pokemonVariables.isSecondAttackerAsleep,
-      "isSecondAttackerFrozen",
-      pokemonVariables.isSecondAttackerFrozen,
-      "isSecondAttackerConfusing",
-      pokemonVariables.isSecondAttackerConfusing,
-      "isSecondAttackerScared",
-      pokemonVariables.isSecondAttackerScared
-    );
     return (pokemonVariables.isSecondAttackerCanAttack = true);
   }
 }

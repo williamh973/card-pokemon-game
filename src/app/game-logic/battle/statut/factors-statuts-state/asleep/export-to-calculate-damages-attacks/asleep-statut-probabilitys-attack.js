@@ -1,7 +1,7 @@
 import {
   asleepStatut30PercentProbabililityAttack,
   asleepStatut100PercentProbabililityAttack,
-} from "../asleep-statut-probability-for-first-attack.js";
+} from "../asleep-statut-probability-attack.js";
 
 export function asleepStatutProbabilitysAttack(
   secondAttacker,

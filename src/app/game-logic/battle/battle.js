@@ -42,10 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
         pokemonVariables.isSecondAttackActive = false;
         pokemonVariables.isFirstAttackerCanAttack = false;
         pokemonVariables.isSecondAttackerCanAttack = false;
-        console.log(
-          "isFirstAttackerTurn",
-          pokemonVariables.isFirstAttackerTurn
-        );
 
         updateNumberOfTurns();
 
@@ -82,11 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
         checkIfPokemonCanAttack(pokemonVariables.isFirstAttackerTurn);
 
         if (pokemonVariables.isFirstAttackerCanAttack) {
-          console.log(
-            firstAttacker.name,
-            "isFirstAttackerCanAttack",
-            pokemonVariables.isFirstAttackerCanAttack
-          );
           const randomNumber = Math.floor(Math.random() * 100) + 1;
 
           if (randomNumber <= 50) {
@@ -191,10 +182,6 @@ document.addEventListener("DOMContentLoaded", () => {
         pokemonVariables.isSecondAttackerTurn = true;
         pokemonVariables.isFirstAttackActive = false;
         pokemonVariables.isSecondAttackActive = false;
-        console.log(
-          "isSecondAttackerTurn",
-          pokemonVariables.isSecondAttackerTurn
-        );
 
         isProtectOrDetectCapacityActived;
 
@@ -231,11 +218,6 @@ document.addEventListener("DOMContentLoaded", () => {
         checkIfPokemonCanAttack(pokemonVariables.isSecondAttackerTurn);
 
         if (pokemonVariables.isSecondAttackerCanAttack) {
-          console.log(
-            secondAttacker.name,
-            "isSecondAttackerCanAttack",
-            pokemonVariables.isSecondAttackerCanAttack
-          );
           const randomNumber = Math.floor(Math.random() * 100) + 1;
 
           if (randomNumber <= 50) {

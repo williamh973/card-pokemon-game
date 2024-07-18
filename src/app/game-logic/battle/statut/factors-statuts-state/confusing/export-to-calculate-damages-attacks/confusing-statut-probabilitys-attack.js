@@ -2,7 +2,7 @@ import {
   confusingStatut10PercentProbabililityAttack,
   confusingStatut20PercentProbabililityAttack,
   confusingStatut100PercentProbabililityAttack,
-} from "../confusing-statut-probability-for-first-attack.js";
+} from "../confusing-statut-probability-attack.js";
 
 export function confusingStatutProbabilitysAttack(
   secondAttacker,
