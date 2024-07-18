@@ -1,6 +1,8 @@
 import { isCriticalHitBoostedByFocusEnergy } from "../../../attacks/factors-attacks/increase-factors-attacks/critical-hit-increase-factors-attacks/critical-hit-increase-focus-energy-attack.js";
 import { openDialogueWhenPokemonMakesCriticalHit } from "../../../../../components/battle-dialogues/dialogues/pokemon-makes-critical-hit.dialogue.js";
 
+const possiblePokemonList = ["Scarabrute"];
+
 function roundToNearestEven(number) {
   return Math.round(number / 2) * 2;
 }
@@ -12,13 +14,11 @@ function increaseCriticalHitProbabilityWhenFocusEnergyUsed(
 ) {
   if (
     isCriticalHitBoostedByFocusEnergy &&
-    firstAttacker.name === "Scarabrute"
+    possiblePokemonList.includes(firstAttacker.name)
   ) {
     randomNumber = Math.floor(Math.random() * 128) + 1;
   }
 }
-
-export let criticalHitDamageIncreaseRate;
 
 export function criticalHit(firstAttacker) {
   let speedValueRoundToNearestEven = roundToNearestEven(
@@ -26,6 +26,7 @@ export function criticalHit(firstAttacker) {
   );
   let speedValueRoundToNearestEvenDividedByTwo =
     speedValueRoundToNearestEven / 2;
+
   let newSpeedValueForProbabilityIncreaseRate =
     speedValueRoundToNearestEvenDividedByTwo;
 
@@ -39,8 +40,7 @@ export function criticalHit(firstAttacker) {
 
   if (randomNumber < newSpeedValueForProbabilityIncreaseRate) {
     openDialogueWhenPokemonMakesCriticalHit();
-
-    criticalHitDamageIncreaseRate =
+    let criticalHitDamageIncreaseRate =
       (2 * firstAttacker.level + 5) / (firstAttacker.level + 5);
     return criticalHitDamageIncreaseRate;
   } else {
