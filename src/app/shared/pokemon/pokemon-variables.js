@@ -18,6 +18,7 @@ export const pokemonVariables = {
   isSecondAttackerConfusing: false,
   isSecondAttackerScared: false,
   isRandomPokemonSelected: false,
+  isProtectOrDetectCapacityActived: false,
   playerSelectedPokemon: "",
   pokemonKo: "",
   enemyPokemon: "",

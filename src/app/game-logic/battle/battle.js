@@ -5,7 +5,6 @@ import {
 } from "./determine-first-attacker.js";
 import { displayBattleInProgress } from "./display-battle-in-progress.js";
 import { calculateDamagesAttack } from "./attacks/damages-attacks/calculate-damages-attacks/calculate-damage-attack.js";
-import { isProtectOrDetectCapacityActived } from "./attacks/factors-attacks/protect-detect-factor/protect-factors-attacks/protect-detect-capacity-actived.js";
 import {
   handleAttacksDelayAndAnimations,
   sleepAttacksAnimation,
@@ -45,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         updateNumberOfTurns();
 
-        isProtectOrDetectCapacityActived;
         await checkIfPokemonStatusHasParalyzedFrozenNormalOrAsleep(
           firstAttacker,
           sleepStatutAlteredAnimation
@@ -182,8 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
         pokemonVariables.isSecondAttackerTurn = true;
         pokemonVariables.isFirstAttackActive = false;
         pokemonVariables.isSecondAttackActive = false;
-
-        isProtectOrDetectCapacityActived;
 
         await checkIfPokemonStatusHasParalyzedFrozenNormalOrAsleep(
           secondAttacker,

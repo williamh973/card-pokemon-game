@@ -1,9 +1,7 @@
-export let isProtectOrDetectCapacityActived = false;
-
-export function protectionActived() {
-  isProtectOrDetectCapacityActived = true;
-}
+import { pokemonVariables } from "../../../../../../shared/pokemon/pokemon-variables.js";
 
 export function disabledProtectCapacity() {
-  isProtectOrDetectCapacityActived = false;
+  if (pokemonVariables.isProtectOrDetectCapacityActived) {
+    return (pokemonVariables.isProtectOrDetectCapacityActived = false);
+  }
 }
