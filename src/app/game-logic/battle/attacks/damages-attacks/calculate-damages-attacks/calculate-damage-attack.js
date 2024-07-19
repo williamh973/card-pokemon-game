@@ -14,40 +14,39 @@ export function calculateDamagesAttack(firstAttacker, secondAttacker) {
     ? firstAttacker.firstAttack
     : firstAttacker.secondAttack;
 
-  const firstAttackerFirstAttackBonusType =
-    firstAttackerAttack.type === "bonus" ||
-    firstAttackerAttack.type !== "bonus";
+  if (isFirstAttackerAttackActive) {
+    if (
+      (firstAttackerAttack.type === "bonus" ||
+        firstAttackerAttack.type !== "bonus") &&
+      !pokemonVariables.isProtectOrDetectCapacityActived
+    ) {
+      openDialogueWhenPokemonMakesAttack(firstAttacker);
 
-  if (
-    isFirstAttackerAttackActive &&
-    !pokemonVariables.isProtectOrDetectCapacityActived &&
-    firstAttackerFirstAttackBonusType
-  ) {
-    openDialogueWhenPokemonMakesAttack(firstAttacker);
+      return pokemonMakesAttack(
+        firstAttacker,
+        secondAttacker,
+        firstAttackerAttack
+      );
+    }
 
-    return pokemonMakesAttack(
-      firstAttacker,
-      secondAttacker,
-      firstAttackerAttack
-    );
-  } else if (
-    isFirstAttackerAttackActive &&
-    pokemonVariables.isProtectOrDetectCapacityActived &&
-    firstAttackerAttack.type !== "bonus"
-  ) {
-    openDialogueWhenPokemonMakesAttack(firstAttacker);
-    openDialogueWhenPokemonProtectingHimself(secondAttacker);
-    disabledProtectCapacity();
-    return 0;
-  } else if (
-    isFirstAttackerAttackActive &&
-    pokemonVariables.isProtectOrDetectCapacityActived &&
-    firstAttackerAttack.type === "bonus"
-  ) {
-    handleBonusAttackWhenProtectOrDetectCapacityActived(
-      firstAttacker,
-      firstAttackerAttack
-    );
-    return 0;
+    if (
+      firstAttackerAttack.type !== "bonus" &&
+      pokemonVariables.isProtectOrDetectCapacityActived
+    ) {
+      openDialogueWhenPokemonMakesAttack(firstAttacker);
+      openDialogueWhenPokemonProtectingHimself(secondAttacker);
+      disabledProtectCapacity();
+      return 0;
+    } else if (
+      firstAttackerAttack.type === "bonus" &&
+      pokemonVariables.isProtectOrDetectCapacityActived
+    ) {
+      handleBonusAttackWhenProtectOrDetectCapacityActived(
+        firstAttacker,
+        firstAttackerAttack
+      );
+      disabledProtectCapacity();
+      return 0;
+    }
   }
 }

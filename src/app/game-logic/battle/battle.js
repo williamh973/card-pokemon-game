@@ -62,8 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
           pokemonLose(
             firstAttacker,
             secondAttacker,
-            enemyPokemon,
-            playerSelectedPokemon
+            pokemonVariables.enemyPokemon,
+            pokemonVariables.playerSelectedPokemon
           );
 
           break;
@@ -169,8 +169,8 @@ document.addEventListener("DOMContentLoaded", () => {
           pokemonLose(
             firstAttacker,
             secondAttacker,
-            enemyPokemon,
-            playerSelectedPokemon
+            pokemonVariables.enemyPokemon,
+            pokemonVariables.playerSelectedPokemon
           );
 
           break;
@@ -199,8 +199,8 @@ document.addEventListener("DOMContentLoaded", () => {
           pokemonLose(
             firstAttacker,
             secondAttacker,
-            enemyPokemon,
-            playerSelectedPokemon
+            pokemonVariables.enemyPokemon,
+            pokemonVariables.playerSelectedPokemon
           );
 
           break;

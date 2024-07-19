@@ -6,14 +6,6 @@ const possibleAttacksList = ["Abri", "Détection"];
 
 export function protectFactorAttack(firstAttacker, firstAttackerAttack) {
   if (possibleAttacksList.includes(firstAttackerAttack.name)) {
-    console.log(
-      "firstAttacker",
-      firstAttacker.name,
-      "firstAttackerAttack",
-      firstAttackerAttack.name,
-      "isProtectCapacity",
-      pokemonVariables.isProtectOrDetectCapacityActived
-    );
     pokemonVariables.isProtectOrDetectCapacityActived = true;
     openDialogueWhenPokemonReadyToProtectItself(firstAttacker);
     pokemonDecreasePrecision(firstAttackerAttack);

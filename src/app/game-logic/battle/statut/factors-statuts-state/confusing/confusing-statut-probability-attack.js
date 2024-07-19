@@ -51,6 +51,7 @@ export function confusingStatut100PercentProbabililityAttack(
     "Vantardise",
     "Ultrason",
   ];
+
   if (
     possibleAttacksList.includes(firstAttackerAttack.name) &&
     (firstAttackerAttack.type === "normal" ||

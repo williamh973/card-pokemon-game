@@ -8,7 +8,7 @@ import { oneHitKnockoutFactorAttack } from "../../../factors-attacks/one-hit-fac
 import { protectFactorAttack } from "../../../factors-attacks/protect-detect-factor/protect-factors-attacks/protect-factors-attack.js";
 import { attackThatDependsFirstAttackerLevel } from "../../../factors-attacks/level-factors-attacks/handle-level-factor-attacks/handle-level-factor-attacks.js";
 import { hpIncrease50PercentOfDamagesFactorAttack } from "../../../factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-50-percent-damages.js";
-import { baseDamage } from "../base-damages/base-damage.js";
+import { baseDamage } from "./base-damages/base-damage.js";
 import { minimumDamage } from "../../minimum-damage/minimum-damage.js";
 import { applyStatChangeFactors } from "./apply-stat-change-factors/stat-change-factors.js";
 import { applyStatutsChangeFactors } from "./apply-statuts-change-factors/statut-change-factors.js";

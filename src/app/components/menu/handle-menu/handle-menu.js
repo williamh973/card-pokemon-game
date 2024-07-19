@@ -3,7 +3,7 @@ import { pokemonSelectors } from "../../../shared/header/pokemon-selectors.js";
 import { menuSelectors } from "../../../shared/header/menu-selectors.js";
 
 export function handleMenu(gameMod) {
-  const closedMenu = () => {
+  function closedMenu() {
     domElements.isDefiniteModActived = false;
     domElements.isRandomAdversaryModActivated = false;
     domElements.isRandomAllModActivated = false;
@@ -14,7 +14,7 @@ export function handleMenu(gameMod) {
     menuSelectors.versus.style.display = "none";
     pokemonSelectors.secondPokemonSelectionButton.style.display = "none";
     pokemonSelectors.randomAdversarySelectionButton.style.display = "none";
-  };
+  }
 
   switch (gameMod) {
     case "default":
