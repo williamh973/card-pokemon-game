@@ -1,4 +1,4 @@
-import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
+import { pokemonVariables } from "../../../../../../shared/pokemon/pokemon-variables.js";
 
 function getDammages(firstAttacker, attackStrength, secondAttacker) {
   return (
