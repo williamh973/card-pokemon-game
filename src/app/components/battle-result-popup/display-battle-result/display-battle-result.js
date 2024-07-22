@@ -7,12 +7,12 @@ import { menuSelectors } from "../../../shared/header/menu-selectors.js";
 
 const POPUP_DISPLAY_TIMELAPS = 3000;
 
-export const openBattleResultPopup = () => {
+export function openBattleResultPopup() {
   battleSelectors.displayBattleResultContainer.style.display = "flex";
   battleSelectors.displayBattleResult.textContent = `${pokemonVariables.pokemonKo} est KO !`;
-};
+}
 
-export const updatePokemonSelectionStatus = () => {
+export function updatePokemonSelectionStatus() {
   if (
     pokemonVariables.pokemonKo ===
     pokemonSelectors.firstPokemonSelectionButton.value
@@ -26,9 +26,9 @@ export const updatePokemonSelectionStatus = () => {
   } else {
     pokemonVariables.isRandomPokemonSelected = false;
   }
-};
+}
 
-export const displayMenu = () => {
+export function displayMenu() {
   setTimeout(() => {
     battleSelectors.displayBattleResultContainer.style.display = "none";
     battleSelectors.startBattleButton.disabled = true;
@@ -56,7 +56,7 @@ export const displayMenu = () => {
         break;
     }
   }, POPUP_DISPLAY_TIMELAPS);
-};
+}
 
 export function determinePokemonKo(firstAttacker, secondAttacker) {
   if (firstAttacker.stats.hp <= 0) {

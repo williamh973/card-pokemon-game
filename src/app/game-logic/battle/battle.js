@@ -4,15 +4,6 @@ import {
   determineFirstAttacker,
 } from "./determine-first-attacker.js";
 import { displayBattleInProgress } from "./display-battle-in-progress.js";
-import { calculateDamagesAttack } from "./attacks/damages-attacks/calculate-damages-attacks/calculate-damage-attack.js";
-import {
-  handleAttacksDelayAndAnimations,
-  sleepAttacksAnimation,
-} from "./animations/animations-delays/attacks-delay.js";
-import {
-  firstAttackerTakesDamage,
-  secondAttackerTakesDamage,
-} from "./pokemon-takes-damage.js";
 import { pokemonLose } from "./pokemon-is-knock-out.js";
 import { sleepStatutAlteredAnimation } from "./animations/animations-delays/alterations-delay.js";
 import { checkIfPokemonStatusCursed } from "./statut/handle-statut-state-in-fight/check-statut-in-battle/check-if-pokemon-statut-cursed.js";
@@ -26,6 +17,9 @@ import { checkIfPokemonStatusHasParalyzedFrozenNormalOrAsleep } from "./statut/h
 import { updateDisplayPokemonHp } from "./update-display-Pokemon-hp.js";
 import { checkIfPokemonStatusHasBurningOrPoisoned } from "./statut/handle-statut-state-in-fight/check-statut-in-battle/check-if-pokemon-statut-burning-poisoned.js";
 import { checkIfPokemonStatusConfusing } from "./statut/handle-statut-state-in-fight/check-statut-in-battle/check-if-pokemon-statut-confused.js";
+import { firstAttackerTurn } from "./first-attacker-turn.js";
+import { secondAttackerTurn } from "./second-attacker-turn.js";
+import { initBattle } from "./init-battle.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   battleSelectors.startBattleButton.addEventListener("click", () => {
@@ -35,13 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       determineFirstAttacker();
 
       while (firstAttacker.stats.hp > 0 && secondAttacker.stats.hp > 0) {
-        pokemonVariables.isFirstAttackerTurn = true;
-        pokemonVariables.isSecondAttackerTurn = false;
-        pokemonVariables.isFirstAttackActive = false;
-        pokemonVariables.isSecondAttackActive = false;
-        pokemonVariables.isFirstAttackerCanAttack = false;
-        pokemonVariables.isSecondAttackerCanAttack = false;
-
+        initBattle();
         updateNumberOfTurns();
 
         await checkIfPokemonStatusHasParalyzedFrozenNormalOrAsleep(
@@ -73,55 +61,11 @@ document.addEventListener("DOMContentLoaded", () => {
           sleepStatutAlteredAnimation
         );
 
+        pokemonVariables.isFirstAttackerTurn = true;
+
         checkIfPokemonCanAttack(pokemonVariables.isFirstAttackerTurn);
 
-        if (pokemonVariables.isFirstAttackerCanAttack) {
-          const randomNumber = Math.floor(Math.random() * 100) + 1;
-
-          if (randomNumber <= 50) {
-            pokemonVariables.isFirstAttackActive = true;
-            pokemonVariables.isSecondAttackActive = false;
-
-            let damageFirstAttack = calculateDamagesAttack(
-              firstAttacker,
-              secondAttacker
-            );
-
-            if (pokemonVariables.isFirstAttackActive) {
-              const attackDelays =
-                handleAttacksDelayAndAnimations(firstAttacker);
-
-              await sleepAttacksAnimation(attackDelays.pokemonAttackDelay);
-
-              secondAttackerTakesDamage(
-                firstAttacker,
-                secondAttacker,
-                damageFirstAttack
-              );
-            }
-          } else {
-            pokemonVariables.isFirstAttackActive = false;
-            pokemonVariables.isSecondAttackActive = true;
-
-            let damageSecondAttack = calculateDamagesAttack(
-              firstAttacker,
-              secondAttacker
-            );
-
-            if (pokemonVariables.isSecondAttackActive) {
-              const attackDelays =
-                handleAttacksDelayAndAnimations(firstAttacker);
-
-              await sleepAttacksAnimation(attackDelays.pokemonAttackDelay);
-
-              secondAttackerTakesDamage(
-                firstAttacker,
-                secondAttacker,
-                damageSecondAttack
-              );
-            }
-          }
-        }
+        await firstAttackerTurn(firstAttacker, secondAttacker);
 
         if (secondAttacker.stats.hp <= 0) {
           secondAttacker.stats.hp = 0;
@@ -177,9 +121,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         pokemonVariables.isFirstAttackerTurn = false;
-        pokemonVariables.isSecondAttackerTurn = true;
         pokemonVariables.isFirstAttackActive = false;
         pokemonVariables.isSecondAttackActive = false;
+        pokemonVariables.isFirstAttackerCanAttack = false;
 
         await checkIfPokemonStatusHasParalyzedFrozenNormalOrAsleep(
           secondAttacker,
@@ -211,55 +155,11 @@ document.addEventListener("DOMContentLoaded", () => {
           sleepStatutAlteredAnimation
         );
 
+        pokemonVariables.isSecondAttackerTurn = true;
+
         checkIfPokemonCanAttack(pokemonVariables.isSecondAttackerTurn);
 
-        if (pokemonVariables.isSecondAttackerCanAttack) {
-          const randomNumber = Math.floor(Math.random() * 100) + 1;
-
-          if (randomNumber <= 50) {
-            pokemonVariables.isFirstAttackActive = true;
-            pokemonVariables.isSecondAttackActive = false;
-
-            let damageFirstAttack = calculateDamagesAttack(
-              secondAttacker,
-              firstAttacker
-            );
-
-            if (pokemonVariables.isFirstAttackActive) {
-              const attackDelays =
-                handleAttacksDelayAndAnimations(secondAttacker);
-
-              await sleepAttacksAnimation(attackDelays.pokemonAttackDelay);
-
-              firstAttackerTakesDamage(
-                firstAttacker,
-                secondAttacker,
-                damageFirstAttack
-              );
-            }
-          } else {
-            pokemonVariables.isFirstAttackActive = false;
-            pokemonVariables.isSecondAttackActive = true;
-
-            let damageSecondAttack = calculateDamagesAttack(
-              secondAttacker,
-              firstAttacker
-            );
-
-            if (pokemonVariables.isSecondAttackActive) {
-              const attackDelays =
-                handleAttacksDelayAndAnimations(secondAttacker);
-
-              await sleepAttacksAnimation(attackDelays.pokemonAttackDelay);
-
-              firstAttackerTakesDamage(
-                firstAttacker,
-                secondAttacker,
-                damageSecondAttack
-              );
-            }
-          }
-        }
+        await secondAttackerTurn(secondAttacker, firstAttacker);
 
         if (firstAttacker.stats.hp <= 0) {
           firstAttacker.stats.hp = 0;
