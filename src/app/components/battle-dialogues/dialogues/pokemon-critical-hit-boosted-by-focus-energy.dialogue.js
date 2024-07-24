@@ -1,16 +1,7 @@
-import { dialogueConstant } from "../../../shared/battle/dialogues/dialogue-constant.js";
-import { battleSelectors } from "../../../shared/battle/battle-selectors.js";
+import { displayDialogue } from "./display-dialogue.js";
 
-export function openDialogueWhenPokemonCriticalHitBoostedByFocusEnergy(
+export async function openDialogueWhenPokemonCriticalHitBoostedByFocusEnergy(
   attacker
 ) {
-  setTimeout(function () {
-    battleSelectors.displayDialogue.style.display = "flex";
-
-    battleSelectors.displayDialogue.textContent = `${attacker.name} se gonfle !`;
-
-    setTimeout(function () {
-      battleSelectors.displayDialogue.style.display = "none";
-    }, dialogueConstant.END_NEXT_DISPLAY_DURATION);
-  }, dialogueConstant.START_NEXT_DISPLAY_DURATION);
+  await displayDialogue(`${attacker.name} se gonfle !`, 2000);
 }

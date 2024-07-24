@@ -1,3 +1,5 @@
+import { openDialogueWhenPokemonMakesIneffectiveAttack } from "../../components/battle-dialogues/dialogues/pokemon-makes-ineffective-attack.dialogue.js";
+import { attackStatesVariables } from "../../shared/attacks/attack-variables.js";
 import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
 import {
   handleAttacksDelayAndAnimations,
@@ -14,7 +16,7 @@ export async function secondAttackerTurn(secondAttacker, firstAttacker) {
       pokemonVariables.isFirstAttackActive = true;
       pokemonVariables.isSecondAttackActive = false;
 
-      let damageFirstAttack = calculateDamagesAttack(
+      let damageFirstAttack = await calculateDamagesAttack(
         secondAttacker,
         firstAttacker
       );
@@ -34,7 +36,7 @@ export async function secondAttackerTurn(secondAttacker, firstAttacker) {
       pokemonVariables.isFirstAttackActive = false;
       pokemonVariables.isSecondAttackActive = true;
 
-      let damageSecondAttack = calculateDamagesAttack(
+      let damageSecondAttack = await calculateDamagesAttack(
         secondAttacker,
         firstAttacker
       );

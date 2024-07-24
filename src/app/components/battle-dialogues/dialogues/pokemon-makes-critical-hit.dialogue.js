@@ -1,14 +1,7 @@
-import { dialogueConstant } from "../../../shared/battle/dialogues/dialogue-constant.js";
-import { battleSelectors } from "../../../shared/battle/battle-selectors.js";
+import { displayDialogue } from "./display-dialogue.js";
 
-export function openDialogueWhenPokemonMakesCriticalHit() {
-  setTimeout(function () {
-    battleSelectors.displayDialogue.style.display = "flex";
-
-    battleSelectors.displayDialogue.textContent = `Coup critique !`;
-
-    setTimeout(function () {
-      battleSelectors.displayDialogue.style.display = "none";
-    }, dialogueConstant.END_NEXT_DISPLAY_DURATION);
-  }, dialogueConstant.START_NEXT_DISPLAY_DURATION);
+export async function openDialogueWhenPokemonMakesCriticalHit() {
+  console.log("avant coup critique");
+  await displayDialogue(`Coup critique !`, 2000);
+  console.log("après coup critique");
 }

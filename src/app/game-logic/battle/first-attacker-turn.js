@@ -14,7 +14,7 @@ export async function firstAttackerTurn(firstAttacker, secondAttacker) {
       pokemonVariables.isFirstAttackActive = true;
       pokemonVariables.isSecondAttackActive = false;
 
-      let damageFirstAttack = calculateDamagesAttack(
+      let damageFirstAttack = await calculateDamagesAttack(
         firstAttacker,
         secondAttacker
       );
@@ -34,7 +34,7 @@ export async function firstAttackerTurn(firstAttacker, secondAttacker) {
       pokemonVariables.isFirstAttackActive = false;
       pokemonVariables.isSecondAttackActive = true;
 
-      let damageSecondAttack = calculateDamagesAttack(
+      let damageSecondAttack = await calculateDamagesAttack(
         firstAttacker,
         secondAttacker
       );

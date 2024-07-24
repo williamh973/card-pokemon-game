@@ -12,18 +12,22 @@ import { baseDamage } from "./base-damages/base-damage.js";
 import { minimumDamage } from "../../minimum-damage/minimum-damage.js";
 import { applyStatChangeFactors } from "./apply-stat-change-factors/stat-change-factors.js";
 import { applyStatutsChangeFactors } from "./apply-statuts-change-factors/statut-change-factors.js";
+import { openDialogueWhenPokemonMakesAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-makes-attacks.dialogue.js";
 
 const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-export function pokemonMakesAttack(
+export async function pokemonMakesAttack(
   firstAttacker,
   secondAttacker,
   firstAttackerAttack
 ) {
   if (randomNumber <= firstAttackerAttack.precision) {
+    console.log("ca passe");
+    await openDialogueWhenPokemonMakesAttack(firstAttacker);
+
     let damages = baseDamage(firstAttacker, secondAttacker);
 
-    let getCriticalHit = criticalHit(firstAttacker);
+    let getCriticalHit = await criticalHit(firstAttacker);
     damages *= getCriticalHit;
 
     let randomFactor = Math.random() * (1.0 - 0.85) + 0.85;

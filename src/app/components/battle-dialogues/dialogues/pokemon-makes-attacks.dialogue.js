@@ -1,27 +1,18 @@
-import { dialogueConstant } from "../../../shared/battle/dialogues/dialogue-constant.js";
-import { battleSelectors } from "../../../shared/battle/battle-selectors.js";
 import { pokemonVariables } from "../../../shared/pokemon/pokemon-variables.js";
+import { displayDialogue } from "./display-dialogue.js";
 
-function getText(firstAttacker, attackName) {
-  return `${firstAttacker.name} utilise ${attackName} !`;
-}
-
-export function openDialogueWhenPokemonMakesAttack(firstAttacker) {
-  battleSelectors.displayDialogue.style.display = "flex";
-
+export async function openDialogueWhenPokemonMakesAttack(firstAttacker) {
   if (pokemonVariables.isFirstAttackActive) {
-    battleSelectors.displayDialogue.textContent = getText(
-      firstAttacker,
-      firstAttacker.firstAttack.name
+    console.log("avant pokemon make attaque");
+    await displayDialogue(
+      `${firstAttacker.name} utilise ${firstAttacker.firstAttack.name} !`,
+      2000
     );
+    console.log("après pokemon make attaque");
   } else if (pokemonVariables.isSecondAttackActive) {
-    battleSelectors.displayDialogue.textContent = getText(
-      firstAttacker,
-      firstAttacker.secondAttack.name
+    await displayDialogue(
+      `${firstAttacker.name} utilise ${firstAttacker.secondAttack.name} !`,
+      2000
     );
   }
-
-  setTimeout(function () {
-    battleSelectors.displayDialogue.style.display = "none";
-  }, dialogueConstant.ATTACKS_DISPLAY_DURATION);
 }

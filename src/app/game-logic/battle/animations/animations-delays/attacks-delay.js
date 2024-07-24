@@ -16,7 +16,7 @@ export const handleAttacksDelayAndAnimations = (pokemon) => {
   };
 };
 
-const getAttackDelayAndStartAnimations = (attackName) => {
+function getAttackDelayAndStartAnimations(attackName) {
   switch (attackName) {
     case "Charge":
       return 4000;
@@ -31,8 +31,8 @@ const getAttackDelayAndStartAnimations = (attackName) => {
     default:
       return 4000;
   }
-};
+}
 
-export const sleepAttacksAnimation = (attackName) => {
+export function sleepAttacksAnimation(attackName) {
   return new Promise((resolve) => setTimeout(resolve, attackName));
-};
+}

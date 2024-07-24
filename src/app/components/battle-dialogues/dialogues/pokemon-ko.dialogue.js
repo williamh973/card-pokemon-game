@@ -1,8 +1,5 @@
-import { battleSelectors } from "../../../shared/battle/battle-selectors.js";
+import { displayDialogue } from "./display-dialogue.js";
 
-export function openDialogueWhenPokemonKo() {
-  setTimeout(function () {
-    battleSelectors.displayDialogue.style.display = "flex";
-    battleSelectors.displayDialogue.textContent = "Choisir un autre pokemon.";
-  }, 3000);
+export async function openDialogueWhenPokemonKo() {
+  await displayDialogue(`Choisir un autre pokemon.`, 0);
 }

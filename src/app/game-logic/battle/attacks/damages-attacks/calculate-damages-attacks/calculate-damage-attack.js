@@ -4,15 +4,14 @@ import { disabledProtectCapacity } from "../../factors-attacks/protect-detect-fa
 import { handleBonusAttackWhenProtectOrDetectCapacityActived } from "../../factors-attacks/protect-detect-factor/handle-bonus-attack-when-protect-or-detect-capacity-actived/handle-bonus-attack-when-protect-or-detect-capacity-actived-first-attack.js";
 import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
 import { pokemonMakesAttack } from "./pokemon-makes-attack/pokemon-makes-attack.js";
+import { getFirstAttackerAttack } from "../../../../../shared/attacks/get-first-attacker-attack.js";
 
-export function calculateDamagesAttack(firstAttacker, secondAttacker) {
+export async function calculateDamagesAttack(firstAttacker, secondAttacker) {
   const isFirstAttackerAttackActive =
     pokemonVariables.isFirstAttackActive ||
     pokemonVariables.isSecondAttackActive;
 
-  const firstAttackerAttack = pokemonVariables.isFirstAttackActive
-    ? firstAttacker.firstAttack
-    : firstAttacker.secondAttack;
+  const firstAttackerAttack = getFirstAttackerAttack(firstAttacker);
 
   if (isFirstAttackerAttackActive) {
     if (
@@ -20,9 +19,7 @@ export function calculateDamagesAttack(firstAttacker, secondAttacker) {
         firstAttackerAttack.type !== "bonus") &&
       !pokemonVariables.isProtectOrDetectCapacityActived
     ) {
-      openDialogueWhenPokemonMakesAttack(firstAttacker);
-
-      return pokemonMakesAttack(
+      return await pokemonMakesAttack(
         firstAttacker,
         secondAttacker,
         firstAttackerAttack
@@ -33,8 +30,8 @@ export function calculateDamagesAttack(firstAttacker, secondAttacker) {
       firstAttackerAttack.type !== "bonus" &&
       pokemonVariables.isProtectOrDetectCapacityActived
     ) {
-      openDialogueWhenPokemonMakesAttack(firstAttacker);
-      openDialogueWhenPokemonProtectingHimself(secondAttacker);
+      await openDialogueWhenPokemonMakesAttack(firstAttacker);
+      await openDialogueWhenPokemonProtectingHimself(secondAttacker);
       disabledProtectCapacity();
       return 0;
     } else if (

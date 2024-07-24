@@ -1,14 +1,5 @@
-import { battleSelectors } from "../../../shared/battle/battle-selectors.js";
-import { dialogueConstant } from "../../../shared/battle/dialogues/dialogue-constant.js";
+import { displayDialogue } from "./display-dialogue.js";
 
-export function openDialogueWhenPokemonHasBurningStatut(pokemon) {
-  setTimeout(function () {
-    battleSelectors.displayDialogue.style.display = "flex";
-
-    battleSelectors.displayDialogue.textContent = `${pokemon.name} est brûlé !`;
-
-    setTimeout(function () {
-      battleSelectors.displayDialogue.style.display = "none";
-    }, dialogueConstant.END_NEXT_DISPLAY_DURATION);
-  }, dialogueConstant.START_NEXT_DISPLAY_DURATION);
+export async function openDialogueWhenPokemonHasBurningStatut(pokemon) {
+  await displayDialogue(`${pokemon.name} est brûlé !`, 2000);
 }

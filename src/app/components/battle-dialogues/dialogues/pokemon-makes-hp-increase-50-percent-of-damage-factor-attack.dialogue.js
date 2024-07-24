@@ -1,17 +1,8 @@
-import { battleSelectors } from "../../../shared/battle/battle-selectors.js";
-import { dialogueConstant } from "../../../shared/battle/dialogues/dialogue-constant.js";
+import { displayDialogue } from "./display-dialogue.js";
 
-export function openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack(
+export async function openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack(
   pokemon,
   actualIncrease
 ) {
-  setTimeout(function () {
-    battleSelectors.displayDialogue.style.display = "flex";
-
-    battleSelectors.displayDialogue.textContent = `${pokemon.name} regagne ${actualIncrease} pv !`;
-
-    setTimeout(function () {
-      battleSelectors.displayDialogue.style.display = "none";
-    }, dialogueConstant.END_NEXT_DISPLAY_DURATION);
-  }, dialogueConstant.START_NEXT_DISPLAY_DURATION);
+  await displayDialogue(`${pokemon.name} regagne ${actualIncrease} pv !`, 2000);
 }

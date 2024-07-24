@@ -20,7 +20,7 @@ function increaseCriticalHitProbabilityWhenFocusEnergyUsed(
   }
 }
 
-export function criticalHit(firstAttacker) {
+export async function criticalHit(firstAttacker) {
   let speedValueRoundToNearestEven = roundToNearestEven(
     firstAttacker.stats.speed
   );
@@ -39,7 +39,8 @@ export function criticalHit(firstAttacker) {
   );
 
   if (randomNumber < newSpeedValueForProbabilityIncreaseRate) {
-    openDialogueWhenPokemonMakesCriticalHit();
+    await openDialogueWhenPokemonMakesCriticalHit();
+
     let criticalHitDamageIncreaseRate =
       (2 * firstAttacker.level + 5) / (firstAttacker.level + 5);
     return criticalHitDamageIncreaseRate;
