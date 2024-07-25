@@ -38,7 +38,7 @@ export async function calculateDamagesAttack(firstAttacker, secondAttacker) {
       firstAttackerAttack.type === "bonus" &&
       pokemonVariables.isProtectOrDetectCapacityActived
     ) {
-      handleBonusAttackWhenProtectOrDetectCapacityActived(
+      await handleBonusAttackWhenProtectOrDetectCapacityActived(
         firstAttacker,
         firstAttackerAttack
       );

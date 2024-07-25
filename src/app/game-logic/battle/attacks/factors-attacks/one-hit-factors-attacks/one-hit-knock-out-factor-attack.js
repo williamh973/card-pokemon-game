@@ -1,7 +1,7 @@
 import { openDialogueWhenPokemonHasBeenKoByOneHitKnockout } from "../../../../../components/battle-dialogues/dialogues/pokemon-has-been-ko-by-one-hit-knockout.dialogue.js";
 import { openDialogueWhenPokemonMakesIneffectiveAttack } from "../../../../../components/battle-dialogues/dialogues/pokemon-makes-ineffective-attack.dialogue.js";
 
-export function oneHitKnockoutFactorAttack(
+export async function oneHitKnockoutFactorAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -12,13 +12,13 @@ export function oneHitKnockoutFactorAttack(
     possibleAttacksList.includes(firstAttackerAttack.name)
   ) {
     secondAttacker.stats.hp = 0;
-    openDialogueWhenPokemonHasBeenKoByOneHitKnockout(secondAttacker);
+    await openDialogueWhenPokemonHasBeenKoByOneHitKnockout(secondAttacker);
     return 1;
   } else if (
     secondAttacker.type === "spectrum" &&
     possibleAttacksList.includes(firstAttackerAttack.name)
   ) {
-    openDialogueWhenPokemonMakesIneffectiveAttack();
+    await openDialogueWhenPokemonMakesIneffectiveAttack();
     return 0;
   } else {
     return 1;

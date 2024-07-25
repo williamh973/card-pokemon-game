@@ -2,12 +2,14 @@ import { openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack } from "../../
 
 const possibleAttacksList = ["Accupression", "Hâte", "Accupression"];
 
-export function speedIncrease10pFactorAttack(
+export async function speedIncrease10pFactorAttack(
   firstAttacker,
   firstAttackerAttack
 ) {
   if (possibleAttacksList.includes(firstAttackerAttack.name)) {
-    openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack(firstAttacker);
+    await openDialogueWhenPokemonMakesSpeedIncrease10pFactorAttack(
+      firstAttacker
+    );
     const increasingValue = 10;
     const newSpeedValue = (firstAttacker.stats.speed += increasingValue);
     return newSpeedValue;

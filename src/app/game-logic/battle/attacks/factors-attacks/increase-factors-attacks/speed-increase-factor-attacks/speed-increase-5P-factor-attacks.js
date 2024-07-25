@@ -8,12 +8,14 @@ const possibleAttacksList = [
   "Vent Arrière",
 ];
 
-export function speedIncrease5pFactorAttack(
+export async function speedIncrease5pFactorAttack(
   firstAttacker,
   firstAttackerAttack
 ) {
   if (possibleAttacksList.includes(firstAttackerAttack.name)) {
-    openDialogueWhenPokemonMakesSpeedIncrease5pFactorAttack(firstAttacker);
+    await openDialogueWhenPokemonMakesSpeedIncrease5pFactorAttack(
+      firstAttacker
+    );
     const increasingValue = 5;
     const newSpeedValue = (firstAttacker.stats.speed += increasingValue);
     return newSpeedValue;

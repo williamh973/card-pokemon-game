@@ -1,7 +1,7 @@
 import { isStatusValidForBurning } from "./status-valid-for-burning.js";
 import { burningStatut } from "./burning-statut.js";
 
-export function burningStatut10PercentProbabililityAttack(
+export async function burningStatut10PercentProbabililityAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -28,12 +28,12 @@ export function burningStatut10PercentProbabililityAttack(
     const randomNumber = Math.floor(Math.random() * 100) + 1;
 
     if (randomNumber <= 10) {
-      burningStatut(secondAttacker);
+      await burningStatut(secondAttacker);
     }
   }
 }
 
-export function burningStatut30PercentProbabililityAttack(
+export async function burningStatut30PercentProbabililityAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -60,12 +60,12 @@ export function burningStatut30PercentProbabililityAttack(
     const randomNumber = Math.floor(Math.random() * 100) + 1;
 
     if (randomNumber <= 30) {
-      burningStatut(secondAttacker);
+      await burningStatut(secondAttacker);
     }
   }
 }
 
-export function burningStatut50PercentProbabililityAttack(
+export async function burningStatut50PercentProbabililityAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -79,12 +79,12 @@ export function burningStatut50PercentProbabililityAttack(
     const randomNumber = Math.floor(Math.random() * 100) + 1;
 
     if (randomNumber <= 50) {
-      burningStatut(secondAttacker);
+      await burningStatut(secondAttacker);
     }
   }
 }
 
-export function burningStatut100PercentProbabililityAttack(
+export async function burningStatut100PercentProbabililityAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -96,6 +96,6 @@ export function burningStatut100PercentProbabililityAttack(
     secondAttacker.type !== "fire" &&
     isStatusValidForBurning(secondAttacker)
   ) {
-    burningStatut(secondAttacker);
+    await burningStatut(secondAttacker);
   }
 }

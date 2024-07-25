@@ -11,11 +11,11 @@ export async function checkIfPokemonStatusHasBurningOrPoisoned(
     pokemon.primaryStatut === "burning" ||
     pokemon.primaryStatut === "poisoned"
   ) {
-    appropriateDialogues(pokemon);
+    await appropriateDialogues(pokemon);
 
     const alterationStateDelays = getStatutAlterationDelays(pokemon);
 
-    pokemonPrimaryStatutAlteration(pokemon);
+    await pokemonPrimaryStatutAlteration(pokemon);
 
     await sleepStatutAlteredAnimation(
       alterationStateDelays.getStatutAnimationDelay
@@ -23,10 +23,10 @@ export async function checkIfPokemonStatusHasBurningOrPoisoned(
   }
 }
 
-function appropriateDialogues(pokemon) {
+async function appropriateDialogues(pokemon) {
   if (pokemon.primaryStatut === "burning") {
-    openDialogueWhenPokemonHpDecreaseByBurningStatut(pokemon);
+    await openDialogueWhenPokemonHpDecreaseByBurningStatut(pokemon);
   } else if (pokemon.primaryStatut === "poisoned") {
-    openDialogueWhenPokemonHpDecreaseByPoisonedStatut(pokemon);
+    await openDialogueWhenPokemonHpDecreaseByPoisonedStatut(pokemon);
   }
 }

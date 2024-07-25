@@ -5,15 +5,15 @@ import { hpIncrease5pFactorAttack } from "../../../../factors-attacks/increase-f
 import { speedIncrease10pFactorAttack } from "../../../../factors-attacks/increase-factors-attacks/speed-increase-factor-attacks/speed-increase-10P-factor-attacks.js";
 import { speedIncrease5pFactorAttack } from "../../../../factors-attacks/increase-factors-attacks/speed-increase-factor-attacks/speed-increase-5P-factor-attacks.js";
 
-export function applyStatChangeFactors(
+export async function applyStatChangeFactors(
   firstAttacker,
   firstAttackerAttack,
   secondAttacker
 ) {
-  speedIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
-  speedIncrease10pFactorAttack(firstAttacker, firstAttackerAttack);
-  defenseIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
-  defenseIncrease10pFactorAttack(firstAttacker, firstAttackerAttack);
-  hpIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
-  attackDecrease2pFactorAttack(secondAttacker, firstAttackerAttack);
+  await speedIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
+  await speedIncrease10pFactorAttack(firstAttacker, firstAttackerAttack);
+  await defenseIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
+  await defenseIncrease10pFactorAttack(firstAttacker, firstAttackerAttack);
+  await hpIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
+  await attackDecrease2pFactorAttack(secondAttacker, firstAttackerAttack);
 }

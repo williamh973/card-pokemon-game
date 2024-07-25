@@ -16,9 +16,9 @@ function increaseHp(firstAttacker) {
   return actualIncrease;
 }
 
-function isCurrentHpAlreadyAboveHpMax(firstAttacker) {
+async function isCurrentHpAlreadyAboveHpMax(firstAttacker) {
   firstAttacker.stats.hp = firstAttacker.stats.hpMax;
-  openDialogueWhenPokemonMissHpIncrease5pFactorAttack();
+  await openDialogueWhenPokemonMissHpIncrease5pFactorAttack();
   return firstAttacker.stats.hp;
 }
 
@@ -29,7 +29,10 @@ function currentHpGreaterThanHpMaxAfterIncreased(firstAttacker) {
   }
 }
 
-export function hpIncrease5pFactorAttack(firstAttacker, firstAttackerAttack) {
+export async function hpIncrease5pFactorAttack(
+  firstAttacker,
+  firstAttackerAttack
+) {
   const possibleAttacksList = ["Soin"];
 
   if (
@@ -38,7 +41,7 @@ export function hpIncrease5pFactorAttack(firstAttacker, firstAttackerAttack) {
   ) {
     const hpGained = increaseHp(firstAttacker);
 
-    openDialogueWhenPokemonMakesHpIncrease5pFactorAttack(
+    await openDialogueWhenPokemonMakesHpIncrease5pFactorAttack(
       firstAttacker,
       hpGained
     );

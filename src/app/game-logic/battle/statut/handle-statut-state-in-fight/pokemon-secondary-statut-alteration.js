@@ -10,7 +10,7 @@ import { isPokemonScared } from "./scared/pokemon-scared.js";
 let confusingCount = 0;
 let randomNumber = Math.random();
 
-export function secondaryStatutConfusingAlteration(pokemon) {
+export async function secondaryStatutConfusingAlteration(pokemon) {
   switch (pokemon.secondaryStatut.isConfused) {
     case true:
       confusingCount++;
@@ -19,8 +19,8 @@ export function secondaryStatutConfusingAlteration(pokemon) {
 
       if (randomNumber <= 0.5) {
         isPokemonConfused();
-        openDialogueWhenPokemonConfusedStatut(pokemon);
-        openDialogueWhenPokemonHurtByConfusing(pokemon);
+        await openDialogueWhenPokemonConfusedStatut(pokemon);
+        await openDialogueWhenPokemonHurtByConfusing(pokemon);
         disabledProtectCapacity();
 
         let percentage = 10;
@@ -29,12 +29,12 @@ export function secondaryStatutConfusingAlteration(pokemon) {
 
         pokemon.stats.hp -= newDecreaseValue;
       } else {
-        openDialogueWhenPokemonConfusedStatut(pokemon);
+        await openDialogueWhenPokemonConfusedStatut(pokemon);
         isPokemonNotConfused();
       }
 
       if (confusingCount === 4) {
-        openDialogueWhenPokemonNoLongerConfused(pokemon);
+        await openDialogueWhenPokemonNoLongerConfused(pokemon);
         isPokemonNotConfused();
         pokemon.secondaryStatut.isConfused = false;
 
@@ -60,10 +60,10 @@ export function statutScaredAlteration(pokemon) {
   }
 }
 
-export function secondaryStatutCursedAlteration(pokemon) {
+export async function secondaryStatutCursedAlteration(pokemon) {
   switch (pokemon.secondaryStatut.isCursed) {
     case true:
-      openDialogueWhenPokemonHurtsByCurse(pokemon);
+      await openDialogueWhenPokemonHurtsByCurse(pokemon);
       let percentage = 20;
       let decreaseValue = (percentage / 100) * pokemon.stats.hpMax;
       const newDecreaseValue = Math.round(decreaseValue);

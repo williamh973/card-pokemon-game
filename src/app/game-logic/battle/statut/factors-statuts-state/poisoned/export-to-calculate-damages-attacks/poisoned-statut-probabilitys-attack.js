@@ -6,31 +6,31 @@ import {
   poisonedStatut100PercentProbabililityAttack,
 } from "../poisoned-statut-probability-attack.js";
 
-export function poisonedStatutProbabilitysAttack(
+export async function poisonedStatutProbabilitysAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
-  poisonedStatut10PercentProbabililityAttack(
+  await poisonedStatut10PercentProbabililityAttack(
     secondAttacker,
     firstAttackerAttack
   );
 
-  poisonedStatut20PercentProbabililityAttack(
+  await poisonedStatut20PercentProbabililityAttack(
     secondAttacker,
     firstAttackerAttack
   );
 
-  poisonedStatut30PercentProbabililityAttack(
+  await poisonedStatut30PercentProbabililityAttack(
     secondAttacker,
     firstAttackerAttack
   );
 
-  poisonedStatut40PercentProbabililityAttack(
+  await poisonedStatut40PercentProbabililityAttack(
     secondAttacker,
     firstAttackerAttack
   );
 
-  poisonedStatut100PercentProbabililityAttack(
+  await poisonedStatut100PercentProbabililityAttack(
     secondAttacker,
     firstAttackerAttack
   );

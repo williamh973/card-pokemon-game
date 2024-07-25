@@ -13,7 +13,7 @@ export function firstAttackerDecrease50PercentHp(firstAttacker) {
   return hpValue;
 }
 
-export function cursedStatut100PercentProbability(
+export async function cursedStatut100PercentProbability(
   firstAttacker,
   secondAttacker,
   firstAttackerAttack
@@ -36,7 +36,7 @@ export function cursedStatut100PercentProbability(
     firstAttackerAttack.type === "malus" &&
     checkSecondAttackerAlreadyCursed(secondAttacker)
   ) {
-    openDialoguePokemonAlreadyCursed(secondAttacker);
+    await openDialoguePokemonAlreadyCursed(secondAttacker);
   } else {
     return;
   }

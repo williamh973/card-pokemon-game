@@ -6,18 +6,18 @@ import { frozenStatutProbabilitysAttack } from "../../../../../statut/factors-st
 import { paralyzedStatutProbabilitysAttack } from "../../../../../statut/factors-statuts-state/paralyzed/export-to-calculate-damages-attacks/paralyzed-statut-probabilitys-attack.js";
 import { poisonedStatutProbabilitysAttack } from "../../../../../statut/factors-statuts-state/poisoned/export-to-calculate-damages-attacks/poisoned-statut-probabilitys-attack.js";
 
-export function applyStatutsChangeFactors(
+export async function applyStatutsChangeFactors(
   firstAttacker,
   firstAttackerAttack,
   secondAttacker
 ) {
-  burningStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
-  poisonedStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
-  paralyzedStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
-  frozenStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
-  asleepStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
-  confusingStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
-  cursedStatut100PercentProbability(
+  await burningStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
+  await poisonedStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
+  await paralyzedStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
+  await frozenStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
+  await asleepStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
+  await confusingStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
+  await cursedStatut100PercentProbability(
     firstAttacker,
     secondAttacker,
     firstAttackerAttack

@@ -7,14 +7,16 @@ const possibleAttacksList = [
   "Acidarmure",
 ];
 
-export function defenseIncrease10pFactorAttack(
+export async function defenseIncrease10pFactorAttack(
   firstAttacker,
   firstAttackerAttack
 ) {
   if (possibleAttacksList.includes(firstAttackerAttack.name)) {
     const increasingValue = 10;
     const newDefenseValue = (firstAttacker.stats.defense += increasingValue);
-    openDialogueWhenPokemonMakesDefenseIncrease10pFactorAttack(firstAttacker);
+    await openDialogueWhenPokemonMakesDefenseIncrease10pFactorAttack(
+      firstAttacker
+    );
     return newDefenseValue;
   }
 }

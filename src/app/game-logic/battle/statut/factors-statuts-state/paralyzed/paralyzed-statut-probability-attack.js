@@ -1,7 +1,7 @@
 import { isStatusValidForParalyzed } from "./status-valid-for-paralyzed.js";
 import { paralyzedStatut } from "./paralyzed-statut.js";
 
-export function paralyzedStatut10PercentProbabililityAttack(
+export async function paralyzedStatut10PercentProbabililityAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -24,12 +24,12 @@ export function paralyzedStatut10PercentProbabililityAttack(
     const randomNumber = Math.floor(Math.random() * 100) + 1;
 
     if (randomNumber <= 10) {
-      paralyzedStatut(secondAttacker);
+      await paralyzedStatut(secondAttacker);
     }
   }
 }
 
-export function paralyzedStatut30PercentProbabililityAttack(
+export async function paralyzedStatut30PercentProbabililityAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -59,12 +59,12 @@ export function paralyzedStatut30PercentProbabililityAttack(
     const randomNumber = Math.floor(Math.random() * 100) + 1;
 
     if (randomNumber <= 30) {
-      paralyzedStatut(secondAttacker);
+      await paralyzedStatut(secondAttacker);
     }
   }
 }
 
-export function paralyzedStatut100PercentProbabililityAttack(
+export async function paralyzedStatut100PercentProbabililityAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -84,6 +84,6 @@ export function paralyzedStatut100PercentProbabililityAttack(
     secondAttacker.type !== "electric" &&
     isStatusValidForParalyzed(secondAttacker)
   ) {
-    paralyzedStatut(secondAttacker);
+    await paralyzedStatut(secondAttacker);
   }
 }

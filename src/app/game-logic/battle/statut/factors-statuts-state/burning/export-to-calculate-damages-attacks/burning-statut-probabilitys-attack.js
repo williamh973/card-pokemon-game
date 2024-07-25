@@ -5,23 +5,23 @@ import {
   burningStatut100PercentProbabililityAttack,
 } from "../burning-statut-probability-attack.js";
 
-export function burningStatutProbabilitysAttack(
+export async function burningStatutProbabilitysAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
-  burningStatut10PercentProbabililityAttack(
+  await burningStatut10PercentProbabililityAttack(
     secondAttacker,
     firstAttackerAttack
   );
-  burningStatut30PercentProbabililityAttack(
+  await burningStatut30PercentProbabililityAttack(
     secondAttacker,
     firstAttackerAttack
   );
-  burningStatut50PercentProbabililityAttack(
+  await burningStatut50PercentProbabililityAttack(
     secondAttacker,
     firstAttackerAttack
   );
-  burningStatut100PercentProbabililityAttack(
+  await burningStatut100PercentProbabililityAttack(
     secondAttacker,
     firstAttackerAttack
   );

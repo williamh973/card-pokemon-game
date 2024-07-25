@@ -16,14 +16,16 @@ const possibleAttacksList = [
   "Coud'Krane",
 ];
 
-export function defenseIncrease5pFactorAttack(
+export async function defenseIncrease5pFactorAttack(
   firstAttacker,
   firstAttackerAttack
 ) {
   if (possibleAttacksList.includes(firstAttackerAttack.name)) {
     const increasingValue = 5;
     const newDefenseValue = (firstAttacker.stats.defense += increasingValue);
-    openDialogueWhenPokemonMakesDefenseIncrease5pFactorAttack(firstAttacker);
+    await openDialogueWhenPokemonMakesDefenseIncrease5pFactorAttack(
+      firstAttacker
+    );
     return newDefenseValue;
   }
 }

@@ -8,7 +8,7 @@ export async function checkIfPokemonStatusConfusing(
   if (pokemon.secondaryStatut.isConfused || pokemon.secondaryStatut.isNormal) {
     const alterationStateDelays = getConfusedStatutAnimationDelays(pokemon);
 
-    secondaryStatutConfusingAlteration(pokemon);
+    await secondaryStatutConfusingAlteration(pokemon);
 
     await sleepStatutAlteredAnimation(
       alterationStateDelays.getConfusedStatutAnimationDelay

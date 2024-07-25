@@ -13,13 +13,18 @@ function currentHpGreaterThanHpMaxAfterIncreased(firstAttacker) {
   }
 }
 
-function increasingHpValue(firstAttacker, increasingValue, currentHp, maxHp) {
+async function increasingHpValue(
+  firstAttacker,
+  increasingValue,
+  currentHp,
+  maxHp
+) {
   const newHpValue = currentHp + increasingValue;
   if (newHpValue > maxHp) {
     const actualIncrease = maxHp - currentHp;
     firstAttacker.stats.hp = Math.min(newHpValue, maxHp);
 
-    openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack(
+    await openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack(
       firstAttacker,
       actualIncrease
     );
@@ -42,7 +47,7 @@ function checkFirstAttackerPossibleIncreaseHp(
   }
 }
 
-export function hpIncrease50PercentOfDamagesFactorAttack(
+export async function hpIncrease50PercentOfDamagesFactorAttack(
   firstAttacker,
   firstAttackerAttack,
   secondAttacker,
@@ -62,7 +67,7 @@ export function hpIncrease50PercentOfDamagesFactorAttack(
     possibleAttacksList.includes(firstAttackerAttack.name) &&
     secondAttacker.primaryStatut !== "asleep"
   ) {
-    openDialogueWhenPokemonMissAttack(firstAttacker);
+    await openDialogueWhenPokemonMissAttack(firstAttacker);
     return 0;
   } else {
     return 1;

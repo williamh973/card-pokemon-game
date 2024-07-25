@@ -21,10 +21,10 @@ export async function pokemonMakesAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
-  if (randomNumber <= firstAttackerAttack.precision) {
-    console.log("ca passe");
-    await openDialogueWhenPokemonMakesAttack(firstAttacker);
+  console.log(firstAttacker.name, "attaque!");
+  await openDialogueWhenPokemonMakesAttack(firstAttacker);
 
+  if (randomNumber <= firstAttackerAttack.precision) {
     let damages = baseDamage(firstAttacker, secondAttacker);
 
     let getCriticalHit = await criticalHit(firstAttacker);
@@ -33,7 +33,7 @@ export async function pokemonMakesAttack(
     let randomFactor = Math.random() * (1.0 - 0.85) + 0.85;
     damages *= randomFactor;
 
-    let getAlwaysKnockOutAttacks = oneHitKnockoutFactorAttack(
+    let getAlwaysKnockOutAttacks = await oneHitKnockoutFactorAttack(
       secondAttacker,
       firstAttackerAttack
     );
@@ -47,7 +47,7 @@ export async function pokemonMakesAttack(
     damages = getLevelFactorsForAttacks;
 
     let getHpIncrease50PercentOfDamagesFactor =
-      hpIncrease50PercentOfDamagesFactorAttack(
+      await hpIncrease50PercentOfDamagesFactorAttack(
         firstAttacker,
         firstAttackerAttack,
         secondAttacker,
@@ -55,30 +55,38 @@ export async function pokemonMakesAttack(
       );
     damages *= getHpIncrease50PercentOfDamagesFactor;
 
-    let getWeaknessFactorList = weaknessFactorAttack(
+    let getWeaknessFactorList = await weaknessFactorAttack(
       secondAttacker,
       firstAttackerAttack
     );
     damages *= getWeaknessFactorList;
 
-    let getResistanceFactorList = resistanceFactorAttack(
+    let getResistanceFactorList = await resistanceFactorAttack(
       secondAttacker,
       firstAttackerAttack
     );
     damages /= getResistanceFactorList;
 
-    let getIneffectiveFactorList = ineffectiveFactorAttack(
+    let getIneffectiveFactorList = await ineffectiveFactorAttack(
       secondAttacker,
       firstAttackerAttack
     );
     damages *= getIneffectiveFactorList;
 
-    criticalHitIncreaseByFocusEnergyAttack(firstAttacker, firstAttackerAttack);
-    protectFactorAttack(firstAttacker, firstAttackerAttack);
+    await criticalHitIncreaseByFocusEnergyAttack(
+      firstAttacker,
+      firstAttackerAttack
+    );
 
-    applyStatChangeFactors(firstAttacker, firstAttackerAttack, secondAttacker);
+    await protectFactorAttack(firstAttacker, firstAttackerAttack);
 
-    applyStatutsChangeFactors(
+    await applyStatChangeFactors(
+      firstAttacker,
+      firstAttackerAttack,
+      secondAttacker
+    );
+
+    await applyStatutsChangeFactors(
       firstAttacker,
       firstAttackerAttack,
       secondAttacker
@@ -87,7 +95,8 @@ export async function pokemonMakesAttack(
     damages = minimumDamage(damages);
     return Math.round(damages);
   } else {
-    openDialogueWhenPokemonMissAttack(firstAttacker);
+    console.log(firstAttacker.name, "rate son attaque!");
+    await openDialogueWhenPokemonMissAttack(firstAttacker);
     return 0;
   }
 }

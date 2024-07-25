@@ -4,21 +4,21 @@ import {
   paralyzedStatut100PercentProbabililityAttack,
 } from "../paralyzed-statut-probability-attack.js";
 
-export function paralyzedStatutProbabilitysAttack(
+export async function paralyzedStatutProbabilitysAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
-  paralyzedStatut10PercentProbabililityAttack(
+  await paralyzedStatut10PercentProbabililityAttack(
     secondAttacker,
     firstAttackerAttack
   );
 
-  paralyzedStatut30PercentProbabililityAttack(
+  await paralyzedStatut30PercentProbabililityAttack(
     secondAttacker,
     firstAttackerAttack
   );
 
-  paralyzedStatut100PercentProbabililityAttack(
+  await paralyzedStatut100PercentProbabililityAttack(
     secondAttacker,
     firstAttackerAttack
   );

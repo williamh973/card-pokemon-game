@@ -8,7 +8,7 @@ export async function checkIfPokemonStatusCursed(
   if (pokemon.secondaryStatut.isCursed || pokemon.secondaryStatut.isNormal) {
     const alterationStateDelays = getCursedStatutAnimationDelays(pokemon);
 
-    secondaryStatutCursedAlteration(pokemon);
+    await secondaryStatutCursedAlteration(pokemon);
 
     await sleepStatutAlteredAnimation(
       alterationStateDelays.getCursedStatutAnimationDelay

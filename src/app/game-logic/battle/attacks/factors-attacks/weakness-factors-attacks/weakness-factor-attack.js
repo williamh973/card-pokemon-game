@@ -2,7 +2,10 @@ import { openDialogueWhenPokemonMakesWeaknessAttack } from "../../../../../compo
 import { doubleTypeWeaknesseList } from "../../../../../shared/pokemon/types/weakness/double-type-weakness-list.js";
 import { simpleTypeWeaknesseList } from "../../../../../shared/pokemon/types/weakness/simple-type-weakness-list.js";
 
-export function weaknessFactorAttack(secondAttacker, firstAttackerAttack) {
+export async function weaknessFactorAttack(
+  secondAttacker,
+  firstAttackerAttack
+) {
   const simpleTypeWeaknesses =
     simpleTypeWeaknesseList[secondAttacker.type] || [];
   const doubleTypeWeaknesses =
@@ -11,13 +14,13 @@ export function weaknessFactorAttack(secondAttacker, firstAttackerAttack) {
     ] || [];
 
   if (simpleTypeWeaknesses.includes(firstAttackerAttack.type)) {
-    openDialogueWhenPokemonMakesWeaknessAttack();
+    await openDialogueWhenPokemonMakesWeaknessAttack();
     return 5;
   }
 
   if (secondAttacker.secondaryType) {
     if (doubleTypeWeaknesses.includes(firstAttackerAttack.type)) {
-      openDialogueWhenPokemonMakesWeaknessAttack();
+      await openDialogueWhenPokemonMakesWeaknessAttack();
       return 5;
     }
   }

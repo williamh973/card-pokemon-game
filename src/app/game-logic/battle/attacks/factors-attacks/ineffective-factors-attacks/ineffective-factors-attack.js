@@ -2,7 +2,10 @@ import { openDialogueWhenPokemonMakesIneffectiveAttack } from "../../../../../co
 import { doubleTypeInefficiveList } from "../../../../../shared/pokemon/types/ineffective/double-type-ineffective-list.js";
 import { simpleTypeIneffectiveList } from "../../../../../shared/pokemon/types/ineffective/simple-type-ineffective-list.js";
 
-export function ineffectiveFactorAttack(secondAttacker, firstAttackerAttack) {
+export async function ineffectiveFactorAttack(
+  secondAttacker,
+  firstAttackerAttack
+) {
   const simpleTypeIneffective =
     simpleTypeIneffectiveList[secondAttacker.type] || [];
   const doubleTypeIneffective =
@@ -11,13 +14,13 @@ export function ineffectiveFactorAttack(secondAttacker, firstAttackerAttack) {
     ] || [];
 
   if (simpleTypeIneffective.includes(firstAttackerAttack.type)) {
-    openDialogueWhenPokemonMakesIneffectiveAttack();
+    await openDialogueWhenPokemonMakesIneffectiveAttack();
     return 0;
   }
 
   if (secondAttacker.secondaryType) {
     if (doubleTypeIneffective.includes(firstAttackerAttack.type)) {
-      openDialogueWhenPokemonMakesIneffectiveAttack();
+      await openDialogueWhenPokemonMakesIneffectiveAttack();
       return 0;
     }
   }

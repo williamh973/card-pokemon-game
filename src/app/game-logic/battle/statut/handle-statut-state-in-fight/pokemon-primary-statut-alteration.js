@@ -24,7 +24,7 @@ function hpDeductionProcess(pokemon) {
   return pokemon.stats.hp;
 }
 
-export function pokemonPrimaryStatutAlteration(pokemon) {
+export async function pokemonPrimaryStatutAlteration(pokemon) {
   switch (pokemon.primaryStatut) {
     case "burning":
       hpDeductionProcess(pokemon);
@@ -39,11 +39,11 @@ export function pokemonPrimaryStatutAlteration(pokemon) {
 
       if (randomNumber <= 0.25) {
         isPokemonBlockedByParalysis();
-        openDialogueWhenPokemonBlockedByParalyzedStatut(pokemon);
+        await openDialogueWhenPokemonBlockedByParalyzedStatut(pokemon);
         disabledProtectCapacity();
       } else {
         isPokemonResistsParalysis();
-        openDialogueWhenPokemonAttacksDespiteParalyzedStatut(pokemon);
+        await openDialogueWhenPokemonAttacksDespiteParalyzedStatut(pokemon);
       }
       break;
 
@@ -53,10 +53,10 @@ export function pokemonPrimaryStatutAlteration(pokemon) {
       if (randomNumber <= 0.2) {
         isPokemonNotFrozen();
         pokemon.primaryStatut = "normal";
-        openDialogueWhenPokemonHasThawedStatut(pokemon);
+        await openDialogueWhenPokemonHasThawedStatut(pokemon);
       } else {
         isPokemonFrozen();
-        openDialogueWhenPokemonBlockedByFrozenStatut(pokemon);
+        await openDialogueWhenPokemonBlockedByFrozenStatut(pokemon);
         disabledProtectCapacity();
       }
       break;
@@ -66,13 +66,13 @@ export function pokemonPrimaryStatutAlteration(pokemon) {
 
       if (randomNumber <= 0.5) {
         isPokemonAsleep();
-        openDialogueWhenPokemonIsAsleepStatut(pokemon);
+        await openDialogueWhenPokemonIsAsleepStatut(pokemon);
         disabledProtectCapacity();
         asleepCount++;
       } else {
         isPokemonWakeUp();
         pokemon.primaryStatut = "normal";
-        openDialogueWhenPokemonWakeUp(pokemon);
+        await openDialogueWhenPokemonWakeUp(pokemon);
         removeAsleepStatutAnimation(pokemon);
         asleepCount = 0;
       }
@@ -80,7 +80,7 @@ export function pokemonPrimaryStatutAlteration(pokemon) {
       if (asleepCount === 3) {
         isPokemonWakeUp();
         pokemon.primaryStatut = "normal";
-        openDialogueWhenPokemonWakeUp(pokemon);
+        await openDialogueWhenPokemonWakeUp(pokemon);
         asleepCount = 0;
       }
       break;

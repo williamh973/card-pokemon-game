@@ -2,7 +2,10 @@ import { openDialogueWhenPokemonMakesResistanceAttack } from "../../../../../com
 import { doubleTypeResistanceList } from "../../../../../shared/pokemon/types/resistance/double-type-resistance-list.js";
 import { simpleTypeResistanceList } from "../../../../../shared/pokemon/types/resistance/simple-type-resistance-list.js";
 
-export function resistanceFactorAttack(secondAttacker, firstAttackerAttack) {
+export async function resistanceFactorAttack(
+  secondAttacker,
+  firstAttackerAttack
+) {
   const simpleTypeResistances =
     simpleTypeResistanceList[secondAttacker.type] || [];
   const doubleTypeResistances =
@@ -11,13 +14,13 @@ export function resistanceFactorAttack(secondAttacker, firstAttackerAttack) {
     ] || [];
 
   if (simpleTypeResistances.includes(firstAttackerAttack.type)) {
-    openDialogueWhenPokemonMakesResistanceAttack();
+    await openDialogueWhenPokemonMakesResistanceAttack();
     return 5;
   }
 
   if (secondAttacker.secondaryType) {
     if (doubleTypeResistances.includes(firstAttackerAttack.type)) {
-      openDialogueWhenPokemonMakesResistanceAttack();
+      await openDialogueWhenPokemonMakesResistanceAttack();
       return 5;
     }
   }

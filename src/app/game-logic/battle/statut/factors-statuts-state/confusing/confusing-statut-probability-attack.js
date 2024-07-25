@@ -1,7 +1,6 @@
-import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
 import { confusingStatut } from "./confusing-statut.js";
 
-export function confusingStatut10PercentProbabililityAttack(
+export async function confusingStatut10PercentProbabililityAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -14,12 +13,12 @@ export function confusingStatut10PercentProbabililityAttack(
     const randomNumber = Math.floor(Math.random() * 100) + 1;
 
     if (randomNumber <= 10) {
-      confusingStatut(secondAttacker);
+      await confusingStatut(secondAttacker);
     }
   }
 }
 
-export function confusingStatut20PercentProbabililityAttack(
+export async function confusingStatut20PercentProbabililityAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -33,12 +32,12 @@ export function confusingStatut20PercentProbabililityAttack(
     const randomNumber = Math.floor(Math.random() * 100) + 1;
 
     if (randomNumber <= 20) {
-      confusingStatut(secondAttacker);
+      await confusingStatut(secondAttacker);
     }
   }
 }
 
-export function confusingStatut100PercentProbabililityAttack(
+export async function confusingStatut100PercentProbabililityAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -60,6 +59,6 @@ export function confusingStatut100PercentProbabililityAttack(
       firstAttackerAttack.type === "spectrum") &&
     !secondAttacker.secondaryStatut.isConfused
   ) {
-    confusingStatut(secondAttacker);
+    await confusingStatut(secondAttacker);
   }
 }

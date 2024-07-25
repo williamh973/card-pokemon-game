@@ -5,7 +5,7 @@ export let isCriticalHitBoostedByFocusEnergy = false;
 const possibleAttacksList = ["Puissance"];
 const possiblePokemonsList = ["Scarabrute"];
 
-export function criticalHitIncreaseByFocusEnergyAttack(
+export async function criticalHitIncreaseByFocusEnergyAttack(
   firstAttacker,
   firstAttackerAttack
 ) {
@@ -14,14 +14,14 @@ export function criticalHitIncreaseByFocusEnergyAttack(
     possiblePokemonsList.includes(firstAttacker.name) &&
     !isCriticalHitBoostedByFocusEnergy
   ) {
-    openDialogueWhenPokemonCriticalHitBoostedByFocusEnergy(firstAttacker);
+    await openDialogueWhenPokemonCriticalHitBoostedByFocusEnergy(firstAttacker);
     isCriticalHitBoostedByFocusEnergy = true;
   } else if (
     possibleAttacksList.includes(firstAttackerAttack.name) &&
     possiblePokemonsList.includes(firstAttacker.name) &&
     isCriticalHitBoostedByFocusEnergy
   ) {
-    openDialogueWhenPokemonCriticalHitAlreadyBoostedByFocusEnergy(
+    await openDialogueWhenPokemonCriticalHitAlreadyBoostedByFocusEnergy(
       firstAttacker
     );
   }

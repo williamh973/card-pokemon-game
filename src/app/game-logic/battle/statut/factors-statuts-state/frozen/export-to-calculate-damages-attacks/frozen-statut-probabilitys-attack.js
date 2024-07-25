@@ -1,8 +1,11 @@
 import { frozenStatut10PercentProbabililityAttack } from "../frozen-statut-probability-attack.js";
 
-export function frozenStatutProbabilitysAttack(
+export async function frozenStatutProbabilitysAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
-  frozenStatut10PercentProbabililityAttack(secondAttacker, firstAttackerAttack);
+  await frozenStatut10PercentProbabililityAttack(
+    secondAttacker,
+    firstAttackerAttack
+  );
 }

@@ -1,7 +1,7 @@
 import { isStatusValidForAsleep } from "./status-valid-for-asleep.js";
 import { asleepStatut } from "./asleep-statut.js";
 
-export function asleepStatut30PercentProbabililityAttack(
+export async function asleepStatut30PercentProbabililityAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -14,12 +14,12 @@ export function asleepStatut30PercentProbabililityAttack(
     const randomNumber = Math.floor(Math.random() * 100) + 1;
 
     if (randomNumber <= 30) {
-      asleepStatut(secondAttacker);
+      await asleepStatut(secondAttacker);
     }
   }
 }
 
-export function asleepStatut100PercentProbabililityAttack(
+export async function asleepStatut100PercentProbabililityAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -40,6 +40,6 @@ export function asleepStatut100PercentProbabililityAttack(
       firstAttackerAttack.type === "dark") &&
     isStatusValidForAsleep(secondAttacker)
   ) {
-    asleepStatut(secondAttacker);
+    await asleepStatut(secondAttacker);
   }
 }

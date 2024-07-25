@@ -1,0 +1,9 @@
+.protect {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(rgb(0, 162, 255) 0%, rgb(17, 0, 255) 100%);
+  opacity: 0.8;
+  z-index: 1000;
+  pointer-events: none;
+}

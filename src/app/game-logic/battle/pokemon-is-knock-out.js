@@ -14,7 +14,7 @@ import {
 import { animationWhenPokemonKo } from "./animations/pokemon-ko.animation.js";
 import { removeStatutAnimationWhenPokemonKo } from "./animations/animations-statuts/remove/remove-statut-animation-when-pokemon-ko.js";
 
-export function pokemonLose(firstAttacker, secondAttacker, enemyPokemon) {
+export async function pokemonLose(firstAttacker, secondAttacker, enemyPokemon) {
   determinePokemonKo(firstAttacker, secondAttacker);
   updateDisplayPokemonHp(firstAttacker, secondAttacker);
   updatePokemonSelectionStatus();
@@ -22,7 +22,7 @@ export function pokemonLose(firstAttacker, secondAttacker, enemyPokemon) {
   openBattleResultPopup();
   animationWhenPokemonKo();
   hideBattleInProgress();
-  openDialogueWhenPokemonKo();
+  await openDialogueWhenPokemonKo();
   displayMenu();
 
   if (firstAttacker.stats.hp === 0) {

@@ -8,12 +8,12 @@ import { hpIncrease5pFactorForSecondAttack } from "../../increase-factors-attack
 import { protectFactorForSecondAttack } from "../protect-factors-attacks/protect-factors-second-attack.js";
 import { disabledProtectCapacity } from "../protect-factors-attacks/protect-detect-capacity-actived.js";
 
-export function handleBonusAttackWhenProtectOrDetectCapacityActived(
+export async function handleBonusAttackWhenProtectOrDetectCapacityActived(
   firstAttacker,
   isSecondAttackActive,
   secondAttackPrecision
 ) {
-  openDialogueWhenPokemonMakesSecondAttack(firstAttacker);
+  await openDialogueWhenPokemonMakesSecondAttack(firstAttacker);
 
   const randomNumber = Math.floor(Math.random() * 100) + 1;
 
@@ -33,7 +33,7 @@ export function handleBonusAttackWhenProtectOrDetectCapacityActived(
 
     protectFactorForSecondAttack(firstAttacker, isSecondAttackActive);
   } else {
-    openDialogueWhenPokemonMissAttack(firstAttacker);
+    await openDialogueWhenPokemonMissAttack(firstAttacker);
     disabledProtectCapacity();
     return 0;
   }

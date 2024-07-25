@@ -8,23 +8,23 @@ import { hpIncrease5pFactorAttack } from "../../increase-factors-attacks/hp-incr
 import { protectFactorAttack } from "../protect-factors-attacks/protect-factors-attack.js";
 import { disabledProtectCapacity } from "../protect-factors-attacks/protect-detect-capacity-actived.js";
 
-export function handleBonusAttackWhenProtectOrDetectCapacityActived(
+export async function handleBonusAttackWhenProtectOrDetectCapacityActived(
   firstAttacker,
   firstAttackerAttack
 ) {
-  openDialogueWhenPokemonMakesAttack(firstAttacker);
+  await openDialogueWhenPokemonMakesAttack(firstAttacker);
 
   const randomNumber = Math.floor(Math.random() * 100) + 1;
 
   if (randomNumber <= firstAttackerAttack.precision) {
-    speedIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
-    speedIncrease10pFactorAttack(firstAttacker, firstAttackerAttack);
-    defenseIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
-    defenseIncrease10pFactorAttack(firstAttacker, firstAttackerAttack);
-    hpIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
-    protectFactorAttack(firstAttacker, firstAttackerAttack);
+    await speedIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
+    await speedIncrease10pFactorAttack(firstAttacker, firstAttackerAttack);
+    await defenseIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
+    await defenseIncrease10pFactorAttack(firstAttacker, firstAttackerAttack);
+    await hpIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
+    await protectFactorAttack(firstAttacker, firstAttackerAttack);
   } else {
-    openDialogueWhenPokemonMissAttack(firstAttacker);
+    await openDialogueWhenPokemonMissAttack(firstAttacker);
     disabledProtectCapacity();
     return 0;
   }

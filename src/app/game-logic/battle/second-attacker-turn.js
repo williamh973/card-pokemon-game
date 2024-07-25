@@ -1,5 +1,3 @@
-import { openDialogueWhenPokemonMakesIneffectiveAttack } from "../../components/battle-dialogues/dialogues/pokemon-makes-ineffective-attack.dialogue.js";
-import { attackStatesVariables } from "../../shared/attacks/attack-variables.js";
 import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
 import {
   handleAttacksDelayAndAnimations,

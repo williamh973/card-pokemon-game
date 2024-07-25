@@ -13,7 +13,7 @@ export async function checkIfPokemonStatusHasParalyzedFrozenNormalOrAsleep(
   ) {
     const alterationStateDelays = getStatutAlterationDelays(pokemon);
 
-    pokemonPrimaryStatutAlteration(pokemon);
+    await pokemonPrimaryStatutAlteration(pokemon);
 
     await sleepStatutAlteredAnimation(
       alterationStateDelays.getStatutAnimationDelay

@@ -4,19 +4,19 @@ import {
   confusingStatut100PercentProbabililityAttack,
 } from "../confusing-statut-probability-attack.js";
 
-export function confusingStatutProbabilitysAttack(
+export async function confusingStatutProbabilitysAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
-  confusingStatut10PercentProbabililityAttack(
+  await confusingStatut10PercentProbabililityAttack(
     secondAttacker,
     firstAttackerAttack
   );
-  confusingStatut20PercentProbabililityAttack(
+  await confusingStatut20PercentProbabililityAttack(
     secondAttacker,
     firstAttackerAttack
   );
-  confusingStatut100PercentProbabililityAttack(
+  await confusingStatut100PercentProbabililityAttack(
     secondAttacker,
     firstAttackerAttack
   );

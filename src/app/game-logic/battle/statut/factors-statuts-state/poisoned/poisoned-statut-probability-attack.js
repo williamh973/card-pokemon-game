@@ -2,7 +2,7 @@ import { addStatusAnimations } from "../../../animations/animations-statuts/add-
 import { openDialogueWhenPokemonHasPoisonedStatut } from "../../../../../components/battle-dialogues/dialogues/pokemon--has-poisoned-statut.dialogue.js";
 import { isStatusValidForPoisoned } from "./status-valid-for-poisoned.js";
 
-export function poisonedStatut10PercentProbabililityAttack(
+export async function poisonedStatut10PercentProbabililityAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -18,12 +18,12 @@ export function poisonedStatut10PercentProbabililityAttack(
     if (randomNumber <= 10) {
       secondAttacker.primaryStatut = "poisoned";
       addStatusAnimations(secondAttacker);
-      openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
+      await openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
     }
   }
 }
 
-export function poisonedStatut20PercentProbabililityAttack(
+export async function poisonedStatut20PercentProbabililityAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -39,12 +39,12 @@ export function poisonedStatut20PercentProbabililityAttack(
     if (randomNumber <= 20) {
       secondAttacker.primaryStatut = "poisoned";
       addStatusAnimations(secondAttacker);
-      openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
+      await openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
     }
   }
 }
 
-export function poisonedStatut30PercentProbabililityAttack(
+export async function poisonedStatut30PercentProbabililityAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -67,12 +67,12 @@ export function poisonedStatut30PercentProbabililityAttack(
     if (randomNumber <= 30) {
       secondAttacker.primaryStatut = "poisoned";
       addStatusAnimations(secondAttacker);
-      openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
+      await openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
     }
   }
 }
 
-export function poisonedStatut40PercentProbabililityAttack(
+export async function poisonedStatut40PercentProbabililityAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -88,12 +88,12 @@ export function poisonedStatut40PercentProbabililityAttack(
     if (randomNumber <= 40) {
       secondAttacker.primaryStatut = "poisoned";
       addStatusAnimations(secondAttacker);
-      openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
+      await openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
     }
   }
 }
 
-export function poisonedStatut100PercentProbabililityAttack(
+export async function poisonedStatut100PercentProbabililityAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -106,6 +106,6 @@ export function poisonedStatut100PercentProbabililityAttack(
   ) {
     secondAttacker.primaryStatut = "poisoned";
     addStatusAnimations(secondAttacker);
-    openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
+    await openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
   }
 }

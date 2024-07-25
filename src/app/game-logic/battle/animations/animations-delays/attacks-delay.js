@@ -1,4 +1,5 @@
 import { pokemonVariables } from "../../../../shared/pokemon/pokemon-variables.js";
+import { startAttackAnimation } from "../animations-attacks/animations-attacks.js";
 
 export const handleAttacksDelayAndAnimations = (pokemon) => {
   const pokemonAttack = pokemonVariables.isFirstAttackActive
@@ -17,6 +18,8 @@ export const handleAttacksDelayAndAnimations = (pokemon) => {
 };
 
 function getAttackDelayAndStartAnimations(attackName) {
+  startAttackAnimation(attackName);
+
   switch (attackName) {
     case "Charge":
       return 4000;
@@ -27,6 +30,8 @@ function getAttackDelayAndStartAnimations(attackName) {
     case "Tranche":
       return 4000;
     case "Flammèche":
+      return 4000;
+    case "Abri":
       return 4000;
     default:
       return 4000;
