@@ -1,4 +1,5 @@
 import { openDialogueWhenPokemonMakesIneffectiveAttack } from "../../../../../components/battle-dialogues/dialogues/pokemon-makes-ineffective-attack.dialogue.js";
+import { attackStatesVariables } from "../../../../../shared/attacks/attack-variables.js";
 import { doubleTypeInefficiveList } from "../../../../../shared/pokemon/types/ineffective/double-type-ineffective-list.js";
 import { simpleTypeIneffectiveList } from "../../../../../shared/pokemon/types/ineffective/simple-type-ineffective-list.js";
 
@@ -14,12 +15,14 @@ export async function ineffectiveFactorAttack(
     ] || [];
 
   if (simpleTypeIneffective.includes(firstAttackerAttack.type)) {
+    attackStatesVariables.stateAttack = "ineffective";
     await openDialogueWhenPokemonMakesIneffectiveAttack();
     return 0;
   }
 
   if (secondAttacker.secondaryType) {
     if (doubleTypeIneffective.includes(firstAttackerAttack.type)) {
+      attackStatesVariables.stateAttack = "ineffective";
       await openDialogueWhenPokemonMakesIneffectiveAttack();
       return 0;
     }

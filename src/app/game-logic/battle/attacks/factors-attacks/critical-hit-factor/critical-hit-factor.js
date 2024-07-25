@@ -1,5 +1,6 @@
 import { isCriticalHitBoostedByFocusEnergy } from "../../../attacks/factors-attacks/increase-factors-attacks/critical-hit-increase-factors-attacks/critical-hit-increase-focus-energy-attack.js";
 import { openDialogueWhenPokemonMakesCriticalHit } from "../../../../../components/battle-dialogues/dialogues/pokemon-makes-critical-hit.dialogue.js";
+import { attackStatesVariables } from "../../../../../shared/attacks/attack-variables.js";
 
 const possiblePokemonList = ["Scarabrute"];
 
@@ -38,12 +39,20 @@ export async function criticalHit(firstAttacker) {
     randomNumber
   );
 
-  if (randomNumber < newSpeedValueForProbabilityIncreaseRate) {
-    await openDialogueWhenPokemonMakesCriticalHit();
-
+  if (
+    randomNumber < newSpeedValueForProbabilityIncreaseRate &&
+    attackStatesVariables.stateAttack !== "ineffective"
+  ) {
     let criticalHitDamageIncreaseRate =
       (2 * firstAttacker.level + 5) / (firstAttacker.level + 5);
+
+    await openDialogueWhenPokemonMakesCriticalHit();
     return criticalHitDamageIncreaseRate;
+  } else if (
+    randomNumber < newSpeedValueForProbabilityIncreaseRate &&
+    attackStatesVariables.stateAttack === "ineffective"
+  ) {
+    return 1;
   } else {
     return 1;
   }

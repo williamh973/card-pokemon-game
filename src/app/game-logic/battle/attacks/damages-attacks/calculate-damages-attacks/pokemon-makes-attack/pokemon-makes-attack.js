@@ -9,10 +9,12 @@ import { protectFactorAttack } from "../../../factors-attacks/protect-detect-fac
 import { attackThatDependsFirstAttackerLevel } from "../../../factors-attacks/level-factors-attacks/handle-level-factor-attacks/handle-level-factor-attacks.js";
 import { hpIncrease50PercentOfDamagesFactorAttack } from "../../../factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-50-percent-damages.js";
 import { baseDamage } from "./base-damages/base-damage.js";
-import { minimumDamage } from "../../minimum-damage/minimum-damage.js";
+import { checkMinimumDamage } from "../../minimum-damage/minimum-damage.js";
 import { applyStatChangeFactors } from "./apply-stat-change-factors/stat-change-factors.js";
 import { applyStatutsChangeFactors } from "./apply-statuts-change-factors/statut-change-factors.js";
 import { openDialogueWhenPokemonMakesAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-makes-attacks.dialogue.js";
+import { roundDamageValue } from "./round-damage-value.js";
+import { attackStatesVariables } from "../../../../../../shared/attacks/attack-variables.js";
 
 const randomNumber = Math.floor(Math.random() * 100) + 1;
 
@@ -21,14 +23,10 @@ export async function pokemonMakesAttack(
   secondAttacker,
   firstAttackerAttack
 ) {
-  console.log(firstAttacker.name, "attaque!");
   await openDialogueWhenPokemonMakesAttack(firstAttacker);
 
   if (randomNumber <= firstAttackerAttack.precision) {
     let damages = baseDamage(firstAttacker, secondAttacker);
-
-    let getCriticalHit = await criticalHit(firstAttacker);
-    damages *= getCriticalHit;
 
     let randomFactor = Math.random() * (1.0 - 0.85) + 0.85;
     damages *= randomFactor;
@@ -73,6 +71,9 @@ export async function pokemonMakesAttack(
     );
     damages *= getIneffectiveFactorList;
 
+    let getCriticalHit = await criticalHit(firstAttacker);
+    damages *= getCriticalHit;
+
     await criticalHitIncreaseByFocusEnergyAttack(
       firstAttacker,
       firstAttackerAttack
@@ -92,8 +93,9 @@ export async function pokemonMakesAttack(
       secondAttacker
     );
 
-    damages = minimumDamage(damages);
-    return Math.round(damages);
+    damages = checkMinimumDamage(damages);
+    attackStatesVariables.stateAttack = "normal";
+    return roundDamageValue(damages);
   } else {
     console.log(firstAttacker.name, "rate son attaque!");
     await openDialogueWhenPokemonMissAttack(firstAttacker);

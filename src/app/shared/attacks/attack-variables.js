@@ -1,3 +1,3 @@
 export const attackStatesVariables = {
-  stateAttack: "",
+  stateAttack: "normal",
 };
