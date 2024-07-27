@@ -8,8 +8,10 @@ export const handleAttacksDelayAndAnimations = (pokemon) => {
 
   const pokemontAttackName = pokemonAttack;
 
-  const pokemonAttackDelay =
-    getAttackDelayAndStartAnimations(pokemontAttackName);
+  const pokemonAttackDelay = getAttackDelayAndStartAnimations(
+    pokemontAttackName,
+    pokemon
+  );
 
   return {
     pokemontAttackName,
@@ -17,8 +19,8 @@ export const handleAttacksDelayAndAnimations = (pokemon) => {
   };
 };
 
-function getAttackDelayAndStartAnimations(attackName) {
-  startAttackAnimation(attackName);
+function getAttackDelayAndStartAnimations(attackName, pokemon) {
+  startAttackAnimation(attackName, pokemon);
 
   switch (attackName) {
     case "Charge":
@@ -32,7 +34,7 @@ function getAttackDelayAndStartAnimations(attackName) {
     case "Flammèche":
       return 4000;
     case "Abri":
-      return 4000;
+      return 3000;
     default:
       return 4000;
   }

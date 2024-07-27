@@ -3,10 +3,10 @@ import { openDialogueWhenPokemonProtectingHimself } from "../../../../../compone
 import { disabledProtectCapacity } from "../../factors-attacks/protect-detect-factor/protect-factors-attacks/protect-detect-capacity-actived.js";
 import { handleBonusAttackWhenProtectOrDetectCapacityActived } from "../../factors-attacks/protect-detect-factor/handle-bonus-attack-when-protect-or-detect-capacity-actived/handle-bonus-attack-when-protect-or-detect-capacity-actived-first-attack.js";
 import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
-import { pokemonMakesAttack } from "./pokemon-makes-attack/pokemon-makes-attack.js";
+import { calculateDamagesAttack } from "./pokemon-makes-attack/pokemon-makes-attack.js";
 import { getFirstAttackerAttack } from "../../../../../shared/attacks/get-first-attacker-attack.js";
 
-export async function calculateDamagesAttack(firstAttacker, secondAttacker) {
+export async function pokemonMakesAttack(firstAttacker, secondAttacker) {
   const isFirstAttackerAttackActive =
     pokemonVariables.isFirstAttackActive ||
     pokemonVariables.isSecondAttackActive;
@@ -19,7 +19,7 @@ export async function calculateDamagesAttack(firstAttacker, secondAttacker) {
         firstAttackerAttack.type !== "bonus") &&
       !pokemonVariables.isProtectOrDetectCapacityActived
     ) {
-      return await pokemonMakesAttack(
+      return await calculateDamagesAttack(
         firstAttacker,
         secondAttacker,
         firstAttackerAttack

@@ -15,14 +15,14 @@ export async function ineffectiveFactorAttack(
     ] || [];
 
   if (simpleTypeIneffective.includes(firstAttackerAttack.type)) {
-    attackStatesVariables.stateAttack = "ineffective";
+    attackStatesVariables.currentStateAttack = "ineffective";
     await openDialogueWhenPokemonMakesIneffectiveAttack();
     return 0;
   }
 
   if (secondAttacker.secondaryType) {
     if (doubleTypeIneffective.includes(firstAttackerAttack.type)) {
-      attackStatesVariables.stateAttack = "ineffective";
+      attackStatesVariables.currentStateAttack = "ineffective";
       await openDialogueWhenPokemonMakesIneffectiveAttack();
       return 0;
     }

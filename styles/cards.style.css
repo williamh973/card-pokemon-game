@@ -1,7 +1,9 @@
 .card-main {
   position: relative;
   width: 210px;
+  min-width: 210px;
   height: 325px;
+  min-height: 325px;
   border-radius: 5px;
   background-color: whitesmoke;
   margin: auto;

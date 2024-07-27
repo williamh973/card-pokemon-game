@@ -21,7 +21,7 @@ function increaseCriticalHitProbabilityWhenFocusEnergyUsed(
   }
 }
 
-export async function criticalHit(firstAttacker) {
+export async function criticalHit(firstAttacker, firstAttackerAttack) {
   let speedValueRoundToNearestEven = roundToNearestEven(
     firstAttacker.stats.speed
   );
@@ -41,7 +41,9 @@ export async function criticalHit(firstAttacker) {
 
   if (
     randomNumber < newSpeedValueForProbabilityIncreaseRate &&
-    attackStatesVariables.stateAttack !== "ineffective"
+    attackStatesVariables.currentStateAttack !== "ineffective" &&
+    firstAttackerAttack.type !== "bonus" &&
+    firstAttackerAttack.type !== "status"
   ) {
     let criticalHitDamageIncreaseRate =
       (2 * firstAttacker.level + 5) / (firstAttacker.level + 5);
@@ -50,7 +52,9 @@ export async function criticalHit(firstAttacker) {
     return criticalHitDamageIncreaseRate;
   } else if (
     randomNumber < newSpeedValueForProbabilityIncreaseRate &&
-    attackStatesVariables.stateAttack === "ineffective"
+    attackStatesVariables.currentStateAttack === "ineffective" &&
+    firstAttackerAttack.type === "bonus" &&
+    firstAttackerAttack.type === "status"
   ) {
     return 1;
   } else {

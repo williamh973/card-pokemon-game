@@ -18,7 +18,7 @@ import { attackStatesVariables } from "../../../../../../shared/attacks/attack-v
 
 const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-export async function pokemonMakesAttack(
+export async function calculateDamagesAttack(
   firstAttacker,
   secondAttacker,
   firstAttackerAttack
@@ -71,7 +71,7 @@ export async function pokemonMakesAttack(
     );
     damages *= getIneffectiveFactorList;
 
-    let getCriticalHit = await criticalHit(firstAttacker);
+    let getCriticalHit = await criticalHit(firstAttacker, firstAttackerAttack);
     damages *= getCriticalHit;
 
     await criticalHitIncreaseByFocusEnergyAttack(
@@ -94,7 +94,7 @@ export async function pokemonMakesAttack(
     );
 
     damages = checkMinimumDamage(damages);
-    attackStatesVariables.stateAttack = "normal";
+    attackStatesVariables.currentStateAttack = "normal";
     return roundDamageValue(damages);
   } else {
     console.log(firstAttacker.name, "rate son attaque!");
