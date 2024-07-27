@@ -20,7 +20,10 @@ export async function firstAttackerTurn(firstAttacker, secondAttacker) {
       );
 
       if (pokemonVariables.isFirstAttackActive) {
-        const attackDelays = handleAttacksDelayAndAnimations(firstAttacker);
+        const attackDelays = handleAttacksDelayAndAnimations(
+          firstAttacker,
+          secondAttacker
+        );
 
         await sleepAttacksAnimation(attackDelays.pokemonAttackDelay);
 
@@ -40,7 +43,10 @@ export async function firstAttackerTurn(firstAttacker, secondAttacker) {
       );
 
       if (pokemonVariables.isSecondAttackActive) {
-        const attackDelays = handleAttacksDelayAndAnimations(firstAttacker);
+        const attackDelays = handleAttacksDelayAndAnimations(
+          firstAttacker,
+          secondAttacker
+        );
 
         await sleepAttacksAnimation(attackDelays.pokemonAttackDelay);
 

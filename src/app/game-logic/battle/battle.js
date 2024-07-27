@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       determineFirstAttacker();
 
       while (firstAttacker.stats.hp > 0 && secondAttacker.stats.hp > 0) {
-        console.log("start boucle");
+        // console.log("start boucle");
         initBattle();
         updateNumberOfTurns();
 
@@ -65,9 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
         pokemonVariables.isFirstAttackerTurn = true;
 
         checkIfPokemonCanAttack(pokemonVariables.isFirstAttackerTurn);
-        console.log("firstAttackerTurn start");
+        // console.log("firstAttackerTurn start");
         await firstAttackerTurn(firstAttacker, secondAttacker);
-        console.log("firstAttackerTurn finish");
+        // console.log("firstAttackerTurn finish");
         if (secondAttacker.stats.hp <= 0) {
           secondAttacker.stats.hp = 0;
 
@@ -159,9 +159,9 @@ document.addEventListener("DOMContentLoaded", () => {
         pokemonVariables.isSecondAttackerTurn = true;
 
         checkIfPokemonCanAttack(pokemonVariables.isSecondAttackerTurn);
-        console.log("secondAttackerTurn start");
+        // console.log("secondAttackerTurn start");
         await secondAttackerTurn(secondAttacker, firstAttacker);
-        console.log("secondAttackerTurn finish");
+        // console.log("secondAttackerTurn finish");
 
         if (firstAttacker.stats.hp <= 0) {
           firstAttacker.stats.hp = 0;
@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
           break;
         }
       }
-      console.log("end battle");
+      // console.log("end battle");
     }
     battle();
   });

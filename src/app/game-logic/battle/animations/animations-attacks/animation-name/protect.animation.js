@@ -1,40 +1,29 @@
-import { domElements } from "../../../../../shared/dom/dom-elements.js";
+import { animationVariables } from "../../../../../shared/animations/animation-variables.js";
+import {
+  checkPokemonsLocation,
+  firstAttackerLocation,
+} from "./check-pokemon-location/check-pokemon-location.js";
 
-export function protectAnimation(attackName, firstAttackerCard) {
+export function protectAnimation(
+  attackName,
+  firstAttackerCard,
+  secondAttackerCard
+) {
   if (attackName && firstAttackerCard) {
-    const firstAttackerLocation = domElements.pokemonFirstLocation.contains(
-      firstAttackerCard
-    )
-      ? domElements.pokemonFirstLocation
-      : domElements.pokemonSecondLocation;
-
-    let startX = 0;
-    let startY = 0;
-    let endY = startY;
-    let endX = startX;
-
-    function checkFirstAttackerLocation(firstAttackerCard) {
-      if (domElements.pokemonFirstLocation.contains(firstAttackerCard)) {
-        domElements.pokemonFirstLocation;
-        endX = startX + 100;
-      } else {
-        domElements.pokemonSecondLocation;
-        endX = startX - 100;
-      }
-    }
-    checkFirstAttackerLocation(firstAttackerCard);
-
     const protect = document.createElement("div");
     protect.classList.add("protect");
+
+    checkPokemonsLocation(firstAttackerCard, secondAttackerCard);
+
     firstAttackerLocation.appendChild(protect);
 
     gsap.fromTo(
       protect,
-      { x: startX, y: startY },
+      { x: animationVariables.startX, y: animationVariables.startY },
       {
-        x: endX,
-        y: endY,
-        duration: 3,
+        x: (animationVariables.endX = 0),
+        y: animationVariables.endY,
+        duration: 2,
         ease: "power1.out",
         onComplete: () => {
           protect.remove();

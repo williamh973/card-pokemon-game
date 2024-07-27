@@ -1,16 +1,20 @@
 import { pokemonVariables } from "../../../../shared/pokemon/pokemon-variables.js";
-import { startAttackAnimation } from "../animations-attacks/animations-attacks.js";
+import { triggerAttackAnimation } from "../animations-attacks/trigger-attack-animation.js";
 
-export const handleAttacksDelayAndAnimations = (pokemon) => {
+export const handleAttacksDelayAndAnimations = (
+  firstAttacker,
+  secondAttacker
+) => {
   const pokemonAttack = pokemonVariables.isFirstAttackActive
-    ? pokemon.firstAttack.name
-    : pokemon.secondAttack.name;
+    ? firstAttacker.firstAttack.name
+    : firstAttacker.secondAttack.name;
 
   const pokemontAttackName = pokemonAttack;
 
-  const pokemonAttackDelay = getAttackDelayAndStartAnimations(
+  const pokemonAttackDelay = getAttackDelayAndtriggerAnimations(
     pokemontAttackName,
-    pokemon
+    firstAttacker,
+    secondAttacker
   );
 
   return {
@@ -19,8 +23,12 @@ export const handleAttacksDelayAndAnimations = (pokemon) => {
   };
 };
 
-function getAttackDelayAndStartAnimations(attackName, pokemon) {
-  startAttackAnimation(attackName, pokemon);
+function getAttackDelayAndtriggerAnimations(
+  attackName,
+  firstAttacker,
+  secondAttacker
+) {
+  triggerAttackAnimation(attackName, firstAttacker, secondAttacker);
 
   switch (attackName) {
     case "Charge":
@@ -36,7 +44,7 @@ function getAttackDelayAndStartAnimations(attackName, pokemon) {
     case "Abri":
       return 3000;
     default:
-      return 4000;
+      return 3000;
   }
 }
 
