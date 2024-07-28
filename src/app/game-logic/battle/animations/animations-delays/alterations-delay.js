@@ -44,15 +44,15 @@ export const getScaredStatutAnimationDelays = (pokemon) => {
 const alterationStatesDelay = (state) => {
   switch (state) {
     case "burning":
-      return 4000;
+      return 3000;
     case "poisoned":
-      return 4000;
+      return 3000;
     case "asleep":
-      return 4000;
+      return 3000;
     case "frozen":
-      return 4000;
+      return 3000;
     case "paralyzed":
-      return 4000;
+      return 3000;
     case "normal":
       return 0;
   }
@@ -61,7 +61,7 @@ const alterationStatesDelay = (state) => {
 const alterationSecondaryStatutDelay = (state) => {
   switch (state) {
     case true:
-      return 4000;
+      return 3000;
     case false:
       return 0;
   }

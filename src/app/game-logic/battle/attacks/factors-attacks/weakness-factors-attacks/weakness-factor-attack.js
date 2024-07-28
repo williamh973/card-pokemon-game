@@ -8,6 +8,7 @@ export async function weaknessFactorAttack(
 ) {
   const simpleTypeWeaknesses =
     simpleTypeWeaknesseList[secondAttacker.type] || [];
+
   const doubleTypeWeaknesses =
     doubleTypeWeaknesseList[secondAttacker.type]?.[
       secondAttacker.secondaryType

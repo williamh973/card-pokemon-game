@@ -32,15 +32,15 @@ function getAttackDelayAndtriggerAnimations(
 
   switch (attackName) {
     case "Charge":
-      return 4000;
+      return 3000;
     case "Jet-Pierres":
-      return 4000;
+      return 3000;
     case "Hâte":
-      return 4000;
+      return 3000;
     case "Tranche":
-      return 4000;
+      return 3000;
     case "Flammèche":
-      return 4000;
+      return 3000;
     case "Abri":
       return 3000;
     default:

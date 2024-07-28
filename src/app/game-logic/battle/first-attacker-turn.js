@@ -16,15 +16,11 @@ export async function firstAttackerTurn(firstAttacker, secondAttacker) {
         secondAttacker
       );
 
-      if (pokemonVariables.isFirstAttackActive) {
-        await handleAttackAnimation(firstAttacker, secondAttacker);
-
-        secondAttackerTakesDamage(
-          firstAttacker,
-          secondAttacker,
-          damageFirstAttack
-        );
-      }
+      secondAttackerTakesDamage(
+        firstAttacker,
+        secondAttacker,
+        damageFirstAttack
+      );
     } else {
       pokemonVariables.isFirstAttackActive = false;
       pokemonVariables.isSecondAttackActive = true;
@@ -34,15 +30,11 @@ export async function firstAttackerTurn(firstAttacker, secondAttacker) {
         secondAttacker
       );
 
-      if (pokemonVariables.isSecondAttackActive) {
-        await handleAttackAnimation(firstAttacker, secondAttacker);
-
-        secondAttackerTakesDamage(
-          firstAttacker,
-          secondAttacker,
-          damageSecondAttack
-        );
-      }
+      secondAttackerTakesDamage(
+        firstAttacker,
+        secondAttacker,
+        damageSecondAttack
+      );
     }
   }
 }

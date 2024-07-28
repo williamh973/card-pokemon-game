@@ -9,6 +9,7 @@ export async function ineffectiveFactorAttack(
 ) {
   const simpleTypeIneffective =
     simpleTypeIneffectiveList[secondAttacker.type] || [];
+
   const doubleTypeIneffective =
     doubleTypeInefficiveList[secondAttacker.type]?.[
       secondAttacker.secondaryType

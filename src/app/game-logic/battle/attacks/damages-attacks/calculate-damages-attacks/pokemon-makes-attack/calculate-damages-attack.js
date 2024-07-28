@@ -15,7 +15,6 @@ import { applyStatutsChangeFactors } from "./apply-statuts-change-factors/statut
 import { openDialogueWhenPokemonMakesAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-makes-attacks.dialogue.js";
 import { roundDamageValue } from "./round-damage-value.js";
 import { attackStatesVariables } from "../../../../../../shared/attacks/attack-variables.js";
-import { handleAttackAnimation } from "../../../../../../shared/animations/handle-attack-animation.js";
 
 const randomNumber = Math.floor(Math.random() * 100) + 1;
 
@@ -27,8 +26,6 @@ export async function calculateDamagesAttack(
   await openDialogueWhenPokemonMakesAttack(firstAttacker);
 
   if (randomNumber <= firstAttackerAttack.precision) {
-    await handleAttackAnimation(firstAttacker, secondAttacker);
-
     let damages = baseDamage(firstAttacker, secondAttacker);
 
     let randomFactor = Math.random() * (1.0 - 0.85) + 0.85;

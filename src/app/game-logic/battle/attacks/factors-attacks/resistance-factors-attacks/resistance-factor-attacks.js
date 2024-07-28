@@ -8,6 +8,7 @@ export async function resistanceFactorAttack(
 ) {
   const simpleTypeResistances =
     simpleTypeResistanceList[secondAttacker.type] || [];
+
   const doubleTypeResistances =
     doubleTypeResistanceList[secondAttacker.type]?.[
       secondAttacker.secondaryType

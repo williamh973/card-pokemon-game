@@ -22,11 +22,11 @@ export const simpleTypeResistanceList = {
     "poison",
   ],
   poison: ["fairy", "insect", "plant", "fight", "poison"],
-  spectrum: ["normal", "insect", "fight", "poison"],
+  spectrum: ["insect", "fight", "poison"],
   dark: ["psy", "spectrum", "dark"],
   insect: ["fight", "plant", "ground"],
   fight: ["dark", "insect", "rock"],
-  normal: ["spectrum"],
+  normal: ["steel", "rock"],
   dragon: ["water", "electric", "fire", "plant"],
   fairy: ["dragon", "fight", "insect", "dark"],
 };
