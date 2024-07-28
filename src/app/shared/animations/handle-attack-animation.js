@@ -11,6 +11,7 @@ export async function handleAttackAnimation(firstAttacker, secondAttacker) {
     firstAttacker,
     secondAttacker
   );
+
   console.log(
     "statut de ",
     secondAttacker.name,

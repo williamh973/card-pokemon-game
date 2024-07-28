@@ -125,6 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
         pokemonVariables.isFirstAttackActive = false;
         pokemonVariables.isSecondAttackActive = false;
         pokemonVariables.isFirstAttackerCanAttack = false;
+        pokemonVariables.isSecondAttackerTurn = true;
 
         await checkIfPokemonStatusHasParalyzedFrozenNormalOrAsleep(
           secondAttacker,
@@ -156,10 +157,12 @@ document.addEventListener("DOMContentLoaded", () => {
           sleepStatutAlteredAnimation
         );
 
-        pokemonVariables.isSecondAttackerTurn = true;
-
         checkIfPokemonCanAttack(pokemonVariables.isSecondAttackerTurn);
-        // console.log("secondAttackerTurn start");
+        console.log(
+          secondAttacker.name,
+          "peut attaquer ? :",
+          pokemonVariables.isSecondAttackerCanAttack
+        );
         await secondAttackerTurn(secondAttacker, firstAttacker);
         // console.log("secondAttackerTurn finish");
 
