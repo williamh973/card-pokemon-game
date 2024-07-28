@@ -99,7 +99,6 @@ export async function calculateDamagesAttack(
     attackStatesVariables.currentStateAttack = "normal";
     return roundDamageValue(damages);
   } else {
-    // console.log(firstAttacker.name, "rate son attaque!");
     await openDialogueWhenPokemonMissAttack(firstAttacker);
     return 0;
   }

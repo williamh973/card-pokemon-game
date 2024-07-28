@@ -56,6 +56,6 @@ export let salamecheModel = {
     specialDef: 50,
     speed: 65,
     hp: 39,
-    hpMax: 39, // 39
+    hpMax: 39,
   },
 };

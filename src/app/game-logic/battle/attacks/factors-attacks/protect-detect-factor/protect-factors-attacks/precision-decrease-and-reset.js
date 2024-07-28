@@ -10,11 +10,9 @@ function resetPrecisionAttack(firstAttackerAttack) {
   if (protectCount === 5) {
     protectCount = 0;
     firstAttackerAttack.precision = firstAttackerAttack.precisionMax;
-    console.log(
-      "precision",
+    "precision",
       firstAttackerAttack.precision,
       "precisionMax",
-      firstAttackerAttack.precisionMax
-    );
+      firstAttackerAttack.precisionMax;
   }
 }

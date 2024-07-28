@@ -30,5 +30,4 @@ export async function pokemonLose(firstAttacker, secondAttacker, enemyPokemon) {
   } else if (secondAttacker.stats.hp === 0) {
     hideSecondAttackerWhenLose(secondAttacker, enemyPokemon);
   }
-  // displayStatsPokemonsContainer(firstAttacker, secondAttacker);
 }

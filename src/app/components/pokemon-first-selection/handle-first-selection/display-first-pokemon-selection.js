@@ -8,7 +8,6 @@ export function displayFirstPokemonSelection(pokemon) {
     domElements.pokemonFirstLocation.innerHTML = "";
     pokemonDisplayAnimation(pokemonCard);
     domElements.pokemonFirstLocation.appendChild(pokemonCard);
-    // pokemonCard.classList.remove("slide-in");
   }
 
   function getPokemonCard() {

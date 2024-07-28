@@ -12,12 +12,7 @@ export async function handleAttackAnimation(firstAttacker, secondAttacker) {
     secondAttacker
   );
 
-  console.log(
-    "statut de ",
-    secondAttacker.name,
-    " : ",
-    secondAttacker.primaryStatut
-  );
+  "statut de ", secondAttacker.name, " : ", secondAttacker.primaryStatut;
 
   if (
     possibleAttacksList.includes(firstAttackerAttack.name) &&
