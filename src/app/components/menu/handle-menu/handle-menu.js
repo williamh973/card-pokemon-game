@@ -14,6 +14,7 @@ export function handleMenu(gameMod) {
     menuSelectors.versus.style.display = "none";
     pokemonSelectors.secondPokemonSelectionButton.style.display = "none";
     pokemonSelectors.randomAdversarySelectionButton.style.display = "none";
+    pokemonSelectors.randomAllSelectionButton.style.display = "none";
   }
 
   switch (gameMod) {
@@ -31,6 +32,7 @@ export function handleMenu(gameMod) {
       menuSelectors.versus.style.display = "flex";
       pokemonSelectors.secondPokemonSelectionButton.style.display = "flex";
       pokemonSelectors.randomAdversarySelectionButton.style.display = "none";
+      pokemonSelectors.randomAllSelectionButton.style.display = "none";
       break;
     case "random-adversary-mod":
       domElements.isRandomAdversaryModActivated = true;
@@ -45,6 +47,7 @@ export function handleMenu(gameMod) {
       pokemonSelectors.secondPokemonSelectionButton.value = "none";
       pokemonSelectors.randomAdversarySelectionButton.style.display = "flex";
       pokemonSelectors.randomAdversarySelectionButton.disabled = true;
+      pokemonSelectors.randomAllSelectionButton.style.display = "none";
       break;
     case "random-all-mod":
       domElements.isRandomAllModActivated = true;

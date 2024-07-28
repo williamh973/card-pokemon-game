@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
           firstAttacker,
           sleepStatutAlteredAnimation
         );
-
+        console.log(firstAttacker.name, "check Status confusing");
         await checkIfPokemonStatusConfusing(
           firstAttacker,
           sleepStatutAlteredAnimation
@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           break;
         }
+        console.log(firstAttacker.name, "check Status scared");
         await checkIfPokemonStatutScared(
           firstAttacker,
           sleepStatutAlteredAnimation
@@ -99,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           break;
         }
-
+        console.log(firstAttacker.name, "check Status cursed");
         await checkIfPokemonStatusCursed(
           firstAttacker,
           sleepStatutAlteredAnimation
@@ -125,12 +126,12 @@ document.addEventListener("DOMContentLoaded", () => {
         pokemonVariables.isSecondAttackActive = false;
         pokemonVariables.isFirstAttackerCanAttack = false;
         pokemonVariables.isSecondAttackerTurn = true;
-
         await checkIfPokemonStatusHasParalyzedFrozenNormalOrAsleep(
           secondAttacker,
           sleepStatutAlteredAnimation
         );
 
+        console.log(secondAttacker.name, "check Status confusing");
         await checkIfPokemonStatusConfusing(
           secondAttacker,
           sleepStatutAlteredAnimation
@@ -150,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           break;
         }
-
+        console.log(secondAttacker.name, "check Status scared");
         await checkIfPokemonStatutScared(
           secondAttacker,
           sleepStatutAlteredAnimation
@@ -194,17 +195,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
           break;
         }
-
+        console.log(secondAttacker.name, "check Status cursed");
         await checkIfPokemonStatusCursed(
           secondAttacker,
           sleepStatutAlteredAnimation
         );
 
+        updateDisplayPokemonHp(firstAttacker, secondAttacker);
+
         if (secondAttacker.stats.hp <= 0) {
           secondAttacker.stats.hp = 0;
+
+          await pokemonLose(
+            firstAttacker,
+            secondAttacker,
+            pokemonVariables.enemyPokemon,
+            pokemonVariables.playerSelectedPokemon
+          );
+
           break;
         }
       }
+      // ("end battle");
     }
     battle();
   });

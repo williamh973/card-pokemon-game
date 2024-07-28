@@ -1,5 +1,5 @@
 import { getScaredStatutAnimationDelays } from "../../../animations/animations-delays/alterations-delay.js";
-import { statutScaredAlteration } from "../pokemon-secondary-statut-alteration.js";
+import { secondaryStatutScaredAlteration } from "../pokemon-secondary-statut-alteration.js";
 
 export async function checkIfPokemonStatutScared(
   pokemon,
@@ -8,7 +8,7 @@ export async function checkIfPokemonStatutScared(
   if (pokemon.secondaryStatut.isScared || pokemon.secondaryStatut.isNormal) {
     const alterationStateDelays = getScaredStatutAnimationDelays(pokemon);
 
-    statutScaredAlteration(pokemon);
+    secondaryStatutScaredAlteration(pokemon);
 
     await sleepStatutAlteredAnimation(
       alterationStateDelays.getScaredStatutAnimationDelay

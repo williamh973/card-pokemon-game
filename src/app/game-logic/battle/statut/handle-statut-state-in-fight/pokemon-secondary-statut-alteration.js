@@ -54,9 +54,9 @@ export async function secondaryStatutConfusingAlteration(pokemon) {
   }
 }
 
-export function statutScaredAlteration(pokemon) {
+export function secondaryStatutScaredAlteration(pokemon) {
   if (pokemon.secondaryStatut.isScared) {
-    return isPokemonScared();
+    isPokemonScared();
   }
 }
 

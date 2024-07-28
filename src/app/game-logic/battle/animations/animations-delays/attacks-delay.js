@@ -32,20 +32,28 @@ function getAttackDelayAndtriggerAnimations(
 
   switch (attackName) {
     case "Charge":
+      console.log("Charge", attackName);
       return 3000;
     case "Jet-Pierres":
+      console.log("Jet-Pierres", attackName);
       return 3000;
     case "Hâte":
+      console.log("Hâte", attackName);
       return 3000;
     case "Tranche":
+      console.log("Tranche", attackName);
       return 3000;
     case "Flammèche":
+      console.log("Flammèche", attackName);
       return 3000;
     case "Abri":
+      console.log("Abri", attackName);
       return 3000;
     case "Dévorêve":
+      console.log("Dévorêve", attackName);
       return 3000;
     default:
+      console.log("pas dans la liste :", attackName);
       return 3000;
   }
 }
