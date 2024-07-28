@@ -9,8 +9,8 @@ import { protectFactorAttack } from "../../../factors-attacks/protect-detect-fac
 import { attackThatDependsFirstAttackerLevel } from "../../../factors-attacks/level-factors-attacks/handle-level-factor-attacks/handle-level-factor-attacks.js";
 import { hpIncrease50PercentOfDamagesFactorAttack } from "../../../factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-50-percent-damages.js";
 import { baseDamage } from "./base-damages/base-damage.js";
-import { checkMinimumDamage } from "../minimum-damage/minimum-damage.js";
-import { applyStatChangeFactors } from "./apply-stat-change-factors/stat-change-factors.js";
+import { checkMinimumDamage } from "./minimum-damage/minimum-damage.js";
+import { applyStatChangeFactors } from "./stat-change-factors.js";
 import { applyStatutsChangeFactors } from "./apply-statuts-change-factors/statut-change-factors.js";
 import { openDialogueWhenPokemonMakesAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-makes-attacks.dialogue.js";
 import { roundDamageValue } from "./round-damage-value.js";
