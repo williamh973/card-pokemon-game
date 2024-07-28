@@ -3,7 +3,6 @@ import { openDialogueWhenPokemonHasFallingAsleep } from "../../../../../componen
 
 export async function asleepStatut(secondAttacker) {
   secondAttacker.primaryStatut = "asleep";
-  "statut de ", secondAttacker.name, " : ", secondAttacker.primaryStatut;
   addStatusAnimations(secondAttacker);
   await openDialogueWhenPokemonHasFallingAsleep(secondAttacker);
 }

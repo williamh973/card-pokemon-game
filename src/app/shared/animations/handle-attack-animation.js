@@ -12,8 +12,6 @@ export async function handleAttackAnimation(firstAttacker, secondAttacker) {
     secondAttacker
   );
 
-  "statut de ", secondAttacker.name, " : ", secondAttacker.primaryStatut;
-
   if (
     possibleAttacksList.includes(firstAttackerAttack.name) &&
     secondAttacker.primaryStatut === "asleep"

@@ -25,7 +25,6 @@ function hpDeductionProcess(pokemon) {
 }
 
 export async function pokemonPrimaryStatutAlteration(pokemon) {
-  "statut de ", pokemon.name, " : ", pokemon.primaryStatut;
   switch (pokemon.primaryStatut) {
     case "burning":
       hpDeductionProcess(pokemon);
@@ -70,14 +69,12 @@ export async function pokemonPrimaryStatutAlteration(pokemon) {
         await openDialogueWhenPokemonIsAsleepStatut(pokemon);
         disabledProtectCapacity();
         asleepCount++;
-        "statut de ", pokemon.name, " : ", pokemon.primaryStatut;
       } else {
         isPokemonWakeUp();
         pokemon.primaryStatut = "normal";
         await openDialogueWhenPokemonWakeUp(pokemon);
         removeAsleepStatutAnimation(pokemon);
         asleepCount = 0;
-        "statut de ", pokemon.name, " : ", pokemon.primaryStatut;
       }
 
       if (asleepCount === 3) {
@@ -85,7 +82,6 @@ export async function pokemonPrimaryStatutAlteration(pokemon) {
         pokemon.primaryStatut = "normal";
         await openDialogueWhenPokemonWakeUp(pokemon);
         asleepCount = 0;
-        "statut de ", pokemon.name, " : ", pokemon.primaryStatut;
       }
       break;
 
