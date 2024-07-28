@@ -1,8 +1,5 @@
+import { handleAttackAnimation } from "../../shared/animations/handle-attack-animation.js";
 import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
-import {
-  handleAttacksDelayAndAnimations,
-  sleepAttacksAnimation,
-} from "./animations/animations-delays/attacks-delay.js";
 import { pokemonMakesAttack } from "./attacks/damages-attacks/calculate-damages-attacks/calculate-damage-attack.js";
 import { secondAttackerTakesDamage } from "./pokemon-takes-damage.js";
 
@@ -20,12 +17,7 @@ export async function firstAttackerTurn(firstAttacker, secondAttacker) {
       );
 
       if (pokemonVariables.isFirstAttackActive) {
-        const attackDelays = handleAttacksDelayAndAnimations(
-          firstAttacker,
-          secondAttacker
-        );
-
-        await sleepAttacksAnimation(attackDelays.pokemonAttackDelay);
+        await handleAttackAnimation(firstAttacker, secondAttacker);
 
         secondAttackerTakesDamage(
           firstAttacker,
@@ -43,12 +35,7 @@ export async function firstAttackerTurn(firstAttacker, secondAttacker) {
       );
 
       if (pokemonVariables.isSecondAttackActive) {
-        const attackDelays = handleAttacksDelayAndAnimations(
-          firstAttacker,
-          secondAttacker
-        );
-
-        await sleepAttacksAnimation(attackDelays.pokemonAttackDelay);
+        await handleAttackAnimation(firstAttacker, secondAttacker);
 
         secondAttackerTakesDamage(
           firstAttacker,
