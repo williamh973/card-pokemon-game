@@ -1,6 +1,5 @@
-import { handleAttackAnimation } from "../../shared/animations/handle-attack-animation.js";
 import { pokemonVariables } from "../../shared/pokemon/pokemon-variables.js";
-import { pokemonMakesAttack } from "./attacks/damages-attacks/calculate-damages-attacks/calculate-damage-attack.js";
+import { pokemonMakesAttack } from "./attacks/damages-attacks/pokemon-makes-attack.js";
 import { firstAttackerTakesDamage } from "./pokemon-takes-damage.js";
 
 export async function secondAttackerTurn(secondAttacker, firstAttacker) {
