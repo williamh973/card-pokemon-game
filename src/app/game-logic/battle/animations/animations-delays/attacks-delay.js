@@ -43,6 +43,8 @@ function getAttackDelayAndtriggerAnimations(
       return 3000;
     case "Abri":
       return 3000;
+    case "Dévorêve":
+      return 3000;
     default:
       return 3000;
   }

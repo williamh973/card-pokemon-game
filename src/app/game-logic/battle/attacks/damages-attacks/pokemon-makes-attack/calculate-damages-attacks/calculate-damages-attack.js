@@ -17,19 +17,27 @@ import { roundDamageValue } from "./round-damage-value.js";
 import { attackStatesVariables } from "../../../../../../shared/attacks/attack-variables.js";
 import { handleAttackAnimation } from "../../../../../../shared/animations/handle-attack-animation.js";
 
-const randomNumber = Math.floor(Math.random() * 100) + 1;
-
 export async function calculateDamagesAttack(
   firstAttacker,
   secondAttacker,
   firstAttackerAttack
 ) {
+  const randomNumber = Math.floor(Math.random() * 100) + 1;
   await openDialogueWhenPokemonMakesAttack(firstAttacker);
 
   if (randomNumber <= firstAttackerAttack.precision) {
-    await handleAttackAnimation(firstAttacker, secondAttacker);
-
     let damages = baseDamage(firstAttacker, secondAttacker);
+
+    let getHpIncrease50PercentOfDamagesFactor =
+      await hpIncrease50PercentOfDamagesFactorAttack(
+        firstAttacker,
+        firstAttackerAttack,
+        secondAttacker,
+        damages
+      );
+    damages *= getHpIncrease50PercentOfDamagesFactor;
+
+    await handleAttackAnimation(firstAttacker, secondAttacker);
 
     let randomFactor = Math.random() * (1.0 - 0.85) + 0.85;
     damages *= randomFactor;
@@ -46,15 +54,6 @@ export async function calculateDamagesAttack(
       damages
     );
     damages = getLevelFactorsForAttacks;
-
-    let getHpIncrease50PercentOfDamagesFactor =
-      await hpIncrease50PercentOfDamagesFactorAttack(
-        firstAttacker,
-        firstAttackerAttack,
-        secondAttacker,
-        damages
-      );
-    damages *= getHpIncrease50PercentOfDamagesFactor;
 
     let getWeaknessFactorList = await weaknessFactorAttack(
       secondAttacker,

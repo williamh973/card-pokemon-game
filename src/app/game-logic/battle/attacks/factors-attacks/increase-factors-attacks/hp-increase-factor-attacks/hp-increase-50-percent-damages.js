@@ -1,5 +1,5 @@
+import { openDialogueWhenPokemonDoesntSleep } from "../../../../../../components/battle-dialogues/dialogues/pokemon-doesnt-sleep.js";
 import { openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-makes-hp-increase-50-percent-of-damage-factor-attack.dialogue.js";
-import { openDialogueWhenPokemonMissAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-miss-attack.dialogue.js";
 
 function isCurrentHpAlreadyAboveHpMax(firstAttacker) {
   firstAttacker.stats.hp = firstAttacker.stats.hpMax;
@@ -67,7 +67,7 @@ export async function hpIncrease50PercentOfDamagesFactorAttack(
     possibleAttacksList.includes(firstAttackerAttack.name) &&
     secondAttacker.primaryStatut !== "asleep"
   ) {
-    await openDialogueWhenPokemonMissAttack(firstAttacker);
+    await openDialogueWhenPokemonDoesntSleep(secondAttacker);
     return 0;
   } else {
     return 1;
