@@ -23,7 +23,6 @@ export async function calculateDamagesAttack(
   firstAttackerAttack
 ) {
   const randomNumber = Math.floor(Math.random() * 100) + 1;
-  await openDialogueWhenPokemonMakesAttack(firstAttacker);
 
   if (randomNumber <= firstAttackerAttack.precision) {
     let damages = baseDamage(firstAttacker, secondAttacker);

@@ -5,13 +5,13 @@ import { openDialogueWhenPokemonHasThawedStatut } from "../../../../components/b
 import { openDialogueWhenPokemonBlockedByFrozenStatut } from "../../../../components/battle-dialogues/dialogues/pokemon-blocked-by-frozen-statut.dialogue.js";
 import { openDialogueWhenPokemonIsAsleepStatut } from "../../../../components/battle-dialogues/dialogues/pokemon-has-asleep-statut.dialogue.js";
 import { openDialogueWhenPokemonWakeUp } from "../../../../components/battle-dialogues/dialogues/pokemon-wake-up.dialogue.js";
-import { removeAsleepStatutAnimation } from "../../animations/animations-statuts/remove/remove-asleep-statut-animation.js";
 import { isPokemonAsleep } from "./asleep/pokemon-asleep.js";
 import { isPokemonWakeUp } from "./asleep/pokemon-wake-up.js";
 import { isPokemonBlockedByParalysis } from "./paralyzed/pokemon-paralyzed.js";
 import { isPokemonResistsParalysis } from "./paralyzed/pokemon-resists-paralyzed.js";
 import { isPokemonNotFrozen } from "./frozen/pokemon-not-frozen.js";
 import { isPokemonFrozen } from "./frozen/pokemon-frozen.js";
+import { addStatusAnimations } from "../../animations/animations-statuts/add-statut-animation.js";
 
 let asleepCount = 0;
 let randomNumber = Math.random();
@@ -66,6 +66,7 @@ export async function pokemonPrimaryStatutAlteration(pokemon) {
 
       if (randomNumber <= 0.5) {
         isPokemonAsleep();
+        await addStatusAnimations(pokemon);
         await openDialogueWhenPokemonIsAsleepStatut(pokemon);
         disabledProtectCapacity();
         asleepCount++;
@@ -73,7 +74,6 @@ export async function pokemonPrimaryStatutAlteration(pokemon) {
         isPokemonWakeUp();
         pokemon.primaryStatut = "normal";
         await openDialogueWhenPokemonWakeUp(pokemon);
-        removeAsleepStatutAnimation(pokemon);
         asleepCount = 0;
       }
 

@@ -1,3 +1,4 @@
+import { pokemonVariables } from "../../../../../../shared/pokemon/pokemon-variables.js";
 import { attackDecrease2pFactorAttack } from "../../../factors-attacks/decrease-factors-attacks/attack-decrease-factors/attack-decrease-2P-factor-attack.js";
 import { defenseIncrease10pFactorAttack } from "../../../factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-10P-factors-attacks/defense-increase-10P-factor-attack.js";
 import { defenseIncrease5pFactorAttack } from "../../../factors-attacks/increase-factors-attacks/defense-increase-factors-attacks/defense-increase-5P-factors-attacks/defense-increase-5P-factor-attack.js";
@@ -15,5 +16,8 @@ export async function applyStatChangeFactors(
   await defenseIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
   await defenseIncrease10pFactorAttack(firstAttacker, firstAttackerAttack);
   await hpIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
-  await attackDecrease2pFactorAttack(secondAttacker, firstAttackerAttack);
+
+  if (!pokemonVariables.isProtectOrDetectCapacityActived) {
+    await attackDecrease2pFactorAttack(secondAttacker, firstAttackerAttack);
+  }
 }

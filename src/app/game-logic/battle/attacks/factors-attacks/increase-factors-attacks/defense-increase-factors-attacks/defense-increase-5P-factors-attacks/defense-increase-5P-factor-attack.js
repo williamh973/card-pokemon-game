@@ -4,7 +4,7 @@ const possibleAttacksList = [
   "Pouvoir Antique",
   "Gonflette",
   "Force Cosmik",
-  "Malediction",
+  "Malédiction",
   "Appel Defense",
   "Boul'Armure",
   "Armure",
@@ -20,7 +20,10 @@ export async function defenseIncrease5pFactorAttack(
   firstAttacker,
   firstAttackerAttack
 ) {
-  if (possibleAttacksList.includes(firstAttackerAttack.name)) {
+  if (
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    firstAttackerAttack.type !== "spectrum"
+  ) {
     const increasingValue = 5;
     const newDefenseValue = (firstAttacker.stats.defense += increasingValue);
     await openDialogueWhenPokemonMakesDefenseIncrease5pFactorAttack(

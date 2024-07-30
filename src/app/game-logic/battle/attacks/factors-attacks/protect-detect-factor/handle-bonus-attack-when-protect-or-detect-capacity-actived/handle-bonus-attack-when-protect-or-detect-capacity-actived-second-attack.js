@@ -8,7 +8,7 @@ import { hpIncrease5pFactorForSecondAttack } from "../../increase-factors-attack
 import { protectFactorForSecondAttack } from "../protect-factors-attacks/protect-factors-second-attack.js";
 import { disabledProtectCapacity } from "../protect-factors-attacks/protect-detect-capacity-actived.js";
 
-export async function handleBonusAttackWhenProtectOrDetectCapacityActived(
+export async function handleStatusAttackWhenProtectOrDetectCapacityActived(
   firstAttacker,
   isSecondAttackActive,
   secondAttackPrecision

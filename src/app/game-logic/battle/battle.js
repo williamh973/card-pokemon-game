@@ -62,8 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
           sleepStatutAlteredAnimation
         );
 
-        pokemonVariables.isFirstAttackerTurn = true;
-
         checkIfPokemonCanAttack(pokemonVariables.isFirstAttackerTurn);
 
         await firstAttackerTurn(firstAttacker, secondAttacker);

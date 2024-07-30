@@ -31,7 +31,7 @@ export let ectoplasmaModel = {
     name: "Hypnose",
     logo: "./src/assets/images/logos/psy.png",
     type: "psy",
-    class: "statut",
+    class: "status",
     resume:
       "Le lanceur hypnotise la cible pour la plonger dans un profond sommeil.",
     strength: 0,

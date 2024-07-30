@@ -31,7 +31,7 @@ export let spectrumModel = {
     name: "Onde Folie",
     logo: "./src/assets/images/logos/spectrum.png",
     type: "spectrum",
-    class: "statut",
+    class: "status",
     resume:
       "Une lumière étrange qui plonge la cible dans un état de confusion.",
     strength: 0,
@@ -41,8 +41,8 @@ export let spectrumModel = {
   secondAttack: {
     name: "Malédiction",
     logo: "./src/assets/images/logos/spectrum.png",
-    type: "malus",
-    class: "statut",
+    type: "spectrum",
+    class: "status",
     resume:
       "Une capacité à l’effet différent selon que le lanceur est un Pokémon Spectre ou non.",
     strength: 0,

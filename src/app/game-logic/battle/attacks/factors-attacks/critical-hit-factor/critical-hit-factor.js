@@ -42,19 +42,17 @@ export async function criticalHit(firstAttacker, firstAttackerAttack) {
   if (
     randomNumber < newSpeedValueForProbabilityIncreaseRate &&
     attackStatesVariables.currentStateAttack !== "ineffective" &&
-    firstAttackerAttack.type !== "bonus" &&
-    firstAttackerAttack.type !== "status"
+    firstAttackerAttack.class !== "status"
   ) {
+    await openDialogueWhenPokemonMakesCriticalHit();
     let criticalHitDamageIncreaseRate =
       (2 * firstAttacker.level + 5) / (firstAttacker.level + 5);
 
-    await openDialogueWhenPokemonMakesCriticalHit();
     return criticalHitDamageIncreaseRate;
   } else if (
     randomNumber < newSpeedValueForProbabilityIncreaseRate &&
     attackStatesVariables.currentStateAttack === "ineffective" &&
-    firstAttackerAttack.type === "bonus" &&
-    firstAttackerAttack.type === "status"
+    firstAttackerAttack.class === "status"
   ) {
     return 1;
   } else {

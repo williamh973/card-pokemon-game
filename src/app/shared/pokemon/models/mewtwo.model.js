@@ -26,7 +26,7 @@ export let mewtwoModel = {
   firstAttack: {
     name: "Soin",
     logo: "./src/assets/images/logos/coloreless.png",
-    type: "bonus",
+    type: "normal",
     class: "status",
     resume:
       "Un soin qui permet au lanceur de récupérer jusqu’à 10% des pv max.",

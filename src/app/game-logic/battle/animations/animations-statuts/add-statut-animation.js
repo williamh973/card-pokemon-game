@@ -1,21 +1,28 @@
 import { pokemonCardList } from "../../../../shared/pokemon/pokemon-card-list.js";
 import { pokemonModelList } from "../../../../shared/pokemon/pokemon-model-list.js";
 
-function getPokemonCard(pokemonName) {
+async function getPokemonCard(pokemonName) {
   const pokemonCard = pokemonCardList[pokemonName];
   return pokemonCard;
 }
 
-function getPokemonModel(pokemonName) {
+async function getPokemonModel(pokemonName) {
   const pokemonModel = pokemonModelList[pokemonName];
   return pokemonModel;
 }
 
-export function addStatusAnimations(pokemon) {
-  const pokemonCard = getPokemonCard(pokemon.name);
-  const pokemonModel = getPokemonModel(pokemon.name);
+export async function addStatusAnimations(pokemon) {
+  const pokemonCard = await getPokemonCard(pokemon.name);
+  const pokemonModel = await getPokemonModel(pokemon.name);
 
   if (pokemonCard && pokemonModel) {
-    pokemonCard.classList.add(pokemonModel.primaryStatut);
+    return new Promise((resolve) => {
+      pokemonCard.classList.add(pokemonModel.primaryStatut);
+
+      setTimeout(() => {
+        pokemonCard.classList.remove(pokemonModel.primaryStatut);
+        resolve();
+      }, 2000);
+    });
   }
 }

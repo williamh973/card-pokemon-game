@@ -7,6 +7,7 @@ export function initBattle() {
     (pokemonVariables.isFirstAttackActive = false),
     (pokemonVariables.isSecondAttackActive = false),
     (pokemonVariables.isFirstAttackerCanAttack = false),
-    (pokemonVariables.isSecondAttackerCanAttack = false)
+    (pokemonVariables.isSecondAttackerCanAttack = false),
+    (pokemonVariables.isFirstAttackerTurn = true)
   );
 }

@@ -27,7 +27,7 @@ export let insecateurModel = {
   firstAttack: {
     name: "Hâte",
     logo: "./src/assets/images/logos/coloreless.png",
-    type: "bonus",
+    type: "normal",
     class: "status",
     resume: "Augmente la Vitesse du lanceur de 2 points",
     strength: 0,

@@ -38,7 +38,7 @@ export let scarabruteModel = {
   secondAttack: {
     name: "Puissance",
     logo: "./src/assets/images/logos/coloreless.png",
-    type: "bonus",
+    type: "normal",
     class: "status",
     resume:
       "Le lanceur prend une profonde inspiration et se concentre pour augmenter son taux de critiques.",

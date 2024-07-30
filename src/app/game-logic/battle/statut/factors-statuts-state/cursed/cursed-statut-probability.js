@@ -21,19 +21,17 @@ export async function cursedStatut100PercentProbability(
   const possibleAttacksList = ["Malédiction"];
   if (
     possibleAttacksList.includes(firstAttackerAttack.name) &&
-    firstAttackerAttack.type === "malus" &&
     !checkSecondAttackerAlreadyCursed(secondAttacker)
   ) {
     let firstAttackerHpDecreasedValue =
       firstAttackerDecrease50PercentHp(firstAttacker);
 
     if (firstAttacker.stats.hp > firstAttackerHpDecreasedValue) {
-      cursedStatut(firstAttacker, secondAttacker);
+      await cursedStatut(firstAttacker, secondAttacker);
       updateDisplayPokemonHp(firstAttacker, secondAttacker);
     }
   } else if (
     possibleAttacksList.includes(firstAttackerAttack.name) &&
-    firstAttackerAttack.type === "malus" &&
     checkSecondAttackerAlreadyCursed(secondAttacker)
   ) {
     await openDialoguePokemonAlreadyCursed(secondAttacker);
