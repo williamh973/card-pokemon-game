@@ -5,7 +5,7 @@ import { speedIncrease10pFactorAttack } from "../../increase-factors-attacks/spe
 import { defenseIncrease5pFactorAttack } from "../../increase-factors-attacks/defense-increase-factors-attacks/defense-increase-5P-factors-attacks/defense-increase-5P-factor-attack.js";
 import { defenseIncrease10pFactorAttack } from "../../increase-factors-attacks/defense-increase-factors-attacks/defense-increase-10P-factors-attacks/defense-increase-10P-factor-attack.js";
 import { hpIncrease5pFactorAttack } from "../../increase-factors-attacks/hp-increase-factor-attacks/hp-increase-5P-factor-attacks.js";
-import { protectFactorAttack } from "../protect-factors-attacks/protect-factors-attack.js";
+import { protectOrDetectFactorAttack } from "../protect-factors-attacks/protect-factors-attack.js";
 import { disabledProtectCapacity } from "../protect-factors-attacks/protect-detect-capacity-actived.js";
 
 export async function handleBonusAttackWhenProtectOrDetectCapacityActived(
@@ -22,7 +22,7 @@ export async function handleBonusAttackWhenProtectOrDetectCapacityActived(
     await defenseIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
     await defenseIncrease10pFactorAttack(firstAttacker, firstAttackerAttack);
     await hpIncrease5pFactorAttack(firstAttacker, firstAttackerAttack);
-    await protectFactorAttack(firstAttacker, firstAttackerAttack);
+    await protectOrDetectFactorAttack(firstAttacker, firstAttackerAttack);
   } else {
     await openDialogueWhenPokemonMissAttack(firstAttacker);
     disabledProtectCapacity();

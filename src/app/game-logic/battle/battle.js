@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
           firstAttacker,
           sleepStatutAlteredAnimation
         );
-        console.log(firstAttacker.name, "check Status confusing");
+
         await checkIfPokemonStatusConfusing(
           firstAttacker,
           sleepStatutAlteredAnimation
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           break;
         }
-        console.log(firstAttacker.name, "check Status scared");
+
         await checkIfPokemonStatutScared(
           firstAttacker,
           sleepStatutAlteredAnimation
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           break;
         }
-        console.log(firstAttacker.name, "check Status cursed");
+
         await checkIfPokemonStatusCursed(
           firstAttacker,
           sleepStatutAlteredAnimation
@@ -131,7 +131,6 @@ document.addEventListener("DOMContentLoaded", () => {
           sleepStatutAlteredAnimation
         );
 
-        console.log(secondAttacker.name, "check Status confusing");
         await checkIfPokemonStatusConfusing(
           secondAttacker,
           sleepStatutAlteredAnimation
@@ -151,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           break;
         }
-        console.log(secondAttacker.name, "check Status scared");
+
         await checkIfPokemonStatutScared(
           secondAttacker,
           sleepStatutAlteredAnimation
@@ -195,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           break;
         }
-        console.log(secondAttacker.name, "check Status cursed");
+
         await checkIfPokemonStatusCursed(
           secondAttacker,
           sleepStatutAlteredAnimation
@@ -216,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
           break;
         }
       }
-      // ("end battle");
+      console.log("end turns");
     }
     battle();
   });

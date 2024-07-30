@@ -1,4 +1,6 @@
 export const pokemonNameList = [
+  "Krabboss",
+  "Crustabri",
   "Pikachu",
   "Évoli",
   "Roucool",
@@ -7,8 +9,6 @@ export const pokemonNameList = [
   "Sabelette",
   "Mewtwo",
   "Scarabrute",
-  "Krabboss",
-  "Crustabri",
   "Salamèche",
   "Nidoran♂",
   "Fantominus",

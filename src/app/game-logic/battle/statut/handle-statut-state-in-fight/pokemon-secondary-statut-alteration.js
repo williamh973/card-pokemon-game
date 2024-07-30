@@ -47,7 +47,6 @@ export async function secondaryStatutConfusingAlteration(pokemon) {
         } else {
           pokemon.secondaryStatut.isNormal = false;
         }
-
         confusingCount = 0;
       }
       break;

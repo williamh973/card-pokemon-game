@@ -11,14 +11,13 @@ export async function pokemonMakesAttack(firstAttacker, secondAttacker) {
     pokemonVariables.isFirstAttackActive ||
     pokemonVariables.isSecondAttackActive;
 
+  const possibleTypeAttacksList = ["bonus"];
+  const possibleClassAttacksList = ["status"];
+
   const firstAttackerAttack = getFirstAttackerAttack(firstAttacker);
 
   if (isFirstAttackerAttackActive) {
-    if (
-      (firstAttackerAttack.type === "bonus" ||
-        firstAttackerAttack.type !== "bonus") &&
-      !pokemonVariables.isProtectOrDetectCapacityActived
-    ) {
+    if (!pokemonVariables.isProtectOrDetectCapacityActived) {
       return await calculateDamagesAttack(
         firstAttacker,
         secondAttacker,
@@ -26,24 +25,26 @@ export async function pokemonMakesAttack(firstAttacker, secondAttacker) {
       );
     }
 
-    if (
-      firstAttackerAttack.type !== "bonus" &&
-      pokemonVariables.isProtectOrDetectCapacityActived
-    ) {
-      await openDialogueWhenPokemonMakesAttack(firstAttacker);
-      await openDialogueWhenPokemonProtectingHimself(secondAttacker);
-      disabledProtectCapacity();
-      return 0;
-    } else if (
-      firstAttackerAttack.type === "bonus" &&
-      pokemonVariables.isProtectOrDetectCapacityActived
-    ) {
-      await handleBonusAttackWhenProtectOrDetectCapacityActived(
-        firstAttacker,
-        firstAttackerAttack
-      );
-      disabledProtectCapacity();
-      return 0;
+    if (pokemonVariables.isProtectOrDetectCapacityActived) {
+      if (
+        possibleTypeAttacksList.includes(firstAttackerAttack.type) ||
+        possibleClassAttacksList.includes(firstAttackerAttack.class)
+      ) {
+        await handleBonusAttackWhenProtectOrDetectCapacityActived(
+          firstAttacker,
+          firstAttackerAttack
+        );
+        disabledProtectCapacity();
+        return 0;
+      } else if (
+        !possibleTypeAttacksList.includes(firstAttackerAttack.type) ||
+        !possibleClassAttacksList.includes(firstAttackerAttack.class)
+      ) {
+        await openDialogueWhenPokemonMakesAttack(firstAttacker);
+        await openDialogueWhenPokemonProtectingHimself(secondAttacker);
+        disabledProtectCapacity();
+        return 0;
+      }
     }
   }
 }

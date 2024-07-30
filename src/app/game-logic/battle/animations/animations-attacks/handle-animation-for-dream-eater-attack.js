@@ -1,10 +1,13 @@
 import {
   handleAttacksDelayAndAnimations,
   sleepAttacksAnimation,
-} from "../../game-logic/battle/animations/animations-delays/attacks-delay.js";
-import { getFirstAttackerAttack } from "../attacks/get-first-attacker-attack.js";
+} from "../animations-delays/attacks-delay.js";
+import { getFirstAttackerAttack } from "../../../../shared/attacks/get-first-attacker-attack.js";
 
-export async function handleAttackAnimation(firstAttacker, secondAttacker) {
+export async function handleAnimationForDreamEaterAttack(
+  firstAttacker,
+  secondAttacker
+) {
   const possibleAttacksList = ["Dévorêve"];
   const firstAttackerAttack = getFirstAttackerAttack(firstAttacker);
   const attackDelays = handleAttacksDelayAndAnimations(

@@ -5,7 +5,7 @@ import { openDialogueWhenPokemonMissAttack } from "../../../../../../components/
 import { criticalHit } from "../../../factors-attacks/critical-hit-factor/critical-hit-factor.js";
 import { criticalHitIncreaseByFocusEnergyAttack } from "../../../factors-attacks/increase-factors-attacks/critical-hit-increase-factors-attacks/critical-hit-increase-focus-energy-attack.js";
 import { oneHitKnockoutFactorAttack } from "../../../factors-attacks/one-hit-factors-attacks/one-hit-knock-out-factor-attack.js";
-import { protectFactorAttack } from "../../../factors-attacks/protect-detect-factor/protect-factors-attacks/protect-factors-attack.js";
+import { protectOrDetectFactorAttack } from "../../../factors-attacks/protect-detect-factor/protect-factors-attacks/protect-factors-attack.js";
 import { attackThatDependsFirstAttackerLevel } from "../../../factors-attacks/level-factors-attacks/handle-level-factor-attacks/handle-level-factor-attacks.js";
 import { hpIncrease50PercentOfDamagesFactorAttack } from "../../../factors-attacks/increase-factors-attacks/hp-increase-factor-attacks/hp-increase-50-percent-damages.js";
 import { baseDamage } from "./base-damages/base-damage.js";
@@ -15,7 +15,7 @@ import { applyStatutsChangeFactors } from "./apply-statuts-change-factors/statut
 import { openDialogueWhenPokemonMakesAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-makes-attacks.dialogue.js";
 import { roundDamageValue } from "./round-damage-value.js";
 import { attackStatesVariables } from "../../../../../../shared/attacks/attack-variables.js";
-import { handleAttackAnimation } from "../../../../../../shared/animations/handle-attack-animation.js";
+import { handleAnimationForDreamEaterAttack } from "../../../../animations/animations-attacks/handle-animation-for-dream-eater-attack.js";
 
 export async function calculateDamagesAttack(
   firstAttacker,
@@ -37,7 +37,7 @@ export async function calculateDamagesAttack(
       );
     damages *= getHpIncrease50PercentOfDamagesFactor;
 
-    await handleAttackAnimation(firstAttacker, secondAttacker);
+    await handleAnimationForDreamEaterAttack(firstAttacker, secondAttacker);
 
     let randomFactor = Math.random() * (1.0 - 0.85) + 0.85;
     damages *= randomFactor;
@@ -81,7 +81,7 @@ export async function calculateDamagesAttack(
       firstAttackerAttack
     );
 
-    await protectFactorAttack(firstAttacker, firstAttackerAttack);
+    await protectOrDetectFactorAttack(firstAttacker, firstAttackerAttack);
 
     await applyStatChangeFactors(
       firstAttacker,
