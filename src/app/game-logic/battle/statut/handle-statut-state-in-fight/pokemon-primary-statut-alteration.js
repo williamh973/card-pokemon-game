@@ -39,6 +39,7 @@ export async function pokemonPrimaryStatutAlteration(pokemon) {
 
       if (randomNumber <= 0.25) {
         isPokemonBlockedByParalysis();
+        await addStatusAnimations(pokemon);
         await openDialogueWhenPokemonBlockedByParalyzedStatut(pokemon);
         disabledProtectCapacity();
       } else {
@@ -56,6 +57,7 @@ export async function pokemonPrimaryStatutAlteration(pokemon) {
         await openDialogueWhenPokemonHasThawedStatut(pokemon);
       } else {
         isPokemonFrozen();
+        await addStatusAnimations(pokemon);
         await openDialogueWhenPokemonBlockedByFrozenStatut(pokemon);
         disabledProtectCapacity();
       }

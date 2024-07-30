@@ -28,7 +28,7 @@ export async function frozenStatut10PercentProbabililityAttack(
 
     if (randomNumber <= 10) {
       secondAttacker.primaryStatut = "frozen";
-      addStatusAnimations(secondAttacker);
+      await addStatusAnimations(secondAttacker);
       await openDialogueWhenPokemonHasFrozenStatut(secondAttacker);
     }
   }

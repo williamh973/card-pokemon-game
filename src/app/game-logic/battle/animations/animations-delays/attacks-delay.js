@@ -1,5 +1,5 @@
 import { pokemonVariables } from "../../../../shared/pokemon/pokemon-variables.js";
-import { triggerAttackAnimation } from "../animations-attacks/trigger-attack-animation.js";
+import { triggerAttackAnimation } from "../animations-attacks/trigger-attack-animation/trigger-attack-animation.js";
 
 export const handleAttacksDelayAndAnimations = (
   firstAttacker,

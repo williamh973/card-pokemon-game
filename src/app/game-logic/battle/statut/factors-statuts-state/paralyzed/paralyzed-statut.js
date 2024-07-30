@@ -3,7 +3,7 @@ import { openDialogueWhenPokemonHasParalyzedStatut } from "../../../../../compon
 
 export async function paralyzedStatut(secondAttacker) {
   secondAttacker.primaryStatut = "paralyzed";
-  addStatusAnimations(secondAttacker);
+  await addStatusAnimations(secondAttacker);
 
   const decreaseValue = 4;
   secondAttacker.stats.speed = secondAttacker.stats.speed / decreaseValue;

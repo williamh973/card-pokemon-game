@@ -1,0 +1,107 @@
+@keyframes burningAnimation {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+    background-color: whitesmoke;
+  }
+  5% {
+    transform: translateY(-8px);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  10% {
+    transform: translateY(0);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  15% {
+    transform: translateY(-8px);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  20% {
+    transform: translateY(0);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  25% {
+    transform: translateY(-8px);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  30% {
+    transform: translateY(0);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  35% {
+    transform: translateY(-8px);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  40% {
+    transform: translateY(0);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  45% {
+    transform: translateY(-8px);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  55% {
+    transform: translateY(-8px);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  60% {
+    transform: translateY(0);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  65% {
+    transform: translateY(-8px);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  70% {
+    transform: translateY(0);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  75% {
+    transform: translateY(-8px);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  80% {
+    transform: translateY(0);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  85% {
+    transform: translateY(-8px);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  90% {
+    transform: translateY(0);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  95% {
+    transform: translateY(-8px);
+    opacity: 0.7;
+    background-color: rgb(255, 153, 0);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    background-color: whitesmoke;
+  }
+}

@@ -17,7 +17,7 @@ export async function poisonedStatut10PercentProbabililityAttack(
 
     if (randomNumber <= 10) {
       secondAttacker.primaryStatut = "poisoned";
-      addStatusAnimations(secondAttacker);
+      await addStatusAnimations(secondAttacker);
       await openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
     }
   }
@@ -38,7 +38,7 @@ export async function poisonedStatut20PercentProbabililityAttack(
 
     if (randomNumber <= 20) {
       secondAttacker.primaryStatut = "poisoned";
-      addStatusAnimations(secondAttacker);
+      await addStatusAnimations(secondAttacker);
       await openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
     }
   }
@@ -66,7 +66,7 @@ export async function poisonedStatut30PercentProbabililityAttack(
 
     if (randomNumber <= 30) {
       secondAttacker.primaryStatut = "poisoned";
-      addStatusAnimations(secondAttacker);
+      await addStatusAnimations(secondAttacker);
       await openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
     }
   }
@@ -87,7 +87,7 @@ export async function poisonedStatut40PercentProbabililityAttack(
 
     if (randomNumber <= 40) {
       secondAttacker.primaryStatut = "poisoned";
-      addStatusAnimations(secondAttacker);
+      await addStatusAnimations(secondAttacker);
       await openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
     }
   }
@@ -105,7 +105,7 @@ export async function poisonedStatut100PercentProbabililityAttack(
     isStatusValidForPoisoned(secondAttacker)
   ) {
     secondAttacker.primaryStatut = "poisoned";
-    addStatusAnimations(secondAttacker);
+    await addStatusAnimations(secondAttacker);
     await openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
   }
 }

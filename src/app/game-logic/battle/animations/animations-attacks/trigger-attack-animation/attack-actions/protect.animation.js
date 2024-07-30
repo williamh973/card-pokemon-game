@@ -1,8 +1,8 @@
-import { animationVariables } from "../../../../../shared/animations/animation-variables.js";
+import { animationVariables } from "../../../../../../shared/animations/animation-variables.js";
 import {
   checkPokemonsLocation,
   firstAttackerLocation,
-} from "./check-pokemon-location/check-pokemon-location.js";
+} from "../../check-pokemon-location/check-pokemon-location.js";
 
 export function protectAnimation(
   attackName,

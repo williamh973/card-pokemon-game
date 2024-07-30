@@ -3,7 +3,7 @@ import { openDialogueWhenPokemonHasBurningStatut } from "../../../../../componen
 
 export async function burningStatut(secondAttacker) {
   secondAttacker.primaryStatut = "burning";
-  addStatusAnimations(secondAttacker);
+  await addStatusAnimations(secondAttacker);
 
   const decreaseValue = 2;
   secondAttacker.stats.attack = secondAttacker.stats.attack / decreaseValue;

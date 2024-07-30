@@ -1,0 +1,107 @@
+@keyframes confusedAnimation {
+  0% {
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    opacity: 1;
+    background-color: whitesmoke;
+  }
+  5% {
+    transform: matrix(1, 0.1, -0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  10% {
+    transform: matrix(1, -0.1, 0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  15% {
+    transform: matrix(1, 0.1, -0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  20% {
+    transform: matrix(1, -0.1, 0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  25% {
+    transform: matrix(1, 0.1, -0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  30% {
+    transform: matrix(1, -0.1, 0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  35% {
+    transform: matrix(1, 0.1, -0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  40% {
+    transform: matrix(1, -0.1, 0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  45% {
+    transform: matrix(1, 0.1, -0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  50% {
+    transform: matrix(1, -0.1, 0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  55% {
+    transform: matrix(1, 0.1, -0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  60% {
+    transform: matrix(1, -0.1, 0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  65% {
+    transform: matrix(1, 0.1, -0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  70% {
+    transform: matrix(1, -0.1, 0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  75% {
+    transform: matrix(1, 0.1, -0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  80% {
+    transform: matrix(1, -0.1, 0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  85% {
+    transform: matrix(1, 0.1, -0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  90% {
+    transform: matrix(1, -0.1, 0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  95% {
+    transform: matrix(1, 0.1, -0.1, 1, 0, 0);
+    opacity: 0.5;
+    background-color: rgb(235, 116, 253);
+  }
+  100% {
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    opacity: 1;
+    background-color: whitesmoke;
+  }
+}
