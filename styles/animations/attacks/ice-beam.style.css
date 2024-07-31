@@ -1,0 +1,47 @@
+@keyframes iceBeam {
+  0% {
+    transform: scaleX(0.5);
+    opacity: 0.8;
+    filter: blur(5px);
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+    filter: blur(2px);
+  }
+  100% {
+    transform: scaleX(1.5);
+    opacity: 0;
+    filter: blur(0);
+  }
+}
+
+.ice-beam {
+  position: absolute;
+  width: 400px;
+  height: 20px;
+  background: linear-gradient(
+    to right,
+    rgba(173, 216, 230, 1) 0%,
+    rgba(173, 216, 230, 0.8) 50%,
+    rgba(173, 216, 230, 1) 100%
+  );
+  border-radius: 50px;
+  box-shadow: 0 0 15px rgba(173, 216, 230, 0.5);
+  opacity: 0.8;
+  z-index: 1000;
+  pointer-events: none;
+  animation: iceBeam 0.7s linear forwards;
+}
+
+.ice-beam::before {
+  content: "";
+  position: absolute;
+  background: radial-gradient(
+    circle,
+    rgba(173, 216, 230, 1) 0%,
+    rgba(173, 216, 230, 0) 70%
+  );
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(173, 216, 230, 0.7);
+}

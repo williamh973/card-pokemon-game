@@ -20,9 +20,9 @@ function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
     getSecondAttackerBoundingClientRectCard(secondAttackerCard);
 
   if (domElements.pokemonFirstLocation.contains(firstAttackerCard)) {
-    coordonates(domElements.pokemonFirstLocation, -50, 700);
+    coordonates(domElements.pokemonFirstLocation, 0, 0);
   } else {
-    coordonates(domElements.pokemonSecondLocation, -50, -700);
+    coordonates(domElements.pokemonSecondLocation, 0, 0);
   }
 }
 
