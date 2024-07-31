@@ -6,6 +6,12 @@ import {
   getSecondAttackerBoundingClientRectCard,
 } from "../../check-pokemon-location/check-pokemon-location.js";
 
+function coordonates(pokemonLocation, startX, endX) {
+  pokemonVariables.firstAttackerLocation = pokemonLocation;
+  animationVariables.startX = startX;
+  animationVariables.endX = endX;
+}
+
 function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
   pokemonVariables.firstAttackerCardRect =
     getFirstAttackerBoundingClientRectCard(firstAttackerCard);
@@ -14,17 +20,9 @@ function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
     getSecondAttackerBoundingClientRectCard(secondAttackerCard);
 
   if (domElements.pokemonFirstLocation.contains(firstAttackerCard)) {
-    pokemonVariables.firstAttackerLocation = domElements.pokemonFirstLocation;
-    animationVariables.endX =
-      +pokemonVariables.secondAttackerCardRect.left -
-      pokemonVariables.secondAttackerCardRect.width;
+    coordonates(domElements.pokemonFirstLocation, -50, 700);
   } else {
-    pokemonVariables.firstAttackerLocation = domElements.pokemonSecondLocation;
-    animationVariables.startX = -50;
-    animationVariables.endX =
-      -pokemonVariables.secondAttackerCardRect.left -
-      pokemonVariables.secondAttackerCardRect.width -
-      400;
+    coordonates(domElements.pokemonSecondLocation, -50, -700);
   }
 }
 
@@ -46,7 +44,7 @@ export function protectAnimation(
       { x: animationVariables.startX, y: animationVariables.startY },
       {
         x: (animationVariables.endX = 0),
-        y: animationVariables.endY,
+        y: (animationVariables.endY = 0),
         duration: 2,
         ease: "power1.out",
         onComplete: () => {
