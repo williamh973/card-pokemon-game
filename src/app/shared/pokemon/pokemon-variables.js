@@ -23,4 +23,8 @@ export const pokemonVariables = {
   pokemonKo: "",
   enemyPokemon: "",
   selection: "sélectionné !",
+  firstAttackerLocation: undefined,
+  secondAttackerLocation: undefined,
+  firstAttackerCardRect: undefined,
+  secondAttackerCardRect: undefined,
 };

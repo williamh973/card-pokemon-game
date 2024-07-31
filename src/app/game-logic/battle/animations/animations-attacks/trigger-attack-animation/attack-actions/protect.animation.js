@@ -1,8 +1,32 @@
 import { animationVariables } from "../../../../../../shared/animations/animation-variables.js";
+import { domElements } from "../../../../../../shared/dom/dom-elements.js";
+import { pokemonVariables } from "../../../../../../shared/pokemon/pokemon-variables.js";
 import {
-  checkPokemonsLocation,
-  firstAttackerLocation,
+  getFirstAttackerBoundingClientRectCard,
+  getSecondAttackerBoundingClientRectCard,
 } from "../../check-pokemon-location/check-pokemon-location.js";
+
+function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
+  pokemonVariables.firstAttackerCardRect =
+    getFirstAttackerBoundingClientRectCard(firstAttackerCard);
+
+  pokemonVariables.secondAttackerCardRect =
+    getSecondAttackerBoundingClientRectCard(secondAttackerCard);
+
+  if (domElements.pokemonFirstLocation.contains(firstAttackerCard)) {
+    pokemonVariables.firstAttackerLocation = domElements.pokemonFirstLocation;
+    animationVariables.endX =
+      +pokemonVariables.secondAttackerCardRect.left -
+      pokemonVariables.secondAttackerCardRect.width;
+  } else {
+    pokemonVariables.firstAttackerLocation = domElements.pokemonSecondLocation;
+    animationVariables.startX = -50;
+    animationVariables.endX =
+      -pokemonVariables.secondAttackerCardRect.left -
+      pokemonVariables.secondAttackerCardRect.width -
+      400;
+  }
+}
 
 export function protectAnimation(
   attackName,
@@ -15,7 +39,7 @@ export function protectAnimation(
 
     checkPokemonsLocation(firstAttackerCard, secondAttackerCard);
 
-    firstAttackerLocation.appendChild(protect);
+    pokemonVariables.firstAttackerLocation.appendChild(protect);
 
     gsap.fromTo(
       protect,

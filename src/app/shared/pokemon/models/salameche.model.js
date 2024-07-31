@@ -45,7 +45,7 @@ export let salamecheModel = {
     class: "special",
     resume:
       "La cible est attaquée par une faible flamme qui peut aussi la brûler.",
-    strength: 40,
+    strength: 1, // 40
     precision: 100,
     precisionMax: 100,
   },
