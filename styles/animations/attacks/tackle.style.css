@@ -1,14 +1,37 @@
-.tackle {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(
-    circle,
-    rgba(255, 100, 100, 0.8) 0%,
-    rgba(255, 100, 100, 0) 70%
-  );
-  border-radius: 50%;
-  box-shadow: 0 0 15px rgba(255, 100, 100, 0.6);
-  z-index: 1000;
-  pointer-events: none;
+@keyframes rightTackleAnimation {
+  0% {
+    transform: translateX(0);
+    filter: blur(0);
+  }
+  50% {
+    transform: translateX(100px);
+    filter: blur(3px);
+  }
+  100% {
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes leftTackleAnimation {
+  0% {
+    transform: translateX(0);
+    filter: blur(0);
+  }
+  50% {
+    transform: translateX(-100px);
+    filter: blur(3px);
+  }
+  100% {
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+.right-tackle {
+  animation: rightTackleAnimation 0.5s forwards;
+}
+
+.left-tackle {
+  animation: leftTackleAnimation 0.5s forwards;
 }
