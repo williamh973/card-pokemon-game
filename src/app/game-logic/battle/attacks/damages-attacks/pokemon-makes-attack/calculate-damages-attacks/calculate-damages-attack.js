@@ -12,10 +12,9 @@ import { baseDamage } from "./base-damages/base-damage.js";
 import { checkMinimumDamage } from "./minimum-damage/minimum-damage.js";
 import { applyStatChangeFactors } from "./stat-change-factors.js";
 import { applyStatutsChangeFactors } from "./apply-statuts-change-factors/statut-change-factors.js";
-import { openDialogueWhenPokemonMakesAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-makes-attacks.dialogue.js";
 import { roundDamageValue } from "./round-damage-value.js";
 import { attackStatesVariables } from "../../../../../../shared/attacks/attack-variables.js";
-import { handleAnimationForDreamEaterAttack } from "../../../../animations/animations-attacks/handle-animation-for-dream-eater-attack.js";
+import { handleDelayAnimationAttack } from "../../../../animations/animations-attacks/handle-animation-for-dream-eater-attack.js";
 
 export async function calculateDamagesAttack(
   firstAttacker,
@@ -36,16 +35,16 @@ export async function calculateDamagesAttack(
       );
     damages *= getHpIncrease50PercentOfDamagesFactor;
 
-    await handleAnimationForDreamEaterAttack(firstAttacker, secondAttacker);
-
-    let randomFactor = Math.random() * (1.0 - 0.85) + 0.85;
-    damages *= randomFactor;
-
     let getAlwaysKnockOutAttacks = await oneHitKnockoutFactorAttack(
       secondAttacker,
       firstAttackerAttack
     );
     damages *= getAlwaysKnockOutAttacks;
+
+    let randomFactor = Math.random() * (1.0 - 0.85) + 0.85;
+    damages *= randomFactor;
+
+    await handleDelayAnimationAttack(firstAttacker, secondAttacker);
 
     let getLevelFactorsForAttacks = attackThatDependsFirstAttackerLevel(
       firstAttacker,

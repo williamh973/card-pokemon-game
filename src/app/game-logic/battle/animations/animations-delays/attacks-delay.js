@@ -31,17 +31,19 @@ function getAttackDelayAndtriggerAnimations(
   triggerAttackAnimation(attackName, firstAttacker, secondAttacker);
 
   switch (attackName) {
+    case "Abri":
+      return 2000;
     case "Charge":
-      return 3000;
+      return 1000;
+    case "Flammèche":
+      return 2000;
+    case "Laser Glace":
+      return 1500;
     case "Jet-Pierres":
       return 3000;
     case "Hâte":
       return 3000;
     case "Tranche":
-      return 3000;
-    case "Flammèche":
-      return 3000;
-    case "Abri":
       return 3000;
     case "Dévorêve":
       return 3000;
@@ -50,6 +52,6 @@ function getAttackDelayAndtriggerAnimations(
   }
 }
 
-export function sleepAttacksAnimation(attackName) {
+export async function sleepAttacksAnimation(attackName) {
   return new Promise((resolve) => setTimeout(resolve, attackName));
 }

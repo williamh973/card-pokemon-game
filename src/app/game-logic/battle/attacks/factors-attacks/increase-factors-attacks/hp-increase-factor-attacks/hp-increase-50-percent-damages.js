@@ -1,5 +1,6 @@
 import { openDialogueWhenPokemonDoesntSleep } from "../../../../../../components/battle-dialogues/dialogues/pokemon-doesnt-sleep.js";
 import { openDialogueWhenPokemonMakesHpIncrease50PercentOfDamagesFactorAttack } from "../../../../../../components/battle-dialogues/dialogues/pokemon-makes-hp-increase-50-percent-of-damage-factor-attack.dialogue.js";
+import { handleDelayAnimationAttack } from "../../../../animations/animations-attacks/handle-animation-for-dream-eater-attack.js";
 
 function isCurrentHpAlreadyAboveHpMax(firstAttacker) {
   firstAttacker.stats.hp = firstAttacker.stats.hpMax;
@@ -59,6 +60,7 @@ export async function hpIncrease50PercentOfDamagesFactorAttack(
     possibleAttacksList.includes(firstAttackerAttack.name) &&
     secondAttacker.primaryStatut === "asleep"
   ) {
+    await handleDelayAnimationAttack(firstAttacker, secondAttacker);
     checkFirstAttackerPossibleIncreaseHp(firstAttacker, damages);
 
     currentHpGreaterThanHpMaxAfterIncreased(firstAttacker);

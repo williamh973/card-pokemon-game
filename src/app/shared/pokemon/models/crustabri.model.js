@@ -31,7 +31,7 @@ export let crustabriModel = {
     type: "ice",
     class: "special",
     resume: "Un rayon de glace frappe la cible, ce qui peut aussi la geler.",
-    strength: 90,
+    strength: 1, // 90
     precision: 100,
     precisionMax: 100,
   },

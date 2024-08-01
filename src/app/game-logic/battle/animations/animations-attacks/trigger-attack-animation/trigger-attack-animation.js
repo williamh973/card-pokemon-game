@@ -1,4 +1,4 @@
-import { attackNameList } from "../../../../../shared/pokemon/pokemon-attacks-name-list.js";
+import { attackNameList } from "../../../../../shared/pokemon/pokemon-attacks-action-list.js";
 import { pokemonCardList } from "../../../../../shared/pokemon/pokemon-card-list.js";
 
 export function triggerAttackAnimation(
