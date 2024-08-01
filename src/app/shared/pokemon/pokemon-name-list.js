@@ -1,9 +1,9 @@
 export const pokemonNameList = [
   // "Salamèche",
-  "Évoli",
-  "Roucool",
+  // "Roucool",
   // "Crustabri",
-  // "Krabboss",
+  "Krabboss",
+  "Évoli",
   // "Pikachu",
   // "Racaillou",
   // "Insécateur",

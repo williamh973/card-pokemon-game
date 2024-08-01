@@ -1,4 +1,5 @@
 import { fireSparkAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/fire-spark.animation.js";
+import { guillotineAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/guillotine.animation.js";
 import { gustAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/gust.animation.js";
 import { iceBeamAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/ice-beam.animation.js";
 import { protectAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/protect.animation.js";
@@ -12,4 +13,5 @@ export const attackNameList = {
   Charge: tackleAnimation,
   "Vive-Attaque": quickAttackAnimation,
   Tornade: gustAnimation,
+  Guillotine: guillotineAnimation,
 };

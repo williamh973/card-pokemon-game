@@ -3,6 +3,7 @@ import { openDialogueWhenPokemonMakesIneffectiveAttack } from "../../../../../co
 import { handleDelayAnimationAttack } from "../../../animations/animations-attacks/handle-animation-for-dream-eater-attack.js";
 
 export async function oneHitKnockoutFactorAttack(
+  firstAttacker,
   secondAttacker,
   firstAttackerAttack
 ) {

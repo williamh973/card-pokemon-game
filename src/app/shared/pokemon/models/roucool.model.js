@@ -32,7 +32,7 @@ export let roucoolModel = {
     type: "normal",
     class: "physical",
     resume: "Une attaque de base",
-    strength: 1, // 35
+    strength: 35, // 35
     precision: 95,
     precisionMax: 95,
   },
@@ -43,7 +43,7 @@ export let roucoolModel = {
     class: "special",
     resume:
       "Le lanceur bat des ailes pour générer une bourrasque qui blesse la cible",
-    strength: 1, // 40
+    strength: 40, // 40
     precision: 100,
     precisionMax: 100,
   },

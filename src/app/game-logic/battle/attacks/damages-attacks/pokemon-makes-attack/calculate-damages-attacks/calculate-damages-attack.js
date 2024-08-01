@@ -36,6 +36,7 @@ export async function calculateDamagesAttack(
     damages *= getHpIncrease50PercentOfDamagesFactor;
 
     let getAlwaysKnockOutAttacks = await oneHitKnockoutFactorAttack(
+      firstAttacker,
       secondAttacker,
       firstAttackerAttack
     );
@@ -44,7 +45,7 @@ export async function calculateDamagesAttack(
     let randomFactor = Math.random() * (1.0 - 0.85) + 0.85;
     damages *= randomFactor;
 
-    await handleDelayAnimationAttack(firstAttacker, secondAttacker);
+    // await handleDelayAnimationAttack(firstAttacker, secondAttacker);
 
     let getLevelFactorsForAttacks = attackThatDependsFirstAttackerLevel(
       firstAttacker,
