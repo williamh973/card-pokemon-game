@@ -39,6 +39,8 @@ function getAttackDelayAndtriggerAnimations(
       return 2000;
     case "Laser Glace":
       return 1500;
+    case "Vive-Attaque":
+      return 1000;
     case "Jet-Pierres":
       return 3000;
     case "Hâte":
