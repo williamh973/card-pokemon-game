@@ -16,3 +16,7 @@
     background-color: whitesmoke;
   }
 }
+
+.asleep {
+  animation: asleepAnimation 4s ease-in-out infinite;
+}

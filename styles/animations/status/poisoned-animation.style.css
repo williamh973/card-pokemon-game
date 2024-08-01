@@ -21,3 +21,7 @@
     background-color: whitesmoke;
   }
 }
+
+.poisoned {
+  animation: poisonedAnimation 4s ease-in-out infinite;
+}

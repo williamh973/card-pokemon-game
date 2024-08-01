@@ -17,38 +17,6 @@
   scale: 1.2;
 }
 
-.slide-in {
-  animation: slideIn 500ms ease-out;
-}
-
-.slide-out {
-  animation: slideOut 500ms forwards;
-}
-
-.poisoned {
-  animation: poisonedAnimation 4s ease-in-out infinite;
-}
-
-.frozen {
-  animation: frozenAnimation 4s ease-in-out infinite;
-}
-
-.paralyzed {
-  animation: paralysisAnimation 4s ease-in-out infinite;
-}
-
-.burning {
-  animation: burningAnimation 2s ease-in-out infinite;
-}
-
-.asleep {
-  animation: asleepAnimation 4s ease-in-out infinite;
-}
-
-.confused {
-  animation: confusedAnimation 2s ease-in-out infinite;
-}
-
 .card-head {
   width: 90%;
   height: 25px;

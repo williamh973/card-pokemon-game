@@ -1,0 +1,16 @@
+@import url("./battle/sent-to-battle/slide-in.style.css");
+@import url("./battle/remove-to-battle/slide-out.style.css");
+
+@import url("./status/asleep-animation.style.css");
+@import url("./status/burning-animation.style.css");
+@import url("./status/confused-animation.style.css");
+@import url("./status/frozen-animation.style.css");
+@import url("./status/paralysis-animation.style.css");
+@import url("./status/poisoned-animation.style.css");
+
+@import url("./attacks/protect.style.css");
+@import url("./attacks/fire-spark.style.css");
+@import url("./attacks/ice-beam.style.css");
+@import url("./attacks/tackle.style.css");
+@import url("./attacks/quick-attack.style.css");
+@import url("./attacks/flight/gust.style.css");

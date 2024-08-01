@@ -21,3 +21,7 @@
     background-color: whitesmoke;
   }
 }
+
+.frozen {
+  animation: frozenAnimation 4s ease-in-out infinite;
+}

@@ -10,11 +10,9 @@ function checkPokemonsLocation(firstAttackerCard) {
   if (domElements.pokemonFirstLocation.contains(firstAttackerCard)) {
     firstAttackerCard.classList.add("right-tackle");
     removeClassName(firstAttackerCard, "right-tackle");
-    console.log(firstAttackerCard);
   } else {
     firstAttackerCard.classList.add("left-tackle");
     removeClassName(firstAttackerCard, "left-tackle");
-    console.log(firstAttackerCard);
   }
 }
 

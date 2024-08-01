@@ -21,3 +21,7 @@
     background-color: whitesmoke;
   }
 }
+
+.paralyzed {
+  animation: paralysisAnimation 4s ease-in-out infinite;
+}
