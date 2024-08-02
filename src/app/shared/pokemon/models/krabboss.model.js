@@ -42,7 +42,7 @@ export let krabbossModel = {
     resume:
       "Met K.O. en un coup. Les Pokémon ayant un niveau strictement supérieur sont immunisés.",
     strength: 1,
-    precision: 100, // 30
+    precision: 30,
     precisionMax: 30,
   },
   stats: {

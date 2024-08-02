@@ -1,4 +1,4 @@
-import { domElements } from "../../../../../../shared/dom/dom-elements.js";
+import { domElements } from "../../../../../../../shared/dom/dom-elements.js";
 
 function removeClassName(firstAttackerCard, classList) {
   setTimeout(() => {

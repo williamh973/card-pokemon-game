@@ -2,8 +2,9 @@ export const pokemonNameList = [
   // "Salamèche",
   // "Roucool",
   // "Crustabri",
-  "Krabboss",
+  // "Krabboss",
   "Évoli",
+  "Ectoplasma",
   // "Pikachu",
   // "Racaillou",
   // "Insécateur",
@@ -12,6 +13,5 @@ export const pokemonNameList = [
   // "Scarabrute",
   // "Nidoran♂",
   // "Fantominus",
-  // "Ectoplasma",
   // "Spectrum",
 ];

@@ -1,0 +1,67 @@
+.hypnosis {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(179, 0, 255, 0.5) 100%
+  );
+  box-shadow: 0 0 20px rgba(255, 0, 179, 0.5);
+  transform-origin: center center;
+  opacity: 0;
+  pointer-events: none;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  10% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  30% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  40% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  80% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  90% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}

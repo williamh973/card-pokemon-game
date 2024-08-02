@@ -16,6 +16,25 @@ import { roundDamageValue } from "./round-damage-value.js";
 import { attackStatesVariables } from "../../../../../../shared/attacks/attack-variables.js";
 import { handleDelayAnimationAttack } from "../../../../animations/animations-attacks/handle-animation-for-dream-eater-attack.js";
 
+async function triggerAnimationAttack(
+  firstAttacker,
+  firstAttackerAttack,
+  secondAttacker
+) {
+  const notAllowedForDelayAttacksList = [
+    "Dévorêve",
+    "Guillotine",
+    "Empal'Korne",
+    "Puissance",
+  ];
+
+  if (notAllowedForDelayAttacksList.includes(firstAttackerAttack.name)) {
+    return;
+  } else {
+    await handleDelayAnimationAttack(firstAttacker, secondAttacker);
+  }
+}
+
 export async function calculateDamagesAttack(
   firstAttacker,
   secondAttacker,
@@ -24,6 +43,12 @@ export async function calculateDamagesAttack(
   const randomNumber = Math.floor(Math.random() * 100) + 1;
 
   if (randomNumber <= firstAttackerAttack.precision) {
+    await triggerAnimationAttack(
+      firstAttacker,
+      firstAttackerAttack,
+      secondAttacker
+    );
+
     let damages = baseDamage(firstAttacker, secondAttacker);
 
     let getHpIncrease50PercentOfDamagesFactor =
@@ -45,7 +70,11 @@ export async function calculateDamagesAttack(
     let randomFactor = Math.random() * (1.0 - 0.85) + 0.85;
     damages *= randomFactor;
 
-    // await handleDelayAnimationAttack(firstAttacker, secondAttacker);
+    await criticalHitIncreaseByFocusEnergyAttack(
+      firstAttacker,
+      secondAttacker,
+      firstAttackerAttack
+    );
 
     let getLevelFactorsForAttacks = attackThatDependsFirstAttackerLevel(
       firstAttacker,
@@ -74,11 +103,6 @@ export async function calculateDamagesAttack(
 
     let getCriticalHit = await criticalHit(firstAttacker, firstAttackerAttack);
     damages *= getCriticalHit;
-
-    await criticalHitIncreaseByFocusEnergyAttack(
-      firstAttacker,
-      firstAttackerAttack
-    );
 
     await protectOrDetectFactorAttack(firstAttacker, firstAttackerAttack);
 

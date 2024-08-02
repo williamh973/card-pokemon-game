@@ -1,10 +1,10 @@
-import { animationVariables } from "../../../../../../shared/animations/animation-variables.js";
-import { domElements } from "../../../../../../shared/dom/dom-elements.js";
-import { pokemonVariables } from "../../../../../../shared/pokemon/pokemon-variables.js";
+import { animationVariables } from "../../../../../../../shared/animations/animation-variables.js";
+import { domElements } from "../../../../../../../shared/dom/dom-elements.js";
+import { pokemonVariables } from "../../../../../../../shared/pokemon/pokemon-variables.js";
 import {
   getFirstAttackerBoundingClientRectCard,
   getSecondAttackerBoundingClientRectCard,
-} from "../../check-pokemon-location/check-pokemon-location.js";
+} from "../../../check-pokemon-location/check-pokemon-location.js";
 
 let iceBeam = document.createElement("div");
 iceBeam.classList.add("ice-beam");
