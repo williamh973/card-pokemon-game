@@ -5,24 +5,25 @@ function coordonates(
   pokemonLocation,
   firstAttackerCard,
   secondAttackerCard,
-  startX,
-  startY,
-  distanceBetweenFirstAttackerCenterXAndTargetCenterX,
-  endY
+  firstAttackerCenterX,
+  firstAttackerCenterY,
+  targetLocationCenterX,
+  targetLocationCenterY
 ) {
   pokemonVariables.firstAttackerLocation = pokemonLocation;
   createThunderShock(
     firstAttackerCard,
     secondAttackerCard,
-    startX,
-    startY,
-    distanceBetweenFirstAttackerCenterXAndTargetCenterX,
-    endY
+    firstAttackerCenterX,
+    firstAttackerCenterY,
+    targetLocationCenterX,
+    targetLocationCenterY
   );
 }
 
 function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
-  let targetLocationCenterX;
+  let targetLocationCenterX = 0;
+  let targetLocationCenterY = 0;
   let firstAttackerCenterX = 0;
   let firstAttackerCenterY = 0;
   let leftLocationRect =
@@ -45,7 +46,7 @@ function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
       firstAttackerCenterX,
       firstAttackerCenterY,
       targetLocationCenterX,
-      0
+      targetLocationCenterY
     );
   } else if (domElements.pokemonRightLocation.contains(firstAttackerCard)) {
     targetLocationCenterX =
@@ -62,7 +63,7 @@ function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
       firstAttackerCenterX,
       firstAttackerCenterY,
       targetLocationCenterX,
-      0
+      targetLocationCenterY
     );
   }
 }
@@ -77,10 +78,10 @@ function addShakeAnimation(pokemonCard) {
 function createThunderShock(
   firstAttackerCard,
   secondAttackerCard,
-  startX,
-  startY,
-  distanceBetweenFirstAttackerCenterXAndTargetCenterX,
-  endY
+  firstAttackerCenterX,
+  firstAttackerCenterY,
+  targetLocationCenterX,
+  targetLocationCenterY
 ) {
   const gsapTimeline = gsap.timeline({ repeat: 0, repeatDelay: 0 });
   const thunderShock = document.createElement("div");
@@ -96,8 +97,8 @@ function createThunderShock(
     .fromTo(
       thunderShock,
       {
-        x: startX,
-        y: startY,
+        x: firstAttackerCenterX,
+        y: firstAttackerCenterY,
         scale: 1,
         opacity: 1,
         boxShadow: "0 0 0 rgba(255, 255, 255, 0.9)",
@@ -135,8 +136,8 @@ function createThunderShock(
       duration: 0.25,
     })
     .to(thunderShock, {
-      x: distanceBetweenFirstAttackerCenterXAndTargetCenterX,
-      y: endY,
+      x: targetLocationCenterX,
+      y: targetLocationCenterY,
       scale: 0.4,
       opacity: 1,
       boxShadow: "0 0 20px rgba(255, 255, 255, 0.8)",
