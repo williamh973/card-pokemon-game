@@ -23,6 +23,7 @@ async function triggerAnimationAttack(
 ) {
   const notAllowedForDelayAttacksList = [
     "Dévorêve",
+    "Hypnose",
     "Guillotine",
     "Empal'Korne",
     "Puissance",

@@ -15,8 +15,8 @@ export const domElements = {
     "random-adversary-mod-title"
   ),
   randomAllModTitle: document.getElementById("random-all-mod-title"),
-  pokemonFirstLocation: document.getElementById("pokemon-first-location"),
-  pokemonSecondLocation: document.getElementById("pokemon-second-location"),
+  pokemonLeftLocation: document.getElementById("pokemon-first-location"),
+  pokemonRightLocation: document.getElementById("pokemon-second-location"),
   isDefiniteModActived: false,
   isRandomAdversaryModActivated: false,
   isRandomAllModActivated: false,

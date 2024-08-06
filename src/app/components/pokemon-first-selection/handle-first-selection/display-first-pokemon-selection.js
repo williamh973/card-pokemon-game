@@ -5,9 +5,9 @@ import { pokemonDisplayAnimation } from "../../../game-logic/battle/animations/p
 
 export function displayFirstPokemonSelection(pokemon) {
   function updatePokemonCardDisplay(pokemonCard) {
-    domElements.pokemonFirstLocation.innerHTML = "";
+    domElements.pokemonLeftLocation.innerHTML = "";
     pokemonDisplayAnimation(pokemonCard);
-    domElements.pokemonFirstLocation.appendChild(pokemonCard);
+    domElements.pokemonLeftLocation.appendChild(pokemonCard);
   }
 
   function getPokemonCard() {

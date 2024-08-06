@@ -15,11 +15,11 @@ function getPokemonCards() {
 }
 
 function isPokemonInFirstLocation(pokemonCard) {
-  return domElements.pokemonFirstLocation.contains(pokemonCard);
+  return domElements.pokemonLeftLocation.contains(pokemonCard);
 }
 
 function isPokemonInSecondLocation(pokemonCard) {
-  return domElements.pokemonSecondLocation.contains(pokemonCard);
+  return domElements.pokemonRightLocation.contains(pokemonCard);
 }
 
 export function hideFirstAttackerWhenLose(firstAttacker, enemyPokemon) {

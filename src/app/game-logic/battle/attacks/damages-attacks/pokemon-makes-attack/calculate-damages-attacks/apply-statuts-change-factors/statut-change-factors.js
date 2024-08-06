@@ -15,7 +15,11 @@ export async function applyStatutsChangeFactors(
   await poisonedStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
   await paralyzedStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
   await frozenStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
-  await asleepStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
+  await asleepStatutProbabilitysAttack(
+    firstAttacker,
+    secondAttacker,
+    firstAttackerAttack
+  );
   await confusingStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
   await cursedStatut100PercentProbability(
     firstAttacker,

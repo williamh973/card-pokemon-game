@@ -5,7 +5,7 @@
 
 #ring {
   width: 80%;
-  height: auto;
+  height: 70vh;
   display: flex;
   flex-wrap: wrap;
   background-color: black;
@@ -14,10 +14,10 @@
 }
 
 .pokemon-location {
-  width: 30%;
-  height: 100%;
+  width: 300px;
+  height: 445px;
   min-width: 300px;
-  min-height: 400px;
+  min-height: 445px;
   display: flex;
   justify-content: center;
   align-items: center;

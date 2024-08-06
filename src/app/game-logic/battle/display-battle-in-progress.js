@@ -9,6 +9,7 @@ export function displayBattleInProgress() {
   menuSelectors.versus.style.display = "none";
   pokemonSelectors.secondPokemonSelectionButton.style.display = "none";
   pokemonSelectors.randomAdversarySelectionButton.style.display = "none";
+  pokemonSelectors.randomAllSelectionButton.style.display = "none";
   battleSelectors.startBattleButton.style.display = "none";
   battleSelectors.displayDialogueBattleContainer.style.display = "flex";
   battleSelectors.battleInProgress.style.display = "flex";

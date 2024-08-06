@@ -5,11 +5,11 @@ import { pokemonDisplayAnimation } from "../../../game-logic/battle/animations/p
 export function updateDisplayPokemonCard(firstPokemonCard, secondPokemonCard) {
   pokemonVariables.isFirstPokemonSelected = false;
   pokemonVariables.isSecondPokemonSelected = false;
-  domElements.pokemonFirstLocation.innerHTML = "";
-  domElements.pokemonSecondLocation.innerHTML = "";
+  domElements.pokemonLeftLocation.innerHTML = "";
+  domElements.pokemonRightLocation.innerHTML = "";
 
   pokemonDisplayAnimation(firstPokemonCard);
-  domElements.pokemonFirstLocation.appendChild(firstPokemonCard);
+  domElements.pokemonLeftLocation.appendChild(firstPokemonCard);
   pokemonDisplayAnimation(secondPokemonCard);
-  domElements.pokemonSecondLocation.appendChild(secondPokemonCard);
+  domElements.pokemonRightLocation.appendChild(secondPokemonCard);
 }

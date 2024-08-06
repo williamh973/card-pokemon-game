@@ -32,9 +32,9 @@ function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
   pokemonVariables.secondAttackerCardRect =
     getSecondAttackerBoundingClientRectCard(secondAttackerCard);
 
-  if (domElements.pokemonFirstLocation.contains(firstAttackerCard)) {
+  if (domElements.pokemonLeftLocation.contains(firstAttackerCard)) {
     coordonates(
-      domElements.pokemonFirstLocation,
+      domElements.pokemonLeftLocation,
       0,
       0,
       "left center",
@@ -43,7 +43,7 @@ function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
     );
   } else {
     coordonates(
-      domElements.pokemonSecondLocation,
+      domElements.pokemonRightLocation,
       0,
       0,
       "right center",
@@ -63,7 +63,6 @@ export function iceBeamAnimation(
 
     function createIceBeam() {
       pokemonVariables.firstAttackerLocation.appendChild(iceBeam);
-      console.log(animationVariables.startX, animationVariables.endX);
       gsap.fromTo(
         iceBeam,
         { x: animationVariables.startX, y: animationVariables.startY },

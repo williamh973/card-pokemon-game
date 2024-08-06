@@ -7,7 +7,7 @@ function removeClassName(firstAttackerCard, classList) {
 }
 
 function checkPokemonsLocation(firstAttackerCard) {
-  if (domElements.pokemonFirstLocation.contains(firstAttackerCard)) {
+  if (domElements.pokemonLeftLocation.contains(firstAttackerCard)) {
     firstAttackerCard.classList.add("right-quickAttack");
     removeClassName(firstAttackerCard, "right-quickAttack");
   } else {

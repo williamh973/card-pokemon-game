@@ -47,6 +47,10 @@ function getAttackDelayAndtriggerAnimations(
       return 1000;
     case "Hypnose":
       return 3000;
+    case "Dévorêve":
+      return 4000;
+    case "Éclair":
+      return 3000;
     case "Jet-Pierres":
       return 3000;
     case "Hâte":

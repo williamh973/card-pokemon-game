@@ -9,14 +9,14 @@
 
 // function getPokemonLocations(firstPokemonCard, secondPokemonCard) {
 //   let firstPokemonCardInFirstLocation =
-//     domElements.pokemonFirstLocation.contains(firstPokemonCard);
+//     domElements.pokemonLeftLocation.contains(firstPokemonCard);
 //   let firstPokemonCardInSecondLocation =
-//     domElements.pokemonSecondLocation.contains(firstPokemonCard);
+//     domElements.pokemonRightLocation.contains(firstPokemonCard);
 
 //   let secondPokemonCardInFirstLocation =
-//     domElements.pokemonFirstLocation.contains(secondPokemonCard);
+//     domElements.pokemonLeftLocation.contains(secondPokemonCard);
 //   let secondPokemonCardInSecondLocation =
-//     domElements.pokemonSecondLocation.contains(secondPokemonCard);
+//     domElements.pokemonRightLocation.contains(secondPokemonCard);
 // }
 
 // export function getPokemonNameFromSelectionButton() {
