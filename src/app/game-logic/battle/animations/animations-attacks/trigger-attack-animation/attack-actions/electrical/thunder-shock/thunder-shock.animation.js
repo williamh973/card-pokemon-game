@@ -1,69 +1,47 @@
-import { domElements } from "../../../../../../../shared/dom/dom-elements.js";
-import { pokemonVariables } from "../../../../../../../shared/pokemon/pokemon-variables.js";
+import { animationVariables } from "../../../../../../../../shared/animations/animation-variables.js";
+import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
+import { getTargetCoordonates } from "./get-target-coordonates.js";
 
-function coordonates(
-  pokemonLocation,
+export function thunderShockAnimation(
+  attackName,
   firstAttackerCard,
-  secondAttackerCard,
-  firstAttackerCenterX,
-  firstAttackerCenterY,
-  targetLocationCenterX,
-  targetLocationCenterY
+  secondAttackerCard
 ) {
-  pokemonVariables.firstAttackerLocation = pokemonLocation;
-  createThunderShock(
-    firstAttackerCard,
-    secondAttackerCard,
-    firstAttackerCenterX,
-    firstAttackerCenterY,
-    targetLocationCenterX,
-    targetLocationCenterY
-  );
+  if (attackName && firstAttackerCard && secondAttackerCard) {
+    checkPokemonsLocationAndTriggerAnimation(
+      firstAttackerCard,
+      secondAttackerCard
+    );
+  }
 }
 
-function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
-  let targetLocationCenterX = 0;
-  let targetLocationCenterY = 0;
-  let firstAttackerCenterX = 0;
-  let firstAttackerCenterY = 0;
-  let leftLocationRect =
-    domElements.pokemonLeftLocation.getBoundingClientRect();
-  let rightLocationRect =
-    domElements.pokemonRightLocation.getBoundingClientRect();
-
+function checkPokemonsLocationAndTriggerAnimation(
+  firstAttackerCard,
+  secondAttackerCard
+) {
   if (domElements.pokemonLeftLocation.contains(firstAttackerCard)) {
-    targetLocationCenterX =
-      firstAttackerCenterX +
-      leftLocationRect.width / 2 +
-      rightLocationRect.left -
-      leftLocationRect.right +
-      rightLocationRect.width / 2;
+    let getTargetLocationCenterX = getTargetCoordonates(firstAttackerCard);
 
-    coordonates(
-      domElements.pokemonLeftLocation,
+    createThunderShock(
       firstAttackerCard,
       secondAttackerCard,
-      firstAttackerCenterX,
-      firstAttackerCenterY,
-      targetLocationCenterX,
-      targetLocationCenterY
+      domElements.pokemonLeftLocation,
+      animationVariables.firstAttackerCenterX,
+      animationVariables.firstAttackerCenterY,
+      getTargetLocationCenterX,
+      animationVariables.targetLocationCenterY
     );
   } else if (domElements.pokemonRightLocation.contains(firstAttackerCard)) {
-    targetLocationCenterX =
-      firstAttackerCenterX -
-      rightLocationRect.width / 2 -
-      rightLocationRect.left +
-      leftLocationRect.left +
-      leftLocationRect.width / 2;
+    let getTargetLocationCenterX = getTargetCoordonates(firstAttackerCard);
 
-    coordonates(
-      domElements.pokemonRightLocation,
+    createThunderShock(
       firstAttackerCard,
       secondAttackerCard,
-      firstAttackerCenterX,
-      firstAttackerCenterY,
-      targetLocationCenterX,
-      targetLocationCenterY
+      domElements.pokemonRightLocation,
+      animationVariables.firstAttackerCenterX,
+      animationVariables.firstAttackerCenterY,
+      getTargetLocationCenterX,
+      animationVariables.targetLocationCenterY
     );
   }
 }
@@ -78,6 +56,7 @@ function addShakeAnimation(pokemonCard) {
 function createThunderShock(
   firstAttackerCard,
   secondAttackerCard,
+  pokemonLocation,
   firstAttackerCenterX,
   firstAttackerCenterY,
   targetLocationCenterX,
@@ -88,11 +67,13 @@ function createThunderShock(
 
   thunderShock.classList.add("thunder-shock");
   addShakeAnimation(firstAttackerCard);
+
   setTimeout(() => {
     addShakeAnimation(secondAttackerCard);
   }, 1_600);
 
-  pokemonVariables.firstAttackerLocation.appendChild(thunderShock);
+  pokemonLocation.appendChild(thunderShock);
+
   gsapTimeline
     .fromTo(
       thunderShock,
@@ -151,14 +132,4 @@ function createThunderShock(
       boxShadow: "0 0 0 rgba(255, 255, 255, 0.9)",
       onComplete: () => thunderShock.remove(),
     });
-}
-
-export function thunderShockAnimation(
-  attackName,
-  firstAttackerCard,
-  secondAttackerCard
-) {
-  if (attackName && firstAttackerCard && secondAttackerCard) {
-    checkPokemonsLocation(firstAttackerCard, secondAttackerCard);
-  }
 }
