@@ -23,11 +23,11 @@ function coordonates(
 
 function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
   let targetLocationCenterX;
-  const firstAttackerCenterX = 0;
-  const firstAttackerCenterY = 0;
-  const leftLocationRect =
+  let firstAttackerCenterX = 0;
+  let firstAttackerCenterY = 0;
+  let leftLocationRect =
     domElements.pokemonLeftLocation.getBoundingClientRect();
-  const rightLocationRect =
+  let rightLocationRect =
     domElements.pokemonRightLocation.getBoundingClientRect();
 
   if (domElements.pokemonLeftLocation.contains(firstAttackerCard)) {
@@ -35,7 +35,7 @@ function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
       firstAttackerCenterX +
       leftLocationRect.width / 2 +
       rightLocationRect.left -
-      rightLocationRect.left -
+      leftLocationRect.right +
       rightLocationRect.width / 2;
 
     coordonates(
@@ -47,7 +47,7 @@ function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
       targetLocationCenterX,
       0
     );
-  } else {
+  } else if (domElements.pokemonRightLocation.contains(firstAttackerCard)) {
     targetLocationCenterX =
       firstAttackerCenterX -
       rightLocationRect.width / 2 -
