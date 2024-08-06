@@ -2,7 +2,7 @@
 .fire-spark::after {
   content: "";
   position: absolute;
-  inset: 0;
+  z-index: 1000;
 }
 
 .fire-spark::before {
@@ -12,15 +12,15 @@
   height: 40px;
   background: linear-gradient(
       0deg,
-      white 0px,
+      rgb(195, 52, 0) 0px,
       #ff8951 5px,
       #dcbc169c 30%,
       transparent 70%
     ),
-    radial-gradient(ellipse at bottom, transparent 30%, black 60%);
+    radial-gradient(ellipse at bottom, transparent 30%, rgb(195, 52, 0) 60%);
   background-size: 350px 500px, 400px 650px, 100% 100%, 100% 100%;
   background-blend-mode: hard-light, color-dodge, multiply;
-  background-position: 0px 0px, 0px 0px, var(--gradientPos);
+  background-position: 0px 0px, 0px 0px, var(50%);
   background-repeat: repeat, repeat, repeat, no-repeat;
   mix-blend-mode: color-dodge;
   filter: brightness(3.7) blur(7px) contrast(6);
@@ -33,6 +33,7 @@
     background-position: center 0px, center 0px, 50% 100%, center center;
   }
   100% {
+    /* background-position: center 0px, center 0px, 50% 100%, center center; */
     background-position: center -500px, center -650px, 50% 100%, center center;
   }
 }

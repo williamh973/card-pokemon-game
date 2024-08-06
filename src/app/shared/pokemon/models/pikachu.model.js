@@ -28,7 +28,7 @@ export let pikachuModel = {
     type: "normal",
     class: "physical",
     resume: "Une attaque de base",
-    strength: 1, // 35
+    strength: 35,
     precision: 95,
     precisionMax: 95,
   },
@@ -39,7 +39,7 @@ export let pikachuModel = {
     class: "special",
     resume:
       "Une décharge électrique tombe sur la cible, ce qui peut aussi la paralyser.",
-    strength: 1, // 40
+    strength: 40,
     precision: 100,
     precisionMax: 100,
   },

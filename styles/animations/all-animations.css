@@ -9,7 +9,7 @@
 @import url("./status/poisoned-animation.style.css");
 
 @import url("./attacks/protect.style.css");
-@import url("./attacks/fire-spark.style.css");
+@import url("./attacks/fire/fire-spark.style.css");
 @import url("./attacks/ice-beam.style.css");
 @import url("./attacks/tackle.style.css");
 @import url("./attacks/quick-attack.style.css");

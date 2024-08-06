@@ -1,10 +1,6 @@
 import { animationVariables } from "../../../../../../../shared/animations/animation-variables.js";
 import { domElements } from "../../../../../../../shared/dom/dom-elements.js";
 import { pokemonVariables } from "../../../../../../../shared/pokemon/pokemon-variables.js";
-import {
-  getFirstAttackerBoundingClientRectCard,
-  getSecondAttackerBoundingClientRectCard,
-} from "../../../check-pokemon-location/check-pokemon-location.js";
 
 function coordonates(pokemonLocation, startX, endX) {
   pokemonVariables.firstAttackerLocation = pokemonLocation;
@@ -13,12 +9,6 @@ function coordonates(pokemonLocation, startX, endX) {
 }
 
 function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
-  pokemonVariables.firstAttackerCardRect =
-    getFirstAttackerBoundingClientRectCard(firstAttackerCard);
-
-  pokemonVariables.secondAttackerCardRect =
-    getSecondAttackerBoundingClientRectCard(secondAttackerCard);
-
   if (domElements.pokemonLeftLocation.contains(secondAttackerCard)) {
     coordonates(domElements.pokemonLeftLocation, 0, 0);
   } else {

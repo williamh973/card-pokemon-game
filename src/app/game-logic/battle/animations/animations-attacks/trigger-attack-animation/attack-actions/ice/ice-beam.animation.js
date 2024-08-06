@@ -1,10 +1,6 @@
 import { animationVariables } from "../../../../../../../shared/animations/animation-variables.js";
 import { domElements } from "../../../../../../../shared/dom/dom-elements.js";
 import { pokemonVariables } from "../../../../../../../shared/pokemon/pokemon-variables.js";
-import {
-  getFirstAttackerBoundingClientRectCard,
-  getSecondAttackerBoundingClientRectCard,
-} from "../../../check-pokemon-location/check-pokemon-location.js";
 
 let iceBeam = document.createElement("div");
 iceBeam.classList.add("ice-beam");
@@ -26,12 +22,6 @@ function coordonates(
 }
 
 function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
-  pokemonVariables.firstAttackerCardRect =
-    getFirstAttackerBoundingClientRectCard(firstAttackerCard);
-
-  pokemonVariables.secondAttackerCardRect =
-    getSecondAttackerBoundingClientRectCard(secondAttackerCard);
-
   if (domElements.pokemonLeftLocation.contains(firstAttackerCard)) {
     coordonates(
       domElements.pokemonLeftLocation,
