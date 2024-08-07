@@ -6,7 +6,7 @@ import { protectAnimation } from "../../game-logic/battle/animations/animations-
 import { hypnosisAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/psychic/hypnosis/hypnosis.animation.js";
 import { quickAttackAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/quick-attack.animation.js";
 import { tackleAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/tackle.animation.js";
-import { dreamEaterAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/psychic/dream-eater-animation.js";
+import { dreamEaterAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/psychic/dream-eater/dream-eater-animation.js";
 import { thunderShockAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/electrical/thunder-shock/thunder-shock.animation.js";
 
 export const attackNameList = {

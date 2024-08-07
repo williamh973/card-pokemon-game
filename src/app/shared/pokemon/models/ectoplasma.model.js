@@ -45,7 +45,7 @@ export let ectoplasmaModel = {
     class: "special",
     resume:
       "Le lanceur mange le rêve de la cible endormie et récupère en PV la moitié des dégâts infligés.",
-    strength: 100,
+    strength: 1, // 100
     precision: 100,
     precisionMax: 100,
   },
