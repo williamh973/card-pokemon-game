@@ -1,0 +1,29 @@
+.slash {
+  position: absolute;
+  width: 150px;
+  height: 30px;
+  border-bottom-left-radius: 50%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 0, 0, 0.8),
+    rgba(255, 255, 255, 0.4)
+  );
+  transform: translate(-50%, -50%) rotate(-45deg);
+  opacity: 1;
+  z-index: 1000;
+}
+
+.slash::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 100%;
+  width: 200%;
+  height: 500%;
+  border-top-left-radius: 50%;
+  background: rgba(255, 255, 255, 0.5) 0%;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  opacity: 0.2;
+  z-index: -2;
+}

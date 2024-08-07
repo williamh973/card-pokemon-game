@@ -43,7 +43,7 @@ function getAttackDelayAndtriggerAnimations(
       return 1000;
     case "Tornade":
       return 3000;
-    case "Guillotine":
+    case "RockThrow":
       return 1000;
     case "Hypnose":
       return 3000;
@@ -53,12 +53,10 @@ function getAttackDelayAndtriggerAnimations(
       return 3000;
     case "Jet-Pierres":
       return 3000;
-    case "Hâte":
-      return 3000;
     case "Tranche":
-      return 3000;
-    case "Dévorêve":
-      return 3000;
+      return 800;
+    case "Hâte":
+      return 1000;
     default:
       return 3000;
   }

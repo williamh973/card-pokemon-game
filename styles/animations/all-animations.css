@@ -8,16 +8,24 @@
 @import url("./status/paralysis-animation.style.css");
 @import url("./status/poisoned-animation.style.css");
 
-@import url("./attacks/protect.style.css");
 @import url("./attacks/fire/fire-spark.style.css");
+
 @import url("./attacks/ice/ice-beam.style.css");
 @import url("./attacks/ice/glass-shard.css");
-@import url("./attacks/tackle.style.css");
-@import url("./attacks/quick-attack.style.css");
-@import url("./attacks/flight/gust.style.css");
+
+@import url("./attacks/normal/protect.style.css");
+@import url("./attacks/normal/tackle.style.css");
+@import url("./attacks/normal/quick-attack.style.css");
 @import url("./attacks/normal/guillotine.style.css");
+@import url("./attacks/normal/slash.style.css");
+
+@import url("./attacks/flight/gust.style.css");
 
 @import url("./attacks/psychic/hypnosis.style.css");
 @import url("./attacks/psychic/dream-eater/dream-eater.style.css");
 @import url("./attacks/psychic/dream-eater/grow-up.style.css");
+
 @import url("./attacks/electrical/thunder-shock.style.css");
+
+@import url("./attacks/rock/rock-throw.style.css");
+@import url("./attacks/rock/stomp.style.css");

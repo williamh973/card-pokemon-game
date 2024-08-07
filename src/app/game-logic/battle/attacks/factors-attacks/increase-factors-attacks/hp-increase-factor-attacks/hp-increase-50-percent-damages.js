@@ -57,9 +57,8 @@ export async function hpIncrease50PercentOfDamagesFactorAttack(
   const possibleAttacksList = ["Dévorêve"];
 
   if (
-    possibleAttacksList.includes(firstAttackerAttack.name)
-    // &&
-    // secondAttacker.primaryStatut === "asleep"
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    secondAttacker.primaryStatut === "asleep"
   ) {
     await handleDelayAnimationAttack(firstAttacker, secondAttacker);
     checkFirstAttackerPossibleIncreaseHp(firstAttacker, damages);
@@ -70,7 +69,7 @@ export async function hpIncrease50PercentOfDamagesFactorAttack(
     possibleAttacksList.includes(firstAttackerAttack.name) &&
     secondAttacker.primaryStatut !== "asleep"
   ) {
-    // await openDialogueWhenPokemonDoesntSleep(secondAttacker);
+    await openDialogueWhenPokemonDoesntSleep(secondAttacker);
     return 0;
   } else {
     return 1;
