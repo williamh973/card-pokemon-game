@@ -1,45 +1,56 @@
 import { animationVariables } from "../../../../../../../shared/animations/animation-variables.js";
 import { domElements } from "../../../../../../../shared/dom/dom-elements.js";
-import { pokemonVariables } from "../../../../../../../shared/pokemon/pokemon-variables.js";
+import { getTargetCoordonates } from "./get-target-coordonates.js";
+import { addFrozenEffectAnimations } from "./target-effects-animations/add-frozen-animation.js";
+import { glassShardAnimation } from "./target-effects-animations/add-glass-shard-animation.js";
 
-let iceBeam = document.createElement("div");
-iceBeam.classList.add("ice-beam");
-
-function coordonates(
-  pokemonLocation,
-  startX,
-  endX,
-  transformOrigin,
-  top,
-  left
-) {
-  pokemonVariables.firstAttackerLocation = pokemonLocation;
-  animationVariables.startX = startX;
-  animationVariables.endX = endX;
-  iceBeam.style.transformOrigin = transformOrigin;
-  iceBeam.style.top = top;
-  iceBeam.style.left = left;
-}
+let leftLocationRect;
+let rightLocationRect;
 
 function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
+  leftLocationRect = domElements.pokemonLeftLocation.getBoundingClientRect();
+  rightLocationRect = domElements.pokemonRightLocation.getBoundingClientRect();
+
   if (domElements.pokemonLeftLocation.contains(firstAttackerCard)) {
-    coordonates(
-      domElements.pokemonLeftLocation,
-      0,
-      0,
-      "left center",
-      "60%",
-      "35%"
+    let getTargetLocationCenterX = getTargetCoordonates(
+      firstAttackerCard,
+      leftLocationRect,
+      rightLocationRect
     );
+
+    for (let i = 0; i < 15; i++) {
+      setTimeout(() => {
+        createIceBeam(
+          firstAttackerCard,
+          secondAttackerCard,
+          domElements.pokemonLeftLocation,
+          animationVariables.firstAttackerCenterX,
+          animationVariables.firstAttackerCenterY,
+          getTargetLocationCenterX,
+          animationVariables.targetLocationCenterY
+        );
+      }, i * 100);
+    }
   } else {
-    coordonates(
-      domElements.pokemonRightLocation,
-      0,
-      0,
-      "right center",
-      "60%",
-      "40%"
+    let getTargetLocationCenterX = getTargetCoordonates(
+      firstAttackerCard,
+      leftLocationRect,
+      rightLocationRect
     );
+
+    for (let i = 0; i < 15; i++) {
+      setTimeout(() => {
+        createIceBeam(
+          firstAttackerCard,
+          secondAttackerCard,
+          domElements.pokemonRightLocation,
+          animationVariables.firstAttackerCenterX,
+          animationVariables.firstAttackerCenterY,
+          getTargetLocationCenterX,
+          animationVariables.targetLocationCenterY
+        );
+      }, i * 100);
+    }
   }
 }
 
@@ -50,26 +61,43 @@ export function iceBeamAnimation(
 ) {
   if (attackName && firstAttackerCard) {
     checkPokemonsLocation(firstAttackerCard, secondAttackerCard);
-
-    function createIceBeam() {
-      pokemonVariables.firstAttackerLocation.appendChild(iceBeam);
-      gsap.fromTo(
-        iceBeam,
-        { x: animationVariables.startX, y: animationVariables.startY },
-        {
-          x: animationVariables.endX,
-          y: animationVariables.endY,
-          duration: 1.5,
-          ease: "linear",
-          onComplete: () => {
-            iceBeam.remove();
-          },
-        }
-      );
-    }
-
-    for (let i = 0; i < 20; i++) {
-      setTimeout(createIceBeam, i * 10);
-    }
   }
+}
+
+function createIceBeam(
+  firstAttackerCard,
+  secondAttackerCard,
+  pokemonLocation,
+  firstAttackerCenterX,
+  firstAttackerCenterY,
+  getTargetLocationCenterX,
+  targetLocationCenterY
+) {
+  setTimeout(() => {
+    addFrozenEffectAnimations(secondAttackerCard);
+    glassShardAnimation(secondAttackerCard);
+  }, 1_000);
+
+  const iceBeam = document.createElement("div");
+  iceBeam.classList.add("ice-beam");
+  pokemonLocation.appendChild(iceBeam);
+
+  gsap.fromTo(
+    iceBeam,
+    {
+      x: firstAttackerCenterX,
+      y: firstAttackerCenterY,
+      scale: 1,
+      opacity: 1,
+    },
+    {
+      x: getTargetLocationCenterX,
+      y: targetLocationCenterY,
+      scale: 1,
+      opacity: 1,
+      duration: 1,
+      ease: "linear",
+      onComplete: () => iceBeam.remove(),
+    }
+  );
 }

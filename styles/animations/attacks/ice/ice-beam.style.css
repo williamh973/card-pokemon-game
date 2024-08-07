@@ -1,0 +1,15 @@
+.ice-beam {
+  position: absolute;
+  width: 100px;
+  height: 25px;
+  background: linear-gradient(
+    to bottom,
+    rgb(112, 203, 234, 1) 0%,
+    rgba(173, 216, 230, 1) 50%,
+    rgb(112, 203, 234, 1) 100%
+  );
+  border-radius: 25%;
+  box-shadow: 0 0 30px rgba(173, 216, 230, 0.7);
+  z-index: 1000;
+  pointer-events: none;
+}

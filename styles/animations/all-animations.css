@@ -10,7 +10,8 @@
 
 @import url("./attacks/protect.style.css");
 @import url("./attacks/fire/fire-spark.style.css");
-@import url("./attacks/ice-beam.style.css");
+@import url("./attacks/ice/ice-beam.style.css");
+@import url("./attacks/ice/glass-shard.css");
 @import url("./attacks/tackle.style.css");
 @import url("./attacks/quick-attack.style.css");
 @import url("./attacks/flight/gust.style.css");

@@ -1,6 +1,5 @@
 import { animationVariables } from "../../../../../../../../shared/animations/animation-variables.js";
 import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
-import { pokemonVariables } from "../../../../../../../../shared/pokemon/pokemon-variables.js";
 import { getTargetCoordonates } from "../../fire/fire-spark/get-target-coordonates.js";
 
 function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
