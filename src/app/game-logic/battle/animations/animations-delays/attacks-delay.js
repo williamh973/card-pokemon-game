@@ -61,6 +61,10 @@ function getAttackDelayAndtriggerAnimations(
       return 600;
     case "Boul'Armure":
       return 4500;
+    case "Psyko":
+      return 4000;
+    case "Soin":
+      return 3000;
     default:
       return 3000;
   }

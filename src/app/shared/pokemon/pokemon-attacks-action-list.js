@@ -13,6 +13,8 @@ import { slashAnimation } from "../../game-logic/battle/animations/animations-at
 import { agilityAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/agility.animation.js";
 import { scratchAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/scratch.animation.js";
 import { defenseCurlAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/defense-curl.animation.js";
+import { psychicAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/psychic/psychic/psychic.animation.js";
+import { recoverAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/recover.animation.js";
 
 export const attackNameList = {
   Abri: protectAnimation,
@@ -30,4 +32,6 @@ export const attackNameList = {
   Hâte: agilityAnimation,
   Griffe: scratchAnimation,
   "Boul'Armure": defenseCurlAnimation,
+  Psyko: psychicAnimation,
+  Soin: recoverAnimation,
 };
