@@ -24,28 +24,19 @@ function createSlash(pokemonLocation) {
     slash,
     {
       x: animationVariables.targetLocationCenterX + 400,
-      y: animationVariables.targetLocationCenterY - 300,
+      y: animationVariables.targetLocationCenterY - 400,
       scale: 1.2,
       rotation: 45,
     },
     {
-      x: animationVariables.targetLocationCenterX - 100,
-      y: animationVariables.targetLocationCenterY,
+      x: animationVariables.targetLocationCenterX - 400,
+      y: animationVariables.targetLocationCenterY + 400,
       scale: 1.2,
-      rotation: 0,
-      duration: 0.2,
+      rotation: 45,
+      duration: 0.5,
       ease: "linear",
-      onComplete: () => {
-        gsap.to(slash, {
-          x: animationVariables.targetLocationCenterX + 400,
-          y: animationVariables.targetLocationCenterY + 300,
-          scale: 1.2,
-          rotation: -45,
-          duration: 0.2,
-          ease: "linear",
-          onComplete: () => slash.remove(),
-        });
-      },
+
+      onComplete: () => slash.remove(),
     }
   );
 }

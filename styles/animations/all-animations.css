@@ -19,6 +19,8 @@
 @import url("./attacks/normal/guillotine.style.css");
 @import url("./attacks/normal/slash.style.css");
 @import url("./attacks/normal/agility.style.css");
+@import url("./attacks/normal/scratch.style.css");
+@import url("./attacks/normal/defense-curl.style.css");
 
 @import url("./attacks/flight/gust.style.css");
 

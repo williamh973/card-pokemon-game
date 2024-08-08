@@ -41,7 +41,7 @@ export let insecateurModel = {
     class: "physical",
     resume:
       "Le lanceur donne un coup de griffe ou de faux. Taux de critiques élevé.",
-    strength: 1, // 70
+    strength: 70,
     precision: 100,
     precisionMax: 100,
   },

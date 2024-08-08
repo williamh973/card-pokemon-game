@@ -11,6 +11,8 @@ import { thunderShockAnimation } from "../../game-logic/battle/animations/animat
 import { rockThrowAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/rock/rock-throw/rock-throw.animation.js";
 import { slashAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/slash.animation.js";
 import { agilityAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/agility.animation.js";
+import { scratchAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/scratch.animation.js";
+import { defenseCurlAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/defense-curl.animation.js";
 
 export const attackNameList = {
   Abri: protectAnimation,
@@ -26,4 +28,6 @@ export const attackNameList = {
   "Jet-Pierres": rockThrowAnimation,
   Tranche: slashAnimation,
   Hâte: agilityAnimation,
+  Griffe: scratchAnimation,
+  "Boul'Armure": defenseCurlAnimation,
 };

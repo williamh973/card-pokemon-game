@@ -1,0 +1,13 @@
+.scratch {
+  position: absolute;
+  width: 170px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgb(255, 255, 255);
+  opacity: 1;
+  z-index: 1000;
+  box-shadow: 0 0 10px 5px rgb(0, 123, 255);
+  transform: rotate(-60deg);
+  pointer-events: none;
+  filter: blur(3px);
+}
