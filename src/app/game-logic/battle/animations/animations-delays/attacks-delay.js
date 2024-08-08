@@ -60,7 +60,7 @@ function getAttackDelayAndtriggerAnimations(
     case "Griffe":
       return 600;
     case "Boul'Armure":
-      return 4000;
+      return 4500;
     default:
       return 3000;
   }
