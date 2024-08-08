@@ -10,6 +10,7 @@ import { dreamEaterAnimation } from "../../game-logic/battle/animations/animatio
 import { thunderShockAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/electrical/thunder-shock/thunder-shock.animation.js";
 import { rockThrowAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/rock/rock-throw/rock-throw.animation.js";
 import { slashAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/slash.animation.js";
+import { agilityAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/agility.animation.js";
 
 export const attackNameList = {
   Abri: protectAnimation,
@@ -24,4 +25,5 @@ export const attackNameList = {
   Éclair: thunderShockAnimation,
   "Jet-Pierres": rockThrowAnimation,
   Tranche: slashAnimation,
+  Hâte: agilityAnimation,
 };

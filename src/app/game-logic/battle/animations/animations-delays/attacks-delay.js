@@ -56,7 +56,7 @@ function getAttackDelayAndtriggerAnimations(
     case "Tranche":
       return 800;
     case "Hâte":
-      return 1000;
+      return 2500;
     default:
       return 3000;
   }
