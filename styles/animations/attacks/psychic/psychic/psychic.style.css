@@ -1,0 +1,42 @@
+.psychic {
+  animation: psychicAnimation 5s ease-in-out forwards;
+}
+
+@keyframes psychicAnimation {
+  0% {
+    box-shadow: 0 0 25px 25px rgba(170, 0, 255, 0.8);
+    transform: translateY(0) rotate(0deg);
+  }
+  20% {
+    box-shadow: 0 0 25px 25px rgba(170, 0, 255, 0.8);
+    transform: translateY(-300px) rotate(45deg);
+  }
+  30% {
+    box-shadow: 0 0 25px 25px rgba(170, 0, 255, 0.8);
+    transform: translateY(-300px) rotate(-45deg);
+  }
+  40% {
+    box-shadow: 0 0 25px 25px rgba(170, 0, 255, 0.8);
+    transform: translateY(-300px) rotate(45deg);
+  }
+  50% {
+    box-shadow: 0 0 25px 25px rgba(170, 0, 255, 0.8);
+    transform: translateY(-300px) rotate(-45deg);
+  }
+  60% {
+    box-shadow: 0 0 25px 25px rgba(170, 0, 255, 0.8);
+    transform: translateY(-300px) rotate(45deg);
+  }
+  70% {
+    box-shadow: 0 0 5px 5px rgba(170, 0, 255, 0.8);
+    transform: translateY(-300px) rotate(-90deg);
+  }
+  75% {
+    box-shadow: 0 0 5px 5px rgba(170, 0, 255, 0.8);
+    transform: translateY(0) rotate(-90deg);
+  }
+  100% {
+    box-shadow: 0 0 5px 5px rgba(170, 0, 255, 0.8);
+    transform: translateY(0) rotate(0deg);
+  }
+}

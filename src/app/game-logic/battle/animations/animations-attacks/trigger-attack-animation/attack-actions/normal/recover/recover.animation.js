@@ -2,7 +2,7 @@ import { animationVariables } from "../../../../../../../../shared/animations/an
 import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
 import { createHealthUpAnimation } from "../../../../../animation-stats/health-up.animation.js";
 import { createLightRay } from "./light-ray.animation.js";
-import { twinkleAnimation } from "./twinkle.animation.js";
+import { twinkleRecoverAnimation } from "./twinkle-recover.animation.js";
 
 export async function recoverAnimation(attackName, firstAttackerCard) {
   if (attackName && firstAttackerCard) {
@@ -12,7 +12,7 @@ export async function recoverAnimation(attackName, firstAttackerCard) {
       ? domElements.pokemonLeftLocation
       : domElements.pokemonRightLocation;
 
-    twinkleAnimation(attackName, firstAttackerCard);
+    twinkleRecoverAnimation(attackName, firstAttackerCard);
     createLightBall(pokemonLocation);
     createLightRay(pokemonLocation);
 

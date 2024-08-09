@@ -24,15 +24,16 @@
 @import url("./attacks/normal/agility.style.css");
 @import url("./attacks/normal/scratch.style.css");
 @import url("./attacks/normal/defense-curl.style.css");
-@import url("./attacks/normal/recover.style.css");
-@import url("./attacks/normal/twinkle.style.css");
+@import url("./attacks/normal/recover/recover.style.css");
+@import url("./attacks/normal/recover/twinkle-recover.style.css");
 
 @import url("./attacks/flight/gust.style.css");
 
 @import url("./attacks/psychic/hypnosis.style.css");
 @import url("./attacks/psychic/dream-eater/dream-eater.style.css");
 @import url("./attacks/psychic/dream-eater/grow-up.style.css");
-@import url("./attacks/psychic/psychic.style.css");
+@import url("./attacks/psychic/psychic/psychic.style.css");
+@import url("./attacks/psychic/psychic/twinkle-psychic.style.css");
 
 @import url("./attacks/electrical/thunder-shock.style.css");
 

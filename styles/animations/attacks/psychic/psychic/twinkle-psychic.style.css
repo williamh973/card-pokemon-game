@@ -1,0 +1,19 @@
+.twinkle-psychic {
+  position: absolute;
+  animation: twinkleAnimation 5s ease-in-out forwards;
+}
+
+@keyframes twinkleAnimation {
+  0% {
+    box-shadow: 0 0 5px 5px rgba(170, 0, 255, 0.8);
+  }
+  25% {
+    box-shadow: 0 0 25px 25px rgba(170, 0, 255, 0.8);
+  }
+  75% {
+    box-shadow: 0 0 25px 25px rgba(170, 0, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px 5px rgba(170, 0, 255, 0.8);
+  }
+}
