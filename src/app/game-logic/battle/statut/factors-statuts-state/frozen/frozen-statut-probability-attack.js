@@ -1,4 +1,4 @@
-import { addStatusAnimations } from "../../../animations/animations-statuts/add-statut-animation.js";
+import { addStatusAnimations } from "../../../animations/animations-statuts/add/add-statut-animation.js";
 import { openDialogueWhenPokemonHasFrozenStatut } from "../../../../../components/battle-dialogues/dialogues/pokemon-has-frozen-statut.dialogue.js";
 
 export async function frozenStatut10PercentProbabililityAttack(

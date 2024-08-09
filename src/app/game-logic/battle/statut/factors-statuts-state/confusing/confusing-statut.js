@@ -1,5 +1,5 @@
 import { openDialogueWhenPokemonBeingConfused } from "../../../../../components/battle-dialogues/dialogues/pokemon-being-confused.dialogue.js";
-import { addStatusAnimations } from "../../../animations/animations-statuts/add-statut-animation.js";
+import { addStatusAnimations } from "../../../animations/animations-statuts/add/add-statut-animation.js";
 
 export async function confusingStatut(secondAttacker) {
   secondAttacker.secondaryStatut.isConfused = true;

@@ -1,5 +1,5 @@
-import { pokemonCardList } from "../../../../shared/pokemon/pokemon-card-list.js";
-import { pokemonModelList } from "../../../../shared/pokemon/pokemon-model-list.js";
+import { pokemonCardList } from "../../../../../shared/pokemon/pokemon-card-list.js";
+import { pokemonModelList } from "../../../../../shared/pokemon/pokemon-model-list.js";
 
 async function getPokemonCard(pokemonName) {
   const pokemonCard = pokemonCardList[pokemonName];

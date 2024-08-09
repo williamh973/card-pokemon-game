@@ -1,0 +1,11 @@
+.health-up {
+  position: absolute;
+  width: 15px;
+  height: 60px;
+  border-radius: 50%;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 1;
+  background: rgba(26, 255, 0, 0.527);
+  box-shadow: 0 0 15px rgba(221, 255, 0, 0.4), 0 0 25px rgba(246, 255, 0, 0.3);
+}

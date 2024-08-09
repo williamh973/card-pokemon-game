@@ -1,4 +1,4 @@
-import { addStatusAnimations } from "../../../animations/animations-statuts/add-statut-animation.js";
+import { addStatusAnimations } from "../../../animations/animations-statuts/add/add-statut-animation.js";
 import { openDialogueWhenPokemonHasPoisonedStatut } from "../../../../../components/battle-dialogues/dialogues/pokemon--has-poisoned-statut.dialogue.js";
 import { isStatusValidForPoisoned } from "./status-valid-for-poisoned.js";
 

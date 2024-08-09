@@ -6,7 +6,7 @@ import { openDialogueWhenPokemonHurtsByCurse } from "../../../../components/batt
 import { isPokemonConfused } from "./confused/pokemon-confused.js";
 import { isPokemonNotConfused } from "./confused/pokemon-not-confused.js";
 import { isPokemonScared } from "./scared/pokemon-scared.js";
-import { addStatusAnimations } from "../../animations/animations-statuts/add-statut-animation.js";
+import { addStatusAnimations } from "../../animations/animations-statuts/add/add-statut-animation.js";
 
 let confusingCount = 0;
 let randomNumber = Math.random();

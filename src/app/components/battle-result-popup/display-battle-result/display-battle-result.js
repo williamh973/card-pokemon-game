@@ -1,8 +1,6 @@
-import { domElements } from "../../../shared/dom/dom-elements.js";
 import { battleSelectors } from "../../../shared/battle/battle-selectors.js";
 import { pokemonSelectors } from "../../../shared/header/pokemon-selectors.js";
 import { pokemonVariables } from "../../../shared/pokemon/pokemon-variables.js";
-import { animationWhenPokemonKo } from "../../../game-logic/battle/animations/pokemon-ko.animation.js";
 import { menuSelectors } from "../../../shared/header/menu-selectors.js";
 
 const POPUP_DISPLAY_TIMELAPS = 3000;

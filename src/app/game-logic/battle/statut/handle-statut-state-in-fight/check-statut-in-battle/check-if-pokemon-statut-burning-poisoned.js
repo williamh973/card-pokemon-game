@@ -1,7 +1,7 @@
 import { openDialogueWhenPokemonHpDecreaseByBurningStatut } from "../../../../../components/battle-dialogues/dialogues/pokemon-hp-decrease-by-burning-statut.dialogue.js";
 import { openDialogueWhenPokemonHpDecreaseByPoisonedStatut } from "../../../../../components/battle-dialogues/dialogues/pokemon-hp-decrease-by-poisoned-statut.dialogue.js";
 import { getStatutAlterationDelays } from "../../../animations/animations-delays/alterations-delay.js";
-import { addStatusAnimations } from "../../../animations/animations-statuts/add-statut-animation.js";
+import { addStatusAnimations } from "../../../animations/animations-statuts/add/add-statut-animation.js";
 import { pokemonPrimaryStatutAlteration } from "../pokemon-primary-statut-alteration.js";
 
 export async function checkIfPokemonStatusHasBurningOrPoisoned(

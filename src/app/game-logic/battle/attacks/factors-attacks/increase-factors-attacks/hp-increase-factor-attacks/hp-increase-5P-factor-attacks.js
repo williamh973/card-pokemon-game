@@ -51,6 +51,6 @@ export async function hpIncrease5pFactorAttack(
     possibleAttacksList.includes(firstAttackerAttack.name) &&
     firstAttacker.stats.hp >= firstAttacker.stats.hpMax
   ) {
-    isCurrentHpAlreadyAboveHpMax(firstAttacker);
+    await isCurrentHpAlreadyAboveHpMax(firstAttacker);
   }
 }

@@ -11,7 +11,7 @@ import { isPokemonBlockedByParalysis } from "./paralyzed/pokemon-paralyzed.js";
 import { isPokemonResistsParalysis } from "./paralyzed/pokemon-resists-paralyzed.js";
 import { isPokemonNotFrozen } from "./frozen/pokemon-not-frozen.js";
 import { isPokemonFrozen } from "./frozen/pokemon-frozen.js";
-import { addStatusAnimations } from "../../animations/animations-statuts/add-statut-animation.js";
+import { addStatusAnimations } from "../../animations/animations-statuts/add/add-statut-animation.js";
 
 let asleepCount = 0;
 let randomNumber = Math.random();

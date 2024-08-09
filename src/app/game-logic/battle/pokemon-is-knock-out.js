@@ -11,7 +11,7 @@ import {
   hideFirstAttackerWhenLose,
   hideSecondAttackerWhenLose,
 } from "./hide-locations-when-pokemons-loses.js";
-import { animationWhenPokemonKo } from "./animations/pokemon-ko.animation.js";
+import { animationWhenPokemonKo } from "./animations/utils/pokemon-ko.animation.js";
 import { removeStatutAnimationWhenPokemonKo } from "./animations/animations-statuts/remove/remove-statut-animation-when-pokemon-ko.js";
 
 export async function pokemonLose(firstAttacker, secondAttacker, enemyPokemon) {

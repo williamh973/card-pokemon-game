@@ -1,6 +1,6 @@
 import { domElements } from "../../../shared/dom/dom-elements.js";
 import { pokemonVariables } from "../../../shared/pokemon/pokemon-variables.js";
-import { pokemonDisplayAnimation } from "../../../game-logic/battle/animations/pokemon-display-animation.js";
+import { pokemonDisplayAnimation } from "../../../game-logic/battle/animations/utils/pokemon-display-animation.js";
 
 export function updateDisplayPokemonCard(firstPokemonCard, secondPokemonCard) {
   pokemonVariables.isFirstPokemonSelected = false;

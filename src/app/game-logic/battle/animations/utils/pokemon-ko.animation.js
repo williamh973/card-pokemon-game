@@ -1,5 +1,5 @@
-import { pokemonCardList } from "../../../shared/pokemon/pokemon-card-list.js";
-import { pokemonVariables } from "../../../shared/pokemon/pokemon-variables.js";
+import { pokemonCardList } from "../../../../shared/pokemon/pokemon-card-list.js";
+import { pokemonVariables } from "../../../../shared/pokemon/pokemon-variables.js";
 
 export function animationWhenPokemonKo() {
   const pokemonCard = pokemonCardList[pokemonVariables.pokemonKo];

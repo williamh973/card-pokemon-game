@@ -1,4 +1,4 @@
-import { addStatusAnimations } from "../../../animations/animations-statuts/add-statut-animation.js";
+import { addStatusAnimations } from "../../../animations/animations-statuts/add/add-statut-animation.js";
 import { openDialogueWhenPokemonHasParalyzedStatut } from "../../../../../components/battle-dialogues/dialogues/pokemon-has-paralyzed-statut.dialogue.js";
 
 export async function paralyzedStatut(secondAttacker) {

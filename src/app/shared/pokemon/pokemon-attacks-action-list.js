@@ -12,9 +12,9 @@ import { rockThrowAnimation } from "../../game-logic/battle/animations/animation
 import { slashAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/slash.animation.js";
 import { agilityAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/agility.animation.js";
 import { scratchAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/scratch.animation.js";
-import { defenseCurlAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/defense-curl.animation.js";
+import { defenseCurlAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/defense-curl/defense-curl.animation.js";
 import { psychicAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/psychic/psychic/psychic.animation.js";
-import { recoverAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/recover.animation.js";
+import { recoverAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/recover/recover.animation.js";
 
 export const attackNameList = {
   Abri: protectAnimation,

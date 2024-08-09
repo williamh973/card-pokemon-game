@@ -1,5 +1,6 @@
-import { animationVariables } from "../../../../../../../shared/animations/animation-variables.js";
-import { domElements } from "../../../../../../../shared/dom/dom-elements.js";
+import { animationVariables } from "../../../../../../../../shared/animations/animation-variables.js";
+import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
+import { createDefenseUpAnimation } from "../../../../../animation-stats/defense-up.animation.js";
 
 export async function defenseCurlAnimation(attackName, firstAttackerCard) {
   if (attackName && firstAttackerCard) {
@@ -33,7 +34,7 @@ function checkPokemonsLocation(firstAttackerCard) {
 }
 
 async function createDefenseCurlAnimation(firstAttackerCard) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     firstAttackerCard.classList.add("defense-curl");
 
     setTimeout(() => {
@@ -41,36 +42,4 @@ async function createDefenseCurlAnimation(firstAttackerCard) {
       resolve();
     }, 2_500);
   });
-}
-
-function createDefenseUpAnimation(
-  pokemonLocation,
-  firstAttackerCenterX,
-  firstAttackerCenterY
-) {
-  const defenseUp = document.createElement("div");
-  defenseUp.classList.add("defense-up");
-
-  pokemonLocation.appendChild(defenseUp);
-
-  const randomNumberX =
-    Math.floor(Math.random() * 300) - Math.floor(Math.random() * 300);
-  const randomScale = Math.floor(Math.random() * 1.2) + 0.2;
-
-  gsap.fromTo(
-    defenseUp,
-    {
-      x: firstAttackerCenterX + randomNumberX,
-      y: firstAttackerCenterY + 200,
-    },
-    {
-      y: firstAttackerCenterY - 200,
-      scale: randomScale,
-      duration: 1.5,
-      ease: "sine.inOut",
-      onComplete: () => {
-        defenseUp.remove();
-      },
-    }
-  );
 }

@@ -8,6 +8,9 @@
 @import url("./status/paralysis-animation.style.css");
 @import url("./status/poisoned-animation.style.css");
 
+@import url("./stats/defense-up.style.css");
+@import url("./stats/health-up.style.css");
+
 @import url("./attacks/fire/fire-spark.style.css");
 
 @import url("./attacks/ice/ice-beam.style.css");
@@ -22,6 +25,7 @@
 @import url("./attacks/normal/scratch.style.css");
 @import url("./attacks/normal/defense-curl.style.css");
 @import url("./attacks/normal/recover.style.css");
+@import url("./attacks/normal/twinkle.style.css");
 
 @import url("./attacks/flight/gust.style.css");
 

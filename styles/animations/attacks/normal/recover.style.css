@@ -1,8 +1,33 @@
-.recover {
+.light-ball {
   position: absolute;
-  width: 205px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  box-shadow: 0 0 15px 15px rgba(255, 213, 0, 0.5);
-  transform-origin: center;
+  background: radial-gradient(
+    circle,
+    rgb(255, 225, 0, 1) 30%,
+    rgb(255, 239, 69) 60%
+  );
+  box-shadow: 0 0 15px 10px rgb(255, 238, 130);
+  opacity: 1;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.left-light-ray {
+  position: absolute;
+  transform: rotate(-45deg);
+  width: 205px;
+  height: 25px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px 10px rgba(255, 240, 69, 0.673);
+}
+
+.right-light-ray {
+  position: absolute;
+  transform: rotate(45deg);
+  width: 205px;
+  height: 25px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px 10px rgb(255, 239, 69);
 }

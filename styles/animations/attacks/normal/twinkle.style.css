@@ -1,0 +1,19 @@
+.twinkle {
+  position: absolute;
+  animation: hasteAnimation 2s ease-in-out forwards;
+}
+
+@keyframes hasteAnimation {
+  0% {
+    box-shadow: 0 0 5px 5px rgba(251, 241, 57, 0.8);
+  }
+  25% {
+    box-shadow: 0 0 25px 25px rgba(251, 241, 57, 0.5);
+  }
+  75% {
+    box-shadow: 0 0 25px 25px rgba(251, 241, 57, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 5px 5px rgba(251, 241, 57, 0.8);
+  }
+}

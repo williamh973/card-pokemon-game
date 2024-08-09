@@ -1,4 +1,4 @@
-import { addStatusAnimations } from "../../../animations/animations-statuts/add-statut-animation.js";
+import { addStatusAnimations } from "../../../animations/animations-statuts/add/add-statut-animation.js";
 import { openDialogueWhenPokemonHasBurningStatut } from "../../../../../components/battle-dialogues/dialogues/pokemon-has-burning-statut.dialogue.js";
 
 export async function burningStatut(secondAttacker) {
