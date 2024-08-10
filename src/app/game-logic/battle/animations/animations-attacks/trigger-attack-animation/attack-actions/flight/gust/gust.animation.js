@@ -1,53 +1,46 @@
 import { animationVariables } from "../../../../../../../../shared/animations/animation-variables.js";
 import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
-import { getTargetCoordonates } from "../../fire/fire-spark/get-target-coordonates.js";
-
-function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
-  if (domElements.pokemonLeftLocation.contains(firstAttackerCard)) {
-    let getTargetLocationCenterX = getTargetCoordonates(firstAttackerCard);
-
-    createGust(
-      secondAttackerCard,
-      domElements.pokemonLeftLocation,
-      animationVariables.firstAttackerCenterX,
-      animationVariables.firstAttackerCenterY,
-      getTargetLocationCenterX,
-      animationVariables.targetLocationCenterY
-    );
-  } else {
-    let getTargetLocationCenterX = getTargetCoordonates(firstAttackerCard);
-
-    createGust(
-      secondAttackerCard,
-      domElements.pokemonRightLocation,
-      animationVariables.firstAttackerCenterX,
-      animationVariables.firstAttackerCenterY,
-      getTargetLocationCenterX,
-      animationVariables.targetLocationCenterY
-    );
-  }
-}
+import { getTargetCoordonates } from "../../get-target-coordonates.js";
+import { resetAnimationVariables } from "../../reset-animation-variables.js";
+import { addShakeAnimation } from "./add-shaking-effect.js";
 
 export function gustAnimation(
   attackName,
   firstAttackerCard,
   secondAttackerCard
 ) {
-  if (attackName && firstAttackerCard) {
-    checkPokemonsLocation(firstAttackerCard, secondAttackerCard);
+  if (attackName && firstAttackerCard && secondAttackerCard) {
+    const pokemonLocation = domElements.pokemonLeftLocation.contains(
+      firstAttackerCard
+    )
+      ? domElements.pokemonLeftLocation
+      : domElements.pokemonRightLocation;
+
+    let leftLocationRect =
+      domElements.pokemonLeftLocation.getBoundingClientRect();
+    let rightLocationRect =
+      domElements.pokemonRightLocation.getBoundingClientRect();
+
+    let getTargetLocationCenterX = getTargetCoordonates(
+      firstAttackerCard,
+      leftLocationRect,
+      rightLocationRect
+    );
+
+    createGust(
+      pokemonLocation,
+      secondAttackerCard,
+      animationVariables.firstAttackerCenterX,
+      animationVariables.firstAttackerCenterY,
+      getTargetLocationCenterX,
+      animationVariables.targetLocationCenterY
+    );
   }
 }
 
-function addShakeAnimation(secondAttackerCard) {
-  secondAttackerCard.classList.add("shake");
-  setTimeout(() => {
-    secondAttackerCard.classList.remove("shake");
-  }, 600);
-}
-
 function createGust(
-  secondAttackerCard,
   pokemonLocation,
+  secondAttackerCard,
   firstAttackerCenterX,
   firstAttackerCenterY,
   getTargetLocationCenterX,
@@ -55,11 +48,6 @@ function createGust(
 ) {
   const tornado = document.createElement("div");
   tornado.classList.add("tornado");
-
-  setTimeout(() => {
-    addShakeAnimation(secondAttackerCard);
-  }, 2_500);
-
   pokemonLocation.appendChild(tornado);
 
   gsap.fromTo(
@@ -74,13 +62,27 @@ function createGust(
     {
       x: getTargetLocationCenterX,
       y: targetLocationCenterY,
-      scaleX: 1.4,
-      scaleY: 1.4,
+      scale: 1.4,
       opacity: 1,
-      rotation: 6060,
-      duration: 3,
+      rotation: 3060,
+      duration: 2,
       ease: "power1.in",
-      onComplete: () => tornado.remove(),
+      onComplete: () => {
+        gsap.to(tornado, {
+          x: getTargetLocationCenterX,
+          y: targetLocationCenterY,
+          scale: 1.4,
+          opacity: 1,
+          duration: 1,
+          onComplete: () => tornado.remove(),
+        });
+      },
     }
   );
+
+  setTimeout(() => {
+    addShakeAnimation(secondAttackerCard);
+  }, 2_000);
+
+  resetAnimationVariables();
 }

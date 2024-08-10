@@ -1,4 +1,4 @@
-import { attackNameList } from "../../../../../shared/pokemon/pokemon-attacks-action-list.js";
+import { attackActionList } from "../../../../../shared/pokemon/pokemon-attacks-action-list.js";
 import { pokemonCardList } from "../../../../../shared/pokemon/pokemon-card-list.js";
 
 export function triggerAttackAnimation(
@@ -19,8 +19,8 @@ export function triggerAttackAnimation(
   const firstAttackerCard = getFirstAttackerCard();
   const secondAttackerCard = getSecondAttackerCard();
 
-  if (attackNameList[attackName]) {
-    attackNameList[attackName](
+  if (attackActionList[attackName]) {
+    attackActionList[attackName](
       attackName,
       firstAttackerCard,
       secondAttackerCard

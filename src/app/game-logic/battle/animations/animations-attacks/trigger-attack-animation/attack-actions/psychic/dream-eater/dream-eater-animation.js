@@ -2,6 +2,7 @@ import { animationVariables } from "../../../../../../../../shared/animations/an
 import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
 import { getTargetCoordonates } from "./get-target-coordonates.js";
 import { addGrowUpAnimation } from "./add-grow-up-effect-animation.js";
+import { resetAnimationVariables } from "../../reset-animation-variables.js";
 
 export function dreamEaterAnimation(
   attackName,
@@ -9,34 +10,28 @@ export function dreamEaterAnimation(
   secondAttackerCard
 ) {
   if (attackName && firstAttackerCard && secondAttackerCard) {
-    checkPokemonsLocation(firstAttackerCard);
-  }
-}
+    const pokemonLocation = domElements.pokemonLeftLocation.contains(
+      firstAttackerCard
+    )
+      ? domElements.pokemonLeftLocation
+      : domElements.pokemonRightLocation;
 
-function checkPokemonsLocation(firstAttackerCard) {
-  if (domElements.pokemonLeftLocation.contains(firstAttackerCard)) {
-    let getTargetLocationCenterX = getTargetCoordonates(firstAttackerCard);
+    let leftLocationRect =
+      domElements.pokemonLeftLocation.getBoundingClientRect();
+    let rightLocationRect =
+      domElements.pokemonRightLocation.getBoundingClientRect();
 
-    for (let i = 0; i < 10; i++) {
-      setTimeout(() => {
-        createDreamEater(
-          firstAttackerCard,
-          domElements.pokemonLeftLocation,
-          animationVariables.firstAttackerCenterX,
-          animationVariables.firstAttackerCenterY,
-          getTargetLocationCenterX,
-          animationVariables.targetLocationCenterY
-        );
-      }, i * 200);
-    }
-  } else if (domElements.pokemonRightLocation.contains(firstAttackerCard)) {
-    let getTargetLocationCenterX = getTargetCoordonates(firstAttackerCard);
+    let getTargetLocationCenterX = getTargetCoordonates(
+      firstAttackerCard,
+      leftLocationRect,
+      rightLocationRect
+    );
 
     for (let i = 0; i < 10; i++) {
       setTimeout(() => {
         createDreamEater(
           firstAttackerCard,
-          domElements.pokemonRightLocation,
+          pokemonLocation,
           animationVariables.firstAttackerCenterX,
           animationVariables.firstAttackerCenterY,
           getTargetLocationCenterX,
@@ -59,10 +54,6 @@ function createDreamEater(
   dreamEater.classList.add("dream-eater");
   pokemonLocation.appendChild(dreamEater);
 
-  setTimeout(() => {
-    addGrowUpAnimation(firstAttackerCard);
-  }, 3_500);
-
   const randomNumberY =
     Math.floor(Math.random() * 250) - Math.floor(Math.random() * 250);
   const randomScale = Math.floor(Math.random() * 1.2) + 0.2;
@@ -84,4 +75,9 @@ function createDreamEater(
       },
     }
   );
+  setTimeout(() => {
+    addGrowUpAnimation(firstAttackerCard);
+  }, 3_500);
+
+  resetAnimationVariables();
 }

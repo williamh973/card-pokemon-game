@@ -16,8 +16,8 @@ export async function criticalHitIncreaseByFocusEnergyAttack(
     possiblePokemonsList.includes(firstAttacker.name) &&
     !isCriticalHitBoostedByFocusEnergy
   ) {
-    await openDialogueWhenPokemonCriticalHitBoostedByFocusEnergy(firstAttacker);
     await handleDelayAnimationAttack(firstAttacker, secondAttacker);
+    await openDialogueWhenPokemonCriticalHitBoostedByFocusEnergy(firstAttacker);
     isCriticalHitBoostedByFocusEnergy = true;
   } else if (
     possibleAttacksList.includes(firstAttackerAttack.name) &&

@@ -45,13 +45,18 @@ export async function paralyzedStatut30PercentProbabililityAttack(
     "Rebond",
   ];
 
+  const possibleAttackTypeList = [
+    "electric",
+    "normal",
+    "dragon",
+    "fight",
+    "flight",
+    "spectrum",
+  ];
+
   if (
     possibleAttacksList.includes(firstAttackerAttack.name) &&
-    (firstAttackerAttack.type === "electric" ||
-      firstAttackerAttack.type === "normal" ||
-      firstAttackerAttack.type === "dragon" ||
-      firstAttackerAttack.type === "fight" ||
-      firstAttackerAttack.type === "flight") &&
+    possibleAttackTypeList.includes(firstAttackerAttack.type) &&
     secondAttacker.type !== "rock" &&
     secondAttacker.type !== "electric" &&
     isStatusValidForParalyzed(secondAttacker)

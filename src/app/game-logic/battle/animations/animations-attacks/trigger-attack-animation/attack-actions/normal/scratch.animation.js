@@ -1,5 +1,7 @@
 import { animationVariables } from "../../../../../../../shared/animations/animation-variables.js";
 import { domElements } from "../../../../../../../shared/dom/dom-elements.js";
+import { resetAnimationVariables } from "../reset-animation-variables.js";
+import { getTargetCoordonates } from "../get-target-coordonates.js";
 
 export function scratchAnimation(
   attackName,
@@ -7,19 +9,38 @@ export function scratchAnimation(
   secondAttackerCard
 ) {
   if (attackName && firstAttackerCard && secondAttackerCard) {
-    if (domElements.pokemonLeftLocation.contains(secondAttackerCard)) {
-      for (let i = 0; i < 3; i++) {
-        createScratch(domElements.pokemonLeftLocation);
-      }
-    } else {
-      for (let i = 0; i < 3; i++) {
-        createScratch(domElements.pokemonRightLocation);
-      }
+    const pokemonLocation = domElements.pokemonLeftLocation.contains(
+      firstAttackerCard
+    )
+      ? domElements.pokemonLeftLocation
+      : domElements.pokemonRightLocation;
+
+    let leftLocationRect =
+      domElements.pokemonLeftLocation.getBoundingClientRect();
+    let rightLocationRect =
+      domElements.pokemonRightLocation.getBoundingClientRect();
+
+    let getTargetLocationCenterX = getTargetCoordonates(
+      firstAttackerCard,
+      leftLocationRect,
+      rightLocationRect
+    );
+
+    for (let i = 0; i < 3; i++) {
+      createScratch(
+        pokemonLocation,
+        getTargetLocationCenterX,
+        animationVariables.targetLocationCenterY
+      );
     }
   }
 }
 
-function createScratch(pokemonLocation) {
+function createScratch(
+  pokemonLocation,
+  getTargetLocationCenterX,
+  targetLocationCenterY
+) {
   const scratch = document.createElement("div");
   scratch.classList.add("scratch");
   pokemonLocation.appendChild(scratch);
@@ -27,21 +48,21 @@ function createScratch(pokemonLocation) {
   gsap.fromTo(
     scratch,
     {
-      x: (animationVariables.targetLocationCenterX += 30),
-      y: animationVariables.targetLocationCenterY - 200,
+      x: getTargetLocationCenterX + 200,
+      y: targetLocationCenterY - 200,
       scale: 1,
     },
     {
-      x: animationVariables.targetLocationCenterX - 200,
-      y: animationVariables.targetLocationCenterY + 200,
+      x: getTargetLocationCenterX - 200,
+      y: targetLocationCenterY + 200,
       scale: 1,
       duration: 0.3,
       ease: "linear",
 
       onComplete: () => {
         scratch.remove();
-        animationVariables.targetLocationCenterX = 0;
       },
     }
   );
+  resetAnimationVariables();
 }

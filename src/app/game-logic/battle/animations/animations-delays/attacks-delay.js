@@ -33,18 +33,18 @@ function getAttackDelayAndtriggerAnimations(
   switch (attackName) {
     case "Abri":
       return 2000;
-    case "Charge":
-      return 1000;
     case "Flammèche":
       return 4000;
     case "Laser Glace":
       return 3800;
-    case "Vive-Attaque":
+    case "Charge":
       return 1000;
+    case "Vive-Attaque":
+      return 500;
     case "Tornade":
       return 3000;
-    case "RockThrow":
-      return 1000;
+    case "Guillotine":
+      return 500;
     case "Hypnose":
       return 3000;
     case "Dévorêve":
@@ -52,19 +52,27 @@ function getAttackDelayAndtriggerAnimations(
     case "Éclair":
       return 3000;
     case "Jet-Pierres":
-      return 3000;
+      return 1300;
     case "Tranche":
       return 800;
     case "Hâte":
       return 2500;
     case "Griffe":
-      return 600;
+      return 500;
     case "Boul'Armure":
-      return 4500;
+      return 4000;
     case "Psyko":
       return 5000;
     case "Soin":
       return 4000;
+    case "Léchouille":
+      return 800;
+    case "Ombre Nocturne":
+      return 2000;
+    case "Puissance":
+      return 2500;
+    case "Casse-Brique":
+      return 2000;
     default:
       return 3000;
   }

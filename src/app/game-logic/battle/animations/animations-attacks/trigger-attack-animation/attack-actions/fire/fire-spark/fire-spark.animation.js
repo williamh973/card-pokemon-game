@@ -1,63 +1,48 @@
 import { animationVariables } from "../../../../../../../../shared/animations/animation-variables.js";
 import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
-import { getTargetCoordonates } from "./get-target-coordonates.js";
+import { getTargetCoordonates } from "../../get-target-coordonates.js";
+import { resetAnimationVariables } from "../../reset-animation-variables.js";
+import { addTargetBurningAnimations } from "./add-burning-effect.js";
 
 export function fireSparkAnimation(
   attackName,
   firstAttackerCard,
   secondAttackerCard
 ) {
-  if (attackName && firstAttackerCard) {
-    checkPokemonsLocationAndTriggerAnimation(
+  if (attackName && firstAttackerCard && secondAttackerCard) {
+    const pokemonLocation = domElements.pokemonLeftLocation.contains(
+      firstAttackerCard
+    )
+      ? domElements.pokemonLeftLocation
+      : domElements.pokemonRightLocation;
+
+    let leftLocationRect =
+      domElements.pokemonLeftLocation.getBoundingClientRect();
+    let rightLocationRect =
+      domElements.pokemonRightLocation.getBoundingClientRect();
+
+    let getTargetLocationCenterX = getTargetCoordonates(
       firstAttackerCard,
-      secondAttackerCard
+      leftLocationRect,
+      rightLocationRect
     );
-  }
-}
-
-function checkPokemonsLocationAndTriggerAnimation(
-  firstAttackerCard,
-  secondAttackerCard
-) {
-  if (domElements.pokemonLeftLocation.contains(firstAttackerCard)) {
-    let getTargetLocationCenterX = getTargetCoordonates(firstAttackerCard);
 
     for (let i = 0; i < 20; i++) {
       setTimeout(
         createFireSpark(
+          pokemonLocation,
           getTargetLocationCenterX,
-          domElements.pokemonLeftLocation,
-          secondAttackerCard
-        ),
-        i * 10
-      );
-    }
-  } else {
-    let getTargetLocationCenterX = getTargetCoordonates(firstAttackerCard);
-
-    for (let i = 0; i < 20; i++) {
-      setTimeout(
-        createFireSpark(
-          getTargetLocationCenterX,
-          domElements.pokemonRightLocation,
           secondAttackerCard
         ),
         i * 10
       );
     }
   }
-}
-
-function addTargetEffectAnimations(secondAttackerCard) {
-  secondAttackerCard.classList.add("burning");
-  setTimeout(() => {
-    secondAttackerCard.classList.remove("burning");
-  }, 2_000);
 }
 
 function createFireSpark(
-  getTargetLocationCenterX,
   pokemonLocation,
+  getTargetLocationCenterX,
   secondAttackerCard
 ) {
   const randomNumber =
@@ -66,7 +51,7 @@ function createFireSpark(
   fireSpark.classList.add("fire-spark");
 
   setTimeout(() => {
-    addTargetEffectAnimations(secondAttackerCard);
+    addTargetBurningAnimations(secondAttackerCard);
   }, 2_000);
 
   pokemonLocation.appendChild(fireSpark);
@@ -87,4 +72,5 @@ function createFireSpark(
       },
     }
   );
+  resetAnimationVariables();
 }

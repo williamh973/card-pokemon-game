@@ -1,6 +1,8 @@
 import { animationVariables } from "../../../../../../../../shared/animations/animation-variables.js";
 import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
-import { getTargetCoordonates } from "./get-target-coordonates.js";
+import { getTargetCoordonates } from "../../get-target-coordonates.js";
+import { resetAnimationVariables } from "../../reset-animation-variables.js";
+import { addShakeAnimation } from "./add-shake-animation.js";
 
 export function thunderShockAnimation(
   attackName,
@@ -8,49 +10,33 @@ export function thunderShockAnimation(
   secondAttackerCard
 ) {
   if (attackName && firstAttackerCard && secondAttackerCard) {
-    checkPokemonsLocationAndTriggerAnimation(
-      firstAttackerCard,
-      secondAttackerCard
-    );
-  }
-}
+    const pokemonLocation = domElements.pokemonLeftLocation.contains(
+      firstAttackerCard
+    )
+      ? domElements.pokemonLeftLocation
+      : domElements.pokemonRightLocation;
 
-function checkPokemonsLocationAndTriggerAnimation(
-  firstAttackerCard,
-  secondAttackerCard
-) {
-  if (domElements.pokemonLeftLocation.contains(firstAttackerCard)) {
-    let getTargetLocationCenterX = getTargetCoordonates(firstAttackerCard);
+    let leftLocationRect =
+      domElements.pokemonLeftLocation.getBoundingClientRect();
+    let rightLocationRect =
+      domElements.pokemonRightLocation.getBoundingClientRect();
+
+    let getTargetLocationCenterX = getTargetCoordonates(
+      firstAttackerCard,
+      leftLocationRect,
+      rightLocationRect
+    );
 
     createThunderShock(
       firstAttackerCard,
       secondAttackerCard,
-      domElements.pokemonLeftLocation,
-      animationVariables.firstAttackerCenterX,
-      animationVariables.firstAttackerCenterY,
-      getTargetLocationCenterX,
-      animationVariables.targetLocationCenterY
-    );
-  } else if (domElements.pokemonRightLocation.contains(firstAttackerCard)) {
-    let getTargetLocationCenterX = getTargetCoordonates(firstAttackerCard);
-
-    createThunderShock(
-      firstAttackerCard,
-      secondAttackerCard,
-      domElements.pokemonRightLocation,
+      pokemonLocation,
       animationVariables.firstAttackerCenterX,
       animationVariables.firstAttackerCenterY,
       getTargetLocationCenterX,
       animationVariables.targetLocationCenterY
     );
   }
-}
-
-function addShakeAnimation(pokemonCard) {
-  pokemonCard.classList.add("shake");
-  setTimeout(() => {
-    pokemonCard.classList.remove("shake");
-  }, 600);
 }
 
 function createThunderShock(
@@ -64,13 +50,8 @@ function createThunderShock(
 ) {
   const gsapTimeline = gsap.timeline({ repeat: 0, repeatDelay: 0 });
   const thunderShock = document.createElement("div");
-
   thunderShock.classList.add("thunder-shock");
   addShakeAnimation(firstAttackerCard);
-
-  setTimeout(() => {
-    addShakeAnimation(secondAttackerCard);
-  }, 1_600);
 
   pokemonLocation.appendChild(thunderShock);
 
@@ -132,4 +113,10 @@ function createThunderShock(
       boxShadow: "0 0 0 rgba(255, 255, 255, 0.9)",
       onComplete: () => thunderShock.remove(),
     });
+
+  setTimeout(() => {
+    addShakeAnimation(secondAttackerCard);
+  }, 1_600);
+
+  resetAnimationVariables();
 }

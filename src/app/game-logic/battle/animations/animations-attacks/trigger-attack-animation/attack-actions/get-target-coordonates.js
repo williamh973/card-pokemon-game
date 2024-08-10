@@ -1,12 +1,11 @@
-import { animationVariables } from "../../../../../../../../shared/animations/animation-variables.js";
-import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
+import { animationVariables } from "../../../../../../shared/animations/animation-variables.js";
+import { domElements } from "../../../../../../shared/dom/dom-elements.js";
 
-export function getTargetCoordonates(firstAttackerCard) {
-  let leftLocationRect =
-    domElements.pokemonLeftLocation.getBoundingClientRect();
-  let rightLocationRect =
-    domElements.pokemonRightLocation.getBoundingClientRect();
-
+export function getTargetCoordonates(
+  firstAttackerCard,
+  leftLocationRect,
+  rightLocationRect
+) {
   if (domElements.pokemonLeftLocation.contains(firstAttackerCard)) {
     return (animationVariables.targetLocationCenterX =
       animationVariables.firstAttackerCenterX +

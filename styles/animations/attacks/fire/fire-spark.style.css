@@ -2,7 +2,7 @@
 .fire-spark::after {
   content: "";
   position: absolute;
-  z-index: 1000;
+  z-index: 1;
 }
 
 .fire-spark::before {
@@ -10,6 +10,7 @@
   position: absolute;
   width: 40px;
   height: 40px;
+  z-index: 1;
   background: linear-gradient(
       0deg,
       rgb(195, 52, 0) 0px,
@@ -33,7 +34,6 @@
     background-position: center 0px, center 0px, 50% 100%, center center;
   }
   100% {
-    /* background-position: center 0px, center 0px, 50% 100%, center center; */
-    background-position: center -500px, center -650px, 50% 100%, center center;
+    background-position: center 0px, center 0px, 50% 100%, center center;
   }
 }

@@ -5,9 +5,31 @@
   border-radius: 50%;
   background: rgb(255, 255, 255);
   opacity: 1;
-  z-index: 1000;
+  z-index: 1;
   box-shadow: 0 0 10px 5px rgb(0, 123, 255);
-  transform: rotate(-60deg);
+  transform: rotate(-45deg);
   pointer-events: none;
   filter: blur(3px);
+}
+
+.scratch::before,
+.scratch::after {
+  content: "";
+  position: absolute;
+  width: 170px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgb(255, 255, 255);
+  opacity: 1;
+  z-index: 1;
+  box-shadow: 0 0 10px 5px rgb(0, 123, 255);
+  filter: blur(3px);
+}
+
+.scratch::before {
+  transform: translateY(-400%);
+}
+
+.scratch::after {
+  transform: translateY(400%);
 }

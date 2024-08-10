@@ -1,0 +1,9 @@
+.brick-shards {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #d9534f;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}

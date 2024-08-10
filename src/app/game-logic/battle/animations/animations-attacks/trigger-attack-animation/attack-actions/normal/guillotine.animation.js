@@ -1,5 +1,5 @@
 import { animationVariables } from "../../../../../../../shared/animations/animation-variables.js";
-import { domElements } from "../../../../../../../shared/dom/dom-elements.js";
+import { resetAnimationVariables } from "../reset-animation-variables.js";
 
 export function guillotineAnimation(
   attackName,
@@ -7,37 +7,33 @@ export function guillotineAnimation(
   secondAttackerCard
 ) {
   if (attackName && firstAttackerCard && secondAttackerCard) {
-    if (domElements.pokemonLeftLocation.contains(secondAttackerCard)) {
-      createGuillotine(domElements.pokemonLeftLocation);
-    } else {
-      createGuillotine(domElements.pokemonRightLocation);
-    }
+    createGuillotine(pokemonLocation, animationVariables.targetLocationCenterY);
   }
 }
 
-function createGuillotine(pokemonLocation) {
+function createGuillotine(pokemonLocation, targetLocationCenterY) {
   const guillotine = document.createElement("div");
   guillotine.classList.add("guillotine");
   pokemonLocation.appendChild(guillotine);
 
   gsap.fromTo(
     guillotine,
-    { y: animationVariables.targetLocationCenterY - 400, scale: 2 },
+    { y: targetLocationCenterY - 400, scale: 2 },
     {
-      y: animationVariables.targetLocationCenterY + 400,
+      y: targetLocationCenterY + 400,
       scale: 2,
       duration: 0.25,
       ease: "power2.out",
       onComplete: () => {
         gsap.to(guillotine, {
-          y: animationVariables.targetLocationCenterY - 400,
+          y: targetLocationCenterY - 400,
           scale: 2,
           duration: 0.25,
-          repeat: 1,
           ease: "power2.inOut",
           onComplete: () => guillotine.remove(),
         });
       },
     }
   );
+  resetAnimationVariables();
 }

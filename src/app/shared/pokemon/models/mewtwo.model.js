@@ -41,7 +41,7 @@ export let mewtwoModel = {
     class: "special",
     resume:
       "Une puissante force télékinétique frappe la cible, ce qui peut aussi faire baisser sa Défense Spéciale.",
-    strength: 1, // 90
+    strength: 90,
     precision: 100,
     precisionMax: 100,
   },

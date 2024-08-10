@@ -15,8 +15,12 @@ import { scratchAnimation } from "../../game-logic/battle/animations/animations-
 import { defenseCurlAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/defense-curl/defense-curl.animation.js";
 import { psychicAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/psychic/psychic/psychic.animation.js";
 import { recoverAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/recover/recover.animation.js";
+import { lickAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/spectrum/lick.animation.js";
+import { nightShadeAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/spectrum/night-shade.animation.js";
+import { focusEnergyAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/focus-energy.animation.js";
+import { brickBreakAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/fight/brick-break.animation.js";
 
-export const attackNameList = {
+export const attackActionList = {
   Abri: protectAnimation,
   Flammèche: fireSparkAnimation,
   "Laser Glace": iceBeamAnimation,
@@ -34,4 +38,8 @@ export const attackNameList = {
   "Boul'Armure": defenseCurlAnimation,
   Psyko: psychicAnimation,
   Soin: recoverAnimation,
+  Léchouille: lickAnimation,
+  "Ombre Nocturne": nightShadeAnimation,
+  Puissance: focusEnergyAnimation,
+  "Casse-Brique": brickBreakAnimation,
 };

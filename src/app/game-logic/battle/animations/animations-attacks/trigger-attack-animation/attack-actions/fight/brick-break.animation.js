@@ -1,11 +1,10 @@
 import { animationVariables } from "../../../../../../../shared/animations/animation-variables.js";
 import { domElements } from "../../../../../../../shared/dom/dom-elements.js";
-import { resetAnimationVariables } from "../reset-animation-variables.js";
 import { getTargetCoordonates } from "../get-target-coordonates.js";
-import { addFrozenEffectAnimations } from "./target-effects-animations/add-frozen-animation.js";
-import { glassShardAnimation } from "./target-effects-animations/add-glass-shard-animation.js";
+import { resetAnimationVariables } from "../reset-animation-variables.js";
+import { brickShards } from "./brick-shards.animation.js";
 
-export function iceBeamAnimation(
+export async function brickBreakAnimation(
   attackName,
   firstAttackerCard,
   secondAttackerCard
@@ -28,56 +27,66 @@ export function iceBeamAnimation(
       rightLocationRect
     );
 
-    for (let i = 0; i < 15; i++) {
+    createBrickBreak(
+      pokemonLocation,
+      getTargetLocationCenterX,
+      animationVariables.targetLocationCenterY
+    );
+
+    await new Promise((resolve) => {
       setTimeout(() => {
-        createIceBeam(
+        brickShards(
           pokemonLocation,
-          secondAttackerCard,
-          animationVariables.firstAttackerCenterX,
-          animationVariables.firstAttackerCenterY,
           getTargetLocationCenterX,
           animationVariables.targetLocationCenterY
         );
-      }, i * 100);
-    }
+        resolve();
+      }, 1500);
+    });
   }
 }
 
-function createIceBeam(
+function createBrickBreak(
   pokemonLocation,
-  secondAttackerCard,
-  firstAttackerCenterX,
-  firstAttackerCenterY,
   getTargetLocationCenterX,
   targetLocationCenterY
 ) {
-  const iceBeam = document.createElement("div");
-  iceBeam.classList.add("ice-beam");
-  pokemonLocation.appendChild(iceBeam);
+  const brickBreak = document.createElement("div");
+  brickBreak.classList.add("brick-break");
+  pokemonLocation.appendChild(brickBreak);
 
   gsap.fromTo(
-    iceBeam,
+    brickBreak,
     {
-      x: firstAttackerCenterX,
-      y: firstAttackerCenterY,
+      x: getTargetLocationCenterX,
+      y: targetLocationCenterY,
       scale: 1,
       opacity: 1,
     },
     {
       x: getTargetLocationCenterX,
       y: targetLocationCenterY,
-      scale: 1,
-      opacity: 1,
-      duration: 1,
-      ease: "linear",
-      onComplete: () => iceBeam.remove(),
+      scale: 2,
+      opacity: 0.6,
+      rotation: 45,
+      duration: 0.5,
+      ease: "power1.out",
+      onComplete: () => {
+        gsap.to(brickBreak, {
+          x: getTargetLocationCenterX,
+          y: targetLocationCenterY,
+          scale: 0,
+          opacity: 0,
+          rotation: 360,
+          duration: 1,
+          ease: "power1.out",
+          onComplete: () => {
+            brickBreak.remove();
+          },
+        });
+      },
     }
   );
-
-  setTimeout(() => {
-    addFrozenEffectAnimations(secondAttackerCard);
-    glassShardAnimation(secondAttackerCard);
-  }, 1_000);
 
   resetAnimationVariables();
 }

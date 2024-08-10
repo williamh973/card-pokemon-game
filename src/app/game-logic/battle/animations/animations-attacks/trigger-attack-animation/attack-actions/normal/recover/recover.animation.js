@@ -4,8 +4,12 @@ import { createHealthUpAnimation } from "../../../../../animation-stats/health-u
 import { createLightRay } from "./light-ray.animation.js";
 import { twinkleRecoverAnimation } from "./twinkle-recover.animation.js";
 
-export async function recoverAnimation(attackName, firstAttackerCard) {
-  if (attackName && firstAttackerCard) {
+export async function recoverAnimation(
+  attackName,
+  firstAttackerCard,
+  secondAttackerCard
+) {
+  if (attackName && firstAttackerCard && secondAttackerCard) {
     const pokemonLocation = domElements.pokemonLeftLocation.contains(
       firstAttackerCard
     )

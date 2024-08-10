@@ -1,39 +1,6 @@
 import { animationVariables } from "../../../../../../../../shared/animations/animation-variables.js";
 import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
-import { pokemonVariables } from "../../../../../../../../shared/pokemon/pokemon-variables.js";
-import { getTargetCoordonates } from "./get-target-coordonates.js";
-
-function checkPokemonsLocation(firstAttackerCard, secondAttackerCard) {
-  if (domElements.pokemonLeftLocation.contains(firstAttackerCard)) {
-    let getTargetLocationCenterX = getTargetCoordonates(firstAttackerCard);
-
-    for (let i = 0; i < 6; i++) {
-      setTimeout(() => {
-        createHypnosis(
-          domElements.pokemonLeftLocation,
-          animationVariables.firstAttackerCenterX,
-          animationVariables.firstAttackerCenterY,
-          getTargetLocationCenterX,
-          animationVariables.targetLocationCenterY
-        );
-      }, i * 200);
-    }
-  } else {
-    let getTargetLocationCenterX = getTargetCoordonates(firstAttackerCard);
-
-    for (let i = 0; i < 6; i++) {
-      setTimeout(() => {
-        createHypnosis(
-          domElements.pokemonRightLocation,
-          animationVariables.firstAttackerCenterX,
-          animationVariables.firstAttackerCenterY,
-          getTargetLocationCenterX,
-          animationVariables.targetLocationCenterY
-        );
-      }, i * 200);
-    }
-  }
-}
+import { getTargetCoordonates } from "../../get-target-coordonates.js";
 
 export function hypnosisAnimation(
   attackName,
@@ -41,7 +8,34 @@ export function hypnosisAnimation(
   secondAttackerCard
 ) {
   if (attackName && firstAttackerCard && secondAttackerCard) {
-    checkPokemonsLocation(firstAttackerCard, secondAttackerCard);
+    const pokemonLocation = domElements.pokemonLeftLocation.contains(
+      firstAttackerCard
+    )
+      ? domElements.pokemonLeftLocation
+      : domElements.pokemonRightLocation;
+
+    let leftLocationRect =
+      domElements.pokemonLeftLocation.getBoundingClientRect();
+    let rightLocationRect =
+      domElements.pokemonRightLocation.getBoundingClientRect();
+
+    let getTargetLocationCenterX = getTargetCoordonates(
+      firstAttackerCard,
+      leftLocationRect,
+      rightLocationRect
+    );
+
+    for (let i = 0; i < 6; i++) {
+      setTimeout(() => {
+        createHypnosis(
+          pokemonLocation,
+          animationVariables.firstAttackerCenterX,
+          animationVariables.firstAttackerCenterY,
+          getTargetLocationCenterX,
+          animationVariables.targetLocationCenterY
+        );
+      }, i * 200);
+    }
   }
 }
 
@@ -55,8 +49,6 @@ function createHypnosis(
   const hypnosis = document.createElement("div");
   hypnosis.classList.add("hypnosis");
   pokemonLocation.appendChild(hypnosis);
-
-  console.log(getTargetLocationCenterX);
 
   gsap.fromTo(
     hypnosis,

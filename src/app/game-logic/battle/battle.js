@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       determineFirstAttacker();
 
       while (firstAttacker.stats.hp > 0 && secondAttacker.stats.hp > 0) {
+        console.log("start battle");
         initBattle();
         updateNumberOfTurns();
 

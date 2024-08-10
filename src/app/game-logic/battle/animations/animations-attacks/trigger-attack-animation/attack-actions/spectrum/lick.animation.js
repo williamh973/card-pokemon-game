@@ -3,7 +3,7 @@ import { domElements } from "../../../../../../../shared/dom/dom-elements.js";
 import { getTargetCoordonates } from "../get-target-coordonates.js";
 import { resetAnimationVariables } from "../reset-animation-variables.js";
 
-export function slashAnimation(
+export async function lickAnimation(
   attackName,
   firstAttackerCard,
   secondAttackerCard
@@ -26,7 +26,7 @@ export function slashAnimation(
       rightLocationRect
     );
 
-    createSlash(
+    createLick(
       pokemonLocation,
       getTargetLocationCenterX,
       animationVariables.targetLocationCenterY
@@ -34,32 +34,43 @@ export function slashAnimation(
   }
 }
 
-function createSlash(
+function createLick(
   pokemonLocation,
   getTargetLocationCenterX,
   targetLocationCenterY
 ) {
-  const slash = document.createElement("div");
-  slash.classList.add("slash");
-  pokemonLocation.appendChild(slash);
+  const lick = document.createElement("div");
+  lick.classList.add("lick");
+  pokemonLocation.appendChild(lick);
 
   gsap.fromTo(
-    slash,
+    lick,
     {
-      x: getTargetLocationCenterX + 400,
-      y: targetLocationCenterY - 400,
-      scale: 1.2,
-      rotation: 45,
+      x: getTargetLocationCenterX,
+      y: targetLocationCenterY + 200,
+      scale: 1,
+      opacity: 0.8,
+      duration: 0.25,
     },
     {
-      x: getTargetLocationCenterX - 400,
-      y: targetLocationCenterY + 400,
-      scale: 1.2,
-      rotation: 45,
-      duration: 0.5,
-      ease: "linear",
-
-      onComplete: () => slash.remove(),
+      x: getTargetLocationCenterX,
+      y: targetLocationCenterY,
+      scaleY: 2,
+      opacity: 1,
+      duration: 0.25,
+      onComplete: () => {
+        gsap.to(lick, {
+          x: getTargetLocationCenterX,
+          y: targetLocationCenterY - 200,
+          scaleY: 1,
+          opacity: 0.8,
+          duration: 0.25,
+          ease: "power1.out",
+          onComplete: () => {
+            lick.remove();
+          },
+        });
+      },
     }
   );
   resetAnimationVariables();

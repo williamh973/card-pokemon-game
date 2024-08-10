@@ -1,5 +1,5 @@
-import { animationVariables } from "../../../../../../../../shared/animations/animation-variables.js";
-import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
+import { animationVariables } from "../../../../../../../shared/animations/animation-variables.js";
+import { domElements } from "../../../../../../../shared/dom/dom-elements.js";
 
 export function getTargetCoordonates(firstAttackerCard) {
   let leftLocationRect =

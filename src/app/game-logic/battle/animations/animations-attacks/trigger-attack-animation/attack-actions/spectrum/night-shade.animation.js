@@ -1,20 +1,14 @@
 import { animationVariables } from "../../../../../../../shared/animations/animation-variables.js";
 import { domElements } from "../../../../../../../shared/dom/dom-elements.js";
-import { getTargetCoordonates } from "../get-target-coordonates.js";
 import { resetAnimationVariables } from "../reset-animation-variables.js";
+import { getTargetCoordonates } from "./get-target-coordonates.js";
 
-export function slashAnimation(
+export function nightShadeAnimation(
   attackName,
   firstAttackerCard,
   secondAttackerCard
 ) {
   if (attackName && firstAttackerCard && secondAttackerCard) {
-    const pokemonLocation = domElements.pokemonLeftLocation.contains(
-      firstAttackerCard
-    )
-      ? domElements.pokemonLeftLocation
-      : domElements.pokemonRightLocation;
-
     let leftLocationRect =
       domElements.pokemonLeftLocation.getBoundingClientRect();
     let rightLocationRect =
@@ -26,40 +20,44 @@ export function slashAnimation(
       rightLocationRect
     );
 
-    createSlash(
-      pokemonLocation,
+    createNightShade(
+      firstAttackerCard,
       getTargetLocationCenterX,
       animationVariables.targetLocationCenterY
     );
   }
 }
 
-function createSlash(
-  pokemonLocation,
+function createNightShade(
+  firstAttackerCard,
   getTargetLocationCenterX,
   targetLocationCenterY
 ) {
-  const slash = document.createElement("div");
-  slash.classList.add("slash");
-  pokemonLocation.appendChild(slash);
-
   gsap.fromTo(
-    slash,
+    firstAttackerCard,
     {
-      x: getTargetLocationCenterX + 400,
-      y: targetLocationCenterY - 400,
-      scale: 1.2,
-      rotation: 45,
+      x: animationVariables.firstAttackerCenterX,
+      y: animationVariables.firstAttackerCenterY,
+      scale: 1,
+      opacity: 0.3,
+      duration: 0.5,
     },
     {
-      x: getTargetLocationCenterX - 400,
-      y: targetLocationCenterY + 400,
-      scale: 1.2,
-      rotation: 45,
-      duration: 0.5,
-      ease: "linear",
-
-      onComplete: () => slash.remove(),
+      x: getTargetLocationCenterX,
+      y: targetLocationCenterY,
+      scale: 1,
+      opacity: 0.3,
+      duration: 1,
+      ease: "elastic.inOut",
+      onComplete: () => {
+        gsap.to(firstAttackerCard, {
+          x: animationVariables.firstAttackerCenterX,
+          y: animationVariables.firstAttackerCenterY,
+          scale: 1,
+          opacity: 1,
+          duration: 0.5,
+        });
+      },
     }
   );
   resetAnimationVariables();

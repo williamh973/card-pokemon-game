@@ -1,5 +1,6 @@
 import { animationVariables } from "../../../../../../../../shared/animations/animation-variables.js";
 import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
+import { resetAnimationVariables } from "../../reset-animation-variables.js";
 import { addStompEffectAnimation } from "./add-stomp-effect-animation.js";
 
 export function rockThrowAnimation(
@@ -8,35 +9,41 @@ export function rockThrowAnimation(
   secondAttackerCard
 ) {
   if (attackName && firstAttackerCard && secondAttackerCard) {
-    if (domElements.pokemonLeftLocation.contains(secondAttackerCard)) {
-      createRockThrow(domElements.pokemonLeftLocation, secondAttackerCard);
-    } else {
-      createRockThrow(domElements.pokemonRightLocation, secondAttackerCard);
-    }
+    const pokemonLocation = domElements.pokemonLeftLocation.contains(
+      firstAttackerCard
+    )
+      ? domElements.pokemonLeftLocation
+      : domElements.pokemonRightLocation;
+
+    createRockThrow(
+      pokemonLocation,
+      secondAttackerCard,
+      animationVariables.targetLocationCenterY
+    );
   }
 }
 
-function createRockThrow(pokemonLocation, secondAttackerCard) {
+function createRockThrow(
+  pokemonLocation,
+  secondAttackerCard,
+  targetLocationCenterY
+) {
   const rockThrow = document.createElement("div");
   rockThrow.classList.add("rock-throw");
   pokemonLocation.appendChild(rockThrow);
 
-  setTimeout(() => {
-    addStompEffectAnimation(secondAttackerCard);
-  }, 150);
-
   gsap.fromTo(
     rockThrow,
-    { y: animationVariables.targetLocationCenterY - 600, scale: 1.5 },
+    { y: targetLocationCenterY - 600, scale: 1.5 },
     {
-      y: animationVariables.targetLocationCenterY,
+      y: targetLocationCenterY,
       scale: 1.5,
       duration: 0.2,
       ease: "power2.out",
       onComplete: () => {
         gsap.to(rockThrow, {
           x: "+=40",
-          y: animationVariables.targetLocationCenterY - 80,
+          y: targetLocationCenterY - 80,
           scale: 1.5,
           rotation: 45,
           duration: 0.25,
@@ -44,14 +51,14 @@ function createRockThrow(pokemonLocation, secondAttackerCard) {
           onComplete: () => {
             gsap.to(rockThrow, {
               x: "+=40",
-              y: animationVariables.targetLocationCenterY,
+              y: targetLocationCenterY,
               scale: 1.5,
               rotation: 45,
               duration: 0.25,
               ease: "power2.out",
               onComplete: () => {
                 gsap.to(rockThrow, {
-                  y: animationVariables.targetLocationCenterY - 40,
+                  y: targetLocationCenterY - 40,
                   scale: 1.5,
                   rotation: 45,
                   duration: 0.25,
@@ -59,7 +66,7 @@ function createRockThrow(pokemonLocation, secondAttackerCard) {
                   onComplete: () => {
                     gsap.to(rockThrow, {
                       x: "+=20",
-                      y: animationVariables.targetLocationCenterY,
+                      y: targetLocationCenterY,
                       duration: 0.25,
                       rotation: 45,
                       ease: "power2.out",
@@ -74,4 +81,9 @@ function createRockThrow(pokemonLocation, secondAttackerCard) {
       },
     }
   );
+  setTimeout(() => {
+    addStompEffectAnimation(secondAttackerCard);
+  }, 150);
+
+  resetAnimationVariables();
 }

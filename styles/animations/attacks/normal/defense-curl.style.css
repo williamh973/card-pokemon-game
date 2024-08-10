@@ -1,7 +1,7 @@
 .defense-curl {
   position: absolute;
   z-index: 1000;
-  animation: defenseCurl 2s ease-in-out forwards;
+  animation: defenseCurl 1.5s ease-in-out forwards;
 }
 
 @keyframes defenseCurl {

@@ -9,7 +9,7 @@ export function createDefenseUpAnimation(
   pokemonLocation.appendChild(defenseUp);
 
   const randomNumberX =
-    Math.floor(Math.random() * 300) - Math.floor(Math.random() * 300);
+    Math.floor(Math.random() * 250) - Math.floor(Math.random() * 250);
   const randomScale = Math.floor(Math.random() * 1.2) + 0.2;
 
   gsap.fromTo(
