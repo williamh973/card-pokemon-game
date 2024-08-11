@@ -1,6 +1,6 @@
 import { openDialogueWhenPokemonCriticalHitBoostedByFocusEnergy } from "../../../../../../components/battle-dialogues/dialogues/pokemon-critical-hit-boosted-by-focus-energy.dialogue.js";
 import { openDialogueWhenPokemonCriticalHitAlreadyBoostedByFocusEnergy } from "../../../../../../components/battle-dialogues/dialogues/pokemon-critical-hit-already-boosted-by-focus-energy.dialogue.js";
-import { handleDelayAnimationAttack } from "../../../../animations/animations-attacks/handle-animation-for-dream-eater-attack.js";
+import { handleDelayAnimationAttack } from "../../../damages-attacks/pokemon-makes-attack/calculate-damages-attacks/check-animation-possible/handle-delay-attack.js";
 
 export let isCriticalHitBoostedByFocusEnergy = false;
 const possibleAttacksList = ["Puissance"];

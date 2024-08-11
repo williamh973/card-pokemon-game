@@ -31,7 +31,7 @@ export let scarabruteModel = {
     class: "physical",
     resume:
       "Le lanceur attaque avec le tranchant de la main. Permet aussi de briser les barrières comme Mur Lumière et Protection.",
-    strength: 0, // 75
+    strength: 75,
     precision: 100,
     precisionMax: 100,
   },

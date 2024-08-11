@@ -1,6 +1,6 @@
 import { isStatusValidForAsleep } from "./status-valid-for-asleep.js";
 import { asleepStatut } from "./asleep-statut.js";
-import { handleDelayAnimationAttack } from "../../../animations/animations-attacks/handle-animation-for-dream-eater-attack.js";
+import { handleDelayAnimationAttack } from "../../../attacks/damages-attacks/pokemon-makes-attack/calculate-damages-attacks/check-animation-possible/handle-delay-attack.js";
 
 export async function asleepStatut30PercentProbabililityAttack(
   firstAttacker,

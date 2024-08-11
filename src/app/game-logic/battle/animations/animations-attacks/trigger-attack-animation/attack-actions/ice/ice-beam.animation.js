@@ -2,7 +2,7 @@ import { animationVariables } from "../../../../../../../shared/animations/anima
 import { domElements } from "../../../../../../../shared/dom/dom-elements.js";
 import { resetAnimationVariables } from "../reset-animation-variables.js";
 import { getTargetCoordonates } from "../get-target-coordonates.js";
-import { addFrozenEffectAnimations } from "./target-effects-animations/add-frozen-animation.js";
+import { applyFrozenClass } from "../auxiliary-effects/frozen.js";
 import { glassShardAnimation } from "./target-effects-animations/add-glass-shard-animation.js";
 
 export function iceBeamAnimation(
@@ -75,7 +75,7 @@ function createIceBeam(
   );
 
   setTimeout(() => {
-    addFrozenEffectAnimations(secondAttackerCard);
+    applyFrozenClass(secondAttackerCard);
     glassShardAnimation(secondAttackerCard);
   }, 1_000);
 

@@ -1,4 +1,4 @@
-export function addFrozenEffectAnimations(secondAttackerCard) {
+export function applyFrozenClass(secondAttackerCard) {
   secondAttackerCard.classList.add("frozen");
   setTimeout(() => {
     secondAttackerCard.classList.remove("frozen");

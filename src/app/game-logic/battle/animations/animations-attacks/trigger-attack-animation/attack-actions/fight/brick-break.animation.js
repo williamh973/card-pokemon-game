@@ -1,5 +1,6 @@
 import { animationVariables } from "../../../../../../../shared/animations/animation-variables.js";
 import { domElements } from "../../../../../../../shared/dom/dom-elements.js";
+import { shakeAnimation } from "../auxiliary-effects/shake.js";
 import { getTargetCoordonates } from "../get-target-coordonates.js";
 import { resetAnimationVariables } from "../reset-animation-variables.js";
 import { brickShards } from "./brick-shards.animation.js";
@@ -35,6 +36,7 @@ export async function brickBreakAnimation(
 
     await new Promise((resolve) => {
       setTimeout(() => {
+        shakeAnimation(secondAttackerCard);
         brickShards(
           pokemonLocation,
           getTargetLocationCenterX,

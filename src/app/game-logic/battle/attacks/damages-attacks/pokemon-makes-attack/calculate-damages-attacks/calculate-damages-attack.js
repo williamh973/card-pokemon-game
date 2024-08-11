@@ -14,27 +14,7 @@ import { applyStatChangeFactors } from "./stat-change-factors.js";
 import { applyStatutsChangeFactors } from "./apply-statuts-change-factors/statut-change-factors.js";
 import { roundDamageValue } from "./round-damage-value.js";
 import { attackStatesVariables } from "../../../../../../shared/attacks/attack-variables.js";
-import { handleDelayAnimationAttack } from "../../../../animations/animations-attacks/handle-animation-for-dream-eater-attack.js";
-
-async function triggerAnimationAttack(
-  firstAttacker,
-  firstAttackerAttack,
-  secondAttacker
-) {
-  const notAllowedForDelayAttacksList = [
-    "Dévorêve",
-    "Hypnose",
-    "Guillotine",
-    "Empal'Korne",
-    "Puissance",
-  ];
-
-  if (notAllowedForDelayAttacksList.includes(firstAttackerAttack.name)) {
-    return;
-  } else {
-    await handleDelayAnimationAttack(firstAttacker, secondAttacker);
-  }
-}
+import { isAnimationPossible } from "./check-animation-possible/check-animation-possible.js";
 
 export async function calculateDamagesAttack(
   firstAttacker,
@@ -44,7 +24,7 @@ export async function calculateDamagesAttack(
   const randomNumber = Math.floor(Math.random() * 100) + 1;
 
   if (randomNumber <= firstAttackerAttack.precision) {
-    await triggerAnimationAttack(
+    await isAnimationPossible(
       firstAttacker,
       firstAttackerAttack,
       secondAttacker

@@ -2,7 +2,7 @@ import { animationVariables } from "../../../../../../../../shared/animations/an
 import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
 import { getTargetCoordonates } from "../../get-target-coordonates.js";
 import { resetAnimationVariables } from "../../reset-animation-variables.js";
-import { addTargetBurningAnimations } from "./add-burning-effect.js";
+import { applyClassBurn } from "../../auxiliary-effects/burn.js";
 
 export function fireSparkAnimation(
   attackName,
@@ -51,7 +51,7 @@ function createFireSpark(
   fireSpark.classList.add("fire-spark");
 
   setTimeout(() => {
-    addTargetBurningAnimations(secondAttackerCard);
+    applyClassBurn(secondAttackerCard);
   }, 2_000);
 
   pokemonLocation.appendChild(fireSpark);

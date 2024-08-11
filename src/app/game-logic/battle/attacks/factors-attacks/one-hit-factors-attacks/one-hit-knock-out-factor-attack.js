@@ -1,6 +1,6 @@
 import { openDialogueWhenPokemonHasBeenKoByOneHitKnockout } from "../../../../../components/battle-dialogues/dialogues/pokemon-has-been-ko-by-one-hit-knockout.dialogue.js";
 import { openDialogueWhenPokemonMakesIneffectiveAttack } from "../../../../../components/battle-dialogues/dialogues/pokemon-makes-ineffective-attack.dialogue.js";
-import { handleDelayAnimationAttack } from "../../../animations/animations-attacks/handle-animation-for-dream-eater-attack.js";
+import { handleDelayAnimationAttack } from "../../damages-attacks/pokemon-makes-attack/calculate-damages-attacks/check-animation-possible/handle-delay-attack.js";
 
 export async function oneHitKnockoutFactorAttack(
   firstAttacker,

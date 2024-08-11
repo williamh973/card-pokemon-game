@@ -1,7 +1,7 @@
 import {
   handleAttacksDelayAndAnimations,
   sleepAttacksAnimation,
-} from "../animations-delays/attacks-delay.js";
+} from "../../../../../animations/animations-delays/attacks-delay.js";
 
 export async function handleDelayAnimationAttack(
   firstAttacker,

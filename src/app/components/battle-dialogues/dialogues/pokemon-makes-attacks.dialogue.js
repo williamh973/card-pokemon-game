@@ -1,5 +1,5 @@
 import { pokemonVariables } from "../../../shared/pokemon/pokemon-variables.js";
-import { displayDialogue } from "./display-dialogue.js";
+import { displayDialogue } from "./display-dialogue-during-battle.js";
 
 export async function openDialogueWhenPokemonMakesAttack(firstAttacker) {
   if (pokemonVariables.isFirstAttackActive) {

@@ -1,4 +1,4 @@
-export function addTargetBurningAnimations(secondAttackerCard) {
+export function applyClassBurn(secondAttackerCard) {
   secondAttackerCard.classList.add("burning");
   setTimeout(() => {
     secondAttackerCard.classList.remove("burning");
