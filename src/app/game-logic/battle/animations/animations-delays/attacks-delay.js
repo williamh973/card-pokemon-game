@@ -73,6 +73,8 @@ function getAttackDelayAndtriggerAnimations(
       return 2500;
     case "Casse-Brique":
       return 2000;
+    case "Dard-Venin":
+      return 1500;
     default:
       return 3000;
   }

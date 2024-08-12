@@ -19,6 +19,7 @@ import { lickAnimation } from "../../game-logic/battle/animations/animations-att
 import { nightShadeAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/spectrum/night-shade.animation.js";
 import { focusEnergyAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/focus-energy.animation.js";
 import { brickBreakAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/fight/brick-break.animation.js";
+import { poisonStingAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/poison/poison-sting.animation.js";
 
 export const attackActionList = {
   Abri: protectAnimation,
@@ -42,4 +43,5 @@ export const attackActionList = {
   "Ombre Nocturne": nightShadeAnimation,
   Puissance: focusEnergyAnimation,
   "Casse-Brique": brickBreakAnimation,
+  "Dard-Venin": poisonStingAnimation,
 };

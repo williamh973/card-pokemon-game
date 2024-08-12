@@ -6,18 +6,13 @@ export function triggerAttackAnimation(
   firstAttacker,
   secondAttacker
 ) {
-  function getFirstAttackerCard() {
-    const firstAttackerCard = pokemonCardList[firstAttacker.name];
-    return firstAttackerCard;
+  function getPokemonCard(pokemonName) {
+    const pokemonCard = pokemonCardList[pokemonName];
+    return pokemonCard;
   }
 
-  function getSecondAttackerCard() {
-    const secondAttackerCard = pokemonCardList[secondAttacker.name];
-    return secondAttackerCard;
-  }
-
-  const firstAttackerCard = getFirstAttackerCard();
-  const secondAttackerCard = getSecondAttackerCard();
+  const firstAttackerCard = getPokemonCard(firstAttacker.name);
+  const secondAttackerCard = getPokemonCard(secondAttacker.name);
 
   if (attackActionList[attackName]) {
     attackActionList[attackName](

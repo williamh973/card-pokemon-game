@@ -43,3 +43,5 @@
 
 @import url("./attacks/fight/brick-break.style.css");
 @import url("./attacks/fight/brick-shards.style.css");
+
+@import url("./attacks/poison/poison-sting.style.css");
