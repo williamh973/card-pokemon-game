@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
           await pokemonLose(
             firstAttacker,
             secondAttacker,
-            pokemonVariables.enemyPokemon,
             pokemonVariables.playerSelectedPokemon
           );
 
@@ -73,7 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
           await pokemonLose(
             firstAttacker,
             secondAttacker,
-            pokemonVariables.enemyPokemon,
             pokemonVariables.playerSelectedPokemon
           );
 
@@ -93,7 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
           await pokemonLose(
             firstAttacker,
             secondAttacker,
-            pokemonVariables.enemyPokemon,
             pokemonVariables.playerSelectedPokemon
           );
 
@@ -113,7 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
           await pokemonLose(
             firstAttacker,
             secondAttacker,
-            pokemonVariables.enemyPokemon,
             pokemonVariables.playerSelectedPokemon
           );
 
@@ -143,7 +139,6 @@ document.addEventListener("DOMContentLoaded", () => {
           await pokemonLose(
             firstAttacker,
             secondAttacker,
-            pokemonVariables.enemyPokemon,
             pokemonVariables.playerSelectedPokemon
           );
 
@@ -167,7 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
           await pokemonLose(
             firstAttacker,
             secondAttacker,
-            pokemonVariables.enemyPokemon,
             pokemonVariables.playerSelectedPokemon
           );
 
@@ -187,7 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
           await pokemonLose(
             firstAttacker,
             secondAttacker,
-            pokemonVariables.enemyPokemon,
             pokemonVariables.playerSelectedPokemon
           );
 
@@ -207,7 +200,6 @@ document.addEventListener("DOMContentLoaded", () => {
           await pokemonLose(
             firstAttacker,
             secondAttacker,
-            pokemonVariables.enemyPokemon,
             pokemonVariables.playerSelectedPokemon
           );
 
