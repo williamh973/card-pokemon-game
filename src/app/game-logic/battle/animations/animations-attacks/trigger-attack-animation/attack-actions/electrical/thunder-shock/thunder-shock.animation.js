@@ -115,7 +115,7 @@ function createThunderShock(
     });
 
   setTimeout(() => {
-    addShakeAnimation(secondAttackerCard);
+    shakeAnimation(secondAttackerCard);
   }, 1_600);
 
   resetAnimationVariables();

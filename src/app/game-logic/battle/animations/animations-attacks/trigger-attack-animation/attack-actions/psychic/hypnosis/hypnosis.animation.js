@@ -1,6 +1,7 @@
 import { animationVariables } from "../../../../../../../../shared/animations/animation-variables.js";
 import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
 import { getTargetCoordonates } from "../../get-target-coordonates.js";
+import { resetAnimationVariables } from "../../reset-animation-variables.js";
 
 export function hypnosisAnimation(
   attackName,
@@ -70,4 +71,5 @@ function createHypnosis(
       },
     }
   );
+  resetAnimationVariables();
 }

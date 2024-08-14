@@ -44,7 +44,7 @@ export let spectrumModel = {
     type: "spectrum",
     class: "physical",
     resume: "Inflige des dégâts équivalents au niveau du lanceur.",
-    strength: 0, // 1
+    strength: 1,
     precision: 100,
     precisionMax: 100,
   },

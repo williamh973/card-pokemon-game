@@ -2,6 +2,7 @@ import { animationVariables } from "../../../../../../../../shared/animations/an
 import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
 import { shakeAnimation } from "../../auxiliary-effects/shake.js";
 import { getTargetCoordonates } from "../../get-target-coordonates.js";
+import { resetAnimationVariables } from "../../reset-animation-variables.js";
 
 export async function peckAnimation(
   attackName,
@@ -70,4 +71,5 @@ function createPeck(
       },
     }
   );
+  resetAnimationVariables();
 }

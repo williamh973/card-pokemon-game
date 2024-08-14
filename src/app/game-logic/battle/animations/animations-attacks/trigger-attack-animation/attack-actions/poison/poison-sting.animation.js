@@ -2,6 +2,7 @@ import { animationVariables } from "../../../../../../../shared/animations/anima
 import { domElements } from "../../../../../../../shared/dom/dom-elements.js";
 import { shakeAnimation } from "../auxiliary-effects/shake.js";
 import { getTargetCoordonates } from "../get-target-coordonates.js";
+import { resetAnimationVariables } from "../reset-animation-variables.js";
 import { createPoisonBubble } from "./poison-bubble.animation.js";
 
 export async function poisonStingAnimation(
@@ -80,4 +81,5 @@ function createPoisonSting(
       },
     }
   );
+  resetAnimationVariables();
 }

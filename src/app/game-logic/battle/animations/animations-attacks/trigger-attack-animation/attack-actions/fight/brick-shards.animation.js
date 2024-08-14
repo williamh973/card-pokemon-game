@@ -1,3 +1,5 @@
+import { resetAnimationVariables } from "../reset-animation-variables.js";
+
 export function brickShards(
   pokemonLocation,
   getTargetLocationCenterX,
@@ -38,4 +40,5 @@ export function brickShards(
       }
     );
   }
+  resetAnimationVariables();
 }
