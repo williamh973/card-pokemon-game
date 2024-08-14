@@ -34,17 +34,18 @@ export let fantominusModel = {
     class: "physical",
     resume:
       "Un grand coup de langue qui inflige des dégâts à la cible et peut aussi la paralyser.",
-    strength: 30,
+    strength: 0, // 30
     precision: 100,
     precisionMax: 100,
   },
   secondAttack: {
-    name: "Ombre Nocturne",
+    name: "Malédiction",
     logo: "./src/assets/images/logos/spectrum.png",
     type: "spectrum",
-    class: "physical",
-    resume: "Inflige des dégâts équivalents au niveau du lanceur.",
-    strength: 1,
+    class: "status",
+    resume:
+      "Une capacité à l’effet différent selon que le lanceur est un Pokémon Spectre ou non.",
+    strength: 0,
     precision: 100,
     precisionMax: 100,
   },

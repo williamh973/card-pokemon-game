@@ -30,7 +30,7 @@ export let sabeletteModel = {
     type: "normal",
     class: "physical",
     resume: "Le lanceur donne un coup de griffe",
-    strength: 40,
+    strength: 0, // 40
     precision: 100,
     precisionMax: 100,
   },

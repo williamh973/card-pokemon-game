@@ -1,6 +1,6 @@
 export let spectrumModel = {
   name: "Spectrum",
-  level: 5,
+  level: 28,
   type: "spectrum",
   secondaryType: "poison",
   firstLogo: "./src/assets/images/logos/spectrum.png",
@@ -39,13 +39,12 @@ export let spectrumModel = {
     precisionMax: 100,
   },
   secondAttack: {
-    name: "Malédiction",
+    name: "Ombre Nocturne",
     logo: "./src/assets/images/logos/spectrum.png",
     type: "spectrum",
-    class: "status",
-    resume:
-      "Une capacité à l’effet différent selon que le lanceur est un Pokémon Spectre ou non.",
-    strength: 0,
+    class: "physical",
+    resume: "Inflige des dégâts équivalents au niveau du lanceur.",
+    strength: 1,
     precision: 100,
     precisionMax: 100,
   },

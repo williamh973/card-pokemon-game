@@ -27,14 +27,15 @@ export let racaillouModel = {
     fourthLogo: "./src/assets/images/logos/poison.png",
   },
   firstAttack: {
-    name: "Charge",
+    name: "Boul'Armure",
     logo: "./src/assets/images/logos/coloreless.png",
     type: "normal",
-    class: "physical",
-    resume: "Une attaque de base",
-    strength: 35,
-    precision: 95,
-    precisionMax: 95,
+    class: "status",
+    resume:
+      "Le lanceur s’enroule pour cacher ses points faibles, ce qui augmente sa Défense.",
+    strength: 0,
+    precision: 100,
+    precisionMax: 100,
   },
   secondAttack: {
     name: "Jet-Pierres",

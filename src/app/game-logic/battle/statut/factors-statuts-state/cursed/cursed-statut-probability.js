@@ -1,6 +1,7 @@
 import { cursedStatut } from "./cursed-statut.js";
 import { updateDisplayPokemonHp } from "../../../update-display-Pokemon-hp.js";
 import { openDialoguePokemonAlreadyCursed } from "../../../../../components/battle-dialogues/dialogues/pokemon-already-cursed.dialogue.js";
+import { handleDelayAnimationAttack } from "../../../attacks/damages-attacks/pokemon-makes-attack/calculate-damages-attacks/check-animation-possible/handle-delay-attack.js";
 
 function checkSecondAttackerAlreadyCursed(secondAttacker) {
   return secondAttacker.secondaryStatut.isCursed;
@@ -23,6 +24,7 @@ export async function cursedStatut100PercentProbability(
     possibleAttacksList.includes(firstAttackerAttack.name) &&
     !checkSecondAttackerAlreadyCursed(secondAttacker)
   ) {
+    await handleDelayAnimationAttack(firstAttacker, secondAttacker);
     let firstAttackerHpDecreasedValue =
       firstAttackerDecrease50PercentHp(firstAttacker);
 

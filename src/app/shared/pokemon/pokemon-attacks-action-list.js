@@ -20,6 +20,8 @@ import { nightShadeAnimation } from "../../game-logic/battle/animations/animatio
 import { focusEnergyAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/normal/focus-energy.animation.js";
 import { brickBreakAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/fight/brick-break.animation.js";
 import { poisonStingAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/poison/poison-sting.animation.js";
+import { peckAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/flight/peck/peck.animation.js";
+import { curseAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/spectrum/curse/curse-animation.js";
 
 export const attackActionList = {
   Abri: protectAnimation,
@@ -44,4 +46,6 @@ export const attackActionList = {
   Puissance: focusEnergyAnimation,
   "Casse-Brique": brickBreakAnimation,
   "Dard-Venin": poisonStingAnimation,
+  Picpic: peckAnimation,
+  Malédiction: curseAnimation,
 };

@@ -1,0 +1,39 @@
+@import url("./fire/fire-spark.style.css");
+
+@import url("./ice/ice-beam.style.css");
+@import url("./ice/glass-shard.css");
+
+@import url("./normal/protect.style.css");
+@import url("./normal/guillotine.style.css");
+@import url("./normal/slash.style.css");
+@import url("./normal/agility.style.css");
+@import url("./normal/scratch.style.css");
+@import url("./normal/defense-curl.style.css");
+@import url("./normal/recover/recover.style.css");
+@import url("./normal/recover/twinkle-recover.style.css");
+@import url("./normal/focus-energy.style.css");
+
+@import url("./flight/gust.style.css");
+@import url("./flight/peck.style.css");
+
+@import url("./psychic/hypnosis.style.css");
+@import url("./psychic/dream-eater/dream-eater.style.css");
+@import url("./psychic/dream-eater/grow-up.style.css");
+@import url("./psychic/psychic/psychic.style.css");
+@import url("./psychic/psychic/twinkle-psychic.style.css");
+
+@import url("./electrical/thunder-shock.style.css");
+
+@import url("./rock/rock-throw.style.css");
+@import url("./rock/stomp.style.css");
+
+@import url("./spectrum/lick.style.css");
+@import url("./spectrum/curse/curse.style.css");
+@import url("./spectrum/curse/shine.style.css");
+@import url("./spectrum/curse/skull.style.css");
+@import url("./spectrum/curse/smoke.style.css");
+
+@import url("./fight/brick-break.style.css");
+@import url("./fight/brick-shards.style.css");
+
+@import url("./poison/poison-sting.style.css");

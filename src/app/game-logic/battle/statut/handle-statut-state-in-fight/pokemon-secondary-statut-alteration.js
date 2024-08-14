@@ -6,7 +6,8 @@ import { openDialogueWhenPokemonHurtsByCurse } from "../../../../components/batt
 import { isPokemonConfused } from "./confused/pokemon-confused.js";
 import { isPokemonNotConfused } from "./confused/pokemon-not-confused.js";
 import { isPokemonScared } from "./scared/pokemon-scared.js";
-import { addStatusAnimations } from "../../animations/animations-statuts/add/add-statut-animation.js";
+import { openDialogueWhenPokemonScared } from "../../../../components/battle-dialogues/dialogues/pokemon-scared.js";
+import { applySecondaryStatusAnimations } from "../../animations/animations-statuts/add/apply-secondary-statut-class.js";
 
 let confusingCount = 0;
 let randomNumber = Math.random();
@@ -21,7 +22,7 @@ export async function secondaryStatutConfusingAlteration(pokemon) {
       if (randomNumber <= 0.5) {
         isPokemonConfused();
         await openDialogueWhenPokemonConfusedStatut(pokemon);
-        await addStatusAnimations(pokemon);
+        await applySecondaryStatusAnimations(pokemon);
         await openDialogueWhenPokemonHurtByConfusing(pokemon);
         disabledProtectCapacity();
 
@@ -32,7 +33,7 @@ export async function secondaryStatutConfusingAlteration(pokemon) {
         pokemon.stats.hp -= newDecreaseValue;
       } else {
         await openDialogueWhenPokemonConfusedStatut(pokemon);
-        await addStatusAnimations(pokemon);
+        await applySecondaryStatusAnimations(pokemon);
         isPokemonNotConfused();
       }
 
@@ -56,9 +57,11 @@ export async function secondaryStatutConfusingAlteration(pokemon) {
   }
 }
 
-export function secondaryStatutScaredAlteration(pokemon) {
+export async function secondaryStatutScaredAlteration(pokemon) {
   if (pokemon.secondaryStatut.isScared) {
     isPokemonScared();
+    await openDialogueWhenPokemonScared(pokemon);
+    await applySecondaryStatusAnimations(pokemon);
   }
 }
 
@@ -66,6 +69,7 @@ export async function secondaryStatutCursedAlteration(pokemon) {
   switch (pokemon.secondaryStatut.isCursed) {
     case true:
       await openDialogueWhenPokemonHurtsByCurse(pokemon);
+      await applySecondaryStatusAnimations(pokemon);
       let percentage = 20;
       let decreaseValue = (percentage / 100) * pokemon.stats.hpMax;
       const newDecreaseValue = Math.round(decreaseValue);

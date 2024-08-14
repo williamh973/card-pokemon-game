@@ -1,0 +1,25 @@
+.curse {
+  position: absolute;
+  width: 100px;
+  height: 10px;
+  background: black;
+  box-shadow: 0 0 5px 2px rgb(197, 137, 253);
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+  z-index: 1;
+  transform: rotate(-45deg);
+}
+
+.curse::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 85px;
+  width: 30px;
+  height: 10px;
+  background: black;
+  box-shadow: 0 -3px 4px 2px rgb(197, 137, 253);
+  border-radius: 15%;
+  z-index: 0;
+  transform: rotate(90deg);
+}

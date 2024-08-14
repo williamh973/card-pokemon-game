@@ -1,4 +1,4 @@
-import { addStatusAnimations } from "../../../animations/animations-statuts/add/add-statut-animation.js";
+import { applyPrimaryStatusAnimations } from "../../../animations/animations-statuts/add/apply-primary-statut-class.js";
 import { openDialogueWhenPokemonHasFrozenStatut } from "../../../../../components/battle-dialogues/dialogues/pokemon-has-frozen-statut.dialogue.js";
 
 export async function frozenStatut10PercentProbabililityAttack(
@@ -28,7 +28,7 @@ export async function frozenStatut10PercentProbabililityAttack(
 
     if (randomNumber <= 10) {
       secondAttacker.primaryStatut = "frozen";
-      await addStatusAnimations(secondAttacker);
+      await applyPrimaryStatusAnimations(secondAttacker);
       await openDialogueWhenPokemonHasFrozenStatut(secondAttacker);
     }
   }

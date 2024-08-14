@@ -8,9 +8,20 @@
   height: 70vh;
   display: flex;
   flex-wrap: wrap;
-  background-color: black;
+  background: linear-gradient(
+    to bottom,
+    #bdf1fc 0%,
+    #9fefff 20%,
+    #80eaff 30%,
+    #67e6ff 40%,
+    #4de1ff 50%,
+    #39deff 60%,
+    #21daff 70%,
+    #00d5ff 80%,
+    #0d9f00 90%,
+    #0d9f00 100%
+  );
   margin: auto;
-  /* border: 2px solid red; */
 }
 
 .pokemon-location {
@@ -21,7 +32,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
-  border: 1px dashed grey;
+  background-color: transparent;
   margin: auto;
 }

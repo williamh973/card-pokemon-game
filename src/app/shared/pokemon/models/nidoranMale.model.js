@@ -30,7 +30,7 @@ export let nidoranMaleModel = {
     type: "poison",
     class: "physical",
     resume: "Un dard toxique transperce la cible et peut aussi l’empoisonner.",
-    strength: 1, // 15
+    strength: 15,
     precision: 100,
     precisionMax: 10,
   },
@@ -41,7 +41,7 @@ export let nidoranMaleModel = {
     class: "physical",
     resume:
       "Le lanceur frappe la cible d’un bec acéré ou d’une corne pointue pour infliger des dégâts.",
-    strength: 0, // 35
+    strength: 35,
     precision: 100,
     precisionMax: 100,
   },

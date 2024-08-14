@@ -11,6 +11,7 @@ export async function isAnimationPossible(
     "Guillotine",
     "Empal'Korne",
     "Puissance",
+    "Malédiction",
   ];
 
   if (notAllowedForDelayAttacksList.includes(firstAttackerAttack.name)) {

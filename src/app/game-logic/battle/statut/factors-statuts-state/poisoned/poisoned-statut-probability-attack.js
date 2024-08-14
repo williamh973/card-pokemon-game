@@ -1,4 +1,4 @@
-import { addStatusAnimations } from "../../../animations/animations-statuts/add/add-statut-animation.js";
+import { applyPrimaryStatusAnimations } from "../../../animations/animations-statuts/add/apply-primary-statut-class.js";
 import { openDialogueWhenPokemonHasPoisonedStatut } from "../../../../../components/battle-dialogues/dialogues/pokemon--has-poisoned-statut.dialogue.js";
 import { isStatusValidForPoisoned } from "./status-valid-for-poisoned.js";
 
@@ -17,7 +17,7 @@ export async function poisonedStatut10PercentProbabililityAttack(
 
     if (randomNumber <= 10) {
       secondAttacker.primaryStatut = "poisoned";
-      await addStatusAnimations(secondAttacker);
+      await applyPrimaryStatusAnimations(secondAttacker);
       await openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
     }
   }
@@ -38,7 +38,7 @@ export async function poisonedStatut20PercentProbabililityAttack(
 
     if (randomNumber <= 20) {
       secondAttacker.primaryStatut = "poisoned";
-      await addStatusAnimations(secondAttacker);
+      await applyPrimaryStatusAnimations(secondAttacker);
       await openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
     }
   }
@@ -66,7 +66,7 @@ export async function poisonedStatut30PercentProbabililityAttack(
 
     if (randomNumber <= 30) {
       secondAttacker.primaryStatut = "poisoned";
-      await addStatusAnimations(secondAttacker);
+      await applyPrimaryStatusAnimations(secondAttacker);
       await openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
     }
   }
@@ -87,7 +87,7 @@ export async function poisonedStatut40PercentProbabililityAttack(
 
     if (randomNumber <= 40) {
       secondAttacker.primaryStatut = "poisoned";
-      await addStatusAnimations(secondAttacker);
+      await applyPrimaryStatusAnimations(secondAttacker);
       await openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
     }
   }
@@ -105,7 +105,7 @@ export async function poisonedStatut100PercentProbabililityAttack(
     isStatusValidForPoisoned(secondAttacker)
   ) {
     secondAttacker.primaryStatut = "poisoned";
-    await addStatusAnimations(secondAttacker);
+    await applyPrimaryStatusAnimations(secondAttacker);
     await openDialogueWhenPokemonHasPoisonedStatut(secondAttacker);
   }
 }

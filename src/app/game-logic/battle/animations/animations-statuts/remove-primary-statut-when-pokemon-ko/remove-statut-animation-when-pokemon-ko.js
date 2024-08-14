@@ -1,16 +1,7 @@
-import { pokemonCardList } from "../../../../../shared/pokemon/pokemon-card-list.js";
-import { pokemonModelList } from "../../../../../shared/pokemon/pokemon-model-list.js";
-import { pokemonVariables } from "../../../../../shared/pokemon/pokemon-variables.js";
-
-function getPokemonModel() {
-  const findPokemonModel = pokemonModelList[pokemonVariables.pokemonKo];
-  return findPokemonModel;
-}
-
-function getPokemonCard() {
-  const findPokemonCard = pokemonCardList[pokemonVariables.pokemonKo];
-  return findPokemonCard;
-}
+import {
+  getPokemonCard,
+  getPokemonModel,
+} from "../add/get-pokemon-card-model.js";
 
 export function removeStatutAnimationWhenPokemonKo() {
   const pokemonModel = getPokemonModel();

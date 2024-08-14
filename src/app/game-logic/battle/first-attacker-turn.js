@@ -5,8 +5,8 @@ import { secondAttackerTakesDamage } from "./pokemon-takes-damage.js";
 export async function firstAttackerTurn(firstAttacker, secondAttacker) {
   if (pokemonVariables.isFirstAttackerCanAttack) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
-
-    if (randomNumber <= 50) {
+    // 50
+    if (randomNumber <= 1) {
       pokemonVariables.isFirstAttackActive = true;
       pokemonVariables.isSecondAttackActive = false;
 
