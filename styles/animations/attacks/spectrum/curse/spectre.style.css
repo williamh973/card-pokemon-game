@@ -1,12 +1,12 @@
-.skull {
+.spectre {
   position: absolute;
   width: 300px;
   height: 300px;
   z-index: 1;
 }
 
-.skull::before,
-.skull::after {
+.spectre::before,
+.spectre::after {
   content: "";
   position: absolute;
   background: radial-gradient(circle, #fffefe 0%, #f9f8f8 50%, #fcfcfc 100%);
@@ -16,12 +16,12 @@
   border-radius: 0 0 50% 50%;
 }
 
-.skull::before {
+.spectre::before {
   left: 35px;
   transform: rotate(30deg);
 }
 
-.skull::after {
+.spectre::after {
   right: 35px;
   transform: rotate(-30deg);
 }

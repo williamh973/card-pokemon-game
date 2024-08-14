@@ -2,11 +2,8 @@ import { animationVariables } from "../../../../../../../../shared/animations/an
 import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
 import { resetAnimationVariables } from "../../reset-animation-variables.js";
 import { getTargetCoordonates } from "../get-target-coordonates.js";
-import { createShine } from "./shine-animation.js";
-import { createSpectre } from "./spectre-animation.js";
-import { createSmoke } from "./smoke.animation.js";
 
-export async function curseAnimation(
+export function confuseRayAnimation(
   attackName,
   firstAttackerCard,
   secondAttackerCard
@@ -29,66 +26,48 @@ export async function curseAnimation(
       rightLocationRect
     );
 
-    setTimeout(() => {
-      createCurse(
-        pokemonLocation,
-        animationVariables.firstAttackerCenterX,
-        animationVariables.firstAttackerCenterY
-      );
-    }, 0);
-
-    await new Promise((resolve) => {
+    for (let i = 0; i < 10; i++) {
       setTimeout(() => {
-        createShine(
+        createConfuseRay(
           pokemonLocation,
           animationVariables.firstAttackerCenterX,
-          animationVariables.firstAttackerCenterY
-        );
-        resolve();
-      }, 500);
-    });
-
-    await new Promise((resolve) => {
-      setTimeout(() => {
-        createSmoke(
-          pokemonLocation,
+          animationVariables.firstAttackerCenterY,
           getTargetLocationCenterX,
           animationVariables.targetLocationCenterY
         );
-        createSpectre(
-          pokemonLocation,
-          getTargetLocationCenterX,
-          animationVariables.targetLocationCenterY
-        );
-        resolve();
-      }, 1000);
-    });
+      }, i * 200);
+    }
   }
 }
 
-function createCurse(
+function createConfuseRay(
   pokemonLocation,
   firstAttackerCenterX,
-  firstAttackerCenterY
+  firstAttackerCenterY,
+  getTargetLocationCenterX,
+  targetLocationCenterY
 ) {
-  const curse = document.createElement("div");
-  curse.classList.add("curse");
-  pokemonLocation.appendChild(curse);
+  const confuseRay = document.createElement("div");
+  confuseRay.classList.add("confuse-ray");
+  pokemonLocation.appendChild(confuseRay);
 
   gsap.fromTo(
-    curse,
-    {
-      x: firstAttackerCenterX + 200,
-      y: firstAttackerCenterY - 200,
-      duration: 0.5,
-    },
+    confuseRay,
     {
       x: firstAttackerCenterX,
       y: firstAttackerCenterY,
-      duration: 0.5,
-      ease: "power3.in",
+      scale: 1,
+      opacity: 0.8,
+    },
+    {
+      x: getTargetLocationCenterX,
+      y: targetLocationCenterY,
+      scale: 1,
+      opacity: 0.8,
+      duration: 3,
+      ease: "bounce.inOut",
       onComplete: () => {
-        curse.remove();
+        confuseRay.remove();
       },
     }
   );

@@ -22,6 +22,7 @@ import { brickBreakAnimation } from "../../game-logic/battle/animations/animatio
 import { poisonStingAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/poison/poison-sting.animation.js";
 import { peckAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/flight/peck/peck.animation.js";
 import { curseAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/spectrum/curse/curse-animation.js";
+import { confuseRayAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/spectrum/confuse-ray/confuse-ray-animation.js";
 
 export const attackActionList = {
   Abri: protectAnimation,
@@ -48,4 +49,5 @@ export const attackActionList = {
   "Dard-Venin": poisonStingAnimation,
   Picpic: peckAnimation,
   Malédiction: curseAnimation,
+  "Onde Folie": confuseRayAnimation,
 };

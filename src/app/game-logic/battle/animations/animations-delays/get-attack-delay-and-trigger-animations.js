@@ -56,6 +56,8 @@ export function getAttackDelayAndtriggerAnimations(
       return 1300;
     case "Malédiction":
       return 4000;
+    case "Onde Folie":
+      return 4000;
     default:
       return 3000;
   }

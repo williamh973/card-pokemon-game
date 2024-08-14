@@ -30,8 +30,9 @@
 @import url("./spectrum/lick.style.css");
 @import url("./spectrum/curse/curse.style.css");
 @import url("./spectrum/curse/shine.style.css");
-@import url("./spectrum/curse/skull.style.css");
+@import url("./spectrum/curse/spectre.style.css");
 @import url("./spectrum/curse/smoke.style.css");
+@import url("./spectrum/confuse-ray.style.css");
 
 @import url("./fight/brick-break.style.css");
 @import url("./fight/brick-shards.style.css");

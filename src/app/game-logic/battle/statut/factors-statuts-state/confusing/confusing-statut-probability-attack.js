@@ -1,4 +1,6 @@
+import { handleDelayAnimationAttack } from "../../../attacks/damages-attacks/pokemon-makes-attack/calculate-damages-attacks/check-animation-possible/handle-delay-attack.js";
 import { confusingStatut } from "./confusing-statut.js";
+import { openDialogueWhenPokemonAlreadyConfused } from "../../../../../components/battle-dialogues/dialogues/pokemon-already-confused.js";
 
 export async function confusingStatut10PercentProbabililityAttack(
   secondAttacker,
@@ -38,6 +40,7 @@ export async function confusingStatut20PercentProbabililityAttack(
 }
 
 export async function confusingStatut100PercentProbabililityAttack(
+  firstAttacker,
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -59,6 +62,9 @@ export async function confusingStatut100PercentProbabililityAttack(
       firstAttackerAttack.type === "spectrum") &&
     !secondAttacker.secondaryStatut.isConfused
   ) {
+    await handleDelayAnimationAttack(firstAttacker, secondAttacker);
     await confusingStatut(secondAttacker);
+  } else if (secondAttacker.secondaryStatut.isConfused) {
+    await openDialogueWhenPokemonAlreadyConfused(secondAttacker);
   }
 }

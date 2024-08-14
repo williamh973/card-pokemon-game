@@ -20,7 +20,11 @@ export async function applyStatutsChangeFactors(
     secondAttacker,
     firstAttackerAttack
   );
-  await confusingStatutProbabilitysAttack(secondAttacker, firstAttackerAttack);
+  await confusingStatutProbabilitysAttack(
+    firstAttacker,
+    secondAttacker,
+    firstAttackerAttack
+  );
   await cursedStatut100PercentProbability(
     firstAttacker,
     secondAttacker,

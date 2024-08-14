@@ -5,6 +5,7 @@ import {
 } from "../confusing-statut-probability-attack.js";
 
 export async function confusingStatutProbabilitysAttack(
+  firstAttacker,
   secondAttacker,
   firstAttackerAttack
 ) {
@@ -17,6 +18,7 @@ export async function confusingStatutProbabilitysAttack(
     firstAttackerAttack
   );
   await confusingStatut100PercentProbabililityAttack(
+    firstAttacker,
     secondAttacker,
     firstAttackerAttack
   );

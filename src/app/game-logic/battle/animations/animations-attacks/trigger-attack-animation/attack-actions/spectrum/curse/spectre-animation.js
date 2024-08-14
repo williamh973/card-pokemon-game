@@ -1,19 +1,19 @@
 import { resetAnimationVariables } from "../../reset-animation-variables.js";
 
-export function createSkull(
+export function createSpectre(
   pokemonLocation,
   getTargetLocationCenterX,
   targetLocationCenterY
 ) {
-  const skull = document.createElement("div");
-  skull.classList.add("skull");
+  const spectre = document.createElement("div");
+  spectre.classList.add("spectre");
 
-  pokemonLocation.appendChild(skull);
+  pokemonLocation.appendChild(spectre);
 
   createMouth(pokemonLocation, getTargetLocationCenterX, targetLocationCenterY);
 
   gsap.fromTo(
-    skull,
+    spectre,
     {
       x: getTargetLocationCenterX,
       y: targetLocationCenterY,
@@ -26,7 +26,7 @@ export function createSkull(
       duration: 2,
       ease: "power1.out",
       onComplete: () => {
-        skull.remove();
+        spectre.remove();
       },
     }
   );

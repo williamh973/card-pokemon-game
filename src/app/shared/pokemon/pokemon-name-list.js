@@ -9,9 +9,9 @@ export const pokemonNameList = [
   // "Insécateur",
   "Sabelette",
   // "Mewtwo",
-  "Fantominus",
+  // "Fantominus",
   // "Scarabrute",
   // "Nidoran♂",
   // "Évoli",
-  // "Spectrum",
+  "Spectrum",
 ];

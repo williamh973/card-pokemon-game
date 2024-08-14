@@ -34,7 +34,7 @@ export let fantominusModel = {
     class: "physical",
     resume:
       "Un grand coup de langue qui inflige des dégâts à la cible et peut aussi la paralyser.",
-    strength: 0, // 30
+    strength: 30,
     precision: 100,
     precisionMax: 100,
   },
