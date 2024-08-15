@@ -15,14 +15,20 @@ export async function resistanceFactorAttack(
       secondAttacker.secondaryType
     ] || [];
 
-  if (simpleTypeResistances.includes(firstAttackerAttack.type)) {
+  if (
+    simpleTypeResistances.includes(firstAttackerAttack.type) &&
+    firstAttackerAttack.class !== "status"
+  ) {
     attackStatesVariables.currentStateAttack = "resistance";
     await openDialogueWhenPokemonMakesResistanceAttack();
     return 5;
   }
 
   if (secondAttacker.secondaryType) {
-    if (doubleTypeResistances.includes(firstAttackerAttack.type)) {
+    if (
+      doubleTypeResistances.includes(firstAttackerAttack.type) &&
+      firstAttackerAttack.class !== "status"
+    ) {
       attackStatesVariables.currentStateAttack = "resistance";
       await openDialogueWhenPokemonMakesResistanceAttack();
       return 5;

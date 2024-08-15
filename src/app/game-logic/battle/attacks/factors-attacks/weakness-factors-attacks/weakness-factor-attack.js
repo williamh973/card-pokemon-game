@@ -15,14 +15,20 @@ export async function weaknessFactorAttack(
       secondAttacker.secondaryType
     ] || [];
 
-  if (simpleTypeWeaknesses.includes(firstAttackerAttack.type)) {
+  if (
+    simpleTypeWeaknesses.includes(firstAttackerAttack.type) &&
+    firstAttackerAttack.class !== "status"
+  ) {
     attackStatesVariables.currentStateAttack = "weakness";
     await openDialogueWhenPokemonMakesWeaknessAttack();
     return 5;
   }
 
   if (secondAttacker.secondaryType) {
-    if (doubleTypeWeaknesses.includes(firstAttackerAttack.type)) {
+    if (
+      doubleTypeWeaknesses.includes(firstAttackerAttack.type) &&
+      firstAttackerAttack.class !== "status"
+    ) {
       attackStatesVariables.currentStateAttack = "weakness";
       await openDialogueWhenPokemonMakesWeaknessAttack();
       return 5;
