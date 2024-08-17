@@ -26,7 +26,7 @@ export let evoliModel = {
     type: "normal",
     class: "physical",
     resume: "Une attaque de base",
-    strength: 0, // 35
+    strength: 35,
     precision: 95,
     precisionMax: 95,
   },
