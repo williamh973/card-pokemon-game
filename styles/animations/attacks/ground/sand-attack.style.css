@@ -1,0 +1,10 @@
+.sand-attack {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(121, 65, 1, 0.703);
+  border-radius: 50%;
+  filter: blur(15px);
+  opacity: 0.6;
+  z-index: 1;
+}

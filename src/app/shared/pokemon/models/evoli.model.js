@@ -26,7 +26,7 @@ export let evoliModel = {
     type: "normal",
     class: "physical",
     resume: "Une attaque de base",
-    strength: 35,
+    strength: 0, // 35
     precision: 95,
     precisionMax: 95,
   },
@@ -37,7 +37,7 @@ export let evoliModel = {
     class: "physical",
     resume:
       "Le lanceur fonce sur la cible si rapidement qu’on parvient à peine à le discerner. Frappe en priorité.",
-    strength: 40,
+    strength: 0, // 40
     precision: 100,
     precisionMax: 100,
   },

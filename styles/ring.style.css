@@ -10,15 +10,15 @@
   flex-wrap: wrap;
   background: linear-gradient(
     to bottom,
-    #bdf1fc 0%,
-    #9fefff 20%,
-    #80eaff 30%,
-    #67e6ff 40%,
-    #4de1ff 50%,
-    #39deff 60%,
-    #21daff 70%,
-    #00d5ff 90%,
-    #0d9f00 95%,
+    #9fefff 0%,
+    #80eaff 20%,
+    #67e6ff 30%,
+    #4de1ff 40%,
+    #1ed9ff 50%,
+    #0bd6ff 60%,
+    #00c6ee 70%,
+    #00b4d8 80%,
+    #0d9f00 85%,
     #0d9f00 100%
   );
   margin: auto;

@@ -9,7 +9,6 @@ export async function confusingStatut10PercentProbabililityAttack(
   const possibleAttacksList = ["Choc Mental", "Rafale Psy"];
   if (
     possibleAttacksList.includes(firstAttackerAttack.name) &&
-    firstAttackerAttack.type === "psy" &&
     !secondAttacker.secondaryStatut.isConfused
   ) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -27,8 +26,6 @@ export async function confusingStatut20PercentProbabililityAttack(
   const possibleAttacksList = ["Escalade", "Vibraqua", "Uppercut"];
   if (
     possibleAttacksList.includes(firstAttackerAttack.name) &&
-    (firstAttackerAttack.type === "normal" ||
-      firstAttackerAttack.type === "water") &&
     !secondAttacker.secondaryStatut.isConfused
   ) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -56,15 +53,14 @@ export async function confusingStatut100PercentProbabililityAttack(
 
   if (
     possibleAttacksList.includes(firstAttackerAttack.name) &&
-    (firstAttackerAttack.type === "normal" ||
-      firstAttackerAttack.type === "fairy" ||
-      firstAttackerAttack.type === "dark" ||
-      firstAttackerAttack.type === "spectrum") &&
     !secondAttacker.secondaryStatut.isConfused
   ) {
     await handleDelayAnimationAttack(firstAttacker, secondAttacker);
     await confusingStatut(secondAttacker);
-  } else if (secondAttacker.secondaryStatut.isConfused) {
+  } else if (
+    possibleAttacksList.includes(firstAttackerAttack.name) &&
+    secondAttacker.secondaryStatut.isConfused
+  ) {
     await openDialogueWhenPokemonAlreadyConfused(secondAttacker);
   }
 }

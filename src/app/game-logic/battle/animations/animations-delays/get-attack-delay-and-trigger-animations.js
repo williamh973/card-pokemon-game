@@ -58,6 +58,8 @@ export function getAttackDelayAndtriggerAnimations(
       return 4000;
     case "Onde Folie":
       return 4000;
+    case "Jet de Sable":
+      return 3000;
     default:
       return 3000;
   }

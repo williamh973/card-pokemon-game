@@ -6,7 +6,7 @@ export async function secondAttackerTurn(secondAttacker, firstAttacker) {
   if (pokemonVariables.isSecondAttackerCanAttack) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-    if (randomNumber <= 50) {
+    if (randomNumber <= 100) {
       pokemonVariables.isFirstAttackActive = true;
       pokemonVariables.isSecondAttackActive = false;
 

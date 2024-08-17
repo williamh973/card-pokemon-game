@@ -1,6 +1,6 @@
-export function applyClassBurn(secondAttackerCard) {
+export function applyClassBurn(secondAttackerCard, delay) {
   secondAttackerCard.classList.add("burning");
   setTimeout(() => {
     secondAttackerCard.classList.remove("burning");
-  }, 2_000);
+  }, delay);
 }

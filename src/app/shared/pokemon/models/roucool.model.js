@@ -27,14 +27,14 @@ export let roucoolModel = {
     fourthLogo: "./src/assets/images/logos/ground.png",
   },
   firstAttack: {
-    name: "Charge",
+    name: "Jet de Sable",
     logo: "./src/assets/images/logos/coloreless.png",
-    type: "normal",
-    class: "physical",
-    resume: "Une attaque de base",
-    strength: 35, // 35
-    precision: 95,
-    precisionMax: 95,
+    type: "ground",
+    class: "status",
+    resume: "Lance du sable au visage de la cible pour baisser sa Précision.",
+    strength: 0,
+    precision: 100,
+    precisionMax: 100,
   },
   secondAttack: {
     name: "Tornade",
@@ -43,7 +43,7 @@ export let roucoolModel = {
     class: "special",
     resume:
       "Le lanceur bat des ailes pour générer une bourrasque qui blesse la cible",
-    strength: 40, // 40
+    strength: 40,
     precision: 100,
     precisionMax: 100,
   },

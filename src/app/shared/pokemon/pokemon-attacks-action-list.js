@@ -23,6 +23,7 @@ import { poisonStingAnimation } from "../../game-logic/battle/animations/animati
 import { peckAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/flight/peck/peck.animation.js";
 import { curseAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/spectrum/curse/curse-animation.js";
 import { confuseRayAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/spectrum/confuse-ray/confuse-ray-animation.js";
+import { sandAttackAnimation } from "../../game-logic/battle/animations/animations-attacks/trigger-attack-animation/attack-actions/ground/sand-attack/sand-attack.animation.js";
 
 export const attackActionList = {
   Abri: protectAnimation,
@@ -50,4 +51,5 @@ export const attackActionList = {
   Picpic: peckAnimation,
   Malédiction: curseAnimation,
   "Onde Folie": confuseRayAnimation,
+  "Jet de Sable": sandAttackAnimation,
 };

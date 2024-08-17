@@ -61,7 +61,7 @@ const alterationStatesDelay = (state) => {
 const alterationSecondaryStatutDelay = (state) => {
   switch (state) {
     case true:
-      return 2000;
+      return 0;
     case false:
       return 0;
   }

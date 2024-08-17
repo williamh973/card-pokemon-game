@@ -2,9 +2,8 @@ import { animationVariables } from "../../../../../../../../shared/animations/an
 import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
 import { getTargetCoordonates } from "../../get-target-coordonates.js";
 import { resetAnimationVariables } from "../../reset-animation-variables.js";
-import { applyClassBurn } from "../../auxiliary-effects/burn.js";
 
-export async function fireSparkAnimation(
+export function sandAttackAnimation(
   attackName,
   firstAttackerCard,
   secondAttackerCard
@@ -28,48 +27,56 @@ export async function fireSparkAnimation(
     );
 
     for (let i = 0; i < 10; i++) {
-      setTimeout(
-        createFireSpark(
-          pokemonLocation,
-          getTargetLocationCenterX,
-          secondAttackerCard
-        ),
-        i * 100
-      );
-    }
-    await new Promise((resolve) => {
       setTimeout(() => {
-        applyClassBurn(secondAttackerCard, 1000);
-        resolve();
-      }, 1_500);
-    });
+        createSandAttack(
+          pokemonLocation,
+          animationVariables.firstAttackerCenterX,
+          animationVariables.firstAttackerCenterY,
+          getTargetLocationCenterX,
+          animationVariables.targetLocationCenterY
+        );
+      }, i * 100);
+    }
   }
 }
 
-function createFireSpark(pokemonLocation, getTargetLocationCenterX) {
-  const randomNumberX =
-    Math.floor(Math.random() * 50) - Math.floor(Math.random() + 50);
-  const randomNumberY =
-    Math.floor(Math.random() * 100) - Math.floor(Math.random() * 100);
-  const fireSpark = document.createElement("div");
-  fireSpark.classList.add("fire-spark");
-
-  pokemonLocation.appendChild(fireSpark);
+function createSandAttack(
+  pokemonLocation,
+  firstAttackerCenterX,
+  firstAttackerCenterY,
+  getTargetLocationCenterX,
+  targetLocationCenterY
+) {
+  const sandAttack = document.createElement("div");
+  sandAttack.classList.add("sand-attack");
+  pokemonLocation.appendChild(sandAttack);
 
   gsap.fromTo(
-    fireSpark,
+    sandAttack,
     {
-      x: animationVariables.firstAttackerCenterX,
-      y: animationVariables.firstAttackerCenterY,
+      x: firstAttackerCenterX,
+      y: firstAttackerCenterY + 150,
+      scale: 0.5,
+      opacity: 0.8,
     },
     {
-      x: getTargetLocationCenterX + randomNumberX,
-      y: (animationVariables.targetLocationCenterY = randomNumberY),
+      x: getTargetLocationCenterX,
+      y: targetLocationCenterY,
+      scale: 3,
+      opacity: 1,
       duration: 1.5,
-      rotation: 90,
-      ease: "power1.out",
+      ease: "power3.out",
       onComplete: () => {
-        fireSpark.remove();
+        gsap.to(sandAttack, {
+          x: getTargetLocationCenterX,
+          y: targetLocationCenterY,
+          scale: 1.5,
+          opacity: 0.5,
+          duration: 1.5,
+          onComplete: () => {
+            sandAttack.remove();
+          },
+        });
       },
     }
   );
