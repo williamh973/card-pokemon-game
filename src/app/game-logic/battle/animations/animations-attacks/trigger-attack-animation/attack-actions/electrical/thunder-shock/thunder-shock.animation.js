@@ -2,7 +2,7 @@ import { animationVariables } from "../../../../../../../../shared/animations/an
 import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
 import { getTargetCoordonates } from "../../get-target-coordonates.js";
 import { resetAnimationVariables } from "../../reset-animation-variables.js";
-import { shakeAnimation } from "../../auxiliary-effects/shake.js";
+import { applyClassVerticalShake } from "../../auxiliary-effects/vertical-shake.js";
 
 export function thunderShockAnimation(
   attackName,
@@ -51,7 +51,7 @@ function createThunderShock(
   const gsapTimeline = gsap.timeline({ repeat: 0, repeatDelay: 0 });
   const thunderShock = document.createElement("div");
   thunderShock.classList.add("thunder-shock");
-  shakeAnimation(firstAttackerCard);
+  applyClassVerticalShake(firstAttackerCard);
 
   pokemonLocation.appendChild(thunderShock);
 
@@ -115,7 +115,7 @@ function createThunderShock(
     });
 
   setTimeout(() => {
-    shakeAnimation(secondAttackerCard);
+    applyClassVerticalShake(secondAttackerCard);
   }, 1_600);
 
   resetAnimationVariables();

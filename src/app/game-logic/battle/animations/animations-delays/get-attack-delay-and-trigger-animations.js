@@ -60,6 +60,10 @@ export function getAttackDelayAndtriggerAnimations(
       return 4000;
     case "Jet de Sable":
       return 3000;
+    case "Rugissement":
+      return 1000;
+    case "Mimi-Queue":
+      return 2500;
     default:
       return 3000;
   }

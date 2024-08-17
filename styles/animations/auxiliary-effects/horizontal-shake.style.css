@@ -1,0 +1,50 @@
+.horizontal-shake {
+  animation: horizontalShake 0.6s ease-in-out forwards;
+}
+
+@keyframes horizontalShake {
+  0% {
+    transform: translateX(0);
+    filter: blur(0px);
+  }
+  10% {
+    transform: translateX(-10px);
+    filter: blur(1px);
+  }
+  20% {
+    transform: translateX(0);
+    filter: blur(0px);
+  }
+  30% {
+    transform: translateX(10px);
+    filter: blur(1px);
+  }
+  40% {
+    transform: translateX(0);
+    filter: blur(0px);
+  }
+  50% {
+    transform: translateX(-15px);
+    filter: blur(2px);
+  }
+  60% {
+    transform: translateX(0);
+    filter: blur(0px);
+  }
+  70% {
+    transform: translateX(15px);
+    filter: blur(2px);
+  }
+  80% {
+    transform: translateX(0);
+    filter: blur(0px);
+  }
+  90% {
+    transform: translateX(-10px);
+    filter: blur(1px);
+  }
+  100% {
+    transform: translateX(0);
+    filter: blur(0px);
+  }
+}

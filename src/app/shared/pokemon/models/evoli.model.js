@@ -31,13 +31,13 @@ export let evoliModel = {
     precisionMax: 95,
   },
   secondAttack: {
-    name: "Vive-Attaque",
+    name: "Mimi-Queue",
     logo: "./src/assets/images/logos/coloreless.png",
     type: "normal",
-    class: "physical",
+    class: "status",
     resume:
-      "Le lanceur fonce sur la cible si rapidement qu’on parvient à peine à le discerner. Frappe en priorité.",
-    strength: 0, // 40
+      "Le lanceur remue son adorable queue pour tromper la vigilance de l'ennemi et baisser sa Défense.",
+    strength: 0,
     precision: 100,
     precisionMax: 100,
   },

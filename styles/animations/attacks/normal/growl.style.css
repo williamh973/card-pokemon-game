@@ -1,0 +1,9 @@
+.growl {
+  position: absolute;
+  width: 250px;
+  height: 300px;
+  border-top: 4px solid rgba(255, 0, 0, 0.6);
+  border-bottom: transparent;
+  border-radius: 50%;
+  opacity: 0;
+}

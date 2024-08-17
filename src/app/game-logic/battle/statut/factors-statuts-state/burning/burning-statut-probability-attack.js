@@ -27,7 +27,7 @@ export async function burningStatut10PercentProbabililityAttack(
   ) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-    if (randomNumber <= 1) {
+    if (randomNumber <= 10) {
       await burningStatut(secondAttacker);
     }
   }

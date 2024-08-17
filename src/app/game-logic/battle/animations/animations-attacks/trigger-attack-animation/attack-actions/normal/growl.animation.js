@@ -1,24 +1,21 @@
 import { animationVariables } from "../../../../../../../shared/animations/animation-variables.js";
 import { domElements } from "../../../../../../../shared/dom/dom-elements.js";
 import { applyClassVerticalShake } from "../auxiliary-effects/vertical-shake.js";
+import { applyClassHorizontalShake } from "../auxiliary-effects/horizontal-shake.js";
 import { getTargetCoordonates } from "../get-target-coordonates.js";
 import { resetAnimationVariables } from "../reset-animation-variables.js";
-import { createPoisonBubble } from "./poison-bubble.animation.js";
 
-export async function poisonStingAnimation(
+export async function growlAnimation(
   attackName,
   firstAttackerCard,
   secondAttackerCard
 ) {
   if (attackName && firstAttackerCard && secondAttackerCard) {
-    const pokemonLocation = domElements.pokemonLeftLocation.contains(
-      firstAttackerCard
-    )
-      ? domElements.pokemonLeftLocation
-      : domElements.pokemonRightLocation;
-
+    let rotationAngle = 0;
+    let pokemonLocation;
     let leftLocationRect =
       domElements.pokemonLeftLocation.getBoundingClientRect();
+
     let rightLocationRect =
       domElements.pokemonRightLocation.getBoundingClientRect();
 
@@ -28,57 +25,68 @@ export async function poisonStingAnimation(
       rightLocationRect
     );
 
-    createPoisonSting(
-      pokemonLocation,
-      animationVariables.firstAttackerCenterX,
-      animationVariables.firstAttackerCenterY,
-      getTargetLocationCenterX,
-      animationVariables.targetLocationCenterY
-    );
+    if (domElements.pokemonLeftLocation.contains(firstAttackerCard)) {
+      pokemonLocation = domElements.pokemonLeftLocation;
+      rotationAngle = 90;
+    } else {
+      pokemonLocation = domElements.pokemonRightLocation;
+      rotationAngle = -90;
+    }
+
+    applyClassVerticalShake(firstAttackerCard);
+
+    for (let i = 0; i < 3; i++) {
+      setTimeout(() => {
+        createGrowl(
+          pokemonLocation,
+          animationVariables.firstAttackerCenterX,
+          animationVariables.firstAttackerCenterY,
+          getTargetLocationCenterX,
+          animationVariables.targetLocationCenterY,
+          rotationAngle
+        );
+      }, i * 200);
+    }
 
     await new Promise((resolve) => {
       setTimeout(() => {
-        applyClassVerticalShake(secondAttackerCard);
-
-        for (let i = 0; i < 6; i++) {
-          setTimeout(() => {
-            createPoisonBubble(
-              pokemonLocation,
-              getTargetLocationCenterX,
-              animationVariables.targetLocationCenterY
-            );
-          }, i * 150);
-        }
+        applyClassHorizontalShake(secondAttackerCard);
         resolve();
       }, 500);
     });
   }
 }
 
-function createPoisonSting(
+function createGrowl(
   pokemonLocation,
   firstAttackerCenterX,
   firstAttackerCenterY,
   getTargetLocationCenterX,
-  targetLocationCenterY
+  targetLocationCenterY,
+  rotationAngle
 ) {
-  const poisonSting = document.createElement("div");
-  poisonSting.classList.add("poison-sting");
-  pokemonLocation.appendChild(poisonSting);
+  const growl = document.createElement("div");
+  growl.classList.add("growl");
+  pokemonLocation.appendChild(growl);
 
   gsap.fromTo(
-    poisonSting,
+    growl,
     {
       x: firstAttackerCenterX,
       y: firstAttackerCenterY,
+      scale: 0.5,
+      opacity: 1,
     },
     {
       x: getTargetLocationCenterX,
       y: targetLocationCenterY,
-      duration: 0.5,
-      ease: "power1.inOut",
+      scale: 1.7,
+      opacity: 0,
+      duration: 1,
+      rotate: rotationAngle,
+      ease: "power4.Out",
       onComplete: () => {
-        poisonSting.remove();
+        growl.remove();
       },
     }
   );

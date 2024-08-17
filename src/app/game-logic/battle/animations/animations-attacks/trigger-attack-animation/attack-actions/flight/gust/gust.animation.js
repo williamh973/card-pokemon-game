@@ -2,7 +2,7 @@ import { animationVariables } from "../../../../../../../../shared/animations/an
 import { domElements } from "../../../../../../../../shared/dom/dom-elements.js";
 import { getTargetCoordonates } from "../../get-target-coordonates.js";
 import { resetAnimationVariables } from "../../reset-animation-variables.js";
-import { shakeAnimation } from "../../auxiliary-effects/shake.js";
+import { applyClassVerticalShake } from "../../auxiliary-effects/vertical-shake.js";
 
 export function gustAnimation(
   attackName,
@@ -81,7 +81,7 @@ function createGust(
   );
 
   setTimeout(() => {
-    shakeAnimation(secondAttackerCard);
+    applyClassVerticalShake(secondAttackerCard);
   }, 2_000);
 
   resetAnimationVariables();

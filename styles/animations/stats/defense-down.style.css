@@ -1,0 +1,11 @@
+.defense-down {
+  position: absolute;
+  width: 15px;
+  height: 60px;
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 1;
+  background: rgba(0, 132, 255, 0.8);
+  box-shadow: 0 0 15px rgba(0, 132, 255, 0.8), 0 0 25px rgba(0, 13, 255, 0.6);
+}
