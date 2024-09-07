@@ -3,8 +3,8 @@ export let sabeletteModel = {
   level: 5,
   type: "ground",
   secondaryType: "none",
-  logo: "./src/assets/images/logos/ground.png",
-  image: "./src/assets/images/sabelette.png",
+  logo: "./src/assets/images/types-logo/ground.png",
+  image: "./src/assets/images/pokemons/sabelette/sabelette.png",
   primaryStatut: "normal",
   secondaryStatut: {
     isNormal: true,
@@ -14,19 +14,19 @@ export let sabeletteModel = {
   },
   weakness: {
     name: "Faiblesse",
-    firstLogo: "./src/assets/images/logos/water.png",
-    secondLogo: "./src/assets/images/logos/plant.png",
-    thirdLogo: "./src/assets/images/logos/ice.png",
+    firstLogo: "./src/assets/images/types-logo/water.png",
+    secondLogo: "./src/assets/images/types-logo/plant.png",
+    thirdLogo: "./src/assets/images/types-logo/ice.png",
   },
   resistance: {
     name: "Résistance",
-    firstLogo: "./src/assets/images/logos/electric.png",
-    secondLogo: "./src/assets/images/logos/rock.png",
-    thirdLogo: "./src/assets/images/logos/poison.png",
+    firstLogo: "./src/assets/images/types-logo/electric.png",
+    secondLogo: "./src/assets/images/types-logo/rock.png",
+    thirdLogo: "./src/assets/images/types-logo/poison.png",
   },
   firstAttack: {
     name: "Griffe",
-    logo: "./src/assets/images/logos/coloreless.png",
+    logo: "./src/assets/images/types-logo/coloreless.png",
     type: "normal",
     class: "physical",
     resume: "Le lanceur donne un coup de griffe",
@@ -36,7 +36,7 @@ export let sabeletteModel = {
   },
   secondAttack: {
     name: "Boul'Armure",
-    logo: "./src/assets/images/logos/coloreless.png",
+    logo: "./src/assets/images/types-logo/coloreless.png",
     type: "normal",
     class: "status",
     resume:

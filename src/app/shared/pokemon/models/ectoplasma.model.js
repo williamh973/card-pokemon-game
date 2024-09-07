@@ -3,9 +3,9 @@ export let ectoplasmaModel = {
   level: 32,
   type: "spectrum",
   secondaryType: "poison",
-  firstLogo: "./src/assets/images/logos/spectrum.png",
-  secondLogo: "./src/assets/images/logos/poison.png",
-  image: "./src/assets/images/ectoplasma.png",
+  firstLogo: "./src/assets/images/types-logo/spectrum.png",
+  secondLogo: "./src/assets/images/types-logo/poison.png",
+  image: "./src/assets/images/pokemons/ectoplasma/ectoplasma.png",
   primaryStatut: "normal",
   secondaryStatut: {
     isNormal: true,
@@ -15,21 +15,21 @@ export let ectoplasmaModel = {
   },
   weakness: {
     name: "Faiblesse",
-    firstLogo: "./src/assets/images/logos/psy.png",
-    secondLogo: "./src/assets/images/logos/ground.png",
-    thirdLogo: "./src/assets/images/logos/spectrum.png",
-    fourthLogo: "./src/assets/images/logos/dark.png",
+    firstLogo: "./src/assets/images/types-logo/psy.png",
+    secondLogo: "./src/assets/images/types-logo/ground.png",
+    thirdLogo: "./src/assets/images/types-logo/spectrum.png",
+    fourthLogo: "./src/assets/images/types-logo/dark.png",
   },
   resistance: {
     name: "Résistance",
-    firstLogo: "./src/assets/images/logos/fairy.png",
-    secondLogo: "./src/assets/images/logos/insect.png",
-    thirdLogo: "./src/assets/images/logos/plant.png",
-    fourthLogo: "./src/assets/images/logos/poison.png",
+    firstLogo: "./src/assets/images/types-logo/fairy.png",
+    secondLogo: "./src/assets/images/types-logo/insect.png",
+    thirdLogo: "./src/assets/images/types-logo/plant.png",
+    fourthLogo: "./src/assets/images/types-logo/poison.png",
   },
   firstAttack: {
     name: "Hypnose",
-    logo: "./src/assets/images/logos/psy.png",
+    logo: "./src/assets/images/types-logo/psy.png",
     type: "psy",
     class: "status",
     resume:
@@ -40,7 +40,7 @@ export let ectoplasmaModel = {
   },
   secondAttack: {
     name: "Dévorêve",
-    logo: "./src/assets/images/logos/psy.png",
+    logo: "./src/assets/images/types-logo/psy.png",
     type: "psy",
     class: "special",
     resume:

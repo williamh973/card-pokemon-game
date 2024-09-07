@@ -3,8 +3,8 @@ export let krabbossModel = {
   level: 5,
   type: "water",
   secondaryType: "none",
-  logo: "./src/assets/images/logos/water.png",
-  image: "./src/assets/images/krabboss.png",
+  logo: "./src/assets/images/types-logo/water.png",
+  image: "./src/assets/images/pokemons/krabboss/krabboss.png",
   primaryStatut: "normal",
   secondaryStatut: {
     isNormal: true,
@@ -14,19 +14,19 @@ export let krabbossModel = {
   },
   weakness: {
     name: "Faiblesse",
-    firstLogo: "./src/assets/images/logos/plant.png",
-    secondLogo: "./src/assets/images/logos/electric.png",
+    firstLogo: "./src/assets/images/types-logo/plant.png",
+    secondLogo: "./src/assets/images/types-logo/electric.png",
   },
   resistance: {
     name: "Résistance",
-    firstLogo: "./src/assets/images/logos/water.png",
-    secondLogo: "./src/assets/images/logos/steel.png",
-    thirdLogo: "./src/assets/images/logos/fire.png",
-    fourthLogo: "./src/assets/images/logos/ice.png",
+    firstLogo: "./src/assets/images/types-logo/water.png",
+    secondLogo: "./src/assets/images/types-logo/steel.png",
+    thirdLogo: "./src/assets/images/types-logo/fire.png",
+    fourthLogo: "./src/assets/images/types-logo/ice.png",
   },
   firstAttack: {
     name: "Abri",
-    logo: "./src/assets/images/logos/coloreless.png",
+    logo: "./src/assets/images/types-logo/coloreless.png",
     type: "normal",
     class: "status",
     resume: "Protège le lanceur de la plupart des attaques pendant un tour.",
@@ -36,7 +36,7 @@ export let krabbossModel = {
   },
   secondAttack: {
     name: "Guillotine",
-    logo: "./src/assets/images/logos/coloreless.png",
+    logo: "./src/assets/images/types-logo/coloreless.png",
     type: "normal",
     class: "physical",
     resume:

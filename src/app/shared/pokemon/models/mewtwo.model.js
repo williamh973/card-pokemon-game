@@ -3,8 +3,8 @@ export let mewtwoModel = {
   level: 5,
   type: "psy",
   secondaryType: "none",
-  logo: "./src/assets/images/logos/psy.png",
-  image: "./src/assets/images/mewtwo.png",
+  logo: "./src/assets/images/types-logo/psy.png",
+  image: "./src/assets/images/pokemons/mewtwo/mewtwo.png",
   primaryStatut: "normal",
   secondaryStatut: {
     isNormal: true,
@@ -14,18 +14,18 @@ export let mewtwoModel = {
   },
   weakness: {
     name: "Faiblesse",
-    firstLogo: "./src/assets/images/logos/insect.png",
-    secondLogo: "./src/assets/images/logos/spectrum.png",
-    thirdLogo: "./src/assets/images/logos/dark.png",
+    firstLogo: "./src/assets/images/types-logo/insect.png",
+    secondLogo: "./src/assets/images/types-logo/spectrum.png",
+    thirdLogo: "./src/assets/images/types-logo/dark.png",
   },
   resistance: {
     name: "Résistance",
-    firstLogo: "./src/assets/images/logos/fight.png",
-    secondLogo: "./src/assets/images/logos/psy.png",
+    firstLogo: "./src/assets/images/types-logo/fight.png",
+    secondLogo: "./src/assets/images/types-logo/psy.png",
   },
   firstAttack: {
     name: "Soin",
-    logo: "./src/assets/images/logos/coloreless.png",
+    logo: "./src/assets/images/types-logo/coloreless.png",
     type: "normal",
     class: "status",
     resume:
@@ -36,7 +36,7 @@ export let mewtwoModel = {
   },
   secondAttack: {
     name: "Psyko",
-    logo: "./src/assets/images/logos/psy.png",
+    logo: "./src/assets/images/types-logo/psy.png",
     type: "psy",
     class: "special",
     resume:

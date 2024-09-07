@@ -3,8 +3,8 @@ export let evoliModel = {
   level: 5,
   type: "normal",
   secondaryType: "none",
-  logo: "./src/assets/images/logos/coloreless.png",
-  image: "./src/assets/images/evoli.png",
+  logo: "./src/assets/images/types-logo/coloreless.png",
+  image: "./src/assets/images/pokemons/evoli/evoli.png",
   primaryStatut: "normal",
   secondaryStatut: {
     isNormal: true,
@@ -14,15 +14,15 @@ export let evoliModel = {
   },
   weakness: {
     name: "Faiblesse",
-    firstLogo: "./src/assets/images/logos/fight.png",
+    firstLogo: "./src/assets/images/types-logo/fight.png",
   },
   resistance: {
     name: "Résistance",
-    firstLogo: "./src/assets/images/logos/spectrum.png",
+    firstLogo: "./src/assets/images/types-logo/spectrum.png",
   },
   firstAttack: {
     name: "Charge",
-    logo: "./src/assets/images/logos/coloreless.png",
+    logo: "./src/assets/images/types-logo/coloreless.png",
     type: "normal",
     class: "physical",
     resume: "Une attaque de base",
@@ -32,7 +32,7 @@ export let evoliModel = {
   },
   secondAttack: {
     name: "Mimi-Queue",
-    logo: "./src/assets/images/logos/coloreless.png",
+    logo: "./src/assets/images/types-logo/coloreless.png",
     type: "normal",
     class: "status",
     resume:

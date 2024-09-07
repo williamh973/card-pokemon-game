@@ -3,8 +3,8 @@ export let salamecheModel = {
   level: 5,
   type: "fire",
   secondaryType: "none",
-  logo: "./src/assets/images/logos/fire.png",
-  image: "./src/assets/images/salameche.png",
+  logo: "./src/assets/images/types-logo/fire.png",
+  image: "./src/assets/images/pokemons/salameche/salameche.png",
   primaryStatut: "normal",
   secondaryStatut: {
     isNormal: true,
@@ -14,22 +14,22 @@ export let salamecheModel = {
   },
   weakness: {
     name: "Faiblesse",
-    firstLogo: "./src/assets/images/logos/water.png",
-    secondLogo: "./src/assets/images/logos/rock.png",
-    thirdLogo: "./src/assets/images/logos/ground.png",
+    firstLogo: "./src/assets/images/types-logo/water.png",
+    secondLogo: "./src/assets/images/types-logo/rock.png",
+    thirdLogo: "./src/assets/images/types-logo/ground.png",
   },
   resistance: {
     name: "Résistance",
-    firstLogo: "./src/assets/images/logos/fire.png",
-    secondLogo: "./src/assets/images/logos/steel.png",
-    thirdLogo: "./src/assets/images/logos/insect.png",
-    fourthLogo: "./src/assets/images/logos/fairy.png",
-    fifthLogo: "./src/assets/images/logos/plant.png",
-    sixthLogo: "./src/assets/images/logos/ice.png",
+    firstLogo: "./src/assets/images/types-logo/fire.png",
+    secondLogo: "./src/assets/images/types-logo/steel.png",
+    thirdLogo: "./src/assets/images/types-logo/insect.png",
+    fourthLogo: "./src/assets/images/types-logo/fairy.png",
+    fifthLogo: "./src/assets/images/types-logo/plant.png",
+    sixthLogo: "./src/assets/images/types-logo/ice.png",
   },
   firstAttack: {
     name: "Rugissement",
-    logo: "./src/assets/images/logos/coloreless.png",
+    logo: "./src/assets/images/types-logo/coloreless.png",
     type: "normal",
     class: "status",
     resume:
@@ -40,7 +40,7 @@ export let salamecheModel = {
   },
   secondAttack: {
     name: "Flammèche",
-    logo: "./src/assets/images/logos/fire.png",
+    logo: "./src/assets/images/types-logo/fire.png",
     type: "fire",
     class: "special",
     resume:

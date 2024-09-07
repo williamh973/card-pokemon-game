@@ -1,6 +1,6 @@
 import { domElements } from "../../../shared/dom/dom-elements.js";
 import { pokemonVariables } from "../../../shared/pokemon/pokemon-variables.js";
-import { pokemonDisplayAnimation } from "../../../game-logic/battle/animations/utils/pokemon-display-animation.js";
+import { startSlideInAnimation } from "../../../game-logic/battle/animations/utils/pokemon-display-animation.js";
 
 export function updateDisplayPokemonCard(firstPokemonCard, secondPokemonCard) {
   pokemonVariables.isFirstPokemonSelected = false;
@@ -8,8 +8,8 @@ export function updateDisplayPokemonCard(firstPokemonCard, secondPokemonCard) {
   domElements.pokemonLeftLocation.innerHTML = "";
   domElements.pokemonRightLocation.innerHTML = "";
 
-  pokemonDisplayAnimation(firstPokemonCard);
+  startSlideInAnimation(firstPokemonCard);
   domElements.pokemonLeftLocation.appendChild(firstPokemonCard);
-  pokemonDisplayAnimation(secondPokemonCard);
+  startSlideInAnimation(secondPokemonCard);
   domElements.pokemonRightLocation.appendChild(secondPokemonCard);
 }

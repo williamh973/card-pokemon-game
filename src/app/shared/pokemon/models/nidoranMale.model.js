@@ -3,8 +3,8 @@ export let nidoranMaleModel = {
   level: 5,
   type: "poison",
   secondaryType: "none",
-  logo: "./src/assets/images/logos/poison.png",
-  image: "./src/assets/images/nidoranM.png",
+  logo: "./src/assets/images/types-logo/poison.png",
+  image: "./src/assets/images/pokemons/nidoranM/nidoranM.png",
   primaryStatut: "normal",
   secondaryStatut: {
     isNormal: true,
@@ -14,19 +14,19 @@ export let nidoranMaleModel = {
   },
   weakness: {
     name: "Faiblesse",
-    firstLogo: "./src/assets/images/logos/psy.png",
-    secondLogo: "./src/assets/images/logos/ground.png",
+    firstLogo: "./src/assets/images/types-logo/psy.png",
+    secondLogo: "./src/assets/images/types-logo/ground.png",
   },
   resistance: {
     name: "Résistance",
-    firstLogo: "./src/assets/images/logos/insect.png",
-    secondLogo: "./src/assets/images/logos/plant.png",
-    thirdLogo: "./src/assets/images/logos/fight.png",
-    fourthLogo: "./src/assets/images/logos/poison.png",
+    firstLogo: "./src/assets/images/types-logo/insect.png",
+    secondLogo: "./src/assets/images/types-logo/plant.png",
+    thirdLogo: "./src/assets/images/types-logo/fight.png",
+    fourthLogo: "./src/assets/images/types-logo/poison.png",
   },
   firstAttack: {
     name: "Dard-Venin",
-    logo: "./src/assets/images/logos/poison.png",
+    logo: "./src/assets/images/types-logo/poison.png",
     type: "poison",
     class: "physical",
     resume: "Un dard toxique transperce la cible et peut aussi l’empoisonner.",
@@ -36,7 +36,7 @@ export let nidoranMaleModel = {
   },
   secondAttack: {
     name: "Picpic",
-    logo: "./src/assets/images/logos/flight.png",
+    logo: "./src/assets/images/types-logo/flight.png",
     type: "flight",
     class: "physical",
     resume:

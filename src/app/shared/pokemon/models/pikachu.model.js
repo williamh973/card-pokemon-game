@@ -3,8 +3,8 @@ export let pikachuModel = {
   level: 5,
   type: "electric",
   secondaryType: "none",
-  logo: "./src/assets/images/logos/electric.png",
-  image: "./src/assets/images/pikachu.png",
+  logo: "./src/assets/images/types-logo/electric.png",
+  image: "./src/assets/images/pokemons/pikachu/pikachu.png",
   primaryStatut: "normal",
   secondaryStatut: {
     isNormal: true,
@@ -14,17 +14,17 @@ export let pikachuModel = {
   },
   weakness: {
     name: "Faiblesse",
-    firstLogo: "./src/assets/images/logos/ground.png",
+    firstLogo: "./src/assets/images/types-logo/ground.png",
   },
   resistance: {
     name: "Résistance",
-    firstLogo: "./src/assets/images/logos/electric.png",
-    secondLogo: "./src/assets/images/logos/steel.png",
-    thirdLogo: "./src/assets/images/logos/flight.png",
+    firstLogo: "./src/assets/images/types-logo/electric.png",
+    secondLogo: "./src/assets/images/types-logo/steel.png",
+    thirdLogo: "./src/assets/images/types-logo/flight.png",
   },
   firstAttack: {
     name: "Charge",
-    logo: "./src/assets/images/logos/coloreless.png",
+    logo: "./src/assets/images/types-logo/coloreless.png",
     type: "normal",
     class: "physical",
     resume: "Une attaque de base",
@@ -34,7 +34,7 @@ export let pikachuModel = {
   },
   secondAttack: {
     name: "Éclair",
-    logo: "./src/assets/images/logos/electric.png",
+    logo: "./src/assets/images/types-logo/electric.png",
     type: "electric",
     class: "special",
     resume:

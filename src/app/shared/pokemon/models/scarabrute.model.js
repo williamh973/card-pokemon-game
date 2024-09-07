@@ -3,8 +3,8 @@ export let scarabruteModel = {
   level: 5,
   type: "insect",
   secondaryType: "none",
-  logo: "./src/assets/images/logos/insect.png",
-  image: "./src/assets/images/scarabrute.png",
+  logo: "./src/assets/images/types-logo/insect.png",
+  image: "./src/assets/images/pokemons/scarabrute/scarabrute.png",
   primaryStatut: "normal",
   secondaryStatut: {
     isNormal: true,
@@ -14,19 +14,19 @@ export let scarabruteModel = {
   },
   weakness: {
     name: "Faiblesse",
-    firstLogo: "./src/assets/images/logos/fire.png",
-    secondLogo: "./src/assets/images/logos/rock.png",
-    thirdLogo: "./src/assets/images/logos/flight.png",
+    firstLogo: "./src/assets/images/types-logo/fire.png",
+    secondLogo: "./src/assets/images/types-logo/rock.png",
+    thirdLogo: "./src/assets/images/types-logo/flight.png",
   },
   resistance: {
     name: "Résistance",
-    firstLogo: "./src/assets/images/logos/fight.png",
-    secondLogo: "./src/assets/images/logos/plant.png",
-    thirdLogo: "./src/assets/images/logos/ground.png",
+    firstLogo: "./src/assets/images/types-logo/fight.png",
+    secondLogo: "./src/assets/images/types-logo/plant.png",
+    thirdLogo: "./src/assets/images/types-logo/ground.png",
   },
   firstAttack: {
     name: "Casse-Brique",
-    logo: "./src/assets/images/logos/fight.png",
+    logo: "./src/assets/images/types-logo/fight.png",
     type: "fight",
     class: "physical",
     resume:
@@ -37,7 +37,7 @@ export let scarabruteModel = {
   },
   secondAttack: {
     name: "Puissance",
-    logo: "./src/assets/images/logos/coloreless.png",
+    logo: "./src/assets/images/types-logo/coloreless.png",
     type: "normal",
     class: "status",
     resume:

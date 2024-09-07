@@ -51,7 +51,10 @@ crustabriCard.appendChild(crustabriCardHead);
 
 const crustabriCardImage = document.createElement("div");
 crustabriCardImage.classList.add("image");
-crustabriCardImage.style.backgroundImage = `url(${crustabriModel.image})`;
+
+export function cardImage(cardImage) {
+  crustabriCardImage.style.backgroundImage = `url(${cardImage})`;
+}
 
 crustabriCardImage.style.backgroundSize = "cover";
 
@@ -91,7 +94,7 @@ crustabriFirstAttackResume.textContent = ` ${crustabriModel.firstAttack.resume}`
 
 const secondAttackTypeNameStrengthCont = document.createElement("span");
 secondAttackTypeNameStrengthCont.classList.add(
-  "attackType-name-strength-container",
+  "attackType-name-strength-container"
 );
 
 const crustabriSecondAttackAndResume = document.createElement("div");

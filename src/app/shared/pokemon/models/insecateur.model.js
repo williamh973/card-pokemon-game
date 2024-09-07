@@ -3,8 +3,8 @@ export let insecateurModel = {
   level: 5,
   type: "insect",
   secondaryType: "none",
-  logo: "./src/assets/images/logos/insect.png",
-  image: "./src/assets/images/insecateur.png",
+  logo: "./src/assets/images/types-logo/insect.png",
+  image: "./src/assets/images/pokemons/insecateur/insecateur.png",
   primaryStatut: "normal",
   secondaryStatut: {
     isNormal: true,
@@ -14,19 +14,19 @@ export let insecateurModel = {
   },
   weakness: {
     name: "Faiblesse",
-    firstLogo: "./src/assets/images/logos/flight.png",
-    secondLogo: "./src/assets/images/logos/fire.png",
-    thirdLogo: "./src/assets/images/logos/rock.png",
+    firstLogo: "./src/assets/images/types-logo/flight.png",
+    secondLogo: "./src/assets/images/types-logo/fire.png",
+    thirdLogo: "./src/assets/images/types-logo/rock.png",
   },
   resistance: {
     name: "Résistance",
-    firstLogo: "./src/assets/images/logos/fight.png",
-    secondLogo: "./src/assets/images/logos/plant.png",
-    thirdLogo: "./src/assets/images/logos/ground.png",
+    firstLogo: "./src/assets/images/types-logo/fight.png",
+    secondLogo: "./src/assets/images/types-logo/plant.png",
+    thirdLogo: "./src/assets/images/types-logo/ground.png",
   },
   firstAttack: {
     name: "Hâte",
-    logo: "./src/assets/images/logos/coloreless.png",
+    logo: "./src/assets/images/types-logo/coloreless.png",
     type: "normal",
     class: "status",
     resume: "Augmente la Vitesse du lanceur de 2 points",
@@ -36,7 +36,7 @@ export let insecateurModel = {
   },
   secondAttack: {
     name: "Tranche",
-    logo: "./src/assets/images/logos/coloreless.png",
+    logo: "./src/assets/images/types-logo/coloreless.png",
     type: "normal",
     class: "physical",
     resume:
